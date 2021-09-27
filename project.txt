@@ -1,0 +1,17 @@
+1 - Trang Home
+  + xếp sản phẩm theo loại (newest, best seller, salest)
+  + login, register
+  + tìm kiếm
+
+2 - Trang sản phẩm
+  + thông tin sản phẩm
+  + giỏ hàng
+  + phương thức thanh toán
+  + sản phẩm liên quan theo loại
+
+3 - Trang khách hàng
+  + thông tin khách hàng
+  + đơn hàng
+  + lịch sử mua
+  + điểm thưởng, điểm vip
+ 
