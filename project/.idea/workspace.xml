@@ -27,8 +27,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/css/khanh-css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\project\html.lionode.com\timewatch\Watch Time\css\khanh-css" />
+    </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.checkout.html">
     <configuration name="checkout.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project/html.lionode.com/timewatch/Watch Time/checkout.html" useBuiltInWebServerPort="true">
@@ -53,6 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1632903684533</updated>
       <workItem from="1632903685778" duration="5881000" />
+      <workItem from="1632921482024" duration="347000" />
     </task>
     <servers />
   </component>
