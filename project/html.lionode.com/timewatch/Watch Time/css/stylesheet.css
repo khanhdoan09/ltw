@@ -185,7 +185,6 @@ div.required .control-label:before {
     background-repeat: no-repeat;
 }
 
-}
 
 #wishlist-total {
     color: #808080;
@@ -294,7 +293,6 @@ div.required .control-label:before {
 
 .shipping-img,
 .returns-img {
-    background: url(../image/shipping.png) no-repeat scroll 0 -77px;
     height: 41px;
     width: 53px;
     float: left;
@@ -909,7 +907,6 @@ div.required .control-label:before {
 /* footer */
 
 footer {
-    background-image: url(../image/20.png);
     background: #fff;
     padding: 0 0 65px 0;
     color: #aaabab;
@@ -2956,7 +2953,6 @@ span.review-edit {
 
 .load-more-wrapper {
     display: inline-block;
-    text-align;
     text-align: center;
     width: 100%;
 }
@@ -3052,7 +3048,6 @@ video {
 }
 
 #submit {
-    background: #000none repeat scroll 0 0;
     height: 32px;
     border: none;
     color: #fff;
@@ -3285,7 +3280,6 @@ i.circle {
     color: #000;
     font-weight: 600;
     line-height: 10px;
-    margin: 10;
     padding: 0;
     font-size: 12px;
     text-transform: uppercase;

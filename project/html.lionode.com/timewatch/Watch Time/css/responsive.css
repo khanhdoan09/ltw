@@ -328,9 +328,7 @@
         cursor: pointer;
         margin: 0;
     }
-    .footer-top-cms {
-        margin: 30 0 0;
-    }
+
     footer .ul-wrapper {
         display: none;
         margin: 5px 0 20px;
@@ -615,9 +613,7 @@
         display: inline-block;
         margin: 0 5px 5px 0;
     }
-    .product-thumb {
-        margin:
-    }
+
     #wishlist-total>span,
     #top-links .dropdown-toggle>span {
         display: none;

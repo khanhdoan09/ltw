@@ -1,0 +1,28 @@
+.related-product-brand {
+ margin-top: 20px;
+ text-transform: uppercase;
+ font-weight: bold;
+ font-size: 15px;
+}
+
+.section-input-form {
+ display: flex;
+ justify-content: space-around;
+ margin: 10px;
+}
+
+.form-input {
+ width: 100%;
+ margin: 5px;
+ font-size: 18px;
+ padiding: 20px;
+ line-height: 3;
+}
+
+/* payment method */
+.payment-input {
+ display: grid;
+ grid-template-columns: 30px 30px auto 1fr;
+ border: 1px solid red;
+
+}
