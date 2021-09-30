@@ -66,6 +66,12 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="text-center contain-search-product">
+                                <input class="input-text" placeholder="Tìm kiếm" type="text">
+                                <button class="search-btn"><i class="fa fa-search"></i></button>
+
+                        </div>
+
                         <div class="top-right pull-right">
                             <div id="top-links" class="nav pull-right">
                                 <ul class="list-inline">
@@ -78,10 +84,6 @@
                                     </li>
                                     <li><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Wish List</span><span> (0)</span></a></li>
                                 </ul>
-                                <div class="search-box">
-                                    <input class="input-text" placeholder="Search By Products.." type="text">
-                                    <button class="search-btn"><i class="fa fa-search"></i></button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -233,48 +235,18 @@
                 </div>
             </div>
             <div class="col-sm-9" id="content">
-                <h1>Checkout</h1>
+                <h1>Thanh toán</h1>
                 <div id="accordion" class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-option" aria-expanded="false">Step 1: Checkout Options <i class="fa fa-caret-down"></i></a></h4>
+                            <h4 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-option" aria-expanded="false">
+                                Bước 1: Thông tin nhận hàng <i class="fa fa-caret-down"></i></a></h4>
                         </div>
-                        <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                        <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="height: 0px;">
                             <div class="panel-body">
                                 <div class="row">
-<!--                                    <div class="col-sm-6">-->
-<!--                                        <h2>New Customer</h2>-->
-<!--                                        <p>Checkout Options:</p>-->
-<!--                                        <div class="radio">-->
-<!--                                            <label>-->
-<!--                      <input type="radio" checked="checked" value="register" name="account">-->
-<!--                      Register Account</label>-->
-<!--                                        </div>-->
-<!--                                        <div class="radio">-->
-<!--                                            <label>-->
-<!--                      <input type="radio" value="guest" name="account">-->
-<!--                      Guest Checkout</label>-->
-<!--                                        </div>-->
-<!--                                        <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>-->
-<!--                                        <input type="button" class="btn btn-primary" data-loading-text="Loading..." id="button-account" value="Continue">-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-6">-->
-<!--                                        <h2>Returning Customer</h2>-->
-<!--                                        <p>I am a returning customer</p>-->
-<!--                                        <div class="form-group">-->
-<!--                                            <label for="input-email" class="control-label">E-Mail</label>-->
-<!--                                            <input type="text" class="form-control" id="input-email" placeholder="E-Mail" value="" name="email">-->
-<!--                                        </div>-->
-<!--                                        <div class="form-group">-->
-<!--                                            <label for="input-password" class="control-label">Password</label>-->
-<!--                                            <input type="password" class="form-control" id="input-password" placeholder="Password" value="" name="password">-->
-<!--                                            <a href="http://localhost/opc001/index.php?route=account/forgotten">Forgotten Password</a></div>-->
-<!--                                        <input type="button" class="btn btn-primary" data-loading-text="Loading..." id="button-login" value="Login">-->
-<!--                                    </div>-->
-
-
                                     <div class="col-sm-12">
-                                        <h3>Bạn đã có tài khoản <a style="color: darkorange">Đăng ký ngay</a></h3>
+                                        <h3>Bạn đã có tài khoản <a style="color: darkorange">Đăng nhập ngay</a></h3>
                                         <form>
                                             <div class="section-input-form">
                                                 <input type="text" class="form-input" placeholder="Họ tên">
@@ -317,83 +289,123 @@
                     <!-- thanh toán -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="false">Step 5: Payment Method <i class="fa fa-caret-down"></i></a></h4>
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="false">Bước 2: Hình thức thanh toán <i class="fa fa-caret-down"></i></a></h4>
                         </div>
                         <div id="collapse-payment-method" role="heading" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                             <div class="panel-body">
                                 <p>Chọn hình thức thanh toán cho đơn hàng này.</p>
-                              <form>
+                              <form class="contain-form-payment">
                                   <div class="payment-input">
-                                      <input type="radio">
-                                      <img src="image/related-product/related-product-01.jpg" width="35" height="35">
-                                      <h4>Ví ShoppePay</h4>
+                                      <input type="radio" name="payment" id="payment-shoppe">
+                                      <label for="payment-shoppe">
+                                          <img src="image/payment/shoppe.png" width="35" height="35">
+                                      </label>
+                                      <label for="payment-shoppe">
+                                          <h4>
+                                              Ví ShoppePay
+                                          </h4>
+                                      </label>
                                   </div>
                                   <div class="payment-input">
-                                      <input type="radio">
-                                      <img src="image/related-product/related-product-01.jpg" width="35" height="35">
-                                      <h4>Thanh toán khi nhận hàng (COD)</h4>
-                                      <h5>Miễn phí vận chuyển với mọi đơn hàng trên 300k</h5>
+                                      <input type="radio" name="payment" id="payment-cod">
+                                      <label for="payment-cod">
+                                          <img src="image/payment/cod.jpg" width="35" height="35">
+                                      </label>
+                                      <label for="payment-cod">
+                                          <h4>Thanh toán khi nhận hàng (COD)</h4>
+                                          <h5>Miễn phí vận chuyển với mọi đơn hàng trên 300k</h5>
+                                      </label>
                                   </div>
                                   <div class="payment-input">
-                                      <input type="radio">
-                                      <img src="image/related-product/related-product-01.jpg" width="35" height="35">
-                                      <h4>Ví điện tử ZaloPay</h4>
+                                      <input type="radio" name="payment" id="payment-zalo">
+                                      <label for="payment-zalo">
+                                          <img src="image/payment/zalo.svg" width="35" height="35">
+                                      </label>
+                                      <label for="payment-zalo">
+                                          <h4>Ví điện tử ZaloPay</h4>
+                                      </label>
                                   </div>
                                   <div class="payment-input">
-                                      <input type="radio">
-                                      <img src="image/related-product/related-product-01.jpg" width="35" height="35">
-                                      <h4>Ví MOMO</h4>
+                                      <input type="radio" name="payment" id="payment-momo">
+                                      <label for="payment-momo">
+                                          <img src="image/payment/momo.png" width="35" height="35">
+                                      </label>
+                                      <label for="payment-momo">
+                                          <h4>Ví MOMO</h4>
+                                      </label>
                                   </div>
                               </form>
 
                             </div>
                         </div>
                     </div>
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Step 6: Confirm Order <i class="fa fa-caret-down"></i></a></h4>
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Bước 3: Xác nhận đơn hàng <i class="fa fa-caret-down"></i></a></h4>
                         </div>
-                        <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="">
+                        <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse " aria-expanded="false" style="">
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover table-checkout">
                                         <thead>
                                             <tr>
-                                                <td class="text-left">Product Name</td>
-                                                <td class="text-left">Model</td>
-                                                <td class="text-right">Quantity</td>
-                                                <td class="text-right">Unit Price</td>
-                                                <td class="text-right">Total</td>
+                                                <td class="text-left">Tên sản phẩm</td>
+                                                <td class="text-left">Size</td>
+                                                <td class="text-left">Ảnh</td>
+                                                <td class="text-right">Số lượng</td>
+                                                <td class="text-right">Đơn giá</td>
+                                                <td class="text-right">Tổng</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">Sony VAIO</a></td>
-                                                <td class="text-left">Product 19</td>
+                                                <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">NIKE Air Max AP</a></td>
+                                                <td class="text-left">38</td>
+                                                <td class="text-left">
+                                                    <img src="image/checkout/product-checkout-01.jpg" class="checkout-product-img" width="100" height="100">
+                                                </td>
                                                 <td class="text-right">1</td>
-                                                <td class="text-right">$1,000.00</td>
-                                                <td class="text-right">$1,000.00</td>
+                                                <td class="text-right">$105.00</td>
+                                                <td class="text-right">$105.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">ADIDAS Ultraboost 21 Mens Running Shoes</a></td>
+                                                <td class="text-left">42</td>
+                                                <td class="text-left">
+                                                    <img src="image/checkout/checkout-product-02.jpg" class="checkout-product-img" width="100" height="100">
+                                                </td>
+                                                <td class="text-right">2</td>
+                                                <td class="text-right">$159.00</td>
+                                                <td class="text-right">$318.00</td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
+<!--                                            <tr>-->
+<!--                                                <td class="text-right" colspan="4"><strong>Sub-Total:</strong></td>-->
+<!--                                                <td class="text-right">$1,000.00</td>-->
+<!--                                            </tr>-->
                                             <tr>
-                                                <td class="text-right" colspan="4"><strong>Sub-Total:</strong></td>
-                                                <td class="text-right">$1,000.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right" colspan="4"><strong>Flat Shipping Rate:</strong></td>
+                                                <td class="text-right" colspan="5"><strong>Phí ship</strong></td>
                                                 <td class="text-right">$5.00</td>
                                             </tr>
                                             <tr>
-                                                <td class="text-right" colspan="4"><strong>Total:</strong></td>
-                                                <td class="text-right">$1,005.00</td>
+                                                <td class="text-right" colspan="5"><strong>Total:</strong></td>
+                                                <td class="text-right">$428.00</td>
                                             </tr>
                                         </tfoot>
                                     </table>
                                 </div>
+                                <div >
+                                    <h2 class="checkout-note">Nếu bạn không hài lòng với sản phẩm của chúng tôi? Bạn hoàn toàn có thể trả lại sản phẩm. Tìm hiểu thêm
+                                        <a href="#" class="link-checkout-note"><strong>tại đây.</strong></a>
+                                    </h2>
+                                </div>
                                 <div class="buttons">
                                     <div class="pull-right">
-                                        <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Confirm Order">
+                                        <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Thanh toán">
                                     </div>
                                 </div>
                             </div>

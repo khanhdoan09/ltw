@@ -29,6 +29,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/css/khanh-css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -58,7 +59,12 @@
       <option name="presentableId" value="Default" />
       <updated>1632903684533</updated>
       <workItem from="1632903685778" duration="5881000" />
-      <workItem from="1632921482024" duration="1116000" />
+      <workItem from="1632921482024" duration="3774000" />
+      <workItem from="1632966360190" duration="806000" />
+      <workItem from="1632967552966" duration="842000" />
+      <workItem from="1632971383854" duration="785000" />
+      <workItem from="1632979156954" duration="436000" />
+      <workItem from="1632990208629" duration="1745000" />
     </task>
     <servers />
   </component>

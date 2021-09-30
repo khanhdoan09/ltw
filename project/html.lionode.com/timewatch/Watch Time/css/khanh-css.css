@@ -17,12 +17,54 @@
     font-size: 18px;
     padiding: 20px;
     line-height: 3;
+    text-indent: 10px;
 }
 
 /* payment method */
+.contain-form-payment {
+    width: 100%;
+}
 .payment-input {
+    margin: 20px 0px;
+    width: 50%;
     display: grid;
-    grid-template-columns: 30px 30px auto 1fr;
-    border: 1px solid red;
+    grid-template-columns: 1fr 1fr 6fr;
+    align-items: center;
+    height: 60px;
+    background-color: #f5efef;
+    text-indent: 10px;
+}
 
+.payment-input>input[type="radio"] {
+    transform: scale(1.8);
+    margin-left: 10px;
+}
+
+.checkout-note {
+    color: #cea270;
+}
+
+.link-checkout-note {
+    color: #000000;
+}
+
+.table-checkout {
+    font-size: 16px;
+}
+
+.checkout-product-img {
+    margin-bottom: 25px;
+}
+
+/*search product */
+.contain-search-product {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contain-search-product > input {
+    width: 400px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-indent: 10px;
 }
