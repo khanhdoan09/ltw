@@ -180,3 +180,70 @@
 
 }
 
+/*drop down*/
+.contain-dropdown-locate {
+    position: relative;
+    height: 330px;
+}
+
+.dropdown-locate {
+    position: absolute;
+    display: none;
+    top: 295px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.dropdown-locate-show {
+    display: inline;
+}
+
+.open-dropdown-locate, .close-dropdown-locate {
+    cursor: pointer;
+    color: #0909c1;
+    letter-spacing: 1px;
+}
+
+.close-dropdown-locate {
+    display: none;
+    position: absolute;
+    bottom: 0;
+}
+
+.contain-rate-search {
+    display: grid;
+}
+
+.rate-search > .fa-star {
+    color: #cfcf04;
+}
+
+.contain-price-search {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price-search {
+    color: white;
+    background-color: grey;
+    width: auto;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.price-search:hover {
+    background-color: #6f6c6c;
+}
+
+.min-max-price-search {
+    display: flex;
+}
+
+.min-search, .max-search {
+    width: 70px;
+    height: 30px;
+    border: 1px solid #979696;
+    border-radius: 5px;
+}
