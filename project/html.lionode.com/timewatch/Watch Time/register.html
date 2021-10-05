@@ -22,6 +22,9 @@
     <script src="javascript/common.js" type="text/javascript"></script>
     <script src="javascript/global.js" type="text/javascript"></script>
     <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="css/khanh-css.css">
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
 </head>
 
 <body class="account-register col-2">
@@ -29,57 +32,34 @@
         <div class="header-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="top-left pull-left">
-                            <div class="language">
-                                <form action="#" method="post" enctype="multipart/form-data" id="language">
-                                    <div class="btn-group">
-                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="image/flags/gb.png" alt="English" title="English">English <i class="fa fa-caret-down"></i></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="#"><img src="image/flags/lb.png" alt="Arabic" title="Arabic"> Arabic</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img src="image/flags/gb.png" alt="English" title="English"> English</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="currency">
-                                <form action="#" method="post" enctype="multipart/form-data" id="currency">
-                                    <div class="btn-group">
-                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"> <strong>$</strong> <i class="fa fa-caret-down"></i> </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>
-                                            </li>
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>
-                                            </li>
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ US Dollar</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="top-right pull-right">
+                    <div class="col-sm-12 contain-header">
+                        <div class="contain-nav-info">
                             <div id="top-links" class="nav pull-right">
                                 <ul class="list-inline">
-                                    <li class="dropdown account">
-                                        <a href="#" title="My Account" class="  dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>My Account</span> <span class="caret"></span></a>
+                                    <li class="account"><a href="#" class="notify"><i class="fas fa-bell" style="margin-right: 10px"></i><span>Thông báo</span><span style="margin-right: 10px">(0)</span></a></li>
+                                    <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Danh sách yêu thích</span><span style="margin-right: 10px">(0)</span></a></li>
+                                    <li class="dropdown">
+                                        <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="register.html">Đăng ký</a></li>
+                                            <li><a href="login.html">Đăng nhập</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Wish List</span><span> (0)</span></a></li>
                                 </ul>
-                                <div class="search-box">
-                                    <input class="input-text" placeholder="Search By Products.." type="text">
-                                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="text-center contain-search">
+                            <div class="contain-search-product-popular">
+                                <div class="search-product">
+                                    <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
+                                    <button class="search-product-top"><i class="fa fa-search"></i></button>
+                                </div>
+                                <div class="contain-search-popular">
+                                    <span>X-Ray 2</span>
+                                    <span>Barcelona Home Kit 2021 2022</span>
+                                    <span>Chelsea Home Kit 2021 2022</span>
+                                    <span>X9000L4 Shoes Mens</span>
+                                    <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +134,7 @@
             </div>
             <nav id="menu" class="navbar">
                 <div class="nav-inner">
-                    <div class="navbar-header"><span id="category" class="visible-xs">Categories</span>
+                    <div class="navbar-header-menu"><span id="category" class="visible-xs">Categories</span>
                         <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
                     </div>
                     <div class="navbar-collapse">

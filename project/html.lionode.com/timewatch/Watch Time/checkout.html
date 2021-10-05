@@ -27,405 +27,445 @@
 </head>
 
 <body class="checkout col-2 left-col">
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="top-right pull-right">
-                            <div id="top-links" class="nav pull-right">
-                                <ul class="list-inline">
-                                    <li class="account"><a href="#" class="notify"><i class="fas fa-bell" style="margin-right: 10px"></i><span>Thông báo</span><span style="margin-right: 10px">(0)</span></a></li>
-                                    <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Danh sách yêu thích</span><span style="margin-right: 10px">(0)</span></a></li>
-                                    <li class="dropdown">
-                                        <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="top-left pull-left">
-<!--                            <div class="language">-->
-<!--                                <form action="#" method="post" enctype="multipart/form-data" id="language">-->
-<!--                                    <div class="btn-group">-->
-<!--                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="image/flags/gb.png" alt="English" title="English">English <i class="fa fa-caret-down"></i></button>-->
-<!--                                        <ul class="dropdown-menu">-->
-<!--                                            <li>-->
-<!--                                                <a href="#"><img src="image/flags/lb.png" alt="Arabic" title="Arabic"> Arabic</a>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <a href="#"><img src="image/flags/gb.png" alt="English" title="English"> English</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </form>-->
-<!--                            </div>-->
-<!--                            <div class="currency">-->
-<!--                                <form action="#" method="post" enctype="multipart/form-data" id="currency">-->
-<!--                                    <div class="btn-group">-->
-<!--                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"> <strong>$</strong> <i class="fa fa-caret-down"></i> </button>-->
-<!--                                        <ul class="dropdown-menu">-->
-<!--                                            <li>-->
-<!--                                                <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ US Dollar</button>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </form>-->
-<!--                            </div>-->
-                        </div>
-                        <div class="text-center contain-search">
-                            <div class="contain-search-product-popular">
-                                <div class="search-product">
-                                    <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                                    <button class="search-product-top"><i class="fa fa-search"></i></button>
-                                </div>
-                                <div class="contain-search-popular">
-                                    <span>X-Ray 2</span>
-                                    <span>Barcelona Home Kit 2021 2022</span>
-                                    <span>Chelsea Home Kit 2021 2022</span>
-                                    <span>X9000L4 Shoes Mens</span>
-                                    <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
+<header>
+    <div class="header-top">
         <div class="container">
-            <div class="header-inner">
-                <div class="col-sm-4 col-xs-6 header-left">
-                    <div class="shipping">
-                        <div class="shipping-img"></div>
-                        <div class="shipping-text">(+91) 000-1233<br>
-                            <span class="shipping-detail">24/7 Online Support</span></div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-12 header-middle">
-                    <div class="header-middle-top">
-                        <div id="logo">
-                            <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-12 header-right">
-                    <div id="cart" class="btn-group btn-block">
-                        <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total"><span class="cart-title">Shopping Cart</span><br>
-          0 item(s) - $0.00</span> </button>
-                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                            <li>
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center">
-                                                <a href="#"><img class="img-thumbnail" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="image/product/7product50x59.jpg"></a>
-                                            </td>
-                                            <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
-                                            <td class="text-right">x 1</td>
-                                            <td class="text-right">$254.00</td>
-                                            <td class="text-center"><button class="btn btn-danger btn-xs" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <div>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-right"><strong>Sub-Total</strong></td>
-                                                <td class="text-right">$210.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-                                                <td class="text-right">$2.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right"><strong>VAT (20%)</strong></td>
-                                                <td class="text-right">$42.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right"><strong>Total</strong></td>
-                                                <td class="text-right">$254.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href="checkout.html"><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <nav id="menu" class="navbar">
-                <div class="nav-inner">
-                    <div class="navbar-header-menu"><span id="category" class="visible-xs">Categories</span>
-                        <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
-                    </div>
-                    <div class="navbar-collapse">
-                        <ul class="main-navigation">
-                            <li><a href="index.html" class="parent">Home</a> </li>
-                            <li><a href="category.html" class="parent">Collection</a> </li>
-                            <li><a href="category.html" class="parent">Women</a> </li>
-                            <li><a href="category.html" class="parent">Men</a> </li>
-                            <li><a href="category.html" class="parent">Accessories</a> </li>
-                            <li><a href="#" class="active parent">Page</a>
-                                <ul>
-                                    <li><a href="category.html">Category Page</a></li>
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li><a href="checkout.html">Checkout Page</a></li>
-                                    <li><a href="blog.html">Blog Page</a></li>
-                                    <li><a href="singale-blog.html">Singale Blog Page</a></li>
-                                    <li><a href="register.html">Register Page</a></li>
-                                    <li><a href="contact.html">Contact Page</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog.html" class="parent">Blog</a></li>
-                            <li><a href="about-us.html">About us</a></li>
-                            <li><a href="contact.html">Contact Us</a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <div class="container">
-        <ul class="breadcrumb">
-            <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-            <li><a href="cart.html">Shopping Cart</a></li>
-            <li><a href="checkout.html">Checkout</a></li>
-        </ul>
-        <div class="row">
-            <div id="column-left" class="col-sm-3 hidden-xs column-left">
-                <div class="column-block">
-                    <div class="column-block">
-                        <div class="columnblock-title">Categories</div>
-                        <div class="category_block">
-                            <ul class="box-category treeview-list treeview">
-                                <li><a href="#" class="activSub">Desktops</a>
-                                    <ul>
-                                        <li><a href="#">PC</a></li>
-                                        <li><a href="#">MAC</a></li>
+            <div class="row">
+                <div class="col-sm-12 contain-header">
+                    <div class="contain-nav-info">
+                        <div id="top-links" class="nav pull-right">
+                            <ul class="list-inline">
+                                <li class="account"><a href="#" class="notify"><i class="fas fa-bell" style="margin-right: 10px"></i><span>Thông báo</span><span style="margin-right: 10px">(0)</span></a></li>
+                                <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Danh sách yêu thích</span><span style="margin-right: 10px">(0)</span></a></li>
+                                <li class="dropdown">
+                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="register.html">Đăng ký</a></li>
+                                        <li><a href="login.html">Đăng nhập</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#" class="activSub">Laptops &amp; Notebooks</a>
-                                    <ul>
-                                        <li><a href="#">Macs</a></li>
-                                        <li><a href="#">Windows</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" class="activSub">Components</a>
-                                    <ul>
-                                        <li><a href="#">Mice and Trackballs</a></li>
-                                        <li><a href="#" class="activSub">Monitors</a>
-                                            <ul>
-                                                <li><a href="#">test 1</a></li>
-                                                <li><a href="#">test 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Windows</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Tablets</a></li>
-                                <li><a href="#">Software</a></li>
-                                <li><a href="#">Phones & PDAs</a></li>
-                                <li><a href="#">Cameras</a></li>
-                                <li><a href="#">MP3 Players</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-9" id="content">
-                <h1>Thanh toán</h1>
-                <div id="accordion" class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-option" aria-expanded="false">
-                                Bước 1: Thông tin nhận hàng <i class="fa fa-caret-down"></i></a></h4>
-                        </div>
-                        <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="height: 0px;">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h3>Bạn đã có tài khoản <a style="color: darkorange">Đăng nhập ngay</a></h3>
-                                        <form>
-                                            <div class="section-input-form">
-                                                <input type="text" class="form-input" placeholder="Họ tên">
-                                                <input type="text" class="form-input" placeholder="Số điện thoại">
-                                            </div>
-                                            <div class="section-input-form">
-                                                <input type="email" class="form-input" placeholder="Địa chỉ email">
-                                            </div>
-                                            <div class="section-input-form">
-                                                <input type="text" class="form-input"  placeholder="Địa chỉ (Ví dụ: 1056, Bình Chiểu, Thủ Đức)">
-                                            </div>
-                                            <div class="section-input-form">
-                                                <select class="form-select form-select-lg mb-3 form-input" aria-label=".form-select-lg example">
-                                                    <option selected disabled="disabled">Chọn Tỉnh/Thành</option>
-                                                    <option value="1">Tp. Hồ Chí Minh</option>
-                                                    <option value="2">Tp. Đà Nẵng</option>
-                                                    <option value="3">Hà Nội</option>
-                                                </select>
-                                                <select class="form-select form-select-lg mb-3 form-input" aria-label=".form-select-lg example">
-                                                    <option selected disabled="disabled">Chọn Quận/Huyện</option>
-                                                    <option value="1">No option</option>
-
-                                                </select>
-                                                <select class="form-select form-select-lg mb-3 form-input" aria-label=".form-select-lg example">
-                                                    <option selected disabled="disabled">Chọn Phường/Xã</option>
-                                                    <option value="1">No option</option>
-                                                </select>
-
-                                            </div>
-                                            <div class="section-input-form">
-                                                <input type="text" class="form-input"  placeholder="Ghi chú thêm (Ví dụ: Giao hàng giờ hành chính)">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                    <div class="text-center contain-search">
+                        <div class="contain-search-product-popular">
+                            <div class="search-product">
+                                <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
+                                <button class="search-product-top"><i class="fa fa-search"></i></button>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- thanh toán -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="false">Bước 2: Hình thức thanh toán <i class="fa fa-caret-down"></i></a></h4>
-                        </div>
-                        <div id="collapse-payment-method" role="heading" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                            <div class="panel-body">
-                                <p>Chọn hình thức thanh toán cho đơn hàng này.</p>
-                              <form class="contain-form-payment">
-                                  <div class="payment-input">
-                                      <input type="radio" name="payment" id="payment-shoppe">
-                                      <label for="payment-shoppe">
-                                          <img src="image/payment/shoppe.png" width="35" height="35">
-                                      </label>
-                                      <label for="payment-shoppe">
-                                          <h4>
-                                              Ví ShoppePay
-                                          </h4>
-                                      </label>
-                                  </div>
-                                  <div class="payment-input">
-                                      <input type="radio" name="payment" id="payment-cod">
-                                      <label for="payment-cod">
-                                          <img src="image/payment/cod.jpg" width="35" height="35">
-                                      </label>
-                                      <label for="payment-cod">
-                                          <h4>Thanh toán khi nhận hàng (COD)</h4>
-                                          <h5>Miễn phí vận chuyển với mọi đơn hàng trên 300k</h5>
-                                      </label>
-                                  </div>
-                                  <div class="payment-input">
-                                      <input type="radio" name="payment" id="payment-zalo">
-                                      <label for="payment-zalo">
-                                          <img src="image/payment/zalo.svg" width="35" height="35">
-                                      </label>
-                                      <label for="payment-zalo">
-                                          <h4>Ví điện tử ZaloPay</h4>
-                                      </label>
-                                  </div>
-                                  <div class="payment-input">
-                                      <input type="radio" name="payment" id="payment-momo">
-                                      <label for="payment-momo">
-                                          <img src="image/payment/momo.png" width="35" height="35">
-                                      </label>
-                                      <label for="payment-momo">
-                                          <h4>Ví MOMO</h4>
-                                      </label>
-                                  </div>
-                              </form>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Bước 3: Xác nhận đơn hàng <i class="fa fa-caret-down"></i></a></h4>
-                        </div>
-                        <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse " aria-expanded="false" style="">
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-checkout">
-                                        <thead>
-                                            <tr>
-                                                <td class="text-left">Tên sản phẩm</td>
-                                                <td class="text-left">Size</td>
-                                                <td class="text-left">Ảnh</td>
-                                                <td class="text-right">Số lượng</td>
-                                                <td class="text-right">Đơn giá</td>
-                                                <td class="text-right">Tổng</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">NIKE Air Max AP</a></td>
-                                                <td class="text-left">38</td>
-                                                <td class="text-left">
-                                                    <img src="image/checkout/product-checkout-01.jpg" class="checkout-product-img" width="100" height="100">
-                                                </td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$105.00</td>
-                                                <td class="text-right">$105.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">ADIDAS Ultraboost 21 Mens Running Shoes</a></td>
-                                                <td class="text-left">42</td>
-                                                <td class="text-left">
-                                                    <img src="image/checkout/checkout-product-02.jpg" class="checkout-product-img" width="100" height="100">
-                                                </td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right">$159.00</td>
-                                                <td class="text-right">$318.00</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-<!--                                            <tr>-->
-<!--                                                <td class="text-right" colspan="4"><strong>Sub-Total:</strong></td>-->
-<!--                                                <td class="text-right">$1,000.00</td>-->
-<!--                                            </tr>-->
-                                            <tr>
-                                                <td class="text-right" colspan="5"><strong>Phí ship</strong></td>
-                                                <td class="text-right">$5.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right" colspan="5"><strong>Total:</strong></td>
-                                                <td class="text-right">$428.00</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <div >
-                                    <h2 class="checkout-note">Nếu bạn không hài lòng với sản phẩm của chúng tôi? Bạn hoàn toàn có thể trả lại sản phẩm. Tìm hiểu thêm
-                                        <a href="#" class="link-checkout-note"><strong>tại đây.</strong></a>
-                                    </h2>
-                                </div>
-                                <div class="buttons">
-                                    <div class="pull-right">
-                                        <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Thanh toán">
-                                    </div>
-                                </div>
+                            <div class="contain-search-popular">
+                                <span>X-Ray 2</span>
+                                <span>Barcelona Home Kit 2021 2022</span>
+                                <span>Chelsea Home Kit 2021 2022</span>
+                                <span>X9000L4 Shoes Mens</span>
+                                <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header-inner">
+            <div class="col-sm-4 col-xs-6 header-left">
+                <div class="shipping">
+                    <div class="shipping-img"></div>
+                    <div class="shipping-text">(+91) 000-1233<br>
+                        <span class="shipping-detail">24/7 Online Support</span></div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12 header-middle">
+                <div class="header-middle-top">
+                    <div id="logo">
+                        <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12 header-right">
+                <div id="cart" class="btn-group btn-block">
+                    <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total"><span class="cart-title">Shopping Cart</span><br>
+          0 item(s) - $0.00</span> </button>
+                    <ul class="dropdown-menu pull-right cart-dropdown-menu">
+                        <li>
+                            <table class="table table-striped">
+                                <tbody>
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="#"><img class="img-thumbnail" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="image/product/7product50x59.jpg"></a>
+                                    </td>
+                                    <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
+                                    <td class="text-right">x 1</td>
+                                    <td class="text-right">$254.00</td>
+                                    <td class="text-center"><button class="btn btn-danger btn-xs" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            <div>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-right"><strong>Sub-Total</strong></td>
+                                        <td class="text-right">$210.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
+                                        <td class="text-right">$2.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right"><strong>VAT (20%)</strong></td>
+                                        <td class="text-right">$42.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right"><strong>Total</strong></td>
+                                        <td class="text-right">$254.00</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href="checkout.html"><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <nav id="menu" class="navbar">
+            <div class="nav-inner">
+                <div class="navbar-header-menu"><span id="category" class="visible-xs">Categories</span>
+                    <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="main-navigation">
+                        <li><a href="index.html" class="parent">Trang chủ</a> </li>
+                        <li><a href="#" class="parent category-football" >Bóng đá</a> </li>
+                        <li><a href="#" class="parent category-gym">Gym</a> </li>
+                        <li><a href="category.html" class="parent category-running">Chạy</a> </li>
+                        <li><a href="category.html" class="parent category-brand">Nhãn hàng</a> </li>
+                        <li><a href="#" class="active parent">Page</a>
+                            <ul>
+                                <li><a href="category.html">Category Page</a></li>
+                                <li><a href="cart.html">Cart Page</a></li>
+                                <li><a href="checkout.html">Checkout Page</a></li>
+                                <li><a href="blog.html">Blog Page</a></li>
+                                <li><a href="singale-blog.html">Singale Blog Page</a></li>
+                                <li><a href="register.html">Register Page</a></li>
+                                <li><a href="contact.html">Contact Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blog.html" class="parent">Blog</a></li>
+                        <li><a href="about-us.html">About us</a></li>
+                    </ul>
+                    <div class="nav-detail-info">
+                        <div class="item-nav-detail-info" id="item-category-football">
+                            <ul>
+                                <li><strong>Giày bóng đá</strong></li>
+                                <li>Giày nam</li>
+                                <li>Giày nữ</li>
+                                <li>Giày trẻ em</li>
+                                <li><br></li>
+                                <li>Giày đá banh cỏ nhân tạo</li>
+                                <li>Giày đá ganh cỏ tự nhiên</li>
+                                <li>Giày fustal</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Đồ CLB</strong></li>
+                                <li>Chelsea</li>
+                                <li>Liverpool</li>
+                                <li>Manchester City</li>
+                                <li>Manchester United</li>
+                                <li>Arsenal</li>
+                                <li><br></li>
+                                <li>Barcelona</li>
+                                <li>Real Madrid</li>
+                                <li>PSG</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Đồ luyện tập</strong></li>
+                                <li>Bộ quần áo</li>
+                                <li>Áo</li>
+                                <li>Quần đùi</li>
+                                <li>Quần dài</li>
+                                <li>Tất</li>
+                            </ul>
+                        </div>
+
+                        <div class="item-nav-detail-info" id="item-category-gym">
+                            <ul>
+                                <li><strong>Đồ nam</strong></li>
+                                <li>Áo base layer</li>
+                                <li>Áo tops</li>
+                                <li>Quần đùi</li>
+                                <li>Quần legging</li>
+                                <li>Hoodies</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Đồ nữ</strong></li>
+                                <li>Áo base layer</li>
+                                <li>Áo tops</li>
+                                <li>Quần đùi</li>
+                                <li>Quần legging</li>
+                                <li>Hoodies</li>
+                                <li>Áo lót gym nữ</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Giày tập gym</strong></li>
+                                <li>Giày nam</li>
+                                <li>Giày nữ</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Phụ kiện</strong></li>
+                                <li>Bao tay</li>
+                                <li>Đai lưng</li>
+                                <li>Túi xách</li>
+                                <li>Khăn</li>
+                            </ul>
+                        </div>
+
+                        <div class="item-nav-detail-info" id="item-category-running">
+                            <ul>
+                                <li><strong>Đồ nam</strong></li>
+                                <li>Giày chạy địa hình</li>
+                                <li>Giày chạy bộ</li>
+                                <li>Jackets nam</li>
+                                <li>Quần ngắn nam</li>
+                                <li>Quần dài nam</li>
+                                <li>Quần đùi</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Đồ nữ</strong></li>
+                                <li>Giày chạy địa hình</li>
+                                <li>Giày chạy bộ</li>
+                                <li>Jackets nữ</li>
+                                <li>Quần ngắn nữ</li>
+                                <li>Quần dài nữ</li>
+                                <li>Quần đùi</li>
+                            </ul>
+                            <ul>
+                                <li><strong>Phụ kiện</strong></li>
+                                <li>Bao tay</li>
+                                <li>Nón</li>
+                                <li>Khăn</li>
+                            </ul>
+                        </div>
+
+                        <div class="item-nav-detail-info" id="item-category-brand">
+                            <div class="contain-brand">
+                                <img src="image/brand/logo-brand-01.svg">
+                                <img src="image/brand/logo-brand-02.svg">
+                                <img src="image/brand/logo-brand-03.svg">
+                                <img src="image/brand/logo-brand-04.svg">
+                                <img src="image/brand/logo-brand-05.svg">
+                                <img src="image/brand/logo-brand-06.svg">
+                                <img src="image/brand/logo-brand-07.svg">
+                                <img src="image/brand/logo-brand-08.svg">
+                                <img src="image/brand/logo-brand-09.svg">
+                                <img src="image/brand/logo-brand-10.svg">
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li><a href="cart.html">Shopping Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+    </ul>
+    <div class="row">
+
+        <div class="col-sm-8">
+            <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-option" aria-expanded="false">
+                            Thông tin nhận hàng <i class="fa fa-caret-down"></i></a></h2>
+                    </div>
+                    <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h3>Bạn đã có tài khoản <a style="color: darkorange">Đăng nhập ngay</a></h3>
+                                    <form>
+                                        <div class="section-input-form">
+                                            <input type="text" class="form-input" placeholder="Họ tên">
+                                            <input type="text" class="form-input" placeholder="Số điện thoại">
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input type="email" class="form-input" placeholder="Địa chỉ email">
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input type="text" class="form-input"  placeholder="Địa chỉ (Ví dụ: 1056, Bình Chiểu, Thủ Đức)">
+                                        </div>
+                                        <div class="section-input-form">
+                                            <select class="form-select form-select-lg mb-3 form-input" aria-label=".form-select-lg example">
+                                                <option selected disabled="disabled">Chọn Tỉnh/Thành</option>
+                                                <option value="1">Tp. Hồ Chí Minh</option>
+                                                <option value="2">Tp. Đà Nẵng</option>
+                                                <option value="3">Hà Nội</option>
+                                            </select>
+                                            <select class="form-select form-select-lg mb-3 form-input" aria-label=".form-select-lg example">
+                                                <option selected disabled="disabled">Chọn Quận/Huyện</option>
+                                                <option value="1">No option</option>
+
+                                            </select>
+                                            <select class="form-select form-select-lg mb-3 form-input" aria-label=".form-select-lg example">
+                                                <option selected disabled="disabled">Chọn Phường/Xã</option>
+                                                <option value="1">No option</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input type="text" class="form-input"  placeholder="Ghi chú thêm (Ví dụ: Giao hàng giờ hành chính)">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Xác nhận đơn hàng <i class="fa fa-caret-down"></i></a></h2>
+                    </div>
+                    <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse " aria-expanded="false" style="">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-checkout">
+                                    <thead>
+                                    <tr>
+                                        <td class="text-left">Tên sản phẩm</td>
+                                        <td class="text-left">Size</td>
+                                        <td class="text-left">Ảnh</td>
+                                        <td class="text-right">Số lượng</td>
+                                        <td class="text-right">Đơn giá</td>
+                                        <td class="text-right">Tổng</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">NIKE Air Max AP</a></td>
+                                        <td class="text-left">38</td>
+                                        <td class="text-left">
+                                            <img src="image/checkout/product-checkout-01.jpg" class="checkout-product-img" width="100" height="100">
+                                        </td>
+                                        <td class="text-right">1</td>
+                                        <td class="text-right">$105.00</td>
+                                        <td class="text-right">$105.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">ADIDAS Ultraboost 21 Running Shoes</a></td>
+                                        <td class="text-left">42</td>
+                                        <td class="text-left">
+                                            <img src="image/checkout/checkout-product-02.jpg" class="checkout-product-img" width="100" height="100">
+                                        </td>
+                                        <td class="text-right">2</td>
+                                        <td class="text-right">$159.00</td>
+                                        <td class="text-right">$318.00</td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td class="text-right" colspan="5"><strong>Tổng:</strong></td>
+                                        <td class="text-right">$428.00</td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div >
+                                <h2 class="checkout-note">Nếu bạn không hài lòng với sản phẩm của chúng tôi? Bạn hoàn toàn có thể trả lại sản phẩm. Tìm hiểu thêm
+                                    <a href="#" class="link-checkout-note"><strong>tại đây.</strong></a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4 contain-pay-all">
+            <!-- thanh toán -->
+            <h2>Chọn hình thức thanh toán cho đơn hàng này.</h2>
+            <form class="contain-form-payment">
+                <div class="payment-input">
+                    <input type="radio" name="payment" id="payment-shoppe">
+                    <label for="payment-shoppe">
+                        <img src="image/payment/shoppe.png" width="35" height="35">
+                    </label>
+                    <label for="payment-shoppe">
+                        <h4>
+                            Ví ShoppePay
+                        </h4>
+                    </label>
+                </div>
+                <div class="payment-input">
+                    <input type="radio" name="payment" id="payment-cod">
+                    <label for="payment-cod">
+                        <img src="image/payment/cod.jpg" width="35" height="35">
+                    </label>
+                    <label for="payment-cod">
+                        <h4>Thanh toán khi nhận hàng (COD)</h4>
+                    </label>
+                </div>
+                <div class="payment-input">
+                    <input type="radio" name="payment" id="payment-zalo">
+                    <label for="payment-zalo">
+                        <img src="image/payment/zalo.svg" width="35" height="35">
+                    </label>
+                    <label for="payment-zalo">
+                        <h4>Ví điện tử ZaloPay</h4>
+                    </label>
+                </div>
+                <div class="payment-input">
+                    <input type="radio" name="payment" id="payment-momo">
+                    <label for="payment-momo">
+                        <img src="image/payment/momo.png" width="35" height="35">
+                    </label>
+                    <label for="payment-momo">
+                        <h4>Ví MOMO</h4>
+                    </label>
+                </div>
+            </form>
+
+            <h2>Thành tiền</h2>
+            <div class="pay-all">
+                <form class="input-pay-all">
+                    <input type="text">
+                    <button>Áp dụng</button>
+                </form>
+                <ul>
+                    <li>Tạm tính</li>
+                    <li>$428</li>
+                </ul>
+                <ul>
+                    <li>Mã giảm giá</li>
+                    <li class="pay-all-item-money">0đ</li>
+                </ul>
+                <ul>
+                    <li>Phí giao hàng</li>
+                    <li class="pay-all-item-money">5%</li>
+                </ul>
+                <ul>
+                    <li>Tổng cộng</li>
+                    <li style="color: #d65e5e; font-weight: bold">498.000đ</li>
+                </ul>
+                <div class="buttons">
+                    <div class="pull-right">
+                        <input type="button" data-loading-text="Loading..." class="button-pay-all btn" id="button-confirm" value="Thanh toán">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <footer>
@@ -538,6 +578,7 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>
