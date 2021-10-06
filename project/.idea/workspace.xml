@@ -27,7 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/css/khanh-css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../DHMT/exercises/week1" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -65,6 +65,7 @@
       <workItem from="1632971383854" duration="785000" />
       <workItem from="1632979156954" duration="436000" />
       <workItem from="1632990208629" duration="1745000" />
+      <workItem from="1633051961842" duration="36000" />
     </task>
     <servers />
   </component>

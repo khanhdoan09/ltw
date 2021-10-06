@@ -30,57 +30,34 @@
         <div class="header-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="top-left pull-left">
-                            <div class="language">
-                                <form action="#" method="post" enctype="multipart/form-data" id="language">
-                                    <div class="btn-group">
-                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="image/flags/gb.png" alt="English" title="English">English <i class="fa fa-caret-down"></i></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="#"><img src="image/flags/lb.png" alt="Arabic" title="Arabic"> Arabic</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img src="image/flags/gb.png" alt="English" title="English"> English</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="currency">
-                                <form action="#" method="post" enctype="multipart/form-data" id="currency">
-                                    <div class="btn-group">
-                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"> <strong>$</strong> <i class="fa fa-caret-down"></i> </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>
-                                            </li>
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>
-                                            </li>
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ US Dollar</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="top-right pull-right">
+                    <div class="col-sm-12 contain-header">
+                        <div class="contain-nav-info">
                             <div id="top-links" class="nav pull-right">
                                 <ul class="list-inline">
-                                    <li class="dropdown account">
-                                        <a href="#" title="My Account" class="  dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>My Account</span> <span class="caret"></span></a>
+                                    <li class="account"><a href="#" class="notify"><i class="fas fa-bell" style="margin-right: 10px"></i><span>Thông báo</span><span style="margin-right: 10px">(0)</span></a></li>
+                                    <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Danh sách yêu thích</span><span style="margin-right: 10px">(0)</span></a></li>
+                                    <li class="dropdown">
+                                        <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="register.html">Đăng ký</a></li>
+                                            <li><a href="login.html">Đăng nhập</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Wish List</span><span> (0)</span></a></li>
                                 </ul>
-                                <div class="search-box">
-                                    <input class="input-text" placeholder="Search By Products.." type="text">
-                                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="text-center contain-search">
+                            <div class="contain-search-product-popular">
+                                <div class="search-product">
+                                    <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
+                                    <button class="search-product-top"><i class="fa fa-search"></i></button>
+                                </div>
+                                <div class="contain-search-popular">
+                                    <span>X-Ray 2</span>
+                                    <span>Barcelona Home Kit 2021 2022</span>
+                                    <span>Chelsea Home Kit 2021 2022</span>
+                                    <span>X9000L4 Shoes Mens</span>
+                                    <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
                                 </div>
                             </div>
                         </div>
@@ -155,16 +132,16 @@
             </div>
             <nav id="menu" class="navbar">
                 <div class="nav-inner">
-                    <div class="navbar-header"><span id="category" class="visible-xs">Categories</span>
+                    <div class="navbar-header-menu"><span id="category" class="visible-xs">Categories</span>
                         <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
                     </div>
                     <div class="navbar-collapse">
                         <ul class="main-navigation">
-                            <li><a href="index.html" class="parent">Home</a> </li>
-                            <li><a href="category.html" class="parent">Collection</a> </li>
-                            <li><a href="category.html" class="parent">Women</a> </li>
-                            <li><a href="category.html" class="parent">Men</a> </li>
-                            <li><a href="category.html" class="parent">Accessories</a> </li>
+                            <li><a href="index.html" class="parent">Trang chủ</a> </li>
+                            <li><a href="#" class="parent category-football" >Bóng đá <i class="fas fa-caret-down"></i></a></li>
+                            <li><a href="#" class="parent category-gym">Gym <i class="fas fa-caret-down"></i></a></li>
+                            <li><a href="category.html" class="parent category-running">Chạy <i class="fas fa-caret-down"></i></a></li>
+                            <li><a href="category.html" class="parent category-brand">Nhãn hàng <i class="fas fa-caret-down"></i></a></li>
                             <li><a href="#" class="active parent">Page</a>
                                 <ul>
                                     <li><a href="category.html">Category Page</a></li>
@@ -178,8 +155,118 @@
                             </li>
                             <li><a href="blog.html" class="parent">Blog</a></li>
                             <li><a href="about-us.html">About us</a></li>
-                            <li><a href="contact.html">Contact Us</a> </li>
                         </ul>
+                        <div class="nav-detail-info">
+                            <div class="item-nav-detail-info" id="item-category-football">
+                                <ul>
+                                    <li><strong>Giày bóng đá</strong></li>
+                                    <li>Giày nam</li>
+                                    <li>Giày nữ</li>
+                                    <li>Giày trẻ em</li>
+                                    <li><br></li>
+                                    <li>Giày đá banh cỏ nhân tạo</li>
+                                    <li>Giày đá ganh cỏ tự nhiên</li>
+                                    <li>Giày fustal</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Đồ CLB</strong></li>
+                                    <li>Chelsea</li>
+                                    <li>Liverpool</li>
+                                    <li>Manchester City</li>
+                                    <li>Manchester United</li>
+                                    <li>Arsenal</li>
+                                    <li><br></li>
+                                    <li>Barcelona</li>
+                                    <li>Real Madrid</li>
+                                    <li>PSG</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Đồ luyện tập</strong></li>
+                                    <li>Bộ quần áo</li>
+                                    <li>Áo</li>
+                                    <li>Quần đùi</li>
+                                    <li>Quần dài</li>
+                                    <li>Tất</li>
+                                </ul>
+                            </div>
+
+                            <div class="item-nav-detail-info" id="item-category-gym">
+                                <ul>
+                                    <li><strong>Đồ nam</strong></li>
+                                    <li>Áo base layer</li>
+                                    <li>Áo tops</li>
+                                    <li>Quần đùi</li>
+                                    <li>Quần legging</li>
+                                    <li>Hoodies</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Đồ nữ</strong></li>
+                                    <li>Áo base layer</li>
+                                    <li>Áo tops</li>
+                                    <li>Quần đùi</li>
+                                    <li>Quần legging</li>
+                                    <li>Hoodies</li>
+                                    <li>Áo lót gym nữ</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Giày tập gym</strong></li>
+                                    <li>Giày nam</li>
+                                    <li>Giày nữ</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Phụ kiện</strong></li>
+                                    <li>Bao tay</li>
+                                    <li>Đai lưng</li>
+                                    <li>Túi xách</li>
+                                    <li>Khăn</li>
+                                </ul>
+                            </div>
+
+                            <div class="item-nav-detail-info" id="item-category-running">
+                                <ul>
+                                    <li><strong>Đồ nam</strong></li>
+                                    <li>Giày chạy địa hình</li>
+                                    <li>Giày chạy bộ</li>
+                                    <li>Jackets nam</li>
+                                    <li>Quần ngắn nam</li>
+                                    <li>Quần dài nam</li>
+                                    <li>Quần đùi</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Đồ nữ</strong></li>
+                                    <li>Giày chạy địa hình</li>
+                                    <li>Giày chạy bộ</li>
+                                    <li>Jackets nữ</li>
+                                    <li>Quần ngắn nữ</li>
+                                    <li>Quần dài nữ</li>
+                                    <li>Quần đùi</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Phụ kiện</strong></li>
+                                    <li>Bao tay</li>
+                                    <li>Nón</li>
+                                    <li>Khăn</li>
+                                </ul>
+                            </div>
+
+                            <div class="item-nav-detail-info" id="item-category-brand">
+                                <div class="contain-brand">
+                                    <img src="image/brand/logo-brand-01.svg">
+                                    <img src="image/brand/logo-brand-02.svg">
+                                    <img src="image/brand/logo-brand-03.svg">
+                                    <img src="image/brand/logo-brand-04.svg">
+                                    <img src="image/brand/logo-brand-05.svg">
+                                    <img src="image/brand/logo-brand-06.svg">
+                                    <img src="image/brand/logo-brand-07.svg">
+                                    <img src="image/brand/logo-brand-08.svg">
+                                    <img src="image/brand/logo-brand-09.svg">
+                                    <img src="image/brand/logo-brand-10.svg">
+                                </div>
+                            </div>
+
+
+
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -532,102 +619,174 @@
                         <div class="item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/related-product/related-product-01.jpg" alt="shoe" title="AIR JORDAN" class="img-responsive" /> </a>
+                                    <a href="#">
+                                        <div class="related-product-sale">
+                                            <h5>-35%</h5>
+                                        </div>
+                                        <img src="image/related-product/related-product-01.jpg" alt="shoe" title="AIR JORDAN" class="img-responsive" /> </a>
                                     <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></i></button>
-                                        <button type="button" class="addtocart-btn">Add to Cart</button>
-                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-exchange-alt"></i></button>
+                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></i></button>
+                                        <button type="button" class="addtocart-btn">Mua ngay</button>
+                                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
                                     <a class="related-product-brand">AIR JORDAN</a>
                                     <h4 class="product-name"><a href="product.html" title="Zion 1 Mens Basketball Shoe">Zion 1 Mens Basketball Shoe</a></h4>
                                     <p class="price product-price"> <span class="price-new">$5.00</span> <span class="price-old">$7.00</span> <span class="price-tax"></span> </p>
+                                    <div class="star-related-product">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <h5 class="number-vote-related-product">(250)</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/related-product/related-product-02.jpg" alt="shoe" title="AIR JORDAN" class="img-responsive" /> </a>
+                                    <a href="#">
+                                        <div class="related-product-sale">
+                                            <h5>-14%</h5>
+                                        </div>
+                                        <img src="image/related-product/related-product-02.jpg" alt="shoe" title="AIR JORDAN" class="img-responsive" /> </a>
                                     <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></i></button>
-                                        <button type="button" class="addtocart-btn">Add to Cart</button>
-                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-exchange-alt"></i></button>
+                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></i></button>
+                                        <button type="button" class="addtocart-btn">Mua ngay</button>
+                                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
                                     <a class="related-product-brand">AIR JORDAN</a>
                                     <h4 class="product-name"><a href="product.html" title="Zer0.4 Family Basketball Shoes">Zer0.4 Family Basketball Shoes</a></h4>
                                     <p class="price product-price"> <span class="price-new">$124.99</span> <span class="price-old">$150.00</span> <span class="price-tax"></span> </p>
+                                    <div class="star-related-product">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <h5 class="number-vote-related-product">(525)</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/related-product/related-product-03.jpg" alt="shoe" title="AIR JORDAN" class="img-responsive" /> </a>
+                                    <a href="#">
+                                        <div class="related-product-sale">
+                                            <h5>-11%</h5>
+                                        </div>
+                                        <img src="image/related-product/related-product-03.jpg" alt="shoe" title="AIR JORDAN" class="img-responsive" /> </a>
                                     <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></i></button>
-                                        <button type="button" class="addtocart-btn">Add to Cart</button>
-                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-exchange-alt"></i></button>
+                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></i></button>
+                                        <button type="button" class="addtocart-btn">Mua ngay</button>
+                                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
                                     <a class="related-product-brand">Nike</a>
                                     <h4 class="product-name"><a href="product.html" title="LeBron Witness 5 Mens Basketball Shoes">LeBron Witness 5 Mens Basketball Shoes</a></h4>
                                     <p class="price product-price"> <span class="price-new">$89.99</span> <span class="price-old">$100.00</span> <span class="price-tax"></span> </p>
+                                    <div class="star-related-product">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+
+                                    </div>
+                                    <h5 class="number-vote-related-product">(115)</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/related-product/related-product-04.jpg" alt="shoe" title="UNDER ARMOUR" class="img-responsive" /> </a>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></i></button>
-                                        <button type="button" class="addtocart-btn">Add to Cart</button>
-                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-exchange-alt"></i></button>
-                                    </div>
+                                    <a href="#">
+                                        <div class="related-product-sale">
+                                            <h5>-11%</h5>
+                                        </div>
+                                        <img src="image/related-product/related-product-04.jpg" alt="shoe" title="UNDER ARMOUR" class="img-responsive" /> </a>
+                                        <div class="button-group">
+                                            <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></i></button>
+                                            <button type="button" class="addtocart-btn">Mua ngay</button>
+                                            <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
+
+                                        </div>
                                 </div>
                                 <div class="caption product-detail">
                                     <a class="related-product-brand">UNDER ARMOUR</a>
                                     <h4 class="product-name"><a href="product.html" title="LeBron Witness 5 Mens Basketball Shoes">Armour Lockdown 5 Trainers Mens</a></h4>
                                     <p class="price product-price"> <span class="price-new">$89.99</span> <span class="price-old">$100.00</span> <span class="price-tax"></span> </p>
+                                    <div class="star-related-product">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h5 class="number-vote-related-product">(435)</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/related-product/related-product-05.jpg" alt="shoe" title="Nike" class="img-responsive" /> </a>
+                                    <a href="#">
+                                        <div class="related-product-sale">
+                                            <h5>-12%</h5>
+                                        </div><img src="image/related-product/related-product-05.jpg" alt="shoe" title="Nike" class="img-responsive" /> </a>
                                     <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></i></button>
-                                        <button type="button" class="addtocart-btn">Add to Cart</button>
-                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-exchange-alt"></i></button>
+                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></i></button>
+                                        <button type="button" class="addtocart-btn">Mua ngay</button>
+                                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
                                     <a class="related-product-brand">Nike</a>
                                     <h4 class="product-name"><a href="product.html" title="KD Trey 5 IX Mens Basketball Shoes">KD Trey 5 IX Mens Basketball Shoes</a></h4>
-                                    <p class="price product-price"> <span class="price-new">$73.99</span> <span class="price-old">$99.00</span> <span class="price-tax">Ex Tax: $70.00</span> </p>
+                                    <p class="price product-price"> <span class="price-new">$79.99</span> <span class="price-old">$89.00</span> <span class="price-tax">Ex Tax: $70.00</span> </p>
+                                    <div class="star-related-product">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <h5 class="number-vote-related-product">(198)</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/related-product/related-product-06.jpg" alt="shoe" title="NIKE" class="img-responsive" /> </a>
+                                    <a href="#">
+                                        <div class="related-product-sale">
+                                            <h5>-16%</h5>
+                                        </div><img src="image/related-product/related-product-06.jpg" alt="shoe" title="NIKE" class="img-responsive" /> </a>
                                     <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></i></button>
-                                        <button type="button" class="addtocart-btn">Add to Cart</button>
-                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-exchange-alt"></i></button>
+                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></i></button>
+                                        <button type="button" class="addtocart-btn">Mua ngay</button>
+                                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
                                     <a class="related-product-brand">Nike</a>
                                     <h4 class="product-name"><a href="product.html" title="One Take II Mens Basketball Shoes">One Take II Mens Basketball Shoes</a></h4>
                                     <p class="price product-price"> <span class="price-new">$89.99</span> <span class="price-old">$100.00</span> <span class="price-tax"></span> </p>
+                                    <div class="star-related-product">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <h5 class="number-vote-related-product">(14)</h5>
                                 </div>
                             </div>
                         </div>

@@ -1,3 +1,65 @@
+/* navigation */
+.contain-header {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contain-nav-info {
+    display: flex;
+    align-items: center;
+}
+
+.main-navigation {
+    position: relative;
+}
+
+.nav-detail-info {
+    z-index: 100;
+    position: absolute;
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: none;
+    cursor: pointer;
+}
+.category-nav-detail-info {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    cursor: pointer;
+}
+.item-nav-detail-info {
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    letter-spacing: 1px;
+}
+.item-nav-detail-info>ul {
+    margin: 20px;
+}
+.item-nav-detail-info>ul>li {
+    margin: 10px;
+    font-size: 18px;
+}
+.item-nav-detail-info>ul>li>strong {
+    color: #040458;
+}
+#item-category-brand>ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contain-brand {
+    display: flex;
+    flex-wrap: wrap;
+}
+.contain-brand>img {
+    margin: 20px 30px;
+    width : 120px;
+    height : 120px;
+}
+
 .related-product-brand {
     margin-top: 20px;
     text-transform: uppercase;
@@ -5,10 +67,104 @@
     font-size: 15px;
 }
 
+.product-imageblock {
+    position: relative;
+}
+
+.related-product-sale {
+    position: absolute;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    color: white;
+}
+.related-product-sale>h5 {
+    color: white;
+    background-color: #e64141;
+    width: 50px;
+    height: 30px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    letter-spacing: 1px;
+}
+
+.product-detail {
+    position: relative; !important;
+    height: 120px;
+}
+
+.wishlist, .compare {
+    border-radius: 50%;
+}
+
+.addtocart-btn {
+    border-radius: 20px;
+}
+
+.star-related-product {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    /*display: flex;*/
+    /*justify-content: start;*/
+    /*width: 100%;*/
+}
+.star-related-product>.fa-star, .star-related-product>.fa-star-half-alt {
+    color: #e2e22f;
+    padding-right: 1px;
+}
+
+.number-vote-related-product {
+    margin-top: 60px;
+    position: absolute;
+    top: 47px;
+    left: 90px;
+}
 .section-input-form {
     display: flex;
     justify-content: space-around;
     margin: 10px;
+}
+
+
+
+.pay-all>ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.pay-all>ul>li {
+    margin: 10px 0;
+}
+.input-pay-all {
+    display: flex;
+}
+.input-pay-all>input {
+    flex: 2;
+    height: 40px;
+    border: 1px solid #a3a0a0;
+    letter-spacing: 1px;
+}
+.button-pay-all {
+    background-color: #db8e06;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.input-pay-all>button {
+    flex: 1;
+}
+.input-pay-all>button:hover {
+    background-color: grey;
+    color: white;
+}
+.pay-all-item-money {
+    color: orange;
 }
 
 .form-input {
@@ -26,7 +182,7 @@
 }
 .payment-input {
     margin: 20px 0px;
-    width: 50%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 6fr;
     align-items: center;
@@ -56,15 +212,162 @@
     margin-bottom: 25px;
 }
 
-/*search product */
-.contain-search-product {
-    width: 100%;
-    margin-top: 10px;
+.checkout-product-img {
+    cursor: pointer;
 }
 
-.contain-search-product > input {
-    width: 400px;
+/*search product */
+.contain-search {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.notify {
+    cursor: pointer;
+}
+
+.notify:hover {
+    color: white;
+}
+.contain-search-product-popular {
+    width: 450px;
+    position: relative;
+}
+.search-product {
+    display: flex;
     border-radius: 20px;
+    background-color: whitesmoke;
+    width: 450px;
+}
+.search-product > input {
+    width: 400px;
+    height: 40px;
     letter-spacing: 1px;
     text-indent: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: whitesmoke;
+    margin: 2px;
+}
+
+.search-product-top {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    margin: 2px;
+}
+.contain-search-popular {
+    width: 100%;
+    display: none;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+}
+
+.contain-search-popular>span {
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: #1b1b1b;
+}
+
+.contain-search-popular>span:hover {
+    background-color: #cbc7c7;
+
+}
+
+/*drop down*/
+.contain-dropdown-size {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.contain-dropdown-locate {
+    position: relative;
+    height: 330px;
+}
+
+.dropdown-locate {
+    position: absolute;
+    display: none;
+    top: 295px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.dropdown-locate-show {
+    display: inline;
+}
+
+.open-dropdown-locate, .close-dropdown-locate {
+    cursor: pointer;
+    color: #0909c1;
+    letter-spacing: 1px;
+}
+
+.close-dropdown-locate {
+    display: none;
+    position: absolute;
+    bottom: 0;
+}
+
+.contain-rate-search {
+    display: grid;
+}
+.rate-search {
+    cursor: pointer;
+}
+.rate-search > .fa-star {
+    color: #cfcf04;
+}
+
+.contain-price-search {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price-search {
+    color: white;
+    background-color: grey;
+    width: auto;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.price-search:hover {
+    background-color: #6f6c6c;
+}
+
+.price-search-highest-lowest {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px;
+}
+
+.min-max-price-search {
+    display: flex;
+}
+
+.min-search, .max-search {
+    width: 70px;
+    height: 30px;
+    border: 1px solid #979696;
+    border-radius: 5px;
+}
+
+.btn-refine-search {
+    background-color: #101066;
+    letter-spacing: 1px;
+    font-size: 16px;
 }
