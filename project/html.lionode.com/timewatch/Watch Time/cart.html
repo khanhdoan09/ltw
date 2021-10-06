@@ -10,6 +10,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/dat-css.css">
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
@@ -186,7 +187,7 @@
     <div class="container">
         <ul class="breadcrumb">
             <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-            <li><a href="cart.html">Shopping Cart</a></li>
+            <li><a href="cart.html">Giỏ Hàng</a></li>
         </ul>
         <div class="row">
             <div id="column-left" class="col-sm-3 hidden-xs column-left">
@@ -297,6 +298,14 @@
             </div>
             <div class="col-sm-9" id="content">
                 <h1>Giỏ Hàng  </h1>
+                <div id="checkAllProduct">
+                    <input type="checkbox" id="checkAll" class="chec">
+                    <label for="allProduct" >Chọn tất cả sản phẩm</label> 
+                </div>
+                <div id="Trash">
+                    <i class="fa fa-trash del" ></i>
+                    <label for="bin" class="deltex">Xóa</label>
+                </div>
                 <form enctype="multipart/form-data" method="post" action="#">
                     <div class="table-responsive">
                         <table class="table table-bordered">
@@ -313,7 +322,8 @@
                             <tbody>
                                 <tr>
                                     <td class="text-center">
-                                        <a href="product.html"><img class="img-thumbnail" title="women's New Wine is an alcoholic" alt="women's New Wine is an alcoholic" src="image/product/2product50x59.jpg"></a>
+                                        <input type="checkbox" id="html" name="fav_language" value="HTML">
+                                        <a href="product.html"><img class="img-thumbnail" title="women's New Wine is an alcoholic" alt="women's New Wine is an alcoholic" src="image/product/giay1.jpg"></a>
                                     </td>
                                     <td class="text-left"><a href="product.html">women's New Wine is an alcoholic</a></td>
                                     <td class="text-left">Sản phẩm 11</td>
@@ -352,7 +362,7 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-voucher">Sử dụng phiếu quà tặng <i class="fa fa-caret-down"></i></a></h4>
+                            <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-voucher" id="UseTicker">Sử dụng phiếu quà tặng <i class="fa fa-caret-down"></i></a></h4>
                         </div>
                         <div class="panel-collapse collapse" id="collapse-voucher">
                             <div class="panel-body">
@@ -369,7 +379,7 @@
                 <br>
                 <div class="row">
                     <div class="col-sm-4 col-sm-offset-8">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" >
                             <tbody>
                                 <tr>
                                     <td class="text-right"><strong>Tổng phụ:</strong></td>
@@ -381,7 +391,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-right"><strong>Tổng:</strong></td>
-                                    <td class="text-right">252.000 VNĐ</td>
+                                    <td class="text-right"><p id="totalPrice">252.000 VNĐ</p></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -389,66 +399,12 @@
                 </div>
                 <div class="buttons">
                     <div class="pull-left"><a class="btn btn-default" href="index.html">Tiếp Tục Mua Sắm</a></div>
-                    <div class="pull-right"><a class="btn btn-primary" href="checkout.html">Thủ Tục Thanh Toán</a></div>
+                    <div class="pull-right"><a class="btn btn-primary" href="checkout.html" id="Thanhtoan">Thanh Toán</a></div>
                 </div>
             </div>
         </div>
     </div>
     <footer>
-        <div class="container">
-            <hr>
-            <div class="row">
-                <div class="col-sm-3 footer-block">
-                    <h5 class="footer-title">Information</h5>
-                    <ul class="list-unstyled ul-wrapper">
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="checkout.html">Delivery Information</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Site Map</a></li>
-                        <li><a href="#">Wish List</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 footer-block">
-                    <h5 class="footer-title">Why Choose</h5>
-                    <ul class="list-unstyled ul-wrapper">
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Product Recall</a></li>
-                        <li><a href="#">Gift Vouchers</a></li>
-                        <li><a href="#">Returns and Exchanges</a></li>
-                        <li><a href="#">Shipping Options</a></li>
-                        <li><a href="#">Help & FAQs</a></li>
-                        <li><a href="#">Sale Only Today</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 footer-block">
-                    <h5 class="footer-title">My Account</h5>
-                    <ul class="list-unstyled ul-wrapper">
-                        <li><a href="#">Sign in</a></li>
-                        <li><a href="gift.html">Gift Vouchers</a></li>
-                        <li><a href="affiliate.html">Affiliates</a></li>
-                        <li><a href="#">View Cart</a></li>
-                        <li><a href="#">Checkout</a></li>
-                        <li><a href="#">Track My Order</a></li>
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 footer-block">
-                    <div class="content_footercms_right">
-                        <div class="footer-contact">
-                            <h5 class="contact-title footer-title">Contact Us</h5>
-                            <ul class="ul-wrapper">
-                                <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
-                12345 Street name, California<br>
-                USA</span></li>
-                                <li><i class="fa fa-envelope"></i><span class="mail2"><a href="#">info@localhost.com</a></span></li>
-                                <li><i class="fa fa-mobile"></i><span class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="footer-top-cms">
                     <div class="col-sm-7">
