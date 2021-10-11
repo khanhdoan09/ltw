@@ -139,8 +139,8 @@
                 <div class="navbar-collapse">
                     <ul class="main-navigation">
                         <li><a href="index.html" class="parent">Trang chủ</a> </li>
-                        <li><a href="#" class="parent category-football" >Bóng đá <i class="fas fa-caret-down"></i></a></li>
-                        <li><a href="#" class="parent category-gym">Gym <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="category.html" class="parent category-football" >Bóng đá <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="category.html" class="parent category-gym">Gym <i class="fas fa-caret-down"></i></a></li>
                         <li><a href="category.html" class="parent category-running">Chạy <i class="fas fa-caret-down"></i></a></li>
                         <li><a href="category.html" class="parent category-brand">Nhãn hàng <i class="fas fa-caret-down"></i></a></li>
                         <li><a href="#" class="active parent">Page</a>
@@ -278,8 +278,11 @@
         <li><a href="index.html"><i class="fa fa-home"></i></a></li>
         <li><a href="category.html">Electronics</a></li>
     </ul>
-    <div class="row">
-        <div id="column-left" class="col-sm-3 hidden-xs column-left">
+    <div class="row contain-category">
+        <button class="toggle-filter-search">
+            <i class="fas fa-sliders-h"></i>
+        </button>
+        <div id="" class="col-sm-3 contain-filter-search">
             <div class="panel panel-default filter">
                 <div class="panel-heading columnblock-title">Lọc tìm kiếm</div>
                 <div class="filter-block">
@@ -450,17 +453,8 @@
 
         </div>
         <div id="content" class="col-sm-9">
-            <div class="category-page-wrapper">
-                <div class="col-md-6 list-grid-wrapper">
-                    <div class="btn-group btn-list-grid">
-                        <button type="button" id="list-view" class="btn btn-default list" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
-                        <button type="button" id="grid-view" class="btn btn-default grid" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
-                    </div>
-                </div>
-            </div>
-            <br />
             <div class="grid-list-wrapper">
-                <!-- khanh-js.js display product -->
+                <!-- khanh-js.js display this product -->
             </div>
             <div class="category-page-wrapper">
                 <div class="pagination-inner">

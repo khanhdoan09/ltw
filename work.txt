@@ -9,8 +9,9 @@ http://html.lionode.com/timewatch/Watch%20Time/index.html
 2 - Trang sản phẩm
   + thông tin sản phẩm - dat
   + giỏ hàng - dat
-  + phương thức thanh toán - khanh
+  + đơn hàng thanh toán - khanh
   + sản phẩm liên quan theo loại - khanh
+  + chính sách - ...
 
 3-  Trang contact - hung
 
@@ -18,7 +19,6 @@ http://html.lionode.com/timewatch/Watch%20Time/index.html
 
 5 - Trang khách hàng
   + thông tin khách hàng
-  + đơn hàng
   + lịch sử mua
   + điểm thưởng, điểm vip
  

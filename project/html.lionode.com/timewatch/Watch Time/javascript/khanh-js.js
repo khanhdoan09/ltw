@@ -10,6 +10,13 @@ function searchPopular() {
 
 $(window).ready(searchPopular, dropdownLocate);
 
+// filter search {
+function toggleFilterSearch() {
+    $(".toggle-filter-search").click(()=>{
+        $(".contain-filter-search").slideToggle('slow');
+    });
+}
+$(window).ready(toggleFilterSearch);
 // dropdown
 function dropdownLocate() {
     $(".open-dropdown-locate").click(()=>{
@@ -30,7 +37,7 @@ function dropdownLocate() {
 $(window).ready(dropdownLocate);
 
 
-
+// navigation
 function changeCategoryNav() {
     $(".category-football").mouseover(()=>{
         setUpCategoryNav();
@@ -67,6 +74,7 @@ function setUpCategoryNav() {
 
 $(window).ready(changeCategoryNav);
 
+// display product category
 function Product(brand, nameProduct, linkSrc, price, saleRate, oldPrice) {
     this.brand = brand;
     this.nameProduct = nameProduct;
@@ -76,63 +84,61 @@ function Product(brand, nameProduct, linkSrc, price, saleRate, oldPrice) {
     this.oldPrice = oldPrice;
 }
 
-// display product category
 function displayCategory() {
-
     let arrProduct = [
         new Product("under armour",
             "tri base reign 2 trainers mens",
             "image/product/product-01.jpg",
             "87.99$",
-            "10%",
+            "-10%",
             "99.99$"),
         new Product("under armour",
             "tri base reign 3 NM",
             "image/product/product-02.jpg",
             "80.00$",
-            "8%",
+            "-8%",
             "90.59$"),
         new Product("nike",
             "Metcon 7 Ladies Training Shoes",
             "image/product/product-03.webp",
             "114.00$",
-            "12%",
+            "-12%",
             "120.99$"),
         new Product("nike",
             "Metcon 6 Mens Training Shoes",
             "image/product/product-04.webp",
             "86.00$",
-            "20%",
+            "-20%",
             "100.99$"),
         new Product("nike",
             "Metcon Flyknit Mens Training Shoes",
             "image/product/product-05.jpg",
             "95.00$",
-            "22%",
+            "-22%",
             "110.00$"),
         new Product("adidas",
             "Adios 6 Trainer",
             "image/product/product-06.jpg",
             "87.00$",
-            "25%",
+            "-25%",
             "100.00$"),
         new Product("adidas",
             "SL20.2 Running Shoes Mens",
             "image/product/product-07.webp",
             "79.99$",
-            "19%",
+            "-19%",
             "99.99$"),
         new Product("puma",
             "SL20.2 Running Shoes Mens",
             "image/product/product-08.jpg",
             "40.99$",
-            "9%",
+            "-9%",
             "50.99$"),
         new Product("nike",
             "Metcon Flyknit Mens Training Shoes",
             "image/product/product-09.webp",
             "92.99$",
-            "3%",
+            "-3%",
             "95.99$")
     ];
 
@@ -187,3 +193,4 @@ function displaySizeInRefineSearch() {
 }
 
 $(window).ready(displaySizeInRefineSearch);
+
