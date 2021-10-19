@@ -44,8 +44,8 @@
                                     <li class="dropdown">
                                         <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><p class="js-login" href="">Đăng ký</p></li>
-                                            <li><p class="js_register" href="">Đăng nhập</p></li>
+                                            <li><p class="js-login" href="">Đăng nhập</p></li>
+                                            <li><p class="js_register" href="">Đăng ký</p></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -1165,15 +1165,12 @@
 
             </div>
         </div>
-
     </div>
-    <!-- End: modal login -->
-
-    <!--Begin: modal register--->
+          <!--Begin: modal register--->
     <div class="modal-register js-modal-register">
         <div class="modal-container-register js-modal-container-register">
 
-            <header class="modal-header-register" style="font-size: 20px;">
+            <header class="modal-header">
                 Tài Khoản Của Bạn!
             </header>
 
@@ -1214,13 +1211,16 @@
                         cung cấp tại thời điểm đăng ký, điều này sẽ cho phép
                         bạn truy cập tất cả các dịch vụ bạn cần.</p>
                 </div>
-
-
             </div>
         </div>
     <!-- End: modal register -->
     </div>
     <!-- End: login register -->
+
+    <!-- </div> -->
+    <!-- End: modal login -->
+
+  
     <script>
         const modal=document.querySelector('.js-modal');
         const modalLogin=document.querySelector('.js-login');
@@ -1228,20 +1228,14 @@
         const modalContainer=document.querySelector('.js-modal-container');
         const modalLoginBtn=document.querySelector('.js-login-modal');
 
-
         // hàm hiển thị phần đăng nhập
         function showBuyLogin() {
             modal.classList.add('open')
         }
-
-
         // hàm ẩn modal đăng nhập
         function hideBuyLogin() {
             modal.classList.remove('open')
         }
-
-
-
         modalLogin.addEventListener('click' , showBuyLogin)
 
         modalClose.addEventListener('click', hideBuyLogin)
@@ -1256,7 +1250,7 @@
         const modalRegister=document.querySelector('.js-modal-register');
         const modalCloseRegister=document.querySelector('.js-modal-close-register');
         const modalContainerRegister=document.querySelector('.js-modal-container-register');
-        const modalRegisterBtn=document.querySelector('.js-register')
+        const modalRegisterBtn=document.querySelector('.js-register-modal')
 
         // hiện thị phần đăng ký
         function showModalRegister() {
@@ -1269,11 +1263,12 @@
         }
 
         register.addEventListener('click', showModalRegister)
-        modalRegisterBtn.addEventListener('click', showModalRegister)
-        modalRegisterBtn.addEventListener('click', hideBuyLogin)
+        // modalRegisterBtn.addEventListener('click', showModalRegister)
         modalCloseRegister.addEventListener('click', hideModalRegister)
         modalRegister.addEventListener('click', hideModalRegister)
-
+        
+        modalRegisterBtn.addEventListener('click', showModalRegister)
+        modalRegisterBtn.addEventListener('click', hideBuyLogin)
         modalLoginBtn.addEventListener('click', showBuyLogin)
         modalLoginBtn.addEventListener('click' ,hideModalRegister)
 

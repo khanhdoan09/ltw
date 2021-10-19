@@ -6,24 +6,15 @@
     width: 25%;
     padding: 6px;
 }
-/* .modal-register{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: rgba(13, 13, 54, 0.7);
-    align-items: center;
-    justify-content: center ;
-    display: flex;
-} */
+
 .modal-register,
-.modal {
+.modal{
     position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
+    z-index: 10000;
     background-color: rgba(13, 13, 54, 0.7);
     align-items: center;
     justify-content: center ;
@@ -38,10 +29,8 @@
 .modal-container-register,
 .modal-container {
     background-color: #fff;
-    margin-top: 150px;
     width: 450px;
     height: 650px;
-    margin-bottom: 100px;
 }
 
 .modal-header-register,
@@ -59,6 +48,9 @@
     color: #000;
     margin-top: -35px;
     margin-left: 408px;
+}
+.modal-header{
+    font-size: 20px;
 }
 
 .modal-register .icon-close-register,
@@ -165,10 +157,10 @@
 
 .checkbox {
     position: absolute;
-    margin-top: -16px;
+    margin-top: -25px;
     margin-left: 17px;
     font-size: 11px;
-    color: rgb(102, 101, 101);
+    color: #4141ff;
 }
 
 .modal-bnt-register,
