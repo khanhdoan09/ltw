@@ -139,10 +139,10 @@
                 <div class="navbar-collapse">
                     <ul class="main-navigation">
                         <li><a href="index.html" class="parent">Trang chủ</a> </li>
-                        <li><a href="category.html" class="parent category-football" >Bóng đá <i class="fas fa-caret-down"></i></a></li>
-                        <li><a href="category.html" class="parent category-gym">Gym <i class="fas fa-caret-down"></i></a></li>
-                        <li><a href="category.html" class="parent category-running">Chạy <i class="fas fa-caret-down"></i></a></li>
-                        <li><a href="category.html" class="parent category-brand">Nhãn hàng <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="category.html" class="parent category-item" id="category-football">Bóng đá <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="category.html" class="parent category-item" id="category-gym">Gym <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="category.html" class="parent category-item" id="category-running">Chạy <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="category.html" class="parent category-item" id="category-brand">Nhãn hàng <i class="fas fa-caret-down"></i></a></li>
                         <li><a href="#" class="active parent">Page</a>
                             <ul>
                                 <li><a href="category.html">Category Page</a></li>
@@ -276,7 +276,9 @@
 <div class="container">
     <ul class="breadcrumb">
         <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-        <li><a href="category.html">Electronics</a></li>
+        <li>
+            <i class="fas fa-angle-double-right"></i>
+            <a href="category.html">Thể loại</a></li>
     </ul>
     <div class="row contain-category">
         <button class="toggle-filter-search">
@@ -426,13 +428,13 @@
                                     <label for="price-search-lowest">Từ thấp đến cao</label>
                                 </form>
 
-                                <span class="price-search">
+                                <button class="price-search" id="price-search-01">
                                         Dưới 500.000
-                                    </span>
-                                <span class="price-search">
+                                    </button>
+                                <span class="price-search" id="price-search-02">
                                         Từ 500.000 - 1.500.000
                                     </span>
-                                <span class="price-search">
+                                <span class="price-search" id="price-search-03">
                                         Trên 1.500.000
                                     </span>
 

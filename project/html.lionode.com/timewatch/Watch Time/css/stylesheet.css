@@ -978,11 +978,18 @@ footer ul li {
     padding: 10px 15px;
     background: #000;
 }
-
+.breadcrumb>li+li:before {
+    content: "";
+    color: #999;
+}
+.breadcrumb li i {
+    padding-right: 5px;
+}
 .breadcrumb li a {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: #b3b3b3;
     font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .breadcrumb li a:hover {
