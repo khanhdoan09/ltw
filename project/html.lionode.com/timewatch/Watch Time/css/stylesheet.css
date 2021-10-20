@@ -1670,10 +1670,12 @@ h2.price {
     margin: 0 3px 0 0;
 }
 
-.tab a.selected,
+.tab a.selected{
+    border-bottom: 5px solid #000;
+    color: #000;
+}
 .tab a:hover {
     color: #000;
-    border: none;
 }
 
 .customtab-inner {
@@ -2362,6 +2364,13 @@ div#subbanner5 {
 
 .brand-logo.owl-carousel .img-responsive {
     display: inline-block;
+    width: 50%;
+}
+.brand-logo.owl-carousel .img-responsive:hover {
+    display: inline-block;
+    width: 60%;
+    margin: -15px 0;
+    
 }
 
 #product .addtocart {
