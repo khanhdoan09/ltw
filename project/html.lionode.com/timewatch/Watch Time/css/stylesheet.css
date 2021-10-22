@@ -1428,8 +1428,8 @@ h2.price {
     background: #b3b3b3;
 }
 
-.product-thumb .button-group .wishlist .fa,
-.product-thumb .button-group .compare .fa {
+.product-thumb .button-group .wishlist .fas,
+.product-thumb .button-group .compare .fas {
     color: #ffffff;
 }
 
@@ -3129,7 +3129,7 @@ video {
 }
 
 .home-slider .owl-controls .owl-page span {
-    background: #b3b3b3;
+    background: #ffff;
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -3137,12 +3137,12 @@ video {
 
 .home-slider .owl-controls .owl-page.active span,
 .home-slider .owl-controls .owl-page span:hover {
-    background: #000;
+    background: #0900ed;
 }
 
 .home-slider .owl-controls .owl-page:hover,
-.home-slider .owl-controls .owl-page.active {
-    border: 1px solid #000;
+.home-slider .owl-controls .owl-page.active {   
+    border: 2px solid #0900ed;
 }
 
 .home-slider .owl-controls .owl-page.active span {
