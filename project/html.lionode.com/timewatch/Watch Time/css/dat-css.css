@@ -25,13 +25,13 @@
     background-color: red;
     
 }
+#Thanhtoan:hover{
+    background-color:black;
+    
+}
 .panel{
     background-color: seagreen;
     color: black;
-}
-.table{
-    border: black solid 1px;
-    
 }
 .col-sm-9 #checkAllProduct{
     width: 70%;
@@ -50,7 +50,7 @@
     margin-left: 13px;
 }
 .row .col-sm-4{
-    margin-left: 630px;
+    margin-left: 640px;
     overflow: auto;
 }
 .row .col-sm-4 .table{
@@ -59,4 +59,8 @@
 #totalPrice{
     color: coral;
 }
+
+/* phan about */
+
+
 
