@@ -1,3 +1,5 @@
+
+
 // search at top
 function searchPopular() {
     $(".input-text-search-top").click(() => {
@@ -219,4 +221,128 @@ function displaySizeInRefineSearch() {
 }
 
 $(window).ready(displaySizeInRefineSearch);
+
+// access information of page costumer
+function accessInfoCustomer() {
+    $("#nav-info-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#info-customer").css("display", "block");
+    });
+    $("#nav-bank-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#bank-customer").css("display", "block");
+    });
+    $("#nav-map-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#map-customer").css("display", "block");
+    });
+    $("#nav-password-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#password-customer").css("display", "block");
+    });
+    $("#nav-cart-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#cart-customer").css("display", "block");
+    });
+    $("#nav-history-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#history-customer").css("display", "block");
+    });
+
+    $(".adjust-address-customer").click(() => {
+        $(".contain-form-adjust-address").css("display", "block");
+        $(".default-address").css("display", "none");
+        $(".available-address").css("display", "none");
+        $("#submit-adjust-address-customer").val("Chỉnh sửa");
+    });
+
+    $(".contain-add-map").click(() => {
+        $(".contain-form-adjust-address").css("display", "block");
+        $(".available-address").css("display", "none");
+        $("#submit-adjust-address-customer").val("Thêm");
+        $(".default-address").css("display", "none");
+    });
+
+    $("#submit-adjust-address-customer").click(() => {
+        $(".contain-form-adjust-address").css("display", "none");
+        $(".available-address").css("display", "block");
+        $(".default-address").css("display", "block");
+    });
+    $("#delete-adjust-address-customer").click(() => {
+        $(".contain-form-adjust-address").css("display", "none");
+        $(".available-address").css("display", "block");
+        $(".default-address").css("display", "block");
+    });
+}
+
+function resetAllSectionCustomer() {
+    $("#info-customer").css("display", "none");
+    $("#bank-customer").css("display", "none");
+    $("#map-customer").css("display", "none");
+    $("#password-customer").css("display", "none");
+    $("#cart-customer").css("display", "none");
+    $("#history-customer").css("display", "none");
+}
+
+$(window).ready(accessInfoCustomer);
+
+// load location customer
+function loadLocation() {
+    loadCity();
+    loadDistrict(89,);
+    loadWard(883);
+}
+
+function chooseLocation() {
+    loadLocation();
+    $('#contain-option-city').on('change', function () {
+        let cityCode = $(this).val();
+        loadDistrict(cityCode,);
+        let codeFirstDistrict = "";
+        for (let i = 0; i < districts.length; i++) {
+            if (districts[i].parent_code == cityCode) {
+                codeFirstDistrict = districts[i].code;
+                break;
+            }
+        }
+        loadWard(codeFirstDistrict);
+    });
+
+    $('#contain-option-district').on('change', function (e) {
+        let districtCode = $(this).val();
+        loadWard(districtCode);
+    });
+}
+
+function loadCity() {
+    let city = "";
+    cities.forEach((element) => {
+        city += "<option value=\"" + element.code + "\"" + "class=\"city\">" + element.name + "</option>\n";
+    });
+    $("#contain-option-city").append(city);
+}
+
+function loadDistrict(districtCode) {
+    let districtArr = "";
+    districtArr = districts.filter((value) => value.parent_code == districtCode);
+    let district = "";
+    districtArr.forEach((element) => {
+        district += "<option value=\"" + element.code + "\"" + "class=\"district\">" + element.name + "</option>\n";
+    });
+    $("#contain-option-district").text("");
+    $("#contain-option-district").append(district)
+}
+
+function loadWard(wardCode) {
+    let wardArr = wards.filter((value) => value.parent_code == wardCode);
+    let ward = "";
+    wardArr.forEach((element) => {
+        ward += "<option value=\"" + element.code + "\"" + "class=\"ward\">" + element.name + "</option>\n";
+    });
+    $("#contain-option-ward").text("");
+    $("#contain-option-ward").append(ward);
+}
+
+$(window).ready(chooseLocation);
+
 
