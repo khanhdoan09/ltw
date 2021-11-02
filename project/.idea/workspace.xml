@@ -3,19 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="226184f6-d824-40c1-a424-fb5575565c1b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/about-us.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/css/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/customer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/html.lionode.com/timewatch/Watch Time/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../demoOnlyAtHome" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Homework/week3" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -51,7 +41,10 @@
       <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\project\html.lionode.com\timewatch\Watch Time\css\khanh-css" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
+  <component name="RunManager" selected="JavaScript Debug.category.html">
+    <configuration name="category.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project/html.lionode.com/timewatch/Watch Time/category.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="checkout.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project/html.lionode.com/timewatch/Watch Time/checkout.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -63,6 +56,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.category.html" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.checkout.html" />
         <item itemvalue="JavaScript Debug.product.html" />
@@ -86,6 +80,8 @@
       <workItem from="1632990208629" duration="1745000" />
       <workItem from="1633051961842" duration="36000" />
       <workItem from="1634442287570" duration="335000" />
+      <workItem from="1635395907363" duration="350000" />
+      <workItem from="1635596730770" duration="34000" />
     </task>
     <servers />
   </component>
