@@ -163,22 +163,7 @@
 .section-input-form {
     display: flex;
     justify-content: space-around;
-    justify-content: flex-start;
     margin: 10px;
-    font-size: 17px;
-}
-
-@media screen and (max-width: 750px) {
-    .section-input-form {
-        display: grid;
-    }
-}
-
-.section-input-form select {
-    font-size: 19px;
-    margin-left: 4px;
-    margin-right: 18px;
-    height: 40px;
 }
 
 .pay-all>ul {
@@ -199,6 +184,7 @@
 .input-pay-all>input {
     flex: 2;
     height: 40px;
+    border: 1px solid #a3a0a0;
     letter-spacing: 1px;
 }
 
@@ -226,7 +212,7 @@
     width: 100%;
     margin: 5px;
     font-size: 18px;
-    padiding: 20px;
+    padding: 20px;
     line-height: 3;
     text-indent: 10px;
 }
@@ -501,7 +487,7 @@
 }
 
 .name-customer {
-    margin-top: 30px;
+    margin: 10px;
     font-size: 18px;
 }
 
@@ -510,6 +496,11 @@
     height: 60px;
     cursor: pointer;
     border-radius: 100%;
+    border: 1px solid red;
+}
+
+.contain-nav-customer {
+    border: 1px solid red;
 }
 
 .pane-group {
@@ -520,91 +511,4 @@
     margin: 15px 0;
     font-size: 18px;
     cursor: pointer;
-}
-
-#bank-customer {
-    display: none;
-}
-
-#map-customer {
-    display: none;
-}
-
-#password-customer {
-    display: none;
-}
-
-#cart-customer {
-    display: none;
-}
-
-#history-customer {
-    display: none;
-}
-
-
-/* available-address */
-
-.option-address {
-    display: flex;
-    justify-content: space-between;
-}
-
-.available-address {
-    display: grid;
-    grid-template-columns: 100px auto;
-    font-size: 17px;
-    grid-row-gap: 5px;
-}
-
-.contain-form-adjust-address {
-    display: none;
-}
-
-.adjust-address-customer {
-    cursor: pointer;
-    color: blue;
-}
-
-.contain-adjust-address {
-    display: grid;
-    grid-template-columns: 140px auto;
-    grid-row-gap: 20px;
-}
-
-.contain-default-address-customer {
-    display: flex;
-}
-
-.contain-form-adjust-address {
-    font-size: 17px;
-}
-
-#submit-adjust-address-customer {
-    padding: 5px;
-    background: #4a4aa0;
-    color: white;
-    width: 100px;
-}
-
-#delete-adjust-address-customer {
-    padding: 5px;
-    background: #d15757;
-    color: white;
-    width: 100px;
-}
-
-.contain-add-map {
-    background-color: #aeae15;
-    color: white;
-}
-
-.option-address {
-    font-size: 17px;
-    margin-top: 20px;
-}
-
-.option-address span {
-    color: #a12d2d;
-    text-decoration: underline;
 }
