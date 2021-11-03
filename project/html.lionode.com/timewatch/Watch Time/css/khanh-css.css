@@ -512,3 +512,43 @@
     font-size: 18px;
     cursor: pointer;
 }
+
+/* Dat lam */
+.star {
+    content: "\1F7CA";
+    color: yellow;
+    
+    
+}
+.star-size {
+    font-size: 30px;
+}
+.tritagnle  {
+    background-color: transparent;
+    height: 0px;
+    width: 0px;
+    /* margin-left: 3px; */
+    border-top: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black ;
+    
+}
+.boxed-conten {
+    border: 1px solid black;
+    height: 30px;
+    width: 70px;
+    color: black;
+    
+}
+.conten_center{
+    margin-top: 3px;
+    margin-left: 20px;
+}
+.title-code{
+    width: 100%;
+}
+.box_code{
+    width: 20%;
+    float: left;
+}
