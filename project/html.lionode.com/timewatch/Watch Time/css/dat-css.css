@@ -1,66 +1,121 @@
-#content form .table-responsive .table thead tr td{
+#content form .table-responsive .table thead tr td {
     background-color: black;
-    color: rgb(248,248,255);
+    color: rgb(248, 248, 255);
     position: relative;
     height: 60px;
 }
-#content form .table-responsive .table thead tr .text-right{
-    text-align: center ;
-    position: relative;
 
+#content form .table-responsive .table thead tr .text-right {
+    text-align: center;
+    position: relative;
 }
-#content form .table-responsive .table tbody{
+
+#content form .table-responsive .table tbody {
     background-color: white;
     position: relative;
     height: 100px;
 }
+
 .btn-danger:hover {
     color: red;
 }
 
-.img-thumbnail{
+.img-thumbnail {
     width: 80px;
 }
-#Thanhtoan{
+
+#Thanhtoan {
     background-color: red;
-    
 }
-#Thanhtoan:hover{
-    background-color:black;
-    
+
+#Thanhtoan:hover {
+    background-color: black;
 }
-.panel{
+
+.panel {
     background-color: seagreen;
     color: black;
 }
-.col-sm-9 #checkAllProduct{
+
+.col-sm-9 #checkAllProduct {
     width: 70%;
     float: left;
 }
-.col-sm-9 #Trash{
+
+.col-sm-9 #Trash {
     width: 30%;
     float: right;
     box-sizing: border-box;
     border: black solid 1;
 }
-.col-sm-9 #Trash .del{
+
+.col-sm-9 #Trash .del {
     margin-left: 230px;
 }
-.col-sm-9 #checkAllProduct .chec{
+
+.col-sm-9 #checkAllProduct .chec {
     margin-left: 13px;
 }
-.row .col-sm-4{
+
+.row .col-sm-4 {
     margin-left: 640px;
     overflow: auto;
 }
-.row .col-sm-4 .table{
+
+.row .col-sm-4 .table {
     margin: auto;
 }
-#totalPrice{
+
+#totalPrice {
     color: coral;
 }
 
+
 /* phan about */
 
+.star {
+    content: "\1F7CA";
+    color: yellow;
+}
 
+.star-size {
+    font-size: 30px;
+}
 
+.tritagnle {
+    background-color: transparent;
+    height: 0px;
+    width: 0px;
+    /* margin-left: 3px; */
+    border-top: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black;
+}
+
+.boxed-conten {
+    border: 1px solid black;
+    height: 30px;
+    width: 70px;
+    color: black;
+}
+
+.conten_center {
+    margin-top: 3px;
+    margin-left: 20px;
+}
+
+.title-code {
+    width: 100%;
+}
+
+.box_code {
+    width: 20%;
+    float: left;
+}
+
+.through {
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
