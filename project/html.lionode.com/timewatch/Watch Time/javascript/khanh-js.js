@@ -169,7 +169,7 @@ function Product(brand, nameProduct, linkSrc, price, saleRate, oldPrice) {
 
 function displayCategory(position = 0) {
     $(".grid-list-wrapper").text(""); // reset after choose pagination
-    let arrProduct = NaturalGrass;
+    let arrProduct = FirmGroundFootballMan;
     for (let i = position * 9; i < (position * 9) + 9; i++) {
         if (i == arrProduct.length - 1)
             break;
@@ -212,7 +212,7 @@ function displayCategory(position = 0) {
 }
 
 function displayPagination() {
-    let num = Math.ceil(NaturalGrass.length / 9);
+    let num = Math.ceil(FirmGroundFootballMan.length / 9);
     let contain = "";
     for (let i = 1; i <= num; i++) {
         contain += `<li><a id="page-${i}">${i}</a></li>`;

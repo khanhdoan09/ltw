@@ -21,4 +21,16 @@ http://html.lionode.com/timewatch/Watch%20Time/index.html
   + thông tin khách hàng
   + lịch sử mua
   + điểm thưởng, điểm vip
+  
+update 
+1 Để thanh menu sát lên - khanh 
+2 Đổi fronanwser ở góc cuối + sản phẩm vừa xem- dat
+3 Bỏ page + xóa desktop + làm chính sách - hung
+4 Tên nhãn hàng + logo - hung
+5 Thanh toán + đăng kí - dat
+6 Đồng hồ thành giày + xóa nhà phát triển  - khanh
+7 Ngân hàng - dat
+8 Hồ sơ - hung
+9 Lịch sử mua hàng - khanh 
+10 Đổi mật khẩu - dat
  
