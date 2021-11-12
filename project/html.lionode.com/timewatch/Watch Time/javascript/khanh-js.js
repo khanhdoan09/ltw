@@ -1,3 +1,4 @@
+
 // search at top
 
 function searchPopular() {
@@ -110,63 +111,6 @@ function Product(brand, nameProduct, linkSrc, price, saleRate, oldPrice) {
     this.oldPrice = oldPrice;
 }
 
-// let arrProduct = [
-//     new Product("under armour",
-//         "tri base reign 2 trainers mens",
-//         "image/product/product-01.jpg",
-//         "87.99$",
-//         "-10%",
-//         "99.99$"),
-//     new Product("under armour",
-//         "tri base reign 3 NM",
-//         "image/product/product-02.jpg",
-//         "80.00$",
-//         "-8%",
-//         "90.59$"),
-//     new Product("nike",
-//         "Metcon 7 Ladies Training Shoes",
-//         "image/product/product-03.webp",
-//         "114.00$",
-//         "-12%",
-//         "120.99$"),
-//     new Product("nike",
-//         "Metcon 6 Mens Training Shoes",
-//         "image/product/product-04.webp",
-//         "86.00$",
-//         "-20%",
-//         "100.99$"),
-//     new Product("nike",
-//         "Metcon Flyknit Mens Training Shoes",
-//         "image/product/product-05.jpg",
-//         "95.00$",
-//         "-22%",
-//         "110.00$"),
-//     new Product("adidas",
-//         "Adios 6 Trainer",
-//         "image/product/product-06.jpg",
-//         "87.00$",
-//         "-25%",
-//         "100.00$"),
-//     new Product("adidas",
-//         "SL20.2 Running Shoes Mens",
-//         "image/product/product-07.webp",
-//         "79.99$",
-//         "-19%",
-//         "99.99$"),
-//     new Product("puma",
-//         "SL20.2 Running Shoes Mens",
-//         "image/product/product-08.jpg",
-//         "40.99$",
-//         "-9%",
-//         "50.99$"),
-//     new Product("nike",
-//         "Metcon Flyknit Mens Training Shoes",
-//         "image/product/product-09.webp",
-//         "92.99$",
-//         "-3%",
-//         "95.99$")
-// ];
-
 function displayCategory(position = 0) {
     $(".grid-list-wrapper").text(""); // reset after choose pagination
     let arrProduct = FirmGroundFootballMan;
@@ -249,7 +193,6 @@ function displaySizeInRefineSearch() {
 
 $(window).ready(displaySizeInRefineSearch);
 
-
 // access information of page costumer
 function accessInfoCustomer() {
     $("#nav-info-customer").click(() => {
@@ -311,21 +254,22 @@ function resetAllSectionCustomer() {
     $("#cart-customer").css("display", "none");
     $("#history-customer").css("display", "none");
 }
+$(window).ready(resetAllSectionCustomer);
 
 $(window).ready(accessInfoCustomer);
 
 // load location customer
 function loadLocation() {
     loadCity();
-    loadDistrict(89, );
+    loadDistrict(89,);
     loadWard(883);
 }
 
 function chooseLocation() {
     loadLocation();
-    $('#contain-option-city').on('change', function() {
+    $('#contain-option-city').on('change', function () {
         let cityCode = $(this).val();
-        loadDistrict(cityCode, );
+        loadDistrict(cityCode,);
         let codeFirstDistrict = "";
         for (let i = 0; i < districts.length; i++) {
             if (districts[i].parent_code == cityCode) {
@@ -336,7 +280,7 @@ function chooseLocation() {
         loadWard(codeFirstDistrict);
     });
 
-    $('#contain-option-district').on('change', function(e) {
+    $('#contain-option-district').on('change', function (e) {
         let districtCode = $(this).val();
         loadWard(districtCode);
     });
@@ -374,3 +318,23 @@ function loadWard(wardCode) {
 $(window).ready(chooseLocation);
 $(window).ready(chooseLocation);
 $(window).ready(chooseLocation);
+
+// display featured product
+
+function displayFeaturedProduct() {
+    let arr = HiTopsShoeMan;
+    for (let  i = 0; i  < 7; i++) {
+        let content = `
+        <img src=\"${arr[i].img1}\" alt=\"lorem ippsum dolor dummy\" title=\"lorem ippsum dolor dummy\" class=\"img-responsive\" /> 
+        `
+   $(`#feature-product-img-${i}`).append(content);
+   $(`#feature-product-title-${i}`).text(`${arr[i].name}`);
+   $(`#feature-product-newPrice-${i}`).text(`${arr[i].price}$`);
+   let oldPrice = parseInt(`${arr[i].price}`) +20;
+   $(`#feature-product-oldPrice-${i}`).text(oldPrice+".00$");
+}
+
+
+}
+
+$(window).ready(displayFeaturedProduct);

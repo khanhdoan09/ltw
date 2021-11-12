@@ -26,6 +26,12 @@
     <link rel="stylesheet" href="css/khanh-css.css">
     <link rel="stylesheet" href="./css/hung-css.css">
     <script src="javascript/khanh-js.js" type="text/javascript"></script>
+    <script src="data/location/city.js" type="text/javascript"></script>
+    <script src="data/location/district.js" type="text/javascript"></script>
+    <script src="data/location/ward.js" type="text/javascript"></script>
+    <script type="text/javascript" src="data/product/Shoe/HiTops/HiTopsShoeMan.js"></script>
+    <script type="text/javascript" src="data/product/Shoe/Football/FirmGroundFootballMan.js"></script>
+
     <!-- <script src="./javascript/hung-js.js" type="text/javascript"></script> -->
 </head>
 
@@ -44,8 +50,12 @@
                                     <li class="dropdown">
                                         <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><p class="js-login" href="">Đăng nhập</p></li>
-                                            <li><p class="js_register" href="">Đăng ký</p></li>
+                                            <li>
+                                                <p class="js-login" href="">Đăng nhập</p>
+                                            </li>
+                                            <li>
+                                                <p class="js_register" href="">Đăng ký</p>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -351,10 +361,10 @@
                     <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner1.jpg"></a>
                 </div>
                 <div class="col-md-4 cms-banner-middle">
-                    <a href="#"> <img alt="#" style="width: 100%;"  src="image/banners/subbanner2.jpg"></a>
+                    <a href="#"> <img alt="#" style="width: 100%;" src="image/banners/subbanner2.jpg"></a>
                 </div>
                 <div class="col-md-4 cms-banner-right">
-                    <a href="#"><img alt="#" style="width: 100%;"  src="image/banners/subbanner3.jpg"></a>
+                    <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner3.jpg"></a>
                 </div>
             </div>
         </div>
@@ -752,67 +762,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="parallax">
-                    <ul id="testimonial" class="row owl-carousel product-slider">
-                        <li class="item">
-                            <div class="panel-default">
-                                <div class="testimonial-image"><img src="image/t1.jpg" alt="#"></div>
-                                <div class="testimonial-name">
-                                    <h2>Janet Wilson</h2>
-                                </div>
-                                <div class="testimonial-designation">
-                                    <p>Web Designer</p>
-                                </div>
-                                <div class="testimonial-desc">Rem ipsum doLoremRem ipsum doLorem ipsum ut labore et dolore ma ipsum ut labore et <br> dolore Rem ipsum doLorem ipsum ut labore et dolore mamagna.Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing.</div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="panel-default">
-                                <div class="testimonial-image"><img src="image/t2.jpg" alt="#"></div>
-                                <div class="testimonial-name">
-                                    <h2>Linda Howard</h2>
-                                </div>
-                                <div class="testimonial-designation">
-                                    <p>Web Deweloper</p>
-                                </div>
-                                <div class="testimonial-desc">Rem ipsum doLoremRem ipsum doLorem ipsum ut labore et dolore ma ipsum ut labore et <br> dolore Rem ipsum doLorem ipsum ut labore et dolore mamagna.Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing.</div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="panel-default">
-                                <div class="testimonial-image"><img src="image/t3.jpg" alt="#"></div>
-                                <div class="testimonial-name">
-                                    <h2>Janet Wilson</h2>
-                                </div>
-                                <div class="testimonial-designation">
-                                    <p>Web Designer</p>
-                                </div>
-                                <div class="testimonial-desc">Rem ipsum doLoremRem ipsum doLorem ipsum ut labore et dolore ma ipsum ut labore et <br> dolore Rem ipsum doLorem ipsum ut labore et dolore mamagna.Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing.</div>
 
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="panel-default">
-                                <div class="testimonial-image"><img src="image/t4.jpg" alt="#"></div>
-                                <div class="testimonial-name">
-                                    <h2>Linda Howard</h2>
-                                </div>
-                                <div class="testimonial-designation">
-                                    <p>Web Deweloper</p>
-                                </div>
-                                <div class="testimonial-desc">Rem ipsum doLoremRem ipsum doLorem ipsum ut labore et dolore ma ipsum ut labore et <br> dolore Rem ipsum doLorem ipsum ut labore et dolore mamagna.Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing.</div>
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
                 <h3 class="productblock-title">Featured Products</h3>
                 <div class="box">
                     <div id="feature-slider" class="row owl-carousel product-slider">
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="product.html"> <img src="image/product/product4.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <a href="product.html" id="feature-product-img-1">  </a>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -820,8 +777,8 @@
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">lorem ippsum dolor dummy</a></h4>
-                                    <p class="price product-price"> <span class="price-new">$254.00</span> <span class="price-old">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy" id="feature-product-title-1">lorem ippsum dolor dummy</a></h4>
+                                    <p class="price product-price"> <span class="price-new" id="feature-product-newPrice-1">$254.00</span> <span class="price-old" id="feature-product-oldPrice-1">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -833,7 +790,7 @@
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="product.html"> <img src="image/product/product5.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <a href="product.html" id="feature-product-img-2">  </a>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -841,8 +798,8 @@
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">lorem ippsum dolor dummy</a></h4>
-                                    <p class="price product-price"> <span class="price-new">$254.00</span> <span class="price-old">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy" id="feature-product-title-2">lorem ippsum dolor dummy</a></h4>
+                                    <p class="price product-price"> <span class="price-new" id="feature-product-newPrice-2">$254.00</span> <span class="price-old" id="feature-product-oldPrice-2">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -854,7 +811,7 @@
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="product.html"> <img src="image/product/product6.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <a href="product.html" id="feature-product-img-3">  </a>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -862,8 +819,8 @@
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">lorem ippsum dolor dummy</a></h4>
-                                    <p class="price product-price"> <span class="price-new">$254.00</span> <span class="price-old">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy" id="feature-product-title-3">lorem ippsum dolor dummy</a></h4>
+                                    <p class="price product-price"> <span class="price-new" id="feature-product-newPrice-3">$254.00</span> <span class="price-old" id="feature-product-oldPrice-3">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -875,7 +832,7 @@
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/product/product7.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <a href="product.html" id="feature-product-img-4">  </a>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -883,8 +840,8 @@
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">lorem ippsum dolor dummy</a></h4>
-                                    <p class="price product-price"> <span class="price-new">$254.00</span> <span class="price-old">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy" id="feature-product-title-4">lorem ippsum dolor dummy</a></h4>
+                                    <p class="price product-price"> <span class="price-new" id="feature-product-newPrice-4">$254.00</span> <span class="price-old" id="feature-product-oldPrice-4">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -896,7 +853,7 @@
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/product/product8.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <a href="product.html" id="feature-product-img-5">  </a>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -904,8 +861,8 @@
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">lorem ippsum dolor dummy</a></h4>
-                                    <p class="price product-price"> <span class="price-new">$254.00</span> <span class="price-old">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy" id="feature-product-title-5">lorem ippsum dolor dummy</a></h4>
+                                    <p class="price product-price"> <span class="price-new" id="feature-product-newPrice-5">$254.00</span> <span class="price-old" id="feature-product-oldPrice-5">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -917,7 +874,7 @@
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="#"> <img src="image/product/product1.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <a href="product.html" id="feature-product-img-6">  </a>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -925,8 +882,8 @@
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">lorem ippsum dolor dummy</a></h4>
-                                    <p class="price product-price"> <span class="price-new">$254.00</span> <span class="price-old">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy" id="feature-product-title-6">lorem ippsum dolor dummy</a></h4>
+                                    <p class="price product-price"> <span class="price-new" id="feature-product-newPrice-6">$254.00</span> <span class="price-old" id="feature-product-oldPrice-6">$272.00</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -951,7 +908,8 @@
                                         <a href="#" class="blog-name">
                                             <h2>Những Sản Phẩm Hot Và Ưa Chuộng Của NIKE</h2>
                                         </a>
-                                        <div class="blog-desc">Tại Việt Nam, mọi người rất là ưa chuộng các mẫu giày thể thao, vì tính tiện dụng cũng như độ thoải mái rất tốt cho việc sử dụng hằng ngày, trong đó ưu ái nhất là dòng giày chạy bộ. Hôm nay, Vsneaker xin giới thiệu các bạn những mẫu giày chạy bộ Nike này....</div>
+                                        <div class="blog-desc">Tại Việt Nam, mọi người rất là ưa chuộng các mẫu giày thể thao, vì tính tiện dụng cũng như độ thoải mái rất tốt cho việc sử dụng hằng ngày, trong đó ưu ái nhất là dòng giày chạy bộ. Hôm nay, Vsneaker xin giới thiệu
+                                            các bạn những mẫu giày chạy bộ Nike này....</div>
                                         <a href="#" class="blog-readmore">Read More</a> <span class="blog-date">11/02/2021</span> </div>
                                 </div>
                             </li>
@@ -994,7 +952,7 @@
                             <li class="item blog-slider-item">
                                 <div class="panel-default">
                                     <div class="blog-image">
-                                        <a href="#" class="blog-imagelink"><img src="image/blog/blog_5.jpg" alt="#"></a> <span class="blog-hover"></span> <span class="blog-date">06/07/2020</span> <span class="blog-readmore-outer"><a href="#" class="blog-readmore">Read More</a></span> </div>
+                                        <!-- <a href="#" class="blog-imagelink"><img src="image/blog/blog_5.jpg" alt="#"></a> <span class="blog-hover"></span> <span class="blog-date">06/07/2020</span> <span class="blog-readmore-outer"><a href="#" class="blog-readmore">Read More</a></span> </div> -->
                                     <div class="blog-content">
                                         <a href="#" class="blog-name">
                                             <h2>Fast and easy Wine delivery</h2>
@@ -1163,8 +1121,8 @@
                 </div>
 
                 <div class="modal-input-section">
-                    <input type="email"  placeholder="Địa chỉ email..." class="email">
-                    <input type="password"  placeholder="Nhập mật khẩu..." class="email password">
+                    <input type="email" placeholder="Địa chỉ email..." class="email">
+                    <input type="password" placeholder="Nhập mật khẩu..." class="email password">
                     <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
                 </div>
 
@@ -1173,20 +1131,15 @@
                 </div>
 
                 <div class="modal-title">
-                    <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu
-                        dịch vụ khách hàng, xem các đăng ký các sản phẩm của bạn,
-                        thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật
-                        nhanh chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo
-                        địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời
-                        điểm đặt hàng, điều này sẽ cho phép bạn truy cập tất cả
-                        các dịch vụ bạn cần. </p>
+                    <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
+                        email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần. </p>
                 </div>
 
 
             </div>
         </div>
     </div>
-          <!--Begin: modal register--->
+    <!--Begin: modal register--->
     <div class="modal-register js-modal-register">
         <div class="modal-container-register js-modal-container-register">
 
@@ -1215,11 +1168,12 @@
                 </div>
 
                 <div class="modal-input-section">
-                    <input type="email"  placeholder="Địa chỉ email..." class="email">
-                    <input type="password"  placeholder="Nhập mật khẩu..." class="email password">
-                    <input type="password"  placeholder="Xác nhận mật khẩu..." class="email password">
-                    <input type="checkbox" name="" class="modal-checkbox"> <p class="checkbox">
-                    Vui lòng gửi email cho tôi với các ưu đãi mới nhất</p>
+                    <input type="email" placeholder="Địa chỉ email..." class="email">
+                    <input type="password" placeholder="Nhập mật khẩu..." class="email password">
+                    <input type="password" placeholder="Xác nhận mật khẩu..." class="email password">
+                    <input type="checkbox" name="" class="modal-checkbox">
+                    <p class="checkbox">
+                        Vui lòng gửi email cho tôi với các ưu đãi mới nhất</p>
                 </div>
 
                 <div class="modal-bnt-register">
@@ -1227,26 +1181,24 @@
                 </div>
 
                 <div class="modal-title">
-                    <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã
-                        cung cấp tại thời điểm đăng ký, điều này sẽ cho phép
-                        bạn truy cập tất cả các dịch vụ bạn cần.</p>
+                    <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
                 </div>
             </div>
         </div>
-    <!-- End: modal register -->
+        <!-- End: modal register -->
     </div>
     <!-- End: login register -->
 
     <!-- </div> -->
     <!-- End: modal login -->
 
-  
+
     <script>
-        const modal=document.querySelector('.js-modal');
-        const modalLogin=document.querySelector('.js-login');
-        const modalClose=document.querySelector('.js-modal-close');
-        const modalContainer=document.querySelector('.js-modal-container');
-        const modalLoginBtn=document.querySelector('.js-login-modal');
+        const modal = document.querySelector('.js-modal');
+        const modalLogin = document.querySelector('.js-login');
+        const modalClose = document.querySelector('.js-modal-close');
+        const modalContainer = document.querySelector('.js-modal-container');
+        const modalLoginBtn = document.querySelector('.js-login-modal');
 
         // hàm hiển thị phần đăng nhập
         function showBuyLogin() {
@@ -1256,21 +1208,21 @@
         function hideBuyLogin() {
             modal.classList.remove('open')
         }
-        modalLogin.addEventListener('click' , showBuyLogin)
+        modalLogin.addEventListener('click', showBuyLogin)
 
         modalClose.addEventListener('click', hideBuyLogin)
-        //
+            //
         modal.addEventListener('click', hideBuyLogin)
-        //
+            //
         modalContainer.addEventListener('click', function(even) {
             even.stopPropagation()
         })
 
-        const register = document.querySelector( '.js_register')
-        const modalRegister=document.querySelector('.js-modal-register');
-        const modalCloseRegister=document.querySelector('.js-modal-close-register');
-        const modalContainerRegister=document.querySelector('.js-modal-container-register');
-        const modalRegisterBtn=document.querySelector('.js-register-modal')
+        const register = document.querySelector('.js_register')
+        const modalRegister = document.querySelector('.js-modal-register');
+        const modalCloseRegister = document.querySelector('.js-modal-close-register');
+        const modalContainerRegister = document.querySelector('.js-modal-container-register');
+        const modalRegisterBtn = document.querySelector('.js-register-modal')
 
         // hiện thị phần đăng ký
         function showModalRegister() {
@@ -1283,20 +1235,19 @@
         }
 
         register.addEventListener('click', showModalRegister)
-        // modalRegisterBtn.addEventListener('click', showModalRegister)
+            // modalRegisterBtn.addEventListener('click', showModalRegister)
         modalCloseRegister.addEventListener('click', hideModalRegister)
         modalRegister.addEventListener('click', hideModalRegister)
-        
+
         modalRegisterBtn.addEventListener('click', showModalRegister)
         modalRegisterBtn.addEventListener('click', hideBuyLogin)
         modalLoginBtn.addEventListener('click', showBuyLogin)
-        modalLoginBtn.addEventListener('click' ,hideModalRegister)
+        modalLoginBtn.addEventListener('click', hideModalRegister)
 
 
         modalContainerRegister.addEventListener('click', function(even) {
             even.stopPropagation()
         })
-
     </script>
 
 </body>
