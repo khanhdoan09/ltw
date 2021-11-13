@@ -52,3 +52,4 @@ modalLoginBtn.addEventListener('click' ,hideModalRegister)
 modalContainerRegister.addEventListener('click', function(even) {
     even.stopPropagation()
 })
+

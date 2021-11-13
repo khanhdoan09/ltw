@@ -1,108 +1,108 @@
 #content form .table-responsive .table thead tr td {
-    background-color: black;
-    color: rgb(248, 248, 255);
-    position: relative;
-    height: 60px;
+background-color: black;
+color: rgb(248, 248, 255);
+position: relative;
+height: 60px;
 }
 
 #content form .table-responsive .table thead tr .text-right {
-    text-align: center;
-    position: relative;
+text-align: center;
+position: relative;
 }
 
 #content form .table-responsive .table tbody {
-    background-color: white;
-    position: relative;
-    height: 100px;
+background-color: white;
+position: relative;
+height: 100px;
 }
 
 .btn-danger:hover {
-    color: red;
+color: red;
 }
 
 .img-thumbnail {
-    width: 80px;
+width: 80px;
 }
 
 #Thanhtoan {
-    background-color: red;
+background-color: red;
 }
 
 #Thanhtoan:hover {
-    background-color: black;
+background-color: black;
 }
 
 .panel {
-    background-color: seagreen;
-    color: black;
+background-color: seagreen;
+color: black;
 }
 
 .col-sm-9 #checkAllProduct {
-    width: 70%;
-    float: left;
+width: 70%;
+float: left;
 }
 
 .col-sm-9 #Trash {
-    width: 30%;
-    float: right;
-    box-sizing: border-box;
-    border: black solid 1;
+width: 30%;
+float: right;
+box-sizing: border-box;
+border: black solid 1;
 }
 
 .col-sm-9 #Trash .del {
-    margin-left: 230px;
+margin-left: 230px;
 }
 
 .col-sm-9 #checkAllProduct .chec {
-    margin-left: 13px;
+margin-left: 13px;
 }
 
 .row .col-sm-4 {
-    margin-left: 640px;
-    overflow: auto;
+margin-left: 640px;
+overflow: auto;
 }
 
 .row .col-sm-4 .table {
-    margin: auto;
+margin: auto;
 }
 
 #totalPrice {
-    color: coral;
+color: coral;
 }
 
 
 /* phan about */
 
 .star {
-    content: "\1F7CA";
-    color: yellow;
+content: "\1F7CA";
+color: yellow;
 }
 
 .star-size {
-    font-size: 30px;
+font-size: 30px;
 }
 
 .tritagnle {
-    background-color: transparent;
-    height: 0px;
-    width: 0px;
-    /* margin-left: 3px; */
-    border-top: 5px solid transparent;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid black;
+background-color: transparent;
+height: 0px;
+width: 0px;
+/* margin-left: 3px; */
+border-top: 5px solid transparent;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-bottom: 5px solid black;
 }
 
 .boxed-conten {
-    border: 1px solid black;
-    height: 30px;
-    width: 70px;
-    color: black;
+border: 1px solid black;
+height: 30px;
+width: 70px;
+color: black;
 }
 
 .conten_center {
-    margin-top: 3px;
-    margin-left: 20px;
+margin-top: 3px;
+margin-left: 20px;
 }
 
 .title-code {
@@ -110,12 +110,17 @@
 }
 
 .box_code {
-    width: 20%;
-    float: left;
+width: 20%;
+float: left;
 }
 
 .through {
-    width: 100%;
-    float: left;
-    margin-top: 10px;
+width: 100%;
+float: left;
+margin-top: 10px;
+}
+.size-shoes .num-size{
+position: relative;
+left: 108px;
+top: -25px;
 }
