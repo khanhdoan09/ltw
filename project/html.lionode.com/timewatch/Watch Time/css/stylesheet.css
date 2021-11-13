@@ -3279,14 +3279,6 @@ i.circle {
     line-height: 24px;
 }
 
-    {
-    line-height: 24px;
-}
-
-    {
-    line-height: 24px;
-}
-
 .work li {
     list-style: outside none none;
     margin-bottom: 47px;
@@ -3403,7 +3395,7 @@ i.circle {
 
 .team .img-responsive {
     border: 1px solid #dadada;
-    width: 100%;
+    width: 100px;
 }
 
 #progress1>h5,
@@ -3456,4 +3448,9 @@ div.dioprogress_size_l {
 /* must update */
 .navbar-header-menu {
     margin-top: 60px;
+}
+#logo .img-responsive{
+    width: 210px;
+        margin-top: -35px;
+        margin-bottom: -20px;
 }

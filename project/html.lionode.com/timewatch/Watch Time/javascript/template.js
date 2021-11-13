@@ -137,6 +137,71 @@ $(document).ready(function() {
 // $(window).resize(function() {
 //     menuResponsive();
 // });
+function menuResponsive() {
+
+    if ($(window).width() < 980) {
+
+        //alert($(window).width());
+
+        $('.nav-responsive').css('display', 'block');
+
+        if ($('.main-navigation').hasClass('treeview') != true) {
+
+            $("#menu").addClass('responsive-menu');
+
+            $("#menu").removeClass('main-menu');
+
+            $("#menu .main-navigation").treeview({
+
+                animated: "slow",
+
+                collapsed: true,
+
+                unique: true
+
+            });
+
+            $('.main-navigation li').parent().removeClass('expandable');
+
+            $('.main-navigation li').parent().addClass('collapsable');
+
+            $('.main-navigation .main-navigation .collapsable li').css('display', 'block');
+
+        }
+
+
+
+    } else {
+
+        $("#menu .hitarea").remove();
+
+        $("#menu").removeClass('responsive-menu');
+
+        $("#menu").addClass('main-menu');
+
+        $(".main-navigation").removeClass('treeview');
+
+        $("#menu ul").removeAttr('style');
+
+        $('#menu li').removeClass('expandable');
+
+        $('#menu li').removeClass('collapsable');
+
+        $('.nav-responsive').css('display', 'none');
+
+    }
+
+
+
+}
+
+$(document).ready(function() {
+    menuResponsive();
+});
+
+$(window).resize(function() {
+    menuResponsive();
+});
 
 
 

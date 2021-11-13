@@ -76,14 +76,6 @@ let HiTopsShoeMan = [
 "img30": "./data/product/Shoe/HiTops/HiTopsShoeMan/2/img/file9.jpg"
 },
 {
-"id": "193634",
-"brand": "Vans",
-"name": "Vans Sk8-Hi",
-"description": "The hi-top classic that started a legacy that&#039;s endured for decades, no other shoe stomps the streets and takes to the tape as hard as the Vans Sk8 Hi. The first skate shoe that utilised athletic-style support, its pioneering build brought a new level of athleticism to street-wise skating. This men&#039;s model takes an if-it-ain&#039;t-broke approach, retaining the same iconic look and construction of the original, using the same classic canvas and suede combination for hard-wearing comfort. Vulcanised rubber soles keep your feet comfortable both on and off the board, while the iconic Formstripe to the sides puts the finishing touch on these all-time legends.",
-"price": "65.00",
-"sku": "193634",
-},
-{
 "id": "087048",
 "brand": "Vans",
 "name": "Vans Sk8-Hi",
