@@ -32,7 +32,6 @@
     <script type="text/javascript" src="data/product/Shoe/HiTops/HiTopsShoeMan.js"></script>
     <script type="text/javascript" src="data/product/Shoe/Football/FirmGroundFootballMan.js"></script>
 
-    <!-- <script src="./javascript/hung-js.js" type="text/javascript"></script> -->
 </head>
 
 <body>
@@ -50,8 +49,8 @@
                                     <li class="dropdown">
                                         <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="register.html">Đăng ký</a></li>
-                                            <li><a href="login.html">Đăng nhập</a></li>
+                                            <li><a href="#" class="js-login">Đăng ký</a></li>
+                                            <li><a href="#" class="js_register">Đăng nhập</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -152,17 +151,6 @@
                             <li><a href="category.html" class="parent category-item" id="category-football">Football shoe <i class="fas fa-caret-down"></i></a></li>
                             <li><a href="category.html" class="parent category-item" id="category-sport">Sport shoe <i class="fas fa-caret-down"></i></a></li>
                             <li><a href="category.html" class="parent category-item" id="category-brand">Brands <i class="fas fa-caret-down"></i></a></li>
-                            <li><a href="#" class="active parent">Page</a>
-                                <ul>
-                                    <li><a href="category.html">Category Page</a></li>
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li><a href="checkout.html">Checkout Page</a></li>
-                                    <li><a href="blog.html">Blog Page</a></li>
-                                    <li><a href="singale-blog.html">Singale Blog Page</a></li>
-                                    <li><a href="register.html">Register Page</a></li>
-                                    <li><a href="contact.html">Contact Page</a></li>
-                                </ul>
-                            </li>
                             <li><a href="blog.html" class="parent">Blog</a></li>
                             <li><a href="about-us.html">About us</a></li>
                         </ul>
@@ -1000,7 +988,7 @@
     </script>
 
     <!--Begin: login-registe-->
-    <div class="modal js-modal">
+    <div class="login-modal js-modal">
         <!-- Begin: modal login -->
         <div class="modal-container js-modal-container">
 
@@ -1047,6 +1035,7 @@
 
             </div>
         </div>
+        <!-- End: modal login -->
     </div>
     <!--Begin: modal register--->
     <div class="modal-register js-modal-register">
@@ -1097,67 +1086,7 @@
         <!-- End: modal register -->
     </div>
     <!-- End: login register -->
-
-    <!-- </div> -->
-    <!-- End: modal login -->
-
-
-    <script>
-        const modal = document.querySelector('.js-modal');
-        const modalLogin = document.querySelector('.js-login');
-        const modalClose = document.querySelector('.js-modal-close');
-        const modalContainer = document.querySelector('.js-modal-container');
-        const modalLoginBtn = document.querySelector('.js-login-modal');
-
-        // hàm hiển thị phần đăng nhập
-        function showBuyLogin() {
-            modal.classList.add('open')
-        }
-        // hàm ẩn modal đăng nhập
-        function hideBuyLogin() {
-            modal.classList.remove('open')
-        }
-        modalLogin.addEventListener('click', showBuyLogin)
-
-        modalClose.addEventListener('click', hideBuyLogin)
-            //
-        modal.addEventListener('click', hideBuyLogin)
-            //
-        modalContainer.addEventListener('click', function(even) {
-            even.stopPropagation()
-        })
-
-        const register = document.querySelector('.js_register')
-        const modalRegister = document.querySelector('.js-modal-register');
-        const modalCloseRegister = document.querySelector('.js-modal-close-register');
-        const modalContainerRegister = document.querySelector('.js-modal-container-register');
-        const modalRegisterBtn = document.querySelector('.js-register-modal')
-
-        // hiện thị phần đăng ký
-        function showModalRegister() {
-            modalRegister.classList.add('open')
-        }
-
-        // hàm ẩn modal đăng kí
-        function hideModalRegister() {
-            modalRegister.classList.remove('open')
-        }
-
-        register.addEventListener('click', showModalRegister)
-            // modalRegisterBtn.addEventListener('click', showModalRegister)
-        modalCloseRegister.addEventListener('click', hideModalRegister)
-        modalRegister.addEventListener('click', hideModalRegister)
-
-        modalRegisterBtn.addEventListener('click', showModalRegister)
-        modalRegisterBtn.addEventListener('click', hideBuyLogin)
-        modalLoginBtn.addEventListener('click', showBuyLogin)
-        modalLoginBtn.addEventListener('click', hideModalRegister)
-
-
-        modalContainerRegister.addEventListener('click', function(even) {
-            even.stopPropagation()
-        })
-    </script>
+    <script src="./javascript/hung-js.js"></script>
 
 </body>
 
