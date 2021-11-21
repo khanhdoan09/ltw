@@ -20,6 +20,75 @@ function toggleFilterSearch() {
 
 $(window).ready(toggleFilterSearch);
 
+
+// menu-navigation
+function menuNavigation() {
+    let content = "<div class=\"nav-inner\">\r\n"
+    + "                    <div class=\"navbar-header-menu\"><span id=\"category\" class=\"visible-xs\">Categories</span>\r\n"
+    + "                        <button type=\"button\" class=\"btn btn-navbar navbar-toggle\"><i class=\"fa fa-bars\"></i></button>\r\n"
+    + "                    </div>\r\n"
+    + "                    <div class=\"navbar-collapse\">\r\n"
+    + "                        <ul class=\"main-navigation\">\r\n"
+    + "                            <li><a href=\"index.html\" class=\"parent\">Home</a> </li>\r\n"
+    + "                            <li><a href=\"category.html\" class=\"parent category-item\" id=\"category-man\"> Man <i class=\"fas fa-caret-down\"></i></a></li>\r\n"
+    + "                            <li><a href=\"category.html\" class=\"parent category-item\" id=\"category-woman\">Woman <i class=\"fas fa-caret-down\"></i></a></li>\r\n"
+    + "                            <li><a href=\"category.html\" class=\"parent category-item\" id=\"category-brand\">Brands <i class=\"fas fa-caret-down\"></i></a></li>\r\n"
+    + "                            <li><a href=\"blog.html\" class=\"parent\">Blog</a></li>\r\n"
+    + "                            <li><a href=\"about-us.html\">About us</a></li>\r\n"
+    + "                        </ul>\r\n"
+    + "                        <div class=\"nav-detail-info\">\r\n"
+    + "                            <div class=\"item-nav-detail-info\" id=\"item-category-man\">\r\n"
+    + "                                <ul>\r\n"
+    + "                                    <li href=\"category.html\" id=\"hitops-man\" value=\"data/product/Shoe/HiTops/HiTopsMan.js\" class=\"category-product\">HiTops</li>\r\n"
+    + "                                    <li id=\"running-man\" value=\"data/product/Shoe/Running/RunningMan.js\" class=\"category-product\">Running</li>\r\n"
+    + "                                    <li id=\"slides-man\" value=\"data/product/Shoe/Slides/SlidesMan.js\" class=\"category-product\">Slides</li>\r\n"
+    + "                                    <li id=\"sneakers-man\" value=\"data/product/Shoe/Sneakers/SneakersWoman.js\" class=\"category-product\">Sneakers</li>\r\n"
+    + "                                    <li id=\"skateboard-man\" value=\"data/product/Shoe/SkateBoard/SkateBoardMan.js\" class=\"category-product\">SkateBoard</li>\r\n"
+    + "                                    <li id=\"football-man\" value=\"data/product/Shoe/Football/FootballMan.js\" class=\"category-product\">Football</li>\r\n"
+    + "\r\n"
+    + "                                    <!-- <li id=\"trainer-man\" value=\"data/product/Shoe/Trainers/TrainersMan.js\" class=\"category-product\">Trainers</li> -->\r\n"
+    + "                                </ul>\r\n"
+    + "                               \r\n"
+    + "                            </div>\r\n"
+    + "\r\n"
+    + "                            <div class=\"item-nav-detail-info\" id=\"item-category-woman\">\r\n"
+    + "                                <ul>\r\n"
+    + "                                    <li id=\"hitops-woman\" value=\"data/product/Shoe/HiTops/HiTopsWoman.js\" class=\"category-product\">HiTops</li>\r\n"
+    + "                                    <li id=\"slides-woman\" value=\"data/product/Shoe/Slides/SlidesWoman.js\" class=\"category-product\">Slides</li>\r\n"
+    + "                                    <li id=\"sneakers-woman\" value=\"data/product/Shoe/Sneakers/SneakersWoman.js\" class=\"category-product\">Sneakers</li>\r\n"
+    + "                                    <li id=\"skateboard-woman\" value=\"data/product/Shoe/SkateBoard/SkateBoardWoman.js\" class=\"category-product\">SkateBoard</li>\r\n"
+    + "                                    <li id=\"running-woman\" value=\"data/product/Shoe/Running/RunningWoman.js\" class=\"category-product\">Running</li>\r\n"
+    + "                                    <li id=\"football-woman\" value=\"data/product/Shoe/Football/FootballWoman.js\" class=\"category-product\">Football</li>\r\n"
+    + "\r\n"
+    + "\r\n"
+    + "                                </ul>\r\n"
+    + "                            </div>\r\n"
+    + "\r\n"
+    + "                            <div class=\"item-nav-detail-info\" id=\"item-category-brand\">\r\n"
+    + "                                <div class=\"contain-brand\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-01.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-02.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-03.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-04.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-05.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-06.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-07.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-08.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-09.svg\">\r\n"
+    + "                                    <img src=\"image/brand/logo-brand-10.svg\">\r\n"
+    + "                                </div>\r\n"
+    + "                            </div>\r\n"
+    + "\r\n"
+    + "\r\n"
+    + "\r\n"
+    + "                        </div>\r\n"
+    + "                    </div>\r\n"
+    + "                </div>";
+
+    $("#menu-navigation").append(content);
+}
+
+$(window).ready(menuNavigation);
 // dropdown
 // function dropdownLocate() {
 //     $(".open-dropdown-locate").click(() => {
@@ -56,29 +125,33 @@ $(window).ready(clickPrice);
 
 // navigation
 function changeCategoryNav() {
-    $("#category-football").mouseover(() => {
+    $("#category-man").mouseover(() => {
         setUpCategoryNav();
-        $("#item-category-football").css("display", "flex");
-        if ($(window).width() < 750)
+        $("#item-category-man").css("display", "flex");
+        if ($(window).width() < 750) {
             $(".nav-detail-info").css("top", "80px");
+            $(".nav-detail-info").css("left", "-120px");
+            $("#item-category-man").css("width", "30%");
+        }
     });
-    $("#category-sport").mouseover(() => {
+    $("#category-woman").mouseover(() => {
         setUpCategoryNav();
-        $("#item-category-sport").css("display", "flex");
-        if ($(window).width() < 750)
-            $(".nav-detail-info").css("top", "120px");
-    });
-    $("#category-running").mouseover(() => {
-        setUpCategoryNav();
-        $("#item-category-running").css("display", "flex");
-        if ($(window).width() < 750)
-            $(".nav-detail-info").css("top", "160px");
-    });
+        $("#item-category-woman").css("display", "flex");
+        if ($(window).width() < 750) {
+        $(".nav-detail-info").css("top", "120px");
+        $(".nav-detail-info").css("left", "-150px");
+        $("#item-category-woman").css("width", "30%");
+        }
+        });
+    
     $("#category-brand").mouseover(() => {
         setUpCategoryNav();
         $("#item-category-brand").css("display", "flex");
-        if ($(window).width() < 750)
-            $(".nav-detail-info").css("top", "200px");
+        if ($(window).width() < 750) {
+            $(".nav-detail-info").css("top", "120px");
+            $(".nav-detail-info").css("left", "0px");
+            $("#item-category-brand").css("width", "100%");
+            }
     });
 
     $(".nav-detail-info").mouseover(() => {
@@ -92,8 +165,8 @@ function changeCategoryNav() {
 
 function setUpCategoryNav() {
     $(".nav-detail-info").css("display", "grid");
-    $("#item-category-sport").css("display", "none");
-    $("#item-category-football").css("display", "none")
+    $("#item-category-woman").css("display", "none");
+    $("#item-category-man").css("display", "none")
     $("#item-category-running").css("display", "none");
     $("#item-category-brand").css("display", "none");
 }
@@ -121,24 +194,29 @@ class ProductPagination {
 
 let listProductPagination = [];
 
-function displayCategory(position = 0) {
+function displayCategory(position = 0, data, src) {
 
-   let arrProduct = FirmGroundFootballMan;
+   let arrProduct = data;
     $(".grid-list-wrapper").text(""); // reset after choose pagination
     for (let i = position * 9; i < (position * 9) + 9; i++) {
         if (i == arrProduct.length)
             break;
         let value = arrProduct[i];
         let pp = new ProductPagination(value.img1, value.brand, value.name, value.price);
-        listProductPagination.push(pp);
-        let contain = "<div class=\"product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10\">\n" +
+            let img = pp.img;
+            // MAKE A REFERNCE TO FIREBASE .
+            const storageRef = firebase.storage().ref()
+        const final =storageRef.child(src+`/${img}.jpg`)
+
+         final.getDownloadURL().then(url=>{
+            let contain = "<div class=\"product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10\">\n" +
             "          <div class=\"product-thumb\">\n" +
             "            <div class=\"image product-imageblock\">\n" +
             "              <a href=\"product.html\">" +
             "                  <div class=\"related-product-sale\">\n" +
             "                     <h5 style='margin-top: 10px'>" + 10 % +"</h5>\n" +
             "                   </div>" +
-            " <img id=\"imgCategory"+i+"\" src=\"" + pp.img + "\" alt=\"lorem ippsum dolor dummy\" title=\"lorem ippsum dolor dummy\" class=\"img-responsive\" /> </a>\n" +
+            " <img id=\"imgCategory"+i+"\" src=\"" + url + "\" alt=\"lorem ippsum dolor dummy\" title=\"lorem ippsum dolor dummy\" class=\"img-responsive\" /> </a>\n" +
             "              <div class=\"button-group\">\n" +
             "                <button type=\"button\" class=\"wishlist\" data-toggle=\"tooltip\" title=\"Thêm vào yêu thích\"><i class=\"fas fa-heart\"></i></button>\n" +
             "                <button type=\"button\" class=\"addtocart-btn\">Mua ngay</button>\n" +
@@ -163,55 +241,77 @@ function displayCategory(position = 0) {
             "          </div>\n" +
             "        </div>";
 
-        $(".grid-list-wrapper").append(contain);
+        $(".grid-list-wrapper").append(contain);        })
+
+
     }
 }
 
-function replaceProductPagination(position) {
-    let arrProduct = FirmGroundFootballMan;
-    for (let i = position * 9; i < (position * 9) + 9; i++) {
-        if (i == arrProduct.length)
-            break;
-            let value = arrProduct[i];
-            let j = +i % 9;
-            $(`#imgCategory${j}`).attr("src", value.img1);
-            $(`#nameCategory${j}`).text(value.name);
-            $(`#brandCategory${j}`).text(value.brand);
-            $(`#priceCategory${j}`).text(value.price);
+function myDisplay(value) {
+    window.location.assign("category.html");
+
+}
+$(function () {
+    let arr = $(".category-product");
+    for (let i  =0 ; i < arr.length; i++) {
+        arr[i].addEventListener("click", (e)=>{
+            let src = $("#"+arr[i].id).attr("value");
+          if (!window.location.pathname.includes("category.html")) {
+                location.href = "category.html"
+                }
+
+            getData(src);
+            return;
+        });
+    }
+});
+
+
+
+// use call back
+// get data to display category and pagination
+function getData(src) {
+
+    let test = new XMLHttpRequest();
+    
+    // let test = new XMLHttpRequest();
+    test.open("GET", src);
+    test.send();
+    test.onload = function() {
+        let data = JSON.parse(test.responseText);
+        displayPagination(data);
+        getPositionPagination(data, src);
     }
 }
-
-
-function displayPagination(cur) {
-    cur = +cur;
-    if (isNaN(cur))
-        cur = 1;
-    let num = Math.ceil(FirmGroundFootballMan.length / 9)  - 1;
+function displayPagination(data) {
+    $(".pagination").empty(); // restart when change category
+    let num = Math.ceil(data.length / 9)  - 1;
     let contain = "<span>Page  </span><select id=\"selectPagination\">";
     for (let i = 1; i <= num; i++) 
         contain += `<option value="${i}">${i}</option>`
     contain += `</select> <span> of ${num} </span>`;
+    $(".pagination").append(`<li><a id="left-page">&lt;</a></li><li><a id="right-page">&gt;</a></li>    `);
     $(".pagination").append(contain);
     $(`#selectPagination option[value=1]`).attr('selected','selected');
 }
 
-$(window).ready(displayPagination);
 
 // to update category product
 let currentPagination = 1;
-function getPositionPagination() {
-    let num = Math.ceil(FirmGroundFootballMan.length / 9);
-    displayCategory(0); // init
+function getPositionPagination(data, src) {
+    src = src.substring(src.lastIndexOf("/"), src.indexOf(".js")); // remove extension js and first bla bla
+    let num = Math.ceil(data.length / 9);
+    displayCategory(0, data, src); // init
     // let pos = 1;
     $("#selectPagination").on('change', function(){
         $("html, body").animate({
             scrollTop: 0
-        }, 1000);
+        }, 1000);   
         $(`#selectPagination option[value=${currentPagination}]`).removeAttr('selected');
+        $(`#selectPagination option[value=${$(this).val()}]`).attr('selected','selected');
         currentPagination = $(this).val();
-        $(`#selectPagination option[value=${currentPagination}]`).attr('selected','selected');
-        currentPagination = $(this).val();
-        replaceProductPagination(currentPagination);
+        document.querySelector("#selectPagination").value = currentPagination;
+        replaceProductPagination(currentPagination, data, src);
     });
     let arrPg = $(".pagination li a");
     for (let i = 0; i < arrPg.length; i++) {
@@ -223,9 +323,10 @@ function getPositionPagination() {
                 }, 1000);    
                 if (currentPagination != num) {
                     $(`#selectPagination option[value=${currentPagination}]`).removeAttr('selected');
-                    currentPagination += 1;
+                    currentPagination = +currentPagination + 1;
                     $(`#selectPagination option[value=${currentPagination}]`).attr('selected','selected');
-                    replaceProductPagination(currentPagination);
+                    document.querySelector("#selectPagination").value = currentPagination;
+                    replaceProductPagination(currentPagination, data, src);
                     return;
                 }
             }
@@ -235,32 +336,42 @@ function getPositionPagination() {
                 }, 500); 
                 if (currentPagination != 1)  {  
                     $(`#selectPagination option[value=${currentPagination}]`).removeAttr('selected');
-                    currentPagination -= 1;
-                    $(`#selectPagination option[value=${currentPagination}]`).attr('selected','selected');
-                    replaceProductPagination(currentPagination-1); 
+                    currentPagination = +currentPagination - 1;
+                        $(`#selectPagination option[value=${currentPagination}]`).attr('selected','selected');
+                     document.querySelector("#selectPagination").value = currentPagination;
+                    replaceProductPagination(currentPagination, data, src); 
                     return;
                 }  
             }
         })
         
     };
-
 }
 
-
-function resetOptionPagination(size) {
-    for (let i = 1; i <= size; i ++) {
-        $(`#selectPagination option[value=${i}]`).attr('selected',"");
+function replaceProductPagination(position, data, src) {
+    let arrProduct = data;
+    for (let i = position * 9; i < (position * 9) + 9; i++) {
+        if (i == arrProduct.length)
+            break;
+            let value = arrProduct[i];
+            let j = +i % 9;
+            
+            const storageRef = firebase.storage().ref()
+            const final = storageRef.child(src+`/${value.img1}.jpg`)
+             final.getDownloadURL().then(url=>{
+                $(`#imgCategory${j}`).attr("src", url);
+                $(`#nameCategory${j}`).text(value.name);
+                $(`#brandCategory${j}`).text(value.brand);
+                $(`#priceCategory${j}`).text(value.price);
+             });
     }
 }
-
-$(window).ready(getPositionPagination);
 
 function displaySizeInRefineSearch() {
     let sizeArr = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
     sizeArr.forEach((value) => {
         $(".contain-dropdown-size").append(
-            " <label class=\"checkbox\">\n" +
+            " <label class=\"checkbox-filter-search\">\n" +
             " <input name=\"filter[]\" type=\"checkbox\" value=\"1\" />\n" +
             value + "</label>"
         );

@@ -6,9 +6,8 @@
     width: 25%;
     padding: 6px;
 }
-
-.modal-register,
-.modal{
+.login-modal,
+.modal-register{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -21,8 +20,8 @@
     display: none;
 }
 
-.modal-register.open,
-.modal.open {
+.login-modal.open,
+.modal-register.open {
     display: flex;
 }
 
@@ -54,14 +53,14 @@
 }
 
 .modal-register .icon-close-register,
-.modal .icon-close {
+.login-modal .icon-close {
     padding: 11px;
     color: #fff;
     cursor: pointer;
 }
 
 .modal-register .icon-close-register:hover,
-.modal .icon-close:hover {
+.login-modal .icon-close:hover {
     background-color: #ccc;
     color: #000;
     border-radius: 50%;
