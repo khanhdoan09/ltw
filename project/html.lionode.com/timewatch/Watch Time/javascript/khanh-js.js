@@ -39,26 +39,26 @@ function menuNavigation() {
     + "                        <div class=\"nav-detail-info\">\r\n"
     + "                            <div class=\"item-nav-detail-info\" id=\"item-category-man\">\r\n"
     + "                                <ul>\r\n"
-    + "                                    <li href=\"category.html\" id=\"hitops-man\" value=\"data/product/Shoe/HiTops/HiTopsMan.js\" class=\"category-product\">HiTops</li>\r\n"
-    + "                                    <li id=\"running-man\" value=\"data/product/Shoe/Running/RunningMan.js\" class=\"category-product\">Running</li>\r\n"
-    + "                                    <li id=\"slides-man\" value=\"data/product/Shoe/Slides/SlidesMan.js\" class=\"category-product\">Slides</li>\r\n"
-    + "                                    <li id=\"sneakers-man\" value=\"data/product/Shoe/Sneakers/SneakersWoman.js\" class=\"category-product\">Sneakers</li>\r\n"
-    + "                                    <li id=\"skateboard-man\" value=\"data/product/Shoe/SkateBoard/SkateBoardMan.js\" class=\"category-product\">SkateBoard</li>\r\n"
-    + "                                    <li id=\"football-man\" value=\"data/product/Shoe/Football/FootballMan.js\" class=\"category-product\">Football</li>\r\n"
+    + "                                    <li id=\"hitops-man\" value=\"data/product/Shoe/HiTops/HiTopsMan.js\" class=\"category-product-man\">HiTops</li>\r\n"
+    + "                                    <li id=\"running-man\" value=\"data/product/Shoe/Running/RunningMan.js\" class=\"category-product-man\">Running</li>\r\n"
+    + "                                    <li id=\"slides-man\" value=\"data/product/Shoe/Slides/SlidesMan.js\" class=\"category-product-man\">Slides</li>\r\n"
+    + "                                    <li id=\"sneakers-man\" value=\"data/product/Shoe/Sneakers/SneakersMan.js\" class=\"category-product-man\">Sneakers</li>\r\n"
+    + "                                    <li id=\"skateboard-man\" value=\"data/product/Shoe/SkateBoard/SkateBoardMan.js\" class=\"category-product-man\">SkateBoard</li>\r\n"
+    + "                                    <li id=\"football-man\" value=\"data/product/Shoe/Football/FootballMan.js\" class=\"category-product-man\">Football</li>\r\n"
     + "\r\n"
-    + "                                    <!-- <li id=\"trainer-man\" value=\"data/product/Shoe/Trainers/TrainersMan.js\" class=\"category-product\">Trainers</li> -->\r\n"
+    + "                                    <!-- <li id=\"trainer-man\" value=\"data/product/Shoe/Trainers/TrainersMan.js\" class=\"category-product-man\">Trainers</li> -->\r\n"
     + "                                </ul>\r\n"
     + "                               \r\n"
     + "                            </div>\r\n"
     + "\r\n"
     + "                            <div class=\"item-nav-detail-info\" id=\"item-category-woman\">\r\n"
     + "                                <ul>\r\n"
-    + "                                    <li id=\"hitops-woman\" value=\"data/product/Shoe/HiTops/HiTopsWoman.js\" class=\"category-product\">HiTops</li>\r\n"
-    + "                                    <li id=\"slides-woman\" value=\"data/product/Shoe/Slides/SlidesWoman.js\" class=\"category-product\">Slides</li>\r\n"
-    + "                                    <li id=\"sneakers-woman\" value=\"data/product/Shoe/Sneakers/SneakersWoman.js\" class=\"category-product\">Sneakers</li>\r\n"
-    + "                                    <li id=\"skateboard-woman\" value=\"data/product/Shoe/SkateBoard/SkateBoardWoman.js\" class=\"category-product\">SkateBoard</li>\r\n"
-    + "                                    <li id=\"running-woman\" value=\"data/product/Shoe/Running/RunningWoman.js\" class=\"category-product\">Running</li>\r\n"
-    + "                                    <li id=\"football-woman\" value=\"data/product/Shoe/Football/FootballWoman.js\" class=\"category-product\">Football</li>\r\n"
+    + "                                      <li id=\"hitops-woman\" value=\"data/product/Shoe/HiTops/HiTopsWoman.js\" class=\"category-product-woman\">HiTops</li>\r\n"
+    + "                                    <li id=\"running-woman\" value=\"data/product/Shoe/Running/RunningWoman.js\" class=\"category-product-woman\">Running</li>\r\n"
+    + "                                    <li id=\"slides-woman\" value=\"data/product/Shoe/Slides/SlidesWoman.js\" class=\"category-product-woman\">Slides</li>\r\n"
+    + "                                    <li id=\"sneakers-woman\" value=\"data/product/Shoe/Sneakers/SneakersWoman.js\" class=\"category-product-woman\">Sneakers</li>\r\n"
+    + "                                    <li id=\"skateboard-woman\" value=\"data/product/Shoe/SkateBoard/SkateBoardWoman.js\" class=\"category-product-woman\">SkateBoard</li>\r\n"
+    + "                                    <li id=\"football-woman\" value=\"data/product/Shoe/Football/FootballWoman.js\" class=\"category-product-woman\">Football</li>\r\n"
     + "\r\n"
     + "\r\n"
     + "                                </ul>\r\n"
@@ -251,20 +251,130 @@ function myDisplay(value) {
     window.location.assign("category.html");
 
 }
-$(function () {
-    let arr = $(".category-product");
-    for (let i  =0 ; i < arr.length; i++) {
-        arr[i].addEventListener("click", (e)=>{
-            let src = $("#"+arr[i].id).attr("value");
-          if (!window.location.pathname.includes("category.html")) {
-                location.href = "category.html"
-                }
+// set up value introduction category
+$(function() {
+    $("#category-man").click(()=>{
+     localStorage.setItem("currentPageCategory", "man");
+     localStorage.setItem("categoryByNav", "");
+     $("#category-carousel-intro-1").attr("src", "image/banners/men-intro-carousel1.webp");
+     $("#category-carousel-intro-2").attr("src", "image/banners/men-intro-carousel2.webp");
+     $("#category-carousel-intro-3").attr("src", "image/banners/men-intro-carousel3.webp");
 
+
+; // window don't auto use loadDataAfterChooseCategoryByNavigation() after direct page
+     $(".contain-carousel-category").css("display", "block");
+    });
+     $("#category-woman").click(()=>{
+         localStorage.setItem("currentPageCategory", "woman");
+         localStorage.setItem("categoryByNav", "");
+         $(".contain-carousel-category").css("display", "block");
+         });
+     });
+
+let listIntroCategoryMan = [];
+listIntroCategoryMan.push("data/product/Shoe/HiTops/HiTopsMan.js");
+listIntroCategoryMan.push("data/product/Shoe/Running/RunningMan.js");
+listIntroCategoryMan.push("data/product/Shoe/Slides/SlidesMan.js");
+listIntroCategoryMan.push("data/product/Shoe/Sneakers/SneakersMan.js");
+listIntroCategoryMan.push("data/product/Shoe/SkateBoard/SkateBoardMan.js");
+listIntroCategoryMan.push("data/product/Shoe/Football/FootballMan.js");
+let listIntroCategoryWoman = [];
+listIntroCategoryWoman.push("data/product/Shoe/HiTops/HiTopsWoman.js");
+listIntroCategoryWoman.push("data/product/Shoe/Running/RunningWoman.js");
+listIntroCategoryWoman.push("data/product/Shoe/Slides/SlidesWoman.js");
+listIntroCategoryWoman.push("data/product/Shoe/Sneakers/SneakersWoman.js");
+listIntroCategoryWoman.push("data/product/Shoe/SkateBoard/SkateBoardWoman.js");
+listIntroCategoryWoman.push("data/product/Shoe/Football/FootballWoman.js");
+
+
+// select category by introduction
+$(function () {
+    let arr = $(".intro-category");
+    for (let i=0 ; i < arr.length; i++) {
+        arr[i].addEventListener("click", (e)=>{
+            if (localStorage.getItem("currentPageCategory") == "man")
+                src = listIntroCategoryMan[i];
+            else 
+                src = listIntroCategoryWoman[i];
+            $(".contain-carousel-category").css("display", "none");
             getData(src);
             return;
         });
     }
 });
+
+
+// select category by navigation
+$(function () {
+    let arrMan = $(".category-product-man");
+    for (let i  =0 ; i < arrMan.length; i++) {
+        arrMan[i].addEventListener("click", (e)=>{
+          if (!window.location.pathname.includes("category.html")) {
+                location.href = "category.html"
+                localStorage.setItem("categoryByNav", listIntroCategoryMan[i]+""); // window auto use loadDataAfterChooseCategoryByNavigation() after direct page
+                }
+        else {
+        let src = $("#"+arrMan[i].id).attr("value");
+            getData(src);
+        }
+            return;
+        });
+    }
+
+    let arrWoman = $(".category-product-woman");
+    for (let i  =0 ; i < arrWoman.length; i++) {
+        arrWoman[i].addEventListener("click", (e)=>{
+            let src = $("#"+arrMan[i].id).attr("value");
+          if (!window.location.pathname.includes("category.html")) {
+                location.href = "category.html"
+                localStorage.setItem("categoryByNav", listIntroCategoryWoman[i]+"");   // window auto use loadDataAfterChooseCategoryByNavigation() after direct page
+                }
+        else
+            getData(src);
+            return;
+        });
+    }
+});
+
+function loadDataAfterChooseCategoryByNavigation() {
+    
+    let tmp = localStorage.getItem("categoryByNav");
+    if (tmp.length===0) {
+        $(".contain-carousel-category").css("display", "block");
+    }
+    else {
+    getData(tmp);
+    $(".contain-carousel-category").css("display", "none");
+    }
+
+}
+$(window).ready(loadDataAfterChooseCategoryByNavigation);
+
+function loadImageCarouselAndIntroduceCategory() {
+    if (localStorage.getItem("currentPageCategory") == "man") {
+        $("#category-carousel-intro-1").attr("src", "image/banners/men-intro-carousel1.webp");
+        $("#category-carousel-intro-2").attr("src", "image/banners/men-intro-carousel2.webp");
+        $("#category-carousel-intro-3").attr("src", "image/banners/men-intro-carousel-3.jpg");
+        $("#category-intro-img-hitops").attr("src", "image/category/man-Hitops.webp");
+        $("#category-intro-img-running").attr("src", "image/category/man-running.webp");
+        $("#category-intro-img-slides").attr("src", "image/category/man-slides.jpg");
+        $("#category-intro-img-football").attr("src", "image/category/man-football.webp");
+        $("#category-intro-img-sneakers").attr("src", "image/category/man-sneakers.jpg");
+        $("#category-intro-img-skateboard").attr("src", "image/category/man-skateboard.jpg");
+    }
+    else {
+        $("#category-carousel-intro-1").attr("src", "image/banners/women-intro-carousel1.webp");
+        $("#category-carousel-intro-2").attr("src", "image/banners/women-intro-carousel2.webp");
+        $("#category-carousel-intro-3").attr("src", "image/banners/women-intro-carousel3.webp");
+        $("#category-intro-img-hitops").attr("src", "image/category/woman-hitops.jpg");
+        $("#category-intro-img-running").attr("src", "image/category/running-woman.webp");
+        $("#category-intro-img-slides").attr("src", "image/category/woman-slide.jpg");
+        $("#category-intro-img-football").attr("src", "image/category/woman-football.jfif");
+        $("#category-intro-img-sneakers").attr("src", "image/category/woman-sneakers.webp");
+        $("#category-intro-img-skateboard").attr("src", "image/category/woman-skateboard.jfif");
+    }
+}
+$(window).ready(loadImageCarouselAndIntroduceCategory);
 
 
 
@@ -508,20 +618,30 @@ $(window).ready(chooseLocation);
 
 // display featured product
 
-function displayFeaturedProduct() {
-    let arr = HiTopsShoeMan;
-    for (let  i = 0; i  < 7; i++) {
-        let content = `
-        <img src=\"${arr[i].img1}\" alt=\"lorem ippsum dolor dummy\" title=\"lorem ippsum dolor dummy\" class=\"img-responsive\" /> 
-        `
-   $(`#feature-product-img-${i}`).append(content);
-   $(`#feature-product-title-${i}`).text(`${arr[i].name}`);
-   $(`#feature-product-newPrice-${i}`).text(`${arr[i].price}$`);
-   let oldPrice = parseInt(`${arr[i].price}`) +20;
-   $(`#feature-product-oldPrice-${i}`).text(oldPrice+".00$");
-}
+// function displayFeaturedProduct() {
+//     let test = new XMLHttpRequest();
+//     let src = "data/product/Shoe/Running/RunningWoman.js";
+//     test.open("GET", src);
+//     test.send();
+//     test.onload = function() {
+//         let arr = JSON.parse(test.responseText);
+//         for (let  i = 0; i  < 7; i++) {
+//             let value = arr[i];
+//             const storageRef = firebase.storage().ref()
+//             const final = storageRef.child(`RunningMan/${value.img1}.jpg`)
+//              final.getDownloadURL().then(url=>{
+//                 $(`#imgCategory${i}`).attr("src", url);
+//              });
+//             let content = `
+//             <img src=\"${arr[i].img1}\" alt=\"lorem ippsum dolor dummy\" title=\"lorem ippsum dolor dummy\" class=\"img-responsive\" />`
+//             $(`#feature-product-img-${i}`).append(content);
+//             $(`#feature-product-title-${i}`).text(`${arr[i].name}`);
+//             $(`#feature-product-newPrice-${i}`).text(`${arr[i].price}$`);
+//             let oldPrice = parseInt(`${arr[i].price}`) +20;
+//             $(`#feature-product-oldPrice-${i}`).text(oldPrice+".00$");
+//     }
+//     }
+    
+// }
 
-
-}
-
-$(window).ready(displayFeaturedProduct);
+// $(window).ready(displayFeaturedProduct);
