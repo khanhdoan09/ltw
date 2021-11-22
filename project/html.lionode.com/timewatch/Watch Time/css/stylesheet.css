@@ -2059,7 +2059,7 @@ ul.main-navigation>li.menu-last ul ul {
 /* CSS for content Start */
 
 .col-2 #content {
-    width: 80%;
+    width: 70%;
 }
 
 #column-left,
@@ -3022,7 +3022,8 @@ span.review-edit {
 
 .blog-meta {
     padding: 0;
-    width: 100%;
+    margin-top: 75px;
+    margin-right: -107px;
 }
 
 .p-summary {
