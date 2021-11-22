@@ -187,17 +187,19 @@ div.required .control-label:before {
 
 
 #wishlist-total {
-    color: #808080;
+    color: #4b4b4b;
 }
 
 .dropdown a,
 .list-inline a {
-    color: #b3b3b3;
+    color: #8f8f8f;
 }
 
 .list-inline li a {
     display: inline-block;
     padding: 5px 15px;
+    color: black;
+    font-weight: bold;
 }
 
 #top-links li .fa {
@@ -246,7 +248,7 @@ div.required .control-label:before {
 /* CSS for Header Start */
 
 .header-top {
-    background-color: #000;
+    background-color: #1a94ff;
 }
 
 .language .btn.btn-link.dropdown-toggle {
@@ -3047,7 +3049,6 @@ textarea {
 }
 
 .blog_img {
-    height: 400px;
     overflow: hidden;
 }
 
