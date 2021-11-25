@@ -645,3 +645,55 @@ $(window).ready(chooseLocation);
 // }
 
 // $(window).ready(displayFeaturedProduct);
+
+$(function() {
+    let test = new XMLHttpRequest();
+    
+    // let test = new XMLHttpRequest();
+    test.open("GET", "data/product/Shoe/HiTops/HiTopsWoman.js");
+    test.send();
+    test.onload = function() {
+        let data = JSON.parse(test.responseText);
+       
+            let img1 = data[0].img1;
+            let img2 = data[0].img2;
+            let img3 = data[0].img3;
+            let img4 = data[0].img4;
+            let img5 = data[0].img5;
+            let img6 = data[0].img6;
+            let img7 = data[0].img7;
+
+         // MAKE A REFERNCE TO FIREBASE .
+       const storageRef = firebase.storage().ref()
+
+       const final1 =storageRef.child(`HiTopsWoman/${img1}.jpg`)
+        final1.getDownloadURL().then(url=>{
+            $("#main-img").attr("src", url)
+        });
+       const final2 =storageRef.child(`HiTopsWoman/${img2}.jpg`)
+        final2.getDownloadURL().then(url=>{
+            $("#zero").attr("src", url)
+        });
+        const final3 =storageRef.child(`HiTopsWoman/${img3}.jpg`)
+        final3.getDownloadURL().then(url=>{
+            $("#one").attr("src", url)
+        }); 
+        const final4 =storageRef.child(`HiTopsWoman/${img4}.jpg`)
+        final4.getDownloadURL().then(url=>{
+            $("#two").attr("src", url)
+        }); 
+        const final5 =storageRef.child(`HiTopsWoman/${img5}.jpg`)
+        final5.getDownloadURL().then(url=>{
+            $("#three").attr("src", url)
+        }); 
+        const final6 =storageRef.child(`HiTopsWoman/${img6}.jpg`)
+        final6.getDownloadURL().then(url=>{
+            $("#four").attr("src", url)
+        }); 
+        // const final7 =storageRef.child(`HiTopsWoman/${img7}.jpg`)
+        // final7.getDownloadURL().then(url=>{
+        //     $("#five").attr("src", url)
+        // }); 
+
+    }
+});

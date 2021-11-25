@@ -563,12 +563,9 @@
         height: 60px;
         cursor: pointer;
         border-radius: 100%;
-        border: 1px solid red;
     }
     
-    .contain-nav-customer {
-        border: 1px solid red;
-    }
+
     
     .pane-group {
         display: flex;
@@ -579,6 +576,20 @@
         font-size: 18px;
         cursor: pointer;
     }
+
+    /* address */
+    .contain-adjust-address {
+        display: grid;
+    }
+
+    .contain-adjust-address .label-address {
+        margin: 10px 0;
+    }
+    .contain-adjust-address select {
+        font-size: 15px;
+        padding: 5px;
+    }
+
     /* history customer */
     
     .contain-history {
@@ -587,13 +598,12 @@
     
     .contain-history table {
         width: 100%;
-        border: 1px solid red;
     }
     
     .contain-history table tr {
         margin: 10px 0px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
     
     .contain-history table tr td img {
