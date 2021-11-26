@@ -1613,10 +1613,12 @@ h2.price {
 
 #product-thumbnail.owl-carousel .owl-buttons>div.owl-next:before {
     content: '\f105';
+    color: black;
 }
 
 #product-thumbnail.owl-carousel .owl-buttons>div.owl-prev:before {
     content: '\f104';
+    color: #000;
 }
 
 #product-thumbnail.owl-carousel .owl-buttons>div.owl-next:hover:before,
