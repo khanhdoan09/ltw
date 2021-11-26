@@ -6,9 +6,13 @@
     width: 25%;
     padding: 6px;
 }
-
-.modal-register,
-.modal{
+.col-half-sub {
+    float: left;
+    width: 45%;
+    padding: 30px;
+}
+.login-modal,
+.modal-register{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -21,8 +25,8 @@
     display: none;
 }
 
-.modal-register.open,
-.modal.open {
+.login-modal.open,
+.modal-register.open {
     display: flex;
 }
 
@@ -54,14 +58,14 @@
 }
 
 .modal-register .icon-close-register,
-.modal .icon-close {
+.login-modal .icon-close {
     padding: 11px;
     color: #fff;
     cursor: pointer;
 }
 
 .modal-register .icon-close-register:hover,
-.modal .icon-close:hover {
+.login-modal .icon-close:hover {
     background-color: #ccc;
     color: #000;
     border-radius: 50%;
@@ -212,8 +216,6 @@
     position: absolute;
     width: 350px;
     height: 450px;
-    margin-top: -460px;
-    margin-left: 794px;
     background-color: rgba(0,0,0,0.1);
     text-align: center;
 }
@@ -225,6 +227,7 @@
 }
 #main-banner .main-banner-section-center > a {
     margin-top: 200px;
+    margin: auto;
 }
 
 #main-banner .shop-now-btn {
@@ -241,4 +244,101 @@
     padding: 15px 30px;
     font-weight: bold;
 }
+#content .blog1.sub {
+    width: 100%;
+    min-height: 395px;
+    text-align: justify;
+    background-color: #f3f4f8;
+    margin-right: 30px;
+}
+#content .blog1.sub .blog-title {
+    font-size: 25px;
+    width: 120%;
+    padding: 10px 0;
+}
+#content .blog1.sub .blog-title-content {
+    font-size: 15px;
+    width: 120%;
+}
+#content .blog1.sub .shose-slect {
+    background-color: #1a94ff;
+    padding: 8px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+#content .blog1.sub .shose-slect:hover {
+    background-color: #0059ff;
+}
+#content .blog1.sub .blog-meta {
+    float: right;
+    
+ }
+#u-url-blog {
+     display: inline-block;
+     margin-top: 40px;
+     background-color: #333;
+     padding: 15px 30px;
+     color: white;
+     font-weight: bold;
+ }
+ #u-url-blog:hover {
+    background-color: #000;
 
+ }
+ .col-2 #content {
+     margin-right: 30px;
+ }
+ #bg-search-blog {
+     display: inline-block;
+     width: 143%;
+     height: 70px;
+     background-color: #1a94ff;
+ }
+ #bg-search-blog .search-product {
+     margin: auto;
+     margin-top: 13px;
+ }
+ #new-posts-modal {
+     width: 143%;
+    padding: 30px;
+    background-color: #f3f4f8;
+    padding-top: 50px;
+}
+#new-posts-modal .post-select {
+    width: 100%;
+    font-size: 20px;
+    padding: 20px 0;
+    border-bottom: 2px solid #ccc;
+}
+#new-posts-modal .post-select a {
+    color: rgb(66, 66, 66);
+}
+#new-posts-modal .post-select:hover a {
+    color: #0059ff;
+    font-weight: bold;
+}
+#new-posts-modal .title-post {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+#new-posts-modal .title-sub {
+    background-color: #1a94ff;
+    height: 4px;
+    margin-top: 10px;
+}
+#see-more {
+    text-align: center;
+}
+#see-more .see {
+    padding: 10px 50px;
+    background-color: #1a94ff;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}

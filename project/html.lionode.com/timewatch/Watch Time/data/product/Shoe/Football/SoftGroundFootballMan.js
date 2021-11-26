@@ -1,4 +1,4 @@
-let SoftGroundFootballMan = [
+ [
 {
 "id": "16229929",
 "brand": "adidas",

@@ -1,8 +1,8 @@
-const modal=document.querySelector('.js-modal');
-const modalLogin=document.querySelector('.js-login');
-const modalClose=document.querySelector('.js-modal-close');
-const modalContainer=document.querySelector('.js-modal-container');
-const modalLoginBtn=document.querySelector('.js-login-modal');
+const modal = document.querySelector('.js-modal');
+const modalLogin = document.querySelector('.js-login');
+const modalClose = document.querySelector('.js-modal-close');
+const modalContainer = document.querySelector('.js-modal-container');
+const modalLoginBtn = document.querySelector('.js-login-modal');
 
 // hàm hiển thị phần đăng nhập
 function showBuyLogin() {
@@ -12,21 +12,21 @@ function showBuyLogin() {
 function hideBuyLogin() {
     modal.classList.remove('open')
 }
-modalLogin.addEventListener('click' , showBuyLogin)
+modalLogin.addEventListener('click', showBuyLogin)
 
 modalClose.addEventListener('click', hideBuyLogin)
-//
+    //
 modal.addEventListener('click', hideBuyLogin)
-//
+    //
 modalContainer.addEventListener('click', function(even) {
     even.stopPropagation()
 })
 
-const register = document.querySelector( '.js_register')
-const modalRegister=document.querySelector('.js-modal-register');
-const modalCloseRegister=document.querySelector('.js-modal-close-register');
-const modalContainerRegister=document.querySelector('.js-modal-container-register');
-const modalRegisterBtn=document.querySelector('.js-register-modal')
+const register = document.querySelector('.js_register')
+const modalRegister = document.querySelector('.js-modal-register');
+const modalCloseRegister = document.querySelector('.js-modal-close-register');
+const modalContainerRegister = document.querySelector('.js-modal-container-register');
+const modalRegisterBtn = document.querySelector('.js-register-modal')
 
 // hiện thị phần đăng ký
 function showModalRegister() {
@@ -39,17 +39,16 @@ function hideModalRegister() {
 }
 
 register.addEventListener('click', showModalRegister)
-// modalRegisterBtn.addEventListener('click', showModalRegister)
+    // modalRegisterBtn.addEventListener('click', showModalRegister)
 modalCloseRegister.addEventListener('click', hideModalRegister)
 modalRegister.addEventListener('click', hideModalRegister)
 
 modalRegisterBtn.addEventListener('click', showModalRegister)
 modalRegisterBtn.addEventListener('click', hideBuyLogin)
 modalLoginBtn.addEventListener('click', showBuyLogin)
-modalLoginBtn.addEventListener('click' ,hideModalRegister)
+modalLoginBtn.addEventListener('click', hideModalRegister)
 
 
 modalContainerRegister.addEventListener('click', function(even) {
     even.stopPropagation()
 })
-
