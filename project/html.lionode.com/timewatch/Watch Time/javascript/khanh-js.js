@@ -25,7 +25,6 @@ $(window).ready(toggleFilterSearch);
 function menuNavigation() {
     let content = "<div class=\"nav-inner\">\r\n"
     + "                    <div class=\"navbar-header-menu\"><span id=\"category\" class=\"visible-xs\">Categories</span>\r\n"
-    + "                        <button type=\"button\" class=\"btn btn-navbar navbar-toggle\"><i class=\"fa fa-bars\"></i></button>\r\n"
     + "                    </div>\r\n"
     + "                    <div class=\"navbar-collapse\">\r\n"
     + "                        <ul class=\"main-navigation\">\r\n"
@@ -690,10 +689,30 @@ $(function() {
         final6.getDownloadURL().then(url=>{
             $("#four").attr("src", url)
         }); 
-        // const final7 =storageRef.child(`HiTopsWoman/${img7}.jpg`)
-        // final7.getDownloadURL().then(url=>{
-        //     $("#five").attr("src", url)
-        // }); 
+    }
+});
 
+
+$(function() {
+    let test = new XMLHttpRequest();
+    
+    // let test = new XMLHttpRequest();
+    test.open("GET", "data/product/Shoe/HiTops/HiTopsWoman.js");
+    test.send();
+    test.onload = function() {
+        let data = JSON.parse(test.responseText);
+    
+         // MAKE A REFERNCE TO FIREBASE .
+       const storageRef = firebase.storage().ref()
+
+       for (let i  =0 ; i < data.length; i++) {
+            img1 = data[i].img1;
+            const final1 =storageRef.child(`HiTopsWoman/${img1}.jpg`)
+            final1.getDownloadURL().then(url=>{
+                $("#feature-product-img-"+i).attr("src", url)
+                $("#feature-product-title-"+i).text(data[i].name)
+            });
+        }
+      
     }
 });

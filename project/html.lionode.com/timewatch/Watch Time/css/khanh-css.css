@@ -19,29 +19,36 @@
     }
     
     #item-category-man   {
-        width: 15%;
+        width: 10%;
         border: 1px solid black;
         position: absolute;
         z-index: 200;
-        left: 30%;
+        left: 32%;
         background-color: white;
         color: black;
         border-radius: 20px;
     }
 
     #item-category-woman {
-        width: 15%;
+        width: 10%;
         border: 1px solid black;
         position: absolute;
         z-index: 200;
-        left: 38%;
+        left: 40%;
         background-color: white;
         color: black;
         border-radius: 20px;
     }
     
+    .category-product-man {
+        width: 100%;
+    }
     
     @media screen and (max-width: 750px) {
+
+        .navbar-collapse {
+            top: 210px;
+        }
         .nav-detail-info {
             top: 80px;
         }
@@ -80,11 +87,15 @@
     }
     
     .item-nav-detail-info>ul {
-        margin: 20px;
+        width: 100%;
+        margin: 20px 0;
+        text-indent: 20px;
     }
     
     .item-nav-detail-info>ul>li {
-        margin: 10px;
+        width: 100%;
+        margin: 10px 0;
+        padding: 5px 0;
         font-size: 18px;
     }
 
@@ -253,7 +264,7 @@
         margin: 5px;
         font-size: 18px;
         padding: 20px;
-        line-height: 3;
+        line-height: 1;
         text-indent: 10px;
     }
     /* payment method */
@@ -630,6 +641,11 @@
     }
 
     /* introduce category */
+    .container-category {
+        width: 100%;
+        padding: 30px;
+    }
+    
     .contain-carousel-category {
         width: 100%;
     }
@@ -641,10 +657,15 @@
         font-family: GTAmerica-Regular,Arial,Helvetica,sans-serif;
     }
 
+    .grid-list-wrapper {
+        margin: 15px;
+    }
     .list-contain ul {
         display: grid;
-        grid-template-columns: repeat(auto-fit, 300px);
-        grid-gap: 90px;
+        grid-template-columns: repeat(auto-fit, 280px);
+        grid-gap: 80px;
+        /* display: inline-flex;
+        flex-wrap: wrap; */
     }
     .list-contain ul li {
         width: 350px;
@@ -670,6 +691,6 @@
     .list-contain ul li .introduce-category {
         font-size: 15px;
         color: black;
-        margin: 10px 22px;
+        margin: 10px 2px;
     }
-   
+
