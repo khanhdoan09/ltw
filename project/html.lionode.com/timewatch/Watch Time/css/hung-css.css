@@ -342,3 +342,48 @@
     font-size: 20px;
     margin-top: 20px;
 }
+
+/* css phần chính sách bán hàng trong page product */
+.sales-policy-modal {
+    background-color: white;
+    padding: 20px 10px 20px 15px;
+}
+.sales-policy-content,
+.sales-policy {
+    display: inline-block;
+    margin: 8px 0;
+}
+.sales-policy {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.sales-policy-section .title-policy {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.sales-policy-content .icon-policy,
+.sales-policy .icon-free-ship {
+    width: 50px;
+    float: left;
+    padding-right: 10px;
+}
+.sales-policy-content .title-policy-content ,
+.sales-policy .title-free-ship {
+    max-width: 82%;
+    float: left;
+    font-size: 17px;
+    color: #51c400;
+}
+.sales-policy-content .title-policy-content {
+    color: rgb(70, 70, 70);
+}
+.see-more-policy {
+    text-align: center;
+    padding: 11px;
+}
+.see-more-policy .see-more {
+    color: blue;
+    font-size: 16px;
+    text-decoration: blue;
+}
