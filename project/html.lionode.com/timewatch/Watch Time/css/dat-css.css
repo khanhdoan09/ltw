@@ -4,8 +4,10 @@
 } */
 
 #content form .table-responsive .table thead tr td {
-background-color: black;
+background-color:#1a94ff;
 color: rgb(248, 248, 255);
+border-right:#f6f6f6 solid 1px;
+box-sizing: border-box;
 position: relative;
 height: 60px;
 }
@@ -30,11 +32,13 @@ width: 80px;
 }
 
 #Thanhtoan {
-background-color: red;
+background-color: black;
+position: relative;
+right: 10px;
 }
 
 #Thanhtoan:hover {
-background-color: black;
+background-color: #1a94ff;
 }
 
 /* .panel {
@@ -224,6 +228,9 @@ top: 10px;
     width: 2.79em;
 }
 
+.btn-primary{
+    background-color: #1a94ff;
+}
 
 @media only screen and (max-width:740px)  {
 
@@ -244,5 +251,7 @@ top: 10px;
         float: left;
         clear: right;
     }
+
+   
 }
 
