@@ -1,4 +1,4 @@
-    let wards = [
+ [
     {
         "name": "Mỹ Bình",
         "type": "phuong",

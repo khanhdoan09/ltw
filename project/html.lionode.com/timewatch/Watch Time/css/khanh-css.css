@@ -262,9 +262,8 @@
     .form-input {
         width: 100%;
         margin: 5px;
-        font-size: 18px;
+        font-size: 16px;
         padding: 20px;
-        line-height: 1;
         text-indent: 10px;
     }
     /* payment method */
@@ -599,8 +598,12 @@
     .contain-adjust-address select {
         font-size: 15px;
         padding: 5px;
+        margin: 0 15px;
     }
 
+    .contain-adjust-address textarea {
+        margin: 10px;
+    }
     /* history customer */
     
     .contain-history {
@@ -641,6 +644,10 @@
     }
 
     /* introduce category */
+    .content-about {
+        width: 80% !important;
+    }
+
     .container-category {
         width: 100%;
         padding: 30px;
@@ -651,10 +658,11 @@
     }
     .featured-category {
         color: black;
-        font-size: 25px;
+        font-size: 40px;
         text-align: center;
-        margin: 20px;
+        margin: 80px;
         font-family: GTAmerica-Regular,Arial,Helvetica,sans-serif;
+        font-style: italic;
     }
 
     .grid-list-wrapper {
@@ -670,9 +678,10 @@
     .list-contain ul li {
         width: 350px;
         height: auto;
-        border: 1px solid rgb(160, 156, 156);
         text-align: center;
         cursor: pointer;
+        border: 1px solid rgb(155, 152, 152);
+        border-radius: 20px;
     }
     .list-contain ul li img{
         width: 350px;
@@ -691,6 +700,7 @@
     .list-contain ul li .introduce-category {
         font-size: 15px;
         color: black;
-        margin: 10px 2px;
+        margin: 10px 10px;
+        text-align: left;
     }
 

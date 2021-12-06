@@ -1,4 +1,4 @@
-let districts = [
+ [
     {
         "name": "Long Xuyên",
         "type": "thanh-pho",
