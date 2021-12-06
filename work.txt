@@ -34,3 +34,31 @@ update
 9 Lịch sử mua hàng - khanh 
 10 Đổi mật khẩu - dat
  
+
+jsp-servlet
+
+1 - tạo header, footer jsp rồi gọi vào các trang khác - hung
+
+2 - chức năng : 
+
++ login .jsp (xử lí lỗi tk, mk không hợp lệ) => tạo csdl quản lí tk, mk -dat
+  register .jsp (insert user vào table user, xử lí lỗi gmail, xác nhận mk) => tạo csdl user 
+  logout trả về index
+
++ tìm kiếm sản phẩm (select theo tên, nhãn, size, rate, price) => tạo csdl sản phẩm - khanh
+
++ giỏ hàng (insert, delete sản phẩm) => tạo csdl cart - hung
+  update phím tắt giỏ hàng
+  tính tổng tiền, tính tiền theo số lượng
+
++ checkout => tạo csdl mã giảm giá - dat
+  tính tiền theo mã giảm giá
+
++ tạo csdl sản phẩm vừa xem - khanh
+  insert sản phẩm vừa xem vào csdl sản phẩm vừa xem
+
+tạo csdl sản phẩm - khanh 
+
+bỏ thông tin nhận hàng bên checkout.html
+update danh sách sản phẩm trang home giống trang product
+dùng vòng for để hiển thị danh sách sản phẩm
