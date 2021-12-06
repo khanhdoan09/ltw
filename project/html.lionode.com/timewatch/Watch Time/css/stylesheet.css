@@ -1062,7 +1062,7 @@ footer ul li {
 
 .btn-primary {
     color: #ffffff;
-    background: #000;
+    background: #1a94ff;
     padding: 6px 20px;
     border: none;
 }
@@ -1072,7 +1072,7 @@ footer ul li {
 .btn-primary.active,
 .btn-primary.disabled,
 .btn-primary[disabled] {
-    background: #b3b3b3;
+    background: black;
     color: #ffffff;
 }
 
