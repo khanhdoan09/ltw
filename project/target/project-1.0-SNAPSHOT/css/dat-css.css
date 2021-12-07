@@ -99,11 +99,12 @@ width: 0px;
 border-top: 5px solid transparent;
 border-left: 5px solid transparent;
 border-right: 5px solid transparent;
-border-bottom: 5px solid black;
+border-bottom: 5px solid #0088ff;
 }
 
 .boxed-conten {
-border: 1px solid black;
+border: 1px solid #0088ff;
+background-color: #1a94ff26;
 height: 30px;
 width: 70px;
 color: black;
@@ -121,6 +122,11 @@ margin-left: 20px;
 .box_code {
 width: 20%;
 float: left;
+margin-top: -10px;
+}
+.box_code-sub {
+    float: left;
+    width: 25%;
 }
 
 .through {

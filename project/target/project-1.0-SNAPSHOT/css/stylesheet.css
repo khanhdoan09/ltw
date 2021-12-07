@@ -2373,7 +2373,7 @@ div#subbanner5 {
 .brand-logo.owl-carousel .img-responsive:hover {
     display: inline-block;
     width: 60%;
-    margin: -15px 0;
+    margin: -20px 0;
     
 }
 
@@ -3002,8 +3002,9 @@ span.review-edit {
 
 .blog-meta>li {
     float: left;
-    margin-right: 15px;
+    margin-left: 10px;
     list-style: none;
+    font-size: 11px;
 }
 
 .u-url {
@@ -3024,8 +3025,8 @@ span.review-edit {
 
 .blog-meta {
     padding: 0;
-    margin-top: 75px;
-    margin-right: -107px;
+    margin-top: 39px;
+    margin-right: -80px;
 }
 
 .p-summary {

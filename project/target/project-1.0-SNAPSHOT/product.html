@@ -64,8 +64,8 @@
                                     <li class="dropdown">
                                         <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#" class="js-login">Đăng ký</a></li>
-                                            <li><a href="#" class="js_register">Đăng nhập</a></li>
+                                            <li><a href="#" class="js-login">Đăng Nhập</a></li>
+                                            <li><a href="#" class="js_register">Đăng Ký</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -390,33 +390,23 @@
                             </div>
                             <!-- AddThis Button END -->
                         </div>
-                        <ul class="list-unstyled productinfo-details-top">
+                        <div class="price-modal">
+                            <ul class="price-product">
+                                <li><h6 class="price-box price-sale">280.000VNĐ</h6></li>
+                                <li><h1 class="price-box price">210.000VNĐ</h1></li>
+                                <li><h6 class="price-box sale">20% GIẢM</h6></li>
+                            </ul>
+                        </div>
+                        <!-- <ul class="">
                             <li>
                                 <h2 class="productpage-price">210.000VNĐ</h2>
                             </li>
-                            <!-- <li><span class="productinfo-tax">Ex Tax: $100.00</span></li> -->
-                        </ul>
+                            <li><span class="productinfo-tax">Ex Tax: $100.00</span></li>
+                        </ul> -->
                         <hr>
                         <ul class="list-unstyled product_info">
                             <li>
-                                <label>Brand:</label>
-                                <span> <a href="#">NIKE</a></span></li>
-                            <li>
-                                <label>Product Code:</label>
-                                <span> product 20</span></li>
-                            <li>
-                                <label>Availability:</label>
-                                <span> In Stock</span></li>
-                            <li class="size-shoes">
-                                <label for="">Size</label>
-                                <div class="num-size">
-                                    <button>38</button>
-                                    <button>39</button>
-                                    <button>40</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
+                                <div class="box_code-sub">
                                     <label for="" class="title-code">Mã giảm giá</label>
                                 </div>
 
@@ -424,7 +414,7 @@
                                     <div class="tritagnle">
                                     </div>
                                     <div class="boxed-conten">
-                                        <p class="conten_center">20%</p>
+                                        <p class="conten_center">10%</p>
                                     </div>
                                 </div>
 
@@ -432,15 +422,52 @@
                                     <div class="tritagnle">
                                     </div>
                                     <div class="boxed-conten">
-                                        <p class="conten_center">20%</p>
+                                        <p class="conten_center">5%</p>
                                     </div>
                                 </div>
                                 <div class="box_code">
                                     <div class="tritagnle">
                                     </div>
                                     <div class="boxed-conten">
-                                        <p class="conten_center">20%</p>
+                                        <p class="conten_center">7%</p>
                                     </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Brand:</label>
+                                <span> <a href="#">NIKE</a></span></li>
+                            <li>
+                                <label>Vận Chuyển:</label>
+                                <span> product 20</span></li>
+                            <li>
+                                <label>Availability:</label>
+                                <span> In Stock</span></li>
+                            <li class="size-shoes">
+                                <label for="">Size</label>
+                                <div class="num-size">
+                                    <button>36</button>
+                                    <button>37</button>
+                                    <button>38</button>
+                                    <button>39</button>
+                                    <button>40</button>
+                                </div>
+                            </li>
+                           <li id="values">
+                            <div class="value-box"><label>Số lượng:</label></div>
+                            <div class="value-box set-value">
+                                <input class="value" type="button" onclick="reduceValue()" value="--" />
+                                <input type="text" id="number" value="1"/>
+                                <input class="value" type="button" onclick="incrementValue()" value="+" />
+                             </div>
+                             <h6 class="products-available value-box">35 Sản phẩm có sẵn</h6>
+                           </li>
+                            <li class="add-and-buy">
+                                <div class="add-product">
+                                    <!-- <i class="fas fas-shopping-cart"></i> -->
+                                    <a href="" class="add">Thêm Vào Giỏ Hàng</a>
+                                </div>
+                                <div class="buy-product">
+                                    <a href="./checkout.html" class="buy">Mua Ngay</a>
                                 </div>
                             </li>
                         </ul>
@@ -451,19 +478,7 @@
                         battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200
                         hours of video or any combination wherever you go. Cover Flow.
                         Browse through your music collection by flipping..</p> -->
-                        <div id="product">
-                            <div class="form-group">
-                                <label class="control-label qty-label" for="input-quantity">Qty</label>
-                                <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control productpage-qty" />
-                                <input type="hidden" name="product_id" value="48" />
-                                <div class="btn-group">
-                                    <button type="button" data-toggle="tooltip" class="btn btn-default wishlist" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
-                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block addtocart">Add to Cart
-                                </button>
-                                    <button type="button" data-toggle="tooltip" class="btn btn-default compare" title="Compare this Product"><i class="fa fa-exchange"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="productinfo-tab">
@@ -1299,8 +1314,8 @@
         </div>
     </div>
 
- <!--Begin: login-registe-->
- <div class="login-modal js-modal">
+   <!--Begin: login-registe-->
+   <div class="login-modal js-modal">
     <!-- Begin: modal login -->
     <div class="modal-container js-modal-container">
 

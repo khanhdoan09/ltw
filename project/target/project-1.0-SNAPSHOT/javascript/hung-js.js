@@ -52,3 +52,21 @@ modalLoginBtn.addEventListener('click', hideModalRegister)
 modalContainerRegister.addEventListener('click', function(even) {
     even.stopPropagation()
 })
+
+function incrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 1 : value;
+    value++;
+    document.getElementById('number').value = value;
+}
+function reduceValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = (isNaN(value)) ? 1 : value;
+    value--;
+    if(value<1){
+        value=1;
+    }
+    document.getElementById('number').value = value;
+}
