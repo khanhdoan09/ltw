@@ -449,11 +449,10 @@
     
     @media screen and (max-width: 750px) {
         .contain-filter-search {
-            margin: 0;
             padding: 0;
             position: fixed;
             top: 290px;
-            width: 100%;
+            width: 99%;
             height: 500px;
             overflow-y: scroll !important;
             z-index: 100;
@@ -463,7 +462,7 @@
     /*drop down*/
     
     .contain-dropdown-size {
-        display: gf;
+        display: grid;
         grid-template-columns: auto ;
     }
     
@@ -496,11 +495,16 @@
         position: absolute;
         bottom: 0;
     }
-    
+ 
+
+   
     .contain-rate-search {
         display: grid;
     }
-    
+    .hidden-rate {
+        margin-right: 5px;
+    }
+
     .rate-search {
         cursor: pointer;
     }
@@ -510,33 +514,34 @@
         margin: 10px 0;
     }
     
-    .contain-price-search {
+  
+
+    .contain-filter-search-range {
         display: flex;
         flex-wrap: wrap;
-    }
+    }    
 
-    
     .price-search {
+        width: fit-content;
         color: white;
         background-color: grey;
-        width: auto;
         padding: 10px;
         border-radius: 20px;
         margin: 10px 0;
+        margin-right: 10px;
         cursor: pointer;
+        text-align: center;
     }
     
-    .price-search:hover {
-        background-color: #6f6c6c;
+  
+    .price-search-clicked {
+        background-color: #5f2525;
     }
-    
     .price-search-highest-lowest {
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: 5px;
-        margin-right: 50px;
+        display: flex;
+        flex-wrap: wrap;
     }
-    
+  
     .min-max-price-search {
         display: flex;
         width: 100%;
@@ -695,7 +700,7 @@
         margin: 10px;
         font-size: 20px;
         color: black;
-        font-weight: 700px;
+        font-weight: 700;
         text-decoration: underline;    
     }
 

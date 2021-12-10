@@ -14,13 +14,19 @@
                     <div class="contain-nav-info">
                         <div id="top-links" class="nav pull-right">
                             <ul class="list-inline">
-                                <li class="account"><a href="#" class="notify"><i class="fas fa-bell" style="margin-right: 10px"></i><span>Thông báo</span><span style="margin-right: 10px">(0)</span></a></li>
-                                <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Danh sách yêu thích</span><span style="margin-right: 10px">(0)</span></a></li>
+                                <li class="account"><a href="#" class="notify"><i class="fas fa-bell"
+                                                                                  style="margin-right: 10px"></i><span>Thông báo</span><span
+                                        style="margin-right: 10px">(0)</span></a></li>
+                                <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i
+                                        class="fa fa-heart"></i><span>Danh sách yêu thích</span><span
+                                        style="margin-right: 10px">(0)</span></a></li>
                                 <li class="dropdown">
-                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
+                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                            class="fa fa-user"></i><span>Tài khoản</span> <span
+                                            class="caret"></span></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#" class="js-login">Đăng Nhập</a></li>
-                                        <li><a href="#" class="js_register">Đăng Ký</a></li>
+                                        <li><a href="#" class="js-login">Đăng ký</a></li>
+                                        <li><a href="#" class="js_register">Đăng nhập</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -57,26 +63,33 @@
             <div class="col-sm-4 col-xs-12 header-middle">
                 <div class="header-middle-top">
                     <div id="logo">
-                        <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a>
+                        <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                                  class="img-responsive"/></a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-12 header-right">
                 <div id="cart" class="btn-group btn-block">
-                    <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total"><span class="cart-title">Shopping Cart</span><br>
-              0 item(s) - $0.00</span> </button>
+                    <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span
+                            id="cart-total"><span class="cart-title">Shopping Cart</span><br>
+              0 item(s) - $0.00</span></button>
                     <ul class="dropdown-menu pull-right cart-dropdown-menu">
                         <li>
                             <table class="table table-striped">
                                 <tbody>
                                 <tr>
                                     <td class="text-center">
-                                        <a href="#"><img class="img-thumbnail" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="image/product/7product50x59.jpg"></a>
+                                        <a href="#"><img class="img-thumbnail" title="lorem ippsum dolor dummy"
+                                                         alt="lorem ippsum dolor dummy"
+                                                         src="image/product/7product50x59.jpg"></a>
                                     </td>
                                     <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
                                     <td class="text-right">x 1</td>
                                     <td class="text-right">$254.00</td>
-                                    <td class="text-center"><button class="btn btn-danger btn-xs" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                    <td class="text-center">
+                                        <button class="btn btn-danger btn-xs" title="Remove" type="button"><i
+                                                class="fa fa-times"></i></button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -103,15 +116,77 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                                <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href="checkout.html"><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
+                                <p class="text-right"><span class="btn-viewcart"><a href="cart.html"><strong><i
+                                        class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span
+                                        class="btn-checkout"><a href="checkout.html"><strong><i class="fa fa-share"></i> Checkout</strong></a></span>
+                                </p>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <nav id="menu-navigation" class="navbar">
-            <!--function menuNavigation() in khanh-js.js-->
+        <nav id="menu-navigations" class="navbar">
+            <div class="nav-inner">
+                                    <div class="navbar-header-menu"><span id="category" class="visible-xs">Categories</span>
+                                        </div>
+                                    <div class="navbar-collapse">
+                                            <ul class="main-navigation">
+                                                    <li><a href="index.html" class="parent">Home</a> </li>
+                                                   <li><a href="category.jsp" class="parent category-item" id="category-man"> Man <i class="fas fa-caret-down"></i></a></li>
+                                                   <li><a href="category.jsp" class="parent category-item" id="category-woman">Woman <i class="fas fa-caret-down"></i></a></li>
+                                                    <li><a href="category.html" class="parent category-item" id="category-brand">Brands <i class="fas fa-caret-down"></i></a></li>
+                                                    <li><a href="blog.html" class="parent">Blog</a></li>
+                                                    <li><a href="about-us.html">About us</a></li>
+                                                </ul>
+                                            <div class="nav-detail-info">
+                                                    <div class="item-nav-detail-info" id="item-category-man">
+                                                            <ul>
+<%--                                                                    <li id="hitops-man" value="data/product/Shoe/HiTops/HiTopsMan.js" class="category-product-man">HiTops</li>--%>
+                                                                   <li class="category-product-man"><a href='CategoryProduct?categoryProduct=runningManCategory' class="category-product-man">Running</a></li>
+                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=slidesManCategory' class="category-product-man">Slides</a></li>
+                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=sneakersManCategory' class="category-product-man">Sneakers</a></li>
+                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=skateboardManCategory' class="category-product-man">Skateboard</a></li>
+<%--                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=footballManCategory' class="category-product-man">Football</a></li>--%>
+
+                                                                    <!-- <li id=\"trainer-man\" value=\"data/product/Shoe/Trainers/TrainersMan.js\" class=\"category-product-man\">Trainers</li> -->
+                                                                </ul>
+
+                                                        </div>
+
+                                                    <div class="item-nav-detail-info" id="item-category-woman">
+                                                            <ul>
+<%--                                                                    <li id="hitops-woman" value="data/product/Shoe/HiTops/HiTopsWoman.js" class="category-product-woman">HiTops</li>--%>
+                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=runningWomanCategory' class="category-product-woman">Running</a></li>
+                                                                    <li class="category-product-woman\"><a href='CategoryProduct?categoryProduct=slidesWomanCategory' class="category-product-woman">Slides</a></li>
+                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=sneakersWomanCategory' class="category-product-woman">Sneakers</a></li>
+                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=skateboardWomanCategory' class="category-product-woman">Skateboard</a></li>
+<%--                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=footballWomanCategory' class="category-product-woman">Football</a></li>--%>
+
+
+                                                                </ul>
+                                                        </div>
+
+                                                    <div class="item-nav-detail-info" id="item-category-brand">
+                                                            <div class="contain-brand">
+                                                                   <img src="image/brand/logo-brand-01.svg">
+                                                                    <img src="image/brand/logo-brand-02.svg">
+                                                                    <img src="image/brand/logo-brand-03.svg">
+                                                                    <img src="image/brand/logo-brand-04.svg">
+                                                                    <img src="image/brand/logo-brand-05.svg">
+                                                                    <img src="image/brand/logo-brand-06.svg">
+                                                                    <img src="image/brand/logo-brand-07.svg">
+                                                                    <img src="image/brand/logo-brand-08.svg">
+                                                                    <img src="image/brand/logo-brand-09.svg">
+                                                                    <img src="image/brand/logo-brand-10.svg">
+                                                                </div>
+                                                        </div>
+
+
+
+                                                </div>
+                                        </div>
+                                </div>;
             <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
         </nav>
     </div>

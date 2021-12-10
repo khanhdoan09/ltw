@@ -15,7 +15,7 @@ public class DatabaseConnection {
         String user = "root";
         String pass = "";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conn=DriverManager.getConnection(
                     "jdbc:mysql://localhost/test2", "root", "");
         }  catch (SQLException throwables) {
@@ -31,7 +31,7 @@ public class DatabaseConnection {
         Statement s = null;
         try {
             s = conn.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM sneakersman");
+            ResultSet rs = s.executeQuery("SELECT * FROM hitopswoman");
             while (rs.next()) {
                 String r1 = rs.getString(1);//read by column index
                 String r2 = rs.getString("name");//read by column name

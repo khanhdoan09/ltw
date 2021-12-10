@@ -12,6 +12,8 @@ function searchPopular() {
 $(window).ready(searchPopular);
 
 // filter search {
+
+
 function toggleFilterSearch() {
     $(".toggle-filter-search").click(() => {
         $(".contain-filter-search").slideToggle("show");
@@ -20,74 +22,22 @@ function toggleFilterSearch() {
 
 $(window).ready(toggleFilterSearch);
 
+// click price search
+$(function() {
+    $("#price-search-01").click(() => {
+        $("#price-search-01").toggleClass("price-search-clicked");
+    });
+    $("#price-search-02").click(() => {
+        $("#price-search-02").toggleClass("price-search-clicked");
+    });
+    $("#price-search-03").click(() => {
+        $("#price-search-03").toggleClass("price-search-clicked");
+    });
+})
 
-// menu-navigation
-function menuNavigation() {
-    let content = "<div class=\"nav-inner\">\r\n"
-        + "                    <div class=\"navbar-header-menu\"><span id=\"category\" class=\"visible-xs\">Categories</span>\r\n"
-        + "                    </div>\r\n"
-        + "                    <div class=\"navbar-collapse\">\r\n"
-        + "                        <ul class=\"main-navigation\">\r\n"
-        + "                            <li><a href=\"index.html\" class=\"parent\">Home</a> </li>\r\n"
-        + "                            <li><a href=\"category.html\" class=\"parent category-item\" id=\"category-man\"> Man <i class=\"fas fa-caret-down\"></i></a></li>\r\n"
-        + "                            <li><a href=\"category.html\" class=\"parent category-item\" id=\"category-woman\">Woman <i class=\"fas fa-caret-down\"></i></a></li>\r\n"
-        + "                            <li><a href=\"category.html\" class=\"parent category-item\" id=\"category-brand\">Brands <i class=\"fas fa-caret-down\"></i></a></li>\r\n"
-        + "                            <li><a href=\"blog.html\" class=\"parent\">Blog</a></li>\r\n"
-        + "                            <li><a href=\"about-us.html\">About us</a></li>\r\n"
-        + "                        </ul>\r\n"
-        + "                        <div class=\"nav-detail-info\">\r\n"
-        + "                            <div class=\"item-nav-detail-info\" id=\"item-category-man\">\r\n"
-        + "                                <ul>\r\n"
-        + "                                    <li id=\"hitops-man\" value=\"data/product/Shoe/HiTops/HiTopsMan.js\" class=\"category-product-man\">HiTops</li>\r\n"
-        + "                                    <li id=\"running-man\" value=\"data/product/Shoe/Running/RunningMan.js\" class=\"category-product-man\">Running</li>\r\n"
-        + "                                    <li id=\"slides-man\" value=\"data/product/Shoe/Slides/SlidesMan.js\" class=\"category-product-man\">Slides</li>\r\n"
-        + "                                    <li id=\"sneakers-man\" value=\"data/product/Shoe/Sneakers/SneakersMan.js\" class=\"category-product-man\">Sneakers</li>\r\n"
-        + "                                    <li id=\"skateboard-man\" value=\"data/product/Shoe/SkateBoard/SkateBoardMan.js\" class=\"category-product-man\">SkateBoard</li>\r\n"
-        + "                                    <li id=\"football-man\" value=\"data/product/Shoe/Football/FootballMan.js\" class=\"category-product-man\">Football</li>\r\n"
-        + "\r\n"
-        + "                                    <!-- <li id=\"trainer-man\" value=\"data/product/Shoe/Trainers/TrainersMan.js\" class=\"category-product-man\">Trainers</li> -->\r\n"
-        + "                                </ul>\r\n"
-        + "                               \r\n"
-        + "                            </div>\r\n"
-        + "\r\n"
-        + "                            <div class=\"item-nav-detail-info\" id=\"item-category-woman\">\r\n"
-        + "                                <ul>\r\n"
-        + "                                      <li id=\"hitops-woman\" value=\"data/product/Shoe/HiTops/HiTopsWoman.js\" class=\"category-product-woman\">HiTops</li>\r\n"
-        + "                                    <li id=\"running-woman\" value=\"data/product/Shoe/Running/RunningWoman.js\" class=\"category-product-woman\">Running</li>\r\n"
-        + "                                    <li id=\"slides-woman\" value=\"data/product/Shoe/Slides/SlidesWoman.js\" class=\"category-product-woman\">Slides</li>\r\n"
-        + "                                    <li id=\"sneakers-woman\" value=\"data/product/Shoe/Sneakers/SneakersWoman.js\" class=\"category-product-woman\">Sneakers</li>\r\n"
-        + "                                    <li id=\"skateboard-woman\" value=\"data/product/Shoe/SkateBoard/SkateBoardWoman.js\" class=\"category-product-woman\">SkateBoard</li>\r\n"
-        + "                                    <li id=\"football-woman\" value=\"data/product/Shoe/Football/FootballWoman.js\" class=\"category-product-woman\">Football</li>\r\n"
-        + "\r\n"
-        + "\r\n"
-        + "                                </ul>\r\n"
-        + "                            </div>\r\n"
-        + "\r\n"
-        + "                            <div class=\"item-nav-detail-info\" id=\"item-category-brand\">\r\n"
-        + "                                <div class=\"contain-brand\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-01.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-02.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-03.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-04.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-05.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-06.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-07.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-08.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-09.svg\">\r\n"
-        + "                                    <img src=\"image/brand/logo-brand-10.svg\">\r\n"
-        + "                                </div>\r\n"
-        + "                            </div>\r\n"
-        + "\r\n"
-        + "\r\n"
-        + "\r\n"
-        + "                        </div>\r\n"
-        + "                    </div>\r\n"
-        + "                </div>";
 
-    $("#menu-navigation").append(content);
-}
 
-$(window).ready(menuNavigation);
+
 // dropdown
 // function dropdownLocate() {
 //     $(".open-dropdown-locate").click(() => {
@@ -106,21 +56,6 @@ $(window).ready(menuNavigation);
 // }
 
 // $(window).ready(dropdownLocate);
-
-// click price search
-function clickPrice() {
-    $("#price-search-01").click(() => {
-        $("#price-search-01").css("background-color", "#5f2525");
-    });
-    $("#price-search-02").click(() => {
-        $("#price-search-02").css("background-color", "#5f2525");
-    });
-    $("#price-search-03").click(() => {
-        $("#price-search-03").css("background-color", "#5f2525");
-    });
-}
-
-$(window).ready(clickPrice);
 
 // navigation
 function changeCategoryNav() {
@@ -265,6 +200,7 @@ $(function () {
     $("#category-woman").click(() => {
         localStorage.setItem("currentPageCategory", "woman");
         localStorage.setItem("categoryByNav", "");
+
         $(".contain-carousel-category").css("display", "block");
     });
 });
@@ -285,54 +221,54 @@ listIntroCategoryWoman.push("data/product/Shoe/SkateBoard/SkateBoardWoman.js");
 listIntroCategoryWoman.push("data/product/Shoe/Football/FootballWoman.js");
 
 
-// select category by introduction
-$(function () {
-    let arr = $(".intro-category");
-    for (let i = 0; i < arr.length; i++) {
-        arr[i].addEventListener("click", (e) => {
-            if (localStorage.getItem("currentPageCategory") == "man")
-                src = listIntroCategoryMan[i];
-            else
-                src = listIntroCategoryWoman[i];
-            $(".contain-carousel-category").css("display", "none");
-            getData(src);
-            return;
-        });
-    }
-});
+// // select category by introduction
+// $(function () {
+//     let arr = $(".intro-category");
+//     for (let i = 0; i < arr.length; i++) {
+//         arr[i].addEventListener("click", (e) => {
+//             if (localStorage.getItem("currentPageCategory") == "man")
+//                 src = listIntroCategoryMan[i];
+//             else
+//                 src = listIntroCategoryWoman[i];
+//             $(".contain-carousel-category").css("display", "none");
+//             getData(src);
+//             return;
+//         });
+//     }
+// });
 
+//
+// // select category by navigation
+// $(function () {
+//     let arrMan = $(".category-product-man");
+//     for (let i = 0; i < arrMan.length; i++) {
+//         arrMan[i].addEventListener("click", (e) => {
+//             if (!window.location.pathname.includes("category.html")) {
+//                 location.href = "category.html"
+//                 localStorage.setItem("categoryByNav", listIntroCategoryMan[i] + ""); // window auto use loadDataAfterChooseCategoryByNavigation() after direct page
+//             }
+//             else {
+//                 let src = $("#" + arrMan[i].id).attr("value");
+//                 getData(src);
+//             }
+//             return;
+//         });
+//     }
 
-// select category by navigation
-$(function () {
-    let arrMan = $(".category-product-man");
-    for (let i = 0; i < arrMan.length; i++) {
-        arrMan[i].addEventListener("click", (e) => {
-            if (!window.location.pathname.includes("category.html")) {
-                location.href = "category.html"
-                localStorage.setItem("categoryByNav", listIntroCategoryMan[i] + ""); // window auto use loadDataAfterChooseCategoryByNavigation() after direct page
-            }
-            else {
-                let src = $("#" + arrMan[i].id).attr("value");
-                getData(src);
-            }
-            return;
-        });
-    }
-
-    let arrWoman = $(".category-product-woman");
-    for (let i = 0; i < arrWoman.length; i++) {
-        arrWoman[i].addEventListener("click", (e) => {
-            let src = $("#" + arrMan[i].id).attr("value");
-            if (!window.location.pathname.includes("category.html")) {
-                location.href = "category.html"
-                localStorage.setItem("categoryByNav", listIntroCategoryWoman[i] + "");   // window auto use loadDataAfterChooseCategoryByNavigation() after direct page
-            }
-            else
-                getData(src);
-            return;
-        });
-    }
-});
+//     let arrWoman = $(".category-product-woman");
+//     for (let i = 0; i < arrWoman.length; i++) {
+//         arrWoman[i].addEventListener("click", (e) => {
+//             let src = $("#" + arrMan[i].id).attr("value");
+//             if (!window.location.pathname.includes("category.html")) {
+//                 location.href = "category.html"
+//                 localStorage.setItem("categoryByNav", listIntroCategoryWoman[i] + "");   // window auto use loadDataAfterChooseCategoryByNavigation() after direct page
+//             }
+//             else
+//                 getData(src);
+//             return;
+//         });
+//     }
+// });
 
 // loi khi dung sang intellij - nho fix
 
@@ -352,6 +288,18 @@ $(function () {
 
 function loadImageCarouselAndIntroduceCategory() {
     if (localStorage.getItem("currentPageCategory") == "man") {
+        $("#intro-running").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=runningManCategory";
+        })
+        $("#intro-slides").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=slidesManCategory";
+        })
+        $("#intro-sneakers").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=sneakersManCategory";
+        })
+        $("#intro-skateboard").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=skateboardManCategory";
+        })
         $("#category-carousel-intro-1").attr("src", "image/banners/men-intro-carousel1.webp");
         $("#category-carousel-intro-2").attr("src", "image/banners/men-intro-carousel2.webp");
         $("#category-carousel-intro-3").attr("src", "image/banners/men-intro-carousel-3.jpg");
@@ -363,6 +311,18 @@ function loadImageCarouselAndIntroduceCategory() {
         $("#category-intro-img-skateboard").attr("src", "image/category/man-skateboard.jpg");
     }
     else {
+        $("#intro-running").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=runningWomanCategory";
+        })
+        $("#intro-slides").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=slidesWomanCategory";
+        })
+        $("#intro-sneakers").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=sneakersWomanCategory";
+        })
+        $("#intro-skateboard").click(()=>{
+            location.href = "CategoryProduct?categoryProduct=skateboardWomanCategory";
+        })
         $("#category-carousel-intro-1").attr("src", "image/banners/women-intro-carousel1.webp");
         $("#category-carousel-intro-2").attr("src", "image/banners/women-intro-carousel2.webp");
         $("#category-carousel-intro-3").attr("src", "image/banners/women-intro-carousel3.webp");
@@ -713,7 +673,6 @@ $(function () {
 
 $(function () {
     let test = new XMLHttpRequest();
-
     // let test = new XMLHttpRequest();
     test.open("GET", "data/product/Shoe/HiTops/HiTopsWoman.js");
     test.send();
@@ -733,21 +692,30 @@ $(function () {
 });
 
 
+
 // refactor data
 // $(function () {
 //     let test = new XMLHttpRequest();
 
 //     // let test = new XMLHttpRequest();
-//     test.open("GET", "data/product/Shoe/Football/FootballWoman.js");
+//     test.open("GET", "data/product/Shoe/HiTops/HiTopsWoman.js");
 //     test.send();
 //     test.onload = function () {
 //         let data = JSON.parse(test.responseText);
 //        let re = "[";
-//        let size = [[34,35,36,37,38,39,40,41,42], [34,35,36,37,38,39,40,41,42,43,44,45], [34,35,36,37,38,39,41], [34,35,36,38,39,40,41,42], [34,37,38,39,40,41,42], [34,35,36,37,38,39], [37,38,39,40,41]]
 //     data.forEach(obj => {
+//        for (let i in obj) {
+//            if (i.length == 4 && i != "name" && i != "sale" )
+//                delete obj[i]
+//                if (i.length == 5 && i != "price" && i != "brand" )
+//                delete obj[i]
+//        }
+//        delete obj.sku
 //         re+="\n"
-//         obj.size = size[Math.floor(Math.random() * size.length)]
+//         obj.date = Math.floor(Math.random() * 28 + 1)+"/"+Math.floor(Math.random() * 12 + 1)+"/"+Math.floor(Math.random() * (2021 - 2018) + 2018)
 //         obj.starRate = Math.floor(Math.random() * (5 - 3) + 3) ;
+//         obj.totalValue = Math.floor(Math.random() * (150 - 80) + 80)
+//         obj.soleValue = Math.floor(Math.random() * (80 - (10*obj.starRate)) + (10*obj.starRate))
 //         obj.saleRate = Math.floor(Math.random() * 50);
 //         obj.salePrice = parseFloat(obj.price) - parseFloat(obj.price) * parseFloat(obj.saleRate) / 100;
 //         re += JSON.stringify(obj) + "\n,";

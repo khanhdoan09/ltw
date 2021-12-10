@@ -6,24 +6,34 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.Connection" %>
+<%@ page import="databaseConnection.DatabaseConnection" %>
+<%@ page import="khanhJava.DaoProduct" %>
+<%@ page import="khanhJava.Product" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="khanhJava.DaoLinkImage" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <html lang="en">
 
 <head>
     <title>Time Watch</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="e-commerce site well design with responsive view." />
+    <meta name="description" content="e-commerce site well design with responsive view."/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
+          type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen"/>
     <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -36,23 +46,22 @@
     <link rel="stylesheet" href="css/khanh-css.css" type="text/css">
     <link rel="stylesheet" href="./css/hung-css.css">
     <script rel="script" src="javascript/khanh-js.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyCEAFDu8UnLjJO2EAGbOPvQr7ncppuJXSk",
-            authDomain: "testgroup-8bb67.firebaseapp.com",
-            projectId: "testgroup-8bb67",
-            storageBucket: "testgroup-8bb67.appspot.com",
-            messagingSenderId: "638263318930",
-            appId: "1:638263318930:web:f3c08f9a5f5fd802ea094b",
-            measurementId: "G-6X0Q5Y4DYV"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+<%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>--%>
+<%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>--%>
+<%--    <script>--%>
+<%--        // Your web app's Firebase configuration--%>
+<%--        var firebaseConfig = {--%>
+<%--            apiKey: "AIzaSyCEAFDu8UnLjJO2EAGbOPvQr7ncppuJXSk",--%>
+<%--            authDomain: "testgroup-8bb67.firebaseapp.com",--%>
+<%--            projectId: "testgroup-8bb67",--%>
+<%--            storageBucket: "testgroup-8bb67.appspot.com",--%>
+<%--            messagingSenderId: "638263318930",--%>
+<%--            appId: "1:638263318930:web:f3c08f9a5f5fd802ea094b",--%>
+<%--            measurementId: "G-6X0Q5Y4DYV"--%>
+<%--        };--%>
+<%--        // Initialize Firebase--%>
+<%--        firebase.initializeApp(firebaseConfig);--%>
+<%--    </script>--%>
 
 </head>
 
@@ -61,7 +70,9 @@
 <!-- header -->
 <%@ include file="header.jsp" %>
 
+
 <div class="container-category">
+
     <ul class="breadcrumb">
         <li><a href="index.html"><i class="fa fa-home"></i></a></li>
         <li>
@@ -73,41 +84,41 @@
             <i class="fas fa-sliders-h"></i>
         </button>
         <div id="" class="col-sm-3 contain-filter-search">
-            <form class="panel panel-default filter" action="Servlet" method="post">
+            <form id="form-filter-search" class="panel panel-default filter" action="FilterProduct" method="post">
                 <div class="filter-block">
                     <div class="list-group">
                         <a class="list-group-item">Brands</a>
                         <div class="list-group-item">
                             <div class="contain-dropdown-item filter-search">
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="1" />
+                                    <input name="filterBrand" type="checkbox" value="ASICS"/>
                                     ASICS</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="2" />
+                                    <input name="filterBrand" type="checkbox" value="ADIDAS"/>
                                     ADIDAS</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="3" />
+                                    <input name="filterBrand" type="checkbox" value="KARRIMOR"/>
                                     KARRIMOR</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="4" />
+                                    <input name="filterBrand" type="checkbox" value="NIKE"/>
                                     NIKE</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="5" />
+                                    <input name="filterBrand" type="checkbox" value="Reebok"/>
                                     Reebok</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="6" />
+                                    <input name="filterBrand" type="checkbox" value="NEW BALANCE"/>
                                     NEW BALANCE</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="7" />
+                                    <input name="filterBrand" type="checkbox" value="SLAZENGER"/>
                                     SLAZENGER</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="8" />
+                                    <input name="filterBrand" type="checkbox" value="UNDER ARMOUR"/>
                                     UNDER ARMOUR</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="9" />
+                                    <input name="filterBrand" type="checkbox" value="PUMA"/>
                                     PUMA</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filter[]" type="checkbox" value="10" />
+                                    <input name="filterBrand" type="checkbox" value="VANS"/>
                                     VANS</label>
                             </div>
                         </div>
@@ -120,59 +131,75 @@
                         <a class="list-group-item">Rates</a>
                         <div class="list-group-item">
                             <div id="filter-group2" class="contain-rate-search">
-                                    <span class="rate-search">
+                                <input type="checkbox" id="five-star-rate" class="hidden-rate" name="filter-star-rate" value="5">
+                                <label class="rate-search" for="five-star-rate">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <span style="margin-left: 5px">From 5 stars</span>
-                                    </span>
-                                <span class="rate-search">
+                                    </label>
+                                <input type="checkbox" id="four-star-rate" class="hidden-rate" name="filter-star-rate" value="4">
+                                <label class="rate-search" for="four-star-rate">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <span style="margin-left: 5px">From 4 stars</span>
-                                    </span>
-                                <span class="rate-search">
+                                    </label>
+                                <input type="checkbox" id="three-star-rate" class="hidden-rate" name="filter-star-rate" value="3">
+                                <label class="rate-search" for="three-star-rate">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <span style="margin-left: 5px">From 3 stars</span>
-                                    </span>
+                                    </label>
                             </div>
                         </div>
                         <a class="list-group-item">Prices</a>
                         <div class="list-group-item">
                             <div id="filter-group3" class="contain-price-search">
                                 <form class="price-search-highest-lowest">
-                                    <input type="radio" id="price-search-highest" name="price-search-radio">
+                                    <input type="radio" id="price-search-highest" name="price-search-radio" value="highest-price"/>
                                     <label for="price-search-highest">From high to low</label>
-                                    <input type="radio" id="price-search-lowest" name="price-search-radio">
+                                    <input type="radio" id="price-search-lowest" name="price-search-radio" value="lowest-price"/>
                                     <label for="price-search-lowest">From low to high</label>
                                 </form>
 
-                                <span class="price-search" id="price-search-01">
-                                        Under 50.00$
-                                    </span>
-                                <span class="price-search" id="price-search-02">
-                                         From 50.00$ to 150.00$
-                                    </span>
-                                <span class="price-search" id="price-search-03">
-                                        Up 150.00$
-                                    </span>
+                                <div class="contain-filter-search-range">
+                                    <label class="price-search" id="price-search-01" for="hidden-checkbox-price-1">
+                                        Under 50$
+                                    </label>
+                                    <input type="checkbox" name="price-range" value="Under 50$" class="hidden-checkbox" id="hidden-checkbox-price-1" style="display: none">
+                                    <label class="price-search" id="price-search-02" for="hidden-checkbox-price-2">
+                                        From 50$ to 150$
+                                    </label>
+                                    <input type="checkbox" name="price-range" value="From 50$ to 150$" class="hidden-checkbox" id="hidden-checkbox-price-2" style="display: none">
+                                    <label class="price-search" id="price-search-03" for="hidden-checkbox-price-3">
+                                        Up 150$
+                                    </label>
+                                    <input type="checkbox" name="price-range" value="Up 150$" class="hidden-checkbox" id="hidden-checkbox-price-3" style="display: none">
+                                </div>
+
 
                                 <div class="min-max-price-search">
-                                    <input class="min-search" placeholder="Từ">
+                                    <input type="text" name="input-range-filter-price" value="" class="min-search" placeholder="Từ">
                                     <p style="font-size: 50px; margin: 0 10px">-</p>
-                                    <input class="max-search" placeholder="Đến">
+                                    <input type="text" name="input-range-filter-price" value="" class="max-search" placeholder="Đến">
                                 </div>
+                                <%
+                                    Object err = request.getAttribute("errorInputPrice");
+                                    if (err != null) {
+                                        out.println("<h1 style='display: block; color: red; margin: 10px 0'>" + err.toString() + "</h1>");
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>
                     <div class="panel-footer text-right">
-                        <input type="submit" id="button-filter" class="btn btn-primary btn-refine-search">Tìm kiếm</input>
+                        <input value="Tìm kiếm" type="submit" id="button-filter" class="btn btn-primary btn-refine-search">
+
                     </div>
                 </div>
             </form>
@@ -180,32 +207,108 @@
 
         </div>
 
-
-
-
-
-
-
-
-
-
         <div id="content" class="content-about">
+
+            <!-- list product -->
+            <!---------------------------------------------->
+
+            <%
+                ArrayList<Product> listFilter = (ArrayList<Product>) request.getAttribute("filter");
+                if (listFilter != null) {
+                    Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
+                    for (int i = 0; i < listFilter.size(); i++) {
+                        Product p = listFilter.get(i);
+            %>
+            <div>
+                <div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10">
+                    <div class="product-thumb">
+                        <div class="image product-imageblock">
+                            <a href="ProductDetail?idProduct=<%=p.getId()%>">
+                                <div class="related-product-sale">
+                                    <h5 style='margin-top: 10px'> <%=p.getSaleRate()%></h5>
+                                </div>
+                                <img id="<%=map.get(p.getId()).get(0)%>" src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy"
+                                     title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
+
+                            <div class="button-group">
+                                <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích">
+                                    <i class="fas fa-heart"></i></button>
+                                <button type="button" class="addtocart-btn">Mua ngay</button>
+                                <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i
+                                        class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="caption product-detail">
+                            <h2 id="\brandCategory123" style='margin-top: 5px; text-transform: uppercase'>
+
+                                <%=p.getBrand()%>
+                            </h2>
+                            <h4 class="product-name">
+                                <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
+                                   style='text-transform: capitalize'>
+
+                                    <%=p.getName()%>
+
+
+                                </a></h4>
+                            <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours
+                                of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or
+                                up to 200 hours of video or any combination wherever you go. Cover
+                                Flow. Browse through your music collection by flipping..</p>
+                            <p id="priceCategory123" class="price product-price"><span class="price-old"
+                                                                                       style='margin-right: 10px'>
+
+                                <%=p.getPrice()%>
+
+                                  </span>
+                                <%=p.getSalePrice()%>
+
+                                <span class="price-tax">Ex Tax: $100.00</span></p>
+                            <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                    class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
+                                    class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                        class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
+                                        class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
+                                        class="fa fa-star-o fa-stack-2x"></i></span></div>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i
+                                    class="fas fa-heart"></i></button>
+                            <button type="button" class="addtocart-btn">Mua ngay</button>
+                            <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i
+                                    class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <%
+                    }
+                }
+            %>
+
+            <%if (listFilter == null) {
+            %>
             <div class="grid-list-wrapper">
                 <div class="contain-carousel-category">
                     <div class="mainbanner">
                         <div id="main-banner" class="owl-carousel home-slider">
                             <div class="item">
-                                <a href="#"><img id="category-carousel-intro-1" alt="main-banner1" class="img-responsive" /></a>
+                                <a href="#"><img id="category-carousel-intro-1" alt="main-banner1"
+                                                 class="img-responsive"/></a>
                                 <div class="main-banner-section-center">
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="#"><img id="category-carousel-intro-2" alt="main-banner2" class="img-responsive" /></a>
+                                <a href="#"><img id="category-carousel-intro-2" alt="main-banner2"
+                                                 class="img-responsive"/></a>
                                 <div class="main-banner-section-center">
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="#"><img id="category-carousel-intro-3" alt="main-banner3" class="img-responsive" /></a>
+                                <a href="#"><img id="category-carousel-intro-3" alt="main-banner3"
+                                                 class="img-responsive"/></a>
                                 <div class="main-banner-section-center">
                                 </div>
                             </div>
@@ -217,39 +320,57 @@
                     </div>
                     <div class="list-contain">
                         <ul value="!23">
-                            <li id="intro-hitops" class="intro-category"><img id="category-intro-img-hitops" src="image/category/man-slides.jpg" alt="">
+                            <li id="intro-hitops" class="intro-category"><img id="category-intro-img-hitops"
+                                                                              src="image/category/man-slides.jpg"
+                                                                              alt="">
                                 <p class="title-category">HiTops</p>
-                                <p class="introduce-category">Made for the journey, this collection of walking footwear is ready to go places and find adventure.</p>
+                                <p class="introduce-category">Made for the journey, this collection of walking footwear
+                                    is ready to go places and find adventure.</p>
                             </li>
-                            <li id="intro-running" class="intro-category"><img id="category-intro-img-running" src="image/category/running.webp" alt="">
-                                <p class="title-category" >Running</p>
-                                <p class="introduce-category">Feel inspired to fire up your passion in a running shoe made for more. No compromises, just pure motivation in stylish comfort.</p>
+                            <li id="intro-running" class="intro-category"><img id="category-intro-img-running"
+                                                                               src="image/category/running.webp" alt="">
+                                <p class="title-category">Running</p>
+                                <p class="introduce-category">Feel inspired to fire up your passion in a running shoe
+                                    made for more. No compromises, just pure motivation in stylish comfort.</p>
                             </li>
-                            <li id="intro-slides" class="intro-category"><img id="category-intro-img-slides" src="image/category/Slides.jpg" alt="">
+                            <li id="intro-slides" class="intro-category"><img id="category-intro-img-slides"
+                                                                              src="image/category/Slides.jpg" alt="">
                                 <p class="title-category">Slides</p>
-                                <p class="introduce-category">Made to go distance - and even furthur - this trainer range knows nothing but style and comfort.</p>
+                                <p class="introduce-category">Made to go distance - and even furthur - this trainer
+                                    range knows nothing but style and comfort.</p>
                             </li>
-                            <li id="intro-sneakers" class="intro-category"><img id="category-intro-img-sneakers" src="image/category/Sneakers.jpg" alt="">
+                            <li id="intro-sneakers" class="intro-category"><img id="category-intro-img-sneakers"
+                                                                                src="image/category/Sneakers.jpg"
+                                                                                alt="">
                                 <p class="title-category">Sneakers</p>
-                                <p class="introduce-category">Do the season of boots in style. Step into comfort ready for wherever the journey is set to take you</p>
+                                <p class="introduce-category">Do the season of boots in style. Step into comfort ready
+                                    for wherever the journey is set to take you</p>
                             </li>
-                            <li id="intro-skateboard" class="intro-category"><img id="category-intro-img-skateboard" src="image/category/skateboard.jpg" alt="">
+                            <li id="intro-skateboard" class="intro-category"><img id="category-intro-img-skateboard"
+                                                                                  src="image/category/skateboard.jpg"
+                                                                                  alt="">
                                 <p class="title-category">Skateboard</p>
-                                <p class="introduce-category">Whatever the season - in skateboard and in weather - enjoy the shoe made to withstand</p>
+                                <p class="introduce-category">Whatever the season - in skateboard and in weather - enjoy
+                                    the shoe made to withstand</p>
                             </li>
-                            <li id="intro-football" class="intro-category"><img id="category-intro-img-football" src="image/category/football.webp" alt="">
+                            <li id="intro-football" class="intro-category"><img id="category-intro-img-football"
+                                                                                src="image/category/football.webp"
+                                                                                alt="">
                                 <p class="title-category">Football</p>
-                                <p class="introduce-category">Get in possession of your perfect match in a pair of football boots from one of the biggest names in the game.</p>
+                                <p class="introduce-category">Get in possession of your perfect match in a pair of
+                                    football boots from one of the biggest names in the game.</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-
-
-
-
                 <!-- khanh-js.js display this product -->
             </div>
+            <%
+                }
+            %>
+            <!---------------------------------------------->
+
+
             <div class="category-page-wrapper">
                 <div class="pagination-inner" id="tessss">
                     <ul class="pagination">
@@ -308,8 +429,10 @@
                             <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
                 12345 Street name, California<br>
                 USA</span></li>
-                            <li><i class="fa fa-envelope"></i><span class="mail2"><a href="#">info@localhost.com</a></span></li>
-                            <li><i class="fa fa-mobile"></i><span class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
+                            <li><i class="fa fa-envelope"></i><span class="mail2"><a
+                                    href="#">info@localhost.com</a></span></li>
+                            <li><i class="fa fa-mobile"></i><span
+                                    class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
                         </ul>
                     </div>
                 </div>
@@ -323,7 +446,8 @@
                             <h5>Sign up for our Newsletter</h5>
                             <div class="input-group">
                                 <input type="text" class=" form-control" placeholder="Your-email@website.com">
-                                <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe</button>
+                                <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -343,10 +467,11 @@
             </div>
         </div>
     </div>
-    <a id="scrollup">Scroll</a> </footer>
+    <a id="scrollup">Scroll</a></footer>
 <div class="footer-bottom">
     <div class="container">
-        <div class="copyright">Powered By &nbsp;<a class="yourstore" href="http://www.lionode.com/">lionode &copy; 2017 </a> </div>
+        <div class="copyright">Powered By &nbsp;<a class="yourstore" href="http://www.lionode.com/">lionode &copy;
+            2017 </a></div>
         <div class="footer-bottom-cms">
             <div class="footer-payment">
                 <ul>
@@ -412,8 +537,11 @@
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
-                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần. </p>
+                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem
+                    các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh
+                    chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
+                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập
+                    tất cả các dịch vụ bạn cần. </p>
             </div>
 
 
@@ -463,7 +591,8 @@
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
+                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm
+                    đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
             </div>
         </div>
     </div>
