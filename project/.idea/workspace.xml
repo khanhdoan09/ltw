@@ -10,37 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/DaoLinkImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/DaoProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/FilterProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/listProduct.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/Pagination.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/databaseConnection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/databaseConnection/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoLinkImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/DaoLinkImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/data/product/Shoe/HiTops/HiTopsWoman.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/data/product/Shoe/HiTops/HiTopsWoman.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/databaseConnection/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/databaseConnection/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/databaseConnection/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/databaseConnection/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoLinkImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/data/product/Shoe/HiTops/HiTopsWoman.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/data/product/Shoe/HiTops/HiTopsWoman.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +42,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/project-1.0-SNAPSHOT" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../test-intellij/ltw-main/project" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -89,11 +81,11 @@
       <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\ltw\project\src\main\webapp\WEB-INF\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.product.jsp">
+  <component name="RunManager" selected="JavaScript Debug.category.jsp">
     <configuration name="category.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/category.jsp">
       <method v="2" />
     </configuration>
-    <configuration name="header.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/header.jsp">
+    <configuration name="product.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/product.html">
       <method v="2" />
     </configuration>
     <configuration name="product.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/product.jsp">
@@ -181,19 +173,19 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.category.jsp" />
-      <item itemvalue="JavaScript Debug.header.jsp" />
+      <item itemvalue="JavaScript Debug.product.jsp" />
+      <item itemvalue="JavaScript Debug.product.html" />
       <item itemvalue="Node.js.khanh-js.js" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.711" />
       <item itemvalue="Tomcat Server.category.jsp" />
-      <item itemvalue="JavaScript Debug.product.jsp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.product.jsp" />
         <item itemvalue="JavaScript Debug.category.jsp" />
+        <item itemvalue="JavaScript Debug.product.html" />
+        <item itemvalue="JavaScript Debug.product.jsp" />
         <item itemvalue="Tomcat Server.category.jsp" />
         <item itemvalue="Node.js.khanh-js.js" />
-        <item itemvalue="JavaScript Debug.header.jsp" />
       </list>
     </recent_temporary>
   </component>
@@ -241,11 +233,45 @@
       <workItem from="1639120759787" duration="1391000" />
       <workItem from="1639122202263" duration="72000" />
       <workItem from="1639122487684" duration="658000" />
-      <workItem from="1639141990676" duration="3457000" />
+      <workItem from="1639141990676" duration="6913000" />
+      <workItem from="1639189941022" duration="66000" />
+      <workItem from="1639190291731" duration="2545000" />
+      <workItem from="1639197997975" duration="1558000" />
+      <workItem from="1639199670494" duration="594000" />
+      <workItem from="1639200380678" duration="809000" />
+      <workItem from="1639209290041" duration="2036000" />
+      <workItem from="1639211381315" duration="4923000" />
+      <workItem from="1639231900364" duration="6938000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
+          <line>316</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
+          <line>402</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
+          <line>489</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/product.jsp</url>
+          <line>204</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

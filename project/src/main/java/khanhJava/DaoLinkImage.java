@@ -25,6 +25,7 @@ public class DaoLinkImage {
     }
 
     private Map<String, ArrayList<String>> mapLinkImg = new HashMap<String, ArrayList<String>>();
+    public static Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
 
     public Map<String, ArrayList<String>> getAll() {
         Connection connect = DatabaseConnection.getConnection();

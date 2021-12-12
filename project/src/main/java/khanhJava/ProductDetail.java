@@ -15,7 +15,7 @@ public class ProductDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("idProduct");
-        request.setAttribute("id", id);
+        request.setAttribute("idProduct", id);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     }
 }

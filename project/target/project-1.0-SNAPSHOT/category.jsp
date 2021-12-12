@@ -213,10 +213,15 @@
             <!---------------------------------------------->
 
             <%
+                int pagination = 1;
+                Object objPagination = request.getAttribute("pagination");
+                if (objPagination != null) {
+                    pagination = Integer.parseInt(objPagination.toString());
+                }
                 ArrayList<Product> listFilter = (ArrayList<Product>) request.getAttribute("filter");
                 if (listFilter != null) {
                     Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
-                    for (int i = 0; i < listFilter.size(); i++) {
+                    for (int i = 0 + 9 * (pagination-1); i < pagination*9; i++) {
                         Product p = listFilter.get(i);
             %>
             <div>
@@ -224,10 +229,10 @@
                     <div class="product-thumb">
                         <div class="image product-imageblock">
                             <a href="ProductDetail?idProduct=<%=p.getId()%>">
-                                <div class="related-product-sale">
-                                    <h5 style='margin-top: 10px'> <%=p.getSaleRate()%></h5>
-                                </div>
-                                <img id="<%=map.get(p.getId()).get(0)%>" src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy"
+                                    <div class="related-product-sale">
+                                        <h5 style='margin-top: 10px'>-<%=p.getSaleRate()%>%</h5>
+                                    </div>
+                                <img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy"
                                      title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
 
                             <div class="button-group">
@@ -284,8 +289,27 @@
 
             </div>
             <%
-                    }
-                }
+                    }%>
+            <div class="category-page-wrapper">
+                <div class="pagination-inner" id="tessss">
+                    <ul class="pagination">
+                        <!-- khanh-js displayPagination() display this -->
+                        <li><a id="left-page" href="CategoryProduct?categoryProduct=runningManCategory?Pagination=<%=pagination-1%>">&lt;</a></li>
+                        <li><a id="right-page" href="CategoryProduct?categoryProduct=runningManCategory?Pagination=<%=pagination+1%>">&gt;</a></li>
+                        <span>Page</span>
+                        <select id="selectPagination" onchange="location = this.value;">
+                        <% int lengthPagination = (int)Math.ceil(listFilter.size()/9);%>
+                        <%for(int j = 1; j < lengthPagination; j++){%>
+                            <option value="CategoryProduct?categoryProduct=<&&>?Pagination=<%=j%>">
+                                <%=j%>
+                            </option>
+                        <%}%>
+                    </select> <span> of <%if(listFilter!=null)%><%=lengthPagination%></span>
+                    </ul>
+                </div>
+            </div>
+
+            <%   }
             %>
 
             <%if (listFilter == null) {
@@ -363,21 +387,16 @@
                         </ul>
                     </div>
                 </div>
-                <!-- khanh-js.js display this product -->
             </div>
+
             <%
+
                 }
+
             %>
             <!---------------------------------------------->
 
 
-            <div class="category-page-wrapper">
-                <div class="pagination-inner" id="tessss">
-                    <ul class="pagination">
-                        <!-- khanh-js displayPagination() display this -->
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 </div>
