@@ -66,7 +66,7 @@ public class CategoryProduct extends HttpServlet {
             listFilter = DaoProduct.getInstance().getProductByCategory("Skateboard Woman");
             folderImage = "imgSkateBoardWoman";
             DaoProduct.getInstance().currentFolderCategory = "imgSkateBoardWoman";
-            DaoProduct.getInstance().currentCategory = "Skateboard Woman";
+             DaoProduct.getInstance().currentCategory = "Skateboard Woman";
         }
         String pag = request.getParameter("pagination");
         if (pag != null) {

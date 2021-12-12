@@ -11,6 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/DaoProduct.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +223,7 @@
       <workItem from="1639211381315" duration="4923000" />
       <workItem from="1639231900364" duration="6938000" />
       <workItem from="1639292535808" duration="6461000" />
-      <workItem from="1639299244324" duration="341000" />
+      <workItem from="1639299244324" duration="1714000" />
     </task>
     <servers />
   </component>
@@ -250,11 +252,6 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/product.jsp</url>
           <line>204</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>216</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

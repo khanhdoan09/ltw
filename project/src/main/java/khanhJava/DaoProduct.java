@@ -89,7 +89,7 @@ public class DaoProduct implements Dao<Product> {
     @Override
     public ArrayList<Product> getAll() {
         try {
-            Statement s = connect.createStatement();
+             Statement s = connect.createStatement();
             ResultSet rs = s.executeQuery("SELECT * FROM runningman");
             while (rs.next()) {
                 String r1 = rs.getString(1);
