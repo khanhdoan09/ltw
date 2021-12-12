@@ -214,7 +214,7 @@
 
             <%
                 int pagination = 1;
-                Object objPagination = request.getAttribute("pagination");
+                Object objPagination = request.getAttribute("Pagination");
                 if (objPagination != null) {
                     pagination = Integer.parseInt(objPagination.toString());
                 }
@@ -293,15 +293,15 @@
             <div class="category-page-wrapper">
                 <div class="pagination-inner" id="tessss">
                     <ul class="pagination">
-                        <!-- khanh-js displayPagination() display this -->
-                        <li><a id="left-page" href="CategoryProduct?categoryProduct=runningManCategory?Pagination=<%=pagination-1%>">&lt;</a></li>
-                        <li><a id="right-page" href="CategoryProduct?categoryProduct=runningManCategory?Pagination=<%=pagination+1%>">&gt;</a></li>
+                        <% int lengthPagination = (int)Math.ceil(listFilter.size()/9);%>
+                        <li><a id="left-page" href="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=pagination<=1 ? 1: pagination-1%>">&lt;</a></li>
+                        <li><a id="right-page" href="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=pagination >= lengthPagination ? lengthPagination: pagination+1%>">&gt;</a></li>
                         <span>Page</span>
                         <select id="selectPagination" onchange="location = this.value;">
-                        <% int lengthPagination = (int)Math.ceil(listFilter.size()/9);%>
-                        <%for(int j = 1; j < lengthPagination; j++){%>
-                            <option value="CategoryProduct?categoryProduct=<&&>?Pagination=<%=j%>">
-                                <%=j%>
+                        <%for(int j = 1; j <= lengthPagination; j++){%>
+                            <option value="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=j%>"
+                            <% // current pagination
+                                 if(j==pagination) {%><%="selected"%> <%}%>><%=j%>
                             </option>
                         <%}%>
                     </select> <span> of <%if(listFilter!=null)%><%=lengthPagination%></span>

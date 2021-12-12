@@ -10,29 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/Pagination.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoLinkImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/DaoLinkImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoLinkImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,6 +225,7 @@
       <workItem from="1639209290041" duration="2036000" />
       <workItem from="1639211381315" duration="4923000" />
       <workItem from="1639231900364" duration="6938000" />
+      <workItem from="1639292535808" duration="3564000" />
     </task>
     <servers />
   </component>
@@ -253,23 +237,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>316</line>
+          <line>315</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>402</line>
+          <line>401</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>489</line>
+          <line>488</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/product.jsp</url>
           <line>204</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
+          <line>216</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
