@@ -2,10 +2,12 @@
   <library name="Maven: com.fasterxml.woodstox:woodstox-core:6.2.6">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/woodstox/woodstox-core/6.2.6/woodstox-core-6.2.6.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-java-8.0.27.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jstl-1.2.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/woodstox/woodstox-core/6.2.6/woodstox-core-6.2.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/woodstox/woodstox-core/6.2.6/woodstox-core-6.2.6-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
