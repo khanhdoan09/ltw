@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +220,8 @@
       <workItem from="1639209290041" duration="2036000" />
       <workItem from="1639211381315" duration="4923000" />
       <workItem from="1639231900364" duration="6938000" />
-      <workItem from="1639292535808" duration="3564000" />
+      <workItem from="1639292535808" duration="6461000" />
+      <workItem from="1639299244324" duration="341000" />
     </task>
     <servers />
   </component>
@@ -240,17 +236,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>315</line>
+          <line>316</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>401</line>
+          <line>402</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>488</line>
+          <line>489</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
