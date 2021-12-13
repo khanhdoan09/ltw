@@ -143,10 +143,10 @@
                                                     <div class="item-nav-detail-info" id="item-category-man">
                                                             <ul>
 <%--                                                                    <li id="hitops-man" value="data/product/Shoe/HiTops/HiTopsMan.js" class="category-product-man">HiTops</li>--%>
-                                                                   <li class="category-product-man"><a href='CategoryProduct?categoryProduct=runningManCategory' class="category-product-man">Running</a></li>
-                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=slidesManCategory' class="category-product-man">Slides</a></li>
-                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=sneakersManCategory' class="category-product-man">Sneakers</a></li>
-                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=skateboardManCategory' class="category-product-man">Skateboard</a></li>
+                                                                   <li class="category-product-man"><a href='CategoryProduct?categoryProduct=runningManCategory&pagination=1' class="category-product-man">Running</a></li>
+                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=slidesManCategory&pagination=1' class="category-product-man">Slides</a></li>
+                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=sneakersManCategory&pagination=1' class="category-product-man">Sneakers</a></li>
+                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=skateboardManCategory&pagination=1' class="category-product-man">Skateboard</a></li>
 <%--                                                                    <li class="category-product-man"><a href='CategoryProduct?categoryProduct=footballManCategory' class="category-product-man">Football</a></li>--%>
 
                                                                     <!-- <li id=\"trainer-man\" value=\"data/product/Shoe/Trainers/TrainersMan.js\" class=\"category-product-man\">Trainers</li> -->
@@ -157,10 +157,10 @@
                                                     <div class="item-nav-detail-info" id="item-category-woman">
                                                             <ul>
 <%--                                                                    <li id="hitops-woman" value="data/product/Shoe/HiTops/HiTopsWoman.js" class="category-product-woman">HiTops</li>--%>
-                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=runningWomanCategory' class="category-product-woman">Running</a></li>
-                                                                    <li class="category-product-woman\"><a href='CategoryProduct?categoryProduct=slidesWomanCategory' class="category-product-woman">Slides</a></li>
-                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=sneakersWomanCategory' class="category-product-woman">Sneakers</a></li>
-                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=skateboardWomanCategory' class="category-product-woman">Skateboard</a></li>
+                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=runningWomanCategory&pagination=1' class="category-product-woman">Running</a></li>
+                                                                    <li class="category-product-woman\"><a href='CategoryProduct?categoryProduct=slidesWomanCategory&pagination=1' class="category-product-woman">Slides</a></li>
+                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=sneakersWomanCategory&pagination=1' class="category-product-woman">Sneakers</a></li>
+                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=skateboardWomanCategory&pagination=1' class="category-product-woman">Skateboard</a></li>
 <%--                                                                    <li class="category-product-woman"><a href='CategoryProduct?categoryProduct=footballWomanCategory' class="category-product-woman">Football</a></li>--%>
 
 

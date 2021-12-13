@@ -9,7 +9,7 @@
 .col-half-sub {
     float: left;
     width: 45%;
-    padding: 30px;
+    padding: 20px;
 }
 .login-modal,
 .modal-register{
@@ -81,8 +81,8 @@
     margin: 20px 0 30px;
     border-bottom: 2px solid #ccc;
     height: 13px;
-    
-    }
+
+}
 
 .modal-body2 .sub,
 .modal-body .sub {
@@ -97,13 +97,13 @@
     cursor: pointer;
     color: #000;
     padding: 5px 8px;
-    
+
 }
 
 /* .modal-register, */
 .modal-body2 .modal-sub-register ,
 .modal-body .modal-login {
- background-color: #ccc;
+    background-color: #ccc;
 }
 
 .modal-register-another,
@@ -118,9 +118,9 @@
 
 
 .icon-login-another {
-   width: 50px;
-   margin: 10px 15px;
-   cursor: pointer;
+    width: 50px;
+    margin: 10px 15px;
+    cursor: pointer;
 }
 
 
@@ -214,15 +214,13 @@
 #main-banner .main-banner-section-center,
 #main-banner .main-banner-section {
     position: absolute;
-    width: 350px;
-    height: 450px;
+    width: 100%;
     background-color: rgba(0,0,0,0.1);
     text-align: center;
 }
 #main-banner .main-banner-section-center{
     height: 20px;
     margin-top: -100px;
-    margin-left: 35%;
     background-color: rgba(0,0,0,0) ;
 }
 #main-banner .main-banner-section-center > a {
@@ -246,18 +244,19 @@
 }
 #content .blog1.sub {
     width: 100%;
-    min-height: 395px;
+    min-height: 320px;
     text-align: justify;
     background-color: #f3f4f8;
     margin-right: 30px;
 }
 #content .blog1.sub .blog-title {
-    font-size: 25px;
+    font-size: 22px;
     width: 120%;
     padding: 10px 0;
+    margin-bottom: 0px;
 }
 #content .blog1.sub .blog-title-content {
-    font-size: 15px;
+    font-size: 14px;
     width: 120%;
 }
 #content .blog1.sub .shose-slect {
@@ -267,42 +266,46 @@
     font-weight: bold;
     color: white;
     font-size: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 #content .blog1.sub .shose-slect:hover {
     background-color: #0059ff;
 }
 #content .blog1.sub .blog-meta {
     float: right;
-    
- }
+
+}
 #u-url-blog {
-     display: inline-block;
-     margin-top: 40px;
-     background-color: #333;
-     padding: 15px 30px;
-     color: white;
-     font-weight: bold;
- }
- #u-url-blog:hover {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #333;
+    padding: 8px 20px;
+    color: white;
+    font-weight: bold;
+}
+#u-url-blog:hover {
     background-color: #000;
 
- }
- .col-2 #content {
-     margin-right: 30px;
- }
- #bg-search-blog {
-     display: inline-block;
-     width: 143%;
-     height: 70px;
-     background-color: #1a94ff;
- }
- #bg-search-blog .search-product {
-     margin: auto;
-     margin-top: 13px;
- }
- #new-posts-modal {
-     width: 143%;
+}
+.col-2 #content {
+    margin-right: 26px;
+}
+#bg-search-blog {
+    display: inline-block;
+    width: 143%;
+    height: 70px;
+    background-color: #1a94ff;
+}
+#bg-search-blog .search-product {
+    margin: auto;
+    margin-top: 13px;
+    max-width: 95%;
+}
+#bg-search-blog .search-product-top {
+    width: 50px;
+}
+#new-posts-modal {
+    width: 143%;
     padding: 30px;
     background-color: #f3f4f8;
     padding-top: 50px;
@@ -370,7 +373,7 @@
 }
 .sales-policy-content .title-policy-content ,
 .sales-policy .title-free-ship {
-    max-width: 82%;
+    max-width: 75%;
     float: left;
     font-size: 17px;
     color: #51c400;
@@ -386,4 +389,81 @@
     color: blue;
     font-size: 16px;
     text-decoration: blue;
+}
+
+/* css phần product */
+.price-modal {
+    background-color: #f5f5f5;
+}
+.price-modal .price-box {
+    float: left;
+}
+.price-modal .price-sale {
+    text-decoration: line-through;
+    padding: 0 20px;
+    color: rgb(146, 145, 145);
+    margin: 18px 0;
+}
+.price-modal .price {
+    color: #1a94ff;
+    font-size: 25px;
+    margin: 10px 0;
+}
+.price-modal .sale {
+    background-color: #1a94ff;
+    color: white;
+    padding: 4px;
+    margin: 12px 10px;
+}
+.size-shoes .num-size >button {
+    padding: 2px 20px;
+    background-color: white;
+    color: black;
+    margin-left: 6px;
+}
+.size-shoes .num-size >button:hover {
+    border: 1px solid #1a94ff;
+}
+#number {
+    width: 50px;
+    text-align: center;
+    color: black;
+}
+#values .set-value {
+    margin-left: 30px;
+    margin-right: 10px;
+}
+#values .value-box {
+    float: left;
+}
+#values .value {
+    width: 30px;
+    color: black;
+}
+.buy-product,
+.add-product {
+    display: inline-block;
+    background-color: #9bd0ff8d;
+    border: 1px solid #1a94ff;
+    padding: 10px 5px;
+    width: 35%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buy-product {
+    background-color: #1a94ff;
+}
+.add-and-buy .buy {
+    color: white;
+}
+.add-and-buy .add {
+    color: #1a94ff;
+}
+.add-and-buy {
+    text-align: center;
+    margin-top: 50px;
 }

@@ -1,15 +1,4 @@
-<%@ page import="org.jboss.com.sun.corba.se.spi.oa.ObjectAdapter" %>
-<%@ page import="khanhJava.Product" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="khanhJava.DaoLinkImage" %>
-<%@ page import="khanhJava.DaoProduct" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="java.sql.DriverManager" %>
-<%@page import="java.sql.Connection" %>
-<%@ page import="databaseConnection.DatabaseConnection" %>
-<%@ page import="khanhJava.DaoProduct" %>
-<%--
+<%@ page import="java.sql.*" %><%--
   Created by IntelliJ IDEA.
   User: khanh
   Date: 12/6/2021
@@ -17,6 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.Connection" %>
+<%@ page import="databaseConnection.DatabaseConnection" %>
+<%@ page import="khanhJava.DaoProduct" %>
+<%@ page import="khanhJava.Product" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="khanhJava.DaoLinkImage" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -49,22 +46,22 @@
     <link rel="stylesheet" href="css/khanh-css.css" type="text/css">
     <link rel="stylesheet" href="./css/hung-css.css">
     <script rel="script" src="javascript/khanh-js.js"></script>
-<%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>--%>
-<%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>--%>
-<%--    <script>--%>
-<%--        // Your web app's Firebase configuration--%>
-<%--        var firebaseConfig = {--%>
-<%--            apiKey: "AIzaSyCEAFDu8UnLjJO2EAGbOPvQr7ncppuJXSk",--%>
-<%--            authDomain: "testgroup-8bb67.firebaseapp.com",--%>
-<%--            projectId: "testgroup-8bb67",--%>
-<%--            storageBucket: "testgroup-8bb67.appspot.com",--%>
-<%--            messagingSenderId: "638263318930",--%>
-<%--            appId: "1:638263318930:web:f3c08f9a5f5fd802ea094b",--%>
-<%--            measurementId: "G-6X0Q5Y4DYV"--%>
-<%--        };--%>
-<%--        // Initialize Firebase--%>
-<%--        firebase.initializeApp(firebaseConfig);--%>
-<%--    </script>--%>
+    <%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>--%>
+    <%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>--%>
+    <%--    <script>--%>
+    <%--        // Your web app's Firebase configuration--%>
+    <%--        var firebaseConfig = {--%>
+    <%--            apiKey: "AIzaSyCEAFDu8UnLjJO2EAGbOPvQr7ncppuJXSk",--%>
+    <%--            authDomain: "testgroup-8bb67.firebaseapp.com",--%>
+    <%--            projectId: "testgroup-8bb67",--%>
+    <%--            storageBucket: "testgroup-8bb67.appspot.com",--%>
+    <%--            messagingSenderId: "638263318930",--%>
+    <%--            appId: "1:638263318930:web:f3c08f9a5f5fd802ea094b",--%>
+    <%--            measurementId: "G-6X0Q5Y4DYV"--%>
+    <%--        };--%>
+    <%--        // Initialize Firebase--%>
+    <%--        firebase.initializeApp(firebaseConfig);--%>
+    <%--    </script>--%>
 
 </head>
 
@@ -136,28 +133,28 @@
                             <div id="filter-group2" class="contain-rate-search">
                                 <input type="checkbox" id="five-star-rate" class="hidden-rate" name="filter-star-rate" value="5">
                                 <label class="rate-search" for="five-star-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span style="margin-left: 5px">From 5 stars</span>
-                                    </label>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span style="margin-left: 5px">From 5 stars</span>
+                                </label>
                                 <input type="checkbox" id="four-star-rate" class="hidden-rate" name="filter-star-rate" value="4">
                                 <label class="rate-search" for="four-star-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span style="margin-left: 5px">From 4 stars</span>
-                                    </label>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span style="margin-left: 5px">From 4 stars</span>
+                                </label>
                                 <input type="checkbox" id="three-star-rate" class="hidden-rate" name="filter-star-rate" value="3">
                                 <label class="rate-search" for="three-star-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span style="margin-left: 5px">From 3 stars</span>
-                                    </label>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span style="margin-left: 5px">From 3 stars</span>
+                                </label>
                             </div>
                         </div>
                         <a class="list-group-item">Prices</a>
@@ -191,12 +188,12 @@
                                     <p style="font-size: 50px; margin: 0 10px">-</p>
                                     <input type="text" name="input-range-filter-price" value="" class="max-search" placeholder="Đến">
                                 </div>
-<%--                                <%--%>
-<%--                                    Object err = request.getAttribute("errorInputPrice");--%>
-<%--                                    if (err != null) {--%>
-<%--                                        System.out.println("<h1 style='display: block; color: red; margin: 10px 0'>" + err.toString() + "</h1>");--%>
-<%--                                    }--%>
-<%--                                %>--%>
+                                <%
+                                    Object err = request.getAttribute("errorInputPrice");
+                                    if (err != null) {
+                                        out.println("<h1 style='display: block; color: red; margin: 10px 0'>" + err.toString() + "</h1>");
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>
@@ -214,12 +211,16 @@
 
             <!-- list product -->
             <!---------------------------------------------->
-
             <%
+                int pagination = 1;
+                Object objPagination = request.getAttribute("Pagination");
+                if (objPagination != null) {
+                    pagination = Integer.parseInt(objPagination.toString());
+                }
                 ArrayList<Product> listFilter = (ArrayList<Product>) request.getAttribute("filter");
                 if (listFilter != null) {
                     Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
-                    for (int i = 0; i < listFilter.size(); i++) {
+                    for (int i = 0 + 9 * (pagination-1); i < pagination*9; i++) {
                         Product p = listFilter.get(i);
             %>
             <div>
@@ -228,9 +229,9 @@
                         <div class="image product-imageblock">
                             <a href="ProductDetail?idProduct=<%=p.getId()%>">
                                 <div class="related-product-sale">
-                                    <h5 style='margin-top: 10px'> <%=p.getSaleRate()%></h5>
+                                    <h5 style='margin-top: 10px'>-<%=p.getSaleRate()%>%</h5>
                                 </div>
-                                <img id="<%=map.get(p.getId()).get(0)%>" src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy"
+                                <img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy"
                                      title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
 
                             <div class="button-group">
@@ -287,8 +288,27 @@
 
             </div>
             <%
-                    }
-                }
+                }%>
+            <div class="category-page-wrapper">
+                <div class="pagination-inner" id="tessss">
+                    <ul class="pagination">
+                        <% int lengthPagination = (int)Math.ceil(listFilter.size()/9);%>
+                        <li><a id="left-page" href="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=pagination<=1 ? 1: pagination-1%>">&lt;</a></li>
+                        <li><a id="right-page" href="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=pagination >= lengthPagination ? lengthPagination: pagination+1%>">&gt;</a></li>
+                        <span>Page</span>
+                        <select id="selectPagination" onchange="location = this.value;">
+                            <%for(int j = 1; j <= lengthPagination; j++){%>
+                            <option value="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=j%>"
+                                    <% // current pagination
+                                        if(j==pagination) {%><%="selected"%> <%}%>><%=j%>
+                            </option>
+                            <%}%>
+                        </select> <span> of <%if(listFilter!=null)%><%=lengthPagination%></span>
+                    </ul>
+                </div>
+            </div>
+
+            <%   }
             %>
 
             <%if (listFilter == null) {
@@ -366,21 +386,13 @@
                         </ul>
                     </div>
                 </div>
-                <!-- khanh-js.js display this product -->
             </div>
+
             <%
                 }
-            %>
-            <!---------------------------------------------->
+            %>            <!---------------------------------------------->
 
 
-            <div class="category-page-wrapper">
-                <div class="pagination-inner" id="tessss">
-                    <ul class="pagination">
-                        <!-- khanh-js displayPagination() display this -->
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 </div>
