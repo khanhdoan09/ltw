@@ -10,48 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryRoute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/DaoProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/FilterProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/FilterProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/hung-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/hung-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/listProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/HelloApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/HelloResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/HelloResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/project/HelloServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/project/HelloServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/databaseConnection/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/databaseConnection/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/Dao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/FilterProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/FilterProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Servlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/khanhJava/Servlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/hung-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/hung-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/listProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/listProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,6 +230,7 @@
       <workItem from="1639373698868" duration="121000" />
       <workItem from="1639374905385" duration="152000" />
       <workItem from="1639383121983" duration="2559000" />
+      <workItem from="1639399818092" duration="1253000" />
     </task>
     <servers />
   </component>
