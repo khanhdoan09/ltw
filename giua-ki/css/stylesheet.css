@@ -1480,9 +1480,6 @@ h2.price {
     display: inline-block;
 }
 
-#product-thumbnail .item {
-    text-align: center;
-}
 
 /* fixed colum left + content + right*/
 
@@ -2431,7 +2428,7 @@ span.review-edit {
 
 .product .product_info li label {
     font-weight: bold;
-    width: 85px;
+    width: 90px;
 }
 
 .product .product_info li span {
