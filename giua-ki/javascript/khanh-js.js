@@ -9,12 +9,13 @@ $(function() {
 });
 
 
-// filter search when click {
+// display filter search when click {
 $(function(){ 
     $(".toggle-filter-search").click(() => {
         $(".contain-filter-search").slideToggle("show");
     });
 });
+
 
 
 
@@ -25,38 +26,38 @@ function displayMenuNavigation() {
                             <div class="navbar-collapse">
                                 <ul class="main-navigation">
                                     <li><a href="index.html" class="parent">Home</a> </li>
-                                    <li><a href="category.html" class="parent category-item" id="category-man"> Man <i class="fas fa-caret-down"></i></a></li>
-                                    <li><a href="category.html" class="parent category-item" id="category-woman">Woman <i class="fas fa-caret-down"></i></a></li>
+                                    <li><a href="category.html" class="parent category-item" id="category-man"> Man <i class="fas fa-caret-down"></i> </a>
+                                    
+                                    <ul class="man-category">
+                                    <li id="hitops-man" class="category-product category-product-man">HiTops</li>
+                                    <li id="running-man"  class="category-product category-product-man">Running</li>
+                                    <li id="slides-man"  class="category-product category-product-man">Slides</li>
+                                    <li id="sneakers-man"  class="category-product category-product-man">Sneakers</li>
+                                    <li id="skateboard-man"  class="category-product category-product-man">SkateBoard</li>
+                                    <li id="football-man"  class="category-product category-product-man">Football</li>
+
+                                </ul>
+                            
+                                </li>
+                                    <li><a href="category.html" class="parent category-item" id="category-woman">Woman <i class="fas fa-caret-down"></i></a>
+                                    
+                                    <ul class="woman-category">
+                                    <li id="hitops-woman" class="category-product category-product-woman">HiTops</li>
+                                    <li id="running-woman"  class="category-product category-product-woman">Running</li>
+                                    <li id="slides-woman"  class="category-product category-product-woman">Slides</li>
+                                    <li id="sneakers-woman"  class="category-product category-product-woman">Sneakers</li>
+                                    <li id="skateboard-woman"  class="category-product category-product-woman">SkateBoard</li>
+                                    <li id="football-woman"  class="category-product category-product-woman">Football</li>
+
+                                </ul>
+
+                                    </li>
                                      <li><a href="category.html" class="parent category-item" id="category-brand">Brands <i class="fas fa-caret-down"></i></a></li>
                                     <li><a href="blog.html" class="parent">Blog</a></li>
                                     <li><a href="about-us.html">About us</a></li>
                                 </ul>
                                 <div class="nav-detail-info">
-                                    <div class="item-nav-detail-info" id="item-category-man">
-        
-                                        <ul>
-                                            <li id="hitops-man" class="category-product category-product-man">HiTops</li>
-                                            <li id="running-man"  class="category-product category-product-man">Running</li>
-                                            <li id="slides-man"  class="category-product category-product-man">Slides</li>
-                                            <li id="sneakers-man"  class="category-product category-product-man">Sneakers</li>
-                                            <li id="skateboard-man"  class="category-product category-product-man">SkateBoard</li>
-                                            <li id="football-man"  class="category-product category-product-man">Football</li>
-        
-                                        </ul>
-                                    
-                                    </div>
-        
-                                    <div class="item-nav-detail-info" id="item-category-woman">                                        <ul>
-                                              <li id="hitops-woman" class="category-product category-product-woman">HiTops</li>
-                                            <li id="running-woman"  class="category-product category-product-woman">Running</li>
-                                           <li id="slides-woman"  class="category-product category-product-woman">Slides</li>
-                                            <li id="sneakers-woman"  class="category-product category-product-woman">Sneakers</li>
-                                            <li id="skateboard-woman"  class="category-product category-product-woman">SkateBoard</li>
-                                            <li id="football-woman"  class="category-product category-product-woman">Football</li>
-        
-        
-                                       </ul>
-                                    </div>
+                
     
                                     <div class="item-nav-detail-info" id="item-category-brand">
                                         <div class="contain-brand">
@@ -100,21 +101,12 @@ $(function() {
 $(function() {
     $("#category-man").mouseover(() => {
         setUpCategoryNav();
-        $("#item-category-man").css("display", "flex");
-        if ($(window).width() < 750) {
-            $(".nav-detail-info").css("top", "80px");
-            $(".nav-detail-info").css("left", "-120px");
-            $("#item-category-man").css("width", "30%");
-        }
+        $('.man-category').addClass('display-sub-nav');
+
     });
     $("#category-woman").mouseover(() => {
         setUpCategoryNav();
-        $("#item-category-woman").css("display", "flex");
-        if ($(window).width() < 750) {
-            $(".nav-detail-info").css("top", "120px");
-            $(".nav-detail-info").css("left", "-150px");
-            $("#item-category-woman").css("width", "30%");
-        }
+        $('.woman-category').addClass('display-sub-nav');
     });
 
     $("#category-brand").mouseover(() => {
@@ -127,12 +119,23 @@ $(function() {
         }
     });
 
+    $(".man-category").mouseover(() => {
+        $('.man-category').addClass('display-sub-nav');
+    });
+
+    $(".woman-category").mouseover(() => {
+        $('.woman-category').addClass('display-sub-nav');
+    });
+
     $(".nav-detail-info").mouseover(() => {
         $(".nav-detail-info").css("display", "grid");
     });
 
     $(".navbar-collapse").mouseout(() => {
+        $('.man-category').removeClass('display-sub-nav');
+        $('.woman-category').removeClass('display-sub-nav');
         $(".nav-detail-info").css("display", "none");
+
     });
 });
 
@@ -167,11 +170,9 @@ function displayListProduct() {
                 <div class="related-product-sale">
                    <h5 style='margin-top: 10px'> -20%</h5>
                  </div>
-<img id="imgCategory" src="${element.linkImg}" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+<img id="imgCategory" src="${element.linkImg}" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive item-img-list" /> </a>
             <div class="button-group">
-              <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></button>
               <button type="button" class="addtocart-btn">Mua ngay</button>
-              <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
             </div>
           </div>
           <div class="caption product-detail">
@@ -185,9 +186,7 @@ ${element.name}</a> </h4>
             <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>                                    </div>
           </div>
           <div class="button-group">
-            <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i class="fas fa-heart"></i></button>
             <button type="button" class="addtocart-btn">Mua ngay</button>
-            <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fas fa-shopping-cart"></i></button>
           </div>
         </div>
       </div>`;
@@ -308,26 +307,32 @@ function accessInfoCustomer() {
     $("#nav-info-customer").click(() => {
         resetAllSectionCustomer();
         $("#info-customer").css("display", "block");
+        $("#nav-info-customer").addClass("customer-category-after-click");
     });
     $("#nav-bank-customer").click(() => {
         resetAllSectionCustomer();
         $("#bank-customer").css("display", "block");
+        $("#nav-bank-customer").addClass("customer-category-after-click");
     });
     $("#nav-map-customer").click(() => {
         resetAllSectionCustomer();
         $("#map-customer").css("display", "block");
+        $("#nav-map-customer").addClass("customer-category-after-click");
     });
     $("#nav-password-customer").click(() => {
         resetAllSectionCustomer();
         $("#password-customer").css("display", "block");
+        $("#nav-password-customer").addClass("customer-category-after-click");
     });
-    $("#nav-cart-customer").click(() => {
-        resetAllSectionCustomer();
-        $("#cart-customer").css("display", "block");
-    });
+    // $("#nav-cart-customer").click(() => {
+    //     resetAllSectionCustomer();
+    //     $("#cart-customer").css("display", "block");
+    //     $("#nav-cart-customer").addClass("customer-category-after-click");
+    // });
     $("#nav-history-customer").click(() => {
         resetAllSectionCustomer();
         $("#history-customer").css("display", "block");
+        $("#nav-history-customer").addClass("customer-category-after-click");
     });
 
     $(".adjust-address-customer").click(() => {
@@ -357,11 +362,17 @@ function accessInfoCustomer() {
 }
 
 function resetAllSectionCustomer() {
+    $("#nav-info-customer").removeClass("customer-category-after-click");
+    $("#nav-bank-customer").removeClass("customer-category-after-click");
+    $("#nav-map-customer").removeClass("customer-category-after-click");
+    $("#nav-password-customer").removeClass("customer-category-after-click");
+    // $("#nav-cart-customer").removeClass("customer-category-after-click");
+    $("#nav-history-customer").removeClass("customer-category-after-click");
     $("#info-customer").css("display", "none");
     $("#bank-customer").css("display", "none");
     $("#map-customer").css("display", "none");
     $("#password-customer").css("display", "none");
-    $("#cart-customer").css("display", "none");
+    // $("#cart-customer").css("display", "none");
     $("#history-customer").css("display", "none");
 }
 $(window).ready(resetAllSectionCustomer);

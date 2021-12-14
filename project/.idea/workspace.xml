@@ -10,7 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../giua-ki/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryRoute.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/listProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/listProduct.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,8 +169,8 @@
       <list>
         <item itemvalue="JavaScript Debug.category.jsp" />
         <item itemvalue="Tomcat Server.category.jsp" />
-        <item itemvalue="Node.js.khanh-js.js" />
         <item itemvalue="JavaScript Debug.product.jsp" />
+        <item itemvalue="Node.js.khanh-js.js" />
         <item itemvalue="JavaScript Debug.product.html (1)" />
       </list>
     </recent_temporary>
@@ -231,6 +239,9 @@
       <workItem from="1639374905385" duration="152000" />
       <workItem from="1639383121983" duration="2559000" />
       <workItem from="1639399818092" duration="1253000" />
+      <workItem from="1639464471403" duration="600000" />
+      <workItem from="1639465113821" duration="315000" />
+      <workItem from="1639466013026" duration="278000" />
     </task>
     <servers />
   </component>

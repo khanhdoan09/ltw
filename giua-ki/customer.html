@@ -174,9 +174,9 @@
                             <li id="nav-password-customer">
                                 <i class="fas fa-key"></i> Đổi mật khẩu
                             </li>
-                            <li id="nav-cart-customer">
+                            <!-- <li id="nav-cart-customer">
                                 <i class="fas fa-shopping-basket"></i> Đơn hàng
-                            </li>
+                            </li> -->
                             <li id="nav-history-customer">
                                 <i class="fa fa-history" aria-hidden="true"></i> Lịch sử mua hàng
                             </li>
@@ -197,36 +197,35 @@
                     <div id="map-customer">
                         <button class="contain-add-map">
                         <i class="fas fa-plus"></i>
-                        <span>Thêm địa chỉ mới</span>
+                        <span class="add-address">Thêm địa chỉ mới</span>
                     </button>
                         <div class="contain-available-address">
                             <div class="option-address">
-                                <span class="default-address">Địa chỉ mặc định</span>
-                                <p class="adjust-address-customer">Chỉnh sửa</p>
+                                <p style="cursor: pointer; color: rgb(57, 57, 207);" class="adjust-address-customer">Chỉnh sửa</p>
                             </div>
                             <div class="available-address">
-                                <span>Địa chỉ :</span>
-                                <span> a199t, tổ 1a, khu phố bình nhâm, bình nhâm 20, Phường Bình Nhâm, Thị xã Thuận An, Bình Dương</span>
-                                <span>Điện thoại : </span>
-                                <span>0123456789</span>
+                                <p style="color: black;margin: 10px 0;"><span style="color: rgb(70, 67, 67);">Địa chỉ : </span> a199t, tổ 1a, khu phố bình nhâm, bình nhâm 20, Phường Bình Nhâm, Thị xã Thuận An, Bình Dương</p>
+                                <p style="color: black;margin: 10px 0;"><span style="color: rgb(73, 72, 72);">Điện thoại :</span> 0123456789</p>
+
+                            
                             </div>
 
                             <form class="contain-form-adjust-address">
                                 <div class="contain-adjust-address">
                                     <span class="label-address">Tỉnh/ Thành phố:</span>
-                                    <select id="contain-option-city">
+                                    <select id="contain-option-city" class="input-address">
                                     <!-- khanh-js loadLocation() display this -->
                                 </select>
-                                    <span class="label-address">Quận/ Huyện:</span>
-                                    <select id="contain-option-district">
+                                    <span class="label-address" >Quận/ Huyện:</span>
+                                    <select id="contain-option-district" class="input-address">
                                     <!-- khanh-js loadLocation() display this -->
                                 </select>
-                                    <span class="label-address">Phường/ Xã:</span>
-                                    <select id="contain-option-ward">
+                                    <span class="label-address" >Phường/ Xã:</span>
+                                    <select id="contain-option-ward" class="input-address">
                                     <!-- khanh-js loadLocation() display this -->
                                 </select>
                                     <span class="label-address">Địa chỉ</span>
-                                    <textarea rows="4" cols="50"></textarea>
+                                    <textarea rows="4" cols="50" style="border-radius: 10px;"></textarea>
                                 </div>
                                 <div class="contain-default-address-customer" style="margin: 10px 0">
                                     <input type="checkbox" id="default-address-customer">
@@ -243,38 +242,21 @@
                     <div id="password-customer">
                         password
                     </div>
-                    <div id="cart-customer">
+                    <!-- <div id="cart-customer">
                         cart
-                    </div>
+                    </div> -->
                     <div id="history-customer">
                         <div class=contain-history>
                             <table>
-                                <tr>
+                                <thead>
                                     <th>Id order</th>
                                     <th>Name product</th>
+                                    <th>Image</th>
                                     <th>Count</th>
+                                    <th>Trạng thái</th>
                                     <th>Total cost</th>
-                                    <th>State</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><a href="#">123456789</a></p>
-                                    </td>
-                                    <td>
-                                        <p>super super super shoe</p>
-                                    </td>
-                                    <td>
-                                        <p>1</p>
-                                    </td>
-                                    <td>
-                                        <p>100.00</p>
-                                    </td>
-                                    <td>
-                                        <p>Deliveried</p>
-                                    </td>
-                                </tr>
-
                                 
+                                </thead>
                                 <tr>
                                     <td>
                                         <p><a href="#">123456789</a></p>
@@ -283,16 +265,63 @@
                                         <p>super super super shoe</p>
                                     </td>
                                     <td>
+                                        <img src="image/product/product-01.jpg" alt="">
+                                    </td>
+                                    <td>
                                         <p>1</p>
+                                    </td>
+                                    <td>
+                                        <p>Đã giao</p>
                                     </td>
                                     <td>
                                         <p>100.00</p>
                                     </td>
-                                    <td>
-                                        <p>Deliveried</p>
-                                    </td>
+                                  
                                 </tr>
 
+                                <tr>
+                                    <td>
+                                        <p><a href="#">123456789</a></p>
+                                    </td>
+                                    <td>
+                                        <p>super super super shoe</p>
+                                    </td>
+                                    <td>
+                                        <img src="image/product/product-01.jpg" alt="">
+                                    </td>
+                                    <td>
+                                        <p>1</p>
+                                    </td>
+                                    <td>
+                                        <p>Đã giao</p>
+                                    </td>
+                                    <td>
+                                        <p>100.00</p>
+                                    </td>
+                                  
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p><a href="#">123456789</a></p>
+                                    </td>
+                                    <td>
+                                        <p>super super super shoe</p>
+                                    </td>
+                                    <td>
+                                        <img src="image/product/product-01.jpg" alt="">
+                                    </td>
+                                    <td>
+                                        <p>1</p>
+                                    </td>
+                                    <td>
+                                        <p>Đã giao</p>
+                                    </td>
+                                    <td>
+                                        <p>100.00</p>
+                                    </td>
+                                  
+                                </tr>
                             </table>
                         </div>
                     </div>

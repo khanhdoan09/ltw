@@ -24,16 +24,16 @@ function loadImageCarouselAndIntroduceCategory() {
     }
     else {
         $("#intro-running").click(()=>{
-            location.href = "CategoryProduct?categoryProduct=runningWomanCategory";
+            location.href = "CategoryProduct?categoryProduct=runningWomanCategory&pagination=1";
         })
         $("#intro-slides").click(()=>{
-            location.href = "CategoryProduct?categoryProduct=slidesWomanCategory";
+            location.href = "CategoryProduct?categoryProduct=slidesWomanCategory&pagination=1";
         })
         $("#intro-sneakers").click(()=>{
-            location.href = "CategoryProduct?categoryProduct=sneakersWomanCategory";
+            location.href = "CategoryProduct?categoryProduct=sneakersWomanCategory&pagination=1";
         })
         $("#intro-skateboard").click(()=>{
-            location.href = "CategoryProduct?categoryProduct=skateboardWomanCategory";
+            location.href = "CategoryProduct?categoryProduct=skateboardWomanCategory&pagination=1";
         })
         $("#category-carousel-intro-1").attr("src", "image/banners/women-intro-carousel1.webp");
         $("#category-carousel-intro-2").attr("src", "image/banners/women-intro-carousel2.webp");
@@ -46,7 +46,7 @@ function loadImageCarouselAndIntroduceCategory() {
         $("#category-intro-img-skateboard").attr("src", "image/category/woman-skateboard.jfif");
     }
 }
-$(window).ready(loadImageCarouselAndIntroduceCategory);
+$(window).ready(loadImageCarouselAndIntroduceCategory());
 
 
 
