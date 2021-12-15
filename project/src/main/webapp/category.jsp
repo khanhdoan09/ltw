@@ -8,7 +8,6 @@
 <%@page import="java.sql.DriverManager" %>
 <%@page import="java.sql.Connection" %>
 <%@ page import="databaseConnection.DatabaseConnection" %>
-<%@ page import="khanhJava.DaoProduct" %>
 <%--
   Created by IntelliJ IDEA.
   User: khanh

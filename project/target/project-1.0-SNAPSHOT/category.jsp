@@ -8,7 +8,6 @@
 <%@page import="java.sql.DriverManager" %>
 <%@page import="java.sql.Connection" %>
 <%@ page import="databaseConnection.DatabaseConnection" %>
-<%@ page import="khanhJava.DaoProduct" %>
 <%--
   Created by IntelliJ IDEA.
   User: khanh
@@ -138,8 +137,8 @@
                                 <label class="rate-search" for="five-star-rate">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
-                                         <i class="fas fa-star"></i>
-                                          <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <span style="margin-left: 5px">From 5 stars</span>
                                     </label>

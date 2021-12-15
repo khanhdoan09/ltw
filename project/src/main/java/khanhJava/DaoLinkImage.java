@@ -30,7 +30,7 @@ public class DaoLinkImage {
         Connection connect = DatabaseConnection.getConnection();
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM linkimg");
+            ResultSet rs = s.executeQuery("SELECT * FROM product");
             while (rs.next()) {
                 String id = rs.getString(1);
                 String link = rs.getString(2);
