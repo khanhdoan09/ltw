@@ -9,13 +9,12 @@
 <%@page import="java.sql.DriverManager" %>
 <%@page import="java.sql.Connection" %>
 <%@ page import="databaseConnection.DatabaseConnection" %>
-<%@ page import="khanhJava.DaoProduct" %>
-<%@ page import="khanhJava.Product" %>
+<%@ page import="model.DaoProduct" %>
+<%@ page import="model.Product" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="khanhJava.DaoLinkImage" %>
+<%@ page import="model.DaoLinkImage" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
 <html lang="en">

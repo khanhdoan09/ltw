@@ -10,15 +10,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../giua-ki/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/DaoLinkImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryRoute.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoLinkImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/FilterProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/FilterProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProductDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/Servlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/listProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryRoute.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Dao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/FilterProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Servlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryRoute.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/Dao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoLinkImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/FilterProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/Servlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/listProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,6 +269,7 @@
       <workItem from="1639464471403" duration="600000" />
       <workItem from="1639465113821" duration="315000" />
       <workItem from="1639466013026" duration="278000" />
+      <workItem from="1639530741072" duration="2488000" />
     </task>
     <servers />
   </component>
