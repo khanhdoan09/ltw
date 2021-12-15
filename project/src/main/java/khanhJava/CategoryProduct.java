@@ -9,6 +9,7 @@ import java.util.List;
 
 @WebServlet(name = "CategoryProduct", value = "/CategoryProduct")
 public class CategoryProduct extends HttpServlet {
+    private int pagination = 1;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -65,10 +66,17 @@ public class CategoryProduct extends HttpServlet {
             listFilter = DaoProduct.getInstance().getProductByCategory("Skateboard Woman");
             folderImage = "imgSkateBoardWoman";
             DaoProduct.getInstance().currentFolderCategory = "imgSkateBoardWoman";
-             DaoProduct.getInstance().currentCategory = "Skateboard Woman";
+            DaoProduct.getInstance().currentCategory = "Skateboard Woman";
         }
+        String pag = request.getParameter("pagination");
+        if (pag != null) {
+            pagination = Integer.parseInt(pag);
+        }
+        request.setAttribute("Category", category);
+        request.setAttribute("Pagination", pagination);
         request.setAttribute("folderImage",folderImage);
         request.setAttribute("filter", listFilter);
         request.getRequestDispatcher("category.jsp").forward(request, response);
     }
+
 }
