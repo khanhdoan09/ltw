@@ -10,15 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../giua-ki/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../giua-ki/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryRoute.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/listProduct.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/listProduct.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/dat-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/forgetpassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/forgetpassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/singale-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/singale-blog.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,6 +291,7 @@
       <workItem from="1639464471403" duration="600000" />
       <workItem from="1639465113821" duration="315000" />
       <workItem from="1639466013026" duration="278000" />
+      <workItem from="1639750904295" duration="15000" />
     </task>
     <servers />
   </component>
@@ -304,17 +306,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>398</line>
+          <line>411</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>485</line>
+          <line>498</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/product.jsp</url>
-          <line>215</line>
+          <line>244</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

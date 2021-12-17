@@ -237,6 +237,10 @@
     .btn-primary{
         background-color: #1a94ff;
     }
+    .fab{
+        font-size: 21px;
+        text-align: center;
+       }
     
     @media only screen and (max-width:740px)  {
     
@@ -257,6 +261,19 @@
             float: left;
             clear: right;
         }
-    
+        .blog-title-content{
+            display: block;
+            display: -webkit-box;
+            max-width: 100%;
+            height: 43px;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 1;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: left;
+        }
        
     }
