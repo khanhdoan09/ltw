@@ -29,18 +29,18 @@
 </head>
 
 <body class="single-blog col-2">
-    <header>
-        <div class="header-top">
+    <header style="background-color: #108bea;">
+        <div class="header-top" style="background-color: #108bea;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 contain-header">
                         <div class="contain-nav-info">
-                            <div id="top-links" class="nav pull-right">
+                            <div id="top-links" class="nav pull-left">
                                 <ul class="list-inline">
-                                    <li class="account"><a href="#" class="notify"><i class="fas fa-bell" style="margin-right: 10px"></i><span>Thông báo</span><span style="margin-right: 10px">(0)</span></a></li>
-                                    <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-heart"></i><span>Danh sách yêu thích</span><span style="margin-right: 10px">(0)</span></a></li>
+                                    <li class="account"><a href="customer.html" class="notify"><i style="color: rgba(255,255,255,0.8); font-size: 15px;" class="fas fa-bell" style="margin-right: 10px"></i><span style="color: rgba(255,255,255,0.8); font-size: 15px;margin: 0 5px;">Thông báo</span><span style="margin-right: 10px; color: rgba(255,255,255,0.8);" >(0)</span></a></li>
+                                    <li class="account"><a href="customer.html" id="wishlist-total" title="Wish List (0)"><i style="color: rgba(255,255,255,0.8); font-size: 15px;" class="fa fa-heart"></i><span style="color: rgba(255,255,255,0.8); font-size: 15px;">Danh sách yêu thích</span><span style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a></li>
                                     <li class="dropdown">
-                                        <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i><span>Tài khoản</span> <span class="caret"></span></a>
+                                        <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i style="color: rgba(255,255,255,0.8); font-size: 15px;" class="fa fa-user"></i><span style="color: rgba(255,255,255,0.8); font-size: 15px;">Tài khoản</span> <span style="color: rgba(255,255,255,0.8);; font-size: 15px;" class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <li><a href="#" class="js-login">Đăng ký</a></li>
                                             <li><a href="#" class="js_register">Đăng nhập</a></li>
@@ -49,52 +49,59 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="text-center contain-search">
-                            <div class="contain-search-product-popular">
-                                <div class="search-product">
-                                    <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                                    <button class="search-product-top"><i class="fa fa-search"></i></button>
-                                </div>
-                                <div class="contain-search-popular">
-                                    <span>X-Ray 2</span>
-                                    <span>Barcelona Home Kit 2021 2022</span>
-                                    <span>Chelsea Home Kit 2021 2022</span>
-                                    <span>X9000L4 Shoes Mens</span>
-                                    <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
-                                </div>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" style="width: 100%;">
             <div class="header-inner">
-                <div class="col-sm-4 col-xs-6 header-left">
-                    <div class="shipping">
-                        <div class="shipping-img"></div>
-                        <div class="shipping-text">(+91) 000-1233<br>
-                            <span class="shipping-detail">24/7 Online Support</span></div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-12 header-middle">
+    
+                <div class="px-2">
                     <div class="header-middle-top">
-                        <div id="logo">
-                            <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a>
+                        <div id="logo" class="color-header">
+                            <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive logo-header"/></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 col-xs-12 header-right">
+
+                <div class="text-center contain-search">
+                    <div class="contain-search-product-popular">
+                        <div class="search-product">
+                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
+                            <button class="search-product-top"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="contain-search-popular">
+                            <span>X-Ray 2</span>
+                            <span>Barcelona Home Kit 2021 2022</span>
+                            <span>Chelsea Home Kit 2021 2022</span>
+                            <span>X9000L4 Shoes Mens</span>
+                            <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xs-12 header-right header-nav-right" style="padding-right: 10px;">
+                    <div class=""> 
+                        <div class="shipping">
+                            <div class="shipping-text color-header">(+91) 000-1233<br>
+                                <span class="shipping-detail color-header" >24/7 Online Support</span></div>
+                        </div>
+                    </div>
+                    
                     <div id="cart" class="btn-group btn-block">
-                        <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total"><span class="cart-title">Shopping Cart</span><br>
-              0 item(s) - $0.00</span> </button>
+                        <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total" class="color-header"><span class="cart-title color-header">Shopping Cart</span><br>
+              0 item(s) - $0.00</span>
+              <i class="fas fa-shopping-cart" style="font-size: 30px; color: white; padding-top: 5px;"></i>
+             </button>
+             
                         <ul class="dropdown-menu pull-right cart-dropdown-menu">
                             <li>
                                 <table class="table table-striped">
                                     <tbody>
                                     <tr>
                                         <td class="text-center">
-                                            <a href="#"><img class="img-thumbnail" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="image/product/7product50x59.jpg"></a>
+                                            <a href="#"><img src="image/product/product-01.jpg" style="width: 100px; height: 100px;"></a>
                                         </td>
                                         <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
                                         <td class="text-right">x 1</td>
@@ -131,11 +138,18 @@
                             </li>
                         </ul>
                     </div>
+
+
+                  
+    
                 </div>
+                
+              
+                <button type="button" class="bt-nav-collapse hidden-lg hidden-md"><i class="fa fa-bars"></i></button>
+
             </div>
-            <nav id="menu-navigation" class="navbar">
-                <!--function menuNavigation() in khanh-js.js-->
-            <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
+            <nav id="menu-navigation" class="navbar"  style="width: 100%;">
+                <!--function displayMenuNavigation() in khanh-js.js-->
               </nav>
         </div>
     </header>

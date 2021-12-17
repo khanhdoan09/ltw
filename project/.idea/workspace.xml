@@ -10,42 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/DaoLinkImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/customers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/order-invoices.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/order-invoices.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoLinkImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/DaoProduct.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/FilterProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/FilterProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProductDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/khanhJava/Servlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/CategoryRoute.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Dao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoLinkImage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/DaoProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/FilterProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/ProductDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/khanhJava/Servlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/CategoryRoute.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/Dao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoLinkImage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/DaoProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/FilterProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/ProductDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/khanhJava/Servlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../test-intellij/ltw-main/project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../giua-ki" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -145,57 +119,16 @@
         </option>
       </method>
     </configuration>
-    <configuration name="category.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.711" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/category.jsp" />
-      <deployment>
-        <artifact name="project:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/project_war_exploded" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="cf38e257-9d4c-4dca-90c4-534b3d9bf563" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="project:war exploded" />
-        </option>
-      </method>
-    </configuration>
     <list>
       <item itemvalue="JavaScript Debug.category.jsp" />
       <item itemvalue="JavaScript Debug.product.jsp" />
       <item itemvalue="JavaScript Debug.product.html (1)" />
       <item itemvalue="Node.js.khanh-js.js" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.711" />
-      <item itemvalue="Tomcat Server.category.jsp" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.category.jsp" />
-        <item itemvalue="Tomcat Server.category.jsp" />
         <item itemvalue="JavaScript Debug.product.jsp" />
         <item itemvalue="Node.js.khanh-js.js" />
         <item itemvalue="JavaScript Debug.product.html (1)" />
@@ -270,6 +203,8 @@
       <workItem from="1639465113821" duration="315000" />
       <workItem from="1639466013026" duration="278000" />
       <workItem from="1639530741072" duration="2488000" />
+      <workItem from="1639631869309" duration="388000" />
+      <workItem from="1639707941499" duration="87000" />
     </task>
     <servers />
   </component>
