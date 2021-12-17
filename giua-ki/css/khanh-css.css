@@ -1,19 +1,129 @@
+  body {
+    background-color: #f3f3f3;
+  }
+
+  .img-border-radius {
+      border-radius: 20px;
+  }
+
+  .bd-rd {
+      border-radius: 20px !important;
+  }
+
+  .pd-5 {
+      padding: 20px;
+  }
+
+  .bg-item{
+    background-color: white;
+  }
+
+  footer {
+      margin: 10px 0;
+      width: 100% !important;
+  }
+  .header-nav-right {
+    display: flex;
+    align-items: center;
+    width: 400px;
+  }
+
+  .mg-r-5 {
+     margin-right: 20px; 
+  }
+  .bg-white {
+      background-color: white;
+  }
+
+  .pd-bt-5 {
+     padding-bottom: 25px;
+  }
+header {
+    margin-bottom: 60px;
+}
+.header-inner {
   
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
     
+}
+
+.bt-nav-collapse {
+    margin-left: 10px;
+    cursor: pointer !important;
+    background-color: #0f6cb2;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin-right: 320px; margin-top: 5px
+    
+   
+}
+.color-header {
+    color: rgba(255,255,255,0.8);
+}
+    
+.general-contain {
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+  }
     /* navigation */
     
+    .navbar-toggle {
+        cursor: pointer;
+    }
+    .active-nav {
+        background-color: #1f1f92;
+    }
     .contain-header {
         display: flex;
-        flex-wrap: wrap;
+        justify-content: right;
     }
     
+    .header-middle {
+        margin-bottom: 10px;
+    }
     .contain-nav-info {
         display: flex;
         align-items: center;
     }
     
+    
     .main-navigation {
         position: relative;
+        padding: 13px !important;
+        margin: 0 !important;
+        top: 1px;
+    }
+
+    .logo-header {
+        height: 130px;
+    }
+
+  
+    .nav-inner {
+        height: 50px;
+        margin: 0!important;
+        padding: 0 !important;
+    }
+    .navbar {
+        width: 100% !important;
+    }
+
+    .main-navigation li>a {
+        padding: 14px 20px;
+        margin: 0;
+    }
+    
+    .main-navigation li {
+        margin: 0;
+        padding: 0;
     }
     
     
@@ -35,8 +145,8 @@
 
     .man-category :hover, .woman-category :hover {
         text-decoration: underline;
-        background-color: white !important;
-    }
+        background-color: #0f6cb2 !important;
+        }
 
     .man-category li, .woman-category li {
         width: 100% !important;
@@ -72,7 +182,7 @@
     @media screen and (max-width: 750px) {
 
         .navbar-collapse {
-            top: 210px;
+            top: 20px;
         }
         .nav-detail-info {
             top: 80px;
@@ -220,6 +330,17 @@
         position: relative !important;
         height: 120px;
     }
+
+    .product-detail-hot {
+        position: relative !important;
+        height: 60px;
+    }
+
+    .button-hot-product {
+        margin-top: 0;
+        padding: 25px 0;
+        border-radius: 20px;
+    }
     
     .wishlist,
     .compare {
@@ -352,8 +473,8 @@
     /*search product */
     
     .contain-search {
-        width: 100%;
-        margin: 10px 0;
+        
+        margin: 15px 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -369,19 +490,22 @@
     }
     
     .contain-search-product-popular {
-        width: 450px;
+        max-width: 650px;
+        width: 100%;
         position: relative;
+        z-index: 1000;
     }
     
     .search-product {
         display: flex;
         border-radius: 20px;
         background-color: whitesmoke;
-        width: 450px;
+        width: 100%;
+        max-width: 500px;
     }
     
     .search-product>input {
-        width: 400px;
+        width: 500px;
         height: 40px;
         letter-spacing: 1px;
         text-indent: 10px;
@@ -396,17 +520,18 @@
         border-radius: 100%;
         width: 40px;
         height: 40px;
-        background-color: black;
+        background-color: rgb(238, 238, 25);
+        color: black;
         margin: 2px;
     }
     
     .contain-search-popular {
-        width: 100%;
+        width: 95%;
         display: none;
         flex-wrap: wrap;
-        border: 1px solid white;
+        border: none;
         position: absolute;
-        background-color: black;
+        background-color: rgb(5, 72, 128);
         z-index: 1;
     }
     
@@ -485,8 +610,14 @@
     }
     
     .contain-filter-search {
-        width: 20%;
         display: block;
+        border-radius: 20px !important;
+    }
+
+    .filter {
+        padding: 30px;
+        background-color: white !important;
+        border-radius: 20px;
     }
     
     @media screen and (max-width: 750px) {
@@ -500,6 +631,7 @@
             overflow-y: scroll !important;
             z-index: 100;
             display: none;
+   
         }
     }
     /*drop down*/
@@ -778,50 +910,61 @@
 
     /* introduce category */
     .content-about {
+        border-radius: 20px;
+background-color: white;
     }
 
     .container-category {
         width: 100%;
-        padding: 30px 100px;
+        padding: 30px 70px;
     }
     
     .contain-carousel-category {
         width: 100%;
-        max-width: 1100px;
+        padding: 15px;
     }
+
+    
     .featured-category {
         color: black;
         font-size: 40px;
         text-align: center;
-        margin: 80px;
         font-family: GTAmerica-Regular,Arial,Helvetica,sans-serif;
         font-style: italic;
         line-height: 40px;
+        padding: 40px 0;
+        border-radius: 20px;
+        width: 100%;
+        background-color: white;
+        margin-bottom: 20px;
     }
 
     .grid-list-wrapper {
-        margin: 15px;
+        margin: 15px 0;
         width: 100% !important;
+        text-align: center;
     }
     .list-contain ul {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, 280px);
-        grid-gap: 80px;
-        /* display: inline-flex;
-        flex-wrap: wrap; */
+      
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
     }
     .list-contain ul li {
-        width: 350px;
+        width: 400px;
         height: auto;
         text-align: center;
         cursor: pointer;
         border: 1px solid rgb(155, 152, 152);
         border-radius: 20px;
+        margin: 10px 0;
     }
     .list-contain ul li img{
-        width: 350px;
+        width: 400px;
         height: 350px;
         margin: 0px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
     }
 
     .list-contain ul li .title-category {
@@ -861,3 +1004,8 @@
         padding-bottom: 60px;
     }
 }
+
+.item,.image-additional  {
+    width: fit-content;
+}
+

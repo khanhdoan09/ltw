@@ -447,7 +447,7 @@ div.required .control-label:before {
 }
 
 #cart-total {
-    background: url("../image/cart.png") no-repeat;
+    
     padding: 1px 0 0 50px;
     float: left;
 }
@@ -3130,7 +3130,7 @@ video {
 }
 
 .home-slider .owl-controls .owl-page span {
-    background: #ffff;
+    background: rgb(170, 169, 169);
     height: 6px;
     width: 6px;
     border-radius: 50%;

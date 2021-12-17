@@ -8,7 +8,12 @@ $(function() {
     });
 });
 
-
+$(function() {
+    $(".bt-nav-collapse").click(()=>{
+        $(".navbar-collapse").slideToggle("slow");       
+      
+    })
+})
 // display filter search when click {
 $(function(){ 
     $(".toggle-filter-search").click(() => {
@@ -17,50 +22,47 @@ $(function(){
 });
 
 
-
-
 function displayMenuNavigation() {
     let content = `<div class="nav-inner">
-                            <div class="navbar-header-menu"><span id="category" class="visible-xs">Categories</span>
-                            </div>
-                            <div class="navbar-collapse">
+                        
+                            <div class="navbar-collapse" style="background-color: #0f6cb2;">
                                 <ul class="main-navigation">
-                                    <li><a href="index.html" class="parent">Home</a> </li>
-                                    <li><a href="category.html" class="parent category-item" id="category-man"> Man <i class="fas fa-caret-down"></i> </a>
+                                    <li><a href="index.html" style="color: white" class="parent" id="home-nav">HOME</a> </li>
+                                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-man"> MAN <i class="fas fa-caret-down"></i> </a>
                                     
-                                    <ul class="man-category">
-                                    <li id="hitops-man" class="category-product category-product-man">HiTops</li>
-                                    <li id="running-man"  class="category-product category-product-man">Running</li>
-                                    <li id="slides-man"  class="category-product category-product-man">Slides</li>
-                                    <li id="sneakers-man"  class="category-product category-product-man">Sneakers</li>
-                                    <li id="skateboard-man"  class="category-product category-product-man">SkateBoard</li>
-                                    <li id="football-man"  class="category-product category-product-man">Football</li>
+                                    <ul class="man-category" style="background-color: #0f6cb2; border:none">
+                                    <li id="hitops-man" class="category-product category-product-man" style="color: white">HiTops</li>
+                                    <li id="running-man"  class="category-product category-product-man" style="color: white">Running</li>
+                                    <li id="slides-man"  class="category-product category-product-man" style="color: white">Slides</li>
+                                    <li id="sneakers-man"  class="category-product category-product-man" style="color: white">Sneakers</li>
+                                    <li id="skateboard-man"  class="category-product category-product-man" style="color: white">SkateBoard</li>
+                                    <li id="football-man"  class="category-product category-product-man" style="color: white">Football</li>
 
                                 </ul>
                             
                                 </li>
-                                    <li><a href="category.html" class="parent category-item" id="category-woman">Woman <i class="fas fa-caret-down"></i></a>
+                                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
                                     
-                                    <ul class="woman-category">
-                                    <li id="hitops-woman" class="category-product category-product-woman">HiTops</li>
-                                    <li id="running-woman"  class="category-product category-product-woman">Running</li>
-                                    <li id="slides-woman"  class="category-product category-product-woman">Slides</li>
-                                    <li id="sneakers-woman"  class="category-product category-product-woman">Sneakers</li>
-                                    <li id="skateboard-woman"  class="category-product category-product-woman">SkateBoard</li>
-                                    <li id="football-woman"  class="category-product category-product-woman">Football</li>
+                                    <ul class="woman-category" style="background-color: #0f6cb2; border:none">
+                                    <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>
+                                    <li id="running-woman"  class="category-product category-product-woman" style="color: white">Running</li>
+                                    <li id="slides-woman"  class="category-product category-product-woman" style="color: white">Slides</li>
+                                    <li id="sneakers-woman"  class="category-product category-product-woman" style="color: white">Sneakers</li>
+                                    <li id="skateboard-woman"  class="category-product category-product-woman"style="color: white" >SkateBoard</li>
+                                    <li id="football-woman"  class="category-product category-product-woman" style="color: white">Football</li>
 
                                 </ul>
 
                                     </li>
-                                     <li><a href="category.html" class="parent category-item" id="category-brand">Brands <i class="fas fa-caret-down"></i></a></li>
-                                    <li><a href="blog.html" class="parent">Blog</a></li>
-                                    <li><a href="about-us.html">About us</a></li>
+                                     <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">BRANDS <i class="fas fa-caret-down"></i></a></li>
+                                    <li><a href="blog.html" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
+                                    <li><a href="about-us.html" style="color: white"  id="about-nav" >ABOUT US</a></li>
                                 </ul>
                                 <div class="nav-detail-info">
                 
     
                                     <div class="item-nav-detail-info" id="item-category-brand">
-                                        <div class="contain-brand">
+                                        <div class="contain-brand" >
                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-01.svg">
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-02.svg">
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-03.svg">
@@ -82,6 +84,70 @@ function displayMenuNavigation() {
 
 $(displayMenuNavigation);
 
+
+$(function() {
+    let curPage = window.location.pathname;
+    // return page
+    if (curPage.includes("index")) {
+        localStorage.setItem("nav-current", "home")
+    }
+   
+    if (curPage.includes("blog")) {
+        localStorage.setItem("nav-current", "blog")
+    }
+
+    if (curPage.includes("category")) {
+        if (localStorage.getItem("currentPageCategory") === "man")
+        localStorage.setItem("nav-current", "category-man")
+        else
+        localStorage.setItem("nav-current", "category-woman")
+
+    }
+
+    if (curPage.includes("about")) {
+        localStorage.setItem("nav-current", "about")
+    }
+
+    // choose page
+    $("#home-nav").click(()=>{
+        localStorage.setItem("nav-current", "home")
+    })
+    $("#category-man").click(()=>{
+        localStorage.setItem("nav-current", "category-man")
+        $("#category-man").addClass("active-nav")
+    }) 
+    $("#category-woman").click(()=>{
+        localStorage.setItem("nav-current", "category-woman")
+        $("#category-man").addClass("active-nav")
+    }) 
+    $("#blog-nav").click(()=>{
+        localStorage.setItem("nav-current", "blog")
+        $("#blog-nav").addClass("active-nav")
+    })
+    $("#about-nav").click(()=>{
+        localStorage.setItem("nav-current", "about")
+        $("#about-nav").addClass("active-nav")
+    })
+})
+
+$(function() {
+  if (localStorage.getItem("nav-current")==="home") {
+        $("#home-nav").addClass("active-nav")
+  }
+    
+  if (localStorage.getItem("nav-current")==="category-man") {
+    $("#category-man").addClass("active-nav")
+}
+if (localStorage.getItem("nav-current")==="category-woman") {
+    $("#category-woman").addClass("active-nav")
+}
+if (localStorage.getItem("nav-current")==="blog") {
+    $("#blog-nav").addClass("active-nav")
+}
+if (localStorage.getItem("nav-current")==="about") {
+    $("#about-nav").addClass("active-nav")
+}
+})
 
 // click price search in filter search
 $(function() {
@@ -163,7 +229,7 @@ let listProduct = [
 ]
 function displayListProduct() {    
     listProduct.forEach(element => {
-        let contain = `<div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10">
+        let contain = `<div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="background-color: white; padding: 10px 0">
         <div class="product-thumb">
           <div class="image product-imageblock">
             <a href="product.html">
