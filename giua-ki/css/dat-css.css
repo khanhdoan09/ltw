@@ -170,9 +170,7 @@
         clear: right;
     }
     
-    .thumbnail {
-        border: black solid 1px;
-    }
+  
     
     .button-group2 {
         display: none;
@@ -241,6 +239,17 @@
         font-size: 21px;
         text-align: center;
        }
+  
+    label {
+        display: block;
+        font: .9rem 'Fira Sans', sans-serif;
+    }
+    
+    input[type='submit'],
+    label {
+        margin-top: 1rem;
+        
+    }
     
     @media only screen and (max-width:740px)  {
     
@@ -275,5 +284,6 @@
             text-overflow: ellipsis;
             text-align: left;
         }
+      
        
     }
