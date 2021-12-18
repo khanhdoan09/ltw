@@ -2062,9 +2062,11 @@ ul.main-navigation>li.menu-last ul ul {
 }
 
 #column-left,
-.single-blog #column-right,
-.blog #column-right {
+.single-blog #column-right {
     width: 20%;
+}
+.blog #column-right {
+    width: 25%;
 }
 
 .category_block,
@@ -2999,8 +3001,9 @@ span.review-edit {
 
 .blog-meta>li {
     float: left;
-    margin-right: 15px;
+    margin-right: 10px;
     list-style: none;
+    font-size: 12px;
 }
 
 .u-url {
@@ -3020,17 +3023,14 @@ span.review-edit {
 }
 
 .blog-meta {
+    display: inline-block;
     padding: 0;
-    margin-top: 75px;
-    margin-right: -107px;
+    margin-top: 35px;
+    margin-right: -76px;
 }
 
 .p-summary {
     clear: both;
-}
-
-.blog-meta li i {
-    margin: 0 5px 0 0;
 }
 
 input,
