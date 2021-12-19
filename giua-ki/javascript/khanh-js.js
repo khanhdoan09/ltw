@@ -28,9 +28,13 @@ function displayMenuNavigation() {
                             <div class="navbar-collapse" style="background-color: #0f6cb2;">
                                 <ul class="main-navigation">
                                     <li><a href="index.html" style="color: white" class="parent" id="home-nav">HOME</a> </li>
-                                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-man"> MAN <i class="fas fa-caret-down"></i> </a>
+                                    <li style="position: relative">
+                                    <a href="category.html" style="color: white" class="parent category-item" id="category-man">
+                                     MAN 
+                                     <i class="fas fa-caret-down"></i> 
+                                     </a>
                                     
-                                    <ul class="man-category" style="background-color: #0f6cb2; border:none">
+                                    <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
                                     <li id="hitops-man" class="category-product category-product-man" style="color: white">HiTops</li>
                                     <li id="running-man"  class="category-product category-product-man" style="color: white">Running</li>
                                     <li id="slides-man"  class="category-product category-product-man" style="color: white">Slides</li>
@@ -41,9 +45,9 @@ function displayMenuNavigation() {
                                 </ul>
                             
                                 </li>
-                                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
+                                    <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
                                     
-                                    <ul class="woman-category" style="background-color: #0f6cb2; border:none">
+                                    <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                                     <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>
                                     <li id="running-woman"  class="category-product category-product-woman" style="color: white">Running</li>
                                     <li id="slides-woman"  class="category-product category-product-woman" style="color: white">Slides</li>
@@ -374,21 +378,25 @@ function accessInfoCustomer() {
         resetAllSectionCustomer();
         $("#info-customer").css("display", "block");
         $("#nav-info-customer").addClass("customer-category-after-click");
+        $("#info-customer").addClass("display-default-customer")
     });
     $("#nav-bank-customer").click(() => {
         resetAllSectionCustomer();
         $("#bank-customer").css("display", "block");
         $("#nav-bank-customer").addClass("customer-category-after-click");
-    });
+        removeDefaultNavContentCategory()
+        });
     $("#nav-map-customer").click(() => {
         resetAllSectionCustomer();
         $("#map-customer").css("display", "block");
         $("#nav-map-customer").addClass("customer-category-after-click");
-    });
+        removeDefaultNavContentCategory() 
+       });
     $("#nav-password-customer").click(() => {
         resetAllSectionCustomer();
         $("#password-customer").css("display", "block");
         $("#nav-password-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
     });
     // $("#nav-cart-customer").click(() => {
     //     resetAllSectionCustomer();
@@ -399,6 +407,7 @@ function accessInfoCustomer() {
         resetAllSectionCustomer();
         $("#history-customer").css("display", "block");
         $("#nav-history-customer").addClass("customer-category-after-click");
+        $("#info-customer").css("display", "none");
     });
 
     $(".adjust-address-customer").click(() => {
@@ -428,13 +437,11 @@ function accessInfoCustomer() {
 }
 
 function resetAllSectionCustomer() {
-    $("#nav-info-customer").removeClass("customer-category-after-click");
     $("#nav-bank-customer").removeClass("customer-category-after-click");
     $("#nav-map-customer").removeClass("customer-category-after-click");
     $("#nav-password-customer").removeClass("customer-category-after-click");
     // $("#nav-cart-customer").removeClass("customer-category-after-click");
     $("#nav-history-customer").removeClass("customer-category-after-click");
-    $("#info-customer").css("display", "none");
     $("#bank-customer").css("display", "none");
     $("#map-customer").css("display", "none");
     $("#password-customer").css("display", "none");
@@ -443,6 +450,10 @@ function resetAllSectionCustomer() {
 }
 $(window).ready(resetAllSectionCustomer);
 
+function removeDefaultNavContentCategory() {
+    $("#nav-info-customer").removeClass("customer-category-after-click");
+    $("#info-customer").css("display", "none");
+}
 $(window).ready(accessInfoCustomer);
 
 // load location customer
