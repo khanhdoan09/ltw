@@ -867,7 +867,7 @@ pre code {
 @media (max-width:767px) {
     .container {
         width: auto;
-        padding: 0 20px;
+        padding: 0 18px;
     }
 }
 
