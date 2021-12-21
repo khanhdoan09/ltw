@@ -9,11 +9,13 @@
 <%@page import="java.sql.DriverManager" %>
 <%@page import="java.sql.Connection" %>
 <%@ page import="databaseConnection.DatabaseConnection" %>
-<%@ page import="khanhJava.DaoProduct" %>
-<%@ page import="khanhJava.Product" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="khanhJava.DaoLinkImage" %>
+<%@ page import="model.Product" %>
+<%@ page import="model.DaoLinkImage" %>
+<%@ page import="model.DaoProduct" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.List" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -22,18 +24,17 @@
 
 <head>
     <title>Time Watch</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="e-commerce site well design with responsive view."/>
+    <meta name="description" content="e-commerce site well design with responsive view." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
-          type="text/css"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen"/>
-    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -42,48 +43,183 @@
     <script src="javascript/common.js" type="text/javascript"></script>
     <script src="javascript/global.js" type="text/javascript"></script>
     <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-
+    <link rel="stylesheet" href="css/dat-css.css">
     <link rel="stylesheet" href="css/khanh-css.css" type="text/css">
     <link rel="stylesheet" href="./css/hung-css.css">
-    <script rel="script" src="javascript/khanh-js.js"></script>
-    <%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>--%>
-    <%--    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>--%>
-    <%--    <script>--%>
-    <%--        // Your web app's Firebase configuration--%>
-    <%--        var firebaseConfig = {--%>
-    <%--            apiKey: "AIzaSyCEAFDu8UnLjJO2EAGbOPvQr7ncppuJXSk",--%>
-    <%--            authDomain: "testgroup-8bb67.firebaseapp.com",--%>
-    <%--            projectId: "testgroup-8bb67",--%>
-    <%--            storageBucket: "testgroup-8bb67.appspot.com",--%>
-    <%--            messagingSenderId: "638263318930",--%>
-    <%--            appId: "1:638263318930:web:f3c08f9a5f5fd802ea094b",--%>
-    <%--            measurementId: "G-6X0Q5Y4DYV"--%>
-    <%--        };--%>
-    <%--        // Initialize Firebase--%>
-    <%--        firebase.initializeApp(firebaseConfig);--%>
-    <%--    </script>--%>
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
+
 
 </head>
 
-<body class="category col-2 left-col">
+<body class="category col-2 left-col" >
+<header style="background-color: #108bea;">
+    <div style="display: flex; flex-wrap: wrap;  width: 100%;">
+        <div class="header-top" style="background-color: #108bea;">
+            <div>
+                <div class="header-middle-top" >
+                    <div id="logo" class="color-header" style="margin: 0; padding: 0;">
+                        <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                                  class="logo-header" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="header-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 contain-header">
+                            <div class="contain-nav-info">
+                                <div id="top-links" class="nav pull-left">
+                                    <ul class="list-inline">
+                                        <li class="account"><a href="customer.html" class="notify"><i
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;"
+                                                class="fas fa-bell" style="margin-right: 10px"></i><span
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;margin: 0 5px;">Thông
+                                                        báo</span><span
+                                                style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
+                                        </li>
+                                        <li class="account"><a href="customer.html" id="wishlist-total"
+                                                               title="Wish List (0)"><i
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;"
+                                                class="fa fa-heart"></i><span
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;">Danh sách
+                                                        yêu thích</span><span
+                                                style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" title="My Account" class="dropdown-toggle"
+                                               data-toggle="dropdown"> <i
+                                                    style="color: rgba(255,255,255,0.8); font-size: 15px;"
+                                                    class="fa fa-user"></i><span
+                                                    style="color: rgba(255,255,255,0.8); font-size: 15px;">Tài
+                                                        khoản</span> <span
+                                                    style="color: rgba(255,255,255,0.8);; font-size: 15px;"
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#" class="js-login">Đăng ký</a></li>
+                                                <li><a href="#" class="js_register">Đăng nhập</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
-<!-- header -->
-<%@ include file="header.jsp" %>
+                        </div>
+                    </div>
+                </div>
 
 
-<div class="container-category">
+                <div class="text-center contain-search" style="margin-top: 20px;">
+                    <div class="contain-search-product-popular">
+                        <div class="search-product">
+                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
+                            <button class="search-product-top"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="contain-search-popular">
+                            <span>X-Ray 2</span>
+                            <span>Barcelona Home Kit 2021 2022</span>
+                            <span>Chelsea Home Kit 2021 2022</span>
+                            <span>X9000L4 Shoes Mens</span>
+                            <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
+                        </div>
+                    </div>
+                </div>
 
-    <ul class="breadcrumb">
-        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-        <li>
-            <i class="fas fa-angle-double-right"></i>
-            <a href="category.html">Thể loại</a></li>
-    </ul>
-    <div class="row contain-category">
+                <div class="col-sm-4 col-xs-12 header-right header-nav-right" style="padding-right: 10px;">
+                    <div class="">
+                        <div class="shipping">
+                            <div class="shipping-text color-header">(+91) 000-1233<br>
+                                <span class="shipping-detail color-header">24/7 Online Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cart" class="btn-group btn-block">
+                        <button type="button"
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span
+                                id="cart-total" class="color-header"><span class="cart-title color-header">Shopping
+                                        Cart</span><br>
+                                    0 item(s) - $0.00</span>
+                            <i class="fas fa-shopping-cart"
+                               style="font-size: 30px; color: white; padding-top: 5px;"></i>
+                        </button>
+
+                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
+                            <li>
+                                <table class="table table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <a href="#"><img src="image/product/product-01.jpg"
+                                                             style="width: 100px; height: 100px;"></a>
+                                        </td>
+                                        <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
+                                        <td class="text-right">x 1</td>
+                                        <td class="text-right">$254.00</td>
+                                        <td class="text-center"><button class="btn btn-danger btn-xs"
+                                                                        title="Remove" type="button"><i
+                                                class="fa fa-times"></i></button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <div>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-right"><strong>Sub-Total</strong></td>
+                                            <td class="text-right">$210.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
+                                            <td class="text-right">$2.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>VAT (20%)</strong></td>
+                                            <td class="text-right">$42.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Total</strong></td>
+                                            <td class="text-right">$254.00</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i
+                                            class="fa fa-shopping-cart"></i> View
+                                                        Cart</strong></a></span> <span class="btn-checkout"><a
+                                            href="checkout.html"><strong><i class="fa fa-share"></i>
+                                                        Checkout</strong></a></span> </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <button type="button" class="bt-nav-collapse hidden-lg hidden-md"><i
+                        class="fa fa-bars"></i></button>
+
+            </div>
+
+        </div>
+    </div>
+    <nav id="menu-navigation" class="navbar" style="width: 100%;">
+        <!--function displayMenuNavigation() in khanh-js.js-->
+    </nav>
+</header>
+<div class="container-category" >
+
+    <div class="row contain-category" >
         <button class="toggle-filter-search">
             <i class="fas fa-sliders-h"></i>
         </button>
-        <div id="" class="col-sm-3 contain-filter-search">
+        <div id="" class="col-sm-3 contain-filter-search" style="margin-right: 90px;">
             <form id="form-filter-search" class="panel panel-default filter" action="FilterProduct" method="post">
                 <div class="filter-block">
                     <div class="list-group">
@@ -207,193 +343,194 @@
 
         </div>
 
-        <div id="content" class="content-about">
 
-            <!-- list product -->
-            <!---------------------------------------------->
+        <div id="content" class="content-about" style="display:flex; flex-wrap:wrap; padding-top: 30px">
+
+
+
             <%
                 int pagination = 1;
                 Object objPagination = request.getAttribute("Pagination");
                 if (objPagination != null) {
                     pagination = Integer.parseInt(objPagination.toString());
                 }
-                ArrayList<Product> listFilter = (ArrayList<Product>) request.getAttribute("filter");
-                if (listFilter != null) {
+
+                Object objCategory = request.getAttribute("categoryProduct");
+                List<Product> list=  (List <Product>) objCategory;
+                if (list != null) {
                     Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
+                    ArrayList<Product> listFilter = (ArrayList<Product>) request.getAttribute("categoryProduct");
                     for (int i = 0 + 9 * (pagination-1); i < pagination*9; i++) {
                         Product p = listFilter.get(i);
             %>
-            <div>
-                <div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10">
-                    <div class="product-thumb">
-                        <div class="image product-imageblock">
-                            <a href="ProductDetail?idProduct=<%=p.getId()%>">
-                                <div class="related-product-sale">
-                                    <h5 style='margin-top: 10px'>-<%=p.getSaleRate()%>%</h5>
-                                </div>
-                                <img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy"
-                                     title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
 
-                            <div class="button-group">
-                                <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích">
-                                    <i class="fas fa-heart"></i></button>
-                                <button type="button" class="addtocart-btn">Mua ngay</button>
-                                <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i
-                                        class="fas fa-shopping-cart"></i></button>
+            <div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="height: fit-content">
+                <div class="product-thumb">
+                    <div class="image product-imageblock">
+                        <a href="ProductDetail?idProduct=<%=p.getId()%>">
+                            <div class="related-product-sale">
+                                <h5 style='margin-top: 10px'>-<%=p.getSaleRate()%>%</h5>
                             </div>
-                        </div>
-                        <div class="caption product-detail">
-                            <h2 id="\brandCategory123" style='margin-top: 5px; text-transform: uppercase'>
-
-                                <%=p.getBrand()%>
-                            </h2>
-                            <h4 class="product-name">
-                                <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                   style='text-transform: capitalize'>
-
-                                    <%=p.getName()%>
-
-
-                                </a></h4>
-                            <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours
-                                of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or
-                                up to 200 hours of video or any combination wherever you go. Cover
-                                Flow. Browse through your music collection by flipping..</p>
-                            <p id="priceCategory123" class="price product-price"><span class="price-old"
-                                                                                       style='margin-right: 10px'>
-
-                                <%=p.getPrice()%>
-
-                                  </span>
-                                <%=p.getSalePrice()%>
-
-                                <span class="price-tax">Ex Tax: $100.00</span></p>
-                            <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                    class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                    class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span></div>
-                        </div>
+                            <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy"
+                                 title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
+    <% %>
                         <div class="button-group">
-                            <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i
-                                    class="fas fa-heart"></i></button>
+                            <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích">
+                                <i class="fas fa-heart"></i></button>
                             <button type="button" class="addtocart-btn">Mua ngay</button>
                             <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i
                                     class="fas fa-shopping-cart"></i></button>
                         </div>
                     </div>
-                </div>
+                    <div class="caption product-detail">
+                        <h2 id="\brandCategory123" style='margin-top: 5px; text-transform: uppercase'>
 
+                            <%=p.getBrand()%>
+                        </h2>
+                        <h4 class="product-name">
+                            <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
+                               style='text-transform: capitalize'>
+
+                                <%=p.getName()%>
+
+
+                            </a></h4>
+                        <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours
+                            of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or
+                            up to 200 hours of video or any combination wherever you go. Cover
+                            Flow. Browse through your music collection by flipping..</p>
+                        <p id="priceCategory123" class="price product-price"><span class="price-old"
+                                                                                   style='margin-right: 10px'>
+
+                                <%=p.getPrice()%>
+
+                                  </span>
+                            <%=p.getSalePrice()%>
+
+                            <span class="price-tax">Ex Tax: $100.00</span></p>
+                        <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
+                                class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                    class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
+                                    class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
+                                    class="fa fa-star-o fa-stack-2x"></i></span></div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i
+                                class="fas fa-heart"></i></button>
+                        <button type="button" class="addtocart-btn">Mua ngay</button>
+                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i
+                                class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
             </div>
-            <%
-                }%>
+            <%}%>
             <div class="category-page-wrapper">
                 <div class="pagination-inner" id="tessss">
                     <ul class="pagination">
-                        <% int lengthPagination = (int)Math.ceil(listFilter.size()/9);%>
-                        <li><a id="left-page" href="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=pagination<=1 ? 1: pagination-1%>">&lt;</a></li>
-                        <li><a id="right-page" href="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=pagination >= lengthPagination ? lengthPagination: pagination+1%>">&gt;</a></li>
+                        <% int lengthPagination = (int)Math.ceil(list.size()/9);%>
+                        <li><a id="left-page" href="CategoryProduct?category=<%=request.getAttribute("category")%>&categoryGender=<%=request.getAttribute("categoryGender")%>&pagination=<%=pagination<=1 ? 1: pagination-1%>">&lt;</a></li>
+                        <li><a id="right-page" href="CategoryProduct?category=<%=request.getAttribute("category")%>&categoryGender=<%=request.getAttribute("categoryGender")%>&pagination=<%=pagination >= lengthPagination ? lengthPagination: pagination+1%>">&gt;</a></li>
                         <span>Page</span>
                         <select id="selectPagination" onchange="location = this.value;">
                             <%for(int j = 1; j <= lengthPagination; j++){%>
-                            <option value="CategoryProduct?categoryProduct=<%=request.getAttribute("Category")%>&pagination=<%=j%>"
+                            <option value="CategoryProduct?category=<%=request.getAttribute("category")%>&categoryGender=<%=request.getAttribute("categoryGender")%>&pagination=<%=j%>"
                                     <% // current pagination
                                         if(j==pagination) {%><%="selected"%> <%}%>><%=j%>
                             </option>
                             <%}%>
-                        </select> <span> of <%if(listFilter!=null)%><%=lengthPagination%></span>
+                        </select> <span> of <%if(list!=null)%><%=lengthPagination%></span>
                     </ul>
                 </div>
             </div>
+            <%}
+            else {
 
-            <%   }
+                Object objGender = request.getAttribute("categoryGender");
+                String categoryGender = objGender.toString();
+                ArrayList<String> listCarousel;
+                ArrayList<String> listIntro;
+                if (categoryGender.equals("Man")) {
+                    listCarousel = new ArrayList<String>(Arrays.asList("image/banners/men-intro-carousel1.webp", "image/banners/men-intro-carousel2.webp", "image/banners/men-intro-carousel-3.jpg"));
+                    listIntro = new ArrayList<String>(Arrays.asList("image/category/man-Hitops.webp", "image/category/man-running.webp", "image/category/man-slides.jpg", "image/category/man-football.webp", "image/category/man-sneakers.jpg", "image/category/man-skateboard.jpg"));
+                }
+                else { listCarousel = new ArrayList<String>(Arrays.asList("image/banners/women-intro-carousel1.webp", "image/banners/women-intro-carousel2.webp", "image/banners/women-intro-carousel3.webp"));
+                    listIntro = new ArrayList<String>(Arrays.asList("image/category/woman-hitops.jpg", "image/category/running-woman.webp", "image/category/woman-slide.jpg", "image/category/woman-football.jfif", "image/category/woman-sneakers.webp", "image/category/woman-skateboard.jfif"));
+                }
+
             %>
 
-            <%if (listFilter == null) {
-            %>
-            <div class="grid-list-wrapper">
-                <div class="contain-carousel-category">
-                    <div class="mainbanner">
-                        <div id="main-banner" class="owl-carousel home-slider">
-                            <div class="item">
-                                <a href="#"><img id="category-carousel-intro-1" alt="main-banner1"
-                                                 class="img-responsive"/></a>
-                                <div class="main-banner-section-center">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img id="category-carousel-intro-2" alt="main-banner2"
-                                                 class="img-responsive"/></a>
-                                <div class="main-banner-section-center">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img id="category-carousel-intro-3" alt="main-banner3"
-                                                 class="img-responsive"/></a>
-                                <div class="main-banner-section-center">
-                                </div>
-                            </div>
+            <div class="mainbanner" style="padding: 10px; width: 100%; background-color: #f3f3f3;">
+                <div id="main-banner" class="owl-carousel home-slider">
+                    <div class="item" >
+                        <a href="#">
+                            <img src="<%=listCarousel.get(0)%>" id="category-carousel-intro-1" alt="main-banner1" class="img-responsive img-border-radius" style="width: 100%;"/></a>
+                        <div class="main-banner-section-center">
                         </div>
                     </div>
+                    <div class="item">
+                        <a href="#"><img src="<%=listCarousel.get(1)%>" id="category-carousel-intro-2" alt="main-banner2" class="img-responsive img-border-radius" style="width: 100%;"/></a>
+                        <div class="main-banner-section-center">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="<%=listCarousel.get(2)%>" id="category-carousel-intro-3" alt="main-banner3" class="img-responsive img-border-radius" style="width: 100%;"/></a>
+                        <div class="main-banner-section-center">
+                        </div>
+                    </div>
+                </div>
+`            </div>
 
-                    <div class="featured-category">
+
+            <div class="grid-list-wrapper bg-item">
+
+                <div class="contain-carousel-category">
+
+                    <div class="featured-category" >
                         Featured category
                     </div>
                     <div class="list-contain">
                         <ul value="!23">
-                            <li id="intro-hitops" class="intro-category"><img id="category-intro-img-hitops"
-                                                                              src="image/category/man-slides.jpg"
-                                                                              alt="">
+                            <li id="intro-hitops" class="intro-category category-product">
+                                <img id="category-intro-img-hitops" src="<%=listIntro.get(0)%>" alt="">
                                 <p class="title-category">HiTops</p>
-                                <p class="introduce-category">Made for the journey, this collection of walking footwear
-                                    is ready to go places and find adventure.</p>
+                                <p class="introduce-category">Made for the journey, this collection of walking footwear is ready to go places and find adventure.</p>
                             </li>
-                            <li id="intro-running" class="intro-category"><img id="category-intro-img-running"
-                                                                               src="image/category/running.webp" alt="">
-                                <p class="title-category">Running</p>
-                                <p class="introduce-category">Feel inspired to fire up your passion in a running shoe
-                                    made for more. No compromises, just pure motivation in stylish comfort.</p>
+                            <li id="intro-running" class="intro-category category-product">
+                                <img id="category-intro-img-running" src="<%=listIntro.get(1)%>" alt="">
+                                <p class="title-category" >Running</p>
+                                <p class="introduce-category">Feel inspired to fire up your passion in a running shoe made for more. No compromises, just pure motivation in stylish comfort.</p>
                             </li>
-                            <li id="intro-slides" class="intro-category"><img id="category-intro-img-slides"
-                                                                              src="image/category/Slides.jpg" alt="">
+                            <li id="intro-slides" class="intro-category category-product">
+                                <img id="category-intro-img-slides" src="<%=listIntro.get(2)%>" alt="">
                                 <p class="title-category">Slides</p>
-                                <p class="introduce-category">Made to go distance - and even furthur - this trainer
-                                    range knows nothing but style and comfort.</p>
+                                <p class="introduce-category">Made to go distance - and even furthur - this trainer range knows nothing but style and comfort.</p>
                             </li>
-                            <li id="intro-sneakers" class="intro-category"><img id="category-intro-img-sneakers"
-                                                                                src="image/category/Sneakers.jpg"
-                                                                                alt="">
+                            <li id="intro-sneakers" class="intro-category category-product">
+                                <img id="category-intro-img-sneakers" src="<%=listIntro.get(3)%>" alt="">
                                 <p class="title-category">Sneakers</p>
-                                <p class="introduce-category">Do the season of boots in style. Step into comfort ready
-                                    for wherever the journey is set to take you</p>
+                                <p class="introduce-category">Do the season of boots in style. Step into comfort ready for wherever the journey is set to take you</p>
                             </li>
-                            <li id="intro-skateboard" class="intro-category"><img id="category-intro-img-skateboard"
-                                                                                  src="image/category/skateboard.jpg"
-                                                                                  alt="">
+                            <li id="intro-skateboard" class="intro-category category-product">
+                                <img id="category-intro-img-skateboard" src="<%=listIntro.get(4)%>" alt="">
                                 <p class="title-category">Skateboard</p>
-                                <p class="introduce-category">Whatever the season - in skateboard and in weather - enjoy
-                                    the shoe made to withstand</p>
+                                <p class="introduce-category">Whatever the season - in skateboard and in weather - enjoy the shoe made to withstand</p>
                             </li>
-                            <li id="intro-football" class="intro-category"><img id="category-intro-img-football"
-                                                                                src="image/category/football.webp"
-                                                                                alt="">
+                            <li id="intro-football" class="intro-category category-product">
+                                <img id="category-intro-img-football" src="<%=listIntro.get(5)%>" alt="">
                                 <p class="title-category">Football</p>
-                                <p class="introduce-category">Get in possession of your perfect match in a pair of
-                                    football boots from one of the biggest names in the game.</p>
+                                <p class="introduce-category">Get in possession of your perfect match in a pair of football boots from one of the biggest names in the game.</p>
                             </li>
                         </ul>
                     </div>
                 </div>
+
+                <!-- khanh-js.js display this product -->
             </div>
-
-            <%
-                }
-            %>            <!---------------------------------------------->
-
-
         </div>
+
+        <%}%>
     </div>
 </div>
 <footer>
@@ -444,10 +581,8 @@
                             <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
                 12345 Street name, California<br>
                 USA</span></li>
-                            <li><i class="fa fa-envelope"></i><span class="mail2"><a
-                                    href="#">info@localhost.com</a></span></li>
-                            <li><i class="fa fa-mobile"></i><span
-                                    class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
+                            <li><i class="fa fa-envelope"></i><span class="mail2"><a href="#">info@localhost.com</a></span></li>
+                            <li><i class="fa fa-mobile"></i><span class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
                         </ul>
                     </div>
                 </div>
@@ -461,8 +596,7 @@
                             <h5>Sign up for our Newsletter</h5>
                             <div class="input-group">
                                 <input type="text" class=" form-control" placeholder="Your-email@website.com">
-                                <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe
-                                </button>
+                                <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe</button>
                             </div>
                         </form>
                     </div>
@@ -482,11 +616,10 @@
             </div>
         </div>
     </div>
-    <a id="scrollup">Scroll</a></footer>
+    <a id="scrollup">Scroll</a> </footer>
 <div class="footer-bottom">
     <div class="container">
-        <div class="copyright">Powered By &nbsp;<a class="yourstore" href="http://www.lionode.com/">lionode &copy;
-            2017 </a></div>
+        <div class="copyright">Powered By &nbsp;<a class="yourstore" href="http://www.lionode.com/">lionode &copy; 2017 </a> </div>
         <div class="footer-bottom-cms">
             <div class="footer-payment">
                 <ul>
@@ -552,11 +685,8 @@
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem
-                    các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh
-                    chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
-                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập
-                    tất cả các dịch vụ bạn cần. </p>
+                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
+                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần. </p>
             </div>
 
 
@@ -606,8 +736,7 @@
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm
-                    đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
+                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
             </div>
         </div>
     </div>

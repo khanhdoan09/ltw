@@ -1,7 +1,6 @@
 package model;
 
 import databaseConnection.DatabaseConnection;
-import model.Product;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
@@ -13,7 +12,6 @@ public class DaoProduct implements Dao<Product> {
     private static DaoProduct instance = null;
 
     public String currentCategory = "";
-    public String currentFolderCategory = "";
 
 
     public static DaoProduct getInstance() {

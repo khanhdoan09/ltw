@@ -241,23 +241,27 @@ function displayListProduct() {
                    <h5 style='margin-top: 10px'> -20%</h5>
                  </div>
 <img id="imgCategory" src="${element.linkImg}" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive item-img-list" /> </a>
-            <div class="button-group">
-              <button type="button" class="addtocart-btn">Mua ngay</button>
-            </div>
+            <div class="button-group button-group-list-category">
+            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+            <button type="button" class="addtocart-btn">Mua Ngay</button>
+            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>            </div>
           </div>
-          <div class="caption product-detail">
+          <div class="caption product-detail intro-product-detail-list">
          <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>${element.brand}</h2>
             <h4 class="product-name">
 <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy" style='text-transform: capitalize'>
 ${element.name}</a> </h4> 
             <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go. Cover
               Flow. Browse through your music collection by flipping..</p> 
-            <p id="priceCategory" class="price product-price"><span class="price-old" style='margin-right: 10px'>${element.oldPrice} VND</span>${element.newPrice} VND </p>
+            <p id="priceCategory" class="price product-price produce-price-list">
+            <span class="price-old" style='margin-right: 10px'>${element.oldPrice} VND</span>
+            ${element.newPrice} VND </p>
             <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>                                    </div>
           </div>
-          <div class="button-group">
-            <button type="button" class="addtocart-btn">Mua ngay</button>
-          </div>
+          <div class="button-group button-group-list-category">
+          <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+          <button type="button" class="addtocart-btn">Mua Ngay</button>
+          <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>          </div>
         </div>
       </div>`;
 $(".grid-list-wrapper").append(contain);

@@ -83,7 +83,7 @@ legend {
 }
 
 label {
-    font-size: 14px;
+    font-size: 14px !important;
 }
 
 .box {
@@ -447,7 +447,7 @@ div.required .control-label:before {
 }
 
 #cart-total {
-    background: url("../image/cart.png") no-repeat;
+    
     padding: 1px 0 0 50px;
     float: left;
 }
@@ -1480,9 +1480,6 @@ h2.price {
     display: inline-block;
 }
 
-#product-thumbnail .item {
-    text-align: center;
-}
 
 /* fixed colum left + content + right*/
 
@@ -2065,9 +2062,11 @@ ul.main-navigation>li.menu-last ul ul {
 }
 
 #column-left,
-.single-blog #column-right,
-.blog #column-right {
+.single-blog #column-right {
     width: 20%;
+}
+.blog #column-right {
+    width: 25%;
 }
 
 .category_block,
@@ -2373,8 +2372,8 @@ div#subbanner5 {
 .brand-logo.owl-carousel .img-responsive:hover {
     display: inline-block;
     width: 60%;
-    margin: -20px 0;
-
+    margin: -15px 0;
+    
 }
 
 #product .addtocart {
@@ -2431,7 +2430,7 @@ span.review-edit {
 
 .product .product_info li label {
     font-weight: bold;
-    width: 85px;
+    width: 90px;
 }
 
 .product .product_info li span {
@@ -3002,9 +3001,9 @@ span.review-edit {
 
 .blog-meta>li {
     float: left;
-    margin-left: 10px;
+    margin-right: 10px;
     list-style: none;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .u-url {
@@ -3020,21 +3019,18 @@ span.review-edit {
 
 .blog .blog {
     margin: 0 0 50px;
-;
+    ;
 }
 
 .blog-meta {
+    display: inline-block;
     padding: 0;
-    margin-top: 39px;
-    margin-right: -80px;
+    margin-top: 35px;
+    margin-right: -76px;
 }
 
 .p-summary {
     clear: both;
-}
-
-.blog-meta li i {
-    margin: 0 5px 0 0;
 }
 
 input,
@@ -3134,7 +3130,7 @@ video {
 }
 
 .home-slider .owl-controls .owl-page span {
-    background: #ffff;
+    background: rgb(170, 169, 169);
     height: 6px;
     width: 6px;
     border-radius: 50%;
@@ -3146,7 +3142,7 @@ video {
 }
 
 .home-slider .owl-controls .owl-page:hover,
-.home-slider .owl-controls .owl-page.active {
+.home-slider .owl-controls .owl-page.active {   
     border: 2px solid #0900ed;
 }
 
@@ -3456,6 +3452,6 @@ div.dioprogress_size_l {
 }
 #logo .img-responsive{
     width: 210px;
-    margin-top: -35px;
-    margin-bottom: -20px;
+        margin-top: -35px;
+        margin-bottom: -20px;
 }

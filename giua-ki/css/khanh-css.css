@@ -520,6 +520,7 @@ header {
         background-color: whitesmoke;
         width: 100%;
         max-width: 450px;
+        position: relative;
     }
     
     .search-product>input {
@@ -540,7 +541,10 @@ header {
         height: 40px;
         background-color: rgb(238, 238, 25);
         color: black;
-        margin: 2px;
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+        
     }
     
     .contain-search-popular {
@@ -602,11 +606,11 @@ header {
     .toggle-filter-search {
         position: fixed;
         z-index: 200;
-        right: 20px;
+        left: 20px;
         font-size: 25px;
         border: none;
         background-color: transparent;
-        bottom: 330px;
+        bottom: 450px;
         color: #2b6ee6;
         display: none;
     }
@@ -644,6 +648,7 @@ header {
             padding: 0;
             position: fixed;
             top: 290px;
+            left: 0;
             width: 100%;
             height: 500px;
             overflow-y: scroll !important;
@@ -949,6 +954,20 @@ header {
 background-color: white;
     }
 
+    @media screen and (max-width: 600px) {
+        .content-about {
+            width: 420px !important;
+            }
+        .button-group-list-category button {
+            width: 40px !important;
+            height: auto !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            margin-top: 5px;
+           
+        }
+      }
+  
     .container-category {
         width: 100%;
         padding: 30px 70px;
@@ -976,7 +995,6 @@ background-color: white;
 
     .grid-list-wrapper {
         margin: 15px 0;
-        width: 100% !important;
         text-align: center;
     }
     .list-contain ul {
@@ -1044,3 +1062,12 @@ background-color: white;
     width: fit-content;
 }
 
+
+.intro-product-detail-list {
+    text-align: left;
+}
+
+.produce-price-list {
+    display: flex;
+
+}

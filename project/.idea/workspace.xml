@@ -10,16 +10,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/customers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/order-invoices.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/admin/pixelwibes.com/template/ebazar/html/dist/order-invoices.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CategoryRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../giua-ki/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/css/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../giua-ki/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/customer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/javascript/khanh-js.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../giua-ki/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/FilterProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/FilterProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProductDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DaoLinkImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DaoLinkImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/about-us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dat-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/hung-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/hung-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/forgetpassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forgetpassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/hung-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/hung-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/singale-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/singale-blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/FilterProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/FilterProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ProductDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DaoLinkImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/com/example/project/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/com/example/project/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/com/example/project/HelloResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/com/example/project/HelloResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/com/example/project/HelloServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/com/example/project/HelloServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/FilterProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/FilterProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ProductDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/databaseConnection/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/databaseConnection/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/CategoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoLinkImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/about-us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/dat-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/hung-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/hung-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/forgetpassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/forgetpassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/hung-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/hung-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/singale-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/singale-blog.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +92,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -57,7 +121,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../giua-ki" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -69,6 +133,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.711">
+    <configuration name="category.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/category.html">
+      <method v="2" />
+    </configuration>
     <configuration name="category.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/category.jsp">
       <method v="2" />
     </configuration>
@@ -171,12 +238,14 @@
       <item itemvalue="JavaScript Debug.category.jsp" />
       <item itemvalue="JavaScript Debug.product.jsp" />
       <item itemvalue="JavaScript Debug.product.html (1)" />
+      <item itemvalue="JavaScript Debug.category.html" />
       <item itemvalue="Node.js.khanh-js.js" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.711" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.category.jsp" />
+        <item itemvalue="JavaScript Debug.category.html" />
         <item itemvalue="JavaScript Debug.product.jsp" />
         <item itemvalue="Node.js.khanh-js.js" />
         <item itemvalue="JavaScript Debug.product.html (1)" />
@@ -253,6 +322,12 @@
       <workItem from="1639530741072" duration="2488000" />
       <workItem from="1639631869309" duration="388000" />
       <workItem from="1639707941499" duration="87000" />
+      <workItem from="1639903160444" duration="125000" />
+      <workItem from="1639920990980" duration="1507000" />
+      <workItem from="1639959499490" duration="4318000" />
+      <workItem from="1639978042323" duration="7558000" />
+      <workItem from="1639990482378" duration="3088000" />
+      <workItem from="1640066675945" duration="6805000" />
     </task>
     <servers />
   </component>
@@ -267,18 +342,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>411</line>
+          <line>549</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>498</line>
+          <line>633</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/product.jsp</url>
-          <line>244</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

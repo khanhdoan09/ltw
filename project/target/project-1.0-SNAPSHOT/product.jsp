@@ -17,20 +17,19 @@
 
 <head>
     <title>Time Watch</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="e-commerce site well design with responsive view."/>
+    <meta name="description" content="e-commerce site well design with responsive view." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
-          type="text/css"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
     <link rel="stylesheet" href="css/dat-css.css">
-    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen"/>
-    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
     <!-- <script src="javascript/Dat-js.js" type="text/javascript"></script> -->
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -46,22 +45,7 @@
     <link rel="stylesheet" href="./css/hung-css.css">
     <script src="javascript/khanh-js.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyCEAFDu8UnLjJO2EAGbOPvQr7ncppuJXSk",
-            authDomain: "testgroup-8bb67.firebaseapp.com",
-            projectId: "testgroup-8bb67",
-            storageBucket: "testgroup-8bb67.appspot.com",
-            messagingSenderId: "638263318930",
-            appId: "1:638263318930:web:f3c08f9a5f5fd802ea094b",
-            measurementId: "G-6X0Q5Y4DYV"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+
 
 </head>
 
@@ -75,202 +59,210 @@
         p = DaoProduct.getInstance().getProductById(id);
     }
 %>
-<header>
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 contain-header">
-                    <div class="contain-nav-info">
-                        <div id="top-links" class="nav pull-right">
-                            <ul class="list-inline">
-                                <li class="account"><a href="#" class="notify"><i class="fas fa-bell"
-                                                                                  style="margin-right: 10px"></i><span>Thông báo</span><span
-                                        style="margin-right: 10px">(0)</span></a></li>
-                                <li class="account"><a href="#" id="wishlist-total" title="Wish List (0)"><i
-                                        class="fa fa-heart"></i><span>Danh sách yêu thích</span><span
-                                        style="margin-right: 10px">(0)</span></a></li>
-                                <li class="dropdown">
-                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i
-                                            class="fa fa-user"></i><span>Tài khoản</span> <span
-                                            class="caret"></span></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#" class="js-login">Đăng Nhập</a></li>
-                                        <li><a href="#" class="js_register">Đăng Ký</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="text-center contain-search">
-                        <div class="contain-search-product-popular">
-                            <div class="search-product">
-                                <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                                <button class="search-product-top"><i class="fa fa-search"></i></button>
-                            </div>
-                            <div class="contain-search-popular">
-                                <span>X-Ray 2</span>
-                                <span>Barcelona Home Kit 2021 2022</span>
-                                <span>Chelsea Home Kit 2021 2022</span>
-                                <span>X9000L4 Shoes Mens</span>
-                                <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
-                            </div>
-                        </div>
+<header style="background-color: #108bea;">
+    <div style="display: flex; flex-wrap: wrap;  width: 100%;">
+        <div class="header-top" style="background-color: #108bea;">
+            <div>
+                <div class="header-middle-top" >
+                    <div id="logo" class="color-header" style="margin: 0; padding: 0;">
+                        <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                                  class="logo-header" /></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="header-inner">
-            <div class="col-sm-4 col-xs-6 header-left">
-                <div class="shipping">
-                    <div class="shipping-img"></div>
-                    <div class="shipping-text">(+91) 000-1233<br>
-                        <span class="shipping-detail">24/7 Online Support</span></div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12 header-middle">
-                <div class="header-middle-top">
-                    <div id="logo">
-                        <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
-                                                  class="img-responsive"/></a>
+        <div class="container">
+            <div class="header-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 contain-header">
+                            <div class="contain-nav-info">
+                                <div id="top-links" class="nav pull-left">
+                                    <ul class="list-inline">
+                                        <li class="account"><a href="customer.html" class="notify"><i
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;"
+                                                class="fas fa-bell" style="margin-right: 10px"></i><span
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;margin: 0 5px;">Thông
+                                                        báo</span><span
+                                                style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
+                                        </li>
+                                        <li class="account"><a href="customer.html" id="wishlist-total"
+                                                               title="Wish List (0)"><i
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;"
+                                                class="fa fa-heart"></i><span
+                                                style="color: rgba(255,255,255,0.8); font-size: 15px;">Danh sách
+                                                        yêu thích</span><span
+                                                style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" title="My Account" class="dropdown-toggle"
+                                               data-toggle="dropdown"> <i
+                                                    style="color: rgba(255,255,255,0.8); font-size: 15px;"
+                                                    class="fa fa-user"></i><span
+                                                    style="color: rgba(255,255,255,0.8); font-size: 15px;">Tài
+                                                        khoản</span> <span
+                                                    style="color: rgba(255,255,255,0.8);; font-size: 15px;"
+                                                    class="caret"></span></a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#" class="js-login">Đăng ký</a></li>
+                                                <li><a href="#" class="js_register">Đăng nhập</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4 col-xs-12 header-right">
-                <div id="cart" class="btn-group btn-block">
-                    <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span
-                            id="cart-total"><span class="cart-title">Shopping Cart</span><br>
-              0 item(s) - $0.00</span></button>
-                    <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                        <li>
-                            <table class="table table-striped">
-                                <tbody>
-                                <tr>
-                                    <td class="text-center">
-                                        <a href="#"><img class="img-thumbnail" title="lorem ippsum dolor dummy"
-                                                         alt="lorem ippsum dolor dummy"
-                                                         src="image/product/7product50x59.jpg"></a>
-                                    </td>
-                                    <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
-                                    <td class="text-right">x 1</td>
-                                    <td class="text-right">$254.00</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger btn-xs" title="Remove" type="button"><i
-                                                class="fa fa-times"></i></button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </li>
-                        <li>
-                            <div>
-                                <table class="table table-bordered">
+
+
+                <div class="text-center contain-search" style="margin-top: 20px;">
+                    <div class="contain-search-product-popular">
+                        <div class="search-product">
+                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
+                            <button class="search-product-top"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="contain-search-popular">
+                            <span>X-Ray 2</span>
+                            <span>Barcelona Home Kit 2021 2022</span>
+                            <span>Chelsea Home Kit 2021 2022</span>
+                            <span>X9000L4 Shoes Mens</span>
+                            <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xs-12 header-right header-nav-right" style="padding-right: 10px;">
+                    <div class="">
+                        <div class="shipping">
+                            <div class="shipping-text color-header">(+91) 000-1233<br>
+                                <span class="shipping-detail color-header">24/7 Online Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cart" class="btn-group btn-block">
+                        <button type="button"
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span
+                                id="cart-total" class="color-header"><span class="cart-title color-header">Shopping
+                                        Cart</span><br>
+                                    0 item(s) - $0.00</span>
+                            <i class="fas fa-shopping-cart"
+                               style="font-size: 30px; color: white; padding-top: 5px;"></i>
+                        </button>
+
+                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
+                            <li>
+                                <table class="table table-striped">
                                     <tbody>
                                     <tr>
-                                        <td class="text-right"><strong>Sub-Total</strong></td>
-                                        <td class="text-right">$210.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-                                        <td class="text-right">$2.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right"><strong>VAT (20%)</strong></td>
-                                        <td class="text-right">$42.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right"><strong>Total</strong></td>
+                                        <td class="text-center">
+                                            <a href="#"><img src="image/product/product-01.jpg"
+                                                             style="width: 100px; height: 100px;"></a>
+                                        </td>
+                                        <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
+                                        <td class="text-right">x 1</td>
                                         <td class="text-right">$254.00</td>
+                                        <td class="text-center"><button class="btn btn-danger btn-xs"
+                                                                        title="Remove" type="button"><i
+                                                class="fa fa-times"></i></button></td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <p class="text-right"><span class="btn-viewcart"><a href="cart.html"><strong><i
-                                        class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span
-                                        class="btn-checkout"><a href="checkout.html"><strong><i class="fa fa-share"></i> Checkout</strong></a></span>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                            <li>
+                                <div>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-right"><strong>Sub-Total</strong></td>
+                                            <td class="text-right">$210.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
+                                            <td class="text-right">$2.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>VAT (20%)</strong></td>
+                                            <td class="text-right">$42.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Total</strong></td>
+                                            <td class="text-right">$254.00</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i
+                                            class="fa fa-shopping-cart"></i> View
+                                                        Cart</strong></a></span> <span class="btn-checkout"><a
+                                            href="checkout.html"><strong><i class="fa fa-share"></i>
+                                                        Checkout</strong></a></span> </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
                 </div>
+
+
+                <button type="button" class="bt-nav-collapse hidden-lg hidden-md"><i
+                        class="fa fa-bars"></i></button>
+
             </div>
+
         </div>
-        <nav id="menu-navigation" class="navbar">
-            <!--function menuNavigation() in khanh-js.js-->
-            <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
-        </nav>
     </div>
+    <nav id="menu-navigation" class="navbar" style="width: 100%;">
+        <!--function displayMenuNavigation() in khanh-js.js-->
+    </nav>
 </header>
-<div class="container">
-    <ul class="breadcrumb">
-        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-        <li>
-            <i class="fas fa-angle-double-right"></i>
-            <a href="category.html">Thể loại</a></li>
-        <li>
-            <i class="fas fa-angle-double-right"></i>
-            <a href="#">Giày</a></li>
-    </ul>
-    <div class="row contain-product-detail">
-        <div id="content" style="flex: 3;" class="col-sm-9">
-            <div class="row">
+<div class="container" style="padding: 10px;">
+
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+
+        <div id="content" class="col-sm-9 " style="flex: 3; padding: 30px;margin-right: 20px; border-radius: 20px;">
+            <div class="row bg-white bd-rd" style="padding-top: 20px;">
                 <div class="col-sm-6">
                     <div class="thumbnails">
                         <div>
                             <!-- anh chinh -->
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
-                                <img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy"
-                                     alt="lorem ippsum dolor dummy" id="main-img"/>
+                                <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="main-img"/>
                             </a>
                         </div>
                         <div id="product-thumbnail" class="owl-carousel">
                             <div class="item">
                                 <div class="image-additional">
-                                    <div class="thumbnail main imag1"><img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(0)%>.jpg"
-                                                                           title="lorem ippsum dolor dummy"
-                                                                           alt="lorem ippsum dolor dummy" id="zero"/>
+                                    <div class="thumbnail main imag1" > <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" /></div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="image-additional">
+                                    <div class="thumbnail imag2 " >
+                                        <img src="data/imgAll/<%=map.get(p.getId()).get(1)%>.jpg"  title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy"  id="one"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="image-additional">
-                                    <div class="thumbnail imag2 ">
-                                        <img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(1)%>.jpg" title="lorem ippsum dolor dummy"
-                                             alt="lorem ippsum dolor dummy" id="one"/>
-                                    </div>
+                                    <div class="thumbnail imag3 "> <img src="data/imgAll/<%=map.get(p.getId()).get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/></div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="image-additional">
-                                    <div class="thumbnail imag3 "><img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(2)%>.jpg"
-                                                                       title="lorem ippsum dolor dummy"
-                                                                       alt="lorem ippsum dolor dummy" id="two"/></div>
+                                    <div class="thumbnail imag4 "> <img src="data/imgAll/<%=map.get(p.getId()).get(3)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="three"/></div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="image-additional">
-                                    <div class="thumbnail imag4 "><img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(3)%>.jpg"
-                                                                       title="lorem ippsum dolor dummy"
-                                                                       alt="lorem ippsum dolor dummy" id="three"/></div>
+                                    <div class="thumbnail imag5 "> <img src="data/imgAll/<%=map.get(p.getId()).get(4)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="four"/></div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="image-additional">
-                                    <div class="thumbnail imag5 "><img src="data/<%=DaoProduct.getInstance().currentFolderCategory%>/<%=map.get(p.getId()).get(4)%>.jpg"
-                                                                       title="lorem ippsum dolor dummy"
-                                                                       alt="lorem ippsum dolor dummy" id="four"/></div>
-                                </div>
-                            </div>
-                            <!-- <div class="item">
-                                <div class="image-additional">
-                                    <div class="thumbnail imag6 "> <img src="image/product/pro-6-220x294.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="five"/></div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image-additional">
-                                    <div class="thumbnail imag7 "> <img src="image/product/pro-7-220x294.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="six"/></div>
-                                </div>
-                            </div> -->
+
                         </div>
                     </div>
                 </div>
@@ -314,20 +306,19 @@
                         </div>
                         <!-- AddThis Button END -->
                     </div>
-                    <div class="price-modal" style="background-color: #f5f5f5">
+                    <div class="price-modal" style="background-color: #f5f5f5;  float: left;">
                         <ul class="price-product">
-                            <!-- import css không chạy phần này nên tạm thời viết trực tiếp trên html-->
-                            <li><h6 class="price-box price-sale" style="text-decoration: line-through;
+                            <li><h6 class="price-box price-sale" style="float: left;  text-decoration: line-through;
     padding: 0 20px;
     color: rgb(146, 145, 145);
-    margin: 18px 0; float: left;"><%=p.getPrice()%>VNĐ</h6></li>
-                            <li><h1 class="price-box price" style="  color: #1a94ff;
-    font-size: 25px;
-    margin: 10px 0;float: left;"><%=p.getSalePrice()%>VNĐ</h1></li>
-                            <li><h6 class="price-box sale" style=" background-color: #1a94ff;
+    margin: 18px 0;"><%=p.getPrice()%>VNĐ</h6></li>
+                            <li><h1 class="price-box price" style="float: left;color: #1a94ff;
+font-size: 25px;
+margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
+                            <li><h6 class="price-box sale" style=" float: left;background-color: #1a94ff;
     color: white;
     padding: 4px;
-    margin: 12px 10px;float: left;">20% GIẢM</h6></li>
+    margin: 12px 10px;">20% GIẢM</h6></li>
                         </ul>
                     </div>
                     <!-- <ul class="">
@@ -366,31 +357,31 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <label>Brand:</label>
-                            <span> <a href="#" style="text-transform: uppercase"><%=p.getBrand()%></a></span></li>
-                        <li>
-                            <label>Vận Chuyển:</label>
-                            <span> product 20</span></li>
-                        <li>
-                            <label>Availability:</label>
-                            <span> In Stock</span></li>
+
+
+                        <li class="size-shoes" style="margin-top: 20px; display: inline-block;">
+                            <label>Màu sắc</label>
+                            <div class="num-size">
+                                <button class="js-color-black color-black">Đen</button>
+                                <button class="js-colorl-pink color-pink">Hồng</button>
+                                <button class="js-color-blue color-blue" >Xanh</button>
+                            </div>
+                        </li>
                         <li class="size-shoes">
-                            <label>Size</label>
+                            <label >Size</label>
                             <div class="num-size">
                                 <button>36</button>
                                 <button>37</button>
                                 <button>38</button>
                                 <button>39</button>
-                                <button>40</button>
                             </div>
                         </li>
                         <li id="values">
                             <div class="value-box"><label>Số lượng:</label></div>
                             <div class="value-box set-value">
-                                <input class="value" type="button" onclick="reduceValue()" value="--"/>
+                                <input class="value" type="button" onclick="reduceValue()" value="--" />
                                 <input type="text" id="number" value="1"/>
-                                <input class="value" type="button" onclick="incrementValue()" value="+"/>
+                                <input class="value" type="button" onclick="incrementValue()" value="+" />
                             </div>
                             <h6 class="products-available value-box">35 Sản phẩm có sẵn</h6>
                         </li>
@@ -414,7 +405,7 @@
 
                 </div>
             </div>
-            <div class="productinfo-tab">
+            <div class="productinfo-tab bg-white bd-rd pd-5">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab-description" data-toggle="tab">Description</a></li>
                     <li><a href="#tab-review" data-toggle="tab">Reviews (1)</a></li>
@@ -424,17 +415,13 @@
                         <div class="cpt_product_description ">
                             <div>
                                 <p><strong>More room to move.</strong></p>
-                                <p> With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem
-                                    ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or
-                                    any combination wherever you go.</p>
+                                <p> With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.</p>
                                 <p><strong>Cover Flow.</strong></p>
-                                <p> Browse through your music collection by flipping through album art. Select an album
-                                    to turn it over and see the track list.</p>
+                                <p> Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.</p>
                                 <p><strong>Enhanced interface.</strong></p>
                                 <p> Experience a whole new way to browse and view your music and video.</p>
                                 <p><strong>Sleeker design.</strong></p>
-                                <p> Beautiful, durable, and sleeker than ever, lorem ippsum dolor dummy now features an
-                                    anodized aluminum and polished stainless steel enclosure with rounded edges.</p>
+                                <p> Beautiful, durable, and sleeker than ever, lorem ippsum dolor dummy now features an anodized aluminum and polished stainless steel enclosure with rounded edges.</p>
                             </div>
                         </div>
                         <!-- cpt_container_end -->
@@ -446,32 +433,30 @@
                             <div class="form-group required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-name">Your Name</label>
-                                    <input type="text" name="name" value="" id="input-name" class="form-control"/>
+                                    <input type="text" name="name" value="" id="input-name" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-review">Your Review</label>
                                     <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                                    <div class="help-block"><span class="text-danger">Note:</span> HTML is not
-                                        translated!
+                                    <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <div class="col-sm-12">
                                     <label class="control-label">Rating</label> &nbsp;&nbsp;&nbsp; Bad&nbsp;
-                                    <input type="radio" name="rating" value="1"/> &nbsp;
-                                    <input type="radio" name="rating" value="2"/> &nbsp;
-                                    <input type="radio" name="rating" value="3"/> &nbsp;
-                                    <input type="radio" name="rating" value="4"/> &nbsp;
-                                    <input type="radio" name="rating" value="5"/> &nbsp;Good
+                                    <input type="radio" name="rating" value="1" /> &nbsp;
+                                    <input type="radio" name="rating" value="2" /> &nbsp;
+                                    <input type="radio" name="rating" value="3" /> &nbsp;
+                                    <input type="radio" name="rating" value="4" /> &nbsp;
+                                    <input type="radio" name="rating" value="5" /> &nbsp;Good
                                 </div>
                             </div>
                             <div class="buttons clearfix">
                                 <div class="pull-right">
-                                    <button type="button" id="button-review" data-loading-text="Loading..."
-                                            class="btn btn-primary">Continue
+                                    <button type="button" id="button-review" data-loading-text="Loading..." class="btn btn-primary">Continue
                                     </button>
                                 </div>
                             </div>
@@ -479,210 +464,50 @@
                     </div>
                 </div>
             </div>
+            <%
+                Object objWatched = session.getAttribute("listProductWatched");
+                if (objWatched != null) {
+                    ArrayList<String> listProductWatched = (ArrayList<String>) objWatched;
+            %>
+            <div class="box bg-white bd-rd pd-5">
+                <h1 class="tit">NHỮNG SẢN PHẨM VỪA XEM</h1>
+                <div class="box">
+                    <div id="special-slidertab" class="row owl-carousel product-slider">
+                        <%for (String str : listProductWatched) {
+                            Product productWatched = DaoProduct.getInstance().getProductById(str);
+                        %>
+                        <div class="item">
+                            <div class="product-thumb transition">
+                                <div class="image product-imageblock">
+                                    <a href="product.html"> <img src="data/imgAll/<%=map.get(productWatched.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <div class="button-group">
+                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                    </div>
+                                </div>
+                                <div class="caption product-detail">
+                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy"><%=productWatched.getName()%></a></h4>
+                                    <p class="price product-price"> <span class="price-new"><%=productWatched.getSalePrice()%></span> <span class="price-old"><%=productWatched.getPrice()%></span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
+                                </div>
+                                <div class="button-group">
+                                    <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                    <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
 
-            <h3 class="productblock-title">Những sản phẩm vừa xem</h3>
-
-            <div class="box">
-                <div id="special-slidertab" class="row owl-carousel product-slider">
-                    <div class="item">
-                        <div class="product-thumb transition">
-                            <div class="image product-imageblock">
-                                <a href="product.html"> <img src="image/product/product-sale-1.jfif"
-                                                             alt="lorem ippsum dolor dummy"
-                                                             title="lorem ippsum dolor dummy"
-                                                             class="img-responsive"/> </a>
-                                <div class="button-group">
-                                    <button type="button" class="wishlist" data-toggle="tooltip"
-                                            title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                    <button type="button" class="compare" data-toggle="tooltip"
-                                            title="Compare this Product"><i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="caption product-detail">
-                                <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Vans
-                                    Classic Slip-On Checkered Platfrom Shose</a></h4>
-                                <p class="price product-price"><span class="price-new">99.99$</span> <span
-                                        class="price-old">119.99$</span> <span
-                                        class="price-tax">Ex Tax: 210.00$</span></p>
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                <button type="button" class="compare" data-toggle="tooltip"
-                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-thumb transition">
-                            <div class="image product-imageblock">
-                                <a href="product.html"> <img src="image/product/product-sale-2.jfif"
-                                                             alt="lorem ippsum dolor dummy"
-                                                             title="lorem ippsum dolor dummy"
-                                                             class="img-responsive"/> </a>
-                                <div class="button-group">
-                                    <button type="button" class="wishlist" data-toggle="tooltip"
-                                            title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                    <button type="button" class="compare" data-toggle="tooltip"
-                                            title="Compare this Product"><i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="caption product-detail">
-                                <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Brooks
-                                    Women's Ghost 14 Running Shoes</a></h4>
-                                <p class="price product-price"><span class="price-new">109.99$</span> <span
-                                        class="price-old">129.00$</span> <span
-                                        class="price-tax">Ex Tax: 210.00$</span></p>
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                <button type="button" class="compare" data-toggle="tooltip"
-                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-thumb transition">
-                            <div class="image product-imageblock">
-                                <a href="product.html"> <img src="image/product/product-sale-3.jfif"
-                                                             alt="lorem ippsum dolor dummy"
-                                                             title="lorem ippsum dolor dummy"
-                                                             class="img-responsive"/> </a>
-                                <div class="button-group">
-                                    <button type="button" class="wishlist" data-toggle="tooltip"
-                                            title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                    <button type="button" class="compare" data-toggle="tooltip"
-                                            title="Compare this Product"><i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="caption product-detail">
-                                <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">adidas
-                                    Kids' X Speedflow.4 Messi Indoor Soccer Shoes</a></h4>
-                                <p class="price product-price"><span class="price-new">39.99$</span> <span
-                                        class="price-old">49.99$</span> <span
-                                        class="price-tax">Ex Tax: 210.00$</span></p>
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                <button type="button" class="compare" data-toggle="tooltip"
-                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-thumb transition">
-                            <div class="image product-imageblock">
-                                <a href="product.html"> <img src="image/product/product-sale-4.jfif"
-                                                             alt="lorem ippsum dolor dummy"
-                                                             title="lorem ippsum dolor dummy"
-                                                             class="img-responsive"/> </a>
-                                <div class="button-group">
-                                    <button type="button" class="wishlist" data-toggle="tooltip"
-                                            title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                    <button type="button" class="compare" data-toggle="tooltip"
-                                            title="Compare this Product"><i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="caption product-detail">
-                                <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Jordan
-                                    Air Jordan XXXVI Basketball Shoes</a></h4>
-                                <p class="price product-price"><span class="price-new">184.99</span> <span
-                                        class="price-old">199.00$</span> <span
-                                        class="price-tax">Ex Tax: 210.00$</span></p>
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                <button type="button" class="compare" data-toggle="tooltip"
-                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-thumb transition">
-                            <div class="image product-imageblock">
-                                <a href="product.html"> <img src="image/product/product-sale-5.jfif"
-                                                             alt="lorem ippsum dolor dummy"
-                                                             title="lorem ippsum dolor dummy"
-                                                             class="img-responsive"/> </a>
-                                <div class="button-group">
-                                    <button type="button" class="wishlist" data-toggle="tooltip"
-                                            title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                    <button type="button" class="compare" data-toggle="tooltip"
-                                            title="Compare this Product"><i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="caption product-detail">
-                                <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Louis
-                                    Garneau Women's Multi Air Flex II Cycling Shoes</a></h4>
-                                <p class="price product-price"><span class="price-new">85.99$</span> <span
-                                        class="price-old">99.99$</span> <span
-                                        class="price-tax">Ex Tax: 210.00$</span></p>
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                <button type="button" class="compare" data-toggle="tooltip"
-                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-thumb transition">
-                            <div class="image product-imageblock">
-                                <a href="#"> <img src="image/product/product-sale-6.jfif"
-                                                  alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                  class="img-responsive"/> </a>
-                                <div class="button-group">
-                                    <button type="button" class="wishlist" data-toggle="tooltip"
-                                            title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                    <button type="button" class="compare" data-toggle="tooltip"
-                                            title="Compare this Product"><i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="caption product-detail">
-                                <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Nike
-                                    Mercurial Superfly 8 Club KM FG Soccer Cleats</a></h4>
-                                <p class="price product-price"><span class="price-new">69.99$</span> <span
-                                        class="price-old">79.99$</span> <span
-                                        class="price-tax">Ex Tax: 210.00$</span></p>
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                <button type="button" class="compare" data-toggle="tooltip"
-                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
+            <%}%>
         </div>
-
-        <div id="column-left" style="flex: 1;" class="col-sm-3 column-left">
-            <div class="column-block">
+        <div id="column-left" class="col-sm-3 column-left" style="flex: 1; padding: 0px;">
+            <div class="column-block ">
                 <div class="column-block">
-                    <div class="sales-policy-modal">
+                    <div class="sales-policy-modal  br-rd" style=" border-radius: 20px; margin: 30px 0;">
                         <div class="sales-policy">
                             <img class="icon-free-ship" src="./image/icon/icon_4.png" alt="">
                             <p class="title-free-ship">Sản phẩm được miễn phí giao hàng</p>
@@ -713,15 +538,84 @@
                         </div>
                     </div>
 
+                    <div class="mainbanner bg-white bd-rd" style="margin-top: 10px;">
+                        <h1 class="pd-5" style="text-align: center;">Hot Product</h1>
+                        <hr style="width: 180px;">
+                        <div id="main-banner" class="owl-carousel home-slider" >
+                            <div class="item bd-rd bg-white" style="width: 100%;">
+
+                                <div class="item"  style="width: 100%; display: grid; place-items: center;">
+                                    <div class="product-thumb transition">
+                                        <div class="image product-imageblock">
+                                            <a href="product.html"> <img src="image/product/product-05.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+
+                                        </div>
+                                        <div class="caption product-detail-hot" style="padding: 10px;" >
+                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Nike Air Force 1</a></h4>
+                                            <p class="price product-price"> <span class="price-new">90.99$</span> <span class="price-old">159.99$</span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
+                                        </div>
+                                        <div class="button-group pd-bt-5 button-hot-product">
+                                            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item bd-rd bg-white" style="width: 100%;">
+
+                                <div class="item"  style="width: 100%; display: grid; place-items: center;">
+                                    <div class="product-thumb transition">
+                                        <div class="image product-imageblock">
+                                            <a href="product.html"> <img src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+
+                                        </div>
+                                        <div class="caption product-detail-hot" style="padding: 10px; ">
+                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Vans Classic Slip-On Checkered Platfrom Shose</a></h4>
+                                            <p class="price product-price"> <span class="price-new">99.99$</span> <span class="price-old">119.99$</span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
+                                        </div>
+                                        <div class="button-group pd-bt-5 button-hot-product">
+                                            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item bd-rd bg-white" style="width: 100%;">
+
+                                <div class="item"  style="width: 100%; display: grid; place-items: center;">
+                                    <div class="product-thumb transition">
+                                        <div class="image product-imageblock">
+                                            <a href="product.html"> <img src="image/product/product-06.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+
+                                        </div>
+                                        <div class="caption product-detail-hot" style="padding: 10px;" >
+                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Under Armour Platfrom Shose</a></h4>
+                                            <p class="price product-price"> <span class="price-new">89.99$</span> <span class="price-old">100.99$</span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
+                                        </div>
+                                        <div class="button-group pd-bt-5 button-hot-product">
+                                            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="width: 100%; text-align: center;">
+                        <img src="image/banners/download-app.jpg" alt="" style="width: 270px; border-radius: 20px; cursor: pointer;margin-top: 10px;">
+                    </div>
+
                 </div>
+
 
             </div>
         </div>
     </div>
-
-
 </div>
-
 <footer>
     <div class="container">
         <hr>
@@ -772,8 +666,7 @@
                 USA</span></li>
                             <li><i class="fa fa-envelope"></i><span class="mail2"><a
                                     href="#">info@localhost.com</a></span></li>
-                            <li><i class="fa fa-mobile"></i><span
-                                    class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
+                            <li><i class="fa fa-mobile"></i><span class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
                         </ul>
                     </div>
                 </div>
@@ -878,11 +771,8 @@
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem
-                    các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh
-                    chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
-                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập
-                    tất cả các dịch vụ bạn cần. </p>
+                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
+                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần. </p>
             </div>
 
 
@@ -932,65 +822,79 @@
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm
-                    đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
+                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
             </div>
         </div>
     </div>
     <!-- End: modal register -->
+</div>
 </div>
 <!-- End: login register -->
 <script src="./javascript/hung-js.js"></script>
 
 
 <script>
-    function setIma(main, child) {
+    function setIma(main,child){
         var path = document.getElementById(child).getAttribute("src");
-        document.getElementById(main).setAttribute("src", path);
+        document.getElementById(main).setAttribute("src",path);
         console.log(path);
     }
+
     const ima = document.querySelector(".imag2")
     console.log(ima);
-    ima.addEventListener("click", function () {
+    ima.addEventListener("click",function(){
         var path = document.getElementById("one").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
+        document.getElementById("main-img").setAttribute("src",path);
+
     })
+
     const ima2 = document.querySelector(".imag1")
     console.log(ima2);
-    ima2.addEventListener("click", function () {
+    ima2.addEventListener("click",function(){
         var path = document.getElementById("zero").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
+        document.getElementById("main-img").setAttribute("src",path);
+
     })
     const ima3 = document.querySelector(".imag3")
     console.log(ima3);
-    ima3.addEventListener("click", function () {
+    ima3.addEventListener("click",function(){
         var path = document.getElementById("two").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
+        document.getElementById("main-img").setAttribute("src",path);
+
     })
+
     const ima4 = document.querySelector(".imag4")
     console.log(ima4);
-    ima4.addEventListener("click", function () {
+    ima4.addEventListener("click",function(){
         var path = document.getElementById("three").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
+        document.getElementById("main-img").setAttribute("src",path);
+
     })
+
     const ima5 = document.querySelector(".imag5")
     console.log(ima5);
-    ima5.addEventListener("click", function () {
+    ima5.addEventListener("click",function(){
         var path = document.getElementById("four").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
+        document.getElementById("main-img").setAttribute("src",path);
+
     })
+
     const ima6 = document.querySelector(".imag6")
     console.log(ima6);
-    ima6.addEventListener("click", function () {
+    ima6.addEventListener("click",function(){
         var path = document.getElementById("five").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
+        document.getElementById("main-img").setAttribute("src",path);
+
     })
+
     const ima7 = document.querySelector(".imag7")
     console.log(ima7);
-    ima7.addEventListener("click", function () {
+    ima7.addEventListener("click",function(){
         var path = document.getElementById("six").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
+        document.getElementById("main-img").setAttribute("src",path);
+
     })
+
 </script>
 
 </body>
