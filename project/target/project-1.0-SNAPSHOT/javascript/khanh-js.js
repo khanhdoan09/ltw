@@ -35,12 +35,20 @@ function displayMenuNavigation() {
                                      </a>
                                     
                                     <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
-                                    <li id="hitops-man" class="category-product category-product-man" style="color: white">HiTops</li>
-                                    <li id="running-man"  class="category-product category-product-man" style="color: white">Running</li>
-                                    <li id="slides-man"  class="category-product category-product-man" style="color: white">Slides</li>
-                                    <li id="sneakers-man"  class="category-product category-product-man" style="color: white">Sneakers</li>
-                                    <li id="skateboard-man"  class="category-product category-product-man" style="color: white">SkateBoard</li>
-                                    <li id="football-man"  class="category-product category-product-man" style="color: white">Football</li>
+<!--                                    <li id="hitops-man" class="category-product category-product-man" style="color: white">HiTops</li>-->
+                                    <li id="running-man"  class="category-product category-product-man" style="color: white">
+                                    <a href="CategoryProduct?category=Running&categoryGender=Man&pagination=1" class="link-navigation">Running</a>
+                                    </li>
+                                    <li id="slides-man"  class="category-product category-product-man" style="color: white">
+                                    <a href="CategoryProduct?category=Slides&categoryGender=Man&pagination=1" class="link-navigation">Slides</a>
+                                    </li>
+                                    <li id="sneakers-man"  class="category-product category-product-man" style="color: white">
+                                    <a href="CategoryProduct?category=Sneakers&categoryGender=Man&pagination=1" class="link-navigation">Sneakers</a>
+                                    </li>
+                                    <li id="skateboard-man"  class="category-product category-product-man" style="color: white">
+                                    <a href="CategoryProduct?category=Skateboard&categoryGender=Man&pagination=1" class="link-navigation">SkateBoard</a>
+                                    </li>
+<!--                                    <li id="football-man"  class="category-product category-product-man" style="color: white">Football</li>-->
 
                                 </ul>
                             
@@ -48,12 +56,24 @@ function displayMenuNavigation() {
                                     <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
                                     
                                     <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
-                                    <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>
-                                    <li id="running-woman"  class="category-product category-product-woman" style="color: white">Running</li>
-                                    <li id="slides-woman"  class="category-product category-product-woman" style="color: white">Slides</li>
-                                    <li id="sneakers-woman"  class="category-product category-product-woman" style="color: white">Sneakers</li>
-                                    <li id="skateboard-woman"  class="category-product category-product-woman"style="color: white" >SkateBoard</li>
-                                    <li id="football-woman"  class="category-product category-product-woman" style="color: white">Football</li>
+<!--                                    <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>-->
+                                    <li id="running-woman"  class="category-product category-product-woman" style="color: white">
+                                     <a href="CategoryProduct?category=Running&categoryGender=Woman&pagination=1" class="link-navigation">Running</a>
+                                    </li>
+</li>
+                                    <li id="slides-woman"  class="category-product category-product-woman" style="color: white">
+                                     <a href="CategoryProduct?category=Slides&categoryGender=Woman&pagination=1" class="link-navigation">Slides</a>
+                                    </li>
+</li>
+                                    <li id="sneakers-woman"  class="category-product category-product-woman" style="color: white">
+                                     <a href="CategoryProduct?category=Sneakers&categoryGender=Woman&pagination=1" class="link-navigation">Sneakers</a>
+                                    </li>
+</li>
+                                    <li id="skateboard-woman"  class="category-product category-product-woman"style="color: white" >
+                                     <a href="CategoryProduct?category=Skateboard&categoryGender=Woman&pagination=1" class="link-navigation">Skateboard</a>
+                                    </li>
+</li>
+<!--                                    <li id="football-woman"  class="category-product category-product-woman" style="color: white">Football</li>-->
 
                                 </ul>
 
@@ -67,16 +87,14 @@ function displayMenuNavigation() {
     
                                     <div class="item-nav-detail-info" id="item-category-brand">
                                         <div class="contain-brand" >
-                                           <img onclick="location.href='category.html'" src="image/brand/logo-brand-01.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-02.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-03.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-04.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-05.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-06.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-07.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-08.svg">
-                                           <img onclick="location.href='category.html'" src="image/brand/logo-brand-09.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-10.svg>
+                                           <img onclick="location.href='CategoryProduct?category=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
+                                            <img onclick="location.href='CategoryProduct?category=ADIDAS&pagination=1'" src="image/brand/logo-brand-02.svg">
+                                            <img onclick="location.href='CategoryProduct?category=VANS&pagination=1'" src="image/brand/logo-brand-03.jpg">
+                                            <img onclick="location.href='CategoryProduct?category=NIKE&pagination=1'" src="image/brand/logo-brand-04.svg">
+                                            <img onclick="location.href='CategoryProduct?category=REEBOK&pagination=1'" src="image/brand/logo-brand-05.svg">
+                                            <img onclick="location.href='CategoryProduct?category=NEW BALANCE&pagination=1'" src="image/brand/logo-brand-06.svg">
+                                            <img onclick="location.href='CategoryProduct?category=ON RUNNING&pagination=1'" src="image/brand/logo-brand-07.jpg">
+                                            <img onclick="location.href='CategoryProduct?category=UNDER ARMOUR&pagination=1'" src="image/brand/logo-brand-08.svg">
                                         </div>
                                    </div>
         

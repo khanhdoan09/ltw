@@ -1044,3 +1044,12 @@ background-color: white;
     width: fit-content;
 }
 
+.link-navigation {
+    background-color: transparent !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+  .link-navigation:hover {
+      background-color: transparent !important;
+      text-decoration: underline !important;
+  }

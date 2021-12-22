@@ -113,6 +113,46 @@ public class DaoProduct implements Dao<Product> {
     }
 
     public ArrayList<Product> getFilterList(HttpServletRequest request) {
+        String[] filterByIconSearch = request.getParameterValues("filterByIconSearch");
+        ArrayList<Product> listFilter = null;
+        if (filterByIconSearch != null) {
+            listFilter = getFilterListByIconSearch(filterByIconSearch[0]);
+        }
+        else
+            listFilter = getFilterListByPanel(request);
+
+        return listFilter;
+    }
+
+    public ArrayList<Product> getFilterListByIconSearch(String filterByIconSearch) {
+        ArrayList<Product> listFilter = new ArrayList<Product>();
+        try {
+            String sql = "SELECT * FROM product WHERE name LIKE ?";
+            PreparedStatement p = connect.prepareStatement(sql);
+            p.setString(1, "%"+filterByIconSearch+"%");
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                String r1 = rs.getString(1);
+                String r2 = rs.getString(2);
+                String r3 = rs.getString(3);
+                String r4 = rs.getString(4);
+                String r5 = rs.getString(5);
+                String r6 = rs.getString(6);
+                String r7 = rs.getString(7);
+                String r8 = rs.getString(8);
+                String r9 = rs.getString(9);
+                String r10 = rs.getString(10);
+                String r11 = rs.getString(11);
+                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
+                listFilter.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listFilter;
+    }
+
+    public ArrayList<Product> getFilterListByPanel(HttpServletRequest request) {
         ArrayList<Product> listFilter = new ArrayList<Product>();
         try {
             String brands = this.filterBrand(request.getParameterValues("filterBrand"));
@@ -162,7 +202,7 @@ public class DaoProduct implements Dao<Product> {
                 String r9 = rs.getString(9);
                 String r10 = rs.getString(10);
                 String r11 = rs.getString(11);
-               Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
+                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
                 listFilter.add(product);
             }
         } catch (SQLException e) {
@@ -170,6 +210,8 @@ public class DaoProduct implements Dao<Product> {
         }
         return listFilter;
     }
+
+
 
     public String filterBrand(String[] strs) {
         String re = "";
@@ -265,4 +307,31 @@ public class DaoProduct implements Dao<Product> {
         return re;
     }
 
+    public List<Product> getProductByBrandOnNavigation(String brandOnNavigation) {
+        ArrayList<Product> listFilter = new ArrayList<Product>();
+        try {
+            String sql = "SELECT * FROM product WHERE brand=?";
+            PreparedStatement p = connect.prepareStatement(sql);
+            p.setString(1, brandOnNavigation);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                String r1 = rs.getString(1);
+                String r2 = rs.getString(2);
+                String r3 = rs.getString(3);
+                String r4 = rs.getString(4);
+                String r5 = rs.getString(5);
+                String r6 = rs.getString(6);
+                String r7 = rs.getString(7);
+                String r8 = rs.getString(8);
+                String r9 = rs.getString(9);
+                String r10 = rs.getString(10);
+                String r11 = rs.getString(11);
+                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
+                listFilter.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listFilter;
+    }
 }

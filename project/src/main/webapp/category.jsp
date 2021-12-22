@@ -112,10 +112,10 @@
 
                 <div class="text-center contain-search" style="margin-top: 20px;">
                     <div class="contain-search-product-popular">
-                        <div class="search-product">
-                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                            <button class="search-product-top"><i class="fa fa-search"></i></button>
-                        </div>
+                        <form class="search-product" action="FilterProduct" method="post">
+                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text" name="filterByIconSearch">
+                            <button type="submit" class="search-product-top"><i class="fa fa-search"></i></button>
+                        </form>
                         <div class="contain-search-popular">
                             <span>X-Ray 2</span>
                             <span>Barcelona Home Kit 2021 2022</span>
@@ -233,8 +233,8 @@
                                     <input name="filterBrand" type="checkbox" value="ADIDAS"/>
                                     ADIDAS</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="KARRIMOR"/>
-                                    KARRIMOR</label>
+                                    <input name="filterBrand" type="checkbox" value="VANS"/>
+                                    VANS</label>
                                 <label class="checkbox-filter-search">
                                     <input name="filterBrand" type="checkbox" value="NIKE"/>
                                     NIKE</label>
@@ -245,17 +245,11 @@
                                     <input name="filterBrand" type="checkbox" value="NEW BALANCE"/>
                                     NEW BALANCE</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="SLAZENGER"/>
-                                    SLAZENGER</label>
+                                    <input name="filterBrand" type="checkbox" value="ON RUNNING"/>
+                                    On RUNNING</label>
                                 <label class="checkbox-filter-search">
                                     <input name="filterBrand" type="checkbox" value="UNDER ARMOUR"/>
                                     UNDER ARMOUR</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="PUMA"/>
-                                    PUMA</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="VANS"/>
-                                    VANS</label>
                             </div>
                         </div>
                         <a class="list-group-item">Sizes</a>

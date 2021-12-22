@@ -27,6 +27,7 @@ public class FilterProduct extends HttpServlet {
         ArrayList<Product> listFilter = new ArrayList<Product>();
         listFilter = DaoProduct.getInstance().getFilterList(request);
         request.setAttribute("categoryProduct", listFilter);
+
         request.getRequestDispatcher("category.jsp").forward(request, response);
     }
 }
