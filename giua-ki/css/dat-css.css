@@ -47,8 +47,8 @@
     } */
     
     .col-sm-9 #checkAllProduct {
-    width: 70%;
-    float: left;
+    width: 100%;
+    
     }
     
     .col-sm-9 #Trash {
@@ -60,6 +60,14 @@
     
     .col-sm-9 #Trash .del {
     margin-left: 230px;
+    }
+
+    .checkAll{
+        font-size: 13px;
+        width: 98%;
+       float: right;
+       margin-top: 3px;
+        
     }
     
     .col-sm-9 #checkAllProduct .chec {
