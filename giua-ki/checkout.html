@@ -203,7 +203,7 @@
         <div class="col-sm-8">
             <div id="accordion" class="panel-group">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading a">
                         <h2 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion"
                                                    data-toggle="collapse" href="#collapse-checkout-option"
                                                    aria-expanded="false">
@@ -260,7 +260,7 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading a">
                         <h2 class="panel-title">
                             <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
                                href="#collapse-checkout-confirm" aria-expanded="true">Xác nhận đơn hàng <i
@@ -394,7 +394,7 @@
                 </ul>
                 <ul>
                     <li>Tổng cộng</li>
-                    <li style="color: #d65e5e; font-weight: bold">498.000đ</li>
+                    <li style="color: #1a94ff; font-weight: bold">498.000đ</li>
                 </ul>
                 <div class="buttons">
                     <div class="pull-right">
@@ -622,6 +622,37 @@
     <!-- End: modal register -->
 </div>
 <!-- End: login register -->
+
+    <!-- Begin: modal message -->
+    <div class="icon-message">
+        <img class="icon-mess js-open-mess" src="./image/icon/icon-mess.ico" alt="">
+    </div>
+    <div class="modal-message message">
+        <div class="mess-section">
+            <div class="mess-header">
+                <img class="icon-logo " src="./image/logo.png" alt="">
+                <img class="icon-close js-close-mess" src="./image/icon/icon-close.png" alt="">
+            </div>
+            <div class="mess-content">
+                <div class="mess-content-section">
+                    <p class="mess-title">Hiện tại, chúng tôi không trực tuyến. 
+                        Quý khách vui lòng để lại tin nhắn, 
+                        chúng tôi sẽ sớm liên hệ trong buổi 
+                        làm việc tiếp theo. Trân trọng cảm ơn.</p>
+                    <p class="name">Họ & Tên *</p>
+                    <input type="text" >
+                    <p class="name">Địa chỉ Email *</p>
+                    <input type="email" >
+                    <p class="name">Điện thoại *</p>
+                    <input type="phone" >
+                    <p class="mess">Tin nhắn *</p>
+                    <textarea class="text-send" type="text" rows="4" spellcheck="false"> </textarea>
+                    <button class="send">Để lại tin nhắn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: modal message -->
 <script src="./javascript/hung-js.js"></script>
 </body>
 

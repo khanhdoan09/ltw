@@ -421,7 +421,7 @@ header {
     }
     
     .button-pay-all {
-        background-color: #db8e06;
+        background-color: #fd6c05;
         color: white;
         font-size: 16px;
         letter-spacing: 1px;
@@ -460,8 +460,9 @@ header {
         grid-template-columns: 1fr 1fr 6fr;
         align-items: center;
         height: 60px;
-        background-color: #f5efef;
+        background-color: #ffd3d3b3;
         text-indent: 10px;
+        border-radius: 5px;
     }
     
     .payment-input>input[type="radio"] {

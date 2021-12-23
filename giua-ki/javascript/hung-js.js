@@ -79,3 +79,19 @@ const btnBlack = document.querySelector('.js-color-black');
 const btnPink = document.querySelector('.js-color-black');
 const btnBule = document.querySelector('.js-color-black');
 
+
+// xử lý message
+const btnMess = document.querySelector('.js-open-mess');
+const btnCloseMess = document.querySelector('.js-close-mess');
+const message = document.querySelector('.message');
+
+function showMess() {
+    message.classList.add('open');
+}
+
+function hideMess() {
+    message.classList.remove('open');
+}
+
+btnMess.addEventListener('click', showMess);
+btnCloseMess.addEventListener('click', hideMess);

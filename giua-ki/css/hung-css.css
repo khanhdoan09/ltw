@@ -556,7 +556,101 @@ margin: 10px 0;
 }
 .picture .select-picture:hover {
     background-color: #ccc;
-}@media only screen and (min-width: 780px) and (max-width: 1500px) {
+}
+#accordion .panel-heading.a {
+    background-color: #108bea;
+    color: #ffff;
+}
+/* Message */
+.icon-mess {
+    width: 60px;
+}
+.icon-message {
+    position: fixed;
+    float: right;
+    bottom:90px;
+    right: 10px;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center ;
+    cursor: pointer;
+}
+
+
+.modal-message {
+    display: block;
+    width: 350px;
+    height: 590px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 30px;
+    float: right;
+    border: 1px solid #797979;
+}
+.message {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center ;
+    display: none;
+}
+.message.open {
+    display: flex;
+}
+.mess-header {
+    width: 350px;
+    background-color: #108bea;
+    padding: 13px 20px;
+    border-radius: 30px 30px 0 0;
+
+}
+.modal-message .icon-logo {
+    width: 25%;
+    cursor: pointer;
+}
+.modal-message .icon-close {
+    width: 30px;
+    border-radius: 50%;
+    float: right;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.mess-content {
+    padding: 10px 15px;
+}
+.mess-content-section {
+    background-color: #f5f5f5;
+    padding: 1px 15px;
+    border-radius: 10px;
+}
+.mess-content-section p {
+    color: #333;
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.4;
+}
+.mess-content-section input {
+    width: 100%;
+    padding: 5px 0;
+}
+.mess-content-section .send {
+    background-color: #1a94ff;
+    color: white;
+    font-size: 15px;
+    padding: 8px 20px;
+    margin: 10px 75.8px;
+    border-radius: 8px;
+}
+.mess-content-section .text-send {
+    width: 100%;
+    height: 80px;
+}
+
+
+@media only screen and (min-width: 780px) and (max-width: 1500px) {
     header {
         margin-bottom: 30px;
     }
@@ -631,8 +725,35 @@ margin: 10px 0;
         margin-top: 0;
         padding: 10px 35px;
     }
+
+    /* product */
+    .boxed-conten {
+        width: 55px;
+    }
+    .box_code {
+        width: 21.4%;
+        float: right;
+    }
+    .size-shoes .num-size >button {
+        padding: 2px 13px;
+        margin-left: 0px;
+    }
+    #values .set-value {
+        margin-left: 18px;
+        margin-right: 5px;
+    }
+    #number {
+        width: 33px;
+    }
+    .buy-product, .add-product {
+        width: 45%;
+    }
+    .value-box {
+        font-size: 9px;
+    }
+
 }
-@media only screen and (min-width: 300px) and (max-width: 530px) { 
+@media only screen and (min-width: 370px) and (max-width: 530px) { 
     header {
         margin-bottom: 30px;
     }
@@ -740,5 +861,21 @@ margin: 10px 0;
         padding: 5px 25px;
         font-size: 14px;
         margin-top: 0px;
+    }
+    .buy-product, .add-product {
+        width: 45%;
+    }
+    .box_code {
+        margin-right: 8.5px;
+        float: right;
+    }
+    #values .set-value {
+        margin-right: 3px;
+    }
+    .size-shoes .num-size >button {
+        padding: 2px 16px;
+    }
+    #number {
+        width: 42px;
     }
 }
