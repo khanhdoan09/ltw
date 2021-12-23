@@ -1,8 +1,5 @@
 package model;
 
-import model.DaoProduct;
-import model.Product;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -20,57 +17,55 @@ public class CategoryProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String category = request.getParameter("categoryProduct");
-        List<Product> listFilter = new ArrayList<Product>();
-        String folderImage = "";
-        if (category.equals("slidesManCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Slides Man");
-            folderImage = "imgSlidesMan";
-            DaoProduct.getInstance().currentFolderCategory = "imgSlidesMan";
-            DaoProduct.getInstance().currentCategory = "Slides Man";
+        String a = request.getParameter("category");
+        String b = request.getParameter("categoryGender");
+
+
+            String category = a + b;
+            System.out.println(category);
+            List<Product> listFilter = new ArrayList<Product>();
+            String folderImage = "";
+            if (b == null) { // bang null la khong co gioi tinh co nghia la tim theo brand navigation
+                listFilter = DaoProduct.getInstance().getProductByBrandOnNavigation(a);
+            }
+            else {
+            if (category.equals("SlidesMan")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Slides Man");
+                folderImage = "imgSlidesMan";
+                DaoProduct.getInstance().currentCategory = "Slides Man";
+            }
+            if (category.equals("RunningMan")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Running Man");
+                folderImage = "imgRunningMan";
+                DaoProduct.getInstance().currentCategory = "Running Man";
+            } else if (category.equals("SneakersMan")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Sneakers Man");
+                folderImage = "imgSneakersMan";
+                DaoProduct.getInstance().currentCategory = "Sneakers Man";
+            } else if (category.equals("SkateboardMan")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Skateboard Man");
+                folderImage = "imgSkateBoardMan";
+                DaoProduct.getInstance().currentCategory = "Skateboard Man";
+            } else if (category.equals("RunningWoman")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Running Woman");
+                folderImage = "imgRunningWoman";
+                DaoProduct.getInstance().currentCategory = "Running Woman";
+            } else if (category.equals("SneakersWoman")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Sneakers Woman");
+                folderImage = "imgSneakersWoman";
+                DaoProduct.getInstance().currentCategory = "Sneakers Woman";
+            } else if (category.equals("slidesWoman")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Slides Woman");
+                folderImage = "imgSlidesWoman";
+                DaoProduct.getInstance().currentCategory = "Slides Woman";
+            } else if (category.equals("SkateboardWoman")) {
+                listFilter = DaoProduct.getInstance().getProductByCategory("Skateboard Woman");
+                folderImage = "imgSkateBoardWoman";
+                DaoProduct.getInstance().currentCategory = "Skateboard Woman";
+            }
+
         }
-        if (category.equals("runningManCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Running Man");
-            folderImage = "imgRunningMan";
-            DaoProduct.getInstance().currentFolderCategory = "imgRunningMan";
-            DaoProduct.getInstance().currentCategory = "Running Man";
-        }
-        else if (category.equals("sneakersManCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Sneakers Man");
-            folderImage = "imgSneakersMan";
-            DaoProduct.getInstance().currentFolderCategory = "imgSneakersMan";
-            DaoProduct.getInstance().currentCategory = "Sneakers Man";
-        }
-        else if (category.equals("skateboardManCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Skateboard Man");
-            folderImage = "imgSkateBoardMan";
-            DaoProduct.getInstance().currentFolderCategory = "imgSkateBoardMan";
-            DaoProduct.getInstance().currentCategory = "Skateboard Man";
-        }
-        else if (category.equals("runningWomanCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Running Woman");
-            folderImage = "imgRunningWoman";
-           DaoProduct.getInstance().currentFolderCategory = "imgRunningWoman";
-          DaoProduct.getInstance().currentCategory = "Running Woman";
-        }
-        else if (category.equals("sneakersWomanCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Sneakers Woman");
-            folderImage = "imgSneakersWoman";
-            DaoProduct.getInstance().currentFolderCategory = "imgSneakersWoman";
-           DaoProduct.getInstance().currentCategory = "Sneakers Woman";
-        }
-        else if (category.equals("slidesWomanCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Slides Woman");
-            folderImage = "imgSlidesWoman";
-            DaoProduct.getInstance().currentFolderCategory = "imgSlidesWoman";
-           DaoProduct.getInstance().currentCategory = "Slides Woman";
-        }
-        else if (category.equals("skateboardWomanCategory")) {
-            listFilter = DaoProduct.getInstance().getProductByCategory("Skateboard Woman");
-            folderImage = "imgSkateBoardWoman";
-           DaoProduct.getInstance().currentFolderCategory = "imgSkateBoardWoman";
-            DaoProduct.getInstance().currentCategory = "Skateboard Woman";
-        }
+
         String pag = request.getParameter("pagination");
         if (pag != null) {
             pagination = Integer.parseInt(pag);
@@ -78,7 +73,11 @@ public class CategoryProduct extends HttpServlet {
         request.setAttribute("Category", category);
         request.setAttribute("Pagination", pagination);
         request.setAttribute("folderImage",folderImage);
-        request.setAttribute("filter", listFilter);
+        request.setAttribute("categoryProduct", listFilter);
+
+        request.setAttribute("category", a);
+        request.setAttribute("categoryGender", b);
+
         request.getRequestDispatcher("category.jsp").forward(request, response);
     }
 

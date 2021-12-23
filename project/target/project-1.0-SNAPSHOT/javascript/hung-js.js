@@ -1,3 +1,5 @@
+// Begin: Login and Register
+
 const modal = document.querySelector('.js-modal');
 const modalLogin = document.querySelector('.js-login');
 const modalClose = document.querySelector('.js-modal-close');
@@ -52,3 +54,28 @@ modalLoginBtn.addEventListener('click', hideModalRegister)
 modalContainerRegister.addEventListener('click', function(even) {
     even.stopPropagation()
 })
+// End: Login and Register
+
+// Begin: Tăng giảm số lượng
+function reduceValue() {
+    var result = document.getElementById('number'); 
+    var qty = result.value;
+     if( !isNaN(qty) && qty > 1 ) 
+     result.value--;
+     return false;
+}
+ function incrementValue() {
+    var result = document.getElementById('number'); 
+    var qty = result.value;
+     if( !isNaN(qty)) 
+     result.value++;
+     return false;
+ }
+
+ // End: Tăng giảm số lượng
+
+//  Begin: Xử lý button chọn màu
+const btnBlack = document.querySelector('.js-color-black');
+const btnPink = document.querySelector('.js-color-black');
+const btnBule = document.querySelector('.js-color-black');
+

@@ -11,6 +11,7 @@
     width: 45%;
     padding: 20px;
 }
+
 .login-modal,
 .modal-register{
     position: fixed;
@@ -55,6 +56,7 @@
 }
 .modal-header{
     font-size: 20px;
+    margin: 0px;
 }
 
 .modal-register .icon-close-register,
@@ -81,8 +83,8 @@
     margin: 20px 0 30px;
     border-bottom: 2px solid #ccc;
     height: 13px;
-
-}
+    
+    }
 
 .modal-body2 .sub,
 .modal-body .sub {
@@ -97,13 +99,13 @@
     cursor: pointer;
     color: #000;
     padding: 5px 8px;
-
+    
 }
 
 /* .modal-register, */
 .modal-body2 .modal-sub-register ,
 .modal-body .modal-login {
-    background-color: #ccc;
+ background-color: #ccc;
 }
 
 .modal-register-another,
@@ -118,9 +120,9 @@
 
 
 .icon-login-another {
-    width: 50px;
-    margin: 10px 15px;
-    cursor: pointer;
+   width: 50px;
+   margin: 10px 15px;
+   cursor: pointer;
 }
 
 
@@ -242,22 +244,30 @@
     padding: 15px 30px;
     font-weight: bold;
 }
+.blog-desc {
+    height: 30px;
+}
 #content .blog1.sub {
     width: 100%;
-    min-height: 320px;
+    min-height: 275px;
     text-align: justify;
-    background-color: #f3f4f8;
+    background-color: #fff;
     margin-right: 30px;
 }
 #content .blog1.sub .blog-title {
     font-size: 22px;
     width: 120%;
     padding: 10px 0;
+    height: 60px;
     margin-bottom: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
 }
 #content .blog1.sub .blog-title-content {
     font-size: 14px;
     width: 120%;
+    margin-top: 10px;
 }
 #content .blog1.sub .shose-slect {
     background-color: #1a94ff;
@@ -273,41 +283,40 @@
 }
 #content .blog1.sub .blog-meta {
     float: right;
-
-}
+ }
 #u-url-blog {
-    display: inline-block;
-    margin-top: 15px;
-    background-color: #333;
-    padding: 8px 20px;
-    color: white;
-    font-weight: bold;
-}
-#u-url-blog:hover {
+     display: inline-block;
+     margin-top: 11px;
+     background-color: #333;
+     padding: 8px 20px;
+     color: white;
+     font-weight: bold;
+ }
+ #u-url-blog:hover {
     background-color: #000;
 
-}
-.col-2 #content {
-    margin-right: 26px;
-}
-#bg-search-blog {
-    display: inline-block;
-    width: 143%;
-    height: 70px;
-    background-color: #1a94ff;
-}
-#bg-search-blog .search-product {
-    margin: auto;
-    margin-top: 13px;
-    max-width: 95%;
-}
-#bg-search-blog .search-product-top {
+ }
+ .col-2 #content {
+     margin-right: -14px;
+ }
+ #bg-search-blog {
+     display: inline-block;
+     width: 143%;
+     height: 70px;
+     background-color: #1a94ff;
+ }
+ #bg-search-blog .search-product {
+     margin: auto;
+     margin-top: 13px;
+     max-width: 95%;
+ }
+ #bg-search-blog .search-product-top {
     width: 50px;
-}
-#new-posts-modal {
-    width: 143%;
+  }
+ #new-posts-modal {
+     width: 143%;
     padding: 30px;
-    background-color: #f3f4f8;
+    background-color: #ffff;
     padding-top: 50px;
 }
 #new-posts-modal .post-select {
@@ -405,9 +414,9 @@
     margin: 18px 0;
 }
 .price-modal .price {
-    color: #1a94ff;
-    font-size: 25px;
-    margin: 10px 0;
+color: #1a94ff;
+font-size: 25px;
+margin: 10px 0;
 }
 .price-modal .sale {
     background-color: #1a94ff;
@@ -416,13 +425,14 @@
     margin: 12px 10px;
 }
 .size-shoes .num-size >button {
-    padding: 2px 20px;
+    padding: 2px 18px;
     background-color: white;
     color: black;
-    margin-left: 6px;
+    margin-left: 7px;
 }
 .size-shoes .num-size >button:hover {
     border: 1px solid #1a94ff;
+    color: #1a94ff;
 }
 #number {
     width: 50px;
@@ -430,7 +440,7 @@
     color: black;
 }
 #values .set-value {
-    margin-left: 30px;
+    margin-left: 25px;
     margin-right: 10px;
 }
 #values .value-box {
@@ -466,4 +476,84 @@
 .add-and-buy {
     text-align: center;
     margin-top: 50px;
+}
+#product-thumbnail.owl-carousel .owl-buttons .owl-prev {
+    margin-top: -20px;
+}
+#product-thumbnail.owl-carousel .owl-buttons .owl-next, 
+#product-thumbnail.owl-carousel:hover .owl-buttons .owl-next{
+    right: 52px;
+    margin-top: -20px;
+}
+.blog-title-content{
+    max-width: 120%;
+    font-size: 13px;
+    height: 60px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+
+/* CSS Infor Customer */
+#info-customer{
+    background-color: #ffff;
+    height: 520px;
+    padding: 20px 30px;
+    color: #000;
+}
+#info-customer  li {
+    float: left;
+}
+#info-customer .info {
+    float: left;
+    width: 67%;
+    padding: 20px 0;
+    border-right: 1px solid rgb(221, 233, 255);
+}
+#info-customer .picture {
+    float: left;
+    width: 29%;
+    text-align: center;
+    margin-left: 20px;
+}
+.col-half-info {
+    float: left;
+    width: 20%;
+    margin-right: 20px;
+}
+.col-half-picture {
+    float: left;
+    width: 70%;
+    margin-bottom: 20px;
+}
+#birthday li {
+    margin-right: 5px;
+}
+#birthday select {
+    padding: 7px 0;
+    width: 100px;
+}
+#sex li {
+    margin-right: 15px;
+}
+.save {
+    background-color: #1a94ff;
+    color: #ffff;
+    font-weight: bold;
+    padding: 5px 30px;
+}
+.save:hover {
+    background-color: #1567ff;
+}
+#picture img {
+    width: 80%;
+    border-radius: 50%;
+}
+.picture .select-picture {
+    margin: 10px 0;
+    font-size: 12px;
+}
+.picture .select-picture:hover {
+    background-color: #ccc;
 }

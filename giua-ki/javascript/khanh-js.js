@@ -28,9 +28,13 @@ function displayMenuNavigation() {
                             <div class="navbar-collapse" style="background-color: #0f6cb2;">
                                 <ul class="main-navigation">
                                     <li><a href="index.html" style="color: white" class="parent" id="home-nav">HOME</a> </li>
-                                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-man"> MAN <i class="fas fa-caret-down"></i> </a>
+                                    <li style="position: relative">
+                                    <a href="category.html" style="color: white" class="parent category-item" id="category-man">
+                                     MAN 
+                                     <i class="fas fa-caret-down"></i> 
+                                     </a>
                                     
-                                    <ul class="man-category" style="background-color: #0f6cb2; border:none">
+                                    <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
                                     <li id="hitops-man" class="category-product category-product-man" style="color: white">HiTops</li>
                                     <li id="running-man"  class="category-product category-product-man" style="color: white">Running</li>
                                     <li id="slides-man"  class="category-product category-product-man" style="color: white">Slides</li>
@@ -41,9 +45,9 @@ function displayMenuNavigation() {
                                 </ul>
                             
                                 </li>
-                                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
+                                    <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
                                     
-                                    <ul class="woman-category" style="background-color: #0f6cb2; border:none">
+                                    <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                                     <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>
                                     <li id="running-woman"  class="category-product category-product-woman" style="color: white">Running</li>
                                     <li id="slides-woman"  class="category-product category-product-woman" style="color: white">Slides</li>
@@ -237,23 +241,27 @@ function displayListProduct() {
                    <h5 style='margin-top: 10px'> -20%</h5>
                  </div>
 <img id="imgCategory" src="${element.linkImg}" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive item-img-list" /> </a>
-            <div class="button-group">
-              <button type="button" class="addtocart-btn">Mua ngay</button>
-            </div>
+            <div class="button-group button-group-list-category">
+            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+            <button type="button" class="addtocart-btn">Mua Ngay</button>
+            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>            </div>
           </div>
-          <div class="caption product-detail">
+          <div class="caption product-detail intro-product-detail-list">
          <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>${element.brand}</h2>
             <h4 class="product-name">
 <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy" style='text-transform: capitalize'>
 ${element.name}</a> </h4> 
             <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go. Cover
               Flow. Browse through your music collection by flipping..</p> 
-            <p id="priceCategory" class="price product-price"><span class="price-old" style='margin-right: 10px'>${element.oldPrice} VND</span>${element.newPrice} VND </p>
+            <p id="priceCategory" class="price product-price produce-price-list">
+            <span class="price-old" style='margin-right: 10px'>${element.oldPrice} VND</span>
+            ${element.newPrice} VND </p>
             <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>                                    </div>
           </div>
-          <div class="button-group">
-            <button type="button" class="addtocart-btn">Mua ngay</button>
-          </div>
+          <div class="button-group button-group-list-category">
+          <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+          <button type="button" class="addtocart-btn">Mua Ngay</button>
+          <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>          </div>
         </div>
       </div>`;
 $(".grid-list-wrapper").append(contain);
@@ -374,21 +382,25 @@ function accessInfoCustomer() {
         resetAllSectionCustomer();
         $("#info-customer").css("display", "block");
         $("#nav-info-customer").addClass("customer-category-after-click");
+        $("#info-customer").addClass("display-default-customer")
     });
     $("#nav-bank-customer").click(() => {
         resetAllSectionCustomer();
         $("#bank-customer").css("display", "block");
         $("#nav-bank-customer").addClass("customer-category-after-click");
-    });
+        removeDefaultNavContentCategory()
+        });
     $("#nav-map-customer").click(() => {
         resetAllSectionCustomer();
         $("#map-customer").css("display", "block");
         $("#nav-map-customer").addClass("customer-category-after-click");
-    });
+        removeDefaultNavContentCategory() 
+       });
     $("#nav-password-customer").click(() => {
         resetAllSectionCustomer();
         $("#password-customer").css("display", "block");
         $("#nav-password-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
     });
     // $("#nav-cart-customer").click(() => {
     //     resetAllSectionCustomer();
@@ -399,6 +411,7 @@ function accessInfoCustomer() {
         resetAllSectionCustomer();
         $("#history-customer").css("display", "block");
         $("#nav-history-customer").addClass("customer-category-after-click");
+        $("#info-customer").css("display", "none");
     });
 
     $(".adjust-address-customer").click(() => {
@@ -428,13 +441,11 @@ function accessInfoCustomer() {
 }
 
 function resetAllSectionCustomer() {
-    $("#nav-info-customer").removeClass("customer-category-after-click");
     $("#nav-bank-customer").removeClass("customer-category-after-click");
     $("#nav-map-customer").removeClass("customer-category-after-click");
     $("#nav-password-customer").removeClass("customer-category-after-click");
     // $("#nav-cart-customer").removeClass("customer-category-after-click");
     $("#nav-history-customer").removeClass("customer-category-after-click");
-    $("#info-customer").css("display", "none");
     $("#bank-customer").css("display", "none");
     $("#map-customer").css("display", "none");
     $("#password-customer").css("display", "none");
@@ -443,6 +454,10 @@ function resetAllSectionCustomer() {
 }
 $(window).ready(resetAllSectionCustomer);
 
+function removeDefaultNavContentCategory() {
+    $("#nav-info-customer").removeClass("customer-category-after-click");
+    $("#info-customer").css("display", "none");
+}
 $(window).ready(accessInfoCustomer);
 
 // load location customer

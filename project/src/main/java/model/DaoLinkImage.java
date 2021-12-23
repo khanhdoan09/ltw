@@ -2,10 +2,7 @@ package model;
 
 import databaseConnection.DatabaseConnection;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,13 +21,15 @@ public class DaoLinkImage {
 
     }
 
+    Connection connect = DatabaseConnection.getConnection();
+
     private Map<String, ArrayList<String>> mapLinkImg = new HashMap<String, ArrayList<String>>();
 
     public Map<String, ArrayList<String>> getAll() {
         Connection connect = DatabaseConnection.getConnection();
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM product");
+            ResultSet rs = s.executeQuery("SELECT * FROM linkimg");
             while (rs.next()) {
                 String id = rs.getString(1);
                 String link = rs.getString(2);
@@ -50,4 +49,5 @@ public class DaoLinkImage {
         }
         return mapLinkImg;
     }
+
 }

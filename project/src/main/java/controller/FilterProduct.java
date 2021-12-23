@@ -26,7 +26,8 @@ public class FilterProduct extends HttpServlet {
 //        String[] stars = request.getParameterValues("filter-star-rate");
         ArrayList<Product> listFilter = new ArrayList<Product>();
         listFilter = DaoProduct.getInstance().getFilterList(request);
-        request.setAttribute("filter", listFilter);
+        request.setAttribute("categoryProduct", listFilter);
+
         request.getRequestDispatcher("category.jsp").forward(request, response);
     }
 }
