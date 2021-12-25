@@ -549,14 +549,15 @@ header {
     }
     
     .contain-search-popular {
-        width: 95%;
         display: none;
         flex-wrap: wrap;
         border: none;
         position: absolute;
         background-color: rgb(5, 72, 128);
         z-index: 1;
-    }
+        width: 100%;
+        max-width: 450px;   
+     }
     
     .contain-search-popular>span {
         border-radius: 20px;
