@@ -36,9 +36,55 @@
 
 <body class="checkout col-2 left-col">
     
-    <header style="background-color: #108bea;">
-        <div style="display: flex; flex-wrap: wrap;  width: 100%;">
-            <div class="header-top" style="background-color: #108bea;">
+    <header>
+        <div class="contain-header-inner">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-sm-12 contain-header">
+                        <div class="contain-nav-info">
+                            <div id="top-links" class="nav pull-left">
+                                <ul class="list-inline">
+                                    <li class="account"><a href="customer.html" class="notify"><i
+                                               
+                                                class="fas fa-bell color-header" style="margin-right: 10px"></i><span
+                                                style="margin: 0 5px;" class="color-header">Thông
+                                                báo</span><span
+                                                style="margin-right: 10px;" class="color-header">(0)</span></a>
+                                    </li>
+                                    <li class="account"><a href="customer.html" id="wishlist-total"
+                                            title="Wish List (0)"><i
+                                                
+                                                class="fa fa-heart color-header"></i><span
+                                                class="color-header">Danh sách
+                                                yêu thích</span><span
+                                                style="margin-right: 10px;" class="color-header">(0)</span></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" title="My Account" class="dropdown-toggle"
+                                            data-toggle="dropdown"> <i
+                                               
+                                                class="fa fa-user color-header"></i><span
+                                                class="color-header">Tài
+                                                khoản</span> <span
+                                                style=" font-size: 15px;"
+                                                class="caret color-header"></span></a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#" class="js-login">Đăng ký</a></li>
+                                            <li><a href="#" class="js_register">Đăng nhập</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header-inner">
+                                
+            <div class="header-top">
                 <div>
                     <div class="header-middle-top" >
                         <div id="logo" class="color-header" style="margin: 0; padding: 0;">
@@ -48,53 +94,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="header-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 contain-header">
-                                <div class="contain-nav-info">
-                                    <div id="top-links" class="nav pull-left">
-                                        <ul class="list-inline">
-                                            <li class="account"><a href="customer.html" class="notify"><i
-                                                        style="color: rgba(255,255,255,0.8); font-size: 15px;"
-                                                        class="fas fa-bell" style="margin-right: 10px"></i><span
-                                                        style="color: rgba(255,255,255,0.8); font-size: 15px;margin: 0 5px;">Thông
-                                                        báo</span><span
-                                                        style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
-                                            </li>
-                                            <li class="account"><a href="customer.html" id="wishlist-total"
-                                                    title="Wish List (0)"><i
-                                                        style="color: rgba(255,255,255,0.8); font-size: 15px;"
-                                                        class="fa fa-heart"></i><span
-                                                        style="color: rgba(255,255,255,0.8); font-size: 15px;">Danh sách
-                                                        yêu thích</span><span
-                                                        style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#" title="My Account" class="dropdown-toggle"
-                                                    data-toggle="dropdown"> <i
-                                                        style="color: rgba(255,255,255,0.8); font-size: 15px;"
-                                                        class="fa fa-user"></i><span
-                                                        style="color: rgba(255,255,255,0.8); font-size: 15px;">Tài
-                                                        khoản</span> <span
-                                                        style="color: rgba(255,255,255,0.8);; font-size: 15px;"
-                                                        class="caret"></span></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#" class="js-login">Đăng ký</a></li>
-                                                    <li><a href="#" class="js_register">Đăng nhập</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="text-center contain-search" style="margin-top: 20px;">
+                    <div class="text-center contain-search">
                         <div class="contain-search-product-popular">
                             <div class="search-product">
                                 <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
@@ -110,23 +111,15 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4 col-xs-12 header-right header-nav-right" style="padding-right: 10px;">
-                        <div class="">
-                            <div class="shipping">
-                                <div class="shipping-text color-header">(+91) 000-1233<br>
-                                    <span class="shipping-detail color-header">24/7 Online Support</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="cart" class="btn-group btn-block">
+                    <div class="col-sm-4 col-xs-12 header-right header-nav-right">
+                    
+                        <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
                             <button type="button"
-                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span
-                                    id="cart-total" class="color-header"><span class="cart-title color-header">Shopping
-                                        Cart</span><br>
-                                    0 item(s) - $0.00</span>
-                                <i class="fas fa-shopping-cart"
-                                    style="font-size: 30px; color: white; padding-top: 5px;"></i>
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav"> 
+                                <span
+                                    id="cart-total" class="color-header"><span class="cart-title color-header">Cart - </span>$254.0</span>
+                                    <span class="value-header-product" style="margin-bottom: 10px">1</span>
+                                <i class="fas fa-shopping-cart cart-icon-nav"></i>
                             </button>
 
                             <ul class="dropdown-menu pull-right cart-dropdown-menu">
@@ -136,7 +129,7 @@
                                             <tr>
                                                 <td class="text-center">
                                                     <a href="#"><img src="image/product/product-01.jpg"
-                                                            style="width: 100px; height: 100px;"></a>
+                                                            width="100px" height="100px"></a>
                                                 </td>
                                                 <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
                                                 <td class="text-right">x 1</td>

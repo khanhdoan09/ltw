@@ -27,8 +27,10 @@
   }
   .header-nav-right {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    width: 400px;
+    justify-content: center;
+    width: fit-content;
   }
 
   .mg-r-5 {
@@ -41,19 +43,32 @@
   .pd-bt-5 {
      padding-bottom: 25px;
   }
-header {
-    
+
+    header {
+    background-color: #108bea;   
     margin-bottom: 60px;
-}
+    }
+
 .header-inner {
-  
     display: flex; 
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
+    justify-content: space-between;
     margin-bottom: 10px;
     
+}
+
+.contain-header-inner {
+    display: flex; flex-wrap: wrap;  width: 100%;
+}
+
+.value-header-product {
+    background-color: yellow;
+    color: #1f507a;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 100%;
+    font-size: 12px;
+    padding: 3px 7px;
 }
 
 .bt-nav-collapse {
@@ -70,6 +85,7 @@ header {
 }
 .color-header {
     color: rgba(255,255,255,0.8);
+    font-size: 15px;
 }
     
 .general-contain {
@@ -106,19 +122,25 @@ header {
         top: 1px;
     }
 
-  
-    @media screen and (max-width: 1200px) {
+    .header-top {
+        background-color: #108bea;
+    }
 
-        .header-top {
-            width: 100%;
+    .header-top, .contain-search, .header-nav-right {
+        width: 100%;
+    }
+  
+    @media screen and (min-width: 1050px) {
+
+        .header-top,.contain-search, .header-nav-right {
+            width: fit-content;
             text-align: center;
            }
 
     }
     .logo-header {
-        height : 130px;
-        width: 100%;
-       
+        max-width: 180px;
+        width: 100%; 
     }
 
   
@@ -489,15 +511,23 @@ header {
     .checkout-product-img {
         cursor: pointer;
     }
+
+    .cart-nav {
+        background-color: #10426e !important;
+         padding: 8px 0 !important;
+    }
+
+    .cart-icon-nav {
+        font-size: 20px; color: white; padding-top: 7px;padding-right: 10px;
+    }
     /*search product */
     
     .contain-search {
-        
         display: flex;
         flex-direction: column;
-        align-items: center;
-        flex: 1;
-        width: 100%;
+        align-items: center; 
+        justify-content: center;
+        margin: 20px 0;
     }
     
     .notify {
@@ -507,12 +537,12 @@ header {
     .notify:hover {
         color: white;
     }
+
     
     .contain-search-product-popular {
-        max-width: 650px;
-        width: 100%;
         position: relative;
         z-index: 1000;
+        width: 100%;
     }
     
     .search-product {
@@ -520,7 +550,6 @@ header {
         border-radius: 20px;
         background-color: whitesmoke;
         width: 100%;
-        max-width: 450px;
         position: relative;
     }
     
@@ -556,7 +585,6 @@ header {
         background-color: rgb(5, 72, 128);
         z-index: 1;
         width: 100%;
-        max-width: 450px;   
      }
     
     .contain-search-popular>span {
