@@ -22,6 +22,31 @@ $(function(){
 });
 
 
+// payment method
+$(function() {
+    
+   $("#payment-cod").click(()=>{
+       $(".payment-input").removeClass("payment-input-active")
+       $("#contain-payment-cod").addClass("payment-input-active");
+   })
+
+   $("#payment-shoppe").click(()=>{
+    $(".payment-input").removeClass("payment-input-active")
+    $("#contain-payment-shoppe").addClass("payment-input-active");
+    })
+
+    $("#payment-zalo").click(()=>{
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-zalo").addClass("payment-input-active");
+    })
+
+    $("#payment-momo").click(()=>{
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-momo").addClass("payment-input-active");
+    })
+ 
+});
+
 function displayMenuNavigation() {
     let content = `<div class="nav-inner">
                         
