@@ -348,14 +348,12 @@
                 if (objPagination != null) {
                     pagination = Integer.parseInt(objPagination.toString());
                 }
-
                 Object objCategory = request.getAttribute("categoryProduct");
-                List<Product> list=  (List <Product>) objCategory;
+                List<Product> list= (List <Product>) objCategory;
                 if (list != null) {
                     Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
-                    ArrayList<Product> listFilter = (ArrayList<Product>) request.getAttribute("categoryProduct");
-                    for (int i = 0 + 9 * (pagination-1); i < pagination*9; i++) {
-                        Product p = listFilter.get(i);
+                    for (int i = 0; i < list.size(); i++) {
+                        Product p = list.get(i);
             %>
 
             <div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="height: fit-content">
@@ -423,7 +421,9 @@
             <div class="category-page-wrapper">
                 <div class="pagination-inner" id="tessss">
                     <ul class="pagination">
-                        <% int lengthPagination = (int)Math.ceil(list.size()/9);%>
+                        <%
+                            int totalNumber = (int) request.getAttribute("TotalNumberProduct");
+                            int lengthPagination = (int)Math.ceil(totalNumber/9);%>
                         <li><a id="left-page" href="CategoryProduct?category=<%=request.getAttribute("category")%>&categoryGender=<%=request.getAttribute("categoryGender")%>&pagination=<%=pagination<=1 ? 1: pagination-1%>">&lt;</a></li>
                         <li><a id="right-page" href="CategoryProduct?category=<%=request.getAttribute("category")%>&categoryGender=<%=request.getAttribute("categoryGender")%>&pagination=<%=pagination >= lengthPagination ? lengthPagination: pagination+1%>">&gt;</a></li>
                         <span>Page</span>

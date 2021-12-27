@@ -10,12 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../giua-ki/user/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/user/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/user/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/user/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/user/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/user/customer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/user/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/user/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../giua-ki/user/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/../giua-ki/user/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CategoryRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CategoryRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +279,9 @@
       <workItem from="1640417997562" duration="204000" />
       <workItem from="1640493223852" duration="703000" />
       <workItem from="1640509699892" duration="1680000" />
-      <workItem from="1640583992245" duration="1067000" />
+      <workItem from="1640583992245" duration="1918000" />
+      <workItem from="1640587288805" duration="1144000" />
+      <workItem from="1640590170107" duration="3976000" />
     </task>
     <servers />
   </component>
@@ -289,11 +294,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>543</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
           <line>627</line>

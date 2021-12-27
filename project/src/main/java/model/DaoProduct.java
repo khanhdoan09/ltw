@@ -57,11 +57,14 @@ public class DaoProduct implements Dao<Product> {
         return null;
     }
 
-    public List<Product> getProductByCategory(String category) {
+    public List<Product> getProductByCategory(String category,int pagination) {
         List<Product> re = new ArrayList<Product>();
         try {
-            Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM product");
+            PreparedStatement s = connect.prepareStatement("SELECT * FROM product WHERE description=\""+category+"\" LIMIT ?, ?");
+            s.setInt(1,(pagination-1) * 9);
+            s.setInt(2, 9);
+
+            ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String r1 = rs.getString(1);
                 String r2 = rs.getString(2);
@@ -333,5 +336,21 @@ public class DaoProduct implements Dao<Product> {
             e.printStackTrace();
         }
         return listFilter;
+    }
+
+    public int getTotalNumberProduct(String type, String key) {
+        int re = 0;
+        try {
+            PreparedStatement s = connect.prepareStatement("SELECT count(id) FROM product WHERE description=?");
+            s.setString(1, key);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                re = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(1236787624);
+        }
+
+        return re;
     }
 }
