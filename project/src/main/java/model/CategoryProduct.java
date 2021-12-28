@@ -26,19 +26,22 @@ public class CategoryProduct extends HttpServlet {
             pagination = Integer.parseInt(pag);
         }
 
-            String category = a +" "+ b;
+            String category = a;
             System.out.println(category);
             List<Product> listFilter = new ArrayList<Product>();
             String folderImage = "";
-            if (b == null) { // bang null la khong co gioi tinh co nghia la tim theo brand navigation
-                listFilter = DaoProduct.getInstance().getProductByBrandOnNavigation(a);
-            }
-            else {
-                listFilter = DaoProduct.getInstance().getProductByCategory(category, pagination);
+        int totalNumberProduct = 0;
+
+        if (b.equals("brand")) { // bang null la khong co gioi tinh co nghia la tim theo brand navigation
+            listFilter = DaoProduct.getInstance().getProductByCategory("brand", a, pagination);
+            totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("brand", a);
+        }
+        else {
+            listFilter = DaoProduct.getInstance().getProductByCategory(b, category, pagination);
                 DaoProduct.getInstance().currentCategory = category;
+                totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("description", category);
         }
 
-        int totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("description", category);
         request.setAttribute("TotalNumberProduct", totalNumberProduct);
         request.setAttribute("Category", category);
         request.setAttribute("Pagination", pagination);

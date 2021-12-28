@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>::eBazar:: Product Edit </title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Admin | Dragon Sport </title>
+    <link rel="shortcut icon" href="/user/image/logo.png" />
+
     <!-- Favicon-->
 
     <!--plugin css file -->
@@ -37,35 +38,33 @@
         <div class="sidebar px-4 py-4 py-md-4 me-0">
             <div class="d-flex flex-column h-100">
                 <a href="index.html" class="mb-0 brand-icon">
-                    <span class="logo-icon">
-                        <i class="bi bi-bag-check-fill fs-4"></i>
-                    </span>
+                   
                     <span class="logo-text">Dragon Sport</span>
                 </a>
                 <!-- Menu: main ul -->
                 <ul class="menu-list flex-grow-1 mt-3">
-                    <li><a class="m-link" href="index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Dashboard</span></a></li>
+                    <li><a class="m-link" href="index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
                     <li class="collapsed">
                         <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-product" href="#">
-                            <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Products</span> </a>
+                            <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Sản phẩm</span> </a>
                         <!-- Menu: Sub menu ul -->
                         <ul class="sub-menu collapse" id="menu-product">
             
-                            <li><a class="ms-link active" href="product-edit.html">Product Edit</a></li>
-                            <li><a class="ms-link" href="product-add.html">Product Add</a></li>
+                            <li><a class="ms-link active" href="product-edit.html">Chỉnh sửa sản phẩm</a></li>
+                            <li><a class="ms-link" href="product-add.html">Thêm sản phẩm</a></li>
                          
                         </ul>
                     </li>
             
                     <li class="collapsed">
                         <a class="m-link"  href="order-invoices.html">
-                            <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Orders</span> </a>
+                            <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
                             
             
                     </li>
                     <li class="collapsed">
                         <a class="m-link"  href="customers.html">
-                            <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Customers</span> </a>
+                            <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
                         
                     </li>
            
@@ -94,7 +93,7 @@
                     <div class="row align-items-center">
                         <div class="border-0 mb-4">
                             <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                                <h3 class="fw-bold mb-0">Products Edit</h3>
+                                <h3 class="fw-bold mb-0">Chỉnh sửa sản phẩm</h3>
                                 <button type="submit" class="btn btn-primary btn-set-task w-sm-100 py-2 px-5 text-uppercase">Save</button>
                             </div>
                         </div>
@@ -106,46 +105,43 @@
                             <div class="sticky-lg-top">
                                 <div class="card mb-3">
                                     <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                        <h6 class="m-0 fw-bold">Pricing Info</h6>
+                                        <h6 class="m-0 fw-bold">Thông tin sản phẩm</h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="row g-3 align-items-center">
                                             <div class="col-md-12">
-                                                <label class="form-label">Product Price Old</label>
-                                                <input type="text" class="form-control" value="$350">
+                                                <label class="form-label">Giá sản phẩm</label>
+                                                <input type="text" class="form-control" value="2.000.000 Đ">
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label">Product Price New</label>
-                                                <input type="text" class="form-control" value="$355">
+                                                <label class="form-label">Giảm giá</label>
+                                                <input type="text" class="form-control" value="10%">
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label">Product Coupon</label>
-                                                <input type="text" class="form-control" value="BATTT-XA47">
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card mb-3">
                                     <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                        <h6 class="m-0 fw-bold">Visibility Status</h6>
+                                        <h6 class="m-0 fw-bold">Màu</h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="couponsstatus" checked>
-                                            <label class="form-check-label">
-                                                Published
+                                            <input class="form-check-input" id="color-red" type="radio" name="couponsstatus" checked>
+                                            <label class="form-check-label" for="color-red">
+                                                Đỏ
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="couponsstatus">
-                                            <label class="form-check-label">
-                                                Scheduled
+                                            <input class="form-check-input" id="color-green" type="radio" name="couponsstatus" checked>
+                                            <label class="form-check-label" for="color-green">
+                                                Xanh
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="couponsstatus">
-                                            <label class="form-check-label">
-                                                Hidden
+                                            <input class="form-check-input" id="color-white" type="radio" name="couponsstatus" checked>
+                                            <label class="form-check-label" for="color-white">
+                                                Trắng
                                             </label>
                                         </div>
                                     </div>
@@ -189,16 +185,16 @@
                                 </div>
                                 <div class="card mb-3">
                                     <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                        <h6 class="m-0 fw-bold">Publish Schedule</h6>
+                                        <h6 class="m-0 fw-bold">Ngày công bố</h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="row g-3 align-items-center">
                                             <div class="col-md-12">
-                                                <label class="form-label">Publish Date</label>
+                                                <label class="form-label">Ngày</label>
                                                 <input type="date" class="form-control w-100" value="2021-03-28">
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label">Publish Time</label>
+                                                <label class="form-label">Giờ</label>
                                                 <input type="time" class="form-control w-100" value="10:30">
                                             </div>
                                         </div>
@@ -212,32 +208,30 @@
                         <div class="col-xl-8 col-lg-8">
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                    <h6 class="mb-0 fw-bold ">Basic information</h6>
+                                    <h6 class="mb-0 fw-bold ">Thông tin cơ bản</h6>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row g-3 align-items-center">
                                             <div class="col-md-6">
-                                                <label class="form-label">Name</label>
-                                                <input type="text" class="form-control" value="Oculus VR">
+                                                <label class="form-label">Tên</label>
+                                                <input type="text" class="form-control" value="Nike Air Force 1">
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label">Page Title</label>
-                                                <input type="text" class="form-control" value="Gaming VR">
+                                                <label class="form-label">Nhãn hàng</label>
+                                                <input type="text" class="form-control" value="Nike">
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label">Product Identifier URL</label>
+                                                <label class="form-label">Link hình</label>
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text">https://eBazar.com</span>
                                                     <input type="text" class="form-control" value="/product/Fossilsmart">
                                                 </div>
                                             </div>
                                                <div class="col-md-12">
-                                                <label class="form-label" for="description">Product Description</label>
-                                               <input type="text" style="display: block; width: 100%; height: 80px;" id="description" placeholder="sdf;,mgg plefklf;f;f,f;l,mf;mlddddddddddddddddddddfmv vvvvvvvvvvvvvvvvvvvvvvvvv'ekrg sd;vmdsf.,maf';ewflk2prj2(re
-                                               rkg lknaf') => {
-                                                   
-                                               }" >
+                                                <label class="form-label" for="description">Mô tả</label>
+                                               <input type="text" style="display: block; width: 100%; height: 80px;" id="description" placeholder="
+                                              Nike Air Force 1" >
                                             </div>
                                             
                                         </div>
@@ -274,7 +268,7 @@
                                             <input type="text" class="form-control" value="SKUN111">
                                         </div>
                                         <div class="col-md-12">
-                                            <label class="form-label">Total Stock Quantity</label>
+                                            <label class="form-label">Tổng số lượng</label>
                                             <input type="text" class="form-control" value="1455">
                                         </div>
                                     </div>
@@ -284,26 +278,26 @@
                                 
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                    <h6 class="m-0 fw-bold">Categories</h6>
+                                    <h6 class="m-0 fw-bold">Giới tính</h6>
                                 </div>
                          
                                 <div class="card-body">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="couponsstatus" checked>
                                         <label class="form-check-label">
-                                            Man
+                                            Nam
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="couponsstatus">
                                         <label class="form-check-label">
-                                            Woman
+                                            Nữ
                                         </label>
                                     </div>
                                 
                                 </div>
                                 <div class="card-body">
-                                    <label class="form-label">Categories Select</label>
+                                    <label class="form-label">Thể loại</label>
                                     <select class="form-select" size="3" aria-label="size 3 select example">
                                         <option value="1" selected>Skateboard</option>
                                         <option value="2">Slides</option>

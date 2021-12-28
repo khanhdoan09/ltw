@@ -21,6 +21,10 @@
   .mg-t {
       margin-top: 10px;
   }
+
+  .mg-l {
+    margin-left: 20px;
+  }
   footer {
       margin: 10px 0;
       width: 100% !important;
@@ -540,6 +544,10 @@
          padding: 8px 0 !important;
     }
 
+    .cart-title {
+        letter-spacing: 1px;
+    }
+    
     .cart-icon-nav {
         font-size: 20px; color: white; padding-top: 7px;padding-right: 10px;
     }
@@ -764,18 +772,14 @@
         display: grid !important;
         grid-template-columns: 20px auto !important;
     }
+   
     .contain-price-search {
         display: grid;
     }
 
     .contain-select-price {
-        display: grid;
-        text-align: center;
+     display: grid;
     }
-    .contain-select-price span {
-        width: fit-content;
-    }
-
     
     .price-search {
         color: white;
@@ -785,21 +789,18 @@
         border-radius: 20px;
         margin: 10px 0;
         cursor: pointer;
+        width: fit-content;
     }
     
     .price-search:hover {
         background-color: #6f6c6c;
     }
     
-    .price-search-highest-lowest {
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: 5px;
-        margin-right: 50px;
-    }
+ 
     
     .min-max-price-search {
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
     }
     
@@ -809,6 +810,7 @@
         height: 30px;
         border: 1px solid #979696;
         border-radius: 5px;
+        margin: 5px;
     }
     
     .btn-refine-search {
@@ -961,7 +963,7 @@
         position: absolute;
         width: 100%;
         height: 1px;
-        background: black; 
+        background: rgb(163, 161, 161); 
         top: 100%;
         left: 0;
     }
@@ -1122,4 +1124,33 @@ background-color: white;
 .produce-price-list {
     display: flex;
 
+}
+
+.bt-fav {
+    width: fit-content;
+    margin: 0 10px;
+    padding: 5px;
+    background-color: rgb(89, 151, 243);
+    color: white;
+}
+
+.bt-fav:hover {
+    background-color: rgb(54, 83, 179) !important;
+    color: white !important;
+}
+.tr-fav-customer {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.border-fav {
+    border: 1px solid rgb(153, 138, 138);
+    width: fit-content;
+    height: fit-content;
+    margin: 10px 10px;
+}
+
+#favorite-customer {
+    flex-wrap: wrap;
 }

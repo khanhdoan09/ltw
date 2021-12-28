@@ -52,10 +52,10 @@ function displayMenuNavigation() {
                         
                             <div class="navbar-collapse" style="background-color: #0f6cb2;">
                                 <ul class="main-navigation">
-                                    <li><a href="index.html" style="color: white" class="parent" id="home-nav">HOME</a> </li>
+                                    <li><a href="index.html" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                                     <li style="position: relative">
                                     <a href="category.html" style="color: white" class="parent category-item" id="category-man">
-                                     MAN 
+                                     NAM
                                      <i class="fas fa-caret-down"></i> 
                                      </a>
                                     
@@ -70,7 +70,7 @@ function displayMenuNavigation() {
                                 </ul>
                             
                                 </li>
-                                    <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
+                                    <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
                                     
                                     <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                                     <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>
@@ -83,9 +83,9 @@ function displayMenuNavigation() {
                                 </ul>
 
                                     </li>
-                                     <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">BRANDS <i class="fas fa-caret-down"></i></a></li>
+                                     <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
                                     <li><a href="blog.html" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
-                                    <li><a href="about-us.html" style="color: white"  id="about-nav" >ABOUT US</a></li>
+                                    <li><a href="about-us.html" style="color: white"  id="about-nav" >VỀ CHÚNG TÔI</a></li>
                                 </ul>
                                 <div class="nav-detail-info">
                 
@@ -100,8 +100,6 @@ function displayMenuNavigation() {
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-06.svg">
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-07.svg">
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-08.svg">
-                                           <img onclick="location.href='category.html'" src="image/brand/logo-brand-09.svg">
-                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-10.svg>
                                         </div>
                                    </div>
         
@@ -409,6 +407,14 @@ function accessInfoCustomer() {
         $("#nav-info-customer").addClass("customer-category-after-click");
         $("#info-customer").addClass("display-default-customer")
     });
+       
+    $("#nav-favorite-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#favorite-customer").css("display", "flex");
+        $("#nav-favorite-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
+        });
+
     $("#nav-bank-customer").click(() => {
         resetAllSectionCustomer();
         $("#bank-customer").css("display", "block");
@@ -427,11 +433,7 @@ function accessInfoCustomer() {
         $("#nav-password-customer").addClass("customer-category-after-click");
         removeDefaultNavContentCategory()
     });
-    // $("#nav-cart-customer").click(() => {
-    //     resetAllSectionCustomer();
-    //     $("#cart-customer").css("display", "block");
-    //     $("#nav-cart-customer").addClass("customer-category-after-click");
-    // });
+  
     $("#nav-history-customer").click(() => {
         resetAllSectionCustomer();
         $("#history-customer").css("display", "block");
@@ -469,13 +471,14 @@ function resetAllSectionCustomer() {
     $("#nav-bank-customer").removeClass("customer-category-after-click");
     $("#nav-map-customer").removeClass("customer-category-after-click");
     $("#nav-password-customer").removeClass("customer-category-after-click");
-    // $("#nav-cart-customer").removeClass("customer-category-after-click");
+    $("#nav-favorite-customer").removeClass("customer-category-after-click");
     $("#nav-history-customer").removeClass("customer-category-after-click");
     $("#bank-customer").css("display", "none");
     $("#map-customer").css("display", "none");
     $("#password-customer").css("display", "none");
-    // $("#cart-customer").css("display", "none");
     $("#history-customer").css("display", "none");
+    $("#favorite-customer").css("display", "none")
+    
 }
 $(window).ready(resetAllSectionCustomer);
 
