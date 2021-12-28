@@ -31,7 +31,7 @@ public class DatabaseConnection {
         Statement s = null;
         try {
             s = conn.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM hitopswoman");
+            ResultSet rs = s.executeQuery("SELECT * FROM product");
             while (rs.next()) {
                 String r1 = rs.getString(1);//read by column index
                 String r2 = rs.getString("name");//read by column name
