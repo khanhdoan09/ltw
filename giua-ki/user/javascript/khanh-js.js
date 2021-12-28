@@ -92,7 +92,7 @@ function displayMenuNavigation() {
     
                                     <div class="item-nav-detail-info" id="item-category-brand">
                                         <div class="contain-brand" >
-                                           <img onclick="location.href='category.html'" src="image/brand/logo-brand-01.svg">
+                                            <img onclick="location.href='category.html'" src="image/brand/logo-brand-01.svg">
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-02.svg">
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-03.svg">
                                             <img onclick="location.href='category.html'" src="image/brand/logo-brand-04.svg">
@@ -563,26 +563,3 @@ function loadWard(wardCode) {
 }
 
 
-// just test
-$(function() {
-    let arrSize = [35,36,37,38,39,40,41,42,43]
-
-    let location = new XMLHttpRequest();
-    location.open("GET", "data/product.json");
-    location.send();
-    location.onload = function () {
-
-        let data = JSON.parse(location.responseText);
-        let  re = "[\n";
-        data.forEach(e => {
-
-            let r = Math.random() * (arrSize.length - 3) + 3;
-            for (let i = 0; i < r; i++) {
-                re += `{"id":${e.id}, "img":${arrSize[i]}},\n`
-            }
-            
-        });
-        re +="]"
-        console.log(re)
-    }
-})
