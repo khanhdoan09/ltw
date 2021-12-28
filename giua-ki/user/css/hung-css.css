@@ -482,7 +482,7 @@ margin: 10px 0;
 }
 #product-thumbnail.owl-carousel .owl-buttons .owl-next, 
 #product-thumbnail.owl-carousel:hover .owl-buttons .owl-next{
-    right: 52px;
+    right: 10px;
     margin-top: -20px;
 }
 .blog-title-content{

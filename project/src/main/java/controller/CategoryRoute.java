@@ -23,7 +23,7 @@ public class CategoryRoute extends HttpServlet {
 
         String category = request.getParameter("category");
         if (category != null) {
-            List<Product> list = DaoProduct.getInstance().getProductByCategory(category + " " + categoryGender);
+            List<Product> list = DaoProduct.getInstance().getProductByCategory("description", category + " " + categoryGender, 1);
 
             request.setAttribute("category", category);
             request.setAttribute("categoryProduct", list);
