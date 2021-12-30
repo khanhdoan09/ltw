@@ -61,19 +61,24 @@ public class DaoProduct implements Dao<Product> {
         List<Product> re = new ArrayList<Product>();
         try {
             String sql = "";
-            if(attrProduct.equals("description"))
+            if(attrProduct.equals("description")) {
                 sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE category = ? LIMIT ?, ?";
-            else if(attrProduct.equals("brand"))
+            }
+            else if(attrProduct.equals("brand")) {
                 sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE brand = ? LIMIT ?, ?";
+                System.out.println(category);
+            }
             else if(attrProduct.equals("name"))
                 sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE name = ? LIMIT ?, ?";
 
             PreparedStatement s = connect.prepareStatement(sql);
+
             s.setString(1, category);
             s.setInt(2,(pagination-1) * 9);
             s.setInt(3, 9);
 
             ResultSet rs = s.executeQuery();
+            System.out.println(s.toString());
 
             while (rs.next()) {
                 String id = rs.getString("id");

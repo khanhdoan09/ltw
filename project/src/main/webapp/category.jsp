@@ -16,6 +16,7 @@
 <%@ page import="model.DaoProduct" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.net.URLDecoder" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -59,35 +60,51 @@
             <i class="fas fa-sliders-h"></i>
         </button>
         <div id="" class="col-sm-3 contain-filter-search" style="margin-right: 90px;">
-            <form name="filter-panel" id="form-filter-search" class="panel panel-default filter" action="CategoryProduct?pagination=1" method="post">
+            <form name="filter-panel" id="form-filter-search" class="panel panel-default filter" action="" method="post">
                 <div class="filter-block">
                     <div class="list-group">
                         <a class="list-group-item">Brands</a>
                         <div class="list-group-item">
-                            <div class="contain-dropdown-item filter-search">
+                            <div class="contain-dropdown-item filter-search" id="checkboxBrandFilter">
+                                <%!ArrayList<String> brandChecked;%>
+                                <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
+                                <%
+                                    String[] objFilterBrand = request.getParameterValues("brand");
+                                    if (objFilterBrand != null)
+                                        brandChecked = new ArrayList<String>(Arrays.asList(objFilterBrand));
+                                %>
+
+                                <%!
+                                public String isBrandChecked(String brand) {
+                                    if (brandChecked != null) {
+                                        if (brandChecked.contains(brand))
+                                            return "checked";
+                                    }
+                                    return "";
+                                }%>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="ASICS"/>
+                                    <input name="filterBrand" type="checkbox" value="ASICS"<%=isBrandChecked("ASICS")%> />
                                     ASICS</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="ADIDAS"/>
+                                    <input name="filterBrand" type="checkbox" value="ADIDAS" <%=isBrandChecked("ADIDAS")%> />
                                     ADIDAS</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="VANS"/>
+                                    <input name="filterBrand" type="checkbox" value="VANS" <%=isBrandChecked("VANS")%>/>
                                     VANS</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="NIKE"/>
+                                    <input name="filterBrand" type="checkbox" value="NIKE" <%=isBrandChecked("NIKE")%>/>
                                     NIKE</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="Reebok"/>
+                                    <input name="filterBrand" type="checkbox" value="Reebok" <%=isBrandChecked("Reebok")%>/>
                                     Reebok</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="NEW BALANCE"/>
+                                    <input name="filterBrand" type="checkbox" value="NEW BALANCE" <%=isBrandChecked("NEW BALANCE")%>/>
                                     NEW BALANCE</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="ON RUNNING"/>
+                                    <input name="filterBrand" type="checkbox" value="ON RUNNING" <%=isBrandChecked("ON RUNNING")%>/>
                                     On RUNNING</label>
                                 <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="UNDER ARMOUR"/>
+                                    <input name="filterBrand" type="checkbox" value="UNDER ARMOUR" <%=isBrandChecked("UNDER ARMOUR")%>/>
                                     UNDER ARMOUR</label>
                             </div>
                         </div>
@@ -99,8 +116,24 @@
                         </div>
                         <a class="list-group-item">Rates</a>
                         <div class="list-group-item">
-                            <div id="filter-group2" class="contain-rate-search">
-                                <input type="checkbox" id="five-star-rate" class="hidden-rate" name="filter-star-rate" value="5">
+                            <div id="filter-group2" class="contain-rate-search" id="checkboxStarFilter">
+                                <%!ArrayList<String> starChecked;%>
+                                <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
+                                <%
+                                    String[] objFilterStar = request.getParameterValues("rateStar");
+                                    if (objFilterStar != null)
+                                        starChecked = new ArrayList<String>(Arrays.asList(objFilterStar));
+                                %>
+
+                                <%!
+                                    public String isStarChecked(String star) {
+                                        if (starChecked != null) {
+                                            if (starChecked.contains(star))
+                                                return "checked";
+                                        }
+                                        return "";
+                                    }%>
+                                <input type="checkbox" id="five-star-rate" class="hidden-rate" name="filter-star-rate" value="five-star" <%=isStarChecked("five-star")%>>
                                 <label class="rate-search" for="five-star-rate">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -109,7 +142,7 @@
                                     <i class="fas fa-star"></i>
                                     <span style="margin-left: 5px">From 5 stars</span>
                                 </label>
-                                <input type="checkbox" id="four-star-rate" class="hidden-rate" name="filter-star-rate" value="4">
+                                <input type="checkbox" id="four-star-rate" class="hidden-rate" name="filter-star-rate" value="four-star" <%=isStarChecked("four-star")%>>
                                 <label class="rate-search" for="four-star-rate">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -117,7 +150,7 @@
                                     <i class="fas fa-star"></i>
                                     <span style="margin-left: 5px">From 4 stars</span>
                                 </label>
-                                <input type="checkbox" id="three-star-rate" class="hidden-rate" name="filter-star-rate" value="3">
+                                <input type="checkbox" id="three-star-rate" class="hidden-rate" name="filter-star-rate" value="three-star" <%=isBrandChecked("three-star")%>>
                                 <label class="rate-search" for="three-star-rate">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -129,12 +162,12 @@
                         <a class="list-group-item">Prices</a>
                         <div class="list-group-item">
                             <div id="filter-group3" class="contain-price-search">
-                                <form class="price-search-highest-lowest">
+                                <div class="price-search-highest-lowest" id="checkboxPriceOrderFilter">
                                     <input type="radio" id="price-search-highest" name="price-search-radio" value="highest-price"/>
                                     <label for="price-search-highest">From high to low</label>
                                     <input type="radio" id="price-search-lowest" name="price-search-radio" value="lowest-price"/>
                                     <label for="price-search-lowest">From low to high</label>
-                                </form>
+                                </div>
 
                                 <div class="contain-filter-search-range">
                                     <label class="price-search" id="price-search-01" for="hidden-checkbox-price-1">
@@ -287,6 +320,7 @@
                         </select> <span> of <%if(list!=null)%><%=lengthPagination%></span>
                     </ul>
                 </div>
+                <%=URLDecoder.decode(request.getQueryString(), "UTF-8")%>
             </div>
             <%}
             else {

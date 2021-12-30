@@ -61,7 +61,7 @@ function displayMenuNavigation() {
                                     
                                     <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
                                   <li id="running-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="CategoryProduct?category=Running Man&categoryGender=description&pagination=1" class="link-navigation">Runnings</a>
+                                    <a href="ServletTest123?brand=Running Man&pagination=1" class="link-navigation">Runnings</a>
                                     </li>
                                     <li id="slides-man"  class="category-product category-product-man" style="color: white">
                                     <a href="CategoryProduct?category=Slides Man&categoryGender=description&pagination=1" class="link-navigation">Slides</a>
@@ -575,5 +575,30 @@ function loadWard(wardCode) {
         $("#contain-option-ward").append(ward);
     }
 }
+
+$(function() {
+    $("#button-filter").click(()=>{
+        let url = "CategoryProduct?pagination=1";
+
+        $('#checkboxBrandFilter input[type=checkbox]').each(function() {
+            if ($(this).is(":checked")) {
+                url += "&brand=" + $(this).val()
+            }
+        });
+
+        $('#checkboxStarFilter input[type=checkbox]').each(function() {
+            if ($(this).is(":checked")) {
+                url += "&rateStar=" + $(this).val()
+            }
+        });
+
+        $('#checkboxPriceOrderFilter input[type=checkbox]').each(function() {
+            if ($(this).is(":checked")) {
+                url += "&price=" + $(this).val()
+            }
+        });
+        $('#form-filter-search').attr('action', url);
+    })
+})
 
 
