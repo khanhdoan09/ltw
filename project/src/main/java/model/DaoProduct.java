@@ -28,31 +28,31 @@ public class DaoProduct implements Dao<Product> {
 
     Connection connect = DatabaseConnection.getConnection();
 
-    public Product getProductById(String id) {
+    public Product getProductById(String idPr) {
         List<Product> re = new ArrayList<Product>();
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM product");
+            ResultSet rs = s.executeQuery("SELECT id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active FROM product");
             while (rs.next()) {
-                String r1 = rs.getString(1);
-                String r2 = rs.getString(2);
-                String r3 = rs.getString(3);
-                String r4 = rs.getString(4);
-                String r5 = rs.getString(5);
-                String r6 = rs.getString(6);
-                String r7 = rs.getString(7);
-                String r8 = rs.getString(8);
-                String r9 = rs.getString(9);
-                String r10 = rs.getString(10);
-                String r11 = rs.getString(11);
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int starRate = rs.getInt("starRate");
+                String description = rs.getString("description");
+                int totalValue = rs.getInt("totalValue");
+                int soleValue = rs.getInt("soleValue");
+                int active = rs.getInt("Active");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate,starRate, description,totalValue, soleValue, active) ;
 
-               Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
-                if (r1.equals(id)) {
+                if (id.equals(idPr)) {
                     return product;
                 }
             }
         } catch (SQLException e) {
-            System.out.println(1236787624);
+            System.out.println(e.getMessage());
         }
         return null;
     }
@@ -62,11 +62,11 @@ public class DaoProduct implements Dao<Product> {
         try {
             String sql = "";
             if(attrProduct.equals("description"))
-                sql = "SELECT * FROM product WHERE description = ? LIMIT ?, ?";
+                sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE category = ? LIMIT ?, ?";
             else if(attrProduct.equals("brand"))
-                sql = "SELECT * FROM product WHERE brand = ? LIMIT ?, ?";
+                sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE brand = ? LIMIT ?, ?";
             else if(attrProduct.equals("name"))
-                sql = "SELECT * FROM product WHERE name = ? LIMIT ?, ?";
+                sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE name = ? LIMIT ?, ?";
 
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, category);
@@ -76,23 +76,19 @@ public class DaoProduct implements Dao<Product> {
             ResultSet rs = s.executeQuery();
 
             while (rs.next()) {
-                String r1 = rs.getString(1);
-                String r2 = rs.getString(2);
-                String r3 = rs.getString(3);
-                String r4 = rs.getString(4);
-                String r5 = rs.getString(5);
-                String r6 = rs.getString(6);
-                String r7 = rs.getString(7);
-                String r8 = rs.getString(8);
-                String r9 = rs.getString(9);
-                String r10 = rs.getString(10);
-                String r11 = rs.getString(11);
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active) ;
 
-                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
                 re.add(product);
             }
         } catch (SQLException e) {
-            System.out.println(1236787624);
+            e.printStackTrace();
         }
         return re;
     }
@@ -100,21 +96,17 @@ public class DaoProduct implements Dao<Product> {
     public ArrayList<Product> getAll() {
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM runningman");
+            ResultSet rs = s.executeQuery("SELECT id, brand, name, category, price, saleRate, Active FROM runningman");
             while (rs.next()) {
-                String r1 = rs.getString(1);
-                String r2 = rs.getString(2);
-                String r3 = rs.getString(3);
-                String r4 = rs.getString(4);
-                String r5 = rs.getString(5);
-                String r6 = rs.getString(6);
-                String r7 = rs.getString(7);
-                String r8 = rs.getString(8);
-                String r9 = rs.getString(9);
-                String r10 = rs.getString(10);
-                String r11 = rs.getString(11);
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active) ;
 
-                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
                 list.add(product);
             }
         } catch (SQLException e) {
@@ -123,14 +115,15 @@ public class DaoProduct implements Dao<Product> {
         return list;
     }
 
-    public ArrayList<Product> getFilterList(HttpServletRequest request) {
+    public ArrayList<Product> getFilterList(HttpServletRequest request, StringBuffer sqlToCountProduct) {
+
         String[] filterByIconSearch = request.getParameterValues("filterByIconSearch");
         ArrayList<Product> listFilter = null;
         if (filterByIconSearch != null) {
             listFilter = getFilterListByIconSearch(filterByIconSearch[0]);
         }
         else
-            listFilter = getFilterListByPanel(request);
+            listFilter = getFilterListByPanel(request, sqlToCountProduct);
 
         return listFilter;
     }
@@ -138,23 +131,20 @@ public class DaoProduct implements Dao<Product> {
     public ArrayList<Product> getFilterListByIconSearch(String filterByIconSearch) {
         ArrayList<Product> listFilter = new ArrayList<Product>();
         try {
-            String sql = "SELECT * FROM product WHERE name LIKE ?";
+            String sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE name LIKE ?";
             PreparedStatement p = connect.prepareStatement(sql);
             p.setString(1, "%"+filterByIconSearch+"%");
             ResultSet rs = p.executeQuery();
             while (rs.next()) {
-                String r1 = rs.getString(1);
-                String r2 = rs.getString(2);
-                String r3 = rs.getString(3);
-                String r4 = rs.getString(4);
-                String r5 = rs.getString(5);
-                String r6 = rs.getString(6);
-                String r7 = rs.getString(7);
-                String r8 = rs.getString(8);
-                String r9 = rs.getString(9);
-                String r10 = rs.getString(10);
-                String r11 = rs.getString(11);
-                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active) ;
+
                 listFilter.add(product);
             }
         } catch (SQLException e) {
@@ -163,7 +153,7 @@ public class DaoProduct implements Dao<Product> {
         return listFilter;
     }
 
-    public ArrayList<Product> getFilterListByPanel(HttpServletRequest request) {
+    public ArrayList<Product> getFilterListByPanel(HttpServletRequest request, StringBuffer sqlToCountProduct) {
         ArrayList<Product> listFilter = new ArrayList<Product>();
         try {
             String brands = this.filterBrand(request.getParameterValues("filterBrand"));
@@ -181,11 +171,12 @@ public class DaoProduct implements Dao<Product> {
                 request.setAttribute("errorInputPrice", e.getMessage());
                 return null;
             }
+            String sql = "SELECT * FROM product WHERE ";
+           sql += " category=\""+DaoProduct.getInstance().currentCategory+"\" && ";
 
-            String sql = "SELECT * FROM product WHERE description=\""+DaoProduct.getInstance().currentCategory+"\" && ";
-
-            if (!brands.isEmpty())
+            if (!brands.isEmpty())  {
                 sql += brands + " && ";
+            }
             if (!rates.isEmpty())
                 sql += rates + " && ";
             if (!rangePrice.isEmpty())
@@ -194,9 +185,9 @@ public class DaoProduct implements Dao<Product> {
                 sql += inputPrice + " && ";
 
             sql = sql.substring(0, sql.length() - 4); // to remove &&
-
             if (!orderPrice.isEmpty())
                 sql += " " + orderPrice;
+            sqlToCountProduct.append(sql.substring(sql.lastIndexOf("WHERE")));
             sql += " LIMIT ?, ?";
 
             PreparedStatement s = connect.prepareStatement(sql);
@@ -204,26 +195,21 @@ public class DaoProduct implements Dao<Product> {
             s.setInt(1,(pagination-1) * 9);
             s.setInt(2, 9);
 
-            System.out.println(sql);
 
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                String r1 = rs.getString(1);
-                String r2 = rs.getString(2);
-                String r3 = rs.getString(3);
-                String r4 = rs.getString(4);
-                String r5 = rs.getString(5);
-                String r6 = rs.getString(6);
-                String r7 = rs.getString(7);
-                String r8 = rs.getString(8);
-                String r9 = rs.getString(9);
-                String r10 = rs.getString(10);
-                String r11 = rs.getString(11);
-                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active) ;
+
                 listFilter.add(product);
             }
         } catch (SQLException e) {
-            System.out.println(123456789);
             e.printStackTrace();
         }
         return listFilter;
@@ -328,23 +314,20 @@ public class DaoProduct implements Dao<Product> {
     public List<Product> getProductByBrandOnNavigation(String brandOnNavigation) {
         ArrayList<Product> listFilter = new ArrayList<Product>();
         try {
-            String sql = "SELECT * FROM product WHERE brand=?";
+            String sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE brand=?";
             PreparedStatement p = connect.prepareStatement(sql);
             p.setString(1, brandOnNavigation);
             ResultSet rs = p.executeQuery();
             while (rs.next()) {
-                String r1 = rs.getString(1);
-                String r2 = rs.getString(2);
-                String r3 = rs.getString(3);
-                String r4 = rs.getString(4);
-                String r5 = rs.getString(5);
-                String r6 = rs.getString(6);
-                String r7 = rs.getString(7);
-                String r8 = rs.getString(8);
-                String r9 = rs.getString(9);
-                String r10 = rs.getString(10);
-                String r11 = rs.getString(11);
-                Product product = new Product(r1, r2, r3, r4, Double.parseDouble(r5), Double.parseDouble(r6), Double.parseDouble(r7), Integer.parseInt(r8), Integer.parseInt(r9), Integer.parseInt(r10), r11);
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active) ;
+
                 listFilter.add(product);
             }
         } catch (SQLException e) {
@@ -358,20 +341,25 @@ public class DaoProduct implements Dao<Product> {
         try {
             String sql = "";
             if(attrProduct.equals("description"))
-                sql = "SELECT COUNT(id) FROM product WHERE description = ?";
+                sql = "SELECT COUNT(id) FROM product WHERE category = ?";
             else if(attrProduct.equals("brand"))
                 sql = "SELECT COUNT(id) FROM product WHERE brand = ?";
             else if(attrProduct.equals("name"))
                 sql = "SELECT COUNT(id) FROM product WHERE name = ?";
+            else if (attrProduct.equals("filter-panel")) {
+                sql = "SELECT COUNT(id) FROM product " + key;
+            }
 
             PreparedStatement s = connect.prepareStatement(sql);
-            s.setString(1, key);
+            if (!attrProduct.equals("filter-panel"))
+                s.setString(1, key);
             ResultSet rs = s.executeQuery();
+
             while (rs.next()) {
                 re = rs.getInt(1);
             }
         } catch (SQLException e) {
-            System.out.println(1236787624);
+            e.printStackTrace();
         }
 
         return re;

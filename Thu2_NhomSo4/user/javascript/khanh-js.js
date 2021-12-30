@@ -1,5 +1,5 @@
 // search at top
-$(function() {
+$(function () {
     $(".input-text-search-top").click(() => {
         $(".contain-search-popular").css("display", "flex");
     });
@@ -8,14 +8,14 @@ $(function() {
     });
 });
 
-$(function() {
-    $(".bt-nav-collapse").click(()=>{
-        $(".navbar-collapse").slideToggle("slow");       
-      
+$(function () {
+    $(".bt-nav-collapse").click(() => {
+        $(".navbar-collapse").slideToggle("slow");
+
     })
 })
 // display filter search when click {
-$(function(){ 
+$(function () {
     $(".toggle-filter-search").click(() => {
         $(".contain-filter-search").slideToggle("show");
     });
@@ -23,28 +23,28 @@ $(function(){
 
 
 // payment method
-$(function() {
-    
-   $("#payment-cod").click(()=>{
-       $(".payment-input").removeClass("payment-input-active")
-       $("#contain-payment-cod").addClass("payment-input-active");
-   })
+$(function () {
 
-   $("#payment-shoppe").click(()=>{
-    $(".payment-input").removeClass("payment-input-active")
-    $("#contain-payment-shoppe").addClass("payment-input-active");
+    $("#payment-cod").click(() => {
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-cod").addClass("payment-input-active");
     })
 
-    $("#payment-zalo").click(()=>{
+    $("#payment-shoppe").click(() => {
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-shoppe").addClass("payment-input-active");
+    })
+
+    $("#payment-zalo").click(() => {
         $(".payment-input").removeClass("payment-input-active")
         $("#contain-payment-zalo").addClass("payment-input-active");
     })
 
-    $("#payment-momo").click(()=>{
+    $("#payment-momo").click(() => {
         $(".payment-input").removeClass("payment-input-active")
         $("#contain-payment-momo").addClass("payment-input-active");
     })
- 
+
 });
 
 function displayMenuNavigation() {
@@ -112,22 +112,22 @@ function displayMenuNavigation() {
 $(displayMenuNavigation);
 
 
-$(function() {
+$(function () {
     let curPage = window.location.pathname;
     // return page
     if (curPage.includes("index")) {
         localStorage.setItem("nav-current", "home")
     }
-   
+
     if (curPage.includes("blog")) {
         localStorage.setItem("nav-current", "blog")
     }
 
     if (curPage.includes("category")) {
         if (localStorage.getItem("currentPageCategory") === "man")
-        localStorage.setItem("nav-current", "category-man")
+            localStorage.setItem("nav-current", "category-man")
         else
-        localStorage.setItem("nav-current", "category-woman")
+            localStorage.setItem("nav-current", "category-woman")
 
     }
 
@@ -136,48 +136,48 @@ $(function() {
     }
 
     // choose page
-    $("#home-nav").click(()=>{
+    $("#home-nav").click(() => {
         localStorage.setItem("nav-current", "home")
     })
-    $("#category-man").click(()=>{
+    $("#category-man").click(() => {
         localStorage.setItem("nav-current", "category-man")
         $("#category-man").addClass("active-nav")
-    }) 
-    $("#category-woman").click(()=>{
+    })
+    $("#category-woman").click(() => {
         localStorage.setItem("nav-current", "category-woman")
         $("#category-man").addClass("active-nav")
-    }) 
-    $("#blog-nav").click(()=>{
+    })
+    $("#blog-nav").click(() => {
         localStorage.setItem("nav-current", "blog")
         $("#blog-nav").addClass("active-nav")
     })
-    $("#about-nav").click(()=>{
+    $("#about-nav").click(() => {
         localStorage.setItem("nav-current", "about")
         $("#about-nav").addClass("active-nav")
     })
 })
 
-$(function() {
-  if (localStorage.getItem("nav-current")==="home") {
+$(function () {
+    if (localStorage.getItem("nav-current") === "home") {
         $("#home-nav").addClass("active-nav")
-  }
-    
-  if (localStorage.getItem("nav-current")==="category-man") {
-    $("#category-man").addClass("active-nav")
-}
-if (localStorage.getItem("nav-current")==="category-woman") {
-    $("#category-woman").addClass("active-nav")
-}
-if (localStorage.getItem("nav-current")==="blog") {
-    $("#blog-nav").addClass("active-nav")
-}
-if (localStorage.getItem("nav-current")==="about") {
-    $("#about-nav").addClass("active-nav")
-}
+    }
+
+    if (localStorage.getItem("nav-current") === "category-man") {
+        $("#category-man").addClass("active-nav")
+    }
+    if (localStorage.getItem("nav-current") === "category-woman") {
+        $("#category-woman").addClass("active-nav")
+    }
+    if (localStorage.getItem("nav-current") === "blog") {
+        $("#blog-nav").addClass("active-nav")
+    }
+    if (localStorage.getItem("nav-current") === "about") {
+        $("#about-nav").addClass("active-nav")
+    }
 })
 
 // click price search in filter search
-$(function() {
+$(function () {
     $("#price-search-01").click(() => {
         $("#price-search-01").css("background-color", "#5f2525");
     });
@@ -191,7 +191,7 @@ $(function() {
 
 
 // responsive navigation
-$(function() {
+$(function () {
     $("#category-man").mouseover(() => {
         setUpCategoryNav();
         $('.man-category').addClass('display-sub-nav');
@@ -242,19 +242,19 @@ function setUpCategoryNav() {
 
 
 let listProduct = [
-{brand:"Nike", name:"Air Force One 1", saleRate:"20",oldPrice:"1.200.000", newPrice:"1.000.000",linkImg:"image/product/product-01.jpg"},
-{brand:"Nike", name:"Phantom GT Elite Firm Ground Football Boots Juniors", saleRate:"25",oldPrice:"1.900.000", newPrice:"800.000",linkImg:"image/product/product-02.jpg"},
-{brand:"Nike", name:"Air Force One 1", saleRate:"20",oldPrice:"1.200.000", newPrice:"1.500.000",linkImg:"image/product/product-03.webp"},
-{brand:"Nike", name:"Air Force One 1", saleRate:"30",oldPrice:"2.200.000", newPrice:"1.900.000",linkImg:"image/product/product-04.webp"},
-{brand:"Nike", name:"Air Force One 1", saleRate:"15",oldPrice:"3.200.000", newPrice:"2.200.000",linkImg:"image/product/product-05.webp"},
-{brand:"Nike", name:"Air Force One 1", saleRate:"10",oldPrice:"2.200.000", newPrice:"1.800.000",linkImg:"image/product/product-06.jpg"},
-{brand:"Nike", name:"Air Force One 1", saleRate:"2",oldPrice:"3.200.000", newPrice:"1.200.000",linkImg:"image/product/product-07.webp"},
-{brand:"Nike", name:"Air Force One 1", saleRate:"12",oldPrice:"2.200.000", newPrice:"2.000.000",linkImg:"image/product/product-08.jpg"},
-{brand:"Nike", name:"Air Force One 1", saleRate:"15",oldPrice:"3.200.000", newPrice:"3.000.000",linkImg:"image/product/product-09.webp"},
+    { brand: "Nike", name: "Air Force One 1", saleRate: "20", oldPrice: "1.200.000", newPrice: "1.000.000", linkImg: "image/product/product-01.jpg" },
+    { brand: "Nike", name: "Phantom GT Elite Firm Ground Football Boots Juniors", saleRate: "25", oldPrice: "1.900.000", newPrice: "800.000", linkImg: "image/product/product-02.jpg" },
+    { brand: "Nike", name: "Air Force One 1", saleRate: "20", oldPrice: "1.200.000", newPrice: "1.500.000", linkImg: "image/product/product-03.webp" },
+    { brand: "Nike", name: "Air Force One 1", saleRate: "30", oldPrice: "2.200.000", newPrice: "1.900.000", linkImg: "image/product/product-04.webp" },
+    { brand: "Nike", name: "Air Force One 1", saleRate: "15", oldPrice: "3.200.000", newPrice: "2.200.000", linkImg: "image/product/product-05.webp" },
+    { brand: "Nike", name: "Air Force One 1", saleRate: "10", oldPrice: "2.200.000", newPrice: "1.800.000", linkImg: "image/product/product-06.jpg" },
+    { brand: "Nike", name: "Air Force One 1", saleRate: "2", oldPrice: "3.200.000", newPrice: "1.200.000", linkImg: "image/product/product-07.webp" },
+    { brand: "Nike", name: "Air Force One 1", saleRate: "12", oldPrice: "2.200.000", newPrice: "2.000.000", linkImg: "image/product/product-08.jpg" },
+    { brand: "Nike", name: "Air Force One 1", saleRate: "15", oldPrice: "3.200.000", newPrice: "3.000.000", linkImg: "image/product/product-09.webp" },
 
 
 ]
-function displayListProduct() {    
+function displayListProduct() {
     listProduct.forEach(element => {
         let contain = `<div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="background-color: white; padding: 10px 0">
         <div class="product-thumb">
@@ -287,10 +287,10 @@ ${element.name}</a> </h4>
           <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>          </div>
         </div>
       </div>`;
-$(".grid-list-wrapper").append(contain);
+        $(".grid-list-wrapper").append(contain);
     });
 
-    
+
 }
 
 
@@ -299,7 +299,7 @@ $(".grid-list-wrapper").append(contain);
 
 
 /* display listProduct by click navigation*/
-$(function() {
+$(function () {
     let man = $(".category-product");
     for (let i = 0; i < man.length; i++) {
         man[i].addEventListener("click", (e) => {
@@ -316,13 +316,13 @@ $(function () {
     $("#category-man").click(() => {
         localStorage.setItem("currentPageCategory", "man");
         localStorage.setItem("categoryByNav", "");
-           $(".contain-carousel-category").css("display", "block");
-           $(".grid-list-wrapper").empty();
+        $(".contain-carousel-category").css("display", "block");
+        $(".grid-list-wrapper").empty();
     });
     $("#category-woman").click(() => {
         localStorage.setItem("currentPageCategory", "woman");
         localStorage.setItem("categoryByNav", "");
-        $(".contain-carousel-category").css("display", "block"); 
+        $(".contain-carousel-category").css("display", "block");
         $(".grid-list-wrapper").empty();
     });
 });
@@ -373,7 +373,7 @@ $(window).ready(loadImageCarouselAndIntroduceCategory);
 
 
 
-function displayPagination() {   
+function displayPagination() {
     let contain = "<span>Page  </span><select id=\"selectPagination\">";
     for (let i = 1; i <= 9; i++)
         contain += `<option value="${i}">${i}</option>`
@@ -407,33 +407,33 @@ function accessInfoCustomer() {
         $("#nav-info-customer").addClass("customer-category-after-click");
         $("#info-customer").addClass("display-default-customer")
     });
-       
+
     $("#nav-favorite-customer").click(() => {
         resetAllSectionCustomer();
         $("#favorite-customer").css("display", "flex");
         $("#nav-favorite-customer").addClass("customer-category-after-click");
         removeDefaultNavContentCategory()
-        });
+    });
 
     $("#nav-bank-customer").click(() => {
         resetAllSectionCustomer();
         $("#bank-customer").css("display", "block");
         $("#nav-bank-customer").addClass("customer-category-after-click");
         removeDefaultNavContentCategory()
-        });
+    });
     $("#nav-map-customer").click(() => {
         resetAllSectionCustomer();
         $("#map-customer").css("display", "block");
         $("#nav-map-customer").addClass("customer-category-after-click");
-        removeDefaultNavContentCategory() 
-       });
+        removeDefaultNavContentCategory()
+    });
     $("#nav-password-customer").click(() => {
         resetAllSectionCustomer();
         $("#password-customer").css("display", "block");
         $("#nav-password-customer").addClass("customer-category-after-click");
         removeDefaultNavContentCategory()
     });
-  
+
     $("#nav-history-customer").click(() => {
         resetAllSectionCustomer();
         $("#history-customer").css("display", "block");
@@ -478,7 +478,7 @@ function resetAllSectionCustomer() {
     $("#password-customer").css("display", "none");
     $("#history-customer").css("display", "none");
     $("#favorite-customer").css("display", "none")
-    
+
 }
 $(window).ready(resetAllSectionCustomer);
 
@@ -560,6 +560,95 @@ function loadWard(wardCode) {
         $("#contain-option-ward").text("");
         $("#contain-option-ward").append(ward);
     }
+}
+
+function test123(wardCode) {
+
+    let location = new XMLHttpRequest();
+    location.open("GET", "data/product.json");
+    location.send();
+    location.onload = function () {
+        let data = JSON.parse(location.responseText);
+        let re = ""
+        data.forEach((e) => {
+            let locations = new XMLHttpRequest();
+            locations.open("GET", "data/LinkImg.js");
+            locations.send();
+            locations.onload = function () {
+                let re = "";
+                let datas = JSON.parse(locations.responseText);
+                let res = 0
+               datas.forEach((element) => {
+                    if (element.id == e.id) {
+                        if (element.img.slice(-1)=="a")
+                        res++
+                    }
+                });
+                if (res == 1) {
+                    re += blabla(e, "white")
+                }
+                else if (res == 2) {
+                    re += blabla(e, "white")
+                    re += blabla(e, "black")
+                }
+                else if (res == 3) {
+                    re += blabla(e, "white")
+                    re += blabla(e, "black")
+                    re += blabla(e, "blue")
+                }
+                else if (res == 4) {
+                    re += blabla(e, "white")
+                    re += blabla(e, "black")
+                    re += blabla(e, "blue")
+                    re += blabla(e, "green")
+                }
+                else if (res > 4) {
+                    re += blabla(e, "white")
+                    re += blabla(e, "black")
+                    re += blabla(e, "blue")
+                    re += blabla(e, "green")
+                    re += blabla(e, "yellow")
+
+                }
+                console.log(re)
+            }
+  });
+
+        console.log(re)
+
+    }
+}
+
+$(test123)
+
+function blabla(e, color) {
+    let size = [35, 36, 37, 38, 39, 40, 41, 42, 43]
+    let input = [47, 56, 52, 63, 72];
+    let sole = [10, 34, 30, 25, 15];
+    let r = Math.random() * (size.length - 3) + 3;
+    let tmpArrSize = []
+    let re = "";
+
+    for (let i = 0; i < r; i++) {
+        let sizeTmp = size[Math.floor(Math.random() * size.length)]
+        if (tmpArrSize.includes(size)) {
+            i--
+            continue
+        }
+        tmpArrSize.push(sizeTmp)
+        re += "{"
+        re += `"id":` + `"${e.id}",\n`;
+        re += `"size":` + `"${sizeTmp}",\n`
+        re += `"totalValue":` + `"${input[Math.floor(Math.random() * input.length)]}",\n`
+        re += `"soleValue":` + `"${sole[Math.floor(Math.random() * sole.length)]}",\n`
+        re += `"createAt":` + `"${Math.floor(Math.random() * 27) + 1}/${Math.floor(Math.random() * 11) + 1}/2020",\n`
+        re += `"updateAt":` + `"${Math.floor(Math.random() * 27) + 1}/${Math.floor(Math.random() * 11) + 1}/2021",\n`
+        re += `"active":` + 1 + ",\n"
+        re += `"color":` + `"${color}"`
+        re += "},\n"
+        re += ""
+    }
+    return re
 }
 
 

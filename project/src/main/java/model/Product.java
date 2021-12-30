@@ -4,29 +4,58 @@ public class Product {
     private String id;
     private String brand;
     private String name;
-    private String description;
+    private String category;
     private double price;
-    private double sale;
     private double saleRate;
-    private double salePrice;
     private int starRate;
     private int totalValue;
     private int soleValue;
-    private String date;
+    private String create_at;
+    private String update_at;
+    private String description;
+    private String idVoucher;
+    private int active;
 
-    public Product(String id, String brand, String name, String description, double price, double saleRate, double salePrice, int starRate, int totalValue, int soleValue, String date) {
+    // detail
+    public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active) {
         this.id = id;
         this.brand = brand;
         this.name = name;
-        this.description = description;
+        this.category = category;
         this.price = price;
-        this.sale = sale;
         this.saleRate = saleRate;
-        this.salePrice = salePrice;
+        this.starRate = starRate;
+        this.description = description;
+        this.totalValue = totalValue;
+        this.soleValue = soleValue;
+        this.active = active;
+    }
+    // list
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int active) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.saleRate = saleRate;
+        this.active = active;
+    }
+
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, int totalValue, int soleValue, String create_at, String update_at, String description, String idVoucher, int active) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.saleRate = saleRate;
         this.starRate = starRate;
         this.totalValue = totalValue;
         this.soleValue = soleValue;
-        this.date = date;
+        this.create_at = create_at;
+        this.update_at = update_at;
+        this.description = description;
+        this.idVoucher = idVoucher;
+        this.active = active;
     }
 
     public String getId() {
@@ -41,24 +70,16 @@ public class Product {
         return name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCategory() {
+        return category;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public double getSale() {
-        return sale;
-    }
-
     public double getSaleRate() {
         return saleRate;
-    }
-
-    public double getSalePrice() {
-        return salePrice;
     }
 
     public int getStarRate() {
@@ -73,8 +94,24 @@ public class Product {
         return soleValue;
     }
 
-    public String getDate() {
-        return date;
+    public String getCreate_at() {
+        return create_at;
+    }
+
+    public String getUpdate_at() {
+        return update_at;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getIdVoucher() {
+        return idVoucher;
+    }
+
+    public int getActive() {
+        return active;
     }
 
     @Override
@@ -83,15 +120,17 @@ public class Product {
                 "id='" + id + '\'' +
                 ", brand='" + brand + '\'' +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
                 ", price=" + price +
-                ", sale=" + sale +
                 ", saleRate=" + saleRate +
-                ", salePrice=" + salePrice +
                 ", starRate=" + starRate +
                 ", totalValue=" + totalValue +
                 ", soleValue=" + soleValue +
-                ", date='" + date + '\'' +
+                ", craete_at='" + create_at + '\'' +
+                ", update_at='" + update_at + '\'' +
+                ", description='" + description + '\'' +
+                ", idVoucher='" + idVoucher + '\'' +
+                ", active=" + active +
                 '}';
     }
 }

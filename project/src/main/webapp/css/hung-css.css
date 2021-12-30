@@ -83,8 +83,8 @@
     margin: 20px 0 30px;
     border-bottom: 2px solid #ccc;
     height: 13px;
-    
-    }
+
+}
 
 .modal-body2 .sub,
 .modal-body .sub {
@@ -99,13 +99,13 @@
     cursor: pointer;
     color: #000;
     padding: 5px 8px;
-    
+
 }
 
 /* .modal-register, */
 .modal-body2 .modal-sub-register ,
 .modal-body .modal-login {
- background-color: #ccc;
+    background-color: #ccc;
 }
 
 .modal-register-another,
@@ -120,9 +120,9 @@
 
 
 .icon-login-another {
-   width: 50px;
-   margin: 10px 15px;
-   cursor: pointer;
+    width: 50px;
+    margin: 10px 15px;
+    cursor: pointer;
 }
 
 
@@ -283,38 +283,38 @@
 }
 #content .blog1.sub .blog-meta {
     float: right;
- }
+}
 #u-url-blog {
-     display: inline-block;
-     margin-top: 11px;
-     background-color: #333;
-     padding: 8px 20px;
-     color: white;
-     font-weight: bold;
- }
- #u-url-blog:hover {
+    display: inline-block;
+    margin-top: 11px;
+    background-color: #333;
+    padding: 8px 20px;
+    color: white;
+    font-weight: bold;
+}
+#u-url-blog:hover {
     background-color: #000;
 
- }
- .col-2 #content {
-     margin-right: -14px;
- }
- #bg-search-blog {
-     display: inline-block;
-     width: 143%;
-     height: 70px;
-     background-color: #1a94ff;
- }
- #bg-search-blog .search-product {
-     margin: auto;
-     margin-top: 13px;
-     max-width: 95%;
- }
- #bg-search-blog .search-product-top {
+}
+.col-2 #content {
+    margin-right: -14px;
+}
+#bg-search-blog {
+    display: inline-block;
+    width: 143%;
+    height: 70px;
+    background-color: #1a94ff;
+}
+#bg-search-blog .search-product {
+    margin: auto;
+    margin-top: 13px;
+    max-width: 95%;
+}
+#bg-search-blog .search-product-top {
     width: 50px;
-  }
- #new-posts-modal {
-     width: 143%;
+}
+#new-posts-modal {
+    width: 143%;
     padding: 30px;
     background-color: #ffff;
     padding-top: 50px;
@@ -414,9 +414,9 @@
     margin: 18px 0;
 }
 .price-modal .price {
-color: #1a94ff;
-font-size: 25px;
-margin: 10px 0;
+    color: #1a94ff;
+    font-size: 25px;
+    margin: 10px 0;
 }
 .price-modal .sale {
     background-color: #1a94ff;
@@ -480,9 +480,9 @@ margin: 10px 0;
 #product-thumbnail.owl-carousel .owl-buttons .owl-prev {
     margin-top: -20px;
 }
-#product-thumbnail.owl-carousel .owl-buttons .owl-next, 
+#product-thumbnail.owl-carousel .owl-buttons .owl-next,
 #product-thumbnail.owl-carousel:hover .owl-buttons .owl-next{
-    right: 52px;
+    right: 10px;
     margin-top: -20px;
 }
 .blog-title-content{
@@ -556,4 +556,326 @@ margin: 10px 0;
 }
 .picture .select-picture:hover {
     background-color: #ccc;
+}
+#accordion .panel-heading.a {
+    background-color: #108bea;
+    color: #ffff;
+}
+/* Message */
+.icon-mess {
+    width: 60px;
+}
+.icon-message {
+    position: fixed;
+    float: right;
+    bottom:90px;
+    right: 10px;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center ;
+    cursor: pointer;
+}
+
+
+.modal-message {
+    display: block;
+    width: 350px;
+    height: 590px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 30px;
+    float: right;
+    border: 1px solid #797979;
+}
+.message {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center ;
+    display: none;
+}
+.message.open {
+    display: flex;
+}
+.mess-header {
+    width: 350px;
+    background-color: #108bea;
+    padding: 13px 20px;
+    border-radius: 30px 30px 0 0;
+
+}
+.modal-message .icon-logo {
+    width: 25%;
+    cursor: pointer;
+}
+.modal-message .icon-close {
+    width: 30px;
+    border-radius: 50%;
+    float: right;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.mess-content {
+    padding: 10px 15px;
+}
+.mess-content-section {
+    background-color: #f5f5f5;
+    padding: 1px 15px;
+    border-radius: 10px;
+}
+.mess-content-section p {
+    color: #333;
+    margin-top: 15px;
+    text-align: justify;
+    line-height: 1.4;
+}
+.mess-content-section input {
+    width: 100%;
+    padding: 5px 0;
+}
+.mess-content-section .send {
+    background-color: #1a94ff;
+    color: white;
+    font-size: 15px;
+    padding: 8px 20px;
+    margin: 10px 75.8px;
+    border-radius: 8px;
+}
+.mess-content-section .text-send {
+    width: 100%;
+    height: 80px;
+}
+
+
+@media only screen and (min-width: 780px) and (max-width: 1500px) {
+    header {
+        margin-bottom: 30px;
+    }
+    #info-customer .info {
+        width:80%;
+        padding: 10px 0;
+    }
+    .col-half-picture {
+        width: 65%;
+    }
+    #info-customer .picture {
+        width: 25%;
+        margin-left: 30px;
+    }
+    #info-customer .info {
+        width: 70%;
+    }
+    .col-half-info {
+        width: 25%;
+    }
+    #birthday select {
+        width: 90px;
+    }
+
+    /* blog */
+    #content .blog1.sub {
+        width: 98%;
+        min-height: 225px;
+        margin-bottom: 20px;
+    }
+    .col-2 #content {
+        width: 67%;
+    }
+    #content .blog1.sub .shose-slect {
+        padding: 3px 10px;
+        margin-bottom: 0;
+    }
+    #content .blog1.sub .blog-title {
+        font-size: 16px;
+        height: 55px;
+    }
+    #content .blog1.sub .blog-title-content {
+        height: 40px;
+        margin-top: 0;
+    }
+    .col-half-sub {
+        padding: 20px 10px;
+    }
+    #u-url-blog {
+        margin-top: 19px;
+        padding: 5px 10px;
+    }
+    .blog-meta {
+        margin-top: 38px;
+        margin-right: -60px;
+    }
+    .blog-meta .clock {
+        display: none;
+    }
+    #new-posts-modal .post-select {
+        font-size: 17px;
+        padding: 15px 0;
+    }
+    #new-posts-modal {
+        padding-top: 20px;
+    }
+    #new-posts-modal .title-post {
+        margin: 0;
+    }
+    #see-more .see {
+        margin-bottom: 10px;
+        margin-top: 0;
+        padding: 10px 35px;
+    }
+
+    /* product */
+    .boxed-conten {
+        width: 55px;
+    }
+    .box_code {
+        width: 21.4%;
+        float: right;
+    }
+    .size-shoes .num-size >button {
+        padding: 2px 13px;
+        margin-left: 0px;
+    }
+    #values .set-value {
+        margin-left: 18px;
+        margin-right: 5px;
+    }
+    #number {
+        width: 33px;
+    }
+    .buy-product, .add-product {
+        width: 45%;
+    }
+    .value-box {
+        font-size: 9px;
+    }
+
+}
+@media only screen and (min-width: 370px) and (max-width: 530px) {
+    header {
+        margin-bottom: 30px;
+    }
+    #info-customer {
+        padding: 10px;
+        height: 560px;
+    }
+    .search-product>input {
+        width: 330px;
+    }
+    .shipping-text {
+        margin-top: -21px;
+    }
+    #info-customer .info {
+        font-size: 12px;
+        width:70%;
+        padding: 10px 0;
+    }
+    #info-customer .picture {
+        margin-left: 0;
+        float: right;
+        padding: 10px 0;
+    }
+    .info p{
+        width: 100%;
+    }
+    .info input {
+        width: 95%;
+    }
+    .col-half-picture {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    .info p.id-customer ,
+    .info p.name-login {
+        float: left;
+        width: 43.5%;
+    }
+    .info p.id-customer{
+        border-bottom: 1px solid #ccc;
+    }
+
+    #birthday select {
+        width: 75px;
+    }
+    #sex li {
+        width: 10%;
+        float: left;
+        display: inline-block;
+    }
+    #sex input {
+        width: 100%;
+    }
+    .save {
+        margin-top: 10px;
+    }
+    .subbbb{
+        line-height: 1.2;
+        font-size: 10px !important;
+    }
+    /* blog */
+    .col-half-sub {
+        padding: 5px;
+    }
+    #content .blog1.sub .shose-slect {
+        padding: 0 15px;
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+    #content .blog1.sub .blog-title {
+        font-size: 12px;
+        padding: 3px 0;
+        height: 30px;
+    }
+    #content .blog1.sub .blog-title-content {
+        font-size: 8px;
+        height: 20px;
+        margin-top: 5px;
+    }
+    #u-url-blog {
+        position: absolute;
+        background-color: rgba(73, 73, 73, 0.5);
+        font-size: 10px;
+        padding: 0px 5px;
+        margin-top: -48px;
+        margin-left: -120px;
+    }
+    .blog-meta {
+        margin-top: 11px;
+        margin-right: -41px;
+    }
+    .blog-meta>li {
+        font-size: 8px;
+    }
+    .blog-meta>li i {
+        font-size: 8px;
+
+    }
+    #content .blog1.sub {
+        min-height: 145px;
+        margin-bottom: 15px;
+        padding: 10px 0;
+    }
+    #see-more .see {
+        padding: 5px 25px;
+        font-size: 14px;
+        margin-top: 0px;
+    }
+    .buy-product, .add-product {
+        width: 45%;
+    }
+    .box_code {
+        margin-right: 8.5px;
+        float: right;
+    }
+    #values .set-value {
+        margin-right: 3px;
+    }
+    .size-shoes .num-size >button {
+        padding: 2px 16px;
+    }
+    #number {
+        width: 42px;
+    }
 }

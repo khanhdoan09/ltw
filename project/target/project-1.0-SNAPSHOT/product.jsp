@@ -16,13 +16,14 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <title>Time Watch</title>
+    <title>Product | Dragon Sport</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
+          type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
@@ -38,6 +39,7 @@
     <script src="javascript/common.js" type="text/javascript"></script>
     <script src="javascript/global.js" type="text/javascript"></script>
     <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="image/logo.png" />
 
 
     <link rel="stylesheet" href="css/dat-css.css">
@@ -59,65 +61,60 @@
         p = DaoProduct.getInstance().getProductById(id);
     }
 %>
-<header style="background-color: #108bea;">
-    <div style="display: flex; flex-wrap: wrap;  width: 100%;">
-        <div class="header-top" style="background-color: #108bea;">
-            <div>
-                <div class="header-middle-top" >
-                    <div id="logo" class="color-header" style="margin: 0; padding: 0;">
-                        <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
-                                                  class="logo-header" /></a>
+
+<header>
+    <div class="contain-header-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 contain-header">
+                    <div class="contain-nav-info">
+                        <div id="top-links" class="nav pull-left">
+                            <ul class="list-inline">
+                                <li class="account"><a href="/admin/pixelwibes.com/template/ebazar/html/dist/index.html" class="notify"><i
+                                        class="fas fa-bell color-header" style="margin-right: 10px"></i><sp
+                                        style="margin: 0 5px;" class="color-header">Thông
+                                    báo</sp><span style="margin-right: 10px;"
+                                                  class="color-header">(0)</span></a>
+                                </li>
+                                <li class="account"><a href="customer.html" id="wishlist-total"
+                                                       title="Wish List (0)"><i class="fa fa-heart color-header"></i><span
+                                        class="color-header">Danh sách
+                                                yêu thích</span><span style="margin-right: 10px;"
+                                                                      class="color-header">(0)</span></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-user color-header"></i><span class="color-header">Tài
+                                                khoản</span> <span style=" font-size: 15px;"
+                                                                   class="caret color-header"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#" class="js-login">Đăng Nhập</a></li>
+                                        <li><a href="#" class="js_register">Đăng Ký</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
         <div class="container">
             <div class="header-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 contain-header">
-                            <div class="contain-nav-info">
-                                <div id="top-links" class="nav pull-left">
-                                    <ul class="list-inline">
-                                        <li class="account"><a href="customer.html" class="notify"><i
-                                                style="color: rgba(255,255,255,0.8); font-size: 15px;"
-                                                class="fas fa-bell" style="margin-right: 10px"></i><span
-                                                style="color: rgba(255,255,255,0.8); font-size: 15px;margin: 0 5px;">Thông
-                                                        báo</span><span
-                                                style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
-                                        </li>
-                                        <li class="account"><a href="customer.html" id="wishlist-total"
-                                                               title="Wish List (0)"><i
-                                                style="color: rgba(255,255,255,0.8); font-size: 15px;"
-                                                class="fa fa-heart"></i><span
-                                                style="color: rgba(255,255,255,0.8); font-size: 15px;">Danh sách
-                                                        yêu thích</span><span
-                                                style="margin-right: 10px; color: rgba(255,255,255,0.8);">(0)</span></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" title="My Account" class="dropdown-toggle"
-                                               data-toggle="dropdown"> <i
-                                                    style="color: rgba(255,255,255,0.8); font-size: 15px;"
-                                                    class="fa fa-user"></i><span
-                                                    style="color: rgba(255,255,255,0.8); font-size: 15px;">Tài
-                                                        khoản</span> <span
-                                                    style="color: rgba(255,255,255,0.8);; font-size: 15px;"
-                                                    class="caret"></span></a>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="#" class="js-login">Đăng ký</a></li>
-                                                <li><a href="#" class="js_register">Đăng nhập</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
 
+                <div class="header-top">
+                    <div>
+                        <div class="header-middle-top">
+                            <div id="logo" class="color-header" style="margin: 0; padding: 0;">
+                                <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                                          class="logo-header" /></a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-                <div class="text-center contain-search" style="margin-top: 20px;">
+                <div class="text-center contain-search">
                     <div class="contain-search-product-popular">
                         <div class="search-product">
                             <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
@@ -125,32 +122,25 @@
                         </div>
                         <div class="contain-search-popular">
                             <span>X-Ray 2</span>
-                            <span>Barcelona Home Kit 2021 2022</span>
-                            <span>Chelsea Home Kit 2021 2022</span>
+                            <span>Nike Air Force 2</span>
+                            <span>Under Armour darkside</span>
                             <span>X9000L4 Shoes Mens</span>
-                            <span>PSG Home 21/22 Shirt - Messi 30 printing</span>
+                            <span>Adidas dragon sport</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-sm-4 col-xs-12 header-right header-nav-right" style="padding-right: 10px;">
-                    <div class="">
-                        <div class="shipping">
-                            <div class="shipping-text color-header">(+91) 000-1233<br>
-                                <span class="shipping-detail color-header">24/7 Online Support</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-sm-4 col-xs-12 header-right header-nav-right">
 
-                    <div id="cart" class="btn-group btn-block">
+                    <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
                         <button type="button"
-                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span
-                                id="cart-total" class="color-header"><span class="cart-title color-header">Shopping
-                                        Cart</span><br>
-                                    0 item(s) - $0.00</span>
-                            <i class="fas fa-shopping-cart"
-                               style="font-size: 30px; color: white; padding-top: 5px;"></i>
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
+                            <span
+                                    id="cart-total" class="color-header"><span class="cart-title color-header">Giỏ hàng - </span>254.000 Đ</span>
+                            <span class="value-header-product" style="margin-bottom: 10px">1</span>
+                            <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
+
 
                         <ul class="dropdown-menu pull-right cart-dropdown-menu">
                             <li>
@@ -158,8 +148,8 @@
                                     <tbody>
                                     <tr>
                                         <td class="text-center">
-                                            <a href="#"><img src="image/product/product-01.jpg"
-                                                             style="width: 100px; height: 100px;"></a>
+                                            <a href="#"><img src="image/product/product-01.jpg" width="100px"
+                                                             height="100px"></a>
                                         </td>
                                         <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
                                         <td class="text-right">x 1</td>
@@ -176,20 +166,20 @@
                                     <table class="table table-bordered">
                                         <tbody>
                                         <tr>
-                                            <td class="text-right"><strong>Sub-Total</strong></td>
-                                            <td class="text-right">$210.00</td>
+                                            <td class="text-right"><strong>Tổng</strong></td>
+                                            <td class="text-right">210.000Đ</td>
                                         </tr>
                                         <tr>
-                                            <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-                                            <td class="text-right">$2.00</td>
+                                            <td class="text-right"><strong>Thuế (-2.00)</strong></td>
+                                            <td class="text-right">2%</td>
                                         </tr>
                                         <tr>
                                             <td class="text-right"><strong>VAT (20%)</strong></td>
-                                            <td class="text-right">$42.00</td>
+                                            <td class="text-right">4%</td>
                                         </tr>
                                         <tr>
-                                            <td class="text-right"><strong>Total</strong></td>
-                                            <td class="text-right">$254.00</td>
+                                            <td class="text-right"><strong>Tạm tính</strong></td>
+                                            <td class="text-right">254.000Đ</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -220,12 +210,12 @@
         <!--function displayMenuNavigation() in khanh-js.js-->
     </nav>
 </header>
-<div class="container" style="padding: 10px;">
+<div class="container">
 
     <div class="row" style="display: flex; flex-wrap: wrap;">
 
-        <div id="content" class="col-sm-9 " style="flex: 3; padding: 30px;margin-right: 20px; border-radius: 20px;">
-            <div class="row bg-white bd-rd" style="padding-top: 20px;">
+        <div id="content" class="col-sm-9 " style="flex: 3; padding: 40px;">
+            <div class="row bg-white bd-rd" style="padding-top: 20px;width:100%; max-width: 840px;">
                 <div class="col-sm-6">
                     <div class="thumbnails">
                         <div>
@@ -234,30 +224,33 @@
                                 <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="main-img"/>
                             </a>
                         </div>
-                        <div id="product-thumbnail" class="owl-carousel">
-                            <div class="item">
+                        <div id="product-thumbnail" class="owl-carousel" style="width: 100%;">
+                            <div class="item mg-l">
                                 <div class="image-additional">
-                                    <div class="thumbnail main imag1" > <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" /></div>
+                                    <div class="thumbnail main imag1">
+                                        <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item mg-l">
                                 <div class="image-additional">
-                                    <div class="thumbnail imag2 " >
+                                    <div class="thumbnail imag2 ">
                                         <img src="data/imgAll/<%=map.get(p.getId()).get(1)%>.jpg"  title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy"  id="one"/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item mg-l">
                                 <div class="image-additional">
-                                    <div class="thumbnail imag3 "> <img src="data/imgAll/<%=map.get(p.getId()).get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/></div>
+                                    <div class="thumbnail imag3 "> <img src="data/imgAll/<%=map.get(p.getId()).get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail imag4 "> <img src="data/imgAll/<%=map.get(p.getId()).get(3)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="three"/></div>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail imag5 "> <img src="data/imgAll/<%=map.get(p.getId()).get(4)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="four"/></div>
                                 </div>
@@ -267,10 +260,9 @@
                     </div>
                 </div>
                 <div class="col-sm-6" style="display: flex; flex-direction: column">
-                    <h1 class="productpage-title"><%=p.getName()%></h1>
-                    <div class="rating product"><span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i
-                            class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i
-                            class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                    <h1 class="productpage-title">Yeezy QNTM Casual</h1>
+                    <div class="rating product">
+
                         <%if (p.getStarRate()== 3) {%>
                         <span class="star star-size" style="color: rgb(253, 234, 0); font-size: 22px">&#128970;</span>
                         <span class="star star-size" style="color: rgb(253, 234, 0); font-size: 22px">&#128970;</span>
@@ -292,10 +284,12 @@
                         <%} %>
                         <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i
                                 class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i
-                                class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i
-                                class="fa fa-star-o fa-stack-1x"></i></span> <span class="review-count"> <a href="#"
-                                                                                                            onClick="$('a[href=\'#tab-review\']').trigger('click'); return false;">1 reviews</a> / <a
-                                href="#" onClick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a review</a></span>
+                            class="fa fa-star-o fa-stack-1x"></i></span> <span class="fa fa-stack"><i
+                            class="fa fa-star-o fa-stack-1x"></i></span> <span class="review-count"> <a href="#"
+                                                                                                        onClick="$('a[href=\'#tab-review\']').trigger('click'); return false;">1 reviews</a>
+                                / <a href="#"
+                                     onClick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a
+                                    review</a></span>
                         <hr>
                         <!-- AddThis Button BEGIN -->
                         <div class="addthis_toolbox addthis_default_style">
@@ -306,15 +300,16 @@
                         </div>
                         <!-- AddThis Button END -->
                     </div>
-                    <div class="price-modal" style="background-color: #f5f5f5;  float: left;">
+                    <div class="price-modal">
                         <ul class="price-product">
-                            <li><h6 class="price-box price-sale" style="float: left;  text-decoration: line-through;
+                            <li>
+                                <h6 class="price-box price-sale" style="float: left;  text-decoration: line-through;
     padding: 0 20px;
     color: rgb(146, 145, 145);
-    margin: 18px 0;"><%=p.getPrice()%>VNĐ</h6></li>
+    margin: 18px 0;"><%=p.getPrice()%>VNĐ</h6>                            </li>
                             <li><h1 class="price-box price" style="float: left;color: #1a94ff;
 font-size: 25px;
-margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
+margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></li>
                             <li><h6 class="price-box sale" style=" float: left;background-color: #1a94ff;
     color: white;
     padding: 4px;
@@ -322,11 +317,11 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
                         </ul>
                     </div>
                     <!-- <ul class="">
-                        <li>
-                            <h2 class="productpage-price">210.000VNĐ</h2>
-                        </li>
-                        <li><span class="productinfo-tax">Ex Tax: $100.00</span></li>
-                    </ul> -->
+                    <li>
+                        <h2 class="productpage-price">210.000VNĐ</h2>
+                    </li>
+                    <li><span class="productinfo-tax">Ex Tax: $100.00</span></li>
+                </ul> -->
                     <hr>
                     <ul class="list-unstyled product_info">
                         <li>
@@ -359,16 +354,16 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
                         </li>
 
 
-                        <li class="size-shoes" style="margin-top: 20px; display: inline-block;">
+                        <li class="size-shoes" style="margin-top: 50px;">
                             <label>Màu sắc</label>
                             <div class="num-size">
                                 <button class="js-color-black color-black">Đen</button>
                                 <button class="js-colorl-pink color-pink">Hồng</button>
-                                <button class="js-color-blue color-blue" >Xanh</button>
+                                <button class="js-color-blue color-blue">Xanh</button>
                             </div>
                         </li>
                         <li class="size-shoes">
-                            <label >Size</label>
+                            <label>Size</label>
                             <div class="num-size">
                                 <button>36</button>
                                 <button>37</button>
@@ -380,10 +375,10 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
                             <div class="value-box"><label>Số lượng:</label></div>
                             <div class="value-box set-value">
                                 <input class="value" type="button" onclick="reduceValue()" value="--" />
-                                <input type="text" id="number" value="1"/>
-                                <input class="value" type="button" onclick="incrementValue()" value="+" />
+                                <input type="text" id="number" value="1" />
+                                <input class="value" type="button" onclick="incrementValue(<%=p.getTotalValue()-p.getSoleValue()%>)" value="+" />
                             </div>
-                            <h6 class="products-available value-box">35 Sản phẩm có sẵn</h6>
+                            <h6 class="products-available value-box"><%=p.getTotalValue()-p.getSoleValue()%> Sản phẩm có sẵn</h6>
                         </li>
                         <li class="add-and-buy">
                             <div class="add-product">
@@ -398,30 +393,22 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
                     <div class="through">
                         <hr>
                     </div>
-                    <!-- <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours of
-                    battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200
-                    hours of video or any combination wherever you go. Cover Flow.
-                    Browse through your music collection by flipping..</p> -->
 
                 </div>
             </div>
-            <div class="productinfo-tab bg-white bd-rd pd-5">
+            <div class="productinfo-tab bg-white bd-rd pd-5" style="width: 100%; max-width: 830px;">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab-description" data-toggle="tab">Description</a></li>
-                    <li><a href="#tab-review" data-toggle="tab">Reviews (1)</a></li>
+                    <li class="active"><a href="#tab-description" data-toggle="tab">Mô tả</a></li>
+                    <li><a href="#tab-review" data-toggle="tab">Bình luận (1)</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab-description">
-                        <div class="cpt_product_description ">
+                        <div class="cpt_product_description">
                             <div>
-                                <p><strong>More room to move.</strong></p>
-                                <p> With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.</p>
-                                <p><strong>Cover Flow.</strong></p>
-                                <p> Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.</p>
-                                <p><strong>Enhanced interface.</strong></p>
-                                <p> Experience a whole new way to browse and view your music and video.</p>
-                                <p><strong>Sleeker design.</strong></p>
-                                <p> Beautiful, durable, and sleeker than ever, lorem ippsum dolor dummy now features an anodized aluminum and polished stainless steel enclosure with rounded edges.</p>
+                                <p><strong>Giày tiêu chuẩn
+                                </strong></p>
+                                <p><%=p.getDescription()%></p>
+
                             </div>
                         </div>
                         <!-- cpt_container_end -->
@@ -429,82 +416,96 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
                     <div class="tab-pane" id="tab-review">
                         <form class="form-horizontal">
                             <div id="review"></div>
-                            <h2>Write a review</h2>
+
                             <div class="form-group required">
                                 <div class="col-sm-12">
-                                    <label class="control-label" for="input-name">Your Name</label>
-                                    <input type="text" name="name" value="" id="input-name" class="form-control" />
+                                    <label class="control-label" for="input-review">Bình luận của bạn</label>
+                                    <textarea name="text" rows="5" id="input-review"
+                                              class="form-control"></textarea>
+
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <div class="col-sm-12">
-                                    <label class="control-label" for="input-review">Your Review</label>
-                                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                                    <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group required">
-                                <div class="col-sm-12">
-                                    <label class="control-label">Rating</label> &nbsp;&nbsp;&nbsp; Bad&nbsp;
-                                    <input type="radio" name="rating" value="1" /> &nbsp;
-                                    <input type="radio" name="rating" value="2" /> &nbsp;
-                                    <input type="radio" name="rating" value="3" /> &nbsp;
-                                    <input type="radio" name="rating" value="4" /> &nbsp;
-                                    <input type="radio" name="rating" value="5" /> &nbsp;Good
+                                <div class="col-sm-12" style="margin-left: 5px;">
+                                    Bad
+                                    <input type="radio" name="rating" value="1" />
+                                    <input type="radio" name="rating" value="2" />
+                                    <input type="radio" name="rating" value="3" />
+                                    <input type="radio" name="rating" value="4" />
+                                    <input type="radio" name="rating" value="5" />
+                                    Good
                                 </div>
                             </div>
                             <div class="buttons clearfix">
                                 <div class="pull-right">
-                                    <button type="button" id="button-review" data-loading-text="Loading..." class="btn btn-primary">Continue
+                                    <button type="button" id="button-review" data-loading-text="Loading..."
+                                            class="btn btn-primary">Continue
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
-            <%
-                Object objWatched = session.getAttribute("listProductWatched");
-                if (objWatched != null) {
-                    ArrayList<String> listProductWatched = (ArrayList<String>) objWatched;
-            %>
-            <div class="box bg-white bd-rd pd-5">
-                <h1 class="tit">NHỮNG SẢN PHẨM VỪA XEM</h1>
-                <div class="box">
-                    <div id="special-slidertab" class="row owl-carousel product-slider">
-                        <%for (String str : listProductWatched) {
-                            Product productWatched = DaoProduct.getInstance().getProductById(str);
-                        %>
-                        <div class="item">
-                            <div class="product-thumb transition">
-                                <div class="image product-imageblock">
-                                    <a href="product.html"> <img src="data/imgAll/<%=map.get(productWatched.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+
+
+            <div class="container" style="margin-bottom: 20px;display: flex; flex-wrap: wrap;justify-content: space-around; padding-right: 20px; width: 100%;">
+                <div class="row general-contain" style="width:100%;margin-top: 10px;margin-bottom: 10px;">
+                    <div id="contents" class="" style="width: 100%;">
+                        <div class="customtab">
+                            <div id="tabs" class="customtab-wrapper">
+                                <ul class='customtab-inner'>
+                                    <li class='tab'><a href="#tab-latest">Những sản phẩm vừa xem</a></li>
+                                </ul>
+                            </div>
+                            <%
+                                Object objWatched = session.getAttribute("listProductWatched");
+                                if (objWatched != null) {
+                                    ArrayList<String> listProductWatched = (ArrayList<String>) objWatched;
+                            %>
+                            <div id="tab-latest" class="tab-content">
+                                <div class="box">
+                                    <div id="latest-slidertab" class="row owl-carousel product-slider">
+                                        <%for (String str : listProductWatched) {
+                                            Product productWatched = DaoProduct.getInstance().getProductById(str);
+                                        %>
+                                        <div class="item">
+                                            <div class="product-thumb transition">
+                                                <div class="image product-imageblock">
+                                                    <a href="product.html"> <img src="data/imgAll/<%=map.get(productWatched.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                                    <div class="button-group">
+                                                        <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                                        <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="caption product-detail">
+                                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy"><%=productWatched.getName()%></a></h4>
+                                                    <p class="price product-price"> <span class="price-new"><%=productWatched.getPrice()-(productWatched.getPrice()*productWatched.getSaleRate()/100)%></span> <span class="price-old"><%=productWatched.getPrice()%></span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
+                                                </div>
+                                                <div class="button-group">
+                                                    <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                                    <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%}%>
                                     </div>
                                 </div>
-                                <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy"><%=productWatched.getName()%></a></h4>
-                                    <p class="price product-price"> <span class="price-new"><%=productWatched.getSalePrice()%></span> <span class="price-old"><%=productWatched.getPrice()%></span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
-                                </div>
-                                <div class="button-group">
-                                    <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                    <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                    <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                                </div>
                             </div>
+                            <%}%>
+
                         </div>
-                        <%}%>
 
                     </div>
                 </div>
+
             </div>
-            <%}%>
         </div>
-        <div id="column-left" class="col-sm-3 column-left" style="flex: 1; padding: 0px;">
+
+        <div id="column-left" class="col-sm-3 column-left" style="flex: 1; padding: 0px; margin-top: 10px;">
             <div class="column-block ">
                 <div class="column-block">
                     <div class="sales-policy-modal  br-rd" style=" border-radius: 20px; margin: 30px 0;">
@@ -538,135 +539,173 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
                         </div>
                     </div>
 
-                    <div class="mainbanner bg-white bd-rd" style="margin-top: 10px;">
-                        <h1 class="pd-5" style="text-align: center;">Hot Product</h1>
+                </div>
+
+
+            </div>
+
+            <div style="display: flex; justify-content: center; width: 100%; margin-top: 30px;">
+                <div>
+                    <div class="mainbanner bg-white bd-rd" style="width: 280px;height: fit-content;  margin-top: 10px;">
+                        <h1 class="pd-5" style="text-align: center;">Sản Phẩm Nổi Bật</h1>
                         <hr style="width: 180px;">
-                        <div id="main-banner" class="owl-carousel home-slider" >
-                            <div class="item bd-rd bg-white" style="width: 100%;">
 
-                                <div class="item"  style="width: 100%; display: grid; place-items: center;">
-                                    <div class="product-thumb transition">
-                                        <div class="image product-imageblock">
-                                            <a href="product.html"> <img src="image/product/product-05.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                        <div class="mainbanner">
+                            <div id="main-banner" class="owl-carousel home-slider"
+                                 style="display: flex; justify-content: space-between;">
+                                <div class="itm bd-rd bg-white">
+                                    <div class="item" style="display: grid; place-items: center;">
+                                        <div class="product-thumb transition" style="width: 100%;">
+                                            <div class="image product-imageblock">
+                                                <a href="product.html"> <img src="image/product/product-05.jpg"
+                                                                             alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
+                                                                             class="img-responsive" /> </a>
 
-                                        </div>
-                                        <div class="caption product-detail-hot" style="padding: 10px;" >
-                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Nike Air Force 1</a></h4>
-                                            <p class="price product-price"> <span class="price-new">90.99$</span> <span class="price-old">159.99$</span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
-                                        </div>
-                                        <div class="button-group pd-bt-5 button-hot-product">
-                                            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                            </div>
+                                            <div class="caption product-detail-hot" style="padding: 10px;">
+                                                <h4 class="product-name"><a href="product.html"
+                                                                            title="lorem ippsum dolor dummy">Nike Air Force 1</a></h4>
+                                                <p class="price product-price"> <span class="price-new">90.99$</span> <span
+                                                        class="price-old">159.99$</span> <span class="price-tax">Ex Tax:
+                                                210.00$</span> </p>
+                                            </div>
+                                            <div class="button-group pd-bt-5 button-hot-product">
+                                                <button type="button" class="wishlist" data-toggle="tooltip"
+                                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                                <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                                <button type="button" class="compare" data-toggle="tooltip"
+                                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item bd-rd bg-white" style="width: 100%;">
+                                <div class="item bd-rd bg-white">
 
-                                <div class="item"  style="width: 100%; display: grid; place-items: center;">
-                                    <div class="product-thumb transition">
-                                        <div class="image product-imageblock">
-                                            <a href="product.html"> <img src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <div class="item" style="width: 100%; display: grid; place-items: center;">
+                                        <div class="product-thumb transition">
+                                            <div class="image product-imageblock">
+                                                <a href="product.html"> <img src="image/product/product-01.jpg"
+                                                                             alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
+                                                                             class="img-responsive" /> </a>
 
-                                        </div>
-                                        <div class="caption product-detail-hot" style="padding: 10px; ">
-                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Vans Classic Slip-On Checkered Platfrom Shose</a></h4>
-                                            <p class="price product-price"> <span class="price-new">99.99$</span> <span class="price-old">119.99$</span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
-                                        </div>
-                                        <div class="button-group pd-bt-5 button-hot-product">
-                                            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                            </div>
+                                            <div class="caption product-detail-hot" style="padding: 10px; ">
+                                                <h4 class="product-name"><a href="product.html"
+                                                                            title="lorem ippsum dolor dummy">Vans Classic Slip-On Checkered Platfrom
+                                                    Shose</a></h4>
+                                                <p class="price product-price"> <span class="price-new">99.99$</span> <span
+                                                        class="price-old">119.99$</span> <span class="price-tax">Ex Tax:
+                                                210.00$</span> </p>
+                                            </div>
+                                            <div class="button-group pd-bt-5 button-hot-product">
+                                                <button type="button" class="wishlist" data-toggle="tooltip"
+                                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                                <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                                <button type="button" class="compare" data-toggle="tooltip"
+                                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item bd-rd bg-white" style="width: 100%;">
+                                <div class="item bd-rd bg-white">
 
-                                <div class="item"  style="width: 100%; display: grid; place-items: center;">
-                                    <div class="product-thumb transition">
-                                        <div class="image product-imageblock">
-                                            <a href="product.html"> <img src="image/product/product-06.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <div class="item" style="width: 100%; display: grid; place-items: center;">
+                                        <div class="product-thumb transition">
+                                            <div class="image product-imageblock">
+                                                <a href="product.html"> <img src="image/product/product-06.jpg"
+                                                                             alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
+                                                                             class="img-responsive" /> </a>
 
-                                        </div>
-                                        <div class="caption product-detail-hot" style="padding: 10px;" >
-                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">Under Armour Platfrom Shose</a></h4>
-                                            <p class="price product-price"> <span class="price-new">89.99$</span> <span class="price-old">100.99$</span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
-                                        </div>
-                                        <div class="button-group pd-bt-5 button-hot-product">
-                                            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                            </div>
+                                            <div class="caption product-detail-hot" style="padding: 10px;">
+                                                <h4 class="product-name"><a href="product.html"
+                                                                            title="lorem ippsum dolor dummy">Under Armour Platfrom Shose</a></h4>
+                                                <p class="price product-price"> <span class="price-new">89.99$</span> <span
+                                                        class="price-old">100.99$</span> <span class="price-tax">Ex Tax:
+                                                210.00$</span> </p>
+                                            </div>
+                                            <div class="button-group pd-bt-5 button-hot-product">
+                                                <button type="button" class="wishlist" data-toggle="tooltip"
+                                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
+                                                <button type="button" class="addtocart-btn">Mua Ngay</button>
+                                                <button type="button" class="compare" data-toggle="tooltip"
+                                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div style="width: 100%; text-align: center;">
-                        <img src="image/banners/download-app.jpg" alt="" style="width: 270px; border-radius: 20px; cursor: pointer;margin-top: 10px;">
-                    </div>
 
+                    </div>
                 </div>
 
-
             </div>
+
+
+            <div style="width: 100%; text-align: center;">
+                <img src="image/banners/download-app.jpg" alt=""
+                     style="width: 270px; border-radius: 20px; cursor: pointer;margin-top: 10px;">
+            </div>
+
+
         </div>
     </div>
 </div>
-<footer>
+
+
+
+
+
+<footer style="margin: 10px 0;">
     <div class="container">
         <hr>
         <div class="row">
             <div class="col-sm-3 footer-block">
-                <h5 class="footer-title">Information</h5>
+                <h5 class="footer-title">Thông tin</h5>
                 <ul class="list-unstyled ul-wrapper">
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="checkout.html">Delivery Information</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Site Map</a></li>
-                    <li><a href="#">Wish List</a></li>
+                    <li><a href="about-us.html">Về chúng tôi</a></li>
+                    <li><a href="checkout.html">Thông tin giao hàng</a></li>
+                    <li><a href="#">Chính sách</a></li>
+                    <li><a href="#">Luật &amp; Điều kiện</a></li>
+                    <li><a href="#">Bản đồ</a></li>
+                    <li><a href="#">Danh sách yêu thích</a></li>
                 </ul>
             </div>
             <div class="col-sm-3 footer-block">
                 <h5 class="footer-title">Why Choose</h5>
                 <ul class="list-unstyled ul-wrapper">
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#">Product Recall</a></li>
-                    <li><a href="#">Gift Vouchers</a></li>
-                    <li><a href="#">Returns and Exchanges</a></li>
-                    <li><a href="#">Shipping Options</a></li>
-                    <li><a href="#">Help & FAQs</a></li>
-                    <li><a href="#">Sale Only Today</a></li>
+                    <li><a href="contact.html">Liên lạc</a></li>
+                    <li><a href="#">Voucher quà tặng</a></li>
+                    <li><a href="#">Trả hàng</a></li>
+                    <li><a href="#">Vận chuyển</a></li>
+                    <li><a href="#">Giúp đỡ & FAQs</a></li>
+                    <li><a href="#">Sale trong hôm nay</a></li>
                 </ul>
             </div>
             <div class="col-sm-3 footer-block">
-                <h5 class="footer-title">My Account</h5>
+                <h5 class="footer-title">Tài khoản của tôi</h5>
                 <ul class="list-unstyled ul-wrapper">
-                    <li><a href="#">Sign in</a></li>
-                    <li><a href="gift.html">Gift Vouchers</a></li>
-                    <li><a href="affiliate.html">Affiliates</a></li>
-                    <li><a href="#">View Cart</a></li>
-                    <li><a href="#">Checkout</a></li>
-                    <li><a href="#">Track My Order</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Đăng nhập</a></li>
+                    <li><a href="#">Voucher quà tặng</a></li>
+                    <li><a href="#">Chi nhánh</a></li>
+                    <li><a href="#">Giỏ hàng</a></li>
+                    <li><a href="#">Thanh toán</a></li>
+                    <li><a href="#">Theo dõi hóa đơn</a></li>
+                    <li><a href="#">Giúp đỡ</a></li>
                 </ul>
             </div>
             <div class="col-sm-3 footer-block">
                 <div class="content_footercms_right">
                     <div class="footer-contact">
-                        <h5 class="contact-title footer-title">Contact Us</h5>
+                        <h5 class="contact-title footer-title">Liên lạc</h5>
                         <ul class="ul-wrapper">
-                            <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
-                12345 Street name, California<br>
-                USA</span></li>
-                            <li><i class="fa fa-envelope"></i><span class="mail2"><a
+                            <li> 29/1, đường số 4, KP.3, P. Bình Khánh, Q.2, TPHCM, Việt Nam</li>
+                            <li><span class="mail2"><a
                                     href="#">info@localhost.com</a></span></li>
-                            <li><i class="fa fa-mobile"></i><span class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
+                            <li><i class="fa fa-mobile"></i><span class="phone2">+91 0987-654-321<br>+91
+                                        0987-654-321</span></li>
                         </ul>
                     </div>
                 </div>
@@ -677,18 +716,18 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
                 <div class="col-sm-7">
                     <div class="newslatter">
                         <form>
-                            <h5>Sign up for our Newsletter</h5>
+                            <h5>Đăng kí để nhận thư</h5>
                             <div class="input-group">
-                                <input type="text" class=" form-control" placeholder="Your-email@website.com">
-                                <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe
-                                </button>
+                                <input type="text" class=" form-control" placeholder="email@website.com">
+                                <button type="submit" value="Sign up"
+                                        class="btn btn-large btn-primary">Đăng kí</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-sm-5">
                     <div class="footer-social">
-                        <h5>Social</h5>
+                        <h5>Mạng xã hội</h5>
                         <ul>
                             <li class="facebook"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
                             <li class="linkedin"><a href="#"><i class="fab fa-linkedin"></i></a></li>
@@ -701,34 +740,8 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
             </div>
         </div>
     </div>
-    <a id="scrollup">Scroll</a></footer>
-<div class="footer-bottom">
-    <div class="container">
-        <div class="copyright">Powered By &nbsp;<a class="yourstore" href="http://www.lionode.com/">lionode &copy;
-            2017 </a></div>
-        <div class="footer-bottom-cms">
-            <div class="footer-payment">
-                <ul>
-                    <li class="mastero">
-                        <a href="#"><img alt="" src="image/payment/mastero.jpg"></a>
-                    </li>
-                    <li class="visa">
-                        <a href="#"><img alt="" src="image/payment/visa.jpg"></a>
-                    </li>
-                    <li class="currus">
-                        <a href="#"><img alt="" src="image/payment/currus.jpg"></a>
-                    </li>
-                    <li class="discover">
-                        <a href="#"><img alt="" src="image/payment/discover.jpg"></a>
-                    </li>
-                    <li class="bank">
-                        <a href="#"><img alt="" src="image/payment/bank.jpg"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+    <a id="scrollup">Scroll</a>
+</footer>
 
 <!--Begin: login-registe-->
 <div class="login-modal js-modal">
@@ -771,8 +784,11 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
-                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần. </p>
+                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng,
+                    xem các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật
+                    nhanh chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
+                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy
+                    cập tất cả các dịch vụ bạn cần. </p>
             </div>
 
 
@@ -822,7 +838,8 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
             </div>
 
             <div class="modal-title">
-                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
+                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời
+                    điểm đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
             </div>
         </div>
     </div>
@@ -830,68 +847,99 @@ margin: 10px 0;"><%=p.getSalePrice()%>VNĐ</h1></li>
 </div>
 </div>
 <!-- End: login register -->
+
+<!-- Begin: modal message -->
+<div class="icon-message">
+    <img class="icon-mess js-open-mess" src="./image/icon/icon-mess.ico" alt="">
+</div>
+<div class="modal-message message">
+    <div class="mess-section">
+        <div class="mess-header">
+            <img class="icon-logo " src="./image/logo.png" alt="">
+            <img class="icon-close js-close-mess" src="./image/icon/icon-close.png" alt="">
+        </div>
+        <div class="mess-content">
+            <div class="mess-content-section">
+                <p class="mess-title">Hiện tại, chúng tôi không trực tuyến.
+                    Quý khách vui lòng để lại tin nhắn,
+                    chúng tôi sẽ sớm liên hệ trong buổi
+                    làm việc tiếp theo. Trân trọng cảm ơn.</p>
+                <p class="name">Họ & Tên *</p>
+                <input type="text">
+                <p class="name">Địa chỉ Email *</p>
+                <input type="email">
+                <p class="name">Điện thoại *</p>
+                <input type="phone">
+                <p class="mess">Tin nhắn *</p>
+                <textarea class="text-send" type="text" rows="4" spellcheck="false"> </textarea>
+                <button class="send">Để lại tin nhắn</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: modal message -->
 <script src="./javascript/hung-js.js"></script>
 
 
 <script>
-    function setIma(main,child){
+    function setIma(main, child) {
         var path = document.getElementById(child).getAttribute("src");
-        document.getElementById(main).setAttribute("src",path);
+        document.getElementById(main).setAttribute("src", path);
         console.log(path);
     }
 
     const ima = document.querySelector(".imag2")
     console.log(ima);
-    ima.addEventListener("click",function(){
+    ima.addEventListener("click", function () {
         var path = document.getElementById("one").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src",path);
+        document.getElementById("main-img").setAttribute("src", path);
 
     })
 
     const ima2 = document.querySelector(".imag1")
     console.log(ima2);
-    ima2.addEventListener("click",function(){
+    ima2.addEventListener("click", function () {
         var path = document.getElementById("zero").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src",path);
+        document.getElementById("main-img").setAttribute("src", path);
 
     })
     const ima3 = document.querySelector(".imag3")
     console.log(ima3);
-    ima3.addEventListener("click",function(){
+    ima3.addEventListener("click", function () {
         var path = document.getElementById("two").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src",path);
+        document.getElementById("main-img").setAttribute("src", path);
 
     })
 
     const ima4 = document.querySelector(".imag4")
     console.log(ima4);
-    ima4.addEventListener("click",function(){
+    ima4.addEventListener("click", function () {
         var path = document.getElementById("three").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src",path);
+        document.getElementById("main-img").setAttribute("src", path);
 
     })
 
     const ima5 = document.querySelector(".imag5")
     console.log(ima5);
-    ima5.addEventListener("click",function(){
+    ima5.addEventListener("click", function () {
         var path = document.getElementById("four").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src",path);
+        document.getElementById("main-img").setAttribute("src", path);
 
     })
 
     const ima6 = document.querySelector(".imag6")
     console.log(ima6);
-    ima6.addEventListener("click",function(){
+    ima6.addEventListener("click", function () {
         var path = document.getElementById("five").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src",path);
+        document.getElementById("main-img").setAttribute("src", path);
 
     })
 
     const ima7 = document.querySelector(".imag7")
     console.log(ima7);
-    ima7.addEventListener("click",function(){
+    ima7.addEventListener("click", function () {
         var path = document.getElementById("six").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src",path);
+        document.getElementById("main-img").setAttribute("src", path);
 
     })
 

@@ -17,9 +17,9 @@ function hideBuyLogin() {
 modalLogin.addEventListener('click', showBuyLogin)
 
 modalClose.addEventListener('click', hideBuyLogin)
-    //
+//
 modal.addEventListener('click', hideBuyLogin)
-    //
+//
 modalContainer.addEventListener('click', function(even) {
     even.stopPropagation()
 })
@@ -41,7 +41,7 @@ function hideModalRegister() {
 }
 
 register.addEventListener('click', showModalRegister)
-    // modalRegisterBtn.addEventListener('click', showModalRegister)
+// modalRegisterBtn.addEventListener('click', showModalRegister)
 modalCloseRegister.addEventListener('click', hideModalRegister)
 modalRegister.addEventListener('click', hideModalRegister)
 
@@ -58,24 +58,40 @@ modalContainerRegister.addEventListener('click', function(even) {
 
 // Begin: Tăng giảm số lượng
 function reduceValue() {
-    var result = document.getElementById('number'); 
+    var result = document.getElementById('number');
     var qty = result.value;
-     if( !isNaN(qty) && qty > 1 ) 
-     result.value--;
-     return false;
+    if( !isNaN(qty) && qty > 1 )
+        result.value--;
+    return false;
 }
- function incrementValue() {
-    var result = document.getElementById('number'); 
+function incrementValue(maxValue) {
+    var result = document.getElementById('number');
     var qty = result.value;
-     if( !isNaN(qty)) 
-     result.value++;
-     return false;
- }
+    if( !isNaN(qty) && result.value < maxValue)
+        result.value++;
+    return false;
+}
 
- // End: Tăng giảm số lượng
+// End: Tăng giảm số lượng
 
 //  Begin: Xử lý button chọn màu
 const btnBlack = document.querySelector('.js-color-black');
 const btnPink = document.querySelector('.js-color-black');
 const btnBule = document.querySelector('.js-color-black');
 
+
+// xử lý message
+const btnMess = document.querySelector('.js-open-mess');
+const btnCloseMess = document.querySelector('.js-close-mess');
+const message = document.querySelector('.message');
+
+function showMess() {
+    message.classList.add('open');
+}
+
+function hideMess() {
+    message.classList.remove('open');
+}
+
+btnMess.addEventListener('click', showMess);
+btnCloseMess.addEventListener('click', hideMess);
