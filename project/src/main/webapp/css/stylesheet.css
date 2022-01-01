@@ -446,11 +446,7 @@ div.required .control-label:before {
     color: #666;
 }
 
-#cart-total {
-    
-    padding: 1px 0 0 50px;
-    float: left;
-}
+
 
 .cart-title {
     font-size: 16px;
@@ -1050,8 +1046,8 @@ footer ul li {
 }
 
 .btn-default {
-    background: #000;
-    color: #ffffff;
+    background: #1a94ff;
+    color: #fff;
     padding: 6px 12px;
     border: none;
 }
@@ -2373,7 +2369,7 @@ div#subbanner5 {
     display: inline-block;
     width: 60%;
     margin: -15px 0;
-    
+
 }
 
 #product .addtocart {
@@ -2508,7 +2504,7 @@ span.review-edit {
     width: 50px;
     height: 80px;
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     right: 20px;
     display: none;
     text-indent: -9999px;
@@ -3019,7 +3015,7 @@ span.review-edit {
 
 .blog .blog {
     margin: 0 0 50px;
-    ;
+;
 }
 
 .blog-meta {
@@ -3142,7 +3138,7 @@ video {
 }
 
 .home-slider .owl-controls .owl-page:hover,
-.home-slider .owl-controls .owl-page.active {   
+.home-slider .owl-controls .owl-page.active {
     border: 2px solid #0900ed;
 }
 
@@ -3452,6 +3448,6 @@ div.dioprogress_size_l {
 }
 #logo .img-responsive{
     width: 210px;
-        margin-top: -35px;
-        margin-bottom: -20px;
+    margin-top: -35px;
+    margin-bottom: -20px;
 }

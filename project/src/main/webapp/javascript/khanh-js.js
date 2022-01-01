@@ -10,37 +10,61 @@ $(function() {
 
 $(function() {
     $(".bt-nav-collapse").click(()=>{
-        $(".navbar-collapse").slideToggle("slow");       
-      
+        $(".navbar-collapse").slideToggle("slow");
+
     })
 })
 // display filter search when click {
-$(function(){ 
+$(function(){
     $(".toggle-filter-search").click(() => {
         $(".contain-filter-search").slideToggle("show");
     });
 });
 
 
+// payment method
+$(function() {
+
+    $("#payment-cod").click(()=>{
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-cod").addClass("payment-input-active");
+    })
+
+    $("#payment-shoppe").click(()=>{
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-shoppe").addClass("payment-input-active");
+    })
+
+    $("#payment-zalo").click(()=>{
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-zalo").addClass("payment-input-active");
+    })
+
+    $("#payment-momo").click(()=>{
+        $(".payment-input").removeClass("payment-input-active")
+        $("#contain-payment-momo").addClass("payment-input-active");
+    })
+
+});
+
 function displayMenuNavigation() {
     let content = `<div class="nav-inner">
                         
                             <div class="navbar-collapse" style="background-color: #0f6cb2;">
                                 <ul class="main-navigation">
-                                    <li><a href="index.html" style="color: white" class="parent" id="home-nav">HOME</a> </li>
+                                    <li><a href="index.html" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                                     <li style="position: relative">
                                     <a href="category.html" style="color: white" class="parent category-item" id="category-man">
-                                     MAN 
+                                     NAM
                                      <i class="fas fa-caret-down"></i> 
                                      </a>
                                     
                                     <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
-<!--                                    <li id="hitops-man" class="category-product category-product-man" style="color: white">HiTops</li>-->
-                                    <li id="running-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="CategoryProduct?category=Running Man&categoryGender=description&pagination=1" class="link-navigation">Runnings</a>
+                                  <li id="running-man"  class="category-product category-product-man" style="color: white">
+                                    <a href="ServletTest123?categoryOnNav=Running Man&pagination=1" class="link-navigation">Runnings</a>
                                     </li>
                                     <li id="slides-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="CategoryProduct?category=Slides Man&categoryGender=description&pagination=1" class="link-navigation">Slides</a>
+                                    <a href="ServletTest123?categoryOnNav=Slides Man&pagination=1" class="link-navigation">Slides</a>
                                     </li>
                                     <li id="sneakers-man"  class="category-product category-product-man" style="color: white">
                                     <a href="CategoryProduct?category=Sneakers Man&categoryGender=description&pagination=1" class="link-navigation">Sneakers</a>
@@ -48,15 +72,13 @@ function displayMenuNavigation() {
                                     <li id="skateboard-man"  class="category-product category-product-man" style="color: white">
                                     <a href="CategoryProduct?category=Skateboard Man&categoryGender=description&pagination=1" class="link-navigation">SkateBoard</a>
                                     </li>
-<!--                                    <li id="football-man"  class="category-product category-product-man" style="color: white">Football</li>-->
-
                                 </ul>
                             
                                 </li>
-                                    <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">WOMAN <i class="fas fa-caret-down"></i></a>
+                                    <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
                                     
                                     <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
-<!--                                    <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>-->
+                                    <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>-->
                                     <li id="running-woman"  class="category-product category-product-woman" style="color: white">
                                      <a href="CategoryProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation">Running</a>
                                     </li>
@@ -73,21 +95,18 @@ function displayMenuNavigation() {
                                      <a href="CategoryProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation">Skateboard</a>
                                     </li>
 </li>
-<!--                                    <li id="football-woman"  class="category-product category-product-woman" style="color: white">Football</li>-->
-
                                 </ul>
 
                                     </li>
-                                     <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">BRANDS <i class="fas fa-caret-down"></i></a></li>
+                                     <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
                                     <li><a href="blog.html" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
-                                    <li><a href="about-us.html" style="color: white"  id="about-nav" >ABOUT US</a></li>
+                                    <li><a href="about-us.html" style="color: white"  id="about-nav" >VỀ CHÚNG TÔI</a></li>
                                 </ul>
                                 <div class="nav-detail-info">
                 
-    
-                                    <div class="item-nav-detail-info" id="item-category-brand">
+         <div class="item-nav-detail-info" id="item-category-brand">
                                         <div class="contain-brand" >
-                                           <img onclick="location.href='CategoryProduct?category=ASICS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-01.svg">
+                                           <img onclick="location.href='ServletTest123?brandOnNav=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
                                             <img onclick="location.href='CategoryProduct?category=ADIDAS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-02.svg">
                                             <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
                                             <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
@@ -113,16 +132,16 @@ $(function() {
     if (curPage.includes("index")) {
         localStorage.setItem("nav-current", "home")
     }
-   
+
     if (curPage.includes("blog")) {
         localStorage.setItem("nav-current", "blog")
     }
 
     if (curPage.includes("category")) {
         if (localStorage.getItem("currentPageCategory") === "man")
-        localStorage.setItem("nav-current", "category-man")
+            localStorage.setItem("nav-current", "category-man")
         else
-        localStorage.setItem("nav-current", "category-woman")
+            localStorage.setItem("nav-current", "category-woman")
 
     }
 
@@ -137,11 +156,11 @@ $(function() {
     $("#category-man").click(()=>{
         localStorage.setItem("nav-current", "category-man")
         $("#category-man").addClass("active-nav")
-    }) 
+    })
     $("#category-woman").click(()=>{
         localStorage.setItem("nav-current", "category-woman")
         $("#category-man").addClass("active-nav")
-    }) 
+    })
     $("#blog-nav").click(()=>{
         localStorage.setItem("nav-current", "blog")
         $("#blog-nav").addClass("active-nav")
@@ -153,33 +172,47 @@ $(function() {
 })
 
 $(function() {
-  if (localStorage.getItem("nav-current")==="home") {
+    if (localStorage.getItem("nav-current")==="home") {
         $("#home-nav").addClass("active-nav")
-  }
-    
-  if (localStorage.getItem("nav-current")==="category-man") {
-    $("#category-man").addClass("active-nav")
-}
-if (localStorage.getItem("nav-current")==="category-woman") {
-    $("#category-woman").addClass("active-nav")
-}
-if (localStorage.getItem("nav-current")==="blog") {
-    $("#blog-nav").addClass("active-nav")
-}
-if (localStorage.getItem("nav-current")==="about") {
-    $("#about-nav").addClass("active-nav")
-}
+    }
+
+    if (localStorage.getItem("nav-current")==="category-man") {
+        $("#category-man").addClass("active-nav")
+    }
+    if (localStorage.getItem("nav-current")==="category-woman") {
+        $("#category-woman").addClass("active-nav")
+    }
+    if (localStorage.getItem("nav-current")==="blog") {
+        $("#blog-nav").addClass("active-nav")
+    }
+    if (localStorage.getItem("nav-current")==="about") {
+        $("#about-nav").addClass("active-nav")
+    }
 })
+
+
 
 // click price search in filter search
 $(function() {
     $("#price-search-01").click(() => {
+        $(".price-search").css("background-color", "grey")
+        $(".hidden-checkbox-price").prop('checked', false)
+        $("#hidden-checkbox-price-1").prop('checked', true)
+        $("#hidden-checkbox-price-1").attr('checked', true)
         $("#price-search-01").css("background-color", "#5f2525");
     });
     $("#price-search-02").click(() => {
+        $(".price-search").css("background-color", "grey")
+        $(".hidden-checkbox-price").prop('checked', false)
+        $("#hidden-checkbox-price-2").prop('checked', true)
+        $("#hidden-checkbox-price-2").attr('checked', true)
         $("#price-search-02").css("background-color", "#5f2525");
     });
     $("#price-search-03").click(() => {
+        $(".price-search").css("background-color", "grey")
+        $(".hidden-checkbox-price").prop('checked', false)
+        $("#hidden-checkbox-price-3").prop('checked', true)
+        $("#hidden-checkbox-price-3").attr('checked', true)
         $("#price-search-03").css("background-color", "#5f2525");
     });
 });
@@ -236,53 +269,57 @@ function setUpCategoryNav() {
 }
 
 
-// let listProduct = [
-// {brand:"Nike", name:"Air Force One 1", saleRate:"20",oldPrice:"1.200.000", newPrice:"1.000.000",linkImg:"image/product/product-01.jpg"},
-// {brand:"Nike", name:"Phantom GT Elite Firm Ground Football Boots Juniors", saleRate:"25",oldPrice:"1.900.000", newPrice:"800.000",linkImg:"image/product/product-02.jpg"},
-// {brand:"Nike", name:"Air Force One 1", saleRate:"20",oldPrice:"1.200.000", newPrice:"1.500.000",linkImg:"image/product/product-03.webp"},
-// {brand:"Nike", name:"Air Force One 1", saleRate:"30",oldPrice:"2.200.000", newPrice:"1.900.000",linkImg:"image/product/product-04.webp"},
-// {brand:"Nike", name:"Air Force One 1", saleRate:"15",oldPrice:"3.200.000", newPrice:"2.200.000",linkImg:"image/product/product-05.webp"},
-// {brand:"Nike", name:"Air Force One 1", saleRate:"10",oldPrice:"2.200.000", newPrice:"1.800.000",linkImg:"image/product/product-06.jpg"},
-// {brand:"Nike", name:"Air Force One 1", saleRate:"2",oldPrice:"3.200.000", newPrice:"1.200.000",linkImg:"image/product/product-07.webp"},
-// {brand:"Nike", name:"Air Force One 1", saleRate:"12",oldPrice:"2.200.000", newPrice:"2.000.000",linkImg:"image/product/product-08.jpg"},
-// {brand:"Nike", name:"Air Force One 1", saleRate:"15",oldPrice:"3.200.000", newPrice:"3.000.000",linkImg:"image/product/product-09.webp"},
-//
-//
-// ]
-// function displayListProduct() {
-//     listProduct.forEach(element => {
-//         let contain = `<div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="background-color: white; padding: 10px 0">
-//         <div class="product-thumb">
-//           <div class="image product-imageblock">
-//             <a href="product.html">
-//                 <div class="related-product-sale">
-//                    <h5 style='margin-top: 10px'> -20%</h5>
-//                  </div>
-// <img id="imgCategory" src="${element.linkImg}" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive item-img-list" /> </a>
-//             <div class="button-group">
-//               <button type="button" class="addtocart-btn">Mua ngay</button>
-//             </div>
-//           </div>
-//           <div class="caption product-detail">
-//          <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>${element.brand}</h2>
-//             <h4 class="product-name">
-// <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy" style='text-transform: capitalize'>
-// ${element.name}</a> </h4>
-//             <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go. Cover
-//               Flow. Browse through your music collection by flipping..</p>
-//             <p id="priceCategory" class="price product-price"><span class="price-old" style='margin-right: 10px'>${element.oldPrice} VND</span>${element.newPrice} VND </p>
-//             <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>                                    </div>
-//           </div>
-//           <div class="button-group">
-//             <button type="button" class="addtocart-btn">Mua ngay</button>
-//           </div>
-//         </div>
-//       </div>`;
-// $(".grid-list-wrapper").append(contain);
-//     });
-//
-//
-// }
+let listProduct = [
+    {brand:"Nike", name:"Air Force One 1", saleRate:"20",oldPrice:"1.200.000", newPrice:"1.000.000",linkImg:"image/product/product-01.jpg"},
+    {brand:"Nike", name:"Phantom GT Elite Firm Ground Football Boots Juniors", saleRate:"25",oldPrice:"1.900.000", newPrice:"800.000",linkImg:"image/product/product-02.jpg"},
+    {brand:"Nike", name:"Air Force One 1", saleRate:"20",oldPrice:"1.200.000", newPrice:"1.500.000",linkImg:"image/product/product-03.webp"},
+    {brand:"Nike", name:"Air Force One 1", saleRate:"30",oldPrice:"2.200.000", newPrice:"1.900.000",linkImg:"image/product/product-04.webp"},
+    {brand:"Nike", name:"Air Force One 1", saleRate:"15",oldPrice:"3.200.000", newPrice:"2.200.000",linkImg:"image/product/product-05.webp"},
+    {brand:"Nike", name:"Air Force One 1", saleRate:"10",oldPrice:"2.200.000", newPrice:"1.800.000",linkImg:"image/product/product-06.jpg"},
+    {brand:"Nike", name:"Air Force One 1", saleRate:"2",oldPrice:"3.200.000", newPrice:"1.200.000",linkImg:"image/product/product-07.webp"},
+    {brand:"Nike", name:"Air Force One 1", saleRate:"12",oldPrice:"2.200.000", newPrice:"2.000.000",linkImg:"image/product/product-08.jpg"},
+    {brand:"Nike", name:"Air Force One 1", saleRate:"15",oldPrice:"3.200.000", newPrice:"3.000.000",linkImg:"image/product/product-09.webp"},
+
+
+]
+function displayListProduct() {
+    listProduct.forEach(element => {
+        let contain = `<div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="background-color: white; padding: 10px 0">
+        <div class="product-thumb">
+          <div class="image product-imageblock">
+            <a href="product.html">
+                <div class="related-product-sale">
+                   <h5 style='margin-top: 10px'> -20%</h5>
+                 </div>
+<img id="imgCategory" src="${element.linkImg}" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive item-img-list" /> </a>
+            <div class="button-group button-group-list-category">
+            <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+            <button type="button" class="addtocart-btn">Mua Ngay</button>
+            <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>            </div>
+          </div>
+          <div class="caption product-detail intro-product-detail-list">
+         <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>${element.brand}</h2>
+            <h4 class="product-name">
+<a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy" style='text-transform: capitalize'>
+${element.name}</a> </h4> 
+            <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go. Cover
+              Flow. Browse through your music collection by flipping..</p> 
+            <p id="priceCategory" class="price product-price produce-price-list">
+            <span class="price-old" style='margin-right: 10px'>${element.oldPrice} VND</span>
+            ${element.newPrice} VND </p>
+            <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>                                    </div>
+          </div>
+          <div class="button-group button-group-list-category">
+          <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
+          <button type="button" class="addtocart-btn">Mua Ngay</button>
+          <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>          </div>
+        </div>
+      </div>`;
+        $(".grid-list-wrapper").append(contain);
+    });
+
+
+}
 
 
 
@@ -290,30 +327,30 @@ function setUpCategoryNav() {
 
 
 /* display listProduct by click navigation*/
-// $(function() {
-//     let man = $(".category-product");
-//     for (let i = 0; i < man.length; i++) {
-//         man[i].addEventListener("click", (e) => {
-//             $(".contain-carousel-category").css("display", "none");
-//             // displayListProduct();
-//             displayPagination()
-//             return;
-//         });
-//     }
-// })
+$(function() {
+    let man = $(".category-product");
+    for (let i = 0; i < man.length; i++) {
+        man[i].addEventListener("click", (e) => {
+            $(".contain-carousel-category").css("display", "none");
+            displayListProduct();
+            displayPagination()
+            return;
+        });
+    }
+})
 
 // to set category man or category woman
 $(function () {
     $("#category-man").click(() => {
         localStorage.setItem("currentPageCategory", "man");
         localStorage.setItem("categoryByNav", "");
-           $(".contain-carousel-category").css("display", "block");
-           $(".grid-list-wrapper").empty();
+        $(".contain-carousel-category").css("display", "block");
+        $(".grid-list-wrapper").empty();
     });
     $("#category-woman").click(() => {
         localStorage.setItem("currentPageCategory", "woman");
         localStorage.setItem("categoryByNav", "");
-        $(".contain-carousel-category").css("display", "block"); 
+        $(".contain-carousel-category").css("display", "block");
         $(".grid-list-wrapper").empty();
     });
 });
@@ -337,42 +374,42 @@ listIntroCategoryWoman.push("data/product/Shoe/Football/FootballWoman.js");
 
 
 function loadImageCarouselAndIntroduceCategory() {
-    // if (localStorage.getItem("currentPageCategory") == "man") {
-    //     // $("#category-carousel-intro-1").attr("src", "image/banners/men-intro-carousel1.webp");
-    //     // $("#category-carousel-intro-2").attr("src", "image/banners/men-intro-carousel2.webp");
-    //     // $("#category-carousel-intro-3").attr("src", "image/banners/men-intro-carousel-3.jpg");
-    //     $("#category-intro-img-hitops").attr("src", "image/category/man-Hitops.webp");
-    //     $("#category-intro-img-running").attr("src", "image/category/man-running.webp");
-    //     $("#category-intro-img-slides").attr("src", "image/category/man-slides.jpg");
-    //     $("#category-intro-img-football").attr("src", "image/category/man-football.webp");
-    //     $("#category-intro-img-sneakers").attr("src", "image/category/man-sneakers.jpg");
-    //     $("#category-intro-img-skateboard").attr("src", "image/category/man-skateboard.jpg");
-    // }
-    // else {
-    //     // $("#category-carousel-intro-1").attr("src", "image/banners/women-intro-carousel1.webp");
-    //     // $("#category-carousel-intro-2").attr("src", "image/banners/women-intro-carousel2.webp");
-    //     // $("#category-carousel-intro-3").attr("src", "image/banners/women-intro-carousel3.webp");
-    //     $("#category-intro-img-hitops").attr("src", "image/category/woman-hitops.jpg");
-    //     $("#category-intro-img-running").attr("src", "image/category/running-woman.webp");
-    //     $("#category-intro-img-slides").attr("src", "image/category/woman-slide.jpg");
-    //     $("#category-intro-img-football").attr("src", "image/category/woman-football.jfif");
-    //     $("#category-intro-img-sneakers").attr("src", "image/category/woman-sneakers.webp");
-    //     $("#category-intro-img-skateboard").attr("src", "image/category/woman-skateboard.jfif");
-    // }
+    if (localStorage.getItem("currentPageCategory") == "man") {
+        $("#category-carousel-intro-1").attr("src", "image/banners/men-intro-carousel1.webp");
+        $("#category-carousel-intro-2").attr("src", "image/banners/men-intro-carousel2.webp");
+        $("#category-carousel-intro-3").attr("src", "image/banners/men-intro-carousel-3.jpg");
+        $("#category-intro-img-hitops").attr("src", "image/category/man-Hitops.webp");
+        $("#category-intro-img-running").attr("src", "image/category/man-running.webp");
+        $("#category-intro-img-slides").attr("src", "image/category/man-slides.jpg");
+        $("#category-intro-img-football").attr("src", "image/category/man-football.webp");
+        $("#category-intro-img-sneakers").attr("src", "image/category/man-sneakers.jpg");
+        $("#category-intro-img-skateboard").attr("src", "image/category/man-skateboard.jpg");
+    }
+    else {
+        $("#category-carousel-intro-1").attr("src", "image/banners/women-intro-carousel1.webp");
+        $("#category-carousel-intro-2").attr("src", "image/banners/women-intro-carousel2.webp");
+        $("#category-carousel-intro-3").attr("src", "image/banners/women-intro-carousel3.webp");
+        $("#category-intro-img-hitops").attr("src", "image/category/woman-hitops.jpg");
+        $("#category-intro-img-running").attr("src", "image/category/running-woman.webp");
+        $("#category-intro-img-slides").attr("src", "image/category/woman-slide.jpg");
+        $("#category-intro-img-football").attr("src", "image/category/woman-football.jfif");
+        $("#category-intro-img-sneakers").attr("src", "image/category/woman-sneakers.webp");
+        $("#category-intro-img-skateboard").attr("src", "image/category/woman-skateboard.jfif");
+    }
 }
 $(window).ready(loadImageCarouselAndIntroduceCategory);
 
 
 
-// function displayPagination() {
-//     let contain = "<span>Page  </span><select id=\"selectPagination\">";
-//     for (let i = 1; i <= 9; i++)
-//         contain += `<option value="${i}">${i}</option>`
-//     contain += `</select> <span> of 9 </span>`;
-//     $(".pagination").append(`<li><a href="#" id="left-page">&lt;</a></li><li><a href="#" id="right-page">&gt;</a></li>`);
-//     $(".pagination").append(contain);
-//     $(`#selectPagination option[value=1]`).attr('selected', 'selected');
-// };
+function displayPagination() {
+    let contain = "<span>Page  </span><select id=\"selectPagination\">";
+    for (let i = 1; i <= 9; i++)
+        contain += `<option value="${i}">${i}</option>`
+    contain += `</select> <span> of 9 </span>`;
+    $(".pagination").append(`<li><a href="#" id="left-page">&lt;</a></li><li><a href="#" id="right-page">&gt;</a></li>`);
+    $(".pagination").append(contain);
+    $(`#selectPagination option[value=1]`).attr('selected', 'selected');
+};
 
 
 
@@ -398,29 +435,33 @@ function accessInfoCustomer() {
         $("#nav-info-customer").addClass("customer-category-after-click");
         $("#info-customer").addClass("display-default-customer")
     });
+
+    $("#nav-favorite-customer").click(() => {
+        resetAllSectionCustomer();
+        $("#favorite-customer").css("display", "flex");
+        $("#nav-favorite-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
+    });
+
     $("#nav-bank-customer").click(() => {
         resetAllSectionCustomer();
         $("#bank-customer").css("display", "block");
         $("#nav-bank-customer").addClass("customer-category-after-click");
         removeDefaultNavContentCategory()
-        });
+    });
     $("#nav-map-customer").click(() => {
         resetAllSectionCustomer();
         $("#map-customer").css("display", "block");
         $("#nav-map-customer").addClass("customer-category-after-click");
-        removeDefaultNavContentCategory() 
-       });
+        removeDefaultNavContentCategory()
+    });
     $("#nav-password-customer").click(() => {
         resetAllSectionCustomer();
         $("#password-customer").css("display", "block");
         $("#nav-password-customer").addClass("customer-category-after-click");
         removeDefaultNavContentCategory()
     });
-    // $("#nav-cart-customer").click(() => {
-    //     resetAllSectionCustomer();
-    //     $("#cart-customer").css("display", "block");
-    //     $("#nav-cart-customer").addClass("customer-category-after-click");
-    // });
+
     $("#nav-history-customer").click(() => {
         resetAllSectionCustomer();
         $("#history-customer").css("display", "block");
@@ -458,13 +499,14 @@ function resetAllSectionCustomer() {
     $("#nav-bank-customer").removeClass("customer-category-after-click");
     $("#nav-map-customer").removeClass("customer-category-after-click");
     $("#nav-password-customer").removeClass("customer-category-after-click");
-    // $("#nav-cart-customer").removeClass("customer-category-after-click");
+    $("#nav-favorite-customer").removeClass("customer-category-after-click");
     $("#nav-history-customer").removeClass("customer-category-after-click");
     $("#bank-customer").css("display", "none");
     $("#map-customer").css("display", "none");
     $("#password-customer").css("display", "none");
-    // $("#cart-customer").css("display", "none");
     $("#history-customer").css("display", "none");
+    $("#favorite-customer").css("display", "none")
+
 }
 $(window).ready(resetAllSectionCustomer);
 
@@ -547,4 +589,55 @@ function loadWard(wardCode) {
         $("#contain-option-ward").append(ward);
     }
 }
+
+$(function() {
+    $("#button-filter").click(()=>{
+        // let url = "CategoryProduct?pagination=1";
+
+        let url = $('#form-filter-search').attr('action');
+
+        $('#checkboxBrandFilter input[type=checkbox]').each(function() {
+            if ($(this).is(":checked")) {
+                url += "brand=" + $(this).val() + "&"
+            }
+        });
+
+
+        $('.input-star').each(function() {
+            if ($(this).is(":checked")) {
+                url += "star=" + $(this).val() + "&"
+            }
+        });
+
+
+
+        $('#checkboxPriceOrderFilter input[type=radio]').each(function() {
+            if ($(this).is(":checked")) {
+                url += "highestLowest=" + $(this).val() + "&"
+            }
+        });
+
+        if ($("#hidden-checkbox-price-1").is(":checked")) {
+            url += "underPrice=" + $("#hidden-checkbox-price-1").val() + "&"
+        }
+
+        if ($("#hidden-checkbox-price-2").is(":checked")) {
+            let priceRange = $("#hidden-checkbox-price-2").val().split("&&")
+            url += "fromPrice="+priceRange[0] + "&toPrice="+priceRange[1]+"&"
+        }
+
+        if ($("#hidden-checkbox-price-3").is(":checked")) {
+            url += "upPrice=" + $("#hidden-checkbox-price-3").val() + "&"
+        }
+
+        if ($("#inputFilterPriceFrom").val().length !== 0 )
+            url += "fromInputPrice=" + $("#inputFilterPriceFrom").val() + "&"
+        if ($("#inputFilterPriceTo").val().length !== 0 )
+            url += "toInputPrice=" + $("#inputFilterPriceTo").val() + "&"
+
+        url += "pagination=1"
+        $('#form-filter-search').attr('action', url);
+    })
+})
+
 

@@ -20,6 +20,7 @@ public class ProductDetail extends HttpServlet {
         request.setAttribute("idProduct", idProduct);
         request.getRequestDispatcher("product.jsp").forward(request, response);
 
+        // product was watched
         HttpSession session = request.getSession(true);
         ArrayList<String> listProductWatched = (ArrayList<String>) session.getAttribute("listProductWatched");
         if (listProductWatched == null) {
