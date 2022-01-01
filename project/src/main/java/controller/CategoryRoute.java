@@ -23,11 +23,11 @@ public class CategoryRoute extends HttpServlet {
 
         String category = request.getParameter("category");
         if (category != null) {
-            List<Product> list = DaoProduct.getInstance().getProductByCategory("description", category + " " + categoryGender, 1);
-
-            request.setAttribute("category", category);
-            request.setAttribute("categoryProduct", list);
-            DaoProduct.getInstance().currentCategory = category + " " + categoryGender;
+//            List<Product> list = DaoProduct.getInstance().getProductByCategory("description", null, 1);
+//
+//            request.setAttribute("category", category);
+//            request.setAttribute("categoryProduct", list);
+//            DaoProduct.getInstance().currentCategory = category + " " + categoryGender;
         }
         request.getRequestDispatcher("category.jsp").forward(request, response);
     }

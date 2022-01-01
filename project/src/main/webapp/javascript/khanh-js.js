@@ -61,10 +61,10 @@ function displayMenuNavigation() {
                                     
                                     <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
                                   <li id="running-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="ServletTest123?brand=Running Man&pagination=1" class="link-navigation">Runnings</a>
+                                    <a href="ServletTest123?categoryOnNav=Running Man&pagination=1" class="link-navigation">Runnings</a>
                                     </li>
                                     <li id="slides-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="CategoryProduct?category=Slides Man&categoryGender=description&pagination=1" class="link-navigation">Slides</a>
+                                    <a href="ServletTest123?categoryOnNav=Slides Man&pagination=1" class="link-navigation">Slides</a>
                                     </li>
                                     <li id="sneakers-man"  class="category-product category-product-man" style="color: white">
                                     <a href="CategoryProduct?category=Sneakers Man&categoryGender=description&pagination=1" class="link-navigation">Sneakers</a>
@@ -106,7 +106,7 @@ function displayMenuNavigation() {
                 
          <div class="item-nav-detail-info" id="item-category-brand">
                                         <div class="contain-brand" >
-                                           <img onclick="location.href='CategoryProduct?category=ASICS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-01.svg">
+                                           <img onclick="location.href='ServletTest123?brandOnNav=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
                                             <img onclick="location.href='CategoryProduct?category=ADIDAS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-02.svg">
                                             <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
                                             <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
@@ -190,15 +190,29 @@ $(function() {
     }
 })
 
+
+
 // click price search in filter search
 $(function() {
     $("#price-search-01").click(() => {
+        $(".price-search").css("background-color", "grey")
+        $(".hidden-checkbox-price").prop('checked', false)
+        $("#hidden-checkbox-price-1").prop('checked', true)
+        $("#hidden-checkbox-price-1").attr('checked', true)
         $("#price-search-01").css("background-color", "#5f2525");
     });
     $("#price-search-02").click(() => {
+        $(".price-search").css("background-color", "grey")
+        $(".hidden-checkbox-price").prop('checked', false)
+        $("#hidden-checkbox-price-2").prop('checked', true)
+        $("#hidden-checkbox-price-2").attr('checked', true)
         $("#price-search-02").css("background-color", "#5f2525");
     });
     $("#price-search-03").click(() => {
+        $(".price-search").css("background-color", "grey")
+        $(".hidden-checkbox-price").prop('checked', false)
+        $("#hidden-checkbox-price-3").prop('checked', true)
+        $("#hidden-checkbox-price-3").attr('checked', true)
         $("#price-search-03").css("background-color", "#5f2525");
     });
 });
@@ -578,25 +592,50 @@ function loadWard(wardCode) {
 
 $(function() {
     $("#button-filter").click(()=>{
-        let url = "CategoryProduct?pagination=1";
+        // let url = "CategoryProduct?pagination=1";
+
+        let url = $('#form-filter-search').attr('action');
 
         $('#checkboxBrandFilter input[type=checkbox]').each(function() {
             if ($(this).is(":checked")) {
-                url += "&brand=" + $(this).val()
+                url += "brand=" + $(this).val() + "&"
             }
         });
 
-        $('#checkboxStarFilter input[type=checkbox]').each(function() {
+
+        $('.input-star').each(function() {
             if ($(this).is(":checked")) {
-                url += "&rateStar=" + $(this).val()
+                url += "star=" + $(this).val() + "&"
             }
         });
 
-        $('#checkboxPriceOrderFilter input[type=checkbox]').each(function() {
+
+
+        $('#checkboxPriceOrderFilter input[type=radio]').each(function() {
             if ($(this).is(":checked")) {
-                url += "&price=" + $(this).val()
+                url += "highestLowest=" + $(this).val() + "&"
             }
         });
+
+        if ($("#hidden-checkbox-price-1").is(":checked")) {
+            url += "underPrice=" + $("#hidden-checkbox-price-1").val() + "&"
+        }
+
+        if ($("#hidden-checkbox-price-2").is(":checked")) {
+            let priceRange = $("#hidden-checkbox-price-2").val().split("&&")
+            url += "fromPrice="+priceRange[0] + "&toPrice="+priceRange[1]+"&"
+        }
+
+        if ($("#hidden-checkbox-price-3").is(":checked")) {
+            url += "upPrice=" + $("#hidden-checkbox-price-3").val() + "&"
+        }
+
+        if ($("#inputFilterPriceFrom").val().length !== 0 )
+            url += "fromInputPrice=" + $("#inputFilterPriceFrom").val() + "&"
+        if ($("#inputFilterPriceTo").val().length !== 0 )
+            url += "toInputPrice=" + $("#inputFilterPriceTo").val() + "&"
+
+        url += "pagination=1"
         $('#form-filter-search').attr('action', url);
     })
 })

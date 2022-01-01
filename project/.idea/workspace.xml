@@ -10,12 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ServletTest123.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../excel/product-fix.ods" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CategoryRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CategoryRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ServletTest123.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ServletTest123.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/CategoryRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CategoryRoute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ServletTest123.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ServletTest123.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/CategoryRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/CategoryRoute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ServletTest123.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ServletTest123.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/CategoryProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
     </list>
@@ -74,14 +83,11 @@
       <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\ltw\project\src\main\webapp\WEB-INF\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.711">
+  <component name="RunManager" selected="Tomcat Server.category.jsp">
     <configuration name="category.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/category.html">
       <method v="2" />
     </configuration>
     <configuration name="category.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/category.jsp">
-      <method v="2" />
-    </configuration>
-    <configuration name="product.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project/target/project-1.0-SNAPSHOT/product.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="product.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/product.jsp">
@@ -176,21 +182,60 @@
         </option>
       </method>
     </configuration>
+    <configuration name="category.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.711" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/category.jsp" />
+      <deployment>
+        <artifact name="project:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/project_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="b1930e38-4750-4738-862c-82cbcf364883" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="project:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JavaScript Debug.category.jsp" />
       <item itemvalue="JavaScript Debug.product.jsp" />
-      <item itemvalue="JavaScript Debug.product.html (1)" />
       <item itemvalue="JavaScript Debug.category.html" />
       <item itemvalue="Node.js.khanh-js.js" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.711" />
+      <item itemvalue="Tomcat Server.category.jsp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Tomcat Server.category.jsp" />
         <item itemvalue="JavaScript Debug.category.jsp" />
         <item itemvalue="JavaScript Debug.category.html" />
         <item itemvalue="JavaScript Debug.product.jsp" />
         <item itemvalue="Node.js.khanh-js.js" />
-        <item itemvalue="JavaScript Debug.product.html (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -298,6 +343,15 @@
       <workItem from="1640854329519" duration="3660000" />
       <workItem from="1640858035140" duration="213000" />
       <workItem from="1640861143260" duration="3639000" />
+      <workItem from="1640869573624" duration="2926000" />
+      <workItem from="1640913180884" duration="9157000" />
+      <workItem from="1640922441682" duration="2985000" />
+      <workItem from="1640929245087" duration="4036000" />
+      <workItem from="1640937153879" duration="3616000" />
+      <workItem from="1640941609611" duration="5736000" />
+      <workItem from="1640957472092" duration="5693000" />
+      <workItem from="1640965119591" duration="528000" />
+      <workItem from="1640998348200" duration="6416000" />
     </task>
     <servers />
   </component>
@@ -314,11 +368,6 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/product.jsp</url>
           <line>17</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/category.jsp</url>
-          <line>136</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

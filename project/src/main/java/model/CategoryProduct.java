@@ -35,16 +35,16 @@ public class CategoryProduct extends HttpServlet {
                 request.setAttribute("pagination", pagination);
                 StringBuffer sqlToCountProduct = new StringBuffer(""); // getFilterList se gan gia tri de dung ham totalNumberProduct
                 listFilter = DaoProduct.getInstance().getFilterList(request, sqlToCountProduct);
-                totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("filter-panel", sqlToCountProduct.toString());
+                totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("filter-panel", null);
 
         }
           else if (b.equals("brand")) { // bang null la khong co gioi tinh co nghia la tim theo brand navigation
-                listFilter = DaoProduct.getInstance().getProductByCategory("brand", a, pagination);
-                totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("brand", a);
+               DaoProduct.getInstance().getProductByCategory("brand", null, pagination);
+                totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("brand", null);
             } else if (b.equals("description")){
-                listFilter = DaoProduct.getInstance().getProductByCategory("description", category, pagination);
+                DaoProduct.getInstance().getProductByCategory("description", null, pagination);
                 DaoProduct.getInstance().currentCategory = category;
-                totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("description", category);
+                totalNumberProduct = DaoProduct.getInstance().getTotalNumberProduct("description", null);
             }
 
 
