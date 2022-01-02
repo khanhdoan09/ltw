@@ -75,12 +75,10 @@ public class DaoProduct implements Dao<Product> {
                 sql += " price < ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         } else if (attrProduct.equals("upPrice")) {
-            sql += "&&(";
             for (int i = 0; i < category.length; i++)
                 sql += " price > ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         } else if (attrProduct.equals("fromToPrice")) {
-            sql += "&&(";
             sql += " price BETWEEN ? AND ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         }
@@ -95,6 +93,10 @@ public class DaoProduct implements Dao<Product> {
             for (int i = 0; i < category.length; i++)
                 sql += " starRate=? || ";
             sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
+        }
+        else if (attrProduct.equals("searchInHeader")) {
+            sql += "&&(";
+            sql += "name LIKE ? )";
         }
 
 
@@ -378,56 +380,38 @@ public class DaoProduct implements Dao<Product> {
         return listFilter;
     }
 
-    String sqlCount = "SELECT COUNT(id) FROM product WHERE" + " category=\"" + currentCategory + "\" && (";
 
-    public int getTotalNumberProduct(String attrProduct, String[] category) {
+    public String getTotalNumberProduct(String attrProduct, String[] category) {
+        String sqlCount = "";
         if (attrProduct.equals("category")) {
-            for (int i = 0; i < category.length; i++)
-                sqlCount = sqlCount.substring(0, sqlCount.length() - 4); // to remove || &&
-        } else if (attrProduct.equals("brand")) {
-            sql += "(";
-            for (int i = 0; i < category.length; i++)
-                sqlCount += " brand = ? || ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4) + " ) &&"; // to remove || &&
-        } else if (attrProduct.equals("underPrice")) {
-            sql += "(";
-            for (int i = 0; i < category.length; i++)
-                sqlCount += " price < ? && ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4) + ") &&"; // to remove || &&
-        } else if (attrProduct.equals("upPrice")) {
-            for (int i = 0; i < category.length; i++)
-                sqlCount += " price > ? && ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4) + ""; // to remove || &&
-        } else if (attrProduct.equals("fromToPrice")) {
-            sqlCount += " price BETWEEN ? AND ? && ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4);
+            for (int i = 0; i < category.length; i++) {
+                sqlCount += " category=?        ";
+                System.out.println(789456);
+            }
+                sqlCount +=  "&&"; // to remove || &&
         }
         sqlCount = sqlCount.substring(0, sqlCount.length() - 4);
-        return 0;
+        return sqlCount;
     }
 
-    public int excQueryTotal(ArrayList<String> key, int pagination) {
-        int re = 27;
-//        PreparedStatement s = null;
-//        try {
-//            s = connect.prepareStatement(sqlCount);
-//            for (int i = 0; i < key.size(); i++)
-//                s.setString(i + 1, key.get(i));
-//            ResultSet rs = s.executeQuery();
-//            for (int i = 0; i < key.size(); i++) {
-//                s.setString(i+1, key.get(i));
-//            }
-//
-//
-//            while (rs.next()) {
-//                re = rs.getInt(1);
-//            }
-//            System.out.println(re);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            System.out.println("!!! "+sqlCount);
-//        }
-//        sqlCount = "SELECT COUNT(id) FROM product WHERE" + " category=\"Running Man\" && (";
+    public int excQueryTotal(ArrayList<String> key, int pagination, String sqlCount) {
+        int re = 0;
+        PreparedStatement s = null;
+        try {
+            s = connect.prepareStatement(sqlCount);
+
+            for (int i = 0; i < key.size(); i++) {
+                s.setString(i +1, key.get(i));
+            }
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                re = rs.getInt(1);
+            }
+            System.out.println(re);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("!!! "+sqlCount);
+        }
         return re;
     }
 

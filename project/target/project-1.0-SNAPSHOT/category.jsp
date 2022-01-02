@@ -72,22 +72,24 @@
                 <%
                     request.setAttribute("sql", request.getAttribute("sql"));
                 %>
+
                 <div class="filter-block">
                     <div class="list-group">
                         <a class="list-group-item">Brands</a>
                         <div class="list-group-item">
                             <div class="contain-dropdown-item filter-search" id="checkboxBrandFilter">
-                                <%!ArrayList<String> brandChecked;%>
+                                <%!ArrayList<String> brandChecked;
+                                String[] objFilterBrand; %>
                                 <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
                                 <%
-                                    String[] objFilterBrand = request.getParameterValues("brand");
+                                    objFilterBrand = request.getParameterValues("brand");
                                     if (objFilterBrand != null)
                                         brandChecked = new ArrayList<String>(Arrays.asList(objFilterBrand));
                                 %>
 
                                 <%!
                                     public String isBrandChecked(String brand) {
-                                        if (brandChecked != null) {
+                                        if (objFilterBrand != null) {
                                             if (brandChecked.contains(brand))
                                                 return "checked";
                                         }
@@ -134,48 +136,56 @@
                         <a class="list-group-item">Rates</a>
                         <div class="list-group-item">
                             <div id="filter-group2" class="contain-rate-search" id="checkboxStarFilter">
-                                <%!ArrayList<String> starChecked;%>
                                 <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
+                                <%!ArrayList<String> starChecked;
+                                    String[] objFilterStar;%>
                                 <%
-                                    String[] objFilterStar = request.getParameterValues("star");
+                                    objFilterStar = request.getParameterValues("star");
                                     if (objFilterStar != null)
                                         starChecked = new ArrayList<String>(Arrays.asList(objFilterStar));
                                 %>
 
                                 <%!
                                     public String isStarChecked(String star) {
-                                        if (starChecked != null) {
+                                        if (objFilterStar!= null) {
                                             if (starChecked.contains(star))
                                                 return "checked";
                                         }
                                         return "";
-                                    }%>
+                                    }
+                                    public String colorLabelStar(String star) {
+                                        if (!star.equals(""))
+                                            return "style=\"color: yellow\"";
+                                        return "";
+                                    }
+                                %>
 
-                                <label class="rate-search">
+
+                                <label class="rate-search" id="label-5-star">
                                     <input type="checkbox" name="filter-star-rate"
-                                           value="5" class="input-star" <%=isStarChecked("5")%>/>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                           value="5" class="input-star" id="filter-star-5" <%=isStarChecked("5")%> style="display: none"/>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
                                     <span style="margin-left: 5px">From 5 stars</span>
                                 </label>
-                                <label class="rate-search" >
+                                <label class="rate-search" id="label-4-star">
                                     <input type="checkbox" name="filter-star-rate"
-                                           value="4" class="input-star"  <%=isStarChecked("4")%>/>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                           value="4" class="input-star" id="filter-star-4" <%=isStarChecked("4")%> style="display: none"/>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
                                     <span style="margin-left: 5px">From 4 stars</span>
                                 </label>
-                                <label class="rate-search">
+                                <label class="rate-search" id="label-3-star">
                                     <input type="checkbox" name="filter-star-rate"
-                                           value="3" class="input-star"  <%=isStarChecked("3")%>/>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                           value="3" class="input-star" id="filter-star-3" <%=isStarChecked("3")%> style="display: none"/>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("3"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("3"))%>></i>
+                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("3"))%>></i>
                                     <span style="margin-left: 5px">From 3 stars</span>
                                 </label>
                             </div>
@@ -184,45 +194,120 @@
                         <div class="list-group-item">
                             <div id="filter-group3" class="contain-price-search">
                                 <div class="price-search-highest-lowest" id="checkboxPriceOrderFilter">
+                                    <%!ArrayList<String> highestLowestChecked;
+                                        String[] objFilterHighestLowest;%>
+                                    <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
+                                    <%
+                                        objFilterHighestLowest = request.getParameterValues("highestLowest");
+                                        if (objFilterHighestLowest != null)
+                                            highestLowestChecked = new ArrayList<String>(Arrays.asList(objFilterHighestLowest));
+                                    %>
+
+                                    <%!
+                                        public String isHighestLowestChecked(String highestLowest) {
+                                            if (objFilterHighestLowest != null) {
+                                                if (highestLowestChecked.contains(highestLowest))
+                                                    return "checked";
+                                            }
+                                            return "";
+                                        }%>
                                     <input type="radio" id="price-search-highest" name="price-search-radio"
-                                           value="DESC"/>
+                                           value="DESC" <%=isHighestLowestChecked("DESC")%>/>
                                     <label for="price-search-highest">From high to low</label>
                                     <input type="radio" id="price-search-lowest" name="price-search-radio"
-                                           value="ASC"/>
+                                           value="ASC" <%=isHighestLowestChecked("ASC")%>/>
                                     <label for="price-search-lowest">From low to high</label>
                                 </div>
 
                                 <div class="contain-filter-search-range" id="checkboxPriceRangeFilter">
-                                    <label class="price-search" id="price-search-01" for="hidden-checkbox-price-1">
+                                    <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
+                                    <%! String objFilterUnderPrice;
+                                        String objFilterFromPrice;
+                                        String objFilterUpPrice;
+                                    %>
+                                    <%
+                                        objFilterUnderPrice = request.getParameter("underPrice");
+                                        objFilterFromPrice = request.getParameter("fromPrice");
+                                        objFilterUpPrice = request.getParameter("upPrice");
+                                    %>
+
+                                    <%!
+                                        public String isUnderPriceChecked() {
+                                            if (objFilterUnderPrice != null)
+                                                return "checked";
+                                            return "";
+                                        }
+                                        public String isFromPriceChecked() {
+                                            if (objFilterFromPrice != null)
+                                                return "checked";
+                                            return "";
+                                        }
+                                        public String isToUpPriceChecked() {
+                                            if (objFilterUpPrice != null)
+                                                return "checked";
+                                            return "";
+                                        }
+                                    %>
+                                    <%!
+                                    public String colorLabelInputPrice(String isCheck) {
+                                        if (isCheck != null)
+                                            return "style=\"background-color: #5f2525\"";
+                                        return "";
+                                    }
+                                    %>
+                                    <label class="price-search" id="price-search-01" for="hidden-checkbox-price-1" <%=colorLabelInputPrice(objFilterUnderPrice)%>>
                                         Under 50$
                                     </label>
-                                    <input type="checkbox" name="price-range" value="50" class="hidden-checkbox-price"
-                                           id="hidden-checkbox-price-1" style="display: none">
-                                    <label class="price-search" id="price-search-02" for="hidden-checkbox-price-2">
+                                    <input type="checkbox" value="50" class="hidden-checkbox-price"
+                                           id="hidden-checkbox-price-1"  <%=isUnderPriceChecked()%> style="display: none"/>
+                                    <label class="price-search" id="price-search-02" for="hidden-checkbox-price-2" <%=colorLabelInputPrice(objFilterFromPrice)%>>
                                         From 50$ to 150$
                                     </label>
-                                    <input type="checkbox" name="price-range" value="50&&150"
-                                           class="hidden-checkbox-price" id="hidden-checkbox-price-2" style="display: none">
-                                    <label class="price-search" id="price-search-03" for="hidden-checkbox-price-3">
+                                    <input type="checkbox" value="50&&150"
+                                           class="hidden-checkbox-price" id="hidden-checkbox-price-2" <%=isFromPriceChecked()%> style="display: none"/>
+                                    <label class="price-search" id="price-search-03" for="hidden-checkbox-price-3" <%=colorLabelInputPrice(objFilterUpPrice)%>>
                                         Up 150$
                                     </label>
-                                    <input type="checkbox" name="price-range" value="150" class="hidden-checkbox-price"
-                                           id="hidden-checkbox-price-3" style="display: none">
+                                    <input type="checkbox" value="150" class="hidden-checkbox-price"
+                                           id="hidden-checkbox-price-3"  <%=isToUpPriceChecked()%> style="display: none"/>
+
                                 </div>
 
 
                                 <div class="min-max-price-search" id="checkboxPriceInputFilter">
-                                    <input type="text" name="input-range-filter-price" value="" class="min-search"
+                                    <%!ArrayList<String> fromInputPriceChecked;
+                                        ArrayList<String> toInputPriceChecked;
+                                    %>
+                                    <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
+                                    <%! String objFilterFromInputPrice;
+                                        String objFilterToInputPrice;
+                                    %>
+                                    <%
+                                        objFilterFromInputPrice = request.getParameter("fromInputPrice");
+                                        objFilterToInputPrice = request.getParameter("toInputPrice");
+                                    %>
+
+                                    <%!
+                                        public String isFromInputPriceChecked() {
+                                            if (objFilterFromInputPrice != null)
+                                                return objFilterFromInputPrice;
+                                            return "";
+                                        }
+                                        public String isToInputPriceChecked() {
+                                            if (objFilterToInputPrice != null)
+                                                return objFilterToInputPrice;
+                                            return "";
+                                        }%>
+                                    <input type="text" name="input-range-filter-price" value="<%=isFromInputPriceChecked()%>" class="min-search"
                                            placeholder="Từ" id="inputFilterPriceFrom">
                                     <p style="font-size: 50px; margin: 0 10px">-</p>
-                                    <input type="text" name="input-range-filter-price" value="" class="max-search"
+                                    <input type="text" name="input-range-filter-price" value="<%=isToInputPriceChecked()%>" class="max-search"
                                            placeholder="Đến" id="inputFilterPriceTo">
                                 </div>
-                                <%
-                                    Object err = request.getAttribute("errorInputPrice");
-                                    if (err != null) {
-                                        out.println("<h1 style='display: block; color: red; margin: 10px 0'>" + err.toString() + "</h1>");
-                                    }
+                                <%Object err = request.getAttribute("errorInputPrice");
+                                    if (err != null) {%>
+                                        <%="<h1 style='display: block; color: red; margin: 10px 0'>" + err.toString() + "</h1>"%>
+                                    <%}
                                 %>
                             </div>
                         </div>
@@ -244,7 +329,7 @@
 
             <%
                 int pagination = 1;
-                Object objPagination = request.getAttribute("Pagination");
+                Object objPagination = request.getAttribute("pagination");
                 if (objPagination != null) {
                     pagination = Integer.parseInt(objPagination.toString());
                 }
@@ -323,7 +408,9 @@
                     <ul class="pagination">
                         <%
                             int totalNumber = (int) request.getAttribute("TotalNumberProduct");
-                            int lengthPagination = (int) Math.ceil(totalNumber / 9);%>
+                            double d = totalNumber;
+                            int lengthPagination = (int) Math.ceil(d / 9);%>
+                        <%="~~~~"+lengthPagination + "!@#!@#!@#"%>
                         <li>
 <%--                            <a id="left-page"--%>
 <%--                               href="--%>
@@ -362,8 +449,14 @@
                         </li>
                         <span>Page</span>
                         <select id="selectPagination" onchange="location = this.value;">
-                            <%for (int j = 1; j <= lengthPagination; j++) {%>
-                            <option value="CategoryProduct?category=<%=request.getAttribute("category")%>&categoryGender=<%=request.getAttribute("categoryGender")%>&pagination=<%=j%>"
+
+                            <%=URLDecoder.decode("ServletTest123?"+pagStrRight, "UTF-8")%>">&gt;
+                            <%
+                                for (int j = 1; j <= lengthPagination; j++) {
+                                    pagStr = request.getQueryString().substring(0, request.getQueryString().lastIndexOf("pagination"));
+                                    pagStr += "pagination=" + j;
+                            %>
+                            <option value="<%=URLDecoder.decode("ServletTest123?"+pagStr, "UTF-8")%>"
                                     <% // current pagination
                                         if (j == pagination) {%><%="selected"%> <%}%>><%=j%>
                             </option>

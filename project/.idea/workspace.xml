@@ -11,21 +11,24 @@
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CategoryRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CategoryRoute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ServletTest123.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ServletTest123.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CategoryProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/CategoryRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CategoryRoute.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/ServletTest123.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ServletTest123.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/CategoryProduct.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/CategoryRoute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/CategoryRoute.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ServletTest123.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ServletTest123.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/CategoryProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/CategoryProduct.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -352,6 +355,15 @@
       <workItem from="1640957472092" duration="5693000" />
       <workItem from="1640965119591" duration="528000" />
       <workItem from="1640998348200" duration="6416000" />
+      <workItem from="1641004830891" duration="6025000" />
+      <workItem from="1641017729809" duration="1173000" />
+      <workItem from="1641018981229" duration="8832000" />
+      <workItem from="1641035008870" duration="4734000" />
+      <workItem from="1641045390624" duration="1843000" />
+      <workItem from="1641047270820" duration="1453000" />
+      <workItem from="1641083123000" duration="322000" />
+      <workItem from="1641083517589" duration="14607000" />
+      <workItem from="1641100456201" duration="1462000" />
     </task>
     <servers />
   </component>

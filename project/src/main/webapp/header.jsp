@@ -60,10 +60,10 @@
 
                 <div class="text-center contain-search">
                     <div class="contain-search-product-popular">
-                        <div class="search-product">
-                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                            <button class="search-product-top"><i class="fa fa-search"></i></button>
-                        </div>
+                        <form id="form-header-search" class="search-product" action="">
+                            <input id="input-search-header" class="input-text-search-top" name="input-search-header" placeholder="Tìm kiếm" type="text">
+                            <button type="submit" class="search-product-top" id="button-search-header"><i class="fa fa-search"></i></button>
+                        </form>
                         <div class="contain-search-popular">
                             <span>X-Ray 2</span>
                             <span>Nike Air Force 2</span>
