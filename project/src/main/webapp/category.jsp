@@ -341,7 +341,7 @@
                         Product p = list.get(i);
             %>
 
-            <div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="height: fit-content">
+            <div class=" product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="height: fit-content">
                 <div class="product-thumb">
                     <div class="image product-imageblock">
                         <a href="ProductDetail?idProduct=<%=p.getId()%>">
