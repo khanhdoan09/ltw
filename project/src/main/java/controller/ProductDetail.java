@@ -1,11 +1,15 @@
 package controller;
 
+import model.DaoProduct;
+import model.Product;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import javax.xml.ws.http.HTTPBinding;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "ProductDetail", value = "/ProductDetail")
 public class ProductDetail extends HttpServlet {
@@ -17,6 +21,10 @@ public class ProductDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idProduct = request.getParameter("idProduct");
+        List<Product> listHotProduct = DaoProduct.getInstance().getListHotProduct(idProduct);
+        request.setAttribute("listHotProduct", listHotProduct);
+        System.out.println(listHotProduct.size());
+
         request.setAttribute("idProduct", idProduct);
         request.getRequestDispatcher("product.jsp").forward(request, response);
 

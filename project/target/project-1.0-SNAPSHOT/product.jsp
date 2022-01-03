@@ -2,7 +2,8 @@
 <%@ page import="model.Product" %>
 <%@ page import="model.DaoLinkImage" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Map" %><%--
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: khanh
   Date: 12/10/2021
@@ -553,20 +554,25 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                         <div class="mainbanner">
                             <div id="main-banner" class="owl-carousel home-slider"
                                  style="display: flex; justify-content: space-between;">
+                                <%
+                                    List<Product> listHotProduct = (List<Product>) request.getAttribute("listHotProduct");
+                                for (Product product : listHotProduct) {%>
                                 <div class="itm bd-rd bg-white">
                                     <div class="item" style="display: grid; place-items: center;">
                                         <div class="product-thumb transition" style="width: 100%;">
                                             <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="image/product/product-05.jpg"
+                                                <a href="product.html"> <img src="data/imgAll/<%=map.get(product.getId()).get(0)%>.jpg"
                                                                              alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                             class="img-responsive" /> </a>
+                                                                             class="img-responsive" />
+
+                                                </a>
 
                                             </div>
                                             <div class="caption product-detail-hot" style="padding: 10px;">
                                                 <h4 class="product-name"><a href="product.html"
-                                                                            title="lorem ippsum dolor dummy">Nike Air Force 1</a></h4>
-                                                <p class="price product-price"> <span class="price-new">90.99$</span> <span
-                                                        class="price-old">159.99$</span> <span class="price-tax">Ex Tax:
+                                                                            title="lorem ippsum dolor dummy"><%=product.getName()%></a></h4>
+                                                <p class="price product-price"> <span class="price-new"><%=product.getPrice()-product.getPrice()*product.getSaleRate()/100%></span> <span
+                                                        class="price-old"><%=product.getPrice()%></span> <span class="price-tax">Ex Tax:
                                                 210.00$</span> </p>
                                             </div>
                                             <div class="button-group pd-bt-5 button-hot-product">
@@ -579,61 +585,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item bd-rd bg-white">
-
-                                    <div class="item" style="width: 100%; display: grid; place-items: center;">
-                                        <div class="product-thumb transition">
-                                            <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="image/product/product-01.jpg"
-                                                                             alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                             class="img-responsive" /> </a>
-
-                                            </div>
-                                            <div class="caption product-detail-hot" style="padding: 10px; ">
-                                                <h4 class="product-name"><a href="product.html"
-                                                                            title="lorem ippsum dolor dummy">Vans Classic Slip-On Checkered Platfrom
-                                                    Shose</a></h4>
-                                                <p class="price product-price"> <span class="price-new">99.99$</span> <span
-                                                        class="price-old">119.99$</span> <span class="price-tax">Ex Tax:
-                                                210.00$</span> </p>
-                                            </div>
-                                            <div class="button-group pd-bt-5 button-hot-product">
-                                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                                <button type="button" class="compare" data-toggle="tooltip"
-                                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item bd-rd bg-white">
-
-                                    <div class="item" style="width: 100%; display: grid; place-items: center;">
-                                        <div class="product-thumb transition">
-                                            <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="image/product/product-06.jpg"
-                                                                             alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                             class="img-responsive" /> </a>
-
-                                            </div>
-                                            <div class="caption product-detail-hot" style="padding: 10px;">
-                                                <h4 class="product-name"><a href="product.html"
-                                                                            title="lorem ippsum dolor dummy">Under Armour Platfrom Shose</a></h4>
-                                                <p class="price product-price"> <span class="price-new">89.99$</span> <span
-                                                        class="price-old">100.99$</span> <span class="price-tax">Ex Tax:
-                                                210.00$</span> </p>
-                                            </div>
-                                            <div class="button-group pd-bt-5 button-hot-product">
-                                                <button type="button" class="wishlist" data-toggle="tooltip"
-                                                        title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                                <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                                <button type="button" class="compare" data-toggle="tooltip"
-                                                        title="Compare this Product"><i class="fas fa-shopping-cart"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <%}%>
                             </div>
                         </div>
 

@@ -481,4 +481,30 @@ public class DaoProduct implements Dao<Product> {
             re += p.getId()+"@@##**"+p.getName() + "\n"; // to split id and name
         return re.trim();
     }
+
+
+    public List<Product> getListHotProduct(String id) {
+        List<Product> re = new ArrayList<Product>();
+        PreparedStatement s = null;
+        String sql = "SELECT id, brand, category, Active, name, price, saleRate FROM product WHERE id!=? ORDER BY starRate, saleRate DESC LIMIT 0, 5";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String idCur = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                Product product = new Product(idCur, brand, name, categoryP, price, saleRate, active);
+                re.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header " + sql);
+        }
+        return re;
+    }
 }
