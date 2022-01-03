@@ -95,7 +95,7 @@ public class DaoProduct implements Dao<Product> {
             sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
         }
         else if (attrProduct.equals("searchInHeader")) {
-            sql += "&&(";
+            sql += "(";
             sql += "name LIKE ? )";
         }
 
@@ -453,5 +453,32 @@ public class DaoProduct implements Dao<Product> {
             System.out.println("~~~*** " + sqlNav);
         }
         return re;
+    }
+
+    public List<Product> getDataFromWordInSearchHeader(String word) {
+        List<Product> re = new ArrayList<Product>();
+        PreparedStatement s = null;
+        String sql = "SELECT id, name FROM product WHERE name LIKE ? LIMIT 0, 10";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, "%"+word+"%");
+
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String name = rs.getString("name");
+                re.add(new Product(id, name));
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header" + sql);
+        }
+        return re;
+    }
+
+    public String analysisArrayList(List<Product> list) {
+        String re = "";
+        for (Product p : list)
+            re += p.getId()+"@@##**"+p.getName() + "\n"; // to split id and name
+        return re.trim();
     }
 }

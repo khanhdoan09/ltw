@@ -260,7 +260,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6" style="display: flex; flex-direction: column">
-                    <h1 class="productpage-title">Yeezy QNTM Casual</h1>
+                    <h1 class="productpage-title"><%=p.getName()%></h1>
                     <div class="rating product">
 
                         <%if (p.getStarRate()== 3) {%>

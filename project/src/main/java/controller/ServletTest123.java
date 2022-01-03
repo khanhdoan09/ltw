@@ -24,6 +24,20 @@ public class ServletTest123 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String wordSearchHeader = request.getParameter("wordSearchHeader");
+        if (wordSearchHeader != null) {
+            response.setContentType("text/plain");
+            response.setCharacterEncoding("UTF-8");
+            List<Product> words = DaoProduct.getInstance().getDataFromWordInSearchHeader(wordSearchHeader);
+            if (words != null) {
+                response.getWriter().write(DaoProduct.getInstance().analysisArrayList(words));
+            }
+            else
+                response.getWriter().write("none");
+            return;
+        }
+
+
         String a = request.getParameter("category");
         Object b = request.getParameter("categoryGender");
         int pagination = 1;
@@ -74,19 +88,25 @@ public class ServletTest123 extends HttpServlet {
             String[] categoryT = request.getParameterValues("category");
             String brandT = request.getParameter("brand");
 
-            if (categoryT != null) {
+             if (searchInHeader != null) {
+                 sql = " FROM product WHERE "; // 1=1 la do && brand = ""
+                 sql += DaoProduct.getInstance().getProductByCategory("searchInHeader", searchInHeader, pagination);
+                 request.setAttribute("TypeCategory", "input-search-header");
+                 request.setAttribute("ValueCategory", searchInHeader[0]);
+                 searchInHeader[0] = "%"+searchInHeader[0]+"%";
+                 list.add(searchInHeader[0]);
+             }
+            else if (categoryT != null) {
                 request.setAttribute("TypeCategory", "category");
                 request.setAttribute("ValueCategory", categoryT[0]);
                 sql = " FROM product WHERE category=?";
                 list.addAll(Arrays.asList(categoryT));
-
             }
             else if (categoryT == null) { // luc nay la tim kiem bang brand tren navigation
                 request.setAttribute("TypeCategory", "brand");
                 request.setAttribute("ValueCategory", brandT);
                 sql = " FROM product WHERE (1=1) "; // 1=1 la do && brand = ""
             }
-
             if (brands != null) {
                 sql += DaoProduct.getInstance().getProductByCategory("brand", brands, pagination);
                 list.addAll(Arrays.asList(brands));
@@ -119,7 +139,6 @@ public class ServletTest123 extends HttpServlet {
                 sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice, pagination);
                 list.addAll(Arrays.asList(upPrice));
             }
-
             if (fromInputPrice != null && toInputPrice != null) {
                 try {
                     int to=0;
@@ -170,22 +189,15 @@ public class ServletTest123 extends HttpServlet {
                     sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest, pagination);
                 }
             }
-             if (searchInHeader != null) {
-                 sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE (1=1)"; // 1=1 la do && brand = ""
-                 sql += DaoProduct.getInstance().getProductByCategory("searchInHeader", searchInHeader, pagination);
-                 searchInHeader[0] = "%"+searchInHeader[0]+"%";
-                 list.addAll(Arrays.asList(searchInHeader));
-             }
+
              String sqlAll = "SELECT id, brand, name, category, price, saleRate, Active " + sql;
             request.setAttribute("sql", sqlAll);
             listFilter = DaoProduct.getInstance().excQuery(list, pagination, sqlAll);
-
-            System.out.println(sql);
-        }
+             System.out.println("SqlAll: "+sqlAll);
+         }
         sqlAllCount += sql;
-        System.out.println(sqlAllCount + "~~~~~~~~~~~@#$@#$#$@#");
+        System.out.println("sqlAllCount: " + sqlAllCount);
         totalNumberProduct = DaoProduct.getInstance().excQueryTotal(list, pagination, sqlAllCount);
-        System.out.println("total :" + sqlAllCount);
         request.setAttribute("TotalNumberProduct", totalNumberProduct);
         request.setAttribute("pagination", pagination);
         request.setAttribute("folderImage", folderImage);

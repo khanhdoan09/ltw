@@ -41,6 +41,12 @@ public class Product {
         this.active = active;
     }
 
+    // search in header
+    public Product (String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, int totalValue, int soleValue, String create_at, String update_at, String description, String idVoucher, int active) {
         this.id = id;
         this.brand = brand;
