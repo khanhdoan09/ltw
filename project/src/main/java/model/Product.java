@@ -139,4 +139,8 @@ public class Product {
                 ", active=" + active +
                 '}';
     }
+
+    public double gettotal() {
+        return soleValue * (price-(price*saleRate/100));
+    }
 }

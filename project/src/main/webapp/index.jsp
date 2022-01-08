@@ -39,7 +39,7 @@
 <br/>
 <a href="category.jsp">Hello Servlet</a>
     <%
-    out.println(request.getAttribute("id"));
+    System.out.println(request.getAttribute("id"));
     %>
 </body>
 </html>
