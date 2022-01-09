@@ -10,7 +10,6 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
 
-<jsp:useBean id="cart" scope="request" type="model.Cart"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +81,7 @@
                                     <a href="product.html"><img class="img-thumbnail"
                                                                 title="women's New Wine is an alcoholic"
                                                                 alt="women's New Wine is an alcoholic"
-                                                                src="data/imgAll/009318_a.jpg"></a>
+                                                                src="data/imgAll/009318_d.jpg"></a>
                                 </td>
                                 <td class="text-left"><a href="product.html">${item.name}</a>
                                 </td>
@@ -96,6 +95,7 @@
                                                         type="submit" data-original-title="Update"><i
                                                         class="fa fa-refresh"></i></button>
                                                 <button class="btn btn-danger" title="" data-toggle="tooltip"
+                                                        pid=""
                                                         type="button" data-original-title="Remove"><i
                                                         class="fa fa-times-circle"></i></button>
                                             </span>
@@ -181,7 +181,7 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <div class="pull-left"><a class="btn btn-default" href="index.html">Tiếp Tục Mua Sắm</a></div>
+                    <div class="pull-left"><a class="btn btn-default" href="/project/ServletTest123">Tiếp Tục Mua Sắm</a></div>
                     <div class="pull-right"><a class="btn btn-primary" href="checkout.html" id="Thanhtoan">Thanh
                         Toán</a></div>
                 </div>
@@ -193,6 +193,8 @@
 
 <%@include file="footer_login_message.jsp"%>
 <script src="./javascript/hung-js.js"></script>
+
+
 </body>
 
 </html>
