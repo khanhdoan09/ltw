@@ -11,23 +11,39 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "ServletTest123", value = "/ServletTest123")
 public class ServletTest123 extends HttpServlet {
-    private int pagination = 1;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
+    String pag;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String wordSearchHeader = request.getParameter("wordSearchHeader");
+        if (wordSearchHeader != null) {
+            response.setContentType("text/plain");
+            response.setCharacterEncoding("UTF-8");
+            List<Product> words = DaoProduct.getInstance().getDataFromWordInSearchHeader(wordSearchHeader);
+            if (words != null) {
+                response.getWriter().write(DaoProduct.getInstance().analysisArrayList(words));
+            }
+            else
+                response.getWriter().write("none");
+            return;
+        }
+
+
         String a = request.getParameter("category");
         Object b = request.getParameter("categoryGender");
-        String pag = request.getParameter("pagination");
+        int pagination = 1;
+        pag = request.getParameter("pagination");
         if (pag != null) {
-            pagination = Integer.parseInt(pag);
+            pagination = Integer.parseInt(pag.toString());
         }
 
         String category = a;
@@ -35,6 +51,7 @@ public class ServletTest123 extends HttpServlet {
         List<Product> listFilter = new ArrayList<Product>();
         String folderImage = "";
         int totalNumberProduct = 0;
+
 
         String[] categoriesByOnNav = request.getParameterValues("categoryOnNav");
         String[] brandsByOnNav = request.getParameterValues("brandOnNav");
@@ -52,87 +69,137 @@ public class ServletTest123 extends HttpServlet {
 
         ArrayList<String> list = new ArrayList<String>();
         // nav filter
-        if (categoriesByOnNav != null) {
-            listFilter = DaoProduct.getInstance().getProductByCategoryByNav("categoryOnNav", categoriesByOnNav[0], pagination);
-            totalNumberProduct = 27;
 
+        String[] searchInHeader = request.getParameterValues("input-search-header");
+        String sql = "";
+        String sqlAllCount = "SELECT COUNT(id) ";
+
+         if (categoriesByOnNav != null) {
+            listFilter = DaoProduct.getInstance().getProductByCategoryByNav("categoryOnNav", categoriesByOnNav[0], pagination);
+                sql += " FROM product WHERE "+DaoProduct.getInstance().getTotalNumberProduct("category", categoriesByOnNav);
             DaoProduct.currentCategory = categoriesByOnNav[0];
+             list.addAll(Arrays.asList(categoriesByOnNav));
             // use for form action
             request.setAttribute("TypeCategory", "category");
             request.setAttribute("ValueCategory", categoriesByOnNav[0]);
         }
-        else if (brandsByOnNav != null) {
-            listFilter = DaoProduct.getInstance().getProductByCategoryByNav("brandOnNav", brandsByOnNav[0], pagination);
-            totalNumberProduct = 27;
-            // use for form action
-            request.setAttribute("TypeCategory", "brand");
-            request.setAttribute("ValueCategory", brandsByOnNav[0]);
-        }
         else {
             // panel filter
-            String categoryT = request.getParameter("category");
+            String[] categoryT = request.getParameterValues("category");
             String brandT = request.getParameter("brand");
 
-            String sql = "";
-            if (categoryT != null) {
+             if (searchInHeader != null) {
+                 sql = " FROM product WHERE "; // 1=1 la do && brand = ""
+                 sql += DaoProduct.getInstance().getProductByCategory("searchInHeader", searchInHeader, pagination);
+                 request.setAttribute("TypeCategory", "input-search-header");
+                 request.setAttribute("ValueCategory", searchInHeader[0]);
+                 searchInHeader[0] = "%"+searchInHeader[0]+"%";
+                 list.add(searchInHeader[0]);
+             }
+            else if (categoryT != null) {
                 request.setAttribute("TypeCategory", "category");
-                request.setAttribute("ValueCategory", categoryT);
-                sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE category=\"" + categoryT + "\"";
+                request.setAttribute("ValueCategory", categoryT[0]);
+                sql = " FROM product WHERE category=?";
+                list.addAll(Arrays.asList(categoryT));
             }
-            else if (categoryT == null) {
+            else if (categoryT == null) { // luc nay la tim kiem bang brand tren navigation
                 request.setAttribute("TypeCategory", "brand");
                 request.setAttribute("ValueCategory", brandT);
-                sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE brand=\"" + brandT + "\" && ";
+                sql = " FROM product WHERE (1=1) "; // 1=1 la do && brand = ""
             }
             if (brands != null) {
                 sql += DaoProduct.getInstance().getProductByCategory("brand", brands, pagination);
-                DaoProduct.getInstance().getTotalNumberProduct("brand", brands);
                 list.addAll(Arrays.asList(brands));
             }
             if (underPrice != null) {
                 sql += DaoProduct.getInstance().getProductByCategory("underPrice", underPrice, pagination);
-                DaoProduct.getInstance().getTotalNumberProduct("underPrice", underPrice);
                 list.addAll(Arrays.asList(underPrice));
             }
             if (fromPrice != null && toPrice != null) {
                 String[] fromToPrice = {fromPrice[0], toPrice[0]};
+                if (sql.contains(" price ")) { // de khoang trang de phan biet ,price trong select sql
+                    sql = sql.substring(0, sql.length()-1);
+                    sql += " || ";
+                }
+                else {
+                    sql += " && ( ";
+
+                }
                 sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice, pagination);
-                DaoProduct.getInstance().getTotalNumberProduct("fromToPrice", fromToPrice);
                 list.addAll(Arrays.asList(fromToPrice));
             }
             if (upPrice != null) {
+                if (sql.contains(" price ")) {
+                    sql = sql.substring(0, sql.length()-1);
+                    sql += " || ";
+                }
+                else
+                    sql += " && ( ";
+
                 sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice, pagination);
-                DaoProduct.getInstance().getTotalNumberProduct("upPrice", upPrice);
                 list.addAll(Arrays.asList(upPrice));
             }
-
             if (fromInputPrice != null && toInputPrice != null) {
-                String[] fromToPrice = {fromInputPrice[0], toInputPrice[0]};
-                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice, pagination);
-                DaoProduct.getInstance().getTotalNumberProduct("fromToPrice", fromToPrice);
-                list.addAll(Arrays.asList(fromToPrice));
+                try {
+                    int to=0;
+                    int from=0;
+                    try {
+                        from = Integer.parseInt(fromInputPrice[0]);
+                    } catch (Exception e) {
+                        throw new NumberFormatException("from not valid");
+                    }
+                    try {
+                        to = Integer.parseInt(toInputPrice[0]);
+                    } catch (Exception e) {
+                        throw new NumberFormatException("to not valid");
+                    }
+
+                    if (from > to)
+                        throw new ArithmeticException("from not bigger to");
+                    else if (to < 0)
+                        throw new ArithmeticException("to not less than 0");
+                    else if (from < 0)
+                        throw new ArithmeticException("from not less than 0");
+
+                    if (sql.contains(" price ")) {
+                        sql = sql.substring(0, sql.length()-1);
+                        sql += " || ";
+                    }
+                    else
+                        sql += " && ( ";
+
+                    String[] fromToPrice = {"10", "100"};
+                    sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice, pagination);
+                    list.addAll(Arrays.asList(fromToPrice));
+                } catch (NumberFormatException e) {
+                    request.setAttribute("errorInputPrice", e.getMessage());
+                } catch (ArithmeticException e) {
+                    request.setAttribute("errorInputPrice", e.getMessage());
+                }
             }
             if (star != null) {
                 sql += DaoProduct.getInstance().getProductByCategory("star", star, pagination);
-                DaoProduct.getInstance().getTotalNumberProduct("star", star);
                 list.addAll(Arrays.asList(star));
             }
             if (highestLowest != null) {
                 if (highestLowest[0].equals("DESC")) {
                     sql += DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest, pagination);
-                    DaoProduct.getInstance().getTotalNumberProduct("highestPrice", highestLowest);
                 }
                 else{
                     sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest, pagination);
-                    DaoProduct.getInstance().getTotalNumberProduct("lowestPrice", highestLowest);
                 }
             }
-            request.setAttribute("sql", sql);
-            listFilter = DaoProduct.getInstance().excQuery(list, pagination, sql);
-            totalNumberProduct = DaoProduct.getInstance().excQueryTotal(list, pagination);
-        }
+
+             String sqlAll = "SELECT id, brand, name, category, price, saleRate, Active " + sql;
+            request.setAttribute("sql", sqlAll);
+            listFilter = DaoProduct.getInstance().excQuery(list, pagination, sqlAll);
+             System.out.println("SqlAll: "+sqlAll);
+         }
+        sqlAllCount += sql;
+        System.out.println("sqlAllCount: " + sqlAllCount);
+        totalNumberProduct = DaoProduct.getInstance().excQueryTotal(list, pagination, sqlAllCount);
         request.setAttribute("TotalNumberProduct", totalNumberProduct);
-        request.setAttribute("Pagination", pagination);
+        request.setAttribute("pagination", pagination);
         request.setAttribute("folderImage", folderImage);
         request.setAttribute("categoryProduct", listFilter);
         request.setAttribute("category", a);

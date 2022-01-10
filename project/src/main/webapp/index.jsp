@@ -1,7 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="khanhJava.Product" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="khanhJava.DaoLinkImage" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -41,7 +39,7 @@
 <br/>
 <a href="category.jsp">Hello Servlet</a>
     <%
-    out.println(request.getAttribute("id"));
+    System.out.println(request.getAttribute("id"));
     %>
 </body>
 </html>

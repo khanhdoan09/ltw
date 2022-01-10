@@ -106,8 +106,8 @@ function displayMenuNavigation() {
                 
          <div class="item-nav-detail-info" id="item-category-brand">
                                         <div class="contain-brand" >
-                                           <img onclick="location.href='ServletTest123?brandOnNav=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
-                                            <img onclick="location.href='CategoryProduct?category=ADIDAS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-02.svg">
+                                           <img onclick="location.href='ServletTest123?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
+                                            <img onclick="location.href='ServletTest123?brand=ADIDAS'" src="image/brand/logo-brand-02.svg">
                                             <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
                                             <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
                                             <img onclick="location.href='CategoryProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-05.svg">
@@ -195,29 +195,57 @@ $(function() {
 // click price search in filter search
 $(function() {
     $("#price-search-01").click(() => {
-        $(".price-search").css("background-color", "grey")
-        $(".hidden-checkbox-price").prop('checked', false)
-        $("#hidden-checkbox-price-1").prop('checked', true)
-        $("#hidden-checkbox-price-1").attr('checked', true)
-        $("#price-search-01").css("background-color", "#5f2525");
+        if ($('#hidden-checkbox-price-1').is(':checked')) {
+            $("#price-search-01").css("background-color", "grey")
+        }
+        else {
+            $("#price-search-01").css("background-color", "#5f2525");
+        }
     });
     $("#price-search-02").click(() => {
-        $(".price-search").css("background-color", "grey")
-        $(".hidden-checkbox-price").prop('checked', false)
-        $("#hidden-checkbox-price-2").prop('checked', true)
-        $("#hidden-checkbox-price-2").attr('checked', true)
-        $("#price-search-02").css("background-color", "#5f2525");
+        if ($('#hidden-checkbox-price-2').is(':checked')) {
+            $("#price-search-02").css("background-color", "grey")
+        }
+        else {
+            $("#price-search-02").css("background-color", "#5f2525");
+        }
     });
     $("#price-search-03").click(() => {
-        $(".price-search").css("background-color", "grey")
-        $(".hidden-checkbox-price").prop('checked', false)
-        $("#hidden-checkbox-price-3").prop('checked', true)
-        $("#hidden-checkbox-price-3").attr('checked', true)
-        $("#price-search-03").css("background-color", "#5f2525");
+        if ($('#hidden-checkbox-price-3').is(':checked')) {
+            $("#price-search-03").css("background-color", "grey")
+        }
+        else {
+            $("#price-search-03").css("background-color", "#5f2525");
+        }
     });
 });
 
-
+$(function() {
+    $("#label-5-star").click(()=>{
+        if ($("#filter-star-5").is(":checked")) {
+            $("#label-5-star .fa-star").css("color", "yellow")
+        }
+        else {
+            $("#label-5-star .fa-star").css("color", "grey")
+        }
+    })
+    $("#label-4-star").click(()=>{
+        if ($("#filter-star-4").is(":checked")) {
+            $("#label-4-star .fa-star").css("color", "yellow")
+        }
+        else {
+            $("#label-4-star .fa-star").css("color", "grey")
+        }
+    })
+    $("#label-3-star").click(()=>{
+        if ($("#filter-star-3").is(":checked")) {
+            $("#label-3-star .fa-star").css("color", "yellow")
+        }
+        else {
+            $("#label-3-star .fa-star").css("color", "grey")
+        }
+    })
+})
 // responsive navigation
 $(function() {
     $("#category-man").mouseover(() => {
@@ -592,8 +620,6 @@ function loadWard(wardCode) {
 
 $(function() {
     $("#button-filter").click(()=>{
-        // let url = "CategoryProduct?pagination=1";
-
         let url = $('#form-filter-search').attr('action');
 
         $('#checkboxBrandFilter input[type=checkbox]').each(function() {
@@ -601,43 +627,70 @@ $(function() {
                 url += "brand=" + $(this).val() + "&"
             }
         });
-
-
         $('.input-star').each(function() {
             if ($(this).is(":checked")) {
                 url += "star=" + $(this).val() + "&"
             }
         });
-
-
-
         $('#checkboxPriceOrderFilter input[type=radio]').each(function() {
             if ($(this).is(":checked")) {
                 url += "highestLowest=" + $(this).val() + "&"
             }
         });
-
         if ($("#hidden-checkbox-price-1").is(":checked")) {
             url += "underPrice=" + $("#hidden-checkbox-price-1").val() + "&"
         }
-
         if ($("#hidden-checkbox-price-2").is(":checked")) {
             let priceRange = $("#hidden-checkbox-price-2").val().split("&&")
             url += "fromPrice="+priceRange[0] + "&toPrice="+priceRange[1]+"&"
         }
-
         if ($("#hidden-checkbox-price-3").is(":checked")) {
             url += "upPrice=" + $("#hidden-checkbox-price-3").val() + "&"
         }
-
         if ($("#inputFilterPriceFrom").val().length !== 0 )
             url += "fromInputPrice=" + $("#inputFilterPriceFrom").val() + "&"
         if ($("#inputFilterPriceTo").val().length !== 0 )
             url += "toInputPrice=" + $("#inputFilterPriceTo").val() + "&"
-
         url += "pagination=1"
         $('#form-filter-search').attr('action', url);
     })
 })
 
 
+$(function() {
+    $("#button-search-header").click((e)=>{
+        e.preventDefault()
+        let url = "ServletTest123?"
+        url += "input-search-header=" + $("#input-search-header").val() + "&"
+        url += "pagination=1"
+        $('#form-header-search').attr('action', url);
+        $('#form-header-search').submit()
+    })
+})
+
+$(function () {
+    $("#input-search-header").on("input", function(e) {
+        let word = $(this).val();
+        let xhttp = new XMLHttpRequest();
+        //  onreadystatechange này sẽ được kích hoạt mỗi khi trạng thái readyState thay đổi -- readyState:thuộc tính này định nghĩa trạng thái hiện tại của đối tượng XMLHttpRequest.
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) { //HTTP REPONSE => 4=DONE:The operation is complete 200=SUCCESS
+                getDataFromServlet(xhttp)
+            }
+        };
+        xhttp.open("POST", `ServletTest123?wordSearchHeader=${word}`, true);
+        xhttp.send();
+    });
+
+})
+
+function getDataFromServlet(xhttp) {
+    let data = xhttp.responseText.split("\n")
+    $(".contain-search-popular").empty()
+    data.forEach((value)=>{
+        let item = value.split("@@##**") // to split id and name
+        $(".contain-search-popular").append(`<span onclick="location.href='ProductDetail?idProduct=${item[0]}'">${item[1]}</span><br/>`)
+    })
+
+
+}

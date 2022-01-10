@@ -15,9 +15,9 @@
                         <div id="top-links" class="nav pull-left">
                             <ul class="list-inline">
                                 <li class="account"><a href="/admin/pixelwibes.com/template/ebazar/html/dist/index.html" class="notify"><i
-                                        class="fas fa-bell color-header" style="margin-right: 10px"></i><sp
+                                        class="fas fa-bell color-header" style="margin-right: 10px"></i><span
                                         style="margin: 0 5px;" class="color-header">Thông
-                                    báo</sp><span style="margin-right: 10px;"
+                                    báo</span><span style="margin-right: 10px;"
                                                   class="color-header">(0)</span></a>
                                 </li>
                                 <li class="account"><a href="customer.html" id="wishlist-total"
@@ -60,16 +60,18 @@
 
                 <div class="text-center contain-search">
                     <div class="contain-search-product-popular">
-                        <div class="search-product">
-                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                            <button class="search-product-top"><i class="fa fa-search"></i></button>
-                        </div>
+                        <form id="form-header-search" class="search-product" action="" method="post">
+                            <input name="input-search-header" id="input-search-header"
+                                   class="input-text-search-top"
+                                    placeholder="Tìm kiếm" type="text" autocomplete="off"/>
+                            <button type="submit" class="search-product-top" id="button-search-header"><i class="fa fa-search"></i></button>
+                        </form>
                         <div class="contain-search-popular">
-                            <span>X-Ray 2</span>
-                            <span>Nike Air Force 2</span>
-                            <span>Under Armour darkside</span>
-                            <span>X9000L4 Shoes Mens</span>
-                            <span>Adidas dragon sport</span>
+<%--                            <span>X-Ray 2</span>--%>
+<%--                            <span>Nike Air Force 2</span>--%>
+<%--                            <span>Under Armour darkside</span>--%>
+<%--                            <span>X9000L4 Shoes Mens</span>--%>
+<%--                            <span>Adidas dragon sport</span>--%>
                         </div>
                     </div>
                 </div>
@@ -154,4 +156,3 @@
         <!--function displayMenuNavigation() in khanh-js.js-->
     </nav>
 </header>
-

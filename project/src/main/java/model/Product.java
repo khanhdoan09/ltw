@@ -15,6 +15,25 @@ public class Product {
     private String description;
     private String idVoucher;
     private int active;
+    private String avatar;
+    private int quantity;
+
+//cart
+    public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active,String avatar) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.saleRate = saleRate;
+        this.starRate = starRate;
+        this.description = description;
+        this.totalValue = totalValue;
+        this.soleValue = soleValue;
+        this.active = active;
+        this.avatar= avatar;
+    }
+
 
     // detail
     public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active) {
@@ -39,6 +58,12 @@ public class Product {
         this.price = price;
         this.saleRate = saleRate;
         this.active = active;
+    }
+
+    // search in header
+    public Product (String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, int totalValue, int soleValue, String create_at, String update_at, String description, String idVoucher, int active) {
@@ -114,6 +139,7 @@ public class Product {
         return active;
     }
 
+
     @Override
     public String toString() {
         return "Product{" +
@@ -132,5 +158,9 @@ public class Product {
                 ", idVoucher='" + idVoucher + '\'' +
                 ", active=" + active +
                 '}';
+    }
+
+    public double gettotal() {
+        return soleValue * (price-(price*saleRate/100));
     }
 }

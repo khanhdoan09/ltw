@@ -32,7 +32,7 @@ public class DaoProduct implements Dao<Product> {
         List<Product> re = new ArrayList<Product>();
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active FROM product");
+            ResultSet rs = s.executeQuery("SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active,img FROM product inner join linkimg on product.id=linkimg.id where linkimg.level=0");
             while (rs.next()) {
                 String id = rs.getString("id");
                 String brand = rs.getString("brand");
@@ -45,7 +45,8 @@ public class DaoProduct implements Dao<Product> {
                 int totalValue = rs.getInt("totalValue");
                 int soleValue = rs.getInt("soleValue");
                 int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active);
+                String avatar = rs.getString("img");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active,avatar);
 
                 if (id.equals(idPr)) {
                     return product;
@@ -75,12 +76,10 @@ public class DaoProduct implements Dao<Product> {
                 sql += " price < ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         } else if (attrProduct.equals("upPrice")) {
-            sql += "&&(";
             for (int i = 0; i < category.length; i++)
                 sql += " price > ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         } else if (attrProduct.equals("fromToPrice")) {
-            sql += "&&(";
             sql += " price BETWEEN ? AND ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         }
@@ -95,6 +94,10 @@ public class DaoProduct implements Dao<Product> {
             for (int i = 0; i < category.length; i++)
                 sql += " starRate=? || ";
             sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
+        }
+        else if (attrProduct.equals("searchInHeader")) {
+            sql += "(";
+            sql += "name LIKE ? )";
         }
 
 
@@ -378,56 +381,38 @@ public class DaoProduct implements Dao<Product> {
         return listFilter;
     }
 
-    String sqlCount = "SELECT COUNT(id) FROM product WHERE" + " category=\"" + currentCategory + "\" && (";
 
-    public int getTotalNumberProduct(String attrProduct, String[] category) {
+    public String getTotalNumberProduct(String attrProduct, String[] category) {
+        String sqlCount = "";
         if (attrProduct.equals("category")) {
-            for (int i = 0; i < category.length; i++)
-                sqlCount = sqlCount.substring(0, sqlCount.length() - 4); // to remove || &&
-        } else if (attrProduct.equals("brand")) {
-            sql += "(";
-            for (int i = 0; i < category.length; i++)
-                sqlCount += " brand = ? || ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4) + " ) &&"; // to remove || &&
-        } else if (attrProduct.equals("underPrice")) {
-            sql += "(";
-            for (int i = 0; i < category.length; i++)
-                sqlCount += " price < ? && ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4) + ") &&"; // to remove || &&
-        } else if (attrProduct.equals("upPrice")) {
-            for (int i = 0; i < category.length; i++)
-                sqlCount += " price > ? && ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4) + ""; // to remove || &&
-        } else if (attrProduct.equals("fromToPrice")) {
-            sqlCount += " price BETWEEN ? AND ? && ";
-            sqlCount = sqlCount.substring(0, sqlCount.length() - 4);
+            for (int i = 0; i < category.length; i++) {
+                sqlCount += " category=?        ";
+                System.out.println(789456);
+            }
+                sqlCount +=  "&&"; // to remove || &&
         }
         sqlCount = sqlCount.substring(0, sqlCount.length() - 4);
-        return 0;
+        return sqlCount;
     }
 
-    public int excQueryTotal(ArrayList<String> key, int pagination) {
-        int re = 27;
-//        PreparedStatement s = null;
-//        try {
-//            s = connect.prepareStatement(sqlCount);
-//            for (int i = 0; i < key.size(); i++)
-//                s.setString(i + 1, key.get(i));
-//            ResultSet rs = s.executeQuery();
-//            for (int i = 0; i < key.size(); i++) {
-//                s.setString(i+1, key.get(i));
-//            }
-//
-//
-//            while (rs.next()) {
-//                re = rs.getInt(1);
-//            }
-//            System.out.println(re);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            System.out.println("!!! "+sqlCount);
-//        }
-//        sqlCount = "SELECT COUNT(id) FROM product WHERE" + " category=\"Running Man\" && (";
+    public int excQueryTotal(ArrayList<String> key, int pagination, String sqlCount) {
+        int re = 0;
+        PreparedStatement s = null;
+        try {
+            s = connect.prepareStatement(sqlCount);
+
+            for (int i = 0; i < key.size(); i++) {
+                s.setString(i +1, key.get(i));
+            }
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                re = rs.getInt(1);
+            }
+            System.out.println(re);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("!!! "+sqlCount);
+        }
         return re;
     }
 
@@ -467,6 +452,59 @@ public class DaoProduct implements Dao<Product> {
             }
         } catch (SQLException e) {
             System.out.println("~~~*** " + sqlNav);
+        }
+        return re;
+    }
+
+    public List<Product> getDataFromWordInSearchHeader(String word) {
+        List<Product> re = new ArrayList<Product>();
+        PreparedStatement s = null;
+        String sql = "SELECT id, name FROM product WHERE name LIKE ? LIMIT 0, 10";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, "%"+word+"%");
+
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String name = rs.getString("name");
+                re.add(new Product(id, name));
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header" + sql);
+        }
+        return re;
+    }
+
+    public String analysisArrayList(List<Product> list) {
+        String re = "";
+        for (Product p : list)
+            re += p.getId()+"@@##**"+p.getName() + "\n"; // to split id and name
+        return re.trim();
+    }
+
+
+    public List<Product> getListHotProduct(String id) {
+        List<Product> re = new ArrayList<Product>();
+        PreparedStatement s = null;
+        String sql = "SELECT id, brand, category, Active, name, price, saleRate FROM product WHERE id!=? ORDER BY starRate, saleRate DESC LIMIT 0, 5";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String idCur = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                Product product = new Product(idCur, brand, name, categoryP, price, saleRate, active);
+                re.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header " + sql);
         }
         return re;
     }
