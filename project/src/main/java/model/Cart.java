@@ -26,8 +26,8 @@ public class Cart {
         data.put(product.getId(), product);
     }
 //    remove product from cart
-    public void remove(String id){
-        data.remove(id);
+    public Product remove(String id){
+       return data.remove(id);
     }
 //    get total price
     public double total(){
@@ -47,8 +47,6 @@ public class Cart {
     }
 //    get list product
     public Collection<Product> getData() {
-        put(new Product("01","Adidas","adidas x James Bond Ultraboost SUMMER.RDY","Running Man", 65.5,16,4));
-        put(new Product("02","Nike","Nike Downshifter 9","Running Man", 79.5,20,4));
         return data.values();
     }
 }
