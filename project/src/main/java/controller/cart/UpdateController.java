@@ -21,15 +21,16 @@ public class UpdateController extends HttpServlet {
         String id =  request.getParameter("id");
         String quantity =  request.getParameter("quantity");
         Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
+        if (cart == null)
             cart = Cart.getInstance();
-        }
         Product p = cart.get(id);
-        response.sendRedirect("");
-        session.setAttribute("cart", cart);
+
         if (p == null) {
             response.setStatus(HttpServletResponse.SC_ACCEPTED);
             return;
         }
+        p.setQuantitySold(Integer.parseInt(quantity));
+        if(p.getQuantitySold() !=Integer.parseInt(quantity))
+            response.setStatus(485);
     }
 }

@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <header>
     <div class="contain-header-inner">
         <div class="container">
@@ -83,27 +85,35 @@
                                 class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
                             <span
                                     class="color-header"><span class="cart-title color-header" style="margin-left: 10px">Giỏ hàng - </span>254.000 Đ</span>
-                            <span class="value-header-product" style="margin: 0 10px">1</span>
+                            <span class="value-header-product" style="margin: 0 10px">3</span>
                             <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
 
 
                         <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                            <li>
+                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">
                                 <table class="table table-striped">
                                     <tbody>
-                                    <tr>
+                                    <c:set var="list" value="${cart.data}"/>
+                                    <c:forEach items="${list}" var="item">
                                         <td class="text-center">
-                                            <a href="#"><img src="image/product/product-01.jpg" width="100px"
+                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"
                                                              height="100px"></a>
                                         </td>
-                                        <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
-                                        <td class="text-right">x 1</td>
-                                        <td class="text-right">$254.00</td>
-                                        <td class="text-center"><button class="btn btn-danger btn-xs"
-                                                                        title="Remove" type="button"><i
-                                                class="fa fa-times"></i></button></td>
+                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
+                                            <div class="SL-Gia">
+                                                <p class="gia">${item.price}$</p>
+                                                <p class="SL">SL: ${item.quantitySold}</p>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="cart-remove" pid="${item.id}">
+                                            <button class="btn btn-danger btn-xs" title="Remove" type="button"><i
+                                                class="fa fa-delete-left"></i> </button>
+                                            </a>
+                                        </td>
                                     </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </li>
@@ -111,25 +121,14 @@
                                 <div>
                                     <table class="table table-bordered">
                                         <tbody>
-                                        <tr>
-                                            <td class="text-right"><strong>Tổng</strong></td>
-                                            <td class="text-right">210.000Đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>Thuế (-2.00)</strong></td>
-                                            <td class="text-right">2%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>VAT (20%)</strong></td>
-                                            <td class="text-right">4%</td>
-                                        </tr>
+                                        <br>
                                         <tr>
                                             <td class="text-right"><strong>Tạm tính</strong></td>
                                             <td class="text-right">254.000Đ</td>
                                         </tr>
                                         </tbody>
                                     </table>
-                                    <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i
+                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i
                                             class="fa fa-shopping-cart"></i> View
                                                         Cart</strong></a></span> <span class="btn-checkout"><a
                                             href="checkout.html"><strong><i class="fa fa-share"></i>
@@ -156,3 +155,26 @@
         <!--function displayMenuNavigation() in khanh-js.js-->
     </nav>
 </header>
+<script>
+    $(document).ready(function () {
+        $(".cart-remove").click(function () {
+            var id = $(this).attr("pid");
+            tr = $(this).closest("tr");
+            console.log(id);
+            $.ajax({
+                url: "/project/Cart-remove",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    tr.remove();
+                },
+                error: function (data) {
+                    if (data.status === 404)
+                        alert("Xoa That Bai");
+                }
+            })
+        })
+    })
+</script>

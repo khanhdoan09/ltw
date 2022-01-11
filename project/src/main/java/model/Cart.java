@@ -41,12 +41,15 @@ public class Cart {
     public int quantity(){
         int quantity = 0;
         for(Product p : data.values()) {
-            quantity += p.getSoleValue();
+            quantity += p.getQuantity();
         }
         return  quantity;
     }
 //    get list product
     public Collection<Product> getData() {
         return data.values();
+    }
+    public int getTotalSL() {
+        return data.size();
     }
 }
