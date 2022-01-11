@@ -16,7 +16,8 @@ public class Product {
     private String idVoucher;
     private int active;
     private String avatar;
-    private int quantity;
+    private int quantitySold;
+    private int quantity = totalValue - soleValue;
 
 //cart
     public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active,String avatar) {
@@ -139,6 +140,20 @@ public class Product {
         return active;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+    public int getQuantitySold() {
+        return quantitySold;
+    }
+    public void setQuantitySold(int quantitySold) {
+        if(quantity >= quantitySold && quantitySold > 0)
+            this.quantitySold = quantitySold;
+    }
+
 
     @Override
     public String toString() {
@@ -161,6 +176,6 @@ public class Product {
     }
 
     public double gettotal() {
-        return soleValue * (price-(price*saleRate/100));
+        return quantitySold * (price-(price*saleRate/100));
     }
 }

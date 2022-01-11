@@ -75,21 +75,20 @@
                         <tbody>
                         <c:set var="list" value="${cart.data}"/>
                         <c:forEach items="${list}" var="item">
-
                             <tr>
                                 <td class="text-center">
                                     <input type="checkbox" id="html " name="fav_language" value="HTML">
-                                    <a href="product.html"><img class="img-thumbnail"
+                                    <a href="ProductDetail?idProduct=${item.id}"><img class="img-thumbnail"
                                                                 title="women's New Wine is an alcoholic"
                                                                 alt="women's New Wine is an alcoholic"
                                                                 src="data/imgAll/${item.avatar}.jpg"></a>
                                 </td>
-                                <td class="text-left"><a href="product.html">${item.name}</a>
+                                <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
                                 </td>
                                 <td class="text-left">${item.brand}</td>
                                 <td class="text-left">
                                     <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity " oldQuantity="${item.soleValue}" size="1" value="${item.soleValue}"
+                                        <input type="text" class="form-control quantity quantity-cart" pid="${item.id}" oldQuantity="${item.quantitySold}" size="1" value="${item.quantitySold}"
                                                name="quantity">
                                         <span class="input-group-btn">
                                                 <button class="btn btn-primary" title="" data-toggle="tooltip"
@@ -103,7 +102,7 @@
                                     </div>
                                 </td>
                                 <td class="text-right">${item.price}</td>
-                                <td class="text-right">${item.price}</td>
+                                <td class="text-right">${item.price*2}</td>
                             </tr>
                         </c:forEach>
 
@@ -169,12 +168,12 @@
                             </tr>
                             <tr>
                                 <td class="text-right"><strong>VAT :</strong></td>
-                                <td class="text-right">42.000 VNĐ</td>
+                                <td class="text-right">VNĐ</td>
                             </tr>
                             <tr>
                                 <td class="text-right"><strong>Tổng:</strong></td>
                                 <td class="text-right">
-                                    <p id="totalPrice">252.000 VNĐ</p>
+                                    <p id="totalPrice">VNĐ</p>
                                 </td>
                             </tr>
                             </tbody>
@@ -215,9 +214,10 @@
                 }
             })
         })
-        $(".quantity").blur(function () {
+        $(".quantity-cart").blur(function () {
             var id = $(this).attr("pid");
             var oldQuantity = $(this).attr("oldQuantity");
+            var update = $(this);
             var quantity = $(this).val();
             if(oldQuantity != quantity)
                 $.ajax({
@@ -227,8 +227,14 @@
                         id: id,
                         quantity: quantity
                     },
+                    success: function (data) {
+                        update.attr("oldQuantity", quantity)
+                    },
                     error: function (data) {
-                            alert("Lỗi");
+                        if(data.status === 404)
+                            alert("Sản phẩm không tồn tại, hoặc bị xóa khỏi giỏ hàng!");
+                        else  if(data.status === 484)
+                            alert("Số lượng vượt quá giới hạn mua hoặc bé hơn 1!");
                     }
                 })
         })
