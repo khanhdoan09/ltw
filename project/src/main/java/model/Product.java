@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Product {
     private String id;
     private String brand;
@@ -15,7 +17,9 @@ public class Product {
     private String description;
     private String idVoucher;
     private int active;
+    private List<Integer> listSize;
     private String avatar;
+    private ImgProduct img;
     private int quantitySold;
     private int quantity = totalValue - soleValue;
 
@@ -37,7 +41,7 @@ public class Product {
 
 
     // detail
-    public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active) {
+    public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active, List<Integer> listSize, ImgProduct img) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -49,6 +53,8 @@ public class Product {
         this.totalValue = totalValue;
         this.soleValue = soleValue;
         this.active = active;
+        this.listSize = listSize;
+        this.img = img;
     }
     // list
     public Product(String id, String brand, String name, String category, double price, double saleRate, int active) {
@@ -59,6 +65,19 @@ public class Product {
         this.price = price;
         this.saleRate = saleRate;
         this.active = active;
+    }
+
+
+    // list
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int active, String avatar) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.saleRate = saleRate;
+        this.active = active;
+        this.avatar = avatar;
     }
 
     // search in header
@@ -140,9 +159,10 @@ public class Product {
         return active;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
+
+    public List<Integer> getListSize() {return listSize;}
+    public String getAvatar() {return avatar;}
+    public ImgProduct getImg() {return img;}
     public int getQuantity() {
         return quantity;
     }

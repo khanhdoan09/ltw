@@ -54,16 +54,162 @@
 
 <body class="product col-2 left-col">
 <%
-    Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
     Object obj = request.getAttribute("idProduct");
     Product p = null;
     if (obj != null) {
         String id = obj.toString();
-        p = DaoProduct.getInstance().getProductById(id);
+        p = DaoProduct.getInstance().getDetailProduct(id);
     }
 %>
 
-<%@include file="header.jsp"%>
+<header>
+    <div class="contain-header-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 contain-header">
+                    <div class="contain-nav-info">
+                        <div id="top-links" class="nav pull-left">
+                            <ul class="list-inline">
+                                <li class="account"><a href="/admin/pixelwibes.com/template/ebazar/html/dist/index.html" class="notify"><i
+                                        class="fas fa-bell color-header" style="margin-right: 10px"></i><sp
+                                        style="margin: 0 5px;" class="color-header">Thông
+                                    báo</sp><span style="margin-right: 10px;"
+                                                  class="color-header">(0)</span></a>
+                                </li>
+                                <li class="account"><a href="customer.html" id="wishlist-total"
+                                                       title="Wish List (0)"><i class="fa fa-heart color-header"></i><span
+                                        class="color-header">Danh sách
+                                                yêu thích</span><span style="margin-right: 10px;"
+                                                                      class="color-header">(0)</span></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-user color-header"></i><span class="color-header">Tài
+                                                khoản</span> <span style=" font-size: 15px;"
+                                                                   class="caret color-header"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#" class="js-login">Đăng Nhập</a></li>
+                                        <li><a href="#" class="js_register">Đăng Ký</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="header-inner">
+
+                <div class="header-top">
+                    <div>
+                        <div class="header-middle-top">
+                            <div id="logo" class="color-header" style="margin: 0; padding: 0;">
+                                <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                                          class="logo-header" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center contain-search">
+                    <div class="contain-search-product-popular">
+                        <div class="search-product">
+                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
+                            <button class="search-product-top"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="contain-search-popular">
+                            <span>X-Ray 2</span>
+                            <span>Nike Air Force 2</span>
+                            <span>Under Armour darkside</span>
+                            <span>X9000L4 Shoes Mens</span>
+                            <span>Adidas dragon sport</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-xs-12 header-right header-nav-right">
+
+                    <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
+                        <button type="button"
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
+                            <span
+                                    id="cart-total" class="color-header"><span class="cart-title color-header">Giỏ hàng - </span>254.000 Đ</span>
+                            <span class="value-header-product" style="margin-bottom: 10px">1</span>
+                            <i class="fas fa-shopping-cart cart-icon-nav"></i>
+                        </button>
+
+
+                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
+                            <li>
+                                <table class="table table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <a href="#"><img src="image/product/product-01.jpg" width="100px"
+                                                             height="100px"></a>
+                                        </td>
+                                        <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
+                                        <td class="text-right">x 1</td>
+                                        <td class="text-right">$254.00</td>
+                                        <td class="text-center"><button class="btn btn-danger btn-xs"
+                                                                        title="Remove" type="button"><i
+                                                class="fa fa-times"></i></button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <div>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-right"><strong>Tổng</strong></td>
+                                            <td class="text-right">210.000Đ</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Thuế (-2.00)</strong></td>
+                                            <td class="text-right">2%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>VAT (20%)</strong></td>
+                                            <td class="text-right">4%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Tạm tính</strong></td>
+                                            <td class="text-right">254.000Đ</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i
+                                            class="fa fa-shopping-cart"></i> View
+                                                        Cart</strong></a></span> <span class="btn-checkout"><a
+                                            href="checkout.html"><strong><i class="fa fa-share"></i>
+                                                        Checkout</strong></a></span> </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <button type="button" class="bt-nav-collapse hidden-lg hidden-md"><i
+                        class="fa fa-bars"></i></button>
+
+            </div>
+
+        </div>
+    </div>
+    <nav id="menu-navigation" class="navbar" style="width: 100%;">
+        <!--function displayMenuNavigation() in khanh-js.js-->
+    </nav>
+</header>
 <div class="container">
 
     <div class="row" style="display: flex; flex-wrap: wrap;">
@@ -73,47 +219,85 @@
                 <div class="col-sm-6">
                     <div class="thumbnails">
                         <div>
+                            <%List<String> listMainImg = p.getImg().getMain();
+                                List<String> listSubImg = p.getImg().getSub();
+                            %>
+                            <script>
+
+                                $(function(){
+                                    <%
+                                    for (int i = 0; i < listMainImg.size(); i++) {
+                                    %>
+                                    $("#color-shoe-<%=i%>").on("click", ()=>{
+                                        $("#main-img").attr("src","data/imgAll/<%=listMainImg.get(i)%>.jpg")
+                                        <%int tmp = i*3;%>
+                                        $("#zero").attr("src","data/imgAll/<%=listMainImg.get(i)%>.jpg")
+                                        $("#one").attr("src","data/imgAll/<%=listSubImg.get(tmp+1)%>.jpg")
+                                        $("#two").attr("src","data/imgAll/<%=listSubImg.get(tmp+2)%>.jpg")
+                                        $("#three").attr("src","data/imgAll/<%=listSubImg.get(tmp+3)%>.jpg")
+                                    })
+                                    <%}%>
+
+
+                                    <%--$("#color-shoe-0").click(()=>{--%>
+
+                                    <%--    console.log("<%=listImg.get(0)%>")--%>
+                                    <%--    $("#main-img").attr("src","data/imgAll/<%=listImg.get(0)%>.jpg")--%>
+                                    <%--})--%>
+
+                                    <%--$("#color-shoe-1").click(()=>{--%>
+                                    <%--    $("#main-img").attr("src","data/imgAll/<%=listImg.get(1)%>.jpg")--%>
+                                    <%--    console.log("<%=listImg.get(1)%>")--%>
+
+                                    <%--})--%>
+                                })
+
+
+
+                            </script>
                             <!-- anh chinh -->
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
-                                <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="main-img"/>
+                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="data/imgAll/<%=p.getImg().getMain().get(0)%>.jpg"/>
                             </a>
                         </div>
                         <div id="product-thumbnail" class="owl-carousel" style="width: 100%;">
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail main imag1">
-                                        <img src="data/imgAll/<%=map.get(p.getId()).get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" />
+                                        <img src="data/imgAll/<%=p.getImg().getSub().get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" />
                                     </div>
                                 </div>
                             </div>
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail imag2 ">
-                                        <img src="data/imgAll/<%=map.get(p.getId()).get(1)%>.jpg"  title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy"  id="one"/>
+                                        <img src="data/imgAll/<%=p.getImg().getSub().get(1)%>.jpg"  title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy"  id="one"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="item mg-l">
                                 <div class="image-additional">
-                                    <div class="thumbnail imag3 "> <img src="data/imgAll/<%=map.get(p.getId()).get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/>
+                                    <div class="thumbnail imag3 ">
+                                        <img src="data/imgAll/<%=p.getImg().getSub().get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="item mg-l">
                                 <div class="image-additional">
-                                    <div class="thumbnail imag4 "> <img src="data/imgAll/<%=map.get(p.getId()).get(3)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="three"/></div>
+                                    <div class="thumbnail imag4 ">
+                                        <img src="data/imgAll/<%=p.getImg().getSub().get(3)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="three"/></div>
                                 </div>
                             </div>
-                            <div class="item mg-l">
-                                <div class="image-additional">
-                                    <div class="thumbnail imag5 "> <img src="data/imgAll/<%=map.get(p.getId()).get(4)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="four"/></div>
-                                </div>
-                            </div>
+
 
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6" style="display: flex; flex-direction: column">
+                    <%int active = p.getActive();
+                        if (active == 0) {%>
+                    <h1 style="color:#cb1c22;margin: 5px 0">Ngừng kinh doanh</h1>
+                    <%}%>
                     <h1 class="productpage-title"><%=p.getName()%></h1>
                     <div class="rating product">
 
@@ -170,12 +354,6 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
     margin: 12px 10px;">20% GIẢM</h6></li>
                         </ul>
                     </div>
-                    <!-- <ul class="">
-                    <li>
-                        <h2 class="productpage-price">210.000VNĐ</h2>
-                    </li>
-                    <li><span class="productinfo-tax">Ex Tax: $100.00</span></li>
-                </ul> -->
                     <hr>
                     <ul class="list-unstyled product_info">
                         <li>
@@ -207,22 +385,23 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                             </div>
                         </li>
 
-
                         <li class="size-shoes" style="margin-top: 50px;">
-                            <label>Màu sắc</label>
+                            <label><%if (listMainImg.size()>1)%><%="Màu sắc"%></label>
                             <div class="num-size">
-                                <button class="js-color-black color-black">Đen</button>
-                                <button class="js-colorl-pink color-pink">Hồng</button>
-                                <button class="js-color-blue color-blue">Xanh</button>
+                                <%if (listMainImg.size()>1){%>
+                                <%for (int i = 0; i < listMainImg.size(); i++) {%>
+                                <button class="js-color-black color-black color-shoe" id="color-shoe-<%=i%>">Màu <%=(i+1)%></button>
+                                <%}}%>
+
                             </div>
                         </li>
                         <li class="size-shoes">
                             <label>Size</label>
-                            <div class="num-size">
-                                <button>36</button>
-                                <button>37</button>
-                                <button>38</button>
-                                <button>39</button>
+                            <div class="num-size" style="display: flex; flex-wrap: wrap;">
+                                <%List<Integer> listSize = p.getListSize();%>
+                                <%for (int size : listSize) {%>
+                                <button><%=size%></button>
+                                <%}%>
                             </div>
                         </li>
                         <li id="values">
@@ -237,7 +416,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                         <li class="add-and-buy">
                             <div class="add-product">
                                 <!-- <i class="fas fas-shopping-cart"></i> -->
-                                <a href="AddCart?id=<%=p.getId()%>" class="add">Thêm Vào Giỏ Hàng</a>
+                                <a href="" class="add">Thêm Vào Giỏ Hàng</a>
                             </div>
                             <div class="buy-product">
                                 <a href="./checkout.html" class="buy">Mua Ngay</a>
@@ -322,12 +501,12 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                 <div class="box">
                                     <div id="latest-slidertab" class="row owl-carousel product-slider">
                                         <%for (String str : listProductWatched) {
-                                            Product productWatched = DaoProduct.getInstance().getProductById(str);
+                                            Product productWatched = DaoProduct.getInstance().getWatchedProduct(str);
                                         %>
                                         <div class="item">
                                             <div class="product-thumb transition">
                                                 <div class="image product-imageblock">
-                                                    <a href="product.html"> <img src="data/imgAll/<%=map.get(productWatched.getId()).get(0)%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                                    <a href="product.html"> <img src="data/imgAll/<%=productWatched.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                                     <div class="button-group">
                                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -409,12 +588,12 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                  style="display: flex; justify-content: space-between;">
                                 <%
                                     List<Product> listHotProduct = (List<Product>) request.getAttribute("listHotProduct");
-                                for (Product product : listHotProduct) {%>
+                                    for (Product product : listHotProduct) {%>
                                 <div class="itm bd-rd bg-white">
                                     <div class="item" style="display: grid; place-items: center;">
                                         <div class="product-thumb transition" style="width: 100%;">
                                             <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="data/imgAll/<%=map.get(product.getId()).get(0)%>.jpg"
+                                                <a href="product.html"> <img src="data/imgAll/<%=product.getAvatar()%>.jpg"
                                                                              alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                              class="img-responsive" />
 
@@ -501,29 +680,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
 
     })
 
-    const ima5 = document.querySelector(".imag5")
-    console.log(ima5);
-    ima5.addEventListener("click", function () {
-        var path = document.getElementById("four").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
 
-    })
-
-    const ima6 = document.querySelector(".imag6")
-    console.log(ima6);
-    ima6.addEventListener("click", function () {
-        var path = document.getElementById("five").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
-
-    })
-
-    const ima7 = document.querySelector(".imag7")
-    console.log(ima7);
-    ima7.addEventListener("click", function () {
-        var path = document.getElementById("six").getAttribute("src");
-        document.getElementById("main-img").setAttribute("src", path);
-
-    })
 
 </script>
 

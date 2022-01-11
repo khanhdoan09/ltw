@@ -58,6 +58,111 @@ public class DaoProduct implements Dao<Product> {
         return null;
     }
 
+    public Product getDetailProduct(String idPr) {
+        try {
+            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idPr);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int starRate = rs.getInt("starRate");
+                String description = rs.getString("description");
+                int totalValue = rs.getInt("totalValue");
+                int soleValue = rs.getInt("soleValue");
+                int active = rs.getInt("Active");
+                List<Integer> listSize =  getListSize(id);
+                ImgProduct listImg = getListImg(id);
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, listImg);
+                return product;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public Product getWatchedProduct(String idPr) {
+        try {
+            String sql = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idPr);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                String avatar = rs.getString("img");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
+
+                return product;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public List<Integer> getListSize(String idPr) {
+        List<Integer> listSize = new ArrayList<Integer>();
+        // get list size
+        try {
+            String sql = "SELECT DISTINCT size FROM product JOIN product_detail ON product.id=product_detail.id  WHERE product.id=? ORDER BY size";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idPr);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                int size = rs.getInt("size");
+                listSize.add(size);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return listSize;
+    }
+
+    private ImgProduct getListImg(String id) {
+        List<String> mainImg = new ArrayList<String>();
+        List<String> subImg = new ArrayList<String>();
+        // get list size
+        try {
+            // main img
+            String sql = "SELECT img FROM product JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=? ";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String main = rs.getString("img");
+                mainImg.add(main);
+            }
+
+            // list sub img
+            sql = "SELECT img FROM product JOIN linkimg ON product.id=linkimg.id && linkimg.level=1 WHERE product.id=? ";
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            rs = s.executeQuery();
+            while (rs.next()) {
+                String sub = rs.getString("img");
+                subImg.add(sub);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        ImgProduct img = new ImgProduct(mainImg, subImg);
+
+        return img;   }
+
     public String sql = "";
 
     private String limit = " LIMIT ?, ?";
@@ -70,7 +175,14 @@ public class DaoProduct implements Dao<Product> {
             for (int i = 0; i < category.length; i++)
                 sql += " brand=? || ";
             sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
-        } else if (attrProduct.equals("underPrice")) {
+        }
+        else if (attrProduct.equals("size")) {
+            sql += "&&(";
+            for (int i = 0; i < category.length; i++)
+                sql += " size=? || ";
+            sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
+        }
+        else if (attrProduct.equals("underPrice")) {
             sql += "&&(";
             for (int i = 0; i < category.length; i++)
                 sql += " price < ? || ";
@@ -84,10 +196,10 @@ public class DaoProduct implements Dao<Product> {
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         }
         else if (attrProduct.equals("highestPrice")){
-            sql += " ORDER BY price DESC";
+            sql += " GROUP BY product.id ORDER BY price DESC";
         }
         else if (attrProduct.equals("lowestPrice")){
-            sql += " ORDER BY price ASC";
+            sql += " GROUP BY product.id ORDER BY price ASC";
         }
         else if (attrProduct.equals("star")){
             sql += "&&(";
@@ -105,20 +217,16 @@ public class DaoProduct implements Dao<Product> {
     }
 
     public List<Product> excQuery(ArrayList<String> category, int pagination, String sql) {
-        sql += limit;
-        System.out.println(sql);
         PreparedStatement s = null;
         List<Product> re = new ArrayList<Product>();
         try {
             s = connect.prepareStatement(sql);
 
-            for (int i = 0; i < category.size(); i++)
+            for (int i = 0; i < category.size(); i++) {
                 s.setString(i + 1, category.get(i));
-            s.setInt(category.size() + 1, (pagination - 1) * 9);
-            s.setInt(category.size() + 2, 9);
+            }
 
             ResultSet rs = s.executeQuery();
-            System.out.println(s.toString());
             while (rs.next()) {
                 String id = rs.getString("id");
                 String brand = rs.getString("brand");
@@ -127,10 +235,14 @@ public class DaoProduct implements Dao<Product> {
                 double price = rs.getDouble("price");
                 int saleRate = rs.getInt("saleRate");
                 int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active);
+                String avatar = rs.getString("img");
+
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
 
                 re.add(product);
             }
+            System.out.println(s.toString());
+
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("~~~ " + s.toString());
@@ -142,254 +254,16 @@ public class DaoProduct implements Dao<Product> {
 
     @Override
     public ArrayList<Product> getAll() {
-        try {
-            Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT id, brand, name, category, price, saleRate, Active FROM runningman");
-            while (rs.next()) {
-                String id = rs.getString("id");
-                String brand = rs.getString("brand");
-                String name = rs.getString("name");
-                String categoryP = rs.getString("category");
-                double price = rs.getDouble("price");
-                int saleRate = rs.getInt("saleRate");
-                int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active);
-
-                list.add(product);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return list;
+        return null;
     }
-
-    public ArrayList<Product> getFilterList(HttpServletRequest request, StringBuffer sqlToCountProduct) {
-
-        String[] filterByIconSearch = request.getParameterValues("filterByIconSearch");
-        ArrayList<Product> listFilter = null;
-        if (filterByIconSearch != null) {
-            listFilter = getFilterListByIconSearch(filterByIconSearch[0]);
-        } else
-            listFilter = getFilterListByPanel(request, sqlToCountProduct);
-
-        return listFilter;
-    }
-
-    public ArrayList<Product> getFilterListByIconSearch(String filterByIconSearch) {
-        ArrayList<Product> listFilter = new ArrayList<Product>();
-        try {
-            String sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE name LIKE ?";
-            PreparedStatement p = connect.prepareStatement(sql);
-            p.setString(1, "%" + filterByIconSearch + "%");
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                String id = rs.getString("id");
-                String brand = rs.getString("brand");
-                String name = rs.getString("name");
-                String categoryP = rs.getString("category");
-                double price = rs.getDouble("price");
-                int saleRate = rs.getInt("saleRate");
-                int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active);
-
-                listFilter.add(product);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return listFilter;
-    }
-
-    public ArrayList<Product> getFilterListByPanel(HttpServletRequest request, StringBuffer sqlToCountProduct) {
-        ArrayList<Product> listFilter = new ArrayList<Product>();
-        try {
-            String brands = this.filterBrand(request.getParameterValues("filterBrand"));
-            String rates = this.filterRate(request.getParameterValues("filter-star-rate"));
-            String orderPrice = this.filterOrderPrice(request.getParameterValues("price-search-radio"));
-            String rangePrice = this.filterRangePrice(request.getParameterValues("price-range"));
-            String inputPrice = "";
-            try {
-                inputPrice = this.filterInputPrice(request.getParameterValues("input-range-filter-price"));
-            } catch (NumberFormatException e) {
-                request.setAttribute("errorInputPrice", e.getMessage());
-                return null;
-            } catch (ArithmeticException e) {
-                request.setAttribute("errorInputPrice", e.getMessage());
-                return null;
-            }
-            String sql = "SELECT * FROM product WHERE ";
-            sql += " category=\"" + currentCategory + "\" && ";
-
-            if (!brands.isEmpty()) {
-                sql += brands + " && ";
-            }
-            if (!rates.isEmpty())
-                sql += rates + " && ";
-            if (!rangePrice.isEmpty())
-                sql += rangePrice + " && ";
-            if (!inputPrice.isEmpty())
-                sql += inputPrice + " && ";
-
-            sql = sql.substring(0, sql.length() - 4); // to remove &&
-            if (!orderPrice.isEmpty())
-                sql += " " + orderPrice;
-            sqlToCountProduct.append(sql.substring(sql.lastIndexOf("WHERE")));
-            sql += " LIMIT ?, ?";
-
-            PreparedStatement s = connect.prepareStatement(sql);
-            int pagination = (int) request.getAttribute("pagination");
-            s.setInt(1, (pagination - 1) * 9);
-            s.setInt(2, 9);
-
-
-            ResultSet rs = s.executeQuery();
-            while (rs.next()) {
-                String id = rs.getString("id");
-                String brand = rs.getString("brand");
-                String name = rs.getString("name");
-                String categoryP = rs.getString("category");
-                double price = rs.getDouble("price");
-                int saleRate = rs.getInt("saleRate");
-                int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active);
-
-                listFilter.add(product);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return listFilter;
-    }
-
-
-    public String filterBrand(String[] strs) {
-        String re = "";
-        if (strs != null) {
-            re += "";
-            for (String str : strs) {
-                re += "brand = \"" + str + "\" || ";
-            }
-            re = re.substring(0, re.length() - 4);
-            re += "";
-        }
-        return re;
-    }
-
-    public String filterRate(String[] strs) {
-        String re = "";
-        if (strs != null) {
-            re += "(";
-            for (String str : strs) {
-                re += "starRate = \"" + str + "\" || ";
-            }
-            re = re.substring(0, re.length() - 4);
-            re += ")";
-        }
-        return re;
-    }
-
-    public String filterRangePrice(String[] strs) {
-        String re = "";
-        if (strs != null) {
-            re += "(";
-            for (String str : strs) {
-                if (str.equals("Under 50$"))
-                    re += "salePrice < 50";
-                else if (str.equals("From 50$ to 150$"))
-                    re += "salePrice BETWEEN 50 AND 150";
-                else
-                    re += "salePrice > 150";
-                re += " || ";
-            }
-            re = re.substring(0, re.length() - 4);
-            re += ")";
-        }
-        return re;
-    }
-
-    public String filterInputPrice(String[] strs) throws NumberFormatException, ArithmeticException {
-        String re = "";
-        if (!strs[0].isEmpty() || !strs[1].isEmpty()) {
-            double from = 0;
-            double to = 0;
-            re += "(";
-            try {
-                from = Double.parseDouble(strs[0]);
-            } catch (NumberFormatException e) {
-                throw new NumberFormatException("From is not a number");
-            }
-            try {
-                to = Double.parseDouble(strs[1]);
-            } catch (NumberFormatException e) {
-                throw new NumberFormatException("To is not a number");
-            }
-            from = Math.ceil(from * 100) / 100;
-            to = Math.ceil(to * 100) / 100;
-
-            if (from >= to) {
-                throw new ArithmeticException("from >= to");
-            }
-
-            if (from < 1) {
-                throw new ArithmeticException("from < 1");
-            }
-
-            if (to < 1) {
-                throw new ArithmeticException("to < 1");
-            }
-            re += "salePrice > " + from + " && salePrice < " + to;
-            re += ")";
-        }
-        return re;
-    }
-
-    public String filterOrderPrice(String[] strs) {
-        String re = "";
-        if (strs != null) {
-            String str = strs[0];
-            if (str.equals("highest-price")) {
-                re += "ORDER BY salePrice DESC";
-            } else {
-                re += "ORDER BY salePrice ASC";
-            }
-        }
-        return re;
-    }
-
-    public List<Product> getProductByBrandOnNavigation(String brandOnNavigation) {
-        ArrayList<Product> listFilter = new ArrayList<Product>();
-        try {
-            String sql = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE brand=?";
-            PreparedStatement p = connect.prepareStatement(sql);
-            p.setString(1, brandOnNavigation);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                String id = rs.getString("id");
-                String brand = rs.getString("brand");
-                String name = rs.getString("name");
-                String categoryP = rs.getString("category");
-                double price = rs.getDouble("price");
-                int saleRate = rs.getInt("saleRate");
-                int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active);
-
-                listFilter.add(product);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return listFilter;
-    }
-
 
     public String getTotalNumberProduct(String attrProduct, String[] category) {
         String sqlCount = "";
         if (attrProduct.equals("category")) {
             for (int i = 0; i < category.length; i++) {
                 sqlCount += " category=?        ";
-                System.out.println(789456);
             }
-                sqlCount +=  "&&"; // to remove || &&
+            sqlCount +=  "&&"; // to remove || &&
         }
         sqlCount = sqlCount.substring(0, sqlCount.length() - 4);
         return sqlCount;
@@ -418,7 +292,7 @@ public class DaoProduct implements Dao<Product> {
 
     public List<Product> getProductByCategoryByNav(String attrProduct, String category, int pagination) {
         List<Product> re = new ArrayList<Product>();
-        String sqlNav = "SELECT id, brand, name, category, price, saleRate, Active FROM product WHERE";
+        String sqlNav = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE";
 
         if (attrProduct.equals("categoryOnNav")) {
             sqlNav += " category=?";
@@ -427,7 +301,7 @@ public class DaoProduct implements Dao<Product> {
         } else if (attrProduct.equals("brandOnNav")) {
             sqlNav += " brand=?";
         }
-        sqlNav += limit;
+        sqlNav += " GROUP BY product.id " + limit;
         System.out.println(sqlNav);
         PreparedStatement s = null;
         try {
@@ -446,7 +320,8 @@ public class DaoProduct implements Dao<Product> {
                 double price = rs.getDouble("price");
                 int saleRate = rs.getInt("saleRate");
                 int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active);
+                String avatar = rs.getString("img");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
 
                 re.add(product);
             }
@@ -459,7 +334,7 @@ public class DaoProduct implements Dao<Product> {
     public List<Product> getDataFromWordInSearchHeader(String word) {
         List<Product> re = new ArrayList<Product>();
         PreparedStatement s = null;
-        String sql = "SELECT id, name FROM product WHERE name LIKE ? LIMIT 0, 10";
+        String sql = "SELECT DISTINCT name, id FROM product WHERE name LIKE ? GROUP BY name LIMIT 0, 10";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, "%"+word+"%");
@@ -487,7 +362,7 @@ public class DaoProduct implements Dao<Product> {
     public List<Product> getListHotProduct(String id) {
         List<Product> re = new ArrayList<Product>();
         PreparedStatement s = null;
-        String sql = "SELECT id, brand, category, Active, name, price, saleRate FROM product WHERE id!=? ORDER BY starRate, saleRate DESC LIMIT 0, 5";
+        String sql = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id!=? ORDER BY starRate, saleRate DESC LIMIT 0, 5";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, id);
@@ -500,7 +375,8 @@ public class DaoProduct implements Dao<Product> {
                 double price = rs.getDouble("price");
                 int saleRate = rs.getInt("saleRate");
                 int active = rs.getInt("Active");
-                Product product = new Product(idCur, brand, name, categoryP, price, saleRate, active);
+                String avatar = rs.getString("img");
+                Product product = new Product(idCur, brand, name, categoryP, price, saleRate, active, avatar);
                 re.add(product);
             }
         } catch (SQLException e) {
