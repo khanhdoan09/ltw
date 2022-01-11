@@ -1,0 +1,57 @@
+Index: src/main/java/model/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport java.util.Collection;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\npublic class Cart {\r\n    private Map<String , Product> data;\r\n    private static Cart instance;\r\n    private Cart() {\r\n        data = new HashMap<>();\r\n    }\r\n\r\n    public static Cart getInstance() {\r\n        if(instance ==null) {\r\n            instance = new Cart();\r\n        }\r\n        return instance;\r\n    }\r\n//get product by id\r\n    public Product get(String id) {\r\n        return data.get(id);\r\n    }\r\n//    put product to cart\r\n    public void put(Product product){\r\n        data.put(product.getId(), product);\r\n    }\r\n//    remove product from cart\r\n    public void remove(String id){\r\n        data.remove(id);\r\n    }\r\n//    get total price\r\n    public double total(){\r\n        double total =0;\r\n        for(Product p : data.values()){\r\n            total += p.gettotal();\r\n        }\r\n        return total;\r\n    }\r\n//    get total quantity\r\n    public int quantity(){\r\n        int quantity = 0;\r\n        for(Product p : data.values()) {\r\n            quantity += p.getSoleValue();\r\n        }\r\n        return  quantity;\r\n    }\r\n//    get list product\r\n    public Collection<Product> getData() {\r\n        return data.values();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Cart.java b/src/main/java/model/Cart.java
+--- a/src/main/java/model/Cart.java	(revision 1d074927601bb8c19bd83c61d4423f4859d778ed)
++++ b/src/main/java/model/Cart.java	(date 1641881463771)
+@@ -17,19 +17,19 @@
+         }
+         return instance;
+     }
+-//get product by id
++    //get product by id
+     public Product get(String id) {
+         return data.get(id);
+     }
+-//    put product to cart
++    //    put product to cart
+     public void put(Product product){
+         data.put(product.getId(), product);
+     }
+-//    remove product from cart
+-    public void remove(String id){
+-        data.remove(id);
++    //    remove product from cart
++    public Product remove(String id){
++        return data.remove(id);
+     }
+-//    get total price
++    //    get total price
+     public double total(){
+         double total =0;
+         for(Product p : data.values()){
+@@ -37,7 +37,7 @@
+         }
+         return total;
+     }
+-//    get total quantity
++    //    get total quantity
+     public int quantity(){
+         int quantity = 0;
+         for(Product p : data.values()) {
+@@ -45,8 +45,8 @@
+         }
+         return  quantity;
+     }
+-//    get list product
++    //    get list product
+     public Collection<Product> getData() {
+         return data.values();
+     }
+-}
++}
+\ No newline at end of file
