@@ -26,8 +26,8 @@ public class Cart {
         data.put(product.getId(), product);
     }
 //    remove product from cart
-    public void remove(String id){
-        data.remove(id);
+    public Product remove(String id){
+       return data.remove(id);
     }
 //    get total price
     public double total(){

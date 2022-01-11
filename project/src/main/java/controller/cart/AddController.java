@@ -29,7 +29,7 @@ public class AddController extends HttpServlet {
 //        save cart to session
         session.setAttribute("cart", cart);
 //        redirect to cart session
-        response.sendRedirect("project/Cart");
+        request.getRequestDispatcher("/cart.jsp").forward(request,response);
     }
 
     @Override

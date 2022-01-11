@@ -356,7 +356,7 @@
                                 <i class="fas fa-heart"></i></button>
                             <button type="button" class="addtocart-btn">Mua ngay</button>
                             <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng">
-                                <a href="/project/AddCart?id=${p.id}"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="/project/AddCart?id=<%=p.getId()%>"><i class="fas fa-shopping-cart"></i></a>
                             </button>
                         </div>
                     </div>
@@ -399,7 +399,8 @@
                                 class="fas fa-heart"></i></button>
                         <button type="button" class="addtocart-btn">Mua ngay</button>
                         <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng">
-                            <a href="/project/AddCart?id=${p.id}"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="/project/AddCart?id=<%=p.getId()%>"><i class="fas fa-shopping-cart"></i></a>
+
                         </button>
                     </div>
                 </div>

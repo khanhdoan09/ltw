@@ -10,7 +10,6 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
 
-<jsp:useBean id="cart" scope="request" type="model.Cart"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,13 +75,14 @@
                         <tbody>
                         <c:set var="list" value="${cart.data}"/>
                         <c:forEach items="${list}" var="item">
+
                             <tr>
                                 <td class="text-center">
                                     <input type="checkbox" id="html " name="fav_language" value="HTML">
                                     <a href="product.html"><img class="img-thumbnail"
                                                                 title="women's New Wine is an alcoholic"
                                                                 alt="women's New Wine is an alcoholic"
-                                                                src="data/imgAll/009318_a.jpg"></a>
+                                                                src="data/imgAll/${item.avatar}.jpg"></a>
                                 </td>
                                 <td class="text-left"><a href="product.html">${item.name}</a>
                                 </td>
@@ -95,9 +95,10 @@
                                                 <button class="btn btn-primary" title="" data-toggle="tooltip"
                                                         type="submit" data-original-title="Update"><i
                                                         class="fa fa-refresh"></i></button>
-                                                <button class="btn btn-danger" title="" data-toggle="tooltip"
-                                                        type="button" data-original-title="Remove"><i
-                                                        class="fa fa-times-circle"></i></button>
+                                                <a class="cart-remove" pid="${item.id}"><button class="btn btn-danger" title="" data-toggle="tooltip"
+                                                        type="button" data-original-title="Remove">
+                                                    <i class="fa fa-times-circle"></i></button>
+                                                </a>
                                             </span>
                                     </div>
                                 </td>
@@ -181,7 +182,7 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <div class="pull-left"><a class="btn btn-default" href="index.html">Tiếp Tục Mua Sắm</a></div>
+                    <div class="pull-left"><a class="btn btn-default" href="/project/ServletTest123">Tiếp Tục Mua Sắm</a></div>
                     <div class="pull-right"><a class="btn btn-primary" href="checkout.html" id="Thanhtoan">Thanh
                         Toán</a></div>
                 </div>
@@ -193,6 +194,30 @@
 
 <%@include file="footer_login_message.jsp"%>
 <script src="./javascript/hung-js.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".cart-remove").click(function () {
+            var id = $(this).attr("pid");
+            tr = $(this).closest("tr");
+            console.log(id);
+            $.ajax({
+                url: "/project/Cart-remove",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    tr.remove();
+                },
+                error: function (data) {
+                    if(data.status === 404)
+                    alert("Xoa That Bai");
+                }
+            })
+        })
+    })
+</script>
+
 </body>
 
 </html>

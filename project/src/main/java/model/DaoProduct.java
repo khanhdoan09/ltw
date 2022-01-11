@@ -32,7 +32,7 @@ public class DaoProduct implements Dao<Product> {
         List<Product> re = new ArrayList<Product>();
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active FROM product");
+            ResultSet rs = s.executeQuery("SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active,img FROM product inner join linkimg on product.id=linkimg.id where linkimg.level=0");
             while (rs.next()) {
                 String id = rs.getString("id");
                 String brand = rs.getString("brand");
@@ -45,7 +45,8 @@ public class DaoProduct implements Dao<Product> {
                 int totalValue = rs.getInt("totalValue");
                 int soleValue = rs.getInt("soleValue");
                 int active = rs.getInt("Active");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active);
+                String avatar = rs.getString("img");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active,avatar);
 
                 if (id.equals(idPr)) {
                     return product;
