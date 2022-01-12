@@ -264,28 +264,28 @@
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail main imag1">
-                                        <img src="data/imgAll/<%=p.getImg().getSub().get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" />
+                                        <img src="data/imgAll/<%=p.getImg().getMain().get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" />
                                     </div>
                                 </div>
                             </div>
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail imag2 ">
-                                        <img src="data/imgAll/<%=p.getImg().getSub().get(1)%>.jpg"  title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy"  id="one"/>
+                                        <img src="data/imgAll/<%=p.getImg().getSub().get(0)%>.jpg"  title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy"  id="one"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail imag3 ">
-                                        <img src="data/imgAll/<%=p.getImg().getSub().get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/>
+                                        <img src="data/imgAll/<%=p.getImg().getSub().get(1)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail imag4 ">
-                                        <img src="data/imgAll/<%=p.getImg().getSub().get(3)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="three"/></div>
+                                        <img src="data/imgAll/<%=p.getImg().getSub().get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="three"/></div>
                                 </div>
                             </div>
 

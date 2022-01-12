@@ -54,7 +54,7 @@ function displayMenuNavigation() {
                                 <ul class="main-navigation">
                                     <li><a href="index.html" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                                     <li style="position: relative">
-                                    <a href="category.html" style="color: white" class="parent category-item" id="category-man">
+                                    <a href="ServletTest123?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
                                      NAM
                                      <i class="fas fa-caret-down"></i> 
                                      </a>
@@ -75,7 +75,7 @@ function displayMenuNavigation() {
                                 </ul>
                             
                                 </li>
-                                    <li style="position: relative"><a href="category.html" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
+                                    <li style="position: relative"><a href="ServletTest123?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
                                     
                                     <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                                     <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>-->
@@ -349,24 +349,6 @@ ${element.name}</a> </h4>
 
 }
 
-
-
-
-
-
-/* display listProduct by click navigation*/
-$(function() {
-    let man = $(".category-product");
-    for (let i = 0; i < man.length; i++) {
-        man[i].addEventListener("click", (e) => {
-            $(".contain-carousel-category").css("display", "none");
-            displayListProduct();
-            displayPagination()
-            return;
-        });
-    }
-})
-
 // to set category man or category woman
 $(function () {
     $("#category-man").click(() => {
@@ -438,21 +420,6 @@ function displayPagination() {
     $(".pagination").append(contain);
     $(`#selectPagination option[value=1]`).attr('selected', 'selected');
 };
-
-
-
-function displaySizeShoe() {
-    let sizeArr = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
-    sizeArr.forEach((value) => {
-        $(".contain-dropdown-size").append(
-            " <label class=\"checkbox-filter-search\">\n" +
-            " <input name=\"filter[]\" type=\"checkbox\" value=\"1\" />\n" +
-            value + "</label>"
-        );
-    });
-}
-
-$(displaySizeShoe)
 
 
 // access information of page costumer

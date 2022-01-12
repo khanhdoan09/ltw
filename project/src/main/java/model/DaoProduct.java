@@ -11,7 +11,6 @@ public class DaoProduct implements Dao<Product> {
 
     private static DaoProduct instance = null;
 
-    public static String currentCategory = "";
 
 
     public static DaoProduct getInstance() {

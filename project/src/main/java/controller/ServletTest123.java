@@ -1,5 +1,6 @@
 package controller;
 
+import model.DaoBanner;
 import model.DaoProduct;
 import model.Product;
 
@@ -38,23 +39,21 @@ public class ServletTest123 extends HttpServlet {
         }
 
 
-        String a = request.getParameter("category");
-        Object b = request.getParameter("categoryGender");
         int pagination = 1;
         pag = request.getParameter("pagination");
         if (pag != null) {
             pagination = Integer.parseInt(pag.toString());
         }
 
-        String category = a;
-        System.out.println(category);
-        List<Product> listFilter = new ArrayList<Product>();
+        List<Product> listFilter = null;
         String folderImage = "";
         int totalNumberProduct = 0;
 
 
         String group = " GROUP BY product.id ";
         String limit = " LIMIT 0,9 ";
+
+        String categoryGender = request.getParameter("categoryGender");
 
         String[] categoriesByOnNav = request.getParameterValues("categoryOnNav");
         String[] brandsByOnNav = request.getParameterValues("brandOnNav");
@@ -78,16 +77,25 @@ public class ServletTest123 extends HttpServlet {
         String sql = "";
         String sqlAllCount = "SELECT COUNT(product.id) FROM product ";
 
-        if (categoriesByOnNav != null) {
+        if (categoryGender != null){
+            if (categoryGender.equals("Man")) {
+                request.setAttribute("categoryGender", "Man");
+            }
+            else
+                request.setAttribute("categoryGender", "Woman");
+
+        }
+        else if (categoriesByOnNav != null) {
+            listFilter = new ArrayList<Product>();
             listFilter = DaoProduct.getInstance().getProductByCategoryByNav("categoryOnNav", categoriesByOnNav[0], pagination);
             sql += "  WHERE "+DaoProduct.getInstance().getTotalNumberProduct("category", categoriesByOnNav);
-            DaoProduct.currentCategory = categoriesByOnNav[0];
             list.addAll(Arrays.asList(categoriesByOnNav));
             // use for form action
             request.setAttribute("TypeCategory", "category");
             request.setAttribute("ValueCategory", categoriesByOnNav[0]);
         }
         else {
+            listFilter = new ArrayList<Product>();
             // panel filter
             String[] categoryT = request.getParameterValues("category");
             String brandT = request.getParameter("brand");
@@ -209,10 +217,7 @@ public class ServletTest123 extends HttpServlet {
         totalNumberProduct = DaoProduct.getInstance().excQueryTotal(list, pagination, sqlAllCount);
         request.setAttribute("TotalNumberProduct", totalNumberProduct);
         request.setAttribute("pagination", pagination);
-        request.setAttribute("folderImage", folderImage);
         request.setAttribute("categoryProduct", listFilter);
-        request.setAttribute("category", a);
-        request.setAttribute("categoryGender", b);
 
         request .getRequestDispatcher("category.jsp").forward(request, response);
 

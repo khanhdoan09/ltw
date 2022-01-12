@@ -11,12 +11,10 @@
 <%@ page import="databaseConnection.DatabaseConnection" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.DaoLinkImage" %>
-<%@ page import="model.DaoProduct" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
+<%@ page import="model.*" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -181,7 +179,6 @@
                                         }
                                         return "";
                                     }
-
                                     public String colorLabelStar(String star) {
                                         if (!star.equals(""))
                                             return "style=\"color: yellow\"";
@@ -271,13 +268,11 @@
                                                 return "checked";
                                             return "";
                                         }
-
                                         public String isFromPriceChecked() {
                                             if (objFilterFromPrice != null)
                                                 return "checked";
                                             return "";
                                         }
-
                                         public String isToUpPriceChecked() {
                                             if (objFilterUpPrice != null)
                                                 return "checked";
@@ -337,7 +332,6 @@
                                                 return objFilterFromInputPrice;
                                             return "";
                                         }
-
                                         public String isToInputPriceChecked() {
                                             if (objFilterToInputPrice != null)
                                                 return objFilterToInputPrice;
@@ -482,7 +476,6 @@
                                    String pagStr = request.getQueryString().substring(0, request.getQueryString().lastIndexOf("pagination"));
                                    pagStr += "pagination=" + pagInt;
                                    %>
-
                                    <%=URLDecoder.decode("ServletTest123?"+pagStr, "UTF-8")%>">&lt;
                             </a>
 
@@ -500,7 +493,6 @@
                                    String pagStrRight = request.getQueryString().substring(0, request.getQueryString().lastIndexOf("pagination"));
                                    pagStrRight += "pagination=" + pagIntRight;
                                    %>
-
                                    <%=URLDecoder.decode("ServletTest123?"+pagStrRight, "UTF-8")%>">&gt;
                             </a>
                         </li>
@@ -525,46 +517,32 @@
             </div>
             <%
             } else {
-
                 Object objGender = request.getAttribute("categoryGender");
                 String categoryGender = objGender.toString();
-                ArrayList<String> listCarousel;
-                ArrayList<String> listIntro;
+                List<Banner> listCarousel;
+                List<Banner> listIntro;
                 if (categoryGender.equals("Man")) {
-                    listCarousel = new ArrayList<String>(Arrays.asList("image/banners/men-intro-carousel1.webp", "image/banners/men-intro-carousel2.webp", "image/banners/men-intro-carousel-3.jpg"));
-                    listIntro = new ArrayList<String>(Arrays.asList("image/category/man-Hitops.webp", "image/category/man-running.webp", "image/category/man-slides.jpg", "image/category/man-football.webp", "image/category/man-sneakers.jpg", "image/category/man-skateboard.jpg"));
+                    listCarousel =  DaoBanner.getInstance().getCarouselCategory("carousel-man");
+                    listIntro = DaoBanner.getInstance().getIntroCategory("intro-category-man");
                 } else {
-                    listCarousel = new ArrayList<String>(Arrays.asList("image/banners/women-intro-carousel1.webp", "image/banners/women-intro-carousel2.webp", "image/banners/women-intro-carousel3.webp"));
-                    listIntro = new ArrayList<String>(Arrays.asList("image/category/woman-hitops.jpg", "image/category/running-woman.webp", "image/category/woman-slide.jpg", "image/category/woman-football.jfif", "image/category/woman-sneakers.webp", "image/category/woman-skateboard.jfif"));
+                    listCarousel =  DaoBanner.getInstance().getCarouselCategory("carousel-woman");
+                    listIntro = DaoBanner.getInstance().getIntroCategory("intro-category-woman");
                 }
-
             %>
 
             <div class="mainbanner" style="padding: 10px; width: 100%; background-color: #f3f3f3;">
                 <div id="main-banner" class="owl-carousel home-slider">
+                    <%for(Banner banner : listCarousel) {%>
                     <div class="item">
                         <a href="#">
-                            <img src="<%=listCarousel.get(0)%>" id="category-carousel-intro-1" alt="main-banner1"
+                            <img src="<%=banner.getUrlImg()%>" id="category-carousel-intro-1" alt="main-banner1"
                                  class="img-responsive img-border-radius" style="width: 100%;"/></a>
                         <div class="main-banner-section-center">
                         </div>
                     </div>
-                    <div class="item">
-                        <a href="#"><img src="<%=listCarousel.get(1)%>" id="category-carousel-intro-2"
-                                         alt="main-banner2" class="img-responsive img-border-radius"
-                                         style="width: 100%;"/></a>
-                        <div class="main-banner-section-center">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a href="#"><img src="<%=listCarousel.get(2)%>" id="category-carousel-intro-3"
-                                         alt="main-banner3" class="img-responsive img-border-radius"
-                                         style="width: 100%;"/></a>
-                        <div class="main-banner-section-center">
-                        </div>
-                    </div>
+                    <%}%>
+
                 </div>
-                `
             </div>
 
 
@@ -577,42 +555,15 @@
                     </div>
                     <div class="list-contain">
                         <ul value="!23">
-                            <li id="intro-hitops" class="intro-category category-product">
-                                <img id="category-intro-img-hitops" src="<%=listIntro.get(0)%>" alt="">
-                                <p class="title-category">HiTops</p>
-                                <p class="introduce-category">Made for the journey, this collection of walking footwear
-                                    is ready to go places and find adventure.</p>
+                            <%for (Banner banner : listIntro) {%>
+                            <li id="intro-hitops" class="intro-category category-product" onclick="location.href='<%=banner.getLinkTo()%>'">
+                                <img src="<%=banner.getUrlImg()%>" alt="">
+                                <p class="title-category"><%=banner.getTitle()%></p>
+                                <p class="introduce-category"><%=banner.getText()%></p>
                             </li>
-                            <li id="intro-running" class="intro-category category-product">
-                                <img id="category-intro-img-running" src="<%=listIntro.get(1)%>" alt="">
-                                <p class="title-category">Running</p>
-                                <p class="introduce-category">Feel inspired to fire up your passion in a running shoe
-                                    made for more. No compromises, just pure motivation in stylish comfort.</p>
-                            </li>
-                            <li id="intro-slides" class="intro-category category-product">
-                                <img id="category-intro-img-slides" src="<%=listIntro.get(2)%>" alt="">
-                                <p class="title-category">Slides</p>
-                                <p class="introduce-category">Made to go distance - and even furthur - this trainer
-                                    range knows nothing but style and comfort.</p>
-                            </li>
-                            <li id="intro-sneakers" class="intro-category category-product">
-                                <img id="category-intro-img-sneakers" src="<%=listIntro.get(3)%>" alt="">
-                                <p class="title-category">Sneakers</p>
-                                <p class="introduce-category">Do the season of boots in style. Step into comfort ready
-                                    for wherever the journey is set to take you</p>
-                            </li>
-                            <li id="intro-skateboard" class="intro-category category-product">
-                                <img id="category-intro-img-skateboard" src="<%=listIntro.get(4)%>" alt="">
-                                <p class="title-category">Skateboard</p>
-                                <p class="introduce-category">Whatever the season - in skateboard and in weather - enjoy
-                                    the shoe made to withstand</p>
-                            </li>
-                            <li id="intro-football" class="intro-category category-product">
-                                <img id="category-intro-img-football" src="<%=listIntro.get(5)%>" alt="">
-                                <p class="title-category">Football</p>
-                                <p class="introduce-category">Get in possession of your perfect match in a pair of
-                                    football boots from one of the biggest names in the game.</p>
-                            </li>
+
+                            <%}%>
+
                         </ul>
                     </div>
                 </div>
