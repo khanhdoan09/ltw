@@ -898,11 +898,31 @@
 .gia {
     display: block;
     float: left;
-    width: 70%;
+    width: 65%;
 }
 .SL {
     display: block;
     float: left;
     width: 30%;
     text-align: right;
+}
+#remove_pr,
+#checkAll_Product {
+    width: 11%;
+    float: left;
+    margin-bottom: 10px;
+}
+.check_all,
+.icon_remove_pr {
+    float: left;
+    width: 20px;
+    cursor: pointer;
+}
+.label_check_all,
+.lb_remove {
+    float: left;
+    width: 80%;
+    padding: 0;
+    margin: 0;
+    margin-top: 1px;
 }

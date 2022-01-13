@@ -25,12 +25,15 @@ public class UpdateController extends HttpServlet {
             cart = Cart.getInstance();
         Product p = cart.get(id);
 
+        System.out.println(quantity);
         if (p == null) {
-            response.setStatus(HttpServletResponse.SC_ACCEPTED);
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
-        p.setQuantitySold(Integer.parseInt(quantity));
-        if(p.getQuantitySold() !=Integer.parseInt(quantity))
+        int quantitySold = Integer.parseInt(quantity);
+        p.setQuantitySold(quantitySold);
+        if(p.getQuantitySold() != quantitySold)
             response.setStatus(485);
+        System.out.println(p.getQuantitySold());
     }
 }

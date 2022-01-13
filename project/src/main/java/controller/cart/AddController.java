@@ -29,7 +29,8 @@ public class AddController extends HttpServlet {
 //        save cart to session
         session.setAttribute("cart", cart);
 //        redirect to cart session
-        request.getRequestDispatcher("/cart.jsp").forward(request,response);
+//        request.getRequestDispatcher("/cart.jsp").forward(request,response);
+        response.sendRedirect("/project/Cart");
     }
 
     @Override

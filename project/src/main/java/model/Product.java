@@ -20,8 +20,8 @@ public class Product {
     private List<Integer> listSize;
     private String avatar;
     private ImgProduct img;
-    private int quantitySold;
-    private int quantity = totalValue - soleValue;
+    private int quantitySold = 1;
+    private int quantity ;
 
 //cart
     public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active,String avatar) {
@@ -164,13 +164,18 @@ public class Product {
     public String getAvatar() {return avatar;}
     public ImgProduct getImg() {return img;}
     public int getQuantity() {
-        return quantity;
+        return getTotalValue() - getSoleValue();
     }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public int getQuantitySold() {
         return quantitySold;
     }
+
     public void setQuantitySold(int quantitySold) {
-        if(quantity >= quantitySold && quantitySold > 0)
+        if(getQuantity() >= quantitySold && quantitySold > 0)
             this.quantitySold = quantitySold;
     }
 
@@ -197,5 +202,9 @@ public class Product {
 
     public double gettotal() {
         return quantitySold * (price-(price*saleRate/100));
+    }
+
+    public double getSalePrice() {
+        return (price-(price*saleRate/100));
     }
 }

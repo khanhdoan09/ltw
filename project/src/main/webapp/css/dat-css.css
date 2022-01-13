@@ -55,22 +55,26 @@ color: black;
     width: 30%;
     float: right;
     box-sizing: border-box;
-    border: black solid 1;
+    border: black solid 1px;
 }
 
 .col-sm-9 #Trash .del {
     margin-left: 230px;
+    float: left;
+    width: 10px;
 }
 
 .checkAll{
     font-size: 13px;
-    width: 98%;
-    float: right;
+    width: 15%;
+    float: left;
     margin-top: 3px;
 
 }
 
 .col-sm-9 #checkAllProduct .chec {
+    float: left;
+    width: 10px;
     margin-left: 13px;
 }
 

@@ -408,7 +408,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                             <div class="value-box"><label>Số lượng:</label></div>
                             <div class="value-box set-value">
                                 <input class="value" type="button" onclick="reduceValue()" value="--" />
-                                <input type="text" id="number" value="1" />
+                                <input type="text" id="number" class="changeQuantity"   value="<%=p.getQuantitySold()%>" />
                                 <input class="value" type="button" onclick="incrementValue(<%=p.getTotalValue()-p.getSoleValue()%>)" value="+" />
                             </div>
                             <h6 class="products-available value-box"><%=p.getTotalValue()-p.getSoleValue()%> Sản phẩm có sẵn</h6>
@@ -416,7 +416,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                         <li class="add-and-buy">
                             <div class="add-product">
                                 <!-- <i class="fas fas-shopping-cart"></i> -->
-                                <a href="" class="add">Thêm Vào Giỏ Hàng</a>
+                                <a href="/project/AddCart?id=<%=p.getId()%>" class="add">Thêm Vào Giỏ Hàng</a>
                             </div>
                             <div class="buy-product">
                                 <a href="./checkout.html" class="buy">Mua Ngay</a>

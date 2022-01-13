@@ -46,70 +46,13 @@
             <div id="accordion" class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading a">
-                        <h2 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion"
-                                                   data-toggle="collapse" href="#collapse-checkout-option"
-                                                   aria-expanded="false">
-                            Thông tin nhận hàng <i class="fa fa-caret-down"></i></a></h2>
-                    </div>
-                    <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse in"
-                         aria-expanded="true" style="height: 0px;">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h3>Bạn đã có tài khoản <a style="color: darkorange; cursor:pointer;">Đăng nhập
-                                        ngay</a></h3>
-                                    <form>
-                                        <div class="section-input-form">
-                                            <input type="text" class="form-input" placeholder="Họ tên">
-                                            <input type="text" class="form-input" placeholder="Số điện thoại">
-                                        </div>
-                                        <div class="section-input-form">
-                                            <input type="email" class="form-input" placeholder="Địa chỉ email">
-                                        </div>
-                                        <div class="section-input-form">
-                                            <input type="text" class="form-input"
-                                                   placeholder="Địa chỉ (Ví dụ: 1056, Bình Chiểu, Thủ Đức)">
-                                        </div>
-                                        <div class="contain-adjust-address">
-                                            <span class="label-address">Tỉnh/ Thành phố:</span>
-                                            <select id="contain-option-city">
-                                                <!-- khanh-js loadLocation() display this -->
-                                            </select>
-                                            <span class="label-address">Quận/ Huyện:</span>
-                                            <select id="contain-option-district">
-                                                <!-- khanh-js loadLocation() display this -->
-                                            </select>
-                                            <span class="label-address">Phường/ Xã:</span>
-                                            <select id="contain-option-ward">
-                                                <!-- khanh-js loadLocation() display this -->
-                                            </select>
-                                            <span class="label-address">Địa chỉ</span>
-                                            <textarea rows="4" cols="50"></textarea>
-                                        </div>
-                                        <div class="contain-default-address-customer" style="margin: 15px 15px">
-                                            <input type="checkbox" id="default-address-customer">
-                                            <label for="default-address-customer" style="font-size: 17px">Đặt làm địa chỉ mặc định</label><br>
-                                        </div>
-                                        <div class="section-input-form">
-                                            <input type="text" class="form-input"
-                                                   placeholder="Ghi chú thêm (Ví dụ: Giao hàng giờ hành chính)">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading a">
                         <h2 class="panel-title">
                             <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
                                href="#collapse-checkout-confirm" aria-expanded="true">Xác nhận đơn hàng <i
                                     class="fa fa-caret-down"></i></a></h2>
                     </div>
                     <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse "
-                         aria-expanded="false" >
+                         aria-expanded="true" >
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-checkout">
@@ -168,6 +111,64 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading a">
+                        <h2 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion"
+                                                   data-toggle="collapse" href="#collapse-checkout-option"
+                                                   aria-expanded="false">
+                            Thông tin nhận hàng <i class="fa fa-caret-down"></i></a></h2>
+                    </div>
+                    <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse in"
+                         aria-expanded="true" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h3>Bạn đã có tài khoản <a style="color: darkorange; cursor:pointer;">Đăng nhập
+                                        ngay</a></h3>
+                                    <form>
+                                        <div class="section-input-form">
+                                            <input type="text" class="form-input" placeholder="Họ tên">
+                                            <input type="text" class="form-input" placeholder="Số điện thoại">
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input type="email" class="form-input" placeholder="Địa chỉ email">
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input type="text" class="form-input"
+                                                   placeholder="Địa chỉ (Ví dụ: 1056, Bình Chiểu, Thủ Đức)">
+                                        </div>
+                                        <div class="contain-adjust-address">
+                                            <span class="label-address">Tỉnh/ Thành phố:</span>
+                                            <select id="contain-option-city">
+                                                <!-- khanh-js loadLocation() display this -->
+                                            </select>
+                                            <span class="label-address">Quận/ Huyện:</span>
+                                            <select id="contain-option-district">
+                                                <!-- khanh-js loadLocation() display this -->
+                                            </select>
+                                            <span class="label-address">Phường/ Xã:</span>
+                                            <select id="contain-option-ward">
+                                                <!-- khanh-js loadLocation() display this -->
+                                            </select>
+                                            <span class="label-address">Địa chỉ</span>
+                                            <textarea rows="4" cols="50"></textarea>
+                                        </div>
+                                        <div class="contain-default-address-customer" style="margin: 15px 15px">
+                                            <input type="checkbox" id="default-address-customer">
+                                            <label for="default-address-customer" style="font-size: 17px">Đặt làm địa chỉ mặc định</label><br>
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input type="text" class="form-input"
+                                                   placeholder="Ghi chú thêm (Ví dụ: Giao hàng giờ hành chính)">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 

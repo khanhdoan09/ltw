@@ -102,7 +102,7 @@
                                         </td>
                                         <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
                                             <div class="SL-Gia">
-                                                <p class="gia">${item.price}$</p>
+                                                <p class="gia">${item.gettotal()}$</p>
                                                 <p class="SL">SL: ${item.quantitySold}</p>
                                             </div>
                                         </td>

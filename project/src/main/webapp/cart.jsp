@@ -41,6 +41,11 @@
     <link rel="stylesheet" href="css/khanh-css.css">
     <link rel="stylesheet" href="./css/hung-css.css">
     <script src="javascript/khanh-js.js" type="text/javascript"></script>
+    <style>
+        .icon-update:hover {
+            background-color: #0e0e0e !important;
+        }
+    </style>
 </head>
 
 <body class="cart col-2">
@@ -51,13 +56,13 @@
 
         <div class="" id="content" style="width: 100%;">
             <h1>Giỏ Hàng </h1>
-            <div id="checkAllProduct">
-                <%--@declare id="allproduct"--%><input type="checkbox" id="checkAll" class="chec">
-                <label class="checkAll" for="allProduct">Chọn tất cả sản phẩm</label>
+            <div id="checkAll_Product">
+                <%--@declare id="allproduct"--%><input type="checkbox" id="" class="check_all">
+                <label class="label_check_all" for="allProduct">Chọn tất cả</label>
             </div>
-            <div id="Trash">
-                <%--@declare id="bin"--%><i class="fa fa-trash del"></i>
-                <label for="bin" class="deltex checkAll">Xóa</label>
+            <div id="remove_pr">
+                <%--@declare id="bin"--%><i class="fa fa-trash icon_remove_pr"></i>
+                <label for="bin" class="lb_remove">Xóa</label>
             </div>
             <form enctype="multipart/form-data" method="post" action="#">
                 <div class="table-responsive">
@@ -88,21 +93,21 @@
                                 <td class="text-left">${item.brand}</td>
                                 <td class="text-left">
                                     <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity quantity-cart" pid="${item.id}" oldQuantity="${item.quantitySold}" size="1" value="${item.quantitySold}"
+                                        <input type="text" class="form-control quantity changeQuantity" pid="${item.id}" oldQuantity="${item.quantitySold}" size="1" value="${item.quantitySold}"
                                                name="quantity">
                                         <span class="input-group-btn">
-                                                <button class="btn btn-primary" title="" data-toggle="tooltip"
-                                                        type="submit" data-original-title="Update"><i
-                                                        class="fa fa-refresh"></i></button>
+                                                <a class="" href="/project/Cart">
+                                                   <i class="fa fa-refresh icon-update" style="padding: 9px 20px;background-color: #1a94ff;color: white;"></i>
+                                                </a>
                                                 <a class="cart-remove" pid="${item.id}"><button class="btn btn-danger" title="" data-toggle="tooltip"
                                                         type="button" data-original-title="Remove">
-                                                    <i class="fa fa-times-circle"></i></button>
+                                                    <i class="fa fa-trash"></i></button>
                                                 </a>
                                             </span>
                                     </div>
                                 </td>
-                                <td class="text-right">${item.price}</td>
-                                <td class="text-right">${item.price*2}</td>
+                                <td class="text-right">${item.getSalePrice()}</td>
+                                <td class="text-right">${item.gettotal()}</td>
                             </tr>
                         </c:forEach>
 
@@ -214,7 +219,7 @@
                 }
             })
         })
-        $(".quantity-cart").blur(function () {
+        $(".changeQuantity").blur(function () {
             var id = $(this).attr("pid");
             var oldQuantity = $(this).attr("oldQuantity");
             var update = $(this);
@@ -233,7 +238,7 @@
                     error: function (data) {
                         if(data.status === 404)
                             alert("Sản phẩm không tồn tại, hoặc bị xóa khỏi giỏ hàng!");
-                        else  if(data.status === 484)
+                        else  if(data.status === 485)
                             alert("Số lượng vượt quá giới hạn mua hoặc bé hơn 1!");
                     }
                 })
