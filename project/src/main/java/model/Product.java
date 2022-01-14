@@ -207,4 +207,7 @@ public class Product {
     public double getSalePrice() {
         return (price-(price*saleRate/100));
     }
+
+    // use in admin page
+    public String toJson() { String re = "{"; re += "\"id\":\""+this.id+"\","; re += "\"name\":\""+this.name+"\","; re += "\"brand\":\""+this.brand+"\","; re += "\"value\":\""+this.totalValue+"\","; re += "\"saleRate\":\""+this.saleRate+"\""; re +="}"; return re; }
 }
