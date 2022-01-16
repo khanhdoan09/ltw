@@ -10,15 +10,10 @@
 <%@ page import="databaseConnection.DatabaseConnection" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.DaoLinkImage" %>
-<%@ page import="model.DaoProduct" %>
-<%@ page import="java.util.Arrays" %>
+<%@ page import="model.DaoBanner" %>
+<%@ page import="model.Banner" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.net.URLDecoder" %>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html lang="en">
 
 <head>
@@ -208,27 +203,17 @@
 <div class="container general-contain" style="margin-bottom: 20px; padding: 0;">
     <div class="mainbanner">
         <div id="main-banner" class="owl-carousel home-slider" style="margin: 0; padding: 0;">
+            <%
+                List<Banner> listBanner = DaoBanner.getInstance().getCarouselCategory("banner-home");
+                for (Banner banner : listBanner) {%>
             <div class="item">
-                <a href="#"><img src="image/banners/Main-Banner1.jpg" alt="main-banner1"
+                <a href="#"><img src="<%banner.getUrlImg();%>" alt="main-banner1"
                                  class="img-responsive img-border-radius" /></a>
                 <div class="main-banner-section-center">
                     <a href="" class="shop-now-btn">MUA NGAY</a>
                 </div>
             </div>
-            <div class="item">
-                <a href="#"><img src="image/banners/Main-Banner2.jpg" alt="main-banner2"
-                                 class="img-responsive img-border-radius" /></a>
-                <div class="main-banner-section-center">
-                    <a href="" class="shop-now-btn">MUA NGAY</a>
-                </div>
-            </div>
-            <div class="item">
-                <a href="#"><img src="image/banners/Main-Banner3.jpg" alt="main-banner3"
-                                 class="img-responsive img-border-radius" /></a>
-                <div class="main-banner-section-center">
-                    <a href="" class="shop-now-btn">MUA NGAY</a>
-                </div>
-            </div>
+            <%}%>
         </div>
     </div>
 </div>
@@ -267,14 +252,16 @@
             </div>
         </div>
         <div class="cms_banner ">
+            <%!List<Banner> listSubBanner = DaoBanner.getInstance().getCarouselCategory("sub-banner-home");
+            %>
             <div class="col-md-4 cms-banner-left">
-                <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner1.jpg"></a>
+                <a href="#"><img alt="#" style="width: 100%;" src="<%=listSubBanner.get(0).getUrlImg()%>"></a>
             </div>
             <div class="col-md-4 cms-banner-middle">
-                <a href="#"> <img alt="#" style="width: 100%;" src="image/banners/subbanner2.jpg"></a>
+                <a href="#"> <img alt="#" style="width: 100%;" src="<%=listSubBanner.get(1).getUrlImg()%>"></a>
             </div>
             <div class="col-md-4 cms-banner-right">
-                <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner3.jpg"></a>
+                <a href="#"><img alt="#" style="width: 100%;" src="<%=listSubBanner.get(2).getUrlImg()%>"></a>
             </div>
         </div>
     </div>
@@ -283,7 +270,7 @@
 <div class="container general-contain" style="margin-bottom: 20px;">
 
     <div class="row">
-        <div id="contents" class="col-sm-12">
+        <div id="content" class="col-sm-12">
             <div class="customtab">
                 <div id="tabs" class="customtab-wrapper">
                     <ul class='customtab-inner'>
@@ -933,7 +920,7 @@
 <div class="container general-contain" style="margin-bottom: 20px;">
 
     <div class="row">
-        <div id="content" class="col-sm-12">
+        <div id="contents" class="col-sm-12">
 
 
 
@@ -1199,16 +1186,15 @@
                 <img src="./image/icon_apple.png" alt="Apple" class="icon-login-another">
             </div>
 
-            <form action="Login" class="modal-input-section" name="form-login" id="form-login" method="post">
-                <input type="email" name="email" id="email"  placeholder="Địa chỉ email..." class="email">
-                <input type="password" name ="password" id="password" placeholder="Nhập mật khẩu..." class="email password">
+            <div class="modal-input-section">
+                <input type="email" placeholder="Địa chỉ email..." class="email">
+                <input type="password" placeholder="Nhập mật khẩu..." class="email password">
                 <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
-                <div class="modal-bnt-login">
-                    <button name="btLogin" id="btLogin" type="submit" class="bnt-login" onclick="login()">Đăng Nhập</button>
-                </div>
-            </form>
+            </div>
 
-
+            <div class="modal-bnt-login">
+                <a href="" class="bnt-login">Đăng Nhập</a>
+            </div>
 
             <div class="modal-title">
                 <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng,

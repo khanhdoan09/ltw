@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Product {
     private String id;
     private String brand;
@@ -15,8 +17,11 @@ public class Product {
     private String description;
     private String idVoucher;
     private int active;
+    private List<Integer> listSize;
     private String avatar;
-    private int quantity;
+    private ImgProduct img;
+    private int quantitySold = 1;
+    private int quantity ;
 
 //cart
     public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active,String avatar) {
@@ -36,7 +41,7 @@ public class Product {
 
 
     // detail
-    public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active) {
+    public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active, List<Integer> listSize, ImgProduct img) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -48,6 +53,8 @@ public class Product {
         this.totalValue = totalValue;
         this.soleValue = soleValue;
         this.active = active;
+        this.listSize = listSize;
+        this.img = img;
     }
     // list
     public Product(String id, String brand, String name, String category, double price, double saleRate, int active) {
@@ -58,6 +65,19 @@ public class Product {
         this.price = price;
         this.saleRate = saleRate;
         this.active = active;
+    }
+
+
+    // list
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int active, String avatar) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.saleRate = saleRate;
+        this.active = active;
+        this.avatar = avatar;
     }
 
     // search in header
@@ -140,6 +160,26 @@ public class Product {
     }
 
 
+    public List<Integer> getListSize() {return listSize;}
+    public String getAvatar() {return avatar;}
+    public ImgProduct getImg() {return img;}
+    public int getQuantity() {
+        return getTotalValue() - getSoleValue();
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getQuantitySold() {
+        return quantitySold;
+    }
+
+    public void setQuantitySold(int quantitySold) {
+        if(getQuantity() >= quantitySold && quantitySold > 0)
+            this.quantitySold = quantitySold;
+    }
+
+
     @Override
     public String toString() {
         return "Product{" +
@@ -161,6 +201,13 @@ public class Product {
     }
 
     public double gettotal() {
-        return soleValue * (price-(price*saleRate/100));
+        return quantitySold * (price-(price*saleRate/100));
     }
+
+    public double getSalePrice() {
+        return (price-(price*saleRate/100));
+    }
+
+    // use in admin page
+    public String toJson() { String re = "{"; re += "\"id\":\""+this.id+"\","; re += "\"name\":\""+this.name+"\","; re += "\"brand\":\""+this.brand+"\","; re += "\"value\":\""+this.totalValue+"\","; re += "\"saleRate\":\""+this.saleRate+"\""; re +="}"; return re; }
 }
