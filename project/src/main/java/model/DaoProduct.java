@@ -144,7 +144,7 @@ public class DaoProduct implements Dao<Product> {
     public ArrayList<Product> getAll() {
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT id, brand, name, category, price, saleRate, Active FROM runningman");
+            ResultSet rs = s.executeQuery("SELECT id, brand, name, category, price, saleRate, Active FROM product");
             while (rs.next()) {
                 String id = rs.getString("id");
                 String brand = rs.getString("brand");

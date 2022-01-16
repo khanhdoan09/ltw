@@ -72,24 +72,22 @@
                 <%
                     request.setAttribute("sql", request.getAttribute("sql"));
                 %>
-
                 <div class="filter-block">
                     <div class="list-group">
                         <a class="list-group-item">Brands</a>
                         <div class="list-group-item">
                             <div class="contain-dropdown-item filter-search" id="checkboxBrandFilter">
-                                <%!ArrayList<String> brandChecked;
-                                String[] objFilterBrand; %>
+                                <%!ArrayList<String> brandChecked;%>
                                 <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
                                 <%
-                                    objFilterBrand = request.getParameterValues("brand");
+                                    String[] objFilterBrand = request.getParameterValues("brand");
                                     if (objFilterBrand != null)
                                         brandChecked = new ArrayList<String>(Arrays.asList(objFilterBrand));
                                 %>
 
                                 <%!
                                     public String isBrandChecked(String brand) {
-                                        if (objFilterBrand != null) {
+                                        if (brandChecked != null) {
                                             if (brandChecked.contains(brand))
                                                 return "checked";
                                         }
@@ -136,56 +134,48 @@
                         <a class="list-group-item">Rates</a>
                         <div class="list-group-item">
                             <div id="filter-group2" class="contain-rate-search" id="checkboxStarFilter">
+                                <%!ArrayList<String> starChecked;%>
                                 <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
-                                <%!ArrayList<String> starChecked;
-                                    String[] objFilterStar;%>
                                 <%
-                                    objFilterStar = request.getParameterValues("star");
+                                    String[] objFilterStar = request.getParameterValues("star");
                                     if (objFilterStar != null)
                                         starChecked = new ArrayList<String>(Arrays.asList(objFilterStar));
                                 %>
 
                                 <%!
                                     public String isStarChecked(String star) {
-                                        if (objFilterStar!= null) {
+                                        if (starChecked != null) {
                                             if (starChecked.contains(star))
                                                 return "checked";
                                         }
                                         return "";
-                                    }
-                                    public String colorLabelStar(String star) {
-                                        if (!star.equals(""))
-                                            return "style=\"color: yellow\"";
-                                        return "";
-                                    }
-                                %>
+                                    }%>
 
-
-                                <label class="rate-search" id="label-5-star">
+                                <label class="rate-search">
                                     <input type="checkbox" name="filter-star-rate"
-                                           value="5" class="input-star" id="filter-star-5" <%=isStarChecked("5")%> style="display: none"/>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("5"))%>></i>
+                                           value="5" class="input-star" <%=isStarChecked("5")%>/>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                     <span style="margin-left: 5px">From 5 stars</span>
                                 </label>
-                                <label class="rate-search" id="label-4-star">
+                                <label class="rate-search" >
                                     <input type="checkbox" name="filter-star-rate"
-                                           value="4" class="input-star" id="filter-star-4" <%=isStarChecked("4")%> style="display: none"/>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("4"))%>></i>
+                                           value="4" class="input-star"  <%=isStarChecked("4")%>/>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                     <span style="margin-left: 5px">From 4 stars</span>
                                 </label>
-                                <label class="rate-search" id="label-3-star">
+                                <label class="rate-search">
                                     <input type="checkbox" name="filter-star-rate"
-                                           value="3" class="input-star" id="filter-star-3" <%=isStarChecked("3")%> style="display: none"/>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("3"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("3"))%>></i>
-                                    <i class="fas fa-star" <%=colorLabelStar(isStarChecked("3"))%>></i>
+                                           value="3" class="input-star"  <%=isStarChecked("3")%>/>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                     <span style="margin-left: 5px">From 3 stars</span>
                                 </label>
                             </div>
@@ -194,120 +184,45 @@
                         <div class="list-group-item">
                             <div id="filter-group3" class="contain-price-search">
                                 <div class="price-search-highest-lowest" id="checkboxPriceOrderFilter">
-                                    <%!ArrayList<String> highestLowestChecked;
-                                        String[] objFilterHighestLowest;%>
-                                    <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
-                                    <%
-                                        objFilterHighestLowest = request.getParameterValues("highestLowest");
-                                        if (objFilterHighestLowest != null)
-                                            highestLowestChecked = new ArrayList<String>(Arrays.asList(objFilterHighestLowest));
-                                    %>
-
-                                    <%!
-                                        public String isHighestLowestChecked(String highestLowest) {
-                                            if (objFilterHighestLowest != null) {
-                                                if (highestLowestChecked.contains(highestLowest))
-                                                    return "checked";
-                                            }
-                                            return "";
-                                        }%>
                                     <input type="radio" id="price-search-highest" name="price-search-radio"
-                                           value="DESC" <%=isHighestLowestChecked("DESC")%>/>
+                                           value="DESC"/>
                                     <label for="price-search-highest">From high to low</label>
                                     <input type="radio" id="price-search-lowest" name="price-search-radio"
-                                           value="ASC" <%=isHighestLowestChecked("ASC")%>/>
+                                           value="ASC"/>
                                     <label for="price-search-lowest">From low to high</label>
                                 </div>
 
                                 <div class="contain-filter-search-range" id="checkboxPriceRangeFilter">
-                                    <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
-                                    <%! String objFilterUnderPrice;
-                                        String objFilterFromPrice;
-                                        String objFilterUpPrice;
-                                    %>
-                                    <%
-                                        objFilterUnderPrice = request.getParameter("underPrice");
-                                        objFilterFromPrice = request.getParameter("fromPrice");
-                                        objFilterUpPrice = request.getParameter("upPrice");
-                                    %>
-
-                                    <%!
-                                        public String isUnderPriceChecked() {
-                                            if (objFilterUnderPrice != null)
-                                                return "checked";
-                                            return "";
-                                        }
-                                        public String isFromPriceChecked() {
-                                            if (objFilterFromPrice != null)
-                                                return "checked";
-                                            return "";
-                                        }
-                                        public String isToUpPriceChecked() {
-                                            if (objFilterUpPrice != null)
-                                                return "checked";
-                                            return "";
-                                        }
-                                    %>
-                                    <%!
-                                    public String colorLabelInputPrice(String isCheck) {
-                                        if (isCheck != null)
-                                            return "style=\"background-color: #5f2525\"";
-                                        return "";
-                                    }
-                                    %>
-                                    <label class="price-search" id="price-search-01" for="hidden-checkbox-price-1" <%=colorLabelInputPrice(objFilterUnderPrice)%>>
+                                    <label class="price-search" id="price-search-01" for="hidden-checkbox-price-1">
                                         Under 50$
                                     </label>
-                                    <input type="checkbox" value="50" class="hidden-checkbox-price"
-                                           id="hidden-checkbox-price-1"  <%=isUnderPriceChecked()%> style="display: none"/>
-                                    <label class="price-search" id="price-search-02" for="hidden-checkbox-price-2" <%=colorLabelInputPrice(objFilterFromPrice)%>>
+                                    <input type="checkbox" name="price-range" value="50" class="hidden-checkbox-price"
+                                           id="hidden-checkbox-price-1" style="display: none">
+                                    <label class="price-search" id="price-search-02" for="hidden-checkbox-price-2">
                                         From 50$ to 150$
                                     </label>
-                                    <input type="checkbox" value="50&&150"
-                                           class="hidden-checkbox-price" id="hidden-checkbox-price-2" <%=isFromPriceChecked()%> style="display: none"/>
-                                    <label class="price-search" id="price-search-03" for="hidden-checkbox-price-3" <%=colorLabelInputPrice(objFilterUpPrice)%>>
+                                    <input type="checkbox" name="price-range" value="50&&150"
+                                           class="hidden-checkbox-price" id="hidden-checkbox-price-2" style="display: none">
+                                    <label class="price-search" id="price-search-03" for="hidden-checkbox-price-3">
                                         Up 150$
                                     </label>
-                                    <input type="checkbox" value="150" class="hidden-checkbox-price"
-                                           id="hidden-checkbox-price-3"  <%=isToUpPriceChecked()%> style="display: none"/>
-
+                                    <input type="checkbox" name="price-range" value="150" class="hidden-checkbox-price"
+                                           id="hidden-checkbox-price-3" style="display: none">
                                 </div>
 
 
                                 <div class="min-max-price-search" id="checkboxPriceInputFilter">
-                                    <%!ArrayList<String> fromInputPriceChecked;
-                                        ArrayList<String> toInputPriceChecked;
-                                    %>
-                                    <!-- phai tach gan gia tri brandChecked ra thi request khong bao loi-->
-                                    <%! String objFilterFromInputPrice;
-                                        String objFilterToInputPrice;
-                                    %>
-                                    <%
-                                        objFilterFromInputPrice = request.getParameter("fromInputPrice");
-                                        objFilterToInputPrice = request.getParameter("toInputPrice");
-                                    %>
-
-                                    <%!
-                                        public String isFromInputPriceChecked() {
-                                            if (objFilterFromInputPrice != null)
-                                                return objFilterFromInputPrice;
-                                            return "";
-                                        }
-                                        public String isToInputPriceChecked() {
-                                            if (objFilterToInputPrice != null)
-                                                return objFilterToInputPrice;
-                                            return "";
-                                        }%>
-                                    <input type="text" name="input-range-filter-price" value="<%=isFromInputPriceChecked()%>" class="min-search"
+                                    <input type="text" name="input-range-filter-price" value="" class="min-search"
                                            placeholder="Từ" id="inputFilterPriceFrom">
                                     <p style="font-size: 50px; margin: 0 10px">-</p>
-                                    <input type="text" name="input-range-filter-price" value="<%=isToInputPriceChecked()%>" class="max-search"
+                                    <input type="text" name="input-range-filter-price" value="" class="max-search"
                                            placeholder="Đến" id="inputFilterPriceTo">
                                 </div>
-                                <%Object err = request.getAttribute("errorInputPrice");
-                                    if (err != null) {%>
-                                        <%="<h1 style='display: block; color: red; margin: 10px 0'>" + err.toString() + "</h1>"%>
-                                    <%}
+                                <%
+                                    Object err = request.getAttribute("errorInputPrice");
+                                    if (err != null) {
+                                        out.println("<h1 style='display: block; color: red; margin: 10px 0'>" + err.toString() + "</h1>");
+                                    }
                                 %>
                             </div>
                         </div>
@@ -329,7 +244,7 @@
 
             <%
                 int pagination = 1;
-                Object objPagination = request.getAttribute("pagination");
+                Object objPagination = request.getAttribute("Pagination");
                 if (objPagination != null) {
                     pagination = Integer.parseInt(objPagination.toString());
                 }
@@ -341,7 +256,7 @@
                         Product p = list.get(i);
             %>
 
-            <div class=" product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="height: fit-content">
+            <div class="product-layout product-grid col-lg-4 col-md-5 col-sm-6 col-xs-10" style="height: fit-content">
                 <div class="product-thumb">
                     <div class="image product-imageblock">
                         <a href="ProductDetail?idProduct=<%=p.getId()%>">
@@ -355,9 +270,8 @@
                             <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích">
                                 <i class="fas fa-heart"></i></button>
                             <button type="button" class="addtocart-btn">Mua ngay</button>
-                            <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng">
-                                <a href="/project/AddCart?id=<%=p.getId()%>"><i class="fas fa-shopping-cart"></i></a>
-                            </button>
+                            <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i
+                                    class="fas fa-shopping-cart"></i></button>
                         </div>
                     </div>
                     <div class="caption product-detail">
@@ -398,10 +312,8 @@
                         <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích"><i
                                 class="fas fa-heart"></i></button>
                         <button type="button" class="addtocart-btn">Mua ngay</button>
-                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng">
-                            <a href="/project/AddCart?id=<%=p.getId()%>"><i class="fas fa-shopping-cart"></i></a>
-
-                        </button>
+                        <button type="button" class="compare" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i
+                                class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -411,9 +323,7 @@
                     <ul class="pagination">
                         <%
                             int totalNumber = (int) request.getAttribute("TotalNumberProduct");
-                            double d = totalNumber;
-                            int lengthPagination = (int) Math.ceil(d / 9);%>
-                        <%="~~~~"+lengthPagination + "!@#!@#!@#"%>
+                            int lengthPagination = (int) Math.ceil(totalNumber / 9);%>
                         <li>
 <%--                            <a id="left-page"--%>
 <%--                               href="--%>
@@ -452,14 +362,8 @@
                         </li>
                         <span>Page</span>
                         <select id="selectPagination" onchange="location = this.value;">
-
-                            <%=URLDecoder.decode("ServletTest123?"+pagStrRight, "UTF-8")%>">&gt;
-                            <%
-                                for (int j = 1; j <= lengthPagination; j++) {
-                                    pagStr = request.getQueryString().substring(0, request.getQueryString().lastIndexOf("pagination"));
-                                    pagStr += "pagination=" + j;
-                            %>
-                            <option value="<%=URLDecoder.decode("ServletTest123?"+pagStr, "UTF-8")%>"
+                            <%for (int j = 1; j <= lengthPagination; j++) {%>
+                            <option value="CategoryProduct?category=<%=request.getAttribute("category")%>&categoryGender=<%=request.getAttribute("categoryGender")%>&pagination=<%=j%>"
                                     <% // current pagination
                                         if (j == pagination) {%><%="selected"%> <%}%>><%=j%>
                             </option>
@@ -570,7 +474,224 @@
         <%}%>
     </div>
 </div>
-<%@include file="footer_login_message.jsp"%>
+<footer>
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-sm-3 footer-block">
+                <h5 class="footer-title">Information</h5>
+                <ul class="list-unstyled ul-wrapper">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="checkout.html">Delivery Information</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Wish List</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 footer-block">
+                <h5 class="footer-title">Why Choose</h5>
+                <ul class="list-unstyled ul-wrapper">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Product Recall</a></li>
+                    <li><a href="#">Gift Vouchers</a></li>
+                    <li><a href="#">Returns and Exchanges</a></li>
+                    <li><a href="#">Shipping Options</a></li>
+                    <li><a href="#">Help & FAQs</a></li>
+                    <li><a href="#">Sale Only Today</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 footer-block">
+                <h5 class="footer-title">My Account</h5>
+                <ul class="list-unstyled ul-wrapper">
+                    <li><a href="#">Sign in</a></li>
+                    <li><a href="gift.html">Gift Vouchers</a></li>
+                    <li><a href="affiliate.html">Affiliates</a></li>
+                    <li><a href="#">View Cart</a></li>
+                    <li><a href="#">Checkout</a></li>
+                    <li><a href="#">Track My Order</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 footer-block">
+                <div class="content_footercms_right">
+                    <div class="footer-contact">
+                        <h5 class="contact-title footer-title">Contact Us</h5>
+                        <ul class="ul-wrapper">
+                            <li><i class="fa fa-map-marker"></i><span class="location2"> Warehouse & Offices,<br>
+                12345 Street name, California<br>
+                USA</span></li>
+                            <li><i class="fa fa-envelope"></i><span class="mail2"><a
+                                    href="#">info@localhost.com</a></span></li>
+                            <li><i class="fa fa-mobile"></i><span
+                                    class="phone2">+91 0987-654-321<br>+91 0987-654-321</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="footer-top-cms">
+                <div class="col-sm-7">
+                    <div class="newslatter">
+                        <form>
+                            <h5>Sign up for our Newsletter</h5>
+                            <div class="input-group">
+                                <input type="text" class=" form-control" placeholder="Your-email@website.com">
+                                <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="footer-social">
+                        <h5>Social</h5>
+                        <ul>
+                            <li class="facebook"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                            <li class="linkedin"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            <li class="twitter"><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                            <li class="gplus"><a href="#"><i class="fab fa-google-plus-square"></i></a></li>
+                            <li class="youtube"><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="scrollup">Scroll</a></footer>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="copyright">Powered By &nbsp;<a class="yourstore" href="http://www.lionode.com/">lionode &copy;
+            2017 </a></div>
+        <div class="footer-bottom-cms">
+            <div class="footer-payment">
+                <ul>
+                    <li class="mastero">
+                        <a href="#"><img alt="" src="image/payment/mastero.jpg"></a>
+                    </li>
+                    <li class="visa">
+                        <a href="#"><img alt="" src="image/payment/visa.jpg"></a>
+                    </li>
+                    <li class="currus">
+                        <a href="#"><img alt="" src="image/payment/currus.jpg"></a>
+                    </li>
+                    <li class="discover">
+                        <a href="#"><img alt="" src="image/payment/discover.jpg"></a>
+                    </li>
+                    <li class="bank">
+                        <a href="#"><img alt="" src="image/payment/bank.jpg"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Begin: login-registe-->
+<div class="login-modal js-modal">
+    <!-- Begin: modal login -->
+    <div class="modal-container js-modal-container">
+
+
+        <header class="modal-header">
+            Tài Khoản Của Bạn!
+        </header>
+
+        <div class="modal-close js-modal-close">
+            <i class="ti-close icon-close"></i>
+        </div>
+
+        <div class="modal-body">
+            <div class="modal-body-login">
+                <div class="modal-login sub col-half">Đăng Nhập</div>
+                <div class="modal-rgister js-register-modal sub col-half">Đăng Ký</div>
+            </div>
+
+            <div class="sub-login">
+                <p class="login-another">_____________ Đăng Nhập Bằng Cách Khác ____________</p>
+            </div>
+
+            <div class="modal-login-another">
+                <img src="./image/icon_fb.png" alt="FaceBook" class="icon-login-another">
+                <img src="./image/icon_gg.png" alt="Google" class="icon-login-another">
+                <img src="./image/icon_apple.png" alt="Apple" class="icon-login-another">
+            </div>
+
+            <div class="modal-input-section">
+                <input type="email" placeholder="Địa chỉ email..." class="email">
+                <input type="password" placeholder="Nhập mật khẩu..." class="email password">
+                <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
+            </div>
+
+            <div class="modal-bnt-login">
+                <a href="" class="bnt-login">Đăng Nhập</a>
+            </div>
+
+            <div class="modal-title">
+                <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng, xem
+                    các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật nhanh
+                    chóng và dễ dàng để 'Đăng ký'. Vui lòng đảm bảo địa chỉ
+                    email của bạn là địa chỉ bạn đã cung cấp tại thời điểm đặt hàng, điều này sẽ cho phép bạn truy cập
+                    tất cả các dịch vụ bạn cần. </p>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- End: modal login -->
+</div>
+<!--Begin: modal register--->
+<div class="modal-register js-modal-register">
+    <div class="modal-container-register js-modal-container-register">
+
+        <header class="modal-header">
+            Tài Khoản Của Bạn!
+        </header>
+
+        <div class="modal-close-register js-modal-close-register">
+            <i class="ti-close icon-close-register"></i>
+        </div>
+
+        <div class="modal-body2">
+            <div class="modal-body-register">
+                <div class="modal-login sub js-login-modal col-half">Đăng Nhập</div>
+                <div class="modal-sub-register sub col-half">Đăng Ký</div>
+            </div>
+
+            <div class="sub-login">
+                <p class="login-another">______________ Đăng Ký Bằng Cách Khác _____________</p>
+            </div>
+
+            <div class="modal-register-another">
+                <img src="./image/icon_fb.png" alt="FaceBook" class="icon-login-another">
+                <img src="./image/icon_gg.png" alt="Google" class="icon-login-another">
+                <img src="./image/icon_apple.png" alt="Apple" class="icon-login-another">
+            </div>
+
+            <div class="modal-input-section">
+                <input type="email" placeholder="Địa chỉ email..." class="email">
+                <input type="password" placeholder="Nhập mật khẩu..." class="email password">
+                <input type="password" placeholder="Xác nhận mật khẩu..." class="email password">
+                <input type="checkbox" name="" class="modal-checkbox">
+                <p class="checkbox">
+                    Vui lòng gửi email cho tôi với các ưu đãi mới nhất</p>
+            </div>
+
+            <div class="modal-bnt-register">
+                <a href="" class="bnt-login">Đăng Ký</a>
+            </div>
+
+            <div class="modal-title">
+                <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời điểm
+                    đăng ký, điều này sẽ cho phép bạn truy cập tất cả các dịch vụ bạn cần.</p>
+            </div>
+        </div>
+    </div>
+    <!-- End: modal register -->
+</div>
+<!-- End: login register -->
 <script src="./javascript/hung-js.js"></script>
 </body>
 

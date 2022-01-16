@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_10_01_2022_12_58_CH_[Changes]" date="1641794466409" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_01_2022_12_58_CH_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 10/01/2022 12:58 CH [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" />
+    <option name="AFTER_PATH" value="target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_01_2022_12_58_CH_[Changes]/DaoProduct.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/DaoProduct.class" />
+    <option name="AFTER_PATH" value="target/classes/model/DaoProduct.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_01_2022_12_58_CH_[Changes]/DaoProduct1.class" />
+  </binary>
+</changelist>

@@ -89,7 +89,7 @@
                                 <td class="text-left">${item.brand}</td>
                                 <td class="text-left">
                                     <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity" size="1" value="1"
+                                        <input type="text" class="form-control quantity " oldQuantity="${item.soleValue}" size="1" value="${item.soleValue}"
                                                name="quantity">
                                         <span class="input-group-btn">
                                                 <button class="btn btn-primary" title="" data-toggle="tooltip"
@@ -214,6 +214,23 @@
                     alert("Xoa That Bai");
                 }
             })
+        })
+        $(".quantity").blur(function () {
+            var id = $(this).attr("pid");
+            var oldQuantity = $(this).attr("oldQuantity");
+            var quantity = $(this).val();
+            if(oldQuantity != quantity)
+                $.ajax({
+                    url: "/project/Cart-update",
+                    method: "POST",
+                    data: {
+                        id: id,
+                        quantity: quantity
+                    },
+                    error: function (data) {
+                            alert("Lỗi");
+                    }
+                })
         })
     })
 </script>

@@ -34,7 +34,7 @@ const modalRegisterBtn = document.querySelector('.js-register-modal')
 function showModalRegister() {
     modalRegister.classList.add('open')
 }
-
+var LoginShow = showBuyLogin();
 // hàm ẩn modal đăng kí
 function hideModalRegister() {
     modalRegister.classList.remove('open')
