@@ -62,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/admin/assets/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -185,6 +185,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JavaScript Debug.category.html" />
       <item itemvalue="JavaScript Debug.category.jsp" />
       <item itemvalue="JavaScript Debug.product.jsp" />
       <item itemvalue="Node.js.Unnamed" />
@@ -193,7 +194,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Tomcat Server.category.jsp" />
         <item itemvalue="JavaScript Debug.category.jsp" />
         <item itemvalue="JavaScript Debug.category.html" />
         <item itemvalue="JavaScript Debug.product.jsp" />
@@ -352,6 +352,7 @@
       <workItem from="1642003031776" duration="155000" />
       <workItem from="1642003779583" duration="2839000" />
       <workItem from="1642038696558" duration="17348000" />
+      <workItem from="1642390748158" duration="1945000" />
     </task>
     <servers />
   </component>
@@ -382,6 +383,11 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/checkout.jsp</url>
           <line>113</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/index.jsp</url>
+          <line>17</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

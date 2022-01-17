@@ -7,16 +7,22 @@ import java.util.List;
 
 public class UserDao {
     static HashMap<String, User> map;
-    private static  UserDao instance;
+    public static  UserDao instance;
 
-    public UserDao() {
-        map = new HashMap<String, User>();
+    private UserDao() {
+
     }
 
     public static  void create(){
 
     }
+
+    static {
+        map = new HashMap<String, User>();
+        getData();
+    }
     public static UserDao  getInstance(){
+
         if (instance == null){
             instance = new UserDao();
         }

@@ -26,7 +26,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <content url="jar://E:/json simple 1.1.1/json-simple-1.1.1.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../../../json simple 1.1.1/json-simple-1.1.1.jar!/" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jstl-1.2" level="project" />

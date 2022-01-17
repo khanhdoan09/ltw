@@ -10,15 +10,9 @@
 <%@ page import="databaseConnection.DatabaseConnection" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="model.Product" %>
-<%@ page import="model.DaoLinkImage" %>
-<%@ page import="model.DaoProduct" %>
-<%@ page import="java.util.Arrays" %>
+<%@ page import="model.DaoBanner" %>
+<%@ page import="model.Banner" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.net.URLDecoder" %>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -55,180 +49,24 @@
 </head>
 
 <body>
+<%@include file="/header.jsp" %>
+
 <div class="preloader loader" style="display: block; background:#f2f2f2;"> <img src="image/loader.gif" alt="#" />
 </div>
-<header>
-    <div class="contain-header-inner">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 contain-header">
-                    <div class="contain-nav-info">
-                        <div id="top-links" class="nav pull-left">
-                            <ul class="list-inline">
-                                <li class="account"><a href="/admin/pixelwibes.com/template/ebazar/html/dist/index.html" class="notify"><i
-                                        class="fas fa-bell color-header" style="margin-right: 10px"></i><sp
-                                        style="margin: 0 5px;" class="color-header">Thông
-                                    báo</sp><span style="margin-right: 10px;"
-                                                  class="color-header">(0)</span></a>
-                                </li>
-                                <li class="account"><a href="customer.html" id="wishlist-total"
-                                                       title="Wish List (0)"><i class="fa fa-heart color-header"></i><span
-                                        class="color-header">Danh sách
-                                                yêu thích</span><span style="margin-right: 10px;"
-                                                                      class="color-header">(0)</span></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-user color-header"></i><span class="color-header">Tài
-                                                khoản</span> <span style=" font-size: 15px;"
-                                                                   class="caret color-header"></span></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#" class="js-login">Đăng Nhập</a></li>
-                                        <li><a href="#" class="js_register">Đăng Ký</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="header-inner">
-
-                <div class="header-top">
-                    <div>
-                        <div class="header-middle-top">
-                            <div id="logo" class="color-header" style="margin: 0; padding: 0;">
-                                <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
-                                                          class="logo-header" /></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center contain-search">
-                    <div class="contain-search-product-popular">
-                        <div class="search-product">
-                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                            <button class="search-product-top"><i class="fa fa-search"></i></button>
-                        </div>
-                        <div class="contain-search-popular">
-                            <span>X-Ray 2</span>
-                            <span>Nike Air Force 2</span>
-                            <span>Under Armour darkside</span>
-                            <span>X9000L4 Shoes Mens</span>
-                            <span>Adidas dragon sport</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-xs-12 header-right header-nav-right">
-
-                    <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
-                        <button type="button"
-                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
-                            <span
-                                    id="cart-total" class="color-header"><span class="cart-title color-header">Giỏ hàng - </span>254.000 Đ</span>
-                            <span class="value-header-product" style="margin-bottom: 10px">1</span>
-                            <i class="fas fa-shopping-cart cart-icon-nav"></i>
-                        </button>
-
-
-                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                            <li>
-                                <table class="table table-striped">
-                                    <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <a href="#"><img src="image/product/product-01.jpg" width="100px"
-                                                             height="100px"></a>
-                                        </td>
-                                        <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
-                                        <td class="text-right">x 1</td>
-                                        <td class="text-right">$254.00</td>
-                                        <td class="text-center"><button class="btn btn-danger btn-xs"
-                                                                        title="Remove" type="button"><i
-                                                class="fa fa-times"></i></button></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <div>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                        <tr>
-                                            <td class="text-right"><strong>Tổng</strong></td>
-                                            <td class="text-right">210.000Đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>Thuế (-2.00)</strong></td>
-                                            <td class="text-right">2%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>VAT (20%)</strong></td>
-                                            <td class="text-right">4%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>Tạm tính</strong></td>
-                                            <td class="text-right">254.000Đ</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i
-                                            class="fa fa-shopping-cart"></i> View
-                                                        Cart</strong></a></span> <span class="btn-checkout"><a
-                                            href="checkout.html"><strong><i class="fa fa-share"></i>
-                                                        Checkout</strong></a></span> </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-
-
-
-                </div>
-
-
-                <button type="button" class="bt-nav-collapse hidden-lg hidden-md"><i
-                        class="fa fa-bars"></i></button>
-
-            </div>
-
-        </div>
-    </div>
-    <nav id="menu-navigation" class="navbar" style="width: 100%;">
-        <!--function displayMenuNavigation() in khanh-js.js-->
-    </nav>
-</header>
 <div class="container general-contain" style="margin-bottom: 20px; padding: 0;">
     <div class="mainbanner">
         <div id="main-banner" class="owl-carousel home-slider" style="margin: 0; padding: 0;">
+            <%
+                List<Banner> listBanner = DaoBanner.getInstance().getCarouselCategory("banner-home");
+                for (Banner banner : listBanner) {%>
             <div class="item">
-                <a href="#"><img src="image/banners/Main-Banner1.jpg" alt="main-banner1"
+                <a href="#"><img src="<%banner.getUrlImg();%>" alt="main-banner1"
                                  class="img-responsive img-border-radius" /></a>
                 <div class="main-banner-section-center">
                     <a href="" class="shop-now-btn">MUA NGAY</a>
                 </div>
             </div>
-            <div class="item">
-                <a href="#"><img src="image/banners/Main-Banner2.jpg" alt="main-banner2"
-                                 class="img-responsive img-border-radius" /></a>
-                <div class="main-banner-section-center">
-                    <a href="" class="shop-now-btn">MUA NGAY</a>
-                </div>
-            </div>
-            <div class="item">
-                <a href="#"><img src="image/banners/Main-Banner3.jpg" alt="main-banner3"
-                                 class="img-responsive img-border-radius" /></a>
-                <div class="main-banner-section-center">
-                    <a href="" class="shop-now-btn">MUA NGAY</a>
-                </div>
-            </div>
+            <%}%>
         </div>
     </div>
 </div>
@@ -267,14 +105,16 @@
             </div>
         </div>
         <div class="cms_banner ">
+            <%!List<Banner> listSubBanner = DaoBanner.getInstance().getCarouselCategory("sub-banner-home");
+            %>
             <div class="col-md-4 cms-banner-left">
-                <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner1.jpg"></a>
+                <a href="#"><img alt="#" style="width: 100%;" src="<%=listSubBanner.get(0).getUrlImg()%>"></a>
             </div>
             <div class="col-md-4 cms-banner-middle">
-                <a href="#"> <img alt="#" style="width: 100%;" src="image/banners/subbanner2.jpg"></a>
+                <a href="#"> <img alt="#" style="width: 100%;" src="<%=listSubBanner.get(1).getUrlImg()%>"></a>
             </div>
             <div class="col-md-4 cms-banner-right">
-                <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner3.jpg"></a>
+                <a href="#"><img alt="#" style="width: 100%;" src="<%=listSubBanner.get(2).getUrlImg()%>"></a>
             </div>
         </div>
     </div>
@@ -283,7 +123,7 @@
 <div class="container general-contain" style="margin-bottom: 20px;">
 
     <div class="row">
-        <div id="contents" class="col-sm-12">
+        <div id="content" class="col-sm-12">
             <div class="customtab">
                 <div id="tabs" class="customtab-wrapper">
                     <ul class='customtab-inner'>
@@ -933,7 +773,7 @@
 <div class="container general-contain" style="margin-bottom: 20px;">
 
     <div class="row">
-        <div id="content" class="col-sm-12">
+        <div id="contents" class="col-sm-12">
 
 
 
@@ -1199,16 +1039,19 @@
                 <img src="./image/icon_apple.png" alt="Apple" class="icon-login-another">
             </div>
 
-            <form action="Login" class="modal-input-section" name="form-login" id="form-login" method="post">
-                <input type="email" name="email" id="email"  placeholder="Địa chỉ email..." class="email">
-                <input type="password" name ="password" id="password" placeholder="Nhập mật khẩu..." class="email password">
-                <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
-                <div class="modal-bnt-login">
-                    <button name="btLogin" id="btLogin" type="submit" class="bnt-login" onclick="login()">Đăng Nhập</button>
+            <div class="modal-input-section">
+                <div id="contain-email-login" class="contain-input">
+                    <input type="email" placeholder="Địa chỉ email..." class="email">
                 </div>
-            </form>
+                <div id="contain-password-login" class="contain-input">
+                    <input type="password" placeholder="Nhập mật khẩu..." class="email password">
+                </div>
+                <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
+            </div>
 
-
+            <div class="modal-bnt-login" id="bt-login">
+                <a class="bnt-login" >Đăng Nhập</a>
+            </div>
 
             <div class="modal-title">
                 <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng,
@@ -1331,13 +1174,19 @@
 <%--</script>--%>
 <script>
     $(function () {
-        $("#btLogin").click( function(e) {
+        $("#bt-login").click( function(e) {
+            e.preventDefault()
             let xhttp = new XMLHttpRequest();
             //  onreadystatechange này sẽ được kích hoạt mỗi khi trạng thái readyState thay đổi -- readyState:thuộc tính này định nghĩa trạng thái hiện tại của đối tượng XMLHttpRequest.
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) { //HTTP REPONSE => 4=DONE:The operation is complete 200=SUCCESS
                     let data = xhttp.responseText;
-                    alert(data);
+                    if (data == 'false') {
+                        $("#contain-email-login").append(`<p class="error-text">error 123</p>`)
+                        $("#contain-password-login").append(`<p class="error-text">error 123</p>`)
+                    }
+                    else
+                        alert("sucess")
                 }
             };
             xhttp.open("POST", `Login?email=email&password=password`, true);

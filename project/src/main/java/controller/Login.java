@@ -32,17 +32,9 @@ public  Login(){
 
 }
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-    request.setCharacterEncoding("utf-8");
-
-    PrintWriter out = response.getWriter();
     try {
         String user = request.getParameter("email");
         String password = request.getParameter("password");
-
-        System.out.println("---->" + user);
-        System.out.println("---->" + password);
-
 
         UserDao dao = UserDao.getInstance();
         User use = new User(user,password);

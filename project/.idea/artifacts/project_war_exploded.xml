@@ -1,14 +1,20 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="project:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/project_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/project-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>project</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="project" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="jstl-1.2" />
-          <element id="library" level="project" name="mysql-connector-java-8.0.27" />
           <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-frontend-jaxrs:3.4.4" />
           <element id="library" level="project" name="Maven: org.apache.cxf:cxf-core:3.4.4" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.4" />
@@ -46,6 +52,9 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.12.2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.2" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="project/web/Web" />
     </root>
