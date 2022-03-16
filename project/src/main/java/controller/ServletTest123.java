@@ -46,7 +46,6 @@ public class ServletTest123 extends HttpServlet {
         }
 
         List<Product> listFilter = null;
-        String folderImage = "";
         int totalNumberProduct = 0;
 
 
@@ -101,7 +100,7 @@ public class ServletTest123 extends HttpServlet {
             String brandT = request.getParameter("brand");
 
             if (searchInHeader != null) {
-                sql = "  WHERE "; // 1=1 la do && brand = ""
+                sql = "  WHERE ";
                 sql += DaoProduct.getInstance().getProductByCategory("searchInHeader", searchInHeader, pagination);
                 request.setAttribute("TypeCategory", "input-search-header");
                 request.setAttribute("ValueCategory", searchInHeader[0]);
@@ -111,13 +110,13 @@ public class ServletTest123 extends HttpServlet {
             else if (categoryT != null) {
                 request.setAttribute("TypeCategory", "category");
                 request.setAttribute("ValueCategory", categoryT[0]);
-                sql = " WHERE category=? ";
+                sql = " WHERE category=? && ";
                 list.addAll(Arrays.asList(categoryT));
             }
             else if (categoryT == null) { // luc nay la tim kiem bang brand tren navigation
                 request.setAttribute("TypeCategory", "brand");
                 request.setAttribute("ValueCategory", brandT);
-                sql = " WHERE (1=1) "; // 1=1 la do && brand = ""
+                sql = " WHERE ";
             }
             if (size != null) {
                 sql = "JOIN product_detail ON product.id=product_detail.id " + sql + DaoProduct.getInstance().getProductByCategory("size", size, pagination);
@@ -214,7 +213,7 @@ public class ServletTest123 extends HttpServlet {
         }
 
         sqlAllCount += sql;
-        totalNumberProduct = DaoProduct.getInstance().excQueryTotal(list, pagination, sqlAllCount);
+        totalNumberProduct = DaoProduct.getInstance().excQueryTotal(list,  sqlAllCount);
         request.setAttribute("TotalNumberProduct", totalNumberProduct);
         request.setAttribute("pagination", pagination);
         request.setAttribute("categoryProduct", listFilter);

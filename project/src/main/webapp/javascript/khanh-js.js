@@ -662,29 +662,28 @@ function getDataFromServlet(xhttp) {
 
 
 
-var ttt = "~~~~"
+let arrDataProductInAdmin = ""
 
-function getDataForAdmin(ttt) {
+$(function() {
     $('.admin-product-order').on("click", function (event) {
         event.preventDefault();
 
         if ($(this).is('.clicked')) {
             $(this).removeClass('clicked');
-        } else {
+        }
+        else {
             $('.admin-product-order').removeClass("clicked") // down
             $(this).addClass('clicked'); // up
         }
 
         let url = this.href;
-        let zz
         $.ajax({
             url: url,
             type: 'POST',
             success: function (data) {
                 let arr = JSON.parse(data);
                 let re = ""
-                ttt = arr
-                zz = arr
+                arrDataProductInAdmin = arr
                 arr.forEach((e) => {
                     re += `<tr>
                                         <td><strong>${e.id}</strong></td>
@@ -695,47 +694,234 @@ function getDataForAdmin(ttt) {
                                         <td>${e.value}</td>
                                         <td>-${e.saleRate}</td>
                                         <td>
-                                            <a href="#" class="edit-remove-admin remove-admin"><i class="fas fa-trash-alt"></i></a>
-                                            <a href="#" class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
+                                            <a class="edit-remove-admin remove-admin"
+                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
+                                               <a class="edit-remove-admin edit-admin" href="EditProduct.jsp">
+                                            <i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>`
-                    console.log(window.ttt+"*&&&")
                 })
                 $("#listProduct").empty()
                 $("#listProduct").append(re)
+                removeProductInAdmin()
+            },
+            error: function () {
+                $('#notification-bar').text('An error occurred');
+            },
+            async: false
+        });
+
+    });
+})
+
+
+function promiseRemove(id) {
+    return new Promise((resolve, reject)=>{
+        let bol = false
+        if (bol)
+            reject("error by reject promise" + id)
+        else
+            resolve(id)
+    })
+}
+
+function removeProductInAdmin() {
+    $(".remove-admin").each(function (index) {
+        $(this).click(() => {
+            let data = $(this).data("id")
+            alert(`Are you sure wanna delete this ${data}`)
+            $(`#tr-product-${data}`).empty()
+            $.ajax({
+                url: `ListProductAdmin?removeProduct="${data}"`,
+                type: 'POST',
+                success: function (data) {
+                    alert(data)
+                },
+                error: function() {
+                  alert("Error")
+                }
+            })
+        });
+    })
+}
+$(window).ready(removeProductInAdmin)
+
+
+let paginationProductInAdmin = 0
+$(function() {
+    $("#load-more-product").click(()=>{
+        let type = $("#type-product-admin").val()
+        let name = $("#input-name-product-admin").val()
+        paginationProductInAdmin += 1
+
+        $.ajax({
+            url: `ListProductAdmin?type=${type}&name=${name}&pagination=${paginationProductInAdmin}`,
+            type: 'POST',
+            success: function (data) {
+                    if (data==='no more data') {
+                        $("#load-more-product").remove()
+                    }
+                    else {
+                        let arr = JSON.parse(data);
+                        let re = ""
+                        arr.forEach((e) => {
+                            re += `<tr id='tr-product-${e.id}'>
+                                        <td><strong>${e.id}</strong></td>
+                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
+                                        <td>${e.name}</td>
+                                        <td>${e.brand}</td>
+                                        <td>May 16, 2021</td>
+                                        <td>${e.value}</td>
+                                        <td>-${e.saleRate}</td>
+                                        <td>
+                                            <a class="edit-remove-admin remove-admin"
+                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
+                                            <a class="edit-remove-admin edit-admin" href="EditProduct?id=${e.id}>"><i class="fas fa-edit"></i></a>
+                                        </td>
+                                    </tr>`
+                        })
+                        $("#listProduct").append(re)
+                    }
+                removeProductInAdmin()
             },
             error: function () {
                 $('#notification-bar').text('An error occurred');
             }
         });
 
-        console.logx1(zz + "ASd")
+    })})
+
+/*
+$(function() {
+$("#submit-admin").click((e)=>{
+    e.preventDefault()
+    let type = $("#type-product-admin").val()
+    let name = $("#input-name-product-admin").val()
+
+    $('#form-product-admin').attr('action', `ListProduct?type=${type}&name=${name}&pagination=1`);
+    $.ajax({
+        url: `ListProduct?type=${type}&name=${name}&pagination=1`,
+        type: 'POST',
+        success: function (data) {
+            let arr = JSON.parse(data);
+            let re = ""
+            arrDataProductInAdmin = arr
+            console.log(456)
+            localStorage.setItem("dataProductInAdmin", data)
+            console.log(localStorage.getItem("dataProductInAdmin") + 123)
+            arr.forEach((e) => {
+                re += `<tr>
+                                        <td><strong>${e.id}</strong></td>
+                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
+                                        <td>${e.name}</td>
+                                        <td>${e.brand}</td>
+                                        <td>May 16, 2021</td>
+                                        <td>${e.value}</td>
+                                        <td>-${e.saleRate}</td>
+                                        <td>
+                                            <a class="edit-remove-admin remove-admin"
+                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
+                                            <a class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
+                                        </td>
+                                    </tr>`
+            })
+
+            $("#listProduct").empty()
+            $("#listProduct").append(re)
+            removeProductInAdmin()
+            pagination += 1
+            window.location.href = `order-invoices.jsp?type=${type}&pagination=1`;
+
+        },
+        error: function () {
+            $('#notification-bar').text('An error occurred');
+        }
     });
-}
+
+        $("#form-product-admin").submit()
 
 
-function promiseRemove(id) {
-    return new Promise((resolve, reject)=>{
-        let error = false
-        if (error)
-            reject("error by reject promise")
-        else
-            resolve(id)
+})
+})
+
+$(function() {
+    let data = localStorage.getItem("dataProductInAdmin")
+    if (data != null) {
+        let re = ""
+        let arr = JSON.parse(data)
+        arrDataProductInAdmin = arr
+        arr.forEach((e) => {
+            re += `<tr>
+                                        <td><strong>${e.id}</strong></td>
+                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
+                                        <td>${e.name}</td>
+                                        <td>${e.brand}</td>
+                                        <td>May 16, 2021</td>
+                                        <td>${e.value}</td>
+                                        <td>-${e.saleRate}</td>
+                                        <td>
+                                            <a class="edit-remove-admin remove-admin"
+                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
+                                            <a class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
+                                        </td>
+                                    </tr>`
+        })
+        $("#listProduct").empty()
+        $("#listProduct").append(re)
+        removeProductInAdmin()
+        ttt()
+        loadMore()
+    }
+    else {
+        alert("data null")
+    }
+})
+
+
+function loadMore(){
+    $("#load-more-product").click(()=>{
+        let type = $("#type-product-admin").val()
+        let name = $("#input-name-product-admin").val()
+        pagination += 1
+
+        $.ajax({
+            url: `ListProduct?type=${type}&name=${name}&pagination=${pagination}`,
+            type: 'POST',
+            success: function (data) {
+                let arr = JSON.parse(data);
+                let re = ""
+                arrDataProductInAdmin += arr
+                localStorage.setItem("dataProductInAdmin",  arrDataProductInAdmin)
+
+                arr.forEach((e) => {
+                    re += `<tr>
+                                        <td><strong>${e.id}</strong></td>
+                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
+                                        <td>${e.name}</td>
+                                        <td>${e.brand}</td>
+                                        <td>May 16, 2021</td>
+                                        <td>${e.value}</td>
+                                        <td>-${e.saleRate}</td>
+                                        <td>
+                                            <a class="edit-remove-admin remove-admin"
+                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
+                                            <a class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
+                                        </td>
+                                    </tr>`
+                })
+
+                $("#listProduct").append(re)
+                removeProductInAdmin()
+
+            },
+            error: function () {
+                $('#notification-bar').text('An error occurred');
+            }
+        });
+
+    console.log(pagination)
     })
 }
 
-$(function() {
-    getDataForAdmin()
-    console.log(ttt + "@@@@")
-    $( ".remove-admin" ).each(function(index) {
-        $(this).click(()=>{
-            alert(`Are you sure wanna delete this `+ $(this).data("id"))
-            var promise = promiseRemove($(this).data("id"));
-            promise.then((id)=>{
-                console.log(data + "123")
-            })
-                .catch((err)=>alert(err))
-        });
-    });
+*/
 
-})

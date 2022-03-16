@@ -32,15 +32,6 @@ public class ListProduct extends HttpServlet {
                 sql += DaoProduct.getInstance().getProductByCategory("brand", name, 1);
                 list.addAll(Arrays.asList(name));
             }
-            else if (type.equals("id")) {
-
-            }
-            else if (type.equals("brand")) {
-
-            }
-            else if (type.equals("price")) {
-
-            }
         }
         if (order != null) {
             sql += DaoProduct.getInstance().getProductByCategory("brand", name, 1);
@@ -52,38 +43,48 @@ public class ListProduct extends HttpServlet {
 
         List<Product> listFilter = null;
         String group = " GROUP BY product.id ";
-        String limit = " LIMIT 0,9 ";
+        String pagination = request.getParameter("pagination");
+        String limit = " LIMIT " + (Integer.parseInt(pagination)-1)*9 + ", 9" ;
         String sqlAll="";
         String[] item = request.getParameterValues("item");
         if (item != null) {
-
             String[] orderType = request.getParameterValues("orderType");
             sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group ;
             sql += " ORDER BY "+item[0] + " " + orderType[0] + " " + limit;
             sqlAll += sql;
             listFilter = DaoProduct.getInstance().excQuery(list, 1, sqlAll);
-            String json = "[";
-            for (Product product : listFilter) {
-                json += "\n"+product.toJson() +",";
-            }
-            json = json.substring(0, json.length()-1)+"\n";
-            json += "]";
-
             response.setContentType("text/html");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
-
+            response.getWriter().write(this.toJson(listFilter));
             return;
         }
         request.setAttribute("type",type[0]);
         request.setAttribute("name", name[0]);
 
-
         sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group + limit;
         listFilter = DaoProduct.getInstance().excQuery(list, 1, sqlAll);
-
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(this.toJson(listFilter));
+        if (Integer.parseInt(pagination)>1) {
+            return;
+        }
         request.setAttribute("listFilter", listFilter);
         request.getRequestDispatcher("/order-invoices.jsp").forward(request, response);
+        return;
 
     }
+
+    public String toJson(List<Product> listFilter) {
+        String json = "[";
+        for (Product product : listFilter) {
+            json += "\n"+product.toJson() +",";
+        }
+        json = json.substring(0, json.length()-1)+"\n";
+        json += "]";
+        return json;
+    }
 }
+
+
+

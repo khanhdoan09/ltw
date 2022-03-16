@@ -1,5 +1,6 @@
 <%@ page import="model.Product" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.net.URLDecoder" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 13/1/2022
@@ -18,7 +19,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
         type="text/css" />
   <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
-  <script src="javascript/khanh-js.js"></script>
 
   <!-- plugin css file  -->
   <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
@@ -29,11 +29,15 @@
   <!-- project css file  -->
   <link rel="stylesheet" href="admin/assets/css/ebazar.style.min.css">
 
+  <script src="javascript/khanh-js.js"></script>
+
+
   <style>
     .clicked {
       color: #eeee13;
     }
   </style>
+
 </head>
 
 <body>
@@ -85,10 +89,10 @@
 
 
   <!-- main body area -->
-  <div class="main px-lg-4 px-md-4">
+  <div class="main px-lg-4 px-md-4" id="contain-data-product-admin">
 
     <!-- Body: Body -->
-    <div class="body d-flex py-3">
+    <div class="body d-flex py-3" >
       <div class="container-xxl">
         <div class="row align-items-center">
           <div class="border-0 mb-4">
@@ -101,11 +105,11 @@
         <div class="row mb-3">
           <div class="col-sm-12">
 
-            <form action="ListProduct" method="post" style="margin: 20px 0;">
+            <form action="/project_war_exploded/ListProductAdmin" method="post" style="margin: 20px 0;" id="form-product-admin">
               <%!String typeSelected="";%>
-              <% typeSelected= (String) request.getAttribute("type");%>
+              <% typeSelected= (String) request.getParameter("type");%>
 
-              <select name="type" id="" value="<%=typeSelected%>">
+              <select name="type" id="type-product-admin" value="<%=typeSelected%>">
                 <%!public String selected(String type) {
                   if (type.equals(typeSelected))
                     return "selected";
@@ -120,12 +124,12 @@
               <label for="up-radio" style="cursor: pointer;">Tăng</label>
               <input type="radio" name="radio-select" id="down-radio" style="margin: 0 10px;cursor: pointer;" name="order" value="lowestPrice">
               <label for="down-radio" style="cursor: pointer;">Giảm</label>
-              <input type="text" style="margin: 0 10px" name="name" value="Nike<%--<%=request.getAttribute("name")%>--%>">
-              <button type="submit" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
+              <input type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" value="Nike<%--<%=request.getAttribute("name")%>--%>">
+              <button type="submit" id="submit-admin" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
 
             </form>
 
-            <div class="card">
+            <div class="card" style="border: 1px solid red;">
               <div class="card-body">
                 <table id="patient-table" class="table table-hover align-middle mb-0" style="width: 100%;">
                   <thead>
@@ -150,12 +154,11 @@
 
                   <tbody id="listProduct">
 
-
-                  <%Object objFilter = request.getAttribute("listFilter");
+                  <%Object objFilter = request.getAttribute("listProduct");
                     if (objFilter != null) {
                       List<Product> list = (List<Product>) objFilter;
                       for (Product product : list) {%>
-                  <tr>
+                  <tr id="tr-product-<%=product.getId()%>">
                     <td><strong><%=product.getId()%></strong></td>
                     <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
                     <td><%=product.getBrand()%></td>
@@ -164,16 +167,23 @@
                     <td>$<%=product.getPrice()%></td>
                     <td>-<%=product.getSaleRate()%>%</td>
                     <td>
-                      <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>"><i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
-                      <a class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
+                      <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
+                        <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
+                      <a class="edit-remove-admin edit-admin" href="EditProduct?id=<%=product.getId()%>">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                        <a class="edit-remove-admin edit-admin" href="ViewProduct?id=<%=product.getId()%>">
+                            <i class="fas fa-eye"></i>
+                        </a>
                     </td>
                   </tr>
-
-                  <%    }
-                  }%>
-
+                  <%    } %>
+                  <%}%>
                   </tbody>
                 </table>
+               <% if (objFilter != null) {%>
+                <button id="load-more-product" style="width: 100%">Load more</button>
+                <%}%>
               </div>
             </div>
           </div>

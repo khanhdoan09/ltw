@@ -17,11 +17,14 @@ public class Product {
     private String description;
     private String idVoucher;
     private int active;
-    private List<Integer> listSize;
+    private List<ProductDetail> detail;
     private String avatar;
     private ImgProduct img;
     private int quantitySold = 1;
     private int quantity ;
+
+    //admin
+    private List<Image>listImg;
 
 //cart
     public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active,String avatar) {
@@ -41,7 +44,7 @@ public class Product {
 
 
     // detail
-    public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active, List<Integer> listSize, ImgProduct img) {
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<ProductDetail> detail, String create_at, ImgProduct img) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -53,8 +56,27 @@ public class Product {
         this.totalValue = totalValue;
         this.soleValue = soleValue;
         this.active = active;
-        this.listSize = listSize;
+        this.detail=detail;
+        this.create_at=create_at;
         this.img = img;
+    }
+
+    // detail
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<ProductDetail> detail, String create_at, List<Image> img) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.saleRate = saleRate;
+        this.starRate = starRate;
+        this.description = description;
+        this.totalValue = totalValue;
+        this.soleValue = soleValue;
+        this.active = active;
+        this.detail = detail;
+        this.create_at=create_at;
+        this.listImg = img;
     }
     // list
     public Product(String id, String brand, String name, String category, double price, double saleRate, int active) {
@@ -140,7 +162,12 @@ public class Product {
     }
 
     public String getCreate_at() {
-        return create_at;
+        String[] date = create_at.split("/");
+        if (date[0].length()==1)
+            date[0]="0"+date[0];
+        if (date[1].length()==1)
+            date[1]="0"+date[1];
+        return date[2]+"-"+date[1]+"-"+date[0];
     }
 
     public String getUpdate_at() {
@@ -155,12 +182,19 @@ public class Product {
         return idVoucher;
     }
 
+    public List<ProductDetail> getDetail() {
+        return detail;
+    }
+
+    public void setDetail(List<ProductDetail> detail) {
+        this.detail = detail;
+    }
+
     public int getActive() {
         return active;
     }
 
 
-    public List<Integer> getListSize() {return listSize;}
     public String getAvatar() {return avatar;}
     public ImgProduct getImg() {return img;}
     public int getQuantity() {
@@ -208,6 +242,75 @@ public class Product {
         return (price-(price*saleRate/100));
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setSaleRate(double saleRate) {
+        this.saleRate = saleRate;
+    }
+
+    public void setStarRate(int starRate) {
+        this.starRate = starRate;
+    }
+
+    public void setTotalValue(int totalValue) {
+        this.totalValue = totalValue;
+    }
+
+    public void setSoleValue(int soleValue) {
+        this.soleValue = soleValue;
+    }
+
+    public void setCreate_at(String create_at) {
+        this.create_at = create_at;
+    }
+
+    public void setUpdate_at(String update_at) {
+        this.update_at = update_at;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setIdVoucher(String idVoucher) {
+        this.idVoucher = idVoucher;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setImg(ImgProduct img) {
+        this.img = img;
+    }
+
     // use in admin page
     public String toJson() { String re = "{"; re += "\"id\":\""+this.id+"\","; re += "\"name\":\""+this.name+"\","; re += "\"brand\":\""+this.brand+"\","; re += "\"value\":\""+this.totalValue+"\","; re += "\"saleRate\":\""+this.saleRate+"\""; re +="}"; return re; }
+
+    public List<Image> getListImg() {
+        return listImg;
+    }
 }

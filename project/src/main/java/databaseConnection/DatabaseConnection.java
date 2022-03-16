@@ -11,13 +11,13 @@ public class DatabaseConnection {
     public static Connection getConnection() {
         Connection conn = null;
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost/test2";
+        String url = "jdbc:mysql://localhost/ltw";
         String user = "root";
         String pass = "";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn=DriverManager.getConnection(
-                    "jdbc:mysql://localhost/test2", "root", "");
+                    "jdbc:mysql://localhost/ltw", "root", "");
         }  catch (SQLException throwables) {
             throwables.printStackTrace();
         }

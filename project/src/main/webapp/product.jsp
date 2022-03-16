@@ -398,7 +398,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                         <li class="size-shoes">
                             <label>Size</label>
                             <div class="num-size" style="display: flex; flex-wrap: wrap;">
-                                <%List<Integer> listSize = p.getListSize();%>
+                                <%List<Integer> listSize = p.getListSizeColor().getListSize();%>
                                 <%for (int size : listSize) {%>
                                 <button><%=size%></button>
                                 <%}%>

@@ -23001,17 +23001,7 @@ input[type="time"] {
 }
 
 .main {
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    height: 100vh;
-    -webkit-box-ordinal-group: 4;
-    -ms-flex-order: 3;
-    order: 3;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1
+
 }
 
 .main::-webkit-scrollbar {

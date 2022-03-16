@@ -2,7 +2,6 @@ package model;
 
 import databaseConnection.DatabaseConnection;
 
-import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +58,7 @@ public class DaoProduct implements Dao<Product> {
 
     public Product getDetailProduct(String idPr) {
         try {
-            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
+            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idPr);
             ResultSet rs = s.executeQuery();
@@ -75,9 +74,10 @@ public class DaoProduct implements Dao<Product> {
                 int totalValue = rs.getInt("totalValue");
                 int soleValue = rs.getInt("soleValue");
                 int active = rs.getInt("Active");
-                List<Integer> listSize =  getListSize(id);
+                String create_at = rs.getString("create_at");
+                List<ProductDetail> listSize =  getListProductDetail(id);
                 ImgProduct listImg = getListImg(id);
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, listImg);
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, create_at, listImg);
                 return product;
             }
         } catch (SQLException e) {
@@ -111,22 +111,25 @@ public class DaoProduct implements Dao<Product> {
         return null;
     }
 
-    public List<Integer> getListSize(String idPr) {
-        List<Integer> listSize = new ArrayList<Integer>();
+    public List<ProductDetail> getListProductDetail(String idPr) {
+       List<ProductDetail>list = new ArrayList<ProductDetail>();
         // get list size
         try {
-            String sql = "SELECT DISTINCT size FROM product JOIN product_detail ON product.id=product_detail.id  WHERE product.id=? ORDER BY size";
+            String sql = "SELECT DISTINCT size, color, totalValue, soleValue FROM  product_detail WHERE product_detail.id=? GROUP BY size, color ORDER BY size";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idPr);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 int size = rs.getInt("size");
-                listSize.add(size);
+                String color = rs.getString("color");
+                int totalValue = rs.getInt("totalValue");
+                int soleValue = rs.getInt("soleValue");
+               list.add(new ProductDetail(color, size, totalValue, soleValue));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return listSize;
+        return list;
     }
 
     private ImgProduct getListImg(String id) {
@@ -170,7 +173,7 @@ public class DaoProduct implements Dao<Product> {
         List<Product> re = new ArrayList<Product>();
         String sql = "";
         if (attrProduct.equals("brand")) {
-            sql += "&&(";
+            sql += "(";
             for (int i = 0; i < category.length; i++)
                 sql += " brand=? || ";
             sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
@@ -268,12 +271,11 @@ public class DaoProduct implements Dao<Product> {
         return sqlCount;
     }
 
-    public int excQueryTotal(ArrayList<String> key, int pagination, String sqlCount) {
+    public int excQueryTotal(ArrayList<String> key,  String sqlCount) {
         int re = 0;
         PreparedStatement s = null;
         try {
             s = connect.prepareStatement(sqlCount);
-
             for (int i = 0; i < key.size(); i++) {
                 s.setString(i +1, key.get(i));
             }
@@ -383,4 +385,5 @@ public class DaoProduct implements Dao<Product> {
         }
         return re;
     }
+
 }
