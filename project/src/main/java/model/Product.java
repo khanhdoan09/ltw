@@ -26,6 +26,10 @@ public class Product {
     //admin
     private List<Image>listImg;
 
+    public Product() {
+
+    }
+
 //cart
     public Product(String id, String brand, String name, String category, double price, double saleRate,int starRate, String description,int totalValue, int soleValue, int active,String avatar) {
         this.id = id;
@@ -162,7 +166,7 @@ public class Product {
     }
 
     public String getCreate_at() {
-        String[] date = create_at.split("/");
+        String[] date = create_at.split("\\W");
         if (date[0].length()==1)
             date[0]="0"+date[0];
         if (date[1].length()==1)
@@ -312,5 +316,8 @@ public class Product {
 
     public List<Image> getListImg() {
         return listImg;
+    }
+    public void setListImg(List<Image>list){
+        this.listImg=list;
     }
 }

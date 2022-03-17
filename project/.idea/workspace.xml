@@ -21,8 +21,8 @@
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -79,6 +79,7 @@
       <recent name="E:\BTLTW\ltw\project\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\ltw\project\src\main\webapp\css" />
       <recent name="E:\BTLTW\ltw\project\src\main\webapp" />
       <recent name="E:\BTLTW\ltw\project\src\main\webapp\data" />
@@ -465,7 +466,18 @@
       <workItem from="1647347608523" duration="3661000" />
       <workItem from="1647351529873" duration="807000" />
       <workItem from="1647391701360" duration="3434000" />
-      <workItem from="1647396305411" duration="1351000" />
+      <workItem from="1647396305411" duration="3272000" />
+      <workItem from="1647405684021" duration="672000" />
+      <workItem from="1647407187479" duration="117000" />
+      <workItem from="1647407437917" duration="550000" />
+      <workItem from="1647411585771" duration="274000" />
+      <workItem from="1647416143129" duration="1477000" />
+      <workItem from="1647418114671" duration="4388000" />
+      <workItem from="1647474987050" duration="5144000" />
+      <workItem from="1647484173079" duration="5138000" />
+      <workItem from="1647493343757" duration="7783000" />
+      <workItem from="1647510215648" duration="3354000" />
+      <workItem from="1647518949983" duration="6368000" />
     </task>
     <servers />
   </component>

@@ -10,10 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class DaoProductAdmin {
     private static DaoProductAdmin instance = null;
@@ -31,9 +28,11 @@ public class DaoProductAdmin {
 
 
     public Product getDetailProduct(String idPr) {
+        //            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
+        String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at FROM product WHERE product.id=?";
+        PreparedStatement s = null;
         try {
-            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
-            PreparedStatement s = connect.prepareStatement(sql);
+            s= connect.prepareStatement(sql);
             s.setString(1, idPr);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
@@ -55,7 +54,7 @@ public class DaoProductAdmin {
                 return product;
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() +"\n"+s.toString());
         }
         return null;
     }
@@ -230,6 +229,7 @@ public class DaoProductAdmin {
         }
     }
 
+
     public List<String> getListColor(String id) {
         List<String>list = new ArrayList<String>();
         try {
@@ -248,4 +248,71 @@ public class DaoProductAdmin {
         return list;
     }
 
+    public boolean removeColor(String id, String color) {
+        PreparedStatement s = null;
+        String sql = "DELETE FROM linkimg WHERE id=? && color=?";
+
+        PreparedStatement s2 = null;
+        String sql2 = "DELETE FROM product_detail WHERE id=? && color=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.setString(2, color);
+            s.executeUpdate();
+            // sau nay set relationship roi thi khoi can lam cai nay
+            s2 = connect.prepareStatement(sql2);
+            s2.setString(1, id);
+            s2.setString(2, color);
+            s2.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public boolean addProduct(Product product) {
+        PreparedStatement s=null;
+        try {
+            String sql = "INSERT INTO product (brand, name, category, price, saleRate, starRate, totalValue, soleValue, create_at, update_at,description, Active) VALUES (?,?, ?, ?,?,?,?,?,?,?,?,?)";
+            s = connect.prepareStatement(sql);
+            s.setString(1, product.getBrand());
+            s.setString(2,product.getName());
+            s.setString(3, "Sneakers Man");
+            s.setDouble(4, product.getPrice());
+            s.setDouble(5, product.getSaleRate());
+            s.setInt(6, product.getStarRate());
+            s.setInt(7, 0);
+            s.setInt(8, 0);
+            s.setString(9, product.getCreate_at());
+            s.setString(10,product.getUpdate_at());
+            s.setString(11, product.getDescription());
+            s.setInt(12, product.getActive()+0);
+            System.out.println(product.getName() +" 123");
+            s.executeUpdate();
+             return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println(s.toString());
+        }
+        return false;
+        }
+
+        public String getAutoIncrement() {
+        String re="";
+            PreparedStatement s = null;
+            String sql = "SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'product'";
+            try {
+                s = connect.prepareStatement(sql);
+                ResultSet rs = s.executeQuery();
+                while (rs.next()) {
+                    re = rs.getString("AUTO_INCREMENT");
+                }
+                return re;
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            return "null";
+    }
 }
+

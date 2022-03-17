@@ -174,7 +174,7 @@
                                     <h6 class="m-0 fw-bold">Màu</h6>
                                 </div>
                                 <div class="card-body">
-                                    <table style="width: 100%;">
+                                    <table style="width: 100%;" class="add-new-detail">
                                         <thead>
                                         <th>color</th>
                                         <th>size</th>
@@ -186,16 +186,15 @@
                                         int totalQuantity=0;
                                         int totalSole=0;
                                      List<ProductDetail>list = product.getDetail();
-                                     Set<String> colors = new HashSet<String>();
                                      int countDetail=0;
+                                     if (list != null) {
                                         for (ProductDetail detail : list ) {
                                             String color = detail.getColor();
                                             int size = detail.getSize();
                                             int totalValue = detail.getTotalValue();
                                             int soleValue = detail.getSoleValue();
-                                            colors.add(color);
                                     %>
-                                        <tr id="tr-detail-<%=countDetail%>">
+                                        <tr id="tr-detail-<%=countDetail%>" class="tr-detail" data-color="<%=color%>">
                                                 <td>
                                                     <span style="width: 50px;"><%=color%></span>
                                                 </td>
@@ -220,21 +219,23 @@
                                             totalQuantity+=totalValue;
                                             totalSole+=soleValue;
                                             countDetail++;
+                                            }
                                         }
                                     %>
 
                                     </table>
 
                                     <h3>Thêm mới</h3>
-                                    <table style="width: 100%;">
+                                    <table style="width: 100%;" class="table-add-detail">
                                         <thead>
                                         <th>color</th>
                                         <th>size</th>
                                         <th>total</th>
                                         <th>sole</th>
                                         </thead>
-                                        <%for(String color : colors){%>
-                                        <tr>
+                                        <%List<String>colors = DaoProductAdmin.getInstance().getListColor(product.getId());
+                                            for(String color : colors){%>
+                                        <tr class="tr-add-detail" data-color="<%=color%>">
                                             <td><%=color%></td>
                                             <td>
                                                 <input id="add-<%=color%>-size" style="width: 50px;" type="number" min="0">
@@ -342,6 +343,12 @@
                                               <%=product.getDescription()%>" value="<%=product.getDescription()%>" >
                                         </div>
 
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <h5>Thêm màu mới <input type="button" value="thêm màu mới" class="add-new-color"></h5>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -357,22 +364,24 @@
                                         <div>
                                             <div class="col-md-12" style="display: flex; flex-wrap: wrap">
                                                 <label class="form-label">Product Images Upload</label>
-                                                <div style="display: flex; flex-wrap: wrap">
+                                                <div style="display: flex; flex-wrap: wrap" class="images">
                                                     <%
                                                         List<String>listColor = DaoProductAdmin.getInstance().getListColor(product.getId());%>
                                                     <%
                                                         for(int j = 0; j < listColor.size(); j++){%>
-                                                    <h5 id="color-<%=j%>" style="display: block; width: 100%">Màu: <input name="color" value="<%=listColor.get(j)%>" />
-                                                        <br>
-                                                        <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" type="button"  class="fileNewImg" />
-                                                    </h5>
-                                                    <div id="contain-img-<%=j%>" class="d-flex flex-wrap"></div>
+                                                        <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu: <input name="color" value="<%=listColor.get(j)%>" />
+                                                            <br>
+                                                            <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" type="button"  class="fileNewImg" />
+                                                            <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
+                                                        </h5>
+                                                        <div id="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" class="contain-color-image d-flex flex-wrap"></div>
+
                                                     <%for(int i= 0;i < product.getListImg().size(); i++){%>
                                                     <%String color = product.getListImg().get(i).getColor();
 
                                                     if (color.equals(listColor.get(j))){%>
 
-                                                    <div style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px">
+                                                    <div style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px" class="contain-color-image" data-color="<%=color%>">
                                                         <% if(product.getListImg().get(i).getLelvel()==0){%>
                                                         <h2>Main Img</h2>
                                                         <%}%>
@@ -413,7 +422,8 @@
                             </div>
                         </div>
 
-                        <%String[] category = product.getCategory().split("\\s+");
+                        <%if(product.getCategory() != null) {
+                            String[] category = product.getCategory().split("\\s+");
                         String gender = category[1];
                         String typeCategory = category[0];
                         %>
@@ -467,6 +477,7 @@
                                 </select>
                             </div>
                         </div>
+                        <%}%>
                     </div>
                 </div>
                 <!-- Row end  -->
@@ -682,31 +693,17 @@
 
 <script>
 
-    $(function removeDetailInAdmin() {
+    function removeDetailInAdmin() {
         $(".remove-detail").each(function () {
-            $(this).click(() => {
-                let data = $(this).data("detail")
-                let color = $(this).data("color")
-                let size = $(this).data("size")
-                let total = $(this).data("total")
-                let sole = $(this).data("sole")
-                alert(`Are you sure wanna delete this tr-detail-`+data + " " + color + " "+size)
-                $(`#tr-detail-`+data).remove()
-                $.ajax({
-                    url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
-                    type: 'POST',
-                    success: function (data) {
-                        alert(data)
-                        $("#totalValue").val($("#totalValue").val()-total)
-                        $("#totalSole").val($("#totalSole").val()-sole)
-                    },
-                    error: function() {
-                        alert("Error")
-                    }
-                })
-            });
+            $(this).click(()=>{
+                removeDetail(this)
+            })
         })
-    });
+    }
+
+    $(document).ready(()=>{
+        removeDetailInAdmin()
+    })
 
     $(function addDetailAdmin(){
         $(".add-detail-admin").each(function () {
@@ -754,6 +751,35 @@
                         success: function (data) {
                             $("#totalValue").val($("#totalValue").val()+total)
                             $("#totalSole").val($("#totalSole").val()+sole)
+
+                            let newId = new Date().getTime()
+                            let newTr = `
+                             <tr id="tr-detail-`+newId+`">
+                                                <td>
+                                                    <span style="width: 50px;">`+color+`</span>
+                                                </td>
+                                                <td style="display: flex;">
+                                                    <label class="form-check-label" for="size-`+size+`">
+                                                        `+size+`
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input name="totalValue" style="width: 50px;" id="totalValue-`+total+`"value="`+total+`" type="number">
+                                                </td>
+                                                <td>
+                                                    <input  name="soleValue" style="width: 50px;" id="soleValue-`+sole+`"value="`+sole+`"  type="number">
+                                                </td>
+                                            <td>
+                                                <a id="`+newId+`" class="remove-detail" style="cursor: pointer; font-size: 18px" data-detail="`+newId+`" data-color="`+color+`" data-size="`+size+`" data-total="`+total+`" data-sole="`+sole+`" >
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        `
+                            $(".add-new-detail").append(newTr)
+                            $("#"+newId).click(()=>{
+                                removeDetail($("#"+newId))
+                            })
                         },
                         error: function() {
                             alert("Error")
@@ -763,6 +789,30 @@
             })
         })
     })
+
+    function removeDetail(tr) {
+            let data = $(tr).data("detail")
+            let color = $(tr).data("color")
+            let size = $(tr).data("size")
+            let total = $(tr).data("total")
+            let sole = $(tr).data("sole")
+            alert(`Are you sure wanna delete this tr-detail-`+data + " " + color + " "+size)
+            $(`#tr-detail-`+data).remove()
+            $.ajax({
+                url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
+                type: 'POST',
+                success: function (data) {
+                    alert(data)
+                    $("#totalValue").val($("#totalValue").val()-total)
+                    $("#totalSole").val($("#totalSole").val()-sole)
+                },
+                error: function() {
+                    alert("Error")
+                }
+            })
+
+    }
+
 
     function removeDetailImg() {
         $(".remove-img-detail").each(function(){
@@ -786,44 +836,92 @@
     $(document).ready(()=>{
         removeDetailImg()
     })
-    $(function addNewImg() {
-        $(".fileNewImg").each(function(){
-            // test($(this).attr('id'))
-            $(this).click(()=>{
-                test($(this).attr('id'))
-            })
-            // $(this).click(()=>{
-            //     // $(this).css("display", "none")
-            //     // let id = new Date().getTime()
-            //     // let newImg = `<div class="d-grid" style="border: 1px solid black; margin-right: 5px">
-            //     //     <img id="img-`+id+`" width="280" height="280">
-            //     //     <input type="file" id="input-img-`+id+`" class="imgLoad" data-img="img-`+id+`" name="fileNewImg" />
-            //     //     <button class="remove-img-detail">Xóa</button>
-            //     //     </div>
-            //     //     `
-            //     // $("#"+$(this).data("containimg")).prepend(newImg)
-            //     // $(this).change(()=>{
-            //     //     let reader = new FileReader()
-            //     //     reader.onload = function (e) {
-            //     //         $("#img-"+id).attr('src', e.target.result)
-            //     //     }
-            //     //     reader.readAsDataURL(this.files[0])
-            //     // })
-            //     // let orderColor = $(this).data("ordercolor")
-            //     // let idNewInput = new Date().getTime()
-            //     // let newInput=`<input id="`+idNewInput+`" name="fileNewImg" class="fileNewImg" data-containimg="contain-img-`+orderColor+`" data-ordercolor="`+orderColor+`" />`
-            //
-            //     // $("#color-"+$(this).data("ordercolor")).append(newInput)
-            //     // test(idNewInput)
-            // })
+
+
+
+    function loadImg() {
+        $(".imgLoad").each(function(){
+            $(this).change(function () {
+                let idImgShow = $(this).data("img")
+                if (this.files && this.files[0]) {
+                    let reader = new FileReader()
+                    reader.onload = function (e) {
+                        $("#"+idImgShow).attr('src', e.target.result)
+                    }
+                    reader.readAsDataURL(this.files[0])
+                }
+            });
+        })
+    }
+    $(document).ready(()=>{
+        loadImg()
+    })
+
+    $(function addNewColor() {
+        let count=-1
+        $(".add-new-color").click(()=>{
+            let color = ` <h5 style="display: block; width: 100%">Màu: <input name="addNewColor" id="new-color-`+count+`" />
+                         <br>
+                         <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`"  value="Thêm mới"  type="button" />
+                        </h5>
+                         <div id="contain-img-`+count+`" class="d-flex flex-wrap"></div>`
+            $(".images").prepend(color)
+
+            testChangeDataColor("add-img-"+count, "new-color-"+count)
+            testColor("add-img-"+count)
+            addDetailProduct("add-img-"+count)
+            count--
         })
     })
 
+    function addDetailProduct(id) {
+        $("#"+id).click(()=>{
+            let color = $("#"+id).data('color')
+            let newDetail =`
+                                                    <tr class="tr-add-detail" data-color="`+color+`">
+                                            <td>`+color+`</td>
+                                            <td>
+                                                <input id="add-`+color+`-size" style="width: 50px;" type="number" min="0">
+                                                <span class="exp-edit" id="exp-`+color+`-size"></span>
+                                            </td>
+                                            <td>
+                                                <input id="add-`+color+`-total" style="width: 50px;" type="number" min="0">
+                                                <span class="exp-edit" id="exp-`+color+`-total"></span>
+                                            </td>
+                                            <td>
+                                                <input id="add-`+color+`-sole" style="width: 50px;" type="number" min="0">
+                                                <span class="exp-edit" id="exp-`+color+`-sole"></span>
+                                            </td>
+                                            <td><a class="add-detail-admin" data-color="`+color+`" style="font-size: 22px; cursor:pointer;"><i class="fas fa-save"></i></a></td>
+                                        </tr>
+`
+            $(".table-add-detail").append(newDetail)
+        })
+    }
+
+    function testChangeDataColor(id, idColor) {
+        $("#"+idColor).keyup(()=>{
+            $("#"+id).data("color", $("#"+idColor).val())
+        })
+    }
+
+    $(function addNewImage() {
+        $(".fileNewImg").each(function(){
+            $(this).click(()=>{
+                test($(this).attr('id'))
+            })
+        })
+    })
+
+    function testColor(id) {
+        $("#"+id).click(()=>test(id))
+    }
+
     function test(idInput) {
         // $("#"+idInput).click(()=>{
-        alert(456)
         let id = new Date().getTime()
         let color=$("#"+idInput).data('color')
+        alert(idInput+" "+$("#"+idInput).data('color'))
         let newImg = `<div class="d-grid" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
                         <input type="file" id="input-img-`+id+`" class="imgLoad" data-img="img-`+id+`" name="fileNewImg_`+color+`" />
@@ -846,23 +944,41 @@
         // })
     }
 
-    function loadImg() {
-        $(".imgLoad").each(function(){
-            $(this).change(function () {
-                let idImgShow = $(this).data("img")
-                if (this.files && this.files[0]) {
-                    let reader = new FileReader()
-                    reader.onload = function (e) {
-                        $("#"+idImgShow).attr('src', e.target.result)
+    $(function removeColor() {
+        $(".remove-color").each(function (){
+            $(this).click(()=>{
+                let color = $(this).data('color')
+                alert(color)
+                $.ajax({
+                    url: `RemoveColor?id=<%=product.getId()%>&color=`+color,
+                    type: 'POST',
+                    success: function (data) {
+                        alert(data)
+                        $(".tr-detail").each(function (){
+                            if ($(this).data("color")==color) {
+                                $(this).remove()
+                            }
+                        })
+                        $(".tr-add-detail").each(function (){
+                            if ($(this).data("color")==color) {
+                                $(this).remove()
+                            }
+                        })
+                        $(".contain-color-image").each(function (){
+                            if ($(this).data("color")==color) {
+                                $(this).remove()
+                            }
+                        })
+                    },
+                    error: function() {
+                        alert("Error")
                     }
-                    reader.readAsDataURL(this.files[0])
-                }
-            });
+                })
+            })
+
         })
-    }
-    $(document).ready(()=>{
-        loadImg()
     })
+
 </script>
 
 

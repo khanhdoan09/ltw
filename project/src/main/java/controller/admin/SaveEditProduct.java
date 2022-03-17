@@ -2,6 +2,7 @@ package controller.admin;
 
 import model.Admin.DaoProductAdmin;
 import model.DaoProduct;
+import model.Image;
 import model.Product;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -54,6 +55,7 @@ public class SaveEditProduct extends HttpServlet {
         int countNewImg = 0;
         int countImg=0;
         int countColor=0;
+        String currentNewColor="";
         try {
             List<FileItem> fileItemList = uploader.parseRequest(request);
             Iterator<FileItem> fileItemIterator = fileItemList.iterator();
@@ -61,8 +63,11 @@ public class SaveEditProduct extends HttpServlet {
                 FileItem item = fileItemIterator.next();
                 if (item.getFieldName().equals("id")) {
                     id = item.getString();
+                    System.out.println(id);
                     productDetail = DaoProductAdmin.getInstance().getDetailProduct(item.getString());
-                    countNewImg = productDetail.getListImg().size();
+                    if( productDetail.getListImg()!=null)
+                        countNewImg = productDetail.getListImg().size();
+
                 }
 
                 if (item.getFieldName().equals("price")) {
@@ -120,6 +125,7 @@ public class SaveEditProduct extends HttpServlet {
                         countColor++;
                     }
                 }
+
                 if (item.getFieldName().equals("fileImg")) {
                    if (item.getSize()==0) {
                        countImg++;
@@ -142,6 +148,7 @@ public class SaveEditProduct extends HttpServlet {
                     File file = saveImage(request, nameImg + ".jpg");
                     item.write(file);
                     DaoProductAdmin.getInstance().saveImg(productDetail.getId(),nameImg,1, color);
+                    productDetail.getListImg().add(new Image(nameImg,1,color));
                 }
             }
 
