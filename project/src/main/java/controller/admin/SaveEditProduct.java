@@ -93,6 +93,16 @@ public class SaveEditProduct extends HttpServlet {
                 }
                 if (item.getFieldName().equals("name"))
                     productDetail.setName(item.getString());
+                if (item.getFieldName().equals("brand")) {
+                    String brand = item.getString();
+                    List<String>brands = DaoProductAdmin.getInstance().getListBrand();
+                    if (!brands.contains(brand)) {
+                        DaoProductAdmin.getInstance().saveNewBrand(brand);
+                    }
+                    productDetail.setBrand(brand);
+                }
+                if (item.getFieldName().equals("chooseMainImage"))
+                    System.out.println(item.getString());
                 if (item.getFieldName().equals("description"))
                     productDetail.setDescription(item.getString());
                 if (item.getFieldName().equals("sold")) {
@@ -125,6 +135,13 @@ public class SaveEditProduct extends HttpServlet {
                         countColor++;
                     }
                 }
+                if (item.getFieldName().contains("chooseMainImage_")) {
+                    System.out.println(item.getString());
+                    String[] data = item.getString().split("@");
+                    System.out.println(data.length + " "  +data[0]);
+                    if (data.length>1)
+                    DaoProductAdmin.getInstance().changeLevelImg(data[0], data[1], id);
+                }
 
                 if (item.getFieldName().equals("fileImg")) {
                    if (item.getSize()==0) {
@@ -141,7 +158,9 @@ public class SaveEditProduct extends HttpServlet {
                     if (item.getSize()==0) {
                         continue;
                     }
-                    String color = item.getFieldName().substring(item.getFieldName().indexOf("_")+1);
+                    String[] data = item.getFieldName().split("_");
+                    System.out.println("test: "+item.getFieldName());
+                    String color = data[1];
                     countNewImg++;
                     String nameImg = id+"_"+countNewImg;
                     System.out.println(nameImg);
@@ -149,6 +168,13 @@ public class SaveEditProduct extends HttpServlet {
                     item.write(file);
                     DaoProductAdmin.getInstance().saveImg(productDetail.getId(),nameImg,1, color);
                     productDetail.getListImg().add(new Image(nameImg,1,color));
+
+                    if (data.length>2) {
+                        if(data[2].equals("checked")){
+                            DaoProductAdmin.getInstance().changeLevelImg(nameImg, color, id);
+                        }
+                    }
+
                 }
             }
 

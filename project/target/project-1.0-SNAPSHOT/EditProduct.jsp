@@ -335,7 +335,13 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">Nhãn hàng</label>
-                                            <input type="text" class="form-control" value="<%=product.getBrand()%>">
+                                            <input type="text" list="brands" class="form-control" name="brand" autocomplete="off" value="<%=product.getBrand()%>"/>
+                                            <datalist id="brands">
+                                                <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
+                                                for (String brand: brands){%>
+                                                <option><%=brand%></option>
+                                                <%}%>
+                                            </datalist>
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="description">Mô tả</label>
@@ -371,24 +377,27 @@
                                                         for(int j = 0; j < listColor.size(); j++){%>
                                                         <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu: <input name="color" value="<%=listColor.get(j)%>" />
                                                             <br>
-                                                            <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" type="button"  class="fileNewImg" />
+                                                            <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
                                                             <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
                                                         </h5>
                                                         <div id="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" class="contain-color-image d-flex flex-wrap"></div>
 
                                                     <%for(int i= 0;i < product.getListImg().size(); i++){%>
                                                     <%String color = product.getListImg().get(i).getColor();
-
                                                     if (color.equals(listColor.get(j))){%>
-
                                                     <div style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px" class="contain-color-image" data-color="<%=color%>">
-                                                        <% if(product.getListImg().get(i).getLelvel()==0){%>
-                                                        <h2>Main Img</h2>
-                                                        <%}%>
                                                         <%String nameImg = product.getListImg().get(i).getImg();%>
                                                         <img id="img-<%=i%>" src="data/imgAll/upload/product/<%=nameImg%>.jpg" width="280" height="280">
                                                         <input id="input-img-<%=i%>" class="imgLoad" data-img="img-<%=i%>" type="file" name="fileImg" />
                                                         <button class="remove-img-detail" data-nameimg="<%=nameImg%>">Xóa</button>
+                                                        <div class="d-flex align-items-center my-2">
+                                                            <input  style="width: 35px; height:35px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage_<%=j%>" value="<%=nameImg+"@"+color%>"
+                                                                <% if(product.getListImg().get(i).getLelvel()==0){%>
+                                                                   checked
+                                                                <%}%>
+                                                            />
+                                                            <label style="cursor: pointer" for="mainImage_<%=i%>"><h5>Main Image</h5></label>
+                                                        </div>
                                                     </div>
                                                     <%}%>
 
@@ -471,9 +480,9 @@
                                             <%="selected"%>
                                             <%}%>>Sneakers</option>
                                     <option value="Trainers" <%
-                                        if(typeCategory.equals("Trainers")){%>
+                                        if(typeCategory.equals("Running")){%>
                                             <%="selected"%>
-                                            <%}%>>Trainers</option>
+                                            <%}%>>Running</option>
                                 </select>
                             </div>
                         </div>
@@ -862,7 +871,7 @@
         $(".add-new-color").click(()=>{
             let color = ` <h5 style="display: block; width: 100%">Màu: <input name="addNewColor" id="new-color-`+count+`" />
                          <br>
-                         <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`"  value="Thêm mới"  type="button" />
+                         <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`" data-j="`+new Date().getTime()+`"  value="Thêm mới"  type="button" />
                         </h5>
                          <div id="contain-img-`+count+`" class="d-flex flex-wrap"></div>`
             $(".images").prepend(color)
@@ -875,27 +884,31 @@
     })
 
     function addDetailProduct(id) {
+        let wasClicked=false
         $("#"+id).click(()=>{
-            let color = $("#"+id).data('color')
-            let newDetail =`
-                                                    <tr class="tr-add-detail" data-color="`+color+`">
-                                            <td>`+color+`</td>
+            if(wasClicked==false) {
+                let color = $("#" + id).data('color')
+                let newDetail = `
+                                                    <tr class="tr-add-detail" data-color="` + color + `">
+                                            <td>` + color + `</td>
                                             <td>
-                                                <input id="add-`+color+`-size" style="width: 50px;" type="number" min="0">
-                                                <span class="exp-edit" id="exp-`+color+`-size"></span>
+                                                <input id="add-` + color + `-size" style="width: 50px;" type="number" min="0">
+                                                <span class="exp-edit" id="exp-` + color + `-size"></span>
                                             </td>
                                             <td>
-                                                <input id="add-`+color+`-total" style="width: 50px;" type="number" min="0">
-                                                <span class="exp-edit" id="exp-`+color+`-total"></span>
+                                                <input id="add-` + color + `-total" style="width: 50px;" type="number" min="0">
+                                                <span class="exp-edit" id="exp-` + color + `-total"></span>
                                             </td>
                                             <td>
-                                                <input id="add-`+color+`-sole" style="width: 50px;" type="number" min="0">
-                                                <span class="exp-edit" id="exp-`+color+`-sole"></span>
+                                                <input id="add-` + color + `-sole" style="width: 50px;" type="number" min="0">
+                                                <span class="exp-edit" id="exp-` + color + `-sole"></span>
                                             </td>
-                                            <td><a class="add-detail-admin" data-color="`+color+`" style="font-size: 22px; cursor:pointer;"><i class="fas fa-save"></i></a></td>
+                                            <td><a class="add-detail-admin" data-color="` + color + `" style="font-size: 22px; cursor:pointer;"><i class="fas fa-save"></i></a></td>
                                         </tr>
 `
-            $(".table-add-detail").append(newDetail)
+                $(".table-add-detail").append(newDetail)
+            }
+            wasClicked=true
         })
     }
 
@@ -921,17 +934,33 @@
         // $("#"+idInput).click(()=>{
         let id = new Date().getTime()
         let color=$("#"+idInput).data('color')
+        let j = $("#"+idInput).data('j')
+        let i = new Date().getTime()
         alert(idInput+" "+$("#"+idInput).data('color'))
         let newImg = `<div class="d-grid" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
                         <input type="file" id="input-img-`+id+`" class="imgLoad" data-img="img-`+id+`" name="fileNewImg_`+color+`" />
                         <button class="remove-img-detail">Xóa</button>
+<div class="d-flex align-items-center my-2">
+                                                            <input style="width: 35px; height:35px" type="radio" id="mainImage_`+i+`" name="chooseMainImage_`+j+`">
+                                                            <label style="cursor: pointer" for="mainImage_`+i+`"><h5>Main Image</h5></label>
+                                                        </div>
                         </div>
+
                         `
+
+
         let divContain=$("#"+idInput).data("containimg")
         $("#"+divContain).append(newImg)
+
+        $("#mainImage_"+i).click(()=>{
+            console.log(213)
+            alert(123)
+            $("#input-img-"+id).attr('name', "fileNewImg_"+color+"_checked");
+            alert($("#input-img-"+id).attr("id") + " " + $("#input-img-"+id).attr("name"))
+        })
+
         $(this).bind('change', ()=>{
-            alert(this + idInput)
             let reader = new FileReader()
             reader.onload = function (e) {
                 $("#img-"+id).attr('src', e.target.result)

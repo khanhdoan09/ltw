@@ -233,7 +233,13 @@
                     </div>
                     <div class="col-md-6">
                       <label class="form-label">Nhãn hàng</label>
-                      <input type="text" class="form-control" name="brand" >
+                      <input type="text" list="brands" class="form-control" name="brand" autocomplete="off"/>
+                      <datalist id="brands">
+                        <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
+                          for (String brand: brands){%>
+                        <option><%=brand%></option>
+                        <%}%>
+                      </datalist>
                     </div>
                     <div class="col-md-12">
                       <label class="form-label" for="description">Mô tả</label>

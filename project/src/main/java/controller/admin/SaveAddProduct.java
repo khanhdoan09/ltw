@@ -82,8 +82,14 @@ public class SaveAddProduct extends HttpServlet {
                 }
                 if (item.getFieldName().equals("name"))
                     productDetail.setName(item.getString());
-                if (item.getFieldName().equals("brand"))
-                    productDetail.setBrand(item.getString());
+                if (item.getFieldName().equals("brand")) {
+                    String brand = item.getString();
+                    List<String>brands = DaoProductAdmin.getInstance().getListBrand();
+                    if (!brands.contains(brand)) {
+                        DaoProductAdmin.getInstance().saveNewBrand(brand);
+                    }
+                    productDetail.setBrand(brand);
+                }
                 if (item.getFieldName().equals("description"))
                     productDetail.setDescription(item.getString());
                 productDetail.setCreate_at(new Date().getYear()+"/" +new Date().getMonth()+"/"+new Date().getDay());

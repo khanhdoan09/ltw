@@ -103,7 +103,7 @@ public class DaoProductAdmin {
     public int editProduct(String id, Product product) {
         PreparedStatement s=null;
         try {
-            String sql = "UPDATE product SET price=?, name=?, saleRate=?, description=?, totalValue=?, soleValue=?, category=? WHERE id=?";
+            String sql = "UPDATE product SET price=?, name=?, saleRate=?, description=?, totalValue=?, soleValue=?, category=?, brand=? WHERE id=?";
             s = connect.prepareStatement(sql);
             s.setDouble(1, product.getPrice());
             s.setString(2,product.getName());
@@ -112,7 +112,8 @@ public class DaoProductAdmin {
             s.setInt(5, product.getQuantity());
             s.setInt(6, product.getSoleValue());
             s.setString(7, product.getCategory());
-            s.setString(8, id);
+            s.setString(8, product.getBrand());
+            s.setString(9, id);
             return s.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -313,6 +314,59 @@ public class DaoProductAdmin {
                 System.out.println(e.getMessage());
             }
             return "null";
+    }
+
+    public List<String> getListBrand() {
+        List<String> re = new ArrayList<String>();
+        PreparedStatement s = null;
+        String sql = "SELECT id FROM brand";
+        try {
+            s = connect.prepareStatement(sql);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                re.add(rs.getString("id"));
+            }
+            return re;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
+    }
+
+    public boolean saveNewBrand(String brand) {
+        PreparedStatement s = null;
+        String sql = "INSERT INTO brand VALUES (?)";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, brand);
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean changeLevelImg(String img,String color, String id) {
+        PreparedStatement s2 = null;
+        String sql2 = "UPDATE linkimg SET level=1 WHERE id=? AND color=?";
+        PreparedStatement s = null;
+        String sql = "UPDATE linkimg SET level=0 WHERE id=? AND img=?";
+        try {
+            s2 = connect.prepareStatement(sql2);
+            s2.setString(1, id);
+            s2.setString(2, color);
+            s2.executeUpdate();
+
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.setString(2, img);
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }
 
