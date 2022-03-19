@@ -229,12 +229,12 @@
                                     for (int i = 0; i < listMainImg.size(); i++) {
                                     %>
                                     $("#color-shoe-<%=i%>").on("click", ()=>{
-                                        $("#main-img").attr("src","data/imgAll/<%=listMainImg.get(i)%>.jpg")
+                                        $("#main-img").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")
                                         <%int tmp = i*3;%>
-                                        $("#zero").attr("src","data/imgAll/<%=listMainImg.get(i)%>.jpg")
-                                        $("#one").attr("src","data/imgAll/<%=listSubImg.get(tmp+1)%>.jpg")
-                                        $("#two").attr("src","data/imgAll/<%=listSubImg.get(tmp+2)%>.jpg")
-                                        $("#three").attr("src","data/imgAll/<%=listSubImg.get(tmp+3)%>.jpg")
+                                        $("#zero").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")
+                                        $("#one").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+1)%>.jpg")
+                                        $("#two").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+2)%>.jpg")
+                                        $("#three").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+3)%>.jpg")
                                     })
                                     <%}%>
 
@@ -257,39 +257,20 @@
                             </script>
                             <!-- anh chinh -->
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
-                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="data/imgAll/<%=p.getImg().getMain().get(0)%>.jpg"/>
+                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="data/imgAll/upload/product/<%=p.getImg().getMain().get(0)%>.jpg"/>
                             </a>
                         </div>
+
                         <div id="product-thumbnail" class="owl-carousel" style="width: 100%;">
+                            <%for(String img: p.getListImg("white")){%>
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail main imag1">
-                                        <img src="data/imgAll/<%=p.getImg().getMain().get(0)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="zero" />
+                                        <img src="data/imgAll/upload/product/<%=img%>.jpg" title="lorem ippsum dolor dummy" alt="<%=img%>" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="item mg-l">
-                                <div class="image-additional">
-                                    <div class="thumbnail imag2 ">
-                                        <img src="data/imgAll/<%=p.getImg().getSub().get(0)%>.jpg"  title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy"  id="one"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item mg-l">
-                                <div class="image-additional">
-                                    <div class="thumbnail imag3 ">
-                                        <img src="data/imgAll/<%=p.getImg().getSub().get(1)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="two"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item mg-l">
-                                <div class="image-additional">
-                                    <div class="thumbnail imag4 ">
-                                        <img src="data/imgAll/<%=p.getImg().getSub().get(2)%>.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" id="three"/></div>
-                                </div>
-                            </div>
-
-
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -386,21 +367,19 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                         </li>
 
                         <li class="size-shoes" style="margin-top: 50px;">
-                            <label><%if (listMainImg.size()>1)%><%="Màu sắc"%></label>
+                            <label>Màu sắc</label>
                             <div class="num-size">
-                                <%if (listMainImg.size()>1){%>
-                                <%for (int i = 0; i < listMainImg.size(); i++) {%>
-                                <button class="js-color-black color-black color-shoe" id="color-shoe-<%=i%>">Màu <%=(i+1)%></button>
-                                <%}}%>
-
+                                <%for(String color : p.getListColor()){%>
+                                <button class="js-color-black color-black color-shoe" data-color="<%=color%>" id="color-shoe-<%=color%>"><%=color%></button>
+                                <%}%>
                             </div>
                         </li>
                         <li class="size-shoes">
                             <label>Size</label>
-                            <div class="num-size" style="display: flex; flex-wrap: wrap;">
-                                <%List<Integer> listSize = p.getListSizeColor().getListSize();%>
+                            <div class="num-size list-size" style="display: flex; flex-wrap: wrap;width: 250px;">
+                                <%List<Integer> listSize = p.getListSize("white");%>
                                 <%for (int size : listSize) {%>
-                                <button><%=size%></button>
+                                <button class="my-2"><%=size%></button>
                                 <%}%>
                             </div>
                         </li>
@@ -506,7 +485,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                         <div class="item">
                                             <div class="product-thumb transition">
                                                 <div class="image product-imageblock">
-                                                    <a href="product.html"> <img src="data/imgAll/<%=productWatched.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                                    <a href="product.html"> <img src="data/imgAll/upload/product/<%=productWatched.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                                     <div class="button-group">
                                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -593,7 +572,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                     <div class="item" style="display: grid; place-items: center;">
                                         <div class="product-thumb transition" style="width: 100%;">
                                             <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="data/imgAll/<%=product.getAvatar()%>.jpg"
+                                                <a href="product.html"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
                                                                              alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                              class="img-responsive" />
 
@@ -643,6 +622,60 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
 
 
 <script>
+
+    $(function() {
+
+        $(".color-shoe").click(function (e){
+            e.preventDefault()
+            $(".color-shoe").css("background-color", "white");
+            $(".color-shoe").css("color", "blue");
+            $(this).css("background-color", "yellow");
+            $(this).css("color", "blue");
+            $.ajax({
+                url: `ListImg?id=<%=p.getId()%>&color=`+$(this).data('color'),
+                type: 'POST',
+                success: function (data) {
+                    console.log(data)
+                    // let arrImg = data.split("\n")
+                    alert(data)
+                    let dataDetail=JSON.parse(data)
+                    let arrImg = dataDetail.listImg
+                    let re=``
+                    for(let i = 0; i < arrImg.length; i++) {
+                        re+=`
+                       <div class="owl-item" style="width: 100px;">
+                         <div class="item mg-l">
+                            <div class="image-additional">
+                                <div class="thumbnail main imag1">
+                                    <img src="data/imgAll/upload/product/`+arrImg[i]+`.jpg" title="lorem ippsum dolor dummy" id="zero" />
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                        `
+                    }
+                    $(".owl-wrapper").empty()
+                    $(".owl-wrapper").append(re)
+
+                    let arrSize = dataDetail.listSize
+                    re=``
+                    for(let i = 0; i < arrSize.length; i++) {
+                        re+=`
+                        <button class="my-2">`+arrSize[i]+`</button>
+                        `
+                    }
+                    $(".list-size").empty()
+                    $(".list-size").append(re)
+
+                },
+                error: function() {
+                    alert("Error")
+                }
+            })
+        })
+    })
+
+
     function setIma(main, child) {
         var path = document.getElementById(child).getAttribute("src");
         document.getElementById(main).setAttribute("src", path);
@@ -680,9 +713,8 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
 
     })
 
-
-
 </script>
+
 
 </body>
 

@@ -223,11 +223,9 @@ public class DaoProduct implements Dao<Product> {
         List<Product> re = new ArrayList<Product>();
         try {
             s = connect.prepareStatement(sql);
-
             for (int i = 0; i < category.size(); i++) {
                 s.setString(i + 1, category.get(i));
             }
-
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("id");
@@ -238,9 +236,7 @@ public class DaoProduct implements Dao<Product> {
                 int saleRate = rs.getInt("saleRate");
                 int active = rs.getInt("Active");
                 String avatar = rs.getString("img");
-
                 Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
-
                 re.add(product);
             }
             System.out.println(s.toString());
@@ -385,5 +381,42 @@ public class DaoProduct implements Dao<Product> {
         }
         return re;
     }
+
+    public List<Integer> getListSize(String id, String color) {
+        List<Integer> re = new ArrayList<Integer>();
+        PreparedStatement s = null;
+        String sql="SELECT DISTINCT size FROM product INNER JOIN product_detail ON product.id=product_detail.id WHERE product.id=? AND product_detail.color=? GROUP BY size";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.setString(2, color);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                re.add(rs.getInt("size"));
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header " + sql);
+        }
+        return re;
+    }
+
+    public List<String> getListImg(String id, String color) {
+        List<String> re = new ArrayList<String>();
+        PreparedStatement s = null;
+        String sql = "SELECT img FROM linkimg WHERE id=? AND color=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.setString(2, color);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                re.add(rs.getString("img"));
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header " + sql);
+        }
+        return re;
+    }
+
 
 }

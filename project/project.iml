@@ -26,6 +26,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/webapp/data/imgAll/apache-tomcat-8.5.73" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/webapp/data" />
     </content>
     <content url="jar://$MODULE_DIR$/../../../../../json simple 1.1.1/json-simple-1.1.1.jar!/" />
     <orderEntry type="inheritedJdk" />

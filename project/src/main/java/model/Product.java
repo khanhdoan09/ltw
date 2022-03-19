@@ -1,5 +1,8 @@
 package model;
 
+import model.Admin.DaoProductAdmin;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Product {
@@ -309,6 +312,18 @@ public class Product {
 
     public void setImg(ImgProduct img) {
         this.img = img;
+    }
+
+    public List<Integer> getListSize(String color) {
+        return DaoProduct.getInstance().getListSize(this.id, color);
+    }
+
+    public List<String> getListImg(String color){
+        return DaoProduct.getInstance().getListImg(this.getId(), color);
+    }
+
+    public List<String> getListColor() {
+        return DaoProductAdmin.getInstance().getListColor(this.getId());
     }
 
     // use in admin page

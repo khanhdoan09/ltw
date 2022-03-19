@@ -15,6 +15,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="model.*" %>
+<%@ page import="model.Admin.DaoProductAdmin" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -96,36 +97,13 @@
                                         }
                                         return "";
                                     }%>
+                                <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
+                                for(String brand: brands){%>
                                 <label class="checkbox-filter-search">
                                     <input name="filterBrand" type="checkbox"
-                                           value="ASICS"<%=isBrandChecked("ASICS")%> />
-                                    ASICS</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox"
-                                           value="ADIDAS" <%=isBrandChecked("ADIDAS")%> />
-                                    ADIDAS</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="VANS" <%=isBrandChecked("VANS")%>/>
-                                    VANS</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox" value="NIKE" <%=isBrandChecked("NIKE")%>/>
-                                    NIKE</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox"
-                                           value="Reebok" <%=isBrandChecked("Reebok")%>/>
-                                    Reebok</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox"
-                                           value="NEW BALANCE" <%=isBrandChecked("NEW BALANCE")%>/>
-                                    NEW BALANCE</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox"
-                                           value="ON RUNNING" <%=isBrandChecked("ON RUNNING")%>/>
-                                    On RUNNING</label>
-                                <label class="checkbox-filter-search">
-                                    <input name="filterBrand" type="checkbox"
-                                           value="UNDER ARMOUR" <%=isBrandChecked("UNDER ARMOUR")%>/>
-                                    UNDER ARMOUR</label>
+                                           value="<%=brand%>"<%=isBrandChecked(brand)%> />
+                                    <%=brand%></label>
+                                <%}%>
                             </div>
                         </div>
                         <a class="list-group-item">Sizes</a>
@@ -392,7 +370,7 @@
                             <div class="related-product-sale">
                                 <h5 style='margin-top: 10px'>-<%=p.getSaleRate()%>%</h5>
                             </div>
-                            <img src="data/imgAll/<%=p.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy"
+                            <img src="data/imgAll/upload/product/<%=p.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy"
                                  title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
                         <div class="button-group">
                             <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích">

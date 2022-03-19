@@ -238,7 +238,7 @@
                                         <tr class="tr-add-detail" data-color="<%=color%>">
                                             <td><%=color%></td>
                                             <td>
-                                                <input id="add-<%=color%>-size" style="width: 50px;" type="number" min="0">
+                                                <input id="add-<%=color%>-size" style="width: 50px;" type="number" min="32" max="50">
                                                 <span class="exp-edit" id="exp-<%=color%>-size"></span>
                                             </td>
                                             <td>
@@ -892,7 +892,7 @@
                                                     <tr class="tr-add-detail" data-color="` + color + `">
                                             <td>` + color + `</td>
                                             <td>
-                                                <input id="add-` + color + `-size" style="width: 50px;" type="number" min="0">
+                                                <input id="add-` + color + `-size" style="width: 50px;" type="number" min="32" max="50">
                                                 <span class="exp-edit" id="exp-` + color + `-size"></span>
                                             </td>
                                             <td>

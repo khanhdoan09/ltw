@@ -35,6 +35,7 @@ public class ProductDetail extends HttpServlet {
             listProductWatched = new ArrayList<String>();
             session.setAttribute("listProductWatched", listProductWatched);
         }
-        listProductWatched.add(idProduct);
+        if (!listProductWatched.contains(idProduct))
+            listProductWatched.add(idProduct);
     }
 }
