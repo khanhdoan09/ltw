@@ -58,7 +58,7 @@ public class DaoProduct implements Dao<Product> {
 
     public Product getDetailProduct(String idPr) {
         try {
-            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
+            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at, mainColor FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idPr);
             ResultSet rs = s.executeQuery();
@@ -75,9 +75,10 @@ public class DaoProduct implements Dao<Product> {
                 int soleValue = rs.getInt("soleValue");
                 int active = rs.getInt("Active");
                 String create_at = rs.getString("create_at");
+                String mainColor = rs.getString("mainColor");
                 List<ProductDetail> listSize =  getListProductDetail(id);
                 ImgProduct listImg = getListImg(id);
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, create_at, listImg);
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, create_at, listImg, mainColor);
                 return product;
             }
         } catch (SQLException e) {
@@ -400,10 +401,10 @@ public class DaoProduct implements Dao<Product> {
         return re;
     }
 
-    public List<String> getListImg(String id, String color) {
+    public List<String> getListSubImg(String id, String color) {
         List<String> re = new ArrayList<String>();
         PreparedStatement s = null;
-        String sql = "SELECT img FROM linkimg WHERE id=? AND color=?";
+        String sql = "SELECT img FROM linkimg WHERE id=? AND color=? AND level=1";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, id);
@@ -418,5 +419,57 @@ public class DaoProduct implements Dao<Product> {
         return re;
     }
 
+    public String getMainImg(String id, String color) {
+        PreparedStatement s = null;
+        String sql = "SELECT img FROM linkimg WHERE id=? AND color=? AND level=0";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.setString(2, color);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getString("img");
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header " + sql);
+        }
+        return "";
+    }
 
+    public int getRemainProductDetail(String id, String color) {
+        PreparedStatement s = null;
+        String sql = "SELECT totalValue, soleValue FROM product_detail WHERE id=? AND color=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.setString(2, color);
+            ResultSet rs = s.executeQuery();
+            int total=0;
+            int sole=0;
+            while (rs.next()) {
+                total = rs.getInt("totalValue");
+                sole = rs.getInt("soleValue");
+            }
+            return total-sole;
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header " + sql);
+        }
+        return 0;
+    }
+
+    public String getMainColor(String id) {
+        PreparedStatement s = null;
+        String sql = "SELECT mainColor FROM product WHERE id=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+              return rs.getString("mainColor");
+            }
+        } catch (SQLException e) {
+            System.out.println("~~~*** sql word search header " + sql);
+        }
+        return "";
+    }
 }

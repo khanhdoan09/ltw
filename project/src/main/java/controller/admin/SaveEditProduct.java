@@ -142,6 +142,9 @@ public class SaveEditProduct extends HttpServlet {
                     if (data.length>1)
                     DaoProductAdmin.getInstance().changeLevelImg(data[0], data[1], id);
                 }
+                if (item.getFieldName().equals("chooseMainColor")) {
+                    DaoProductAdmin.getInstance().saveMainColor(id, item.getString());
+                }
 
                 if (item.getFieldName().equals("fileImg")) {
                    if (item.getSize()==0) {

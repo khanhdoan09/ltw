@@ -256,13 +256,14 @@
 
                             </script>
                             <!-- anh chinh -->
+                            <%String mainColor = p.getMainColor();%>
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
-                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="data/imgAll/upload/product/<%=p.getImg().getMain().get(0)%>.jpg"/>
+                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="data/imgAll/upload/product/<%=p.getMainImg(mainColor)%>.jpg"/>
                             </a>
                         </div>
 
                         <div id="product-thumbnail" class="owl-carousel" style="width: 100%;">
-                            <%for(String img: p.getListImg("white")){%>
+                            <%for(String img: p.getListSubImg(mainColor)){%>
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail main imag1">
@@ -366,11 +367,22 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                             </div>
                         </li>
 
+                        <li class="size-shoes d-flex" style="margin-top: 50px;">
+                            <label>Nhãn hàng: </label>
+                            <div class="num-size">
+                                <%=p.getBrand()%>
+                            </div>
+                        </li>
+
                         <li class="size-shoes" style="margin-top: 50px;">
                             <label>Màu sắc</label>
                             <div class="num-size">
                                 <%for(String color : p.getListColor()){%>
-                                <button class="js-color-black color-black color-shoe" data-color="<%=color%>" id="color-shoe-<%=color%>"><%=color%></button>
+                                <button
+                                        <%if(color.equals(mainColor)){%>
+                                        style="background-color: yellow; color: blue"
+                                        <%}%>
+                                        class="js-color-black color-black color-shoe" data-color="<%=color%>" id="color-shoe-<%=color%>"><%=color%></button>
                                 <%}%>
                             </div>
                         </li>
@@ -390,7 +402,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                 <input type="text" id="number" class="changeQuantity"   value="<%=p.getQuantitySold()%>" />
                                 <input class="value" type="button" onclick="incrementValue(<%=p.getTotalValue()-p.getSoleValue()%>)" value="+" />
                             </div>
-                            <h6 class="products-available value-box"><%=p.getTotalValue()-p.getSoleValue()%> Sản phẩm có sẵn</h6>
+                            <h6 id="products-available" class="products-available value-box"><%=DaoProduct.getInstance().getRemainProductDetail(p.getId(), mainColor)%> Sản phẩm có sẵn</h6>
                         </li>
                         <li class="add-and-buy">
                             <div class="add-product">
@@ -639,6 +651,8 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                     // let arrImg = data.split("\n")
                     alert(data)
                     let dataDetail=JSON.parse(data)
+                    $("#main-img").attr("src","data/imgAll/upload/product/"+dataDetail.mainImg+".jpg")
+                    $("#products-available").text(dataDetail.remain + " Sản phẩm có sẵn")
                     let arrImg = dataDetail.listImg
                     let re=``
                     for(let i = 0; i < arrImg.length; i++) {

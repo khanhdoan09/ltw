@@ -25,7 +25,7 @@ public class Product {
     private ImgProduct img;
     private int quantitySold = 1;
     private int quantity ;
-
+    private String mainColor;
     //admin
     private List<Image>listImg;
 
@@ -51,7 +51,7 @@ public class Product {
 
 
     // detail
-    public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<ProductDetail> detail, String create_at, ImgProduct img) {
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<ProductDetail> detail, String create_at, ImgProduct img, String mainColor) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -66,6 +66,7 @@ public class Product {
         this.detail=detail;
         this.create_at=create_at;
         this.img = img;
+        this.mainColor = mainColor;
     }
 
     // detail
@@ -318,13 +319,18 @@ public class Product {
         return DaoProduct.getInstance().getListSize(this.id, color);
     }
 
-    public List<String> getListImg(String color){
-        return DaoProduct.getInstance().getListImg(this.getId(), color);
+    public String getMainImg(String color) {
+        return  DaoProduct.getInstance().getMainImg(this.id, color);
+    }
+    public List<String> getListSubImg(String color){
+        return DaoProduct.getInstance().getListSubImg(this.getId(), color);
     }
 
     public List<String> getListColor() {
         return DaoProductAdmin.getInstance().getListColor(this.getId());
     }
+
+    public String getMainColor() {return this.mainColor;}
 
     // use in admin page
     public String toJson() { String re = "{"; re += "\"id\":\""+this.id+"\","; re += "\"name\":\""+this.name+"\","; re += "\"brand\":\""+this.brand+"\","; re += "\"value\":\""+this.totalValue+"\","; re += "\"saleRate\":\""+this.saleRate+"\""; re +="}"; return re; }

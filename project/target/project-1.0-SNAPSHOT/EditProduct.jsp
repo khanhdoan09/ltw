@@ -4,7 +4,8 @@
 <%@ page import="controller.admin.UploadFile" %>
 <%@ page import="model.ProductDetail" %>
 <%@ page import="java.util.*" %>
-<%@ page import="model.Admin.DaoProductAdmin" %><%--
+<%@ page import="model.Admin.DaoProductAdmin" %>
+<%@ page import="model.DaoProduct" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 10/2/2022
@@ -372,6 +373,7 @@
                                                 <label class="form-label">Product Images Upload</label>
                                                 <div style="display: flex; flex-wrap: wrap" class="images">
                                                     <%
+                                                        String mainColor = DaoProduct.getInstance().getMainColor(product.getId());
                                                         List<String>listColor = DaoProductAdmin.getInstance().getListColor(product.getId());%>
                                                     <%
                                                         for(int j = 0; j < listColor.size(); j++){%>
@@ -379,6 +381,13 @@
                                                             <br>
                                                             <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
                                                             <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
+                                                            <div class="d-flex align-items-center">
+                                                                <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
+                                                                <%if(mainColor.equals(listColor.get(j))){ %>
+                                                                        checked
+                                                                <%}%>>
+                                                                <label for="mainColor_<%=listColor.get(j)%>" style="cursor: pointer">Choose main color</label>
+                                                            </div>
                                                         </h5>
                                                         <div id="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" class="contain-color-image d-flex flex-wrap"></div>
 
@@ -871,8 +880,12 @@
         $(".add-new-color").click(()=>{
             let color = ` <h5 style="display: block; width: 100%">Màu: <input name="addNewColor" id="new-color-`+count+`" />
                          <br>
-                         <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`" data-j="`+new Date().getTime()+`"  value="Thêm mới"  type="button" />
+                         <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`"  data-j="`+new Date().getTime()+`" data-maincolor="`+count+`" value="Thêm mới"  type="button" />
                         </h5>
+                           <div class="d-flex align-items-center">
+                               <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_`+count+`" value="">
+                                      <label for="mainColor_`+count+`" style="cursor: pointer">Choose main color</label>
+                                   </div>
                          <div id="contain-img-`+count+`" class="d-flex flex-wrap"></div>`
             $(".images").prepend(color)
 
@@ -915,6 +928,9 @@
     function testChangeDataColor(id, idColor) {
         $("#"+idColor).keyup(()=>{
             $("#"+id).data("color", $("#"+idColor).val())
+            alert($("#"+id).data("maincolor"))
+            $("#mainColor_"+$("#"+id).data("maincolor")).val($("#"+idColor).val())
+            alert($("#mainColor_"+$("#"+id).data("maincolor")).val())
         })
     }
 

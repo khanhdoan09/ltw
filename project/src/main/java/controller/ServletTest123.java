@@ -206,7 +206,7 @@ public class ServletTest123 extends HttpServlet {
                 }
             }
 
-            String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group + limit;
+            String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 AND product.mainImg=level.color " + sql + group + limit;
             request.setAttribute("sql", sqlAll);
             listFilter = DaoProduct.getInstance().excQuery(list, pagination, sqlAll);
             System.out.println("SqlAll: "+sqlAll);

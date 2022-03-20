@@ -368,5 +368,20 @@ public class DaoProductAdmin {
         }
         return false;
     }
+
+    public boolean saveMainColor(String id, String color) {
+        PreparedStatement s = null;
+        String sql = "UPDATE product SET mainColor=? WHERE id=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, color);
+            s.setString(2, id);
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
 }
 
