@@ -47,84 +47,6 @@ $(function() {
 
 });
 
-function displayMenuNavigation() {
-    let content = `<div class="nav-inner">
-                        
-                            <div class="navbar-collapse" style="background-color: #0f6cb2;">
-                                <ul class="main-navigation">
-                                    <li><a href="index.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
-                                    <li style="position: relative">
-                                    <a href="ServletTest123?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
-                                     NAM
-                                     <i class="fas fa-caret-down"></i> 
-                                     </a>
-                                    
-                                    <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
-                                  <li id="running-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="ServletTest123?categoryOnNav=Running Man&pagination=1" class="link-navigation">Runnings</a>
-                                    </li>
-                                    <li id="slides-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="ServletTest123?categoryOnNav=Slides Man&pagination=1" class="link-navigation">Slides</a>
-                                    </li>
-                                    <li id="sneakers-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="ServletTest123?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation">Sneakers</a>
-                                    </li>
-                                    <li id="skateboard-man"  class="category-product category-product-man" style="color: white">
-                                    <a href="ServletTest123?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation">SkateBoard</a>
-                                    </li>
-                                </ul>
-                            
-                                </li>
-                                    <li style="position: relative"><a href="ServletTest123?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
-                                    
-                                    <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
-                                    <li id="hitops-woman" class="category-product category-product-woman" style="color: white">HiTops</li>-->
-                                    <li id="running-woman"  class="category-product category-product-woman" style="color: white">
-                                     <a href="CategoryProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation">Running</a>
-                                    </li>
-</li>
-                                    <li id="slides-woman"  class="category-product category-product-woman" style="color: white">
-                                     <a href="CategoryProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation">Slides</a>
-                                    </li>
-</li>
-                                    <li id="sneakers-woman"  class="category-product category-product-woman" style="color: white">
-                                     <a href="CategoryProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation">Sneakers</a>
-                                    </li>
-</li>
-                                    <li id="skateboard-woman"  class="category-product category-product-woman"style="color: white" >
-                                     <a href="CategoryProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation">Skateboard</a>
-                                    </li>
-</li>
-                                </ul>
-
-                                    </li>
-                                     <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
-                                    <li><a href="blog.html" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
-                                    <li><a href="about-us.html" style="color: white"  id="about-nav" >VỀ CHÚNG TÔI</a></li>
-                                </ul>
-                                <div class="nav-detail-info">
-                
-         <div class="item-nav-detail-info" id="item-category-brand">
-                                        <div class="contain-brand" >
-                                           <img onclick="location.href='ServletTest123?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
-                                            <img onclick="location.href='ServletTest123?brand=ADIDAS'" src="image/brand/logo-brand-02.svg">
-                                            <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
-                                            <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
-                                            <img onclick="location.href='CategoryProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-05.svg">
-                                            <img onclick="location.href='CategoryProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-06.svg">
-                                            <img onclick="location.href='CategoryProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-07.jpg">
-                                            <img onclick="location.href='CategoryProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-08.svg">
-                                        </div>
-                                   </div>
-        
-                             </div>
-                            </div>
-                         </div>`;
-    $("#menu-navigation").append(content);
-};
-
-$(displayMenuNavigation);
-
 
 $(function() {
     let curPage = window.location.pathname;
@@ -627,7 +549,7 @@ $(function() {
 $(function() {
     $("#button-search-header").click((e)=>{
         e.preventDefault()
-        let url = "ServletTest123?"
+        let url = "SearchListProduct?"
         url += "input-search-header=" + $("#input-search-header").val() + "&"
         url += "pagination=1"
         $('#form-header-search').attr('action', url);
@@ -645,7 +567,7 @@ $(function () {
                 getDataFromServlet(xhttp)
             }
         };
-        xhttp.open("POST", `ServletTest123?wordSearchHeader=${word}`, true);
+        xhttp.open("POST", `SearchListProduct?wordSearchHeader=${word}`, true);
         xhttp.send();
     });
 
@@ -656,7 +578,8 @@ function getDataFromServlet(xhttp) {
     $(".contain-search-popular").empty()
     data.forEach((value)=>{
         let item = value.split("@@##**") // to split id and name
-        $(".contain-search-popular").append(`<span onclick="location.href='ProductDetail?idProduct=${item[0]}'">${item[1]}</span><br/>`)
+        $(".contain-search-popular")
+            .append(`<span onclick="location.href='ProductDetail?idProduct=${item[0]}'">${item[1]}</span><br/>`)
     })
 }
 
@@ -790,138 +713,3 @@ $(function() {
         });
 
     })})
-
-/*
-$(function() {
-$("#submit-admin").click((e)=>{
-    e.preventDefault()
-    let type = $("#type-product-admin").val()
-    let name = $("#input-name-product-admin").val()
-
-    $('#form-product-admin').attr('action', `ListProduct?type=${type}&name=${name}&pagination=1`);
-    $.ajax({
-        url: `ListProduct?type=${type}&name=${name}&pagination=1`,
-        type: 'POST',
-        success: function (data) {
-            let arr = JSON.parse(data);
-            let re = ""
-            arrDataProductInAdmin = arr
-            console.log(456)
-            localStorage.setItem("dataProductInAdmin", data)
-            console.log(localStorage.getItem("dataProductInAdmin") + 123)
-            arr.forEach((e) => {
-                re += `<tr>
-                                        <td><strong>${e.id}</strong></td>
-                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
-                                        <td>${e.name}</td>
-                                        <td>${e.brand}</td>
-                                        <td>May 16, 2021</td>
-                                        <td>${e.value}</td>
-                                        <td>-${e.saleRate}</td>
-                                        <td>
-                                            <a class="edit-remove-admin remove-admin"
-                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
-                                            <a class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
-                                        </td>
-                                    </tr>`
-            })
-
-            $("#listProduct").empty()
-            $("#listProduct").append(re)
-            removeProductInAdmin()
-            pagination += 1
-            window.location.href = `order-invoices.jsp?type=${type}&pagination=1`;
-
-        },
-        error: function () {
-            $('#notification-bar').text('An error occurred');
-        }
-    });
-
-        $("#form-product-admin").submit()
-
-
-})
-})
-
-$(function() {
-    let data = localStorage.getItem("dataProductInAdmin")
-    if (data != null) {
-        let re = ""
-        let arr = JSON.parse(data)
-        arrDataProductInAdmin = arr
-        arr.forEach((e) => {
-            re += `<tr>
-                                        <td><strong>${e.id}</strong></td>
-                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
-                                        <td>${e.name}</td>
-                                        <td>${e.brand}</td>
-                                        <td>May 16, 2021</td>
-                                        <td>${e.value}</td>
-                                        <td>-${e.saleRate}</td>
-                                        <td>
-                                            <a class="edit-remove-admin remove-admin"
-                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
-                                            <a class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
-                                        </td>
-                                    </tr>`
-        })
-        $("#listProduct").empty()
-        $("#listProduct").append(re)
-        removeProductInAdmin()
-        ttt()
-        loadMore()
-    }
-    else {
-        alert("data null")
-    }
-})
-
-
-function loadMore(){
-    $("#load-more-product").click(()=>{
-        let type = $("#type-product-admin").val()
-        let name = $("#input-name-product-admin").val()
-        pagination += 1
-
-        $.ajax({
-            url: `ListProduct?type=${type}&name=${name}&pagination=${pagination}`,
-            type: 'POST',
-            success: function (data) {
-                let arr = JSON.parse(data);
-                let re = ""
-                arrDataProductInAdmin += arr
-                localStorage.setItem("dataProductInAdmin",  arrDataProductInAdmin)
-
-                arr.forEach((e) => {
-                    re += `<tr>
-                                        <td><strong>${e.id}</strong></td>
-                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
-                                        <td>${e.name}</td>
-                                        <td>${e.brand}</td>
-                                        <td>May 16, 2021</td>
-                                        <td>${e.value}</td>
-                                        <td>-${e.saleRate}</td>
-                                        <td>
-                                            <a class="edit-remove-admin remove-admin"
-                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
-                                            <a class="edit-remove-admin remove-admin"><i class="fas fa-edit"></i></a>
-                                        </td>
-                                    </tr>`
-                })
-
-                $("#listProduct").append(re)
-                removeProductInAdmin()
-
-            },
-            error: function () {
-                $('#notification-bar').text('An error occurred');
-            }
-        });
-
-    console.log(pagination)
-    })
-}
-
-*/
-

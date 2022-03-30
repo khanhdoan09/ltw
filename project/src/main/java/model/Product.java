@@ -333,7 +333,17 @@ public class Product {
     public String getMainColor() {return this.mainColor;}
 
     // use in admin page
-    public String toJson() { String re = "{"; re += "\"id\":\""+this.id+"\","; re += "\"name\":\""+this.name+"\","; re += "\"brand\":\""+this.brand+"\","; re += "\"value\":\""+this.totalValue+"\","; re += "\"saleRate\":\""+this.saleRate+"\""; re +="}"; return re; }
+    public String toJson() {
+        String re =
+                "{"; re +=
+                "\"id\":\""+this.id+"\",";
+                re += "\"name\":\""+this.name+"\",";
+                re += "\"brand\":\""+this.brand+"\",";
+                re += "\"value\":\""+this.totalValue+"\",";
+                re += "\"saleRate\":\""+this.saleRate+"\"";
+                re +="}";
+                return re;
+    }
 
     public List<Image> getListImg() {
         return listImg;

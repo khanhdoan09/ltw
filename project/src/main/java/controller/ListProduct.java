@@ -29,16 +29,16 @@ public class ListProduct extends HttpServlet {
 
         if (type != null) {
             if (type[0].equals("brand")) {
-                sql += DaoProduct.getInstance().getProductByCategory("brand", name, 1);
+                sql += DaoProduct.getInstance().getProductByCategory("brand", name);
                 list.addAll(Arrays.asList(name));
             }
         }
         if (order != null) {
-            sql += DaoProduct.getInstance().getProductByCategory("brand", name, 1);
+            sql += DaoProduct.getInstance().getProductByCategory("brand", name);
             if (order[0].equals("DESC"))
-                sql += DaoProduct.getInstance().getProductByCategory("highestPrice", order, 1);
+                sql += DaoProduct.getInstance().getProductByCategory("highestPrice", order);
             else
-                sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", order, 1);
+                sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", order);
         }
 
         List<Product> listFilter = null;
@@ -52,7 +52,7 @@ public class ListProduct extends HttpServlet {
             sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group ;
             sql += " ORDER BY "+item[0] + " " + orderType[0] + " " + limit;
             sqlAll += sql;
-            listFilter = DaoProduct.getInstance().excQuery(list, 1, sqlAll);
+            listFilter = DaoProduct.getInstance().excQuery(list, sqlAll);
             response.setContentType("text/html");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(this.toJson(listFilter));
@@ -62,7 +62,7 @@ public class ListProduct extends HttpServlet {
         request.setAttribute("name", name[0]);
 
         sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group + limit;
-        listFilter = DaoProduct.getInstance().excQuery(list, 1, sqlAll);
+        listFilter = DaoProduct.getInstance().excQuery(list,  sqlAll);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(this.toJson(listFilter));

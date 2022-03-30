@@ -489,10 +489,42 @@
                                             <%="selected"%>
                                             <%}%>>Sneakers</option>
                                     <option value="Trainers" <%
+                                        if(typeCategory.equals("Trainers")){%>
+                                            <%="selected"%>
+                                            <%}%>>Trainers</option>
+                                    <option value="Running" <%
                                         if(typeCategory.equals("Running")){%>
                                             <%="selected"%>
                                             <%}%>>Running</option>
                                 </select>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                        <div>
+                                            <label class="form-label">Active product</label>
+                                            <div class="">
+                                                <div class="d-flex align-items-center">
+                                                    <label for="active-yes">Active</label>
+                                                    <input class="mx-2" id="active-yes" type="radio" name="active" value="1"
+                                                    <%if(product.getActive()==1){%>
+                                                            checked
+                                                           <%}%>
+                                                    />
+                                                </div>
+
+                                             <div class="d-flex align-items-center">
+                                                 <label for="active-no">Not active</label>
+                                                 <input class="mx-2" type="radio" id="active-no" name="active" value="0"
+                                                         <%if(product.getActive()==0){%>
+                                                        checked
+                                                         <%}%>
+                                                 />
+                                             </div>
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         <%}%>

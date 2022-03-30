@@ -82,9 +82,9 @@
 
                     <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
                         <button type="button"
-                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
-                            <span
-                                    class="color-header"><span class="cart-title color-header" style="margin-left: 10px">Giỏ hàng - </span>254.000 Đ</span>
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav p-3">
+                            <span class="color-header">
+                                <span class="cart-title color-header m-2" style="margin-left: 10px">Giỏ hàng - </span>254.000 Đ</span>
                             <span class="value-header-product" style="margin: 0 10px">3</span>
                             <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
@@ -152,7 +152,84 @@
         </div>
     </div>
     <nav id="menu-navigation" class="navbar" style="width: 100%;">
-        <!--function displayMenuNavigation() in khanh-js.js-->
+        <div class="nav-inner">
+
+            <div class="navbar-collapse" style="background-color: #0f6cb2;">
+                <ul class="main-navigation">
+                    <li><a href="index.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
+                    <li style="position: relative">
+                        <a href="SearchListProduct?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
+                            NAM
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
+                            <li id="running-man"  class="category-product category-product-man">
+                                <a href="SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
+                            </li>
+                            <li id="slides-man"  class="category-product category-product-man">
+                                <a href="SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                            </li>
+                            <li id="sneakers-man"  class="category-product category-product-man">
+                                <a href="SearchListProduct?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                            </li>
+                            <li id="skateboard-man"  class="category-product category-product-man">
+                                <a href="SearchListProduct?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
+                            </li>
+                            <li id="trainers-man"  class="category-product category-product-man">
+                                <a href="SearchListProduct?categoryOnNav=Trainers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li style="position: relative"
+                    ><a href="SearchListProduct?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
+
+                        <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
+                            <li id="running-woman"  class="category-product category-product-woman">
+                                <a href="CategoryProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
+                            </li>
+                            </li>
+                            <li id="slides-woman"  class="category-product category-product-woman">
+                                <a href="CategoryProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                            </li>
+                            </li>
+                            <li id="sneakers-woman"  class="category-product category-product-woman">
+                                <a href="CategoryProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                            </li>
+                            </li>
+                            <li id="skateboard-woman"  class="category-product category-product-woman">
+                                <a href="CategoryProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
+                            </li>
+                            <li id="trainers-woman"  class="category-product category-product-woman">
+                                <a href="SearchListProduct?categoryOnNav=Trainers Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                            </li>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
+                    <li><a href="blog.html" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
+                    <li><a href="about-us.html" style="color: white"  id="about-nav" >VỀ CHÚNG TÔI</a></li>
+                </ul>
+                <div class="nav-detail-info">
+
+                    <div class="item-nav-detail-info" id="item-category-brand">
+                        <div class="contain-brand" >
+                            <img onclick="location.href='SearchListProduct?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
+                            <img onclick="location.href='SearchListProduct?brand=ADIDAS'" src="image/brand/logo-brand-02.svg">
+                            <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
+                            <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
+                            <img onclick="location.href='CategoryProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-05.svg">
+                            <img onclick="location.href='CategoryProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-06.svg">
+                            <img onclick="location.href='CategoryProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-07.jpg">
+                            <img onclick="location.href='CategoryProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-08.svg">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </nav>
 </header>
 <script>

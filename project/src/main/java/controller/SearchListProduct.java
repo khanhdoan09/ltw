@@ -14,8 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "ServletTest123", value = "/ServletTest123")
-public class ServletTest123 extends HttpServlet {
+@WebServlet(name = "SearchListProduct", value = "/SearchListProduct")
+public class SearchListProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -48,14 +48,11 @@ public class ServletTest123 extends HttpServlet {
         List<Product> listFilter = null;
         int totalNumberProduct = 0;
 
-
         String group = " GROUP BY product.id ";
         String limit = " LIMIT 0,9 ";
 
         String categoryGender = request.getParameter("categoryGender");
-
         String[] categoriesByOnNav = request.getParameterValues("categoryOnNav");
-        String[] brandsByOnNav = request.getParameterValues("brandOnNav");
         // by panel filter
         String[] size = request.getParameterValues("size");
         String[] brands = request.getParameterValues("brand");
@@ -101,7 +98,7 @@ public class ServletTest123 extends HttpServlet {
 
             if (searchInHeader != null) {
                 sql = "  WHERE ";
-                sql += DaoProduct.getInstance().getProductByCategory("searchInHeader", searchInHeader, pagination);
+                sql += DaoProduct.getInstance().getProductByCategory("searchInHeader", searchInHeader);
                 request.setAttribute("TypeCategory", "input-search-header");
                 request.setAttribute("ValueCategory", searchInHeader[0]);
                 searchInHeader[0] = "%"+searchInHeader[0]+"%";
@@ -119,15 +116,17 @@ public class ServletTest123 extends HttpServlet {
                 sql = " WHERE ";
             }
             if (size != null) {
-                sql = "JOIN product_detail ON product.id=product_detail.id " + sql + DaoProduct.getInstance().getProductByCategory("size", size, pagination);
+                String s = "\\";
+                int t = s.lastIndexOf("\\",1);
+                sql = "JOIN product_detail ON product.id=product_detail.id " + sql + DaoProduct.getInstance().getProductByCategory("size", size);
                 list.addAll(Arrays.asList(size));
             }
             if (brands != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("brand", brands, pagination);
+                sql += DaoProduct.getInstance().getProductByCategory("brand", brands);
                 list.addAll(Arrays.asList(brands));
             }
             if (underPrice != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("underPrice", underPrice, pagination);
+                sql += DaoProduct.getInstance().getProductByCategory("underPrice", underPrice);
                 list.addAll(Arrays.asList(underPrice));
             }
             if (fromPrice != null && toPrice != null) {
@@ -140,7 +139,7 @@ public class ServletTest123 extends HttpServlet {
                     sql += " && ( ";
 
                 }
-                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice, pagination);
+                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice);
                 list.addAll(Arrays.asList(fromToPrice));
             }
             if (upPrice != null) {
@@ -151,7 +150,7 @@ public class ServletTest123 extends HttpServlet {
                 else
                     sql += " && ( ";
 
-                sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice, pagination);
+                sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice);
                 list.addAll(Arrays.asList(upPrice));
             }
             if (fromInputPrice != null && toInputPrice != null) {
@@ -184,7 +183,7 @@ public class ServletTest123 extends HttpServlet {
                         sql += " && ( ";
 
                     String[] fromToPrice = {"10", "100"};
-                    sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice, pagination);
+                    sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice);
                     list.addAll(Arrays.asList(fromToPrice));
                 } catch (NumberFormatException e) {
                     request.setAttribute("errorInputPrice", e.getMessage());
@@ -193,22 +192,22 @@ public class ServletTest123 extends HttpServlet {
                 }
             }
             if (star != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("star", star, pagination);
+                sql += DaoProduct.getInstance().getProductByCategory("star", star);
                 list.addAll(Arrays.asList(star));
             }
             if (highestLowest != null) {
                 group = "";
                 if (highestLowest[0].equals("DESC")) {
-                    sql += DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest, pagination);
+                    sql += DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest);
                 }
                 else{
-                    sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest, pagination);
+                    sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest);
                 }
             }
 
-            String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 AND product.mainImg=level.color " + sql + group + limit;
+            String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 AND product.mainColor=linkimg.color " + sql + group + limit;
             request.setAttribute("sql", sqlAll);
-            listFilter = DaoProduct.getInstance().excQuery(list, pagination, sqlAll);
+            listFilter = DaoProduct.getInstance().excQuery(list, sqlAll);
             System.out.println("SqlAll: "+sqlAll);
         }
 

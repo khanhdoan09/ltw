@@ -170,9 +170,18 @@ public class DaoProduct implements Dao<Product> {
 
     private String limit = " LIMIT ?, ?";
 
-    public String getProductByCategory(String attrProduct, String[] category, int pagination) {
+    public String getProductByCategory(String attrProduct, String[] category) {
         List<Product> re = new ArrayList<Product>();
         String sql = "";
+        if (attrProduct.equals("id")) {
+                sql += " product.id=? || ";
+        }
+        if (attrProduct.equals("name")) {
+            sql += "(";
+            for (int i = 0; i < category.length; i++)
+                sql += " product.name=? || ";
+            sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
+        }
         if (attrProduct.equals("brand")) {
             sql += "(";
             for (int i = 0; i < category.length; i++)
@@ -219,7 +228,7 @@ public class DaoProduct implements Dao<Product> {
         return sql;
     }
 
-    public List<Product> excQuery(ArrayList<String> category, int pagination, String sql) {
+    public List<Product> excQuery(ArrayList<String> category,  String sql) {
         PreparedStatement s = null;
         List<Product> re = new ArrayList<Product>();
         try {
@@ -471,5 +480,79 @@ public class DaoProduct implements Dao<Product> {
             System.out.println("~~~*** sql word search header " + sql);
         }
         return "";
+    }
+
+    // home page
+    public List<Product> getBestSale() {
+        List<Product>re = new ArrayList<Product>();
+        try {
+            String sql = "SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY product.saleRate DESC LIMIT 0, 10;";
+            PreparedStatement s = connect.prepareStatement(sql);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                String avatar = rs.getString("img");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
+                re.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
+    }
+
+    public List<Product> getBestSeller() {
+        List<Product>re = new ArrayList<Product>();
+        try {
+            String sql = " SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY (product.totalValue/product.soleValue) LIMIT 0, 10;";
+            PreparedStatement s = connect.prepareStatement(sql);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                String avatar = rs.getString("img");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
+                re.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return re;
+    }
+
+    public List<Product> getNewestProduct() {
+        List<Product>re = new ArrayList<Product>();
+        try {
+            String sql = "SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY product.create_at DESC LIMIT 0, 10";
+            PreparedStatement s = connect.prepareStatement(sql);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String brand = rs.getString("brand");
+                String name = rs.getString("name");
+                String categoryP = rs.getString("category");
+                double price = rs.getDouble("price");
+                int saleRate = rs.getInt("saleRate");
+                int active = rs.getInt("Active");
+                String avatar = rs.getString("img");
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
+                re.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
     }
 }

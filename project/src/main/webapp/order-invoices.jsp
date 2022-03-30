@@ -1,6 +1,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.net.URLDecoder" %><%--
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="model.Admin.DaoProductAdmin" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 13/1/2022
@@ -35,6 +36,9 @@
   <style>
     .clicked {
       color: #eeee13;
+    }
+    #brands {
+      display: none;
     }
   </style>
 
@@ -109,27 +113,29 @@
               <%!String typeSelected="";%>
               <% typeSelected= (String) request.getParameter("type");%>
 
-              <select name="type" id="type-product-admin" value="<%=typeSelected%>">
+              <select name="type" id="type-product-admin">
                 <%!public String selected(String type) {
                   if (type.equals(typeSelected))
                     return "selected";
                   return "";
                 }%>
                 <option value="id" <%=selected("id")%>>ID</option>
-                <option value="brand"<%=selected("brand")%> selected>BRAND</option>
+                <option value="brand"<%=selected("brand")%>>BRAND</option>
                 <option value="name"<%=selected("name")%>>NAME</option>
-                <option value="price"<%=selected("price")%>>Price</option>
               </select>
-              <input type="radio" name="radio-select" id="up-radio" style="margin: 0 10px;cursor: pointer;" name="order" value=highestPrice">
-              <label for="up-radio" style="cursor: pointer;">Tăng</label>
-              <input type="radio" name="radio-select" id="down-radio" style="margin: 0 10px;cursor: pointer;" name="order" value="lowestPrice">
-              <label for="down-radio" style="cursor: pointer;">Giảm</label>
-              <input type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" value="Nike<%--<%=request.getAttribute("name")%>--%>">
+              <input list="brands" type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" autocomplete="off"  value="<%=request.getAttribute("type")%>"/>
+              <datalist id="brands">
+                <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
+                  for (String brand: brands){%>
+                <option><%=brand%></option>
+                <%}%>
+              </datalist>
+
               <button type="submit" id="submit-admin" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
 
             </form>
 
-            <div class="card" style="border: 1px solid red;">
+            <div class="card">
               <div class="card-body">
                 <table id="patient-table" class="table table-hover align-middle mb-0" style="width: 100%;">
                   <thead>
@@ -167,14 +173,13 @@
                     <td>$<%=product.getPrice()%></td>
                     <td>-<%=product.getSaleRate()%>%</td>
                     <td>
-                      <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
-                        <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
-                      <a class="edit-remove-admin edit-admin" href="EditProduct?id=<%=product.getId()%>">
-                        <i class="fas fa-edit"></i>
-                      </a>
-                        <a class="edit-remove-admin edit-admin" href="ViewProduct?id=<%=product.getId()%>">
-                            <i class="fas fa-eye"></i>
+                      <div class="d-grid">
+                        <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
+                          <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
+                        <a class="edit-remove-admin edit-admin" href="EditProduct?id=<%=product.getId()%>">
+                          <i class="fas fa-edit"></i>
                         </a>
+                      </div>
                     </td>
                   </tr>
                   <%    } %>
@@ -209,5 +214,10 @@
 <script src="../js/template.js"></script>
 
 
+<script>
+  $("#type-product-admin").change(()=>{
+    $("#input-name-product-admin").val("")
+  })
+</script>
 
 </body></html>

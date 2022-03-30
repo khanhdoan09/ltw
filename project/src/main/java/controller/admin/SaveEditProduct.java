@@ -145,7 +145,10 @@ public class SaveEditProduct extends HttpServlet {
                 if (item.getFieldName().equals("chooseMainColor")) {
                     DaoProductAdmin.getInstance().saveMainColor(id, item.getString());
                 }
-
+                if (item.getFieldName().equals("active")) {
+                    System.out.print(item.getString());
+                    DaoProductAdmin.getInstance().saveActive(id, item.getString());
+                }
                 if (item.getFieldName().equals("fileImg")) {
                    if (item.getSize()==0) {
                        countImg++;
@@ -182,7 +185,8 @@ public class SaveEditProduct extends HttpServlet {
             }
 
             DaoProductAdmin.getInstance().editProduct(id, productDetail);
-            request.setAttribute("productDetail", productDetail);
+
+            request.setAttribute("productDetail", DaoProductAdmin.getInstance().getDetailProduct(id));
             request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
         } catch (FileUploadException e) {
             e.printStackTrace();

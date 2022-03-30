@@ -1,18 +1,6 @@
-<%@ page import="java.util.ArrayList" %>
-
-<%@ page import="java.util.Map" %>
-
-
+<%@ page import="model.DaoProduct" %>
+<%@ page import="model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@page import="java.sql.DriverManager" %>
-<%@page import="java.sql.Connection" %>
-<%@ page import="databaseConnection.DatabaseConnection" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="model.DaoBanner" %>
-<%@ page import="model.Banner" %>
-<%@ page import="java.util.List" %>
 <html lang="en">
 
 <head>
@@ -45,28 +33,41 @@
     <link rel="shortcut icon" href="image/logo.png" />
 
 
-
+    <style>
+        .product-imageblock {
+            height: 35% !important;
+        }
+    </style>
 </head>
 
 <body>
-<%@include file="/header.jsp" %>
-
 <div class="preloader loader" style="display: block; background:#f2f2f2;"> <img src="image/loader.gif" alt="#" />
 </div>
+<%@include file="/header.jsp" %>
 <div class="container general-contain" style="margin-bottom: 20px; padding: 0;">
     <div class="mainbanner">
         <div id="main-banner" class="owl-carousel home-slider" style="margin: 0; padding: 0;">
-            <%
-                List<Banner> listBanner = DaoBanner.getInstance().getCarouselCategory("banner-home");
-                for (Banner banner : listBanner) {%>
             <div class="item">
-                <a href="#"><img src="<%banner.getUrlImg();%>" alt="main-banner1"
+                <a href="#"><img src="image/banners/Main-Banner1.jpg" alt="main-banner1"
                                  class="img-responsive img-border-radius" /></a>
                 <div class="main-banner-section-center">
                     <a href="" class="shop-now-btn">MUA NGAY</a>
                 </div>
             </div>
-            <%}%>
+            <div class="item">
+                <a href="#"><img src="image/banners/Main-Banner2.jpg" alt="main-banner2"
+                                 class="img-responsive img-border-radius" /></a>
+                <div class="main-banner-section-center">
+                    <a href="" class="shop-now-btn">MUA NGAY</a>
+                </div>
+            </div>
+            <div class="item">
+                <a href="#"><img src="image/banners/Main-Banner3.jpg" alt="main-banner3"
+                                 class="img-responsive img-border-radius" /></a>
+                <div class="main-banner-section-center">
+                    <a href="" class="shop-now-btn">MUA NGAY</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -105,16 +106,14 @@
             </div>
         </div>
         <div class="cms_banner ">
-            <%!List<Banner> listSubBanner = DaoBanner.getInstance().getCarouselCategory("sub-banner-home");
-            %>
             <div class="col-md-4 cms-banner-left">
-                <a href="#"><img alt="#" style="width: 100%;" src="<%=listSubBanner.get(0).getUrlImg()%>"></a>
+                <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner1.jpg"></a>
             </div>
             <div class="col-md-4 cms-banner-middle">
-                <a href="#"> <img alt="#" style="width: 100%;" src="<%=listSubBanner.get(1).getUrlImg()%>"></a>
+                <a href="#"> <img alt="#" style="width: 100%;" src="image/banners/subbanner2.jpg"></a>
             </div>
             <div class="col-md-4 cms-banner-right">
-                <a href="#"><img alt="#" style="width: 100%;" src="<%=listSubBanner.get(2).getUrlImg()%>"></a>
+                <a href="#"><img alt="#" style="width: 100%;" src="image/banners/subbanner3.jpg"></a>
             </div>
         </div>
     </div>
@@ -135,12 +134,14 @@
                 <div id="tab-latest" class="tab-content">
                     <div class="box">
                         <div id="latest-slidertab" class="row owl-carousel product-slider">
+                            <%for (Product product : DaoProduct
+                                    .getInstance().getNewestProduct()) {%>
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="product.html"><img src="image/product/product-bsale-1.jfif"
-                                                                    alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                    class="img-responsive" /> </a>
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
+                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
+                                                                     class="img-responsive" /> </a>
                                         <div class="button-group">
                                             <button type="button" class="wishlist" data-toggle="tooltip"
                                                     title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -151,242 +152,16 @@
                                         </div>
                                     </div>
                                     <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">Vans
-                                            SK8-Hi MTE-2 Shose</a></h4>
-                                        <p class="price product-price">109.00$<span class="price-tax">Ex Tax:
-                                                    100.00$</span></p>
-                                        <div class="rating"> <span class="fa fa-stack"><i
-                                                class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i
-                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                        </div>
+                                        <h4 class="product-name"><a href="product.html"
+                                                                    title="lorem ippsum dolor dummy"><%=product.getName()%></a></h4>
+                                        <p class="price product-price"> <span class="price-new"><%=product.getSalePrice()%>$</span> <span
+                                                class="price-old"><%=product.getPrice()%>$</span> <span class="price-tax">Ex Tax:
+                                                    210.00$</span> </p>
                                     </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
+
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"><img src="image/product/product-bsale-2.jfif"
-                                                                    alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                    class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">Vans X
-                                            Parks Ultrarange Exo Shose</a></h4>
-                                        <p class="price product-price">104.99$<span class="price-tax">Ex Tax:
-                                                    100.00$</span></p>
-                                        <div class="rating"> <span class="fa fa-stack"><i
-                                                class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i
-                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"><img src="image/product/product-bsale-3.jfif"
-                                                                    alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                    class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">Vans
-                                            Ultrarange Exo MTE-1 Shose</a></h4>
-                                        <p class="price product-price">109.99<span class="price-tax">Ex Tax:
-                                                    100.00$</span></p>
-                                        <div class="rating"> <span class="fa fa-stack"><i
-                                                class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i
-                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"><img src="image/product/product-bsale-4.jfif"
-                                                                    alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                    class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">Nike
-                                            Men's React Infinity Run Flyknit 2 Running Shoes</a></h4>
-                                        <p class="price product-price">125.99$<span class="price-tax">Ex Tax:
-                                                    100.00$</span></p>
-                                        <div class="rating"> <span class="fa fa-stack"><i
-                                                class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i
-                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"><img src="image/product/product-bsale-5.jfif"
-                                                                    alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                    class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">Vans
-                                            SK8-Hi MTE 2.0 DX Shose</a></h4>
-                                        <p class="price product-price">89.99$ - 109.99$<span class="price-tax">Ex
-                                                    Tax: 100.00$</span></p>
-                                        <div class="rating"> <span class="fa fa-stack"><i
-                                                class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i
-                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"><img src="image/product/product-bsale-6.jfif"
-                                                                    alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                    class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">Vans
-                                            Old Skool Shose</a></h4>
-                                        <p class="price product-price">59.99$ - 799.99$<span class="price-tax">Ex
-                                                    Tax: 59.99$</span></p>
-                                        <div class="rating"> <span class="fa fa-stack"><i
-                                                class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                                class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                                            <span class="fa fa-stack"><i
-                                                    class="fa fa-star-o fa-stack-2x"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -394,10 +169,12 @@
                 <div id="tab-special" class="tab-content">
                     <div class="box">
                         <div id="special-slidertab" class="row owl-carousel product-slider">
+                            <%for (Product product : DaoProduct
+            .getInstance().getBestSale()) {%>
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-sale-1.jfif"
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">
@@ -411,10 +188,9 @@
                                     </div>
                                     <div class="caption product-detail">
                                         <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">Vans Classic Slip-On Checkered
-                                            Platfrom Shose</a></h4>
-                                        <p class="price product-price"> <span class="price-new">99.99$</span> <span
-                                                class="price-old">119.99$</span> <span class="price-tax">Ex Tax:
+                                                                    title="lorem ippsum dolor dummy"><%=product.getName()%></a></h4>
+                                        <p class="price product-price"> <span class="price-new"><%=product.getSalePrice()%>$</span> <span
+                                                class="price-old"><%=product.getPrice()%>$</span> <span class="price-tax">Ex Tax:
                                                     210.00$</span> </p>
                                     </div>
                                     <div class="button-group">
@@ -427,171 +203,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-sale-2.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">Brooks Women's Ghost 14 Running
-                                            Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">109.99$</span> <span
-                                                class="price-old">129.00$</span> <span class="price-tax">Ex Tax:
-                                                    210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-sale-3.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">adidas Kids' X Speedflow.4 Messi
-                                            Indoor Soccer Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">39.99$</span> <span
-                                                class="price-old">49.99$</span> <span class="price-tax">Ex Tax:
-                                                    210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-sale-4.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">Jordan Air Jordan XXXVI Basketball
-                                            Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">184.99</span> <span
-                                                class="price-old">199.00$</span> <span class="price-tax">Ex Tax:
-                                                    210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-sale-5.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">Louis Garneau Women's Multi Air
-                                            Flex II Cycling Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">85.99$</span> <span
-                                                class="price-old">99.99$</span> <span class="price-tax">Ex Tax:
-                                                    210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="#"> <img src="image/product/product-sale-6.jfif"
-                                                          alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                          class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">Nike Mercurial Superfly 8 Club KM
-                                            FG Soccer Cleats</a></h4>
-                                        <p class="price product-price"> <span class="price-new">69.99$</span> <span
-                                                class="price-old">79.99$</span> <span class="price-tax">Ex Tax:
-                                                    210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
+                            <%}%>
+
+
                         </div>
                     </div>
                 </div>
@@ -599,12 +213,14 @@
                 <div id="tab-bestseller" class="tab-content">
                     <div class="box">
                         <div id="bestseller-slidertab" class="row owl-carousel product-slider">
+                            <%for (Product product : DaoProduct
+                                    .getInstance().getBestSeller()) {%>
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="#"> <img src="image/product/product-selling-1.jfif"
-                                                          alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                          class="img-responsive" /> </a>
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
+                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
+                                                                     class="img-responsive" /> </a>
                                         <div class="button-group">
                                             <button type="button" class="wishlist" data-toggle="tooltip"
                                                     title="Add to Wish List"><i class="fas fa-heart"></i></button>
@@ -616,151 +232,15 @@
                                     </div>
                                     <div class="caption product-detail">
                                         <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">Nike Kids' Mercurial Superfly 7
-                                            Academy Indoor Soccer Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">54.99$</span> <span
-                                                class="price-old">69.99$</span> <span class="price-tax">Ex Tax:
+                                                                    title="lorem ippsum dolor dummy"><%=product.getName()%></a></h4>
+                                        <p class="price product-price"> <span class="price-new"><%=product.getSalePrice()%>$</span> <span
+                                                class="price-old"><%=product.getPrice()%>$</span> <span class="price-tax">Ex Tax:
                                                     210.00$</span> </p>
                                     </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
+
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-selling-2.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">PUMA Men's Ultra 1.3 Pro Cage Turf
-                                            Soccer Cleats</a></h4>
-                                        <p class="price product-price"> <span class="price-new">99.99$</span> <span
-                                                class="price-old">109.99$</span> <span class="price-tax">Ex Tax:
-                                                    210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-selling-3.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">adidas Men's Ultraboost 4.0 DNA
-                                            Running Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">109.00$ -
-                                                    129.00$</span><span class="price-tax">Ex Tax: 210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-selling-4.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">HOKA ONE ONE Men's Rincon 2 Running
-                                            Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">91.99$</span> <span
-                                                class="price-tax">Ex Tax: 210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="image/product/product-selling-5.jfif"
-                                                                     alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
-                                                                     class="img-responsive" /> </a>
-                                        <div class="button-group">
-                                            <button type="button" class="wishlist" data-toggle="tooltip"
-                                                    title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                            <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                            <button type="button" class="compare" data-toggle="tooltip"
-                                                    title="Compare this Product"><i
-                                                    class="fas fa-shopping-cart"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html"
-                                                                    title="lorem ippsum dolor dummy">Brooks Hyperion Elite 2 Running
-                                            Shoes</a></h4>
-                                        <p class="price product-price"> <span class="price-new">139.99$</span><span
-                                                class="price-tax">Ex Tax: 210.00$</span> </p>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="wishlist" data-toggle="tooltip"
-                                                title="Add to Wish List"><i class="fas fa-heart"></i></button>
-                                        <button type="button" class="addtocart-btn">Mua Ngay</button>
-                                        <button type="button" class="compare" data-toggle="tooltip"
-                                                title="Compare this Product"><i
-                                                class="fas fa-shopping-cart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -773,11 +253,7 @@
 <div class="container general-contain" style="margin-bottom: 20px;">
 
     <div class="row">
-        <div id="contents" class="col-sm-12">
-
-
-
-
+        <div id="content" class="col-sm-12">
 
             <div class="blog">
                 <div class="blog-heading">
@@ -1040,17 +516,13 @@
             </div>
 
             <div class="modal-input-section">
-                <div id="contain-email-login" class="contain-input">
-                    <input type="email" placeholder="Địa chỉ email..." class="email">
-                </div>
-                <div id="contain-password-login" class="contain-input">
-                    <input type="password" placeholder="Nhập mật khẩu..." class="email password">
-                </div>
+                <input type="email" name="email" placeholder="Địa chỉ email..." class="email">
+                <input type="password" name ="password" placeholder="Nhập mật khẩu..." class="email password">
                 <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
             </div>
 
-            <div class="modal-bnt-login" id="bt-login">
-                <a class="bnt-login" >Đăng Nhập</a>
+            <div class="modal-bnt-login">
+                <a href="" class="bnt-login">Đăng Nhập</a>
             </div>
 
             <div class="modal-title">
@@ -1148,54 +620,7 @@
 </div>
 <!-- End: modal message -->
 <script src="./javascript/hung-js.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<%--<script>--%>
 
-<%--    $(document).ready(function(){--%>
-<%--        $('#btLogin').click(function()--%>
-<%--        {--%>
-<%--            var user=$('#email').val();--%>
-<%--            var pwd=$('#password').val();--%>
-<%--            $.ajax({--%>
-<%--                type: "POST",--%>
-<%--                url:"/project/Login",   // this is my servlet--%>
-<%--                success: function (data) {--%>
-<%--                    // var url = "cart.jsp";--%>
-<%--                    // $(location).attr('href',url);--%>
-<%--                    alert(data);--%>
-
-<%--                }--%>
-<%--            });--%>
-<%--        });--%>
-<%--    });--%>
-
-
-<%--   ;--%>
-<%--</script>--%>
-<script>
-    $(function () {
-        $("#bt-login").click( function(e) {
-            e.preventDefault()
-            let xhttp = new XMLHttpRequest();
-            //  onreadystatechange này sẽ được kích hoạt mỗi khi trạng thái readyState thay đổi -- readyState:thuộc tính này định nghĩa trạng thái hiện tại của đối tượng XMLHttpRequest.
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) { //HTTP REPONSE => 4=DONE:The operation is complete 200=SUCCESS
-                    let data = xhttp.responseText;
-                    if (data == 'false') {
-                        $("#contain-email-login").append(`<p class="error-text">error 123</p>`)
-                        $("#contain-password-login").append(`<p class="error-text">error 123</p>`)
-                    }
-                    else
-                        alert("sucess")
-                }
-            };
-            xhttp.open("POST", `Login?email=email&password=password`, true);
-            xhttp.send();
-        });
-
-    })
-
-</script>
 </body>
 
 </html>

@@ -42,14 +42,21 @@ public class ListProductAdmin extends HttpServlet {
 
         List<Product> list=null;
         ArrayList<String>listName=null;
-        String group = " GROUP BY product.id ";
         String sql = "";
         if (type.equals("brand")) {
-            sql =  DaoProduct.getInstance().getProductByCategory("brand", name, 1);
+            sql =  DaoProduct.getInstance().getProductByCategory("brand", name);
             listName = new ArrayList<String>(Arrays.asList(name));
         }
-        String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE " + sql + group + "LIMIT "+pagination*9+", 9";
-        list = DaoProduct.getInstance().excQuery(listName,1,sqlAll);
+        else if (type.equals("id")) {
+            sql =  DaoProduct.getInstance().getProductByCategory("id", name);
+            listName = new ArrayList<String>(Arrays.asList(name));
+        }
+        else if (type.equals("name")) {
+            sql =  DaoProduct.getInstance().getProductByCategory("name", name);
+            listName = new ArrayList<String>(Arrays.asList(name));
+        }
+        String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE " + sql +  " GROUP BY product.id LIMIT "+pagination*9+", 9";
+        list = DaoProduct.getInstance().excQuery(listName,sqlAll);
         if (pagination != 0) { // not use when first time submit
             if (list.size() == 0){ // no more data
                 response.setContentType("text/html");
@@ -63,6 +70,8 @@ public class ListProductAdmin extends HttpServlet {
             return;
         }
 
+        System.out.println(name[0]);
+        request.setAttribute("type", name[0]);
         request.setAttribute("listProduct", list);
         request.getRequestDispatcher("order-invoices.jsp").forward(request, response);
     }

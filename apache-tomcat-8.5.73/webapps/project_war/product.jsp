@@ -48,11 +48,20 @@
     <link rel="stylesheet" href="./css/hung-css.css">
     <script src="javascript/khanh-js.js"></script>
 
+    <style>
+        .size_clicked {
+            background-color: #2f52a4;
+            color: white;
+        }
+    </style>
+
 
 
 </head>
 
 <body class="product col-2 left-col">
+<%@include file="/header.jsp" %>
+
 <%
     Object obj = request.getAttribute("idProduct");
     Product p = null;
@@ -62,154 +71,6 @@
     }
 %>
 
-<header>
-    <div class="contain-header-inner">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 contain-header">
-                    <div class="contain-nav-info">
-                        <div id="top-links" class="nav pull-left">
-                            <ul class="list-inline">
-                                <li class="account"><a href="/admin/pixelwibes.com/template/ebazar/html/dist/index.html" class="notify"><i
-                                        class="fas fa-bell color-header" style="margin-right: 10px"></i><sp
-                                        style="margin: 0 5px;" class="color-header">Thông
-                                    báo</sp><span style="margin-right: 10px;"
-                                                  class="color-header">(0)</span></a>
-                                </li>
-                                <li class="account"><a href="customer.html" id="wishlist-total"
-                                                       title="Wish List (0)"><i class="fa fa-heart color-header"></i><span
-                                        class="color-header">Danh sách
-                                                yêu thích</span><span style="margin-right: 10px;"
-                                                                      class="color-header">(0)</span></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-user color-header"></i><span class="color-header">Tài
-                                                khoản</span> <span style=" font-size: 15px;"
-                                                                   class="caret color-header"></span></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#" class="js-login">Đăng Nhập</a></li>
-                                        <li><a href="#" class="js_register">Đăng Ký</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="header-inner">
-
-                <div class="header-top">
-                    <div>
-                        <div class="header-middle-top">
-                            <div id="logo" class="color-header" style="margin: 0; padding: 0;">
-                                <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
-                                                          class="logo-header" /></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center contain-search">
-                    <div class="contain-search-product-popular">
-                        <div class="search-product">
-                            <input class="input-text-search-top" placeholder="Tìm kiếm" type="text">
-                            <button class="search-product-top"><i class="fa fa-search"></i></button>
-                        </div>
-                        <div class="contain-search-popular">
-                            <span>X-Ray 2</span>
-                            <span>Nike Air Force 2</span>
-                            <span>Under Armour darkside</span>
-                            <span>X9000L4 Shoes Mens</span>
-                            <span>Adidas dragon sport</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-xs-12 header-right header-nav-right">
-
-                    <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
-                        <button type="button"
-                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
-                            <span
-                                    id="cart-total" class="color-header"><span class="cart-title color-header">Giỏ hàng - </span>254.000 Đ</span>
-                            <span class="value-header-product" style="margin-bottom: 10px">1</span>
-                            <i class="fas fa-shopping-cart cart-icon-nav"></i>
-                        </button>
-
-
-                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                            <li>
-                                <table class="table table-striped">
-                                    <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <a href="#"><img src="image/product/product-01.jpg" width="100px"
-                                                             height="100px"></a>
-                                        </td>
-                                        <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
-                                        <td class="text-right">x 1</td>
-                                        <td class="text-right">$254.00</td>
-                                        <td class="text-center"><button class="btn btn-danger btn-xs"
-                                                                        title="Remove" type="button"><i
-                                                class="fa fa-times"></i></button></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <div>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                        <tr>
-                                            <td class="text-right"><strong>Tổng</strong></td>
-                                            <td class="text-right">210.000Đ</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>Thuế (-2.00)</strong></td>
-                                            <td class="text-right">2%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>VAT (20%)</strong></td>
-                                            <td class="text-right">4%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right"><strong>Tạm tính</strong></td>
-                                            <td class="text-right">254.000Đ</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i
-                                            class="fa fa-shopping-cart"></i> View
-                                                        Cart</strong></a></span> <span class="btn-checkout"><a
-                                            href="checkout.html"><strong><i class="fa fa-share"></i>
-                                                        Checkout</strong></a></span> </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-
-
-
-                </div>
-
-
-                <button type="button" class="bt-nav-collapse hidden-lg hidden-md"><i
-                        class="fa fa-bars"></i></button>
-
-            </div>
-
-        </div>
-    </div>
-    <nav id="menu-navigation" class="navbar" style="width: 100%;">
-        <!--function displayMenuNavigation() in khanh-js.js-->
-    </nav>
-</header>
 <div class="container">
 
     <div class="row" style="display: flex; flex-wrap: wrap;">
@@ -378,10 +239,11 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                             <label>Màu sắc</label>
                             <div class="num-size">
                                 <%for(String color : p.getListColor()){%>
-                                <button
+                                <button value="<%=color%>" name="color"
                                         <%if(color.equals(mainColor)){%>
-                                        style="background-color: yellow; color: blue"
+                                        style="background-color: #2f52a4; color: white"
                                         <%}%>
+                                        value="<%=color%>"
                                         class="js-color-black color-black color-shoe" data-color="<%=color%>" id="color-shoe-<%=color%>"><%=color%></button>
                                 <%}%>
                             </div>
@@ -391,7 +253,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                             <div class="num-size list-size" style="display: flex; flex-wrap: wrap;width: 250px;">
                                 <%List<Integer> listSize = p.getListSize("white");%>
                                 <%for (int size : listSize) {%>
-                                <button class="my-2"><%=size%></button>
+                                <button class="my-2 size-item" name="size" value="<%=size%>"><%=size%></button>
                                 <%}%>
                             </div>
                         </li>
@@ -640,16 +502,13 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
         $(".color-shoe").click(function (e){
             e.preventDefault()
             $(".color-shoe").css("background-color", "white");
-            $(".color-shoe").css("color", "blue");
-            $(this).css("background-color", "yellow");
-            $(this).css("color", "blue");
+            $(".color-shoe").css("color", "black");
+            $(this).css("background-color", "#2f52a4");
+            $(this).css("color", "white");
             $.ajax({
                 url: `ListImg?id=<%=p.getId()%>&color=`+$(this).data('color'),
                 type: 'POST',
                 success: function (data) {
-                    console.log(data)
-                    // let arrImg = data.split("\n")
-                    alert(data)
                     let dataDetail=JSON.parse(data)
                     $("#main-img").attr("src","data/imgAll/upload/product/"+dataDetail.mainImg+".jpg")
                     $("#products-available").text(dataDetail.remain + " Sản phẩm có sẵn")
@@ -675,12 +534,12 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                     re=``
                     for(let i = 0; i < arrSize.length; i++) {
                         re+=`
-                        <button class="my-2">`+arrSize[i]+`</button>
+                        <button class="my-2 size-item" name="size" value=`+arrSize[i]+`>`+arrSize[i]+`</button>
                         `
                     }
                     $(".list-size").empty()
                     $(".list-size").append(re)
-
+                    chooseSize()
                 },
                 error: function() {
                     alert("Error")
@@ -689,6 +548,29 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
         })
     })
 
+
+    $(function() {
+        chooseSize();
+    })
+
+    function chooseSize() {
+        $(".size-item").each(
+            function() {
+                $(this).click((e) => {
+                    e.preventDefault();
+                    if (!$(this).hasClass("size_clicked")) {
+                        $(this).addClass("size_clicked")
+                        $(this).css("background-color", "#2f52a4")
+                        $(this).css("color", "white")
+                    }
+                    else {
+                        $(this).removeClass("size_clicked")
+                        $(this).css("background-color", "white")
+                        $(this).css("color", "black")
+                    }
+                })
+            })
+    }
 
     function setIma(main, child) {
         var path = document.getElementById(child).getAttribute("src");
@@ -724,8 +606,8 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
     ima4.addEventListener("click", function () {
         var path = document.getElementById("three").getAttribute("src");
         document.getElementById("main-img").setAttribute("src", path);
-
     })
+
 
 </script>
 

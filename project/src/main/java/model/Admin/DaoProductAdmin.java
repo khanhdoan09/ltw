@@ -383,5 +383,20 @@ public class DaoProductAdmin {
         }
         return false;
     }
+
+    public boolean saveActive(String id, String active) {
+        PreparedStatement s = null;
+        String sql = "UPDATE product SET Active=? WHERE id=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, active);
+            s.setString(2, id);
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
 }
 

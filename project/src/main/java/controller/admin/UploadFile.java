@@ -105,7 +105,6 @@ public class UploadFile extends HttpServlet {
             System.out.println("parameter name is " + parameterName);
             out.println("Parameter name is  <b>" + parameterName + "</b>  value is <b> " + value + "</b><br/>");
         }
-
            // request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
     }
 }
