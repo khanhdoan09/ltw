@@ -73,7 +73,9 @@ public class ListProductAdmin extends HttpServlet {
         System.out.println(name[0]);
         request.setAttribute("type", name[0]);
         request.setAttribute("listProduct", list);
-        request.getRequestDispatcher("order-invoices.jsp").forward(request, response);
+//        request.getRequestDispatcher("order-invoices.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/crud/product/order-invoices.jsp").forward(request, response);
+
     }
 
     public void removeProduct(String id, HttpServletResponse response) throws IOException {

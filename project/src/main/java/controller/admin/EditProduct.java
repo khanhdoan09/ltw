@@ -21,6 +21,8 @@ public class EditProduct extends HttpServlet {
         String id = request.getParameter("id");
         Product productDetail = DaoProductAdmin.getInstance().getDetailProduct(id);
         request.setAttribute("productDetail", productDetail);
-        request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
+//        request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/crud/product/EditProduct.jsp").forward(request, response);
+
     }
 }

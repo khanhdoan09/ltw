@@ -20,9 +20,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -63,7 +63,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-java-8.0.27.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/views/admin/signVerfication" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -72,17 +73,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\ltw\project\src\main\webapp\admin\assets\css" />
-      <recent name="E:\BTLTW\ltw\project\target\project-1.0-SNAPSHOT\data" />
-      <recent name="E:\BTLTW\ltw\project\src\main\webapp\data" />
-      <recent name="E:\BTLTW\ltw\project\src\main\webapp" />
-      <recent name="E:\BTLTW\ltw\project\src\main\webapp\WEB-INF" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\signVerfication" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\signUp" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\logIn" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\product" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\authentication" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\crud" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\order" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\ltw\project\src\main\webapp\css" />
-      <recent name="E:\BTLTW\ltw\project\src\main\webapp" />
-      <recent name="E:\BTLTW\ltw\project\src\main\webapp\data" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.admin" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.711">
@@ -495,6 +500,21 @@
       <workItem from="1648607891382" duration="376000" />
       <workItem from="1648609708723" duration="5362000" />
       <workItem from="1648620338883" duration="2660000" />
+      <workItem from="1649049502407" duration="6684000" />
+      <workItem from="1649072259967" duration="2336000" />
+      <workItem from="1649163696897" duration="10000" />
+      <workItem from="1649296728834" duration="1750000" />
+      <workItem from="1649313157265" duration="617000" />
+      <workItem from="1649315115806" duration="2759000" />
+      <workItem from="1649317933276" duration="607000" />
+      <workItem from="1649325721203" duration="3076000" />
+      <workItem from="1649334957854" duration="4872000" />
+      <workItem from="1649382076939" duration="2939000" />
+      <workItem from="1649399892390" duration="5995000" />
+      <workItem from="1649410164239" duration="3178000" />
+      <workItem from="1649419100744" duration="8896000" />
+      <workItem from="1649463104789" duration="4776000" />
+      <workItem from="1649469776743" duration="4090000" />
     </task>
     <servers />
   </component>
