@@ -3,10 +3,12 @@ package controller;
 import model.DaoProduct;
 import model.Product;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import javax.xml.ws.http.HTTPBinding;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +25,10 @@ public class ProductDetail extends HttpServlet {
         String idProduct = request.getParameter("idProduct");
         List<Product> listHotProduct = DaoProduct.getInstance().getListHotProduct(idProduct);
         request.setAttribute("listHotProduct", listHotProduct);
-        System.out.println(listHotProduct.size());
+        System.out.println(listHotProduct.size()+"~");
 
         request.setAttribute("idProduct", idProduct);
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+        request.getRequestDispatcher("views.customer/product.jsp").forward(request, response);
 
         // product was watched
         HttpSession session = request.getSession(true);

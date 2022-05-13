@@ -57,7 +57,7 @@
       <ul class="menu-list flex-grow-1 mt-3">
         <li><a class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
         <li class="collapsed">
-          <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="/project_war_exploded/Route?page=order">
+          <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/Route?page=order">
             <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Sản phẩm</span> </a>
           <!-- Menu: Sub menu ul -->
           <ul class="sub-menu collapse" id="menu-product">
@@ -69,18 +69,18 @@
         </li>
 
         <li class="collapsed">
-          <a class="m-link active" href="/project_war_exploded/Route?page=listProduct">
+          <a class="m-link active" href="<%=request.getContextPath()%>/Route?page=listProduct">
             <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
 
 
         </li>
         <li class="collapsed">
-          <a class="m-link" href="/project_war_exploded/Route?page=customer">
+          <a class="m-link" href="<%=request.getContextPath()%>/Route?page=customer">
             <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
 
         </li>
         <li class="collapsed">
-          <a class="m-link" href="admin/customers.html">
+          <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
             <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>
 
         </li>
@@ -114,7 +114,7 @@
         <div class="row mb-3">
           <div class="col-sm-12">
 
-            <form action="/project_war_exploded/ListProductAdmin" method="post" style="margin: 20px 0;" id="form-product-admin">
+            <form action="<%=request.getContextPath()%>/Route?page=listProductForm" method="post" style="margin: 20px 0;" id="form-product-admin">
               <%!String typeSelected="";%>
               <% typeSelected= (String) request.getParameter("type");%>
 
@@ -128,10 +128,7 @@
                 <option value="brand"<%=selected("brand")%>>BRAND</option>
                 <option value="name"<%=selected("name")%>>NAME</option>
               </select>
-              <input list="brands" type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" autocomplete="off"  value="
-<%if(request.getAttribute("type")!=null){
-  request.getAttribute("type");
-}%> "/>
+              <input list="brands" type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" autocomplete="off"  value="<%if(request.getAttribute("type")!=null){%><%=request.getAttribute("type")%><%}%>"/>
               <datalist id="brands">
                 <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
                   for (String brand: brands){%>
@@ -184,7 +181,7 @@
                       <div class="d-grid">
                         <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
                           <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
-                        <a class="edit-remove-admin edit-admin" href="/project_war_exploded/EditProduct?id=<%=product.getId()%>">
+                        <a class="edit-remove-admin edit-admin" href="<%=request.getContextPath()%>/EditProduct?id=<%=product.getId()%>">
                           <i class="fas fa-edit"></i>
                         </a>
                       </div>

@@ -1,13 +1,15 @@
 package controller.cart;
 
-import com.mysql.cj.jdbc.JdbcConnection;
 import model.Cart;
 import model.DaoProduct;
 import model.Product;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "AddController", value = "/AddCart")

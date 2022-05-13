@@ -14,7 +14,7 @@
     <link rel="icon" href="../favicon.ico" type="image/x-icon"> <!-- Favicon-->
 
     <!-- project css file  -->
-    <link rel="stylesheet" href="ebazar.style.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css">
     <style>
         .validation {
             color: red;
@@ -57,7 +57,8 @@
                                     <span>Free access to our dashboard.</span>
                                 </div>
                                 <div class="col-12 text-center mb-4">
-                                    <a class="btn btn-lg btn-light btn-block" href="#">
+                                    <a class="btn btn-lg btn-light btn-block" href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/project_war_exploded/SignIn&response_type=code
+    &client_id=856852490504-qhoe9aat1865vaujhem7ge55lardi2t9.apps.googleusercontent.com&approval_prompt=force">
                                             <span class="d-flex justify-content-center align-items-center">
                                                 <img class="avatar xs me-2" src="img_1.png" alt="Image Description">
                                                 Sign in with Google

@@ -49,7 +49,7 @@
             <ul class="menu-list flex-grow-1 mt-3">
                 <li><a class="m-link" href="index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Dashboard</span></a></li>
                 <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="/project_war_exploded/Route?page=order">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/Route?page=order">
                         <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Products</span> </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-product">
@@ -61,18 +61,18 @@
                 </li>
 
                 <li class="collapsed">
-                    <a class="m-link"  href="/project_war_exploded/Route?page=listProduct">
+                    <a class="m-link"  href="<%=request.getContextPath()%>/Route?page=listProduct">
                         <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Orders</span> </a>
 
 
                 </li>
                 <li class="collapsed">
-                    <a class="m-link active"  href="/project_war_exploded/Route?page=customer">
+                    <a class="m-link active"  href="<%=request.getContextPath()%>/Route?page=customer">
                         <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Customers</span> </a>
 
                 </li>
                 <li class="collapsed">
-                    <a class="m-link" href="admin/customers.html">
+                    <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
                         <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>
 
                 </li>
@@ -111,7 +111,7 @@
                 <div class="row clearfix g-3">
                     <div class="col-sm-12">
 
-                        <form style="margin: 20px 0;" action="/project_war_exploded/ListUser">
+                        <form style="margin: 20px 0;" action="<%=request.getContextPath()%>/ListUser">
 
                             <button type="submit" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
 

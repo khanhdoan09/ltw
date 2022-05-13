@@ -50,8 +50,8 @@
             <ul class="menu-list flex-grow-1 mt-3">
                 <li><a class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
                 <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="/project_war_exploded/Route?page=order">
-                        <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Sản phẩm</span> </a>
+                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/Route?page=order">
+                        <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Hóa đơn</span> </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-product">
 
@@ -62,14 +62,20 @@
                 </li>
 
                 <li class="collapsed">
-                    <a class="m-link active" href="/project_war_exploded/Route?page=listProduct">
+                    <a class="m-link" href="<%=request.getContextPath()%>/Route?page=listProduct">
                         <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
 
 
                 </li>
                 <li class="collapsed">
-                    <a class="m-link" href="/project_war_exploded/Route?page=customer">
+                    <a class="m-link" href="<%=request.getContextPath()%>/Route?page=customer">
                         <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
+
+                </li>
+
+                <li class="collapsed">
+                    <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
+                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>
 
                 </li>
 
@@ -102,7 +108,7 @@
                 <div class="row mb-3">
                     <div class="col-sm-12">
 
-                        <form action="/project_war_exploded/ListOrder" method="post" style="margin: 20px 0;" id="form-product-admin">
+                        <form action="<%=request.getContextPath()%>/ListOrder" method="post" style="margin: 20px 0;" id="form-product-admin">
 <%--                            <%!String typeSelected="";%>--%>
 <%--                            <% typeSelected= (String) request.getParameter("type");%>--%>
 
@@ -156,7 +162,7 @@
                                         <td><%=order.getStatus()%></td>
                                         <td>
                                             <div class="d-grid">
-                                                <a class="view-order-detail" href="/project_war_exploded/Route?page=orderDetail&idOrder=<%=order.getId()%>">
+                                                <a class="view-order-detail" href="<%=request.getContextPath()%>/Route?page=orderDetail&idOrder=<%=order.getId()%>">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <a >

@@ -21,8 +21,8 @@
       <list>
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,21 +63,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/views/admin/signVerfication" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/views.customer" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="controller.admin.authentication.api" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\signVerfication" />
-      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\signUp" />
-      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\logIn" />
-      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\product" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views.customer" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\view\customer" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\authentication\signUp" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\signVerfication" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\authentication" />
@@ -90,7 +93,16 @@
       <recent name="controller.admin" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="active" />
+    </option>
+  </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.711">
+    <configuration name="gson-2.8.2.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/gson-2.8.2.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="category.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/project_war_exploded/category.html">
       <method v="2" />
     </configuration>
@@ -201,6 +213,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JAR Application.gson-2.8.2.jar" />
       <item itemvalue="JavaScript Debug.category.html" />
       <item itemvalue="JavaScript Debug.category.jsp" />
       <item itemvalue="JavaScript Debug.product.jsp" />
@@ -210,6 +223,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.gson-2.8.2.jar" />
         <item itemvalue="JavaScript Debug.category.jsp" />
         <item itemvalue="JavaScript Debug.category.html" />
         <item itemvalue="JavaScript Debug.product.jsp" />
@@ -515,6 +529,25 @@
       <workItem from="1649419100744" duration="8896000" />
       <workItem from="1649463104789" duration="4776000" />
       <workItem from="1649469776743" duration="4090000" />
+      <workItem from="1649479088907" duration="823000" />
+      <workItem from="1649510933587" duration="3521000" />
+      <workItem from="1649640111826" duration="1907000" />
+      <workItem from="1649642226434" duration="2200000" />
+      <workItem from="1649645214200" duration="595000" />
+      <workItem from="1649645944066" duration="4089000" />
+      <workItem from="1649658792108" duration="1564000" />
+      <workItem from="1649660493581" duration="177000" />
+      <workItem from="1649660769372" duration="81000" />
+      <workItem from="1649660990872" duration="861000" />
+      <workItem from="1649661886782" duration="522000" />
+      <workItem from="1649667387156" duration="1260000" />
+      <workItem from="1649671417257" duration="189000" />
+      <workItem from="1652315923481" duration="2913000" />
+      <workItem from="1652323756383" duration="584000" />
+      <workItem from="1652398589762" duration="1980000" />
+      <workItem from="1652402443114" duration="1786000" />
+      <workItem from="1652420001221" duration="1925000" />
+      <workItem from="1652422010649" duration="3309000" />
     </task>
     <servers />
   </component>
@@ -532,21 +565,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/cart.jsp</url>
-          <line>191</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/checkout.jsp</url>
-          <line>113</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

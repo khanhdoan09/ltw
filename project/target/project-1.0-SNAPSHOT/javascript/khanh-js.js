@@ -652,18 +652,19 @@ function removeProductInAdmin() {
     $(".remove-admin").each(function (index) {
         $(this).click(() => {
             let data = $(this).data("id")
-            alert(`Are you sure wanna delete this ${data}`)
-            $(`#tr-product-${data}`).empty()
-            $.ajax({
-                url: `ListProductAdmin?removeProduct="${data}"`,
-                type: 'POST',
-                success: function (data) {
-                    alert(data)
-                },
-                error: function() {
-                  alert("Error")
-                }
-            })
+            if (confirm(`Are you sure wanna delete this ${data}`) == true) {
+                $(`#tr-product-${data}`).empty()
+                $.ajax({
+                    url: `ListProductAdmin?removeProduct="${data}"`,
+                    type: 'POST',
+                    success: function (data) {
+                        alert(data)
+                    },
+                    error: function () {
+                        alert("Error")
+                    }
+                })
+            }
         });
     })
 }

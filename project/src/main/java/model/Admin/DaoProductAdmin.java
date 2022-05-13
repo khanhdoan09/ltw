@@ -2,15 +2,15 @@ package model.Admin;
 
 import databaseConnection.DatabaseConnection;
 import model.Image;
-import model.ImgProduct;
-import model.ProductDetail;
 import model.Product;
+import model.ProductDetail;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DaoProductAdmin {
     private static DaoProductAdmin instance = null;

@@ -1,18 +1,17 @@
 package controller;
 
-import model.DaoBanner;
 import model.DaoProduct;
 import model.Product;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet(name = "SearchListProduct", value = "/SearchListProduct")
 public class SearchListProduct extends HttpServlet {
@@ -118,15 +117,16 @@ public class SearchListProduct extends HttpServlet {
             if (size != null) {
                 String s = "\\";
                 int t = s.lastIndexOf("\\",1);
-                sql = "JOIN product_detail ON product.id=product_detail.id " + sql + DaoProduct.getInstance().getProductByCategory("size", size);
+                sql = "JOIN product_detail ON product.id=product_detail.id " + sql + DaoProduct.getInstance().getProductByCategory("size", size) + " && ";
                 list.addAll(Arrays.asList(size));
+                System.out.println(size[0]);
             }
             if (brands != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("brand", brands);
+                sql += DaoProduct.getInstance().getProductByCategory("brand", brands) + " && ";
                 list.addAll(Arrays.asList(brands));
             }
             if (underPrice != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("underPrice", underPrice);
+                sql += DaoProduct.getInstance().getProductByCategory("underPrice", underPrice) + " && ";
                 list.addAll(Arrays.asList(underPrice));
             }
             if (fromPrice != null && toPrice != null) {
@@ -139,7 +139,7 @@ public class SearchListProduct extends HttpServlet {
                     sql += " && ( ";
 
                 }
-                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice);
+                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice) + " && ";
                 list.addAll(Arrays.asList(fromToPrice));
             }
             if (upPrice != null) {
@@ -150,7 +150,7 @@ public class SearchListProduct extends HttpServlet {
                 else
                     sql += " && ( ";
 
-                sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice);
+                sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice) + " && ";
                 list.addAll(Arrays.asList(upPrice));
             }
             if (fromInputPrice != null && toInputPrice != null) {
@@ -192,18 +192,21 @@ public class SearchListProduct extends HttpServlet {
                 }
             }
             if (star != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("star", star);
+                sql += DaoProduct.getInstance().getProductByCategory("star", star) + " && ";
                 list.addAll(Arrays.asList(star));
             }
             if (highestLowest != null) {
                 group = "";
                 if (highestLowest[0].equals("DESC")) {
-                    sql += DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest);
+                    sql += DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest) + " && ";
                 }
                 else{
-                    sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest);
+                    sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest) + " && ";
                 }
             }
+
+            sql = sql.substring(0, sql.length() - 4); // to remove ||
+
 
             String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 AND product.mainColor=linkimg.color " + sql + group + limit;
             request.setAttribute("sql", sqlAll);
@@ -217,7 +220,9 @@ public class SearchListProduct extends HttpServlet {
         request.setAttribute("pagination", pagination);
         request.setAttribute("categoryProduct", listFilter);
 
-        request .getRequestDispatcher("category.jsp").forward(request, response);
+//        request.getRequestDispatcher("category.jsp").forward(request, response);
+        System.out.println("done");
+        request.getRequestDispatcher("views.customer/category.jsp").forward(request, response);
 
     }
 

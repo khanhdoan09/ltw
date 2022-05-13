@@ -2,14 +2,12 @@ package model.Admin;
 
 import databaseConnection.DatabaseConnection;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.security.NoSuchAlgorithmException;
-import java.security.MessageDigest;
 
 
 public class DaoAuthentication {
@@ -94,6 +92,7 @@ public class DaoAuthentication {
             PreparedStatement s = connect.prepareStatement(sql);
             System.out.println(encryptPassword);
             s.setString(1, encryptPassword);
+            System.out.println(s.toString());
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 id =  rs.getString("id");

@@ -6,7 +6,7 @@
     <link rel="icon" href="../favicon.ico" type="image/x-icon"> <!-- Favicon-->
 
     <!-- project css file  -->
-    <link rel="stylesheet" href="ebazar.style.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css">
 
     <style>
         .validation {
@@ -89,13 +89,14 @@
                                         <input type="password" name="confirmPassword" class="form-control form-control-lg" placeholder="8+ characters required">
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            I accept the <a href="#" title="Terms and Conditions" class="text-secondary">Terms and Conditions</a>
-                                        </label>
-                                    </div>
+                                <div class="col-12 text-center mb-4">
+                                    <a class="btn btn-lg btn-light btn-block" href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/project_war_exploded/SignUp&response_type=code
+    &client_id=856852490504-lo7e2emuf0fi5b8d881adt9cqrusebu0.apps.googleusercontent.com&approval_prompt=force">
+                                            <span class="d-flex justify-content-center align-items-center">
+                                                <img class="avatar xs me-2" src="img_1.png" alt="Image Description">
+                                                Sign up with Google
+                                            </span>
+                                    </a>
                                 </div>
                                 <div class="col-12 text-center mt-4">
                                     <button type="submit" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="SIGNUP">SIGN UP</button>

@@ -1,8 +1,10 @@
 package controller.admin.authentication;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "Route", value = "/Route")
@@ -21,8 +23,11 @@ public class Route extends HttpServlet {
         }
         else if (page.equals("orderDetail")) {
             String idOrder = request.getParameter("idOrder");
-            System.out.println(idOrder);
-            request.getRequestDispatcher("/ListOrderDetail??idOrder="+idOrder).forward(request, response);
+            request.getRequestDispatcher("/ListOrderDetail?idOrder="+idOrder).forward(request, response);
+        }
+        else if (page.equals("listProductForm")) {
+            System.out.println(123);
+            request.getRequestDispatcher("/ListProductAdmin").forward(request, response);
         }
     }
 

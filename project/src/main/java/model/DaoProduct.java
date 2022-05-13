@@ -189,29 +189,29 @@ public class DaoProduct implements Dao<Product> {
             sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
         }
         else if (attrProduct.equals("size")) {
-            sql += "&&(";
+            sql += "(";
             for (int i = 0; i < category.length; i++)
                 sql += " size=? || ";
             sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
         }
         else if (attrProduct.equals("underPrice")) {
-            sql += "&&(";
+            sql += "(";
             for (int i = 0; i < category.length; i++)
-                sql += " price < ? || ";
+                sql += "( price < ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         } else if (attrProduct.equals("upPrice")) {
             for (int i = 0; i < category.length; i++)
-                sql += " price > ? || ";
+                sql += "( price > ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         } else if (attrProduct.equals("fromToPrice")) {
-            sql += " price BETWEEN ? AND ? || ";
+            sql += "( price BETWEEN ? AND ? || ";
             sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
         }
         else if (attrProduct.equals("highestPrice")){
-            sql += " GROUP BY product.id ORDER BY price DESC";
+            sql += " GROUP BY product.id ORDER BY price DESC    ";
         }
         else if (attrProduct.equals("lowestPrice")){
-            sql += " GROUP BY product.id ORDER BY price ASC";
+            sql += " GROUP BY product.id ORDER BY price ASC    ";
         }
         else if (attrProduct.equals("star")){
             sql += "&&(";
@@ -223,7 +223,6 @@ public class DaoProduct implements Dao<Product> {
             sql += "(";
             sql += "name LIKE ? )";
         }
-
 
         return sql;
     }
