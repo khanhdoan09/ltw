@@ -29,6 +29,11 @@ public class Route extends HttpServlet {
             System.out.println(123);
             request.getRequestDispatcher("/ListProductAdmin").forward(request, response);
         }
+        else if (page.equals("editProduct")) {
+            System.out.println(123);
+            String id = request.getParameter("id");
+            request.getRequestDispatcher("/EditProduct?id="+id).forward(request, response);
+        }
     }
 
     @Override

@@ -60,7 +60,7 @@
 </head>
 
 <body class="product col-2 left-col">
-<%@include file="/header.jsp" %>
+<%@include file="header.jsp" %>
 
 <%
     Object obj = request.getAttribute("idProduct");
@@ -119,7 +119,7 @@
                             <!-- anh chinh -->
                             <%String mainColor = p.getMainColor();%>
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
-                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="data/imgAll/upload/product/<%=p.getMainImg(mainColor)%>.jpg"/>
+                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="../data/imgAll/upload/product/<%=p.getMainImg(mainColor)%>.jpg"/>
                             </a>
                         </div>
 

@@ -154,9 +154,7 @@
                                     <%}%>
                                     </tbody>
                                 </table>
-                                <% if (objFilter != null) {%>
-                                <button id="load-more-product" style="width: 100%">Load more</button>
-                                <%}%>
+
                             </div>
                         </div>
                     </div>

@@ -54,7 +54,7 @@
 </head>
 
 <body class="category col-2 left-col">
-<%@include file="/header.jsp" %>
+<%@include file="header.jsp" %>
 <div class="container-category">
 
     <div class="row contain-category">
@@ -69,9 +69,6 @@
             <form name="filter-panel" id="form-filter-search" class="panel panel-default filter"
                   action="SearchListProduct?<%=request.getAttribute("TypeCategory")%>=<%=request.getAttribute("ValueCategory")%>&"
                   method="post">
-                <%
-                    request.setAttribute("sql", request.getAttribute("sql"));
-                %>
 
                 <div class="filter-block">
                     <div class="list-group">
@@ -107,31 +104,49 @@
                             </div>
                         </div>
                         <a class="list-group-item">Sizes</a>
+                        <%!
+                            ArrayList<String> sizeChecked=new ArrayList<String>();
+                            String[] objFilterSize;
+                        %>
+                        <%
+                            objFilterSize = request.getParameterValues("size");
+                            if (objFilterSize != null)
+                                sizeChecked = new ArrayList<String>(Arrays.asList(objFilterSize));
+                        %>
+                        <%!
+                            public String isSizeChecked(String size) {
+                                if (objFilterSize != null) {
+                                    if (sizeChecked.contains(size))
+                                        return "checked";
+                                }
+                                return "";
+                            }
+                        %>
                         <div class="list-group-item">
                             <div class="contain-dropdown-size filter-search" id="checkbox-filter-size">
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="33"/>
+                                    <input name="size" type="checkbox" value="33" <%=isSizeChecked("33")%>/>
                                     33 </label>
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="34"/>
+                                    <input name="size" type="checkbox" value="34" <%=isSizeChecked("34")%>/>
                                     34 </label>
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="35"/>
+                                    <input name="size" type="checkbox" value="35" <%=isSizeChecked("35")%>/>
                                     35 </label>
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="36"/>
+                                    <input name="size" type="checkbox" value="36" <%=isSizeChecked("36")%>/>
                                     36 </label>
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="37"/>
+                                    <input name="size" type="checkbox" value="37" <%=isSizeChecked("37")%>/>
                                     37 </label>
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="38"/>
+                                    <input name="size" type="checkbox" value="38" <%=isSizeChecked("38")%>/>
                                     38 </label>
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="39"/>
+                                    <input name="size" type="checkbox" value="39" <%=isSizeChecked("39")%>/>
                                     39 </label>
                                 <label class="checkbox-filter-search">
-                                    <input name="size" type="checkbox" value="40"/>
+                                    <input name="size" type="checkbox" value="40" <%=isSizeChecked("40")%>/>
                                     40 </label>
                             </div>
                         </div>
@@ -446,7 +461,7 @@
                                    String pagStr = request.getQueryString().substring(0, request.getQueryString().lastIndexOf("pagination"));
                                    pagStr += "pagination=" + pagInt;
                                    %>
-                                   <%=URLDecoder.decode("ServletTest123?"+pagStr, "UTF-8")%>">&lt;
+                                   <%=URLDecoder.decode("SearchListProduct?"+pagStr, "UTF-8")%>">&lt;
                             </a>
 
                         </li>
@@ -457,19 +472,19 @@
                                    String pagStrRight = request.getQueryString().substring(0, request.getQueryString().lastIndexOf("pagination"));
                                    pagStrRight += "pagination=" + pagIntRight;
                                    %>
-                                   <%=URLDecoder.decode("ServletTest123?"+pagStrRight, "UTF-8")%>">&gt;
+                                   <%=URLDecoder.decode("SearchListProduct?"+pagStrRight, "UTF-8")%>">&gt;
                             </a>
                         </li>
                         <span>Page</span>
                         <select id="selectPagination" onchange="location = this.value;">
 
-                            <%=URLDecoder.decode("ServletTest123?" + pagStrRight, "UTF-8")%>">&gt;
+                            <%=URLDecoder.decode("SearchListProduct?" + pagStrRight, "UTF-8")%>">&gt;
                             <%
                                 for (int j = 1; j <= lengthPagination; j++) {
                                     pagStr = request.getQueryString().substring(0, request.getQueryString().lastIndexOf("pagination"));
                                     pagStr += "pagination=" + j;
                             %>
-                            <option value="<%=URLDecoder.decode("ServletTest123?"+pagStr, "UTF-8")%>"
+                            <option value="<%=URLDecoder.decode("SearchListProduct?"+pagStr, "UTF-8")%>"
                                     <% // current pagination
                                         if (j == pagination) {%><%="selected"%> <%}%>><%=j%>
                             </option>

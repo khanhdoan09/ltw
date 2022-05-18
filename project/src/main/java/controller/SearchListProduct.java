@@ -106,7 +106,7 @@ public class SearchListProduct extends HttpServlet {
             else if (categoryT != null) {
                 request.setAttribute("TypeCategory", "category");
                 request.setAttribute("ValueCategory", categoryT[0]);
-                sql = " WHERE category=? && ";
+                sql = " WHERE category=?     ";
                 list.addAll(Arrays.asList(categoryT));
             }
             else if (categoryT == null) { // luc nay la tim kiem bang brand tren navigation
@@ -117,40 +117,40 @@ public class SearchListProduct extends HttpServlet {
             if (size != null) {
                 String s = "\\";
                 int t = s.lastIndexOf("\\",1);
-                sql = "JOIN product_detail ON product.id=product_detail.id " + sql + DaoProduct.getInstance().getProductByCategory("size", size) + " && ";
+                sql = "JOIN product_detail ON product.id=product_detail.id " + sql +"&&"+ DaoProduct.getInstance().getProductByCategory("size", size) ;
                 list.addAll(Arrays.asList(size));
                 System.out.println(size[0]);
             }
             if (brands != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("brand", brands) + " && ";
+                sql +="&&"+ DaoProduct.getInstance().getProductByCategory("brand", brands);
                 list.addAll(Arrays.asList(brands));
             }
             if (underPrice != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("underPrice", underPrice) + " && ";
+                sql +="&& ("+  DaoProduct.getInstance().getProductByCategory("underPrice", underPrice);
                 list.addAll(Arrays.asList(underPrice));
             }
             if (fromPrice != null && toPrice != null) {
                 String[] fromToPrice = {fromPrice[0], toPrice[0]};
-                if (sql.contains(" price ")) { // de khoang trang de phan biet ,price trong select sql
+                if (sql.contains(" price ")) {
                     sql = sql.substring(0, sql.length()-1);
                     sql += " || ";
                 }
                 else {
-                    sql += " && ( ";
-
+                    sql += "&&(";
                 }
-                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice) + " && ";
+                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice);
                 list.addAll(Arrays.asList(fromToPrice));
             }
             if (upPrice != null) {
                 if (sql.contains(" price ")) {
                     sql = sql.substring(0, sql.length()-1);
                     sql += " || ";
-                }
-                else
-                    sql += " && ( ";
 
-                sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice) + " && ";
+                }
+                else {
+                    sql += "&&(";
+                }
+                sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice);
                 list.addAll(Arrays.asList(upPrice));
             }
             if (fromInputPrice != null && toInputPrice != null) {
@@ -192,24 +192,23 @@ public class SearchListProduct extends HttpServlet {
                 }
             }
             if (star != null) {
-                sql += DaoProduct.getInstance().getProductByCategory("star", star) + " && ";
+                sql += "&&"+DaoProduct.getInstance().getProductByCategory("star", star);
                 list.addAll(Arrays.asList(star));
             }
             if (highestLowest != null) {
                 group = "";
                 if (highestLowest[0].equals("DESC")) {
-                    sql += DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest) + " && ";
+                    sql += ""+DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest);
                 }
                 else{
-                    sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest) + " && ";
+                    sql +=""+ DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest);
                 }
             }
 
-            sql = sql.substring(0, sql.length() - 4); // to remove ||
-
+            System.out.println("####"+sql);
+            System.out.println("@@@@@"+sql);
 
             String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 AND product.mainColor=linkimg.color " + sql + group + limit;
-            request.setAttribute("sql", sqlAll);
             listFilter = DaoProduct.getInstance().excQuery(list, sqlAll);
             System.out.println("SqlAll: "+sqlAll);
         }
@@ -222,7 +221,7 @@ public class SearchListProduct extends HttpServlet {
 
 //        request.getRequestDispatcher("category.jsp").forward(request, response);
         System.out.println("done");
-        request.getRequestDispatcher("views.customer/category.jsp").forward(request, response);
+        request.getRequestDispatcher("./views.customer/category.jsp").forward(request, response);
 
     }
 

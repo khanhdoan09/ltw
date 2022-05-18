@@ -89,6 +89,7 @@ public class AddImgProduct extends HttpServlet {
         }
 
         File file = new File(productDir.getAbsolutePath() + File.separator + name);
+        System.out.println(file.getAbsolutePath());
         if (file.exists()) {
             file.delete();
         }

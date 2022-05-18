@@ -180,32 +180,26 @@ public class DaoProduct implements Dao<Product> {
             sql += "(";
             for (int i = 0; i < category.length; i++)
                 sql += " product.name=? || ";
-            sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
         }
         if (attrProduct.equals("brand")) {
             sql += "(";
             for (int i = 0; i < category.length; i++)
                 sql += " brand=? || ";
-            sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
         }
         else if (attrProduct.equals("size")) {
             sql += "(";
             for (int i = 0; i < category.length; i++)
                 sql += " size=? || ";
-            sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
         }
         else if (attrProduct.equals("underPrice")) {
-            sql += "(";
             for (int i = 0; i < category.length; i++)
-                sql += "( price < ? || ";
-            sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
+                sql += " price < ? || ";
+
         } else if (attrProduct.equals("upPrice")) {
             for (int i = 0; i < category.length; i++)
-                sql += "( price > ? || ";
-            sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
+                sql += " price > ? || ";
         } else if (attrProduct.equals("fromToPrice")) {
-            sql += "( price BETWEEN ? AND ? || ";
-            sql = sql.substring(0, sql.length() - 4) + ")"; // to remove ||
+            sql += " price BETWEEN ? AND ? || ";
         }
         else if (attrProduct.equals("highestPrice")){
             sql += " GROUP BY product.id ORDER BY price DESC    ";
@@ -214,16 +208,18 @@ public class DaoProduct implements Dao<Product> {
             sql += " GROUP BY product.id ORDER BY price ASC    ";
         }
         else if (attrProduct.equals("star")){
-            sql += "&&(";
+            sql += "(";
             for (int i = 0; i < category.length; i++)
                 sql += " starRate=? || ";
-            sql = sql.substring(0, sql.length() - 4) + " )"; // to remove ||
         }
         else if (attrProduct.equals("searchInHeader")) {
             sql += "(";
-            sql += "name LIKE ? )";
+            sql += "name LIKE ?     ";
         }
-
+        sql = sql.substring(0, sql.length() - 4); // to remove ||
+        if (!attrProduct.equals("highestPrice") && !attrProduct.equals("lowestPrice")){
+            sql+=")";
+        }
         return sql;
     }
 

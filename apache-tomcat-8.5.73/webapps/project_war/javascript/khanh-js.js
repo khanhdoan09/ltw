@@ -576,11 +576,15 @@ $(function () {
 function getDataFromServlet(xhttp) {
     let data = xhttp.responseText.split("\n")
     $(".contain-search-popular").empty()
-    data.forEach((value)=>{
-        let item = value.split("@@##**") // to split id and name
-        $(".contain-search-popular")
-            .append(`<span onclick="location.href='ProductDetail?idProduct=${item[0]}'">${item[1]}</span><br/>`)
-    })
+        data.forEach((value) => {
+            let item = value.split("@@##**") // to split id and name
+            if (item[1] != "undefined") {
+                $(".contain-search-popular")
+                    .append(`<span onclick="location.href='ProductDetail?idProduct=${item[0]}'">${item[1]}</span><br/>`)
+            }
+        })
+
+
 }
 
 

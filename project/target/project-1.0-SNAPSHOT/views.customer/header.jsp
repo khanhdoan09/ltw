@@ -53,7 +53,7 @@
                     <div>
                         <div class="header-middle-top">
                             <div id="logo" class="color-header" style="margin: 0; padding: 0;">
-                                <a href="index.html"><img src="../image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                <a href="index.html"><img src="/project_war/image/logo.png" title="E-Commerce" alt="E-Commerce"
                                                           class="logo-header" /></a>
                             </div>
                         </div>
@@ -168,16 +168,16 @@
                                 <a href="SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
                             </li>
                             <li id="slides-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                                <a href="../SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
                             </li>
                             <li id="sneakers-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                                <a href="../SearchListProduct?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
                             </li>
                             <li id="skateboard-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
+                                <a href="../SearchListProduct?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
                             </li>
                             <li id="trainers-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Trainers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                                <a href="../SearchListProduct?categoryOnNav=Trainers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
                             </li>
                         </ul>
 
@@ -209,21 +209,21 @@
 
                     </li>
                     <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
-                    <li><a href="blog.html" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
+                    <li><a href="/project_war/views.customer/blog.jsp" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
                     <li><a href="about-us.html" style="color: white"  id="about-nav" >VỀ CHÚNG TÔI</a></li>
                 </ul>
                 <div class="nav-detail-info">
 
                     <div class="item-nav-detail-info" id="item-category-brand">
                         <div class="contain-brand" >
-                            <img onclick="location.href='SearchListProduct?brand=ASICS&pagination=1'" src="../image/brand/logo-brand-01.svg">
-                            <img onclick="location.href='SearchListProduct?brand=ADIDAS'" src="../image/brand/logo-brand-02.svg">
-                            <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-03.jpg">
-                            <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-04.svg">
-                            <img onclick="location.href='CategoryProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-05.svg">
-                            <img onclick="location.href='CategoryProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-06.svg">
-                            <img onclick="location.href='CategoryProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-07.jpg">
-                            <img onclick="location.href='CategoryProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-08.svg">
+                            <img onclick="location.href='SearchListProduct?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
+                            <img onclick="location.href='SearchListProduct?brand=ADIDAS'" src="image/brand/logo-brand-02.svg">
+                            <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
+                            <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
+                            <img onclick="location.href='CategoryProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-05.svg">
+                            <img onclick="location.href='CategoryProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-06.svg">
+                            <img onclick="location.href='CategoryProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-07.jpg">
+                            <img onclick="location.href='CategoryProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-08.svg">
                         </div>
                     </div>
 

@@ -21,51 +21,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>::eBazar:: Product Edit </title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Favicon-->
+    <title>Admin | Dragon Sport </title>
+    <link rel="shortcut icon" href="/user/image/logo.png">
 
-    <!--plugin css file -->
-    <link rel="stylesheet" href="assets/plugin/multi-select/css/multi-select.css">
-    <!-- Multi Select Css -->
-    <link rel="stylesheet" href="assets/plugin/bootstrap-tagsinput/bootstrap-tagsinput.css">
-    <!-- Bootstrap Tagsinput Css -->
-    <link rel="stylesheet" href="assets/plugin/cropper/cropper.min.css">
-    <!--Cropperer Css -->
-    <link rel="stylesheet" href="assets/plugin/dropify/dist/css/dropify.min.css" />
-    <!-- Dropify Css -->
-    <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
-    <!-- Datatable Css -->
-    <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
-    <!-- fontawesome -->
+    <!-- Favicon-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
           type="text/css" />
-    <!-- project css file  -->
-    <link rel="stylesheet" href="ebazar.style.min.css">
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
 
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="exponential.js"></script>
+    <!-- plugin css file  -->
+    <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css    ">
+
+    <!-- project css file  -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css">
+
     <script src="javascript/khanh-js.js"></script>
 
-    <style>
-        .exception-form {
-            font-size: 15px;
-            color: red;
-        }
-        .exp-edit{
-            color: red;
-            font-size: 12px;
-            display: block;
-            word-break: break-word;
-        }
 
-        .remove-img-detail {
-            width: 76px;
+    <style>
+        .clicked {
+            color: #eeee13;
+        }
+        #brands {
+            display: none;
         }
     </style>
-
 
 </head>
 
@@ -78,7 +61,7 @@
         <div class="d-flex flex-column h-100">
             <a href="index.html" class="mb-0 brand-icon">
 
-                <span class="logo-text">Dragon Sport</span>
+                <span class="logo-text">Dragon Sport 123</span>
             </a>
             <!-- Menu: main ul -->
             <ul class="menu-list flex-grow-1 mt-3">

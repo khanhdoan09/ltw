@@ -20,7 +20,7 @@ public class ListProductAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String removeProduct = request.getParameter("removeProduct");
         if (removeProduct != null) {
-            removeProduct(removeProduct, response);
+            removeProduct(removeProduct, request, response);
         }
         else {
             getListProduct(request, response);
@@ -73,12 +73,13 @@ public class ListProductAdmin extends HttpServlet {
 
         request.setAttribute("type", name[0]);
         request.setAttribute("listProduct", list);
+        System.out.println(list.size());
         request.getRequestDispatcher("/views/admin/crud/product/order-invoices.jsp").forward(request, response);
 
     }
 
-    public void removeProduct(String id, HttpServletResponse response) throws IOException {
-        boolean isDeleted = DaoProductAdmin.getInstance().deleteProductInAdmin(id);
+    public void removeProduct(String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        boolean isDeleted = DaoProductAdmin.getInstance().deleteProductInAdmin(id, request);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         if (isDeleted)

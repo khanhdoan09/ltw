@@ -20,7 +20,7 @@ public class RemoveImg extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         String nameImg = request.getParameter("nameImg");
-        boolean check = DaoProductAdmin.getInstance().deleteImg(id, nameImg);
+        boolean check = DaoProductAdmin.getInstance().deleteImg(request, id, nameImg);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         if (check)

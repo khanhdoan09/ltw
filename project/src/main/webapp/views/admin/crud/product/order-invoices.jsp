@@ -23,7 +23,9 @@
 
   <!-- plugin css file  -->
   <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
-  <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
+<%--  <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">--%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css    ">
 
@@ -39,6 +41,19 @@
     }
     #brands {
       display: none;
+    }
+    .contain-load-more {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    #load-more-product {
+      background-color: #6060b9;
+      color: white;
+      width: fit-content;
+      padding: 20px;
+      border: none;
+      border-radius: 15px;
     }
   </style>
 
@@ -142,7 +157,8 @@
 
             <div class="card">
               <div class="card-body">
-                <table id="patient-table" class="table table-hover align-middle mb-0" style="width: 100%;">
+
+                <table id="listProduct" class="table table-striped table-bordered" style="width:100%">
                   <thead>
                   <tr>
                     <th>Id</th>
@@ -152,12 +168,6 @@
                     <th>Ngày ra đơn</th>
                     <th>Giá</th>
                     <th>Giảm giá
-                      <a href="ListProduct?item=saleRate&&orderType=DESC"  class="admin-product-order">
-                        <i class="fas fa-arrow-up" id="order-increase-saleRate"></i>
-                      </a>
-                      <a href="ListProduct?item=saleRate&&orderType=ASC" class="admin-product-order">
-                        <i class="fas fa-arrow-down admin-product-order" id="order-decrease-saleRate" ></i>
-                      </a>
                     </th>
                     <th>Hành động</th>
                   </tr>
@@ -181,7 +191,7 @@
                       <div class="d-grid">
                         <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
                           <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
-                        <a class="edit-remove-admin edit-admin" href="<%=request.getContextPath()%>/EditProduct?id=<%=product.getId()%>">
+                        <a class="edit-remove-admin edit-admin" href="<%=request.getContextPath()%>/Route?page=editProduct&id=<%=product.getId()%>">
                           <i class="fas fa-edit"></i>
                         </a>
                       </div>
@@ -192,7 +202,9 @@
                   </tbody>
                 </table>
                <% if (objFilter != null) {%>
-                <button id="load-more-product" style="width: 100%">Load more</button>
+                <div class="contain-load-more">
+                  <button id="load-more-product" >Load more</button>
+                </div>
                 <%}%>
               </div>
             </div>
@@ -213,7 +225,8 @@
 <script src="assets/bundles/libscripts.bundle.js"></script>
 
 <!-- Plugin Js-->
-<script src="assets/bundles/dataTables.bundle.js"></script>
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js"></script>
 
 <!-- Jquery Page Js -->
 <script src="../js/template.js"></script>
@@ -223,6 +236,18 @@
   $("#type-product-admin").change(()=>{
     $("#input-name-product-admin").val("")
   })
+
+  $(document).ready(function () {
+
+    $('#listProduct').DataTable({
+      "paging": false,
+      "bInfo" : false,
+      columnDefs: [
+        { orderable: false, targets: [0, 1, 2, 7] },
+        { orderable: true, targets: [3, 4, 5, 6] }
+      ]
+    });
+  });
 </script>
 
 </body></html>

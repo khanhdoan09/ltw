@@ -22,8 +22,8 @@
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
 
     <!-- plugin css file  -->
-    <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
-    <link rel="stylesheet" href="assets/plugin/datatables/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css    ">
 
@@ -120,7 +120,7 @@
 
                         <div class="card mb-3">
                             <div class="card-body">
-                                <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width:100%">
+                                <table id="listCustomer" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                     <tr>
                                         <th>Id</th>
@@ -252,12 +252,25 @@
 <script src="assets/bundles/libscripts.bundle.js"></script>
 
 <!-- Plugin Js-->
-<script src="assets/bundles/dataTables.bundle.js"></script>
-
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap4.min.js"></script>
 <!-- Jquery Page Js -->
 
 <script src="../js/template.js"></script>
 
+<script>
+    $(document).ready(function () {
+
+        $('#listCustomer').DataTable({
+            "paging": false,
+            "bInfo" : false,
+            columnDefs: [
+                { orderable: false, targets: [0, 1, 3, 4, 5, 6, 7, 9, 10] },
+                { orderable: true, targets: [3, 2, 5, 8] }
+            ]
+        });
+    });
+</script>
 </body>
 
 </html>
