@@ -120,17 +120,17 @@
                 <img src="../image/icon_gg.png" alt="Google" class="icon-login-another">
                 <img src="../image/icon_apple.png" alt="Apple" class="icon-login-another">
             </div>
-
+<form action="/Login">
             <div class="modal-input-section">
-                <input type="email" placeholder="Địa chỉ email..." class="email">
-                <input type="password" placeholder="Nhập mật khẩu..." class="email password">
+                <input type="email" name="email" placeholder="Địa chỉ email..." class="email">
+                <input type="password" name="password" placeholder="Nhập mật khẩu..." class="email password">
                 <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
             </div>
 
             <div class="modal-bnt-login">
-                <a href="" class="bnt-login">Đăng Nhập</a>
+                <button type="submit" class="bnt-login">Đăng Nhập</button>
             </div>
-
+</form>
             <div class="modal-title">
                 <p class="title-content">Bây giờ bạn cần một tài khoản để gửi / xem các yêu cầu dịch vụ khách hàng,
                     xem các đăng ký các sản phẩm của bạn, thanh toán hoặc sửa đổi thông tin cá nhân của bạn. Thật

@@ -22,6 +22,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
         UserDao dao = UserDao.getInstance();
         User use = new User(user,password);
+        System.out.println(use.getPassword());
 
         boolean validationFlag = dao.login(use);
         response.setContentType("text/plain");
