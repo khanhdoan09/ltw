@@ -20,9 +20,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Jsp File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -63,7 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/views.customer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -76,11 +76,11 @@
       <recent name="controller.admin.authentication.api" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\WEB-INF" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views.customer" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\view\customer" />
-      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\authentication\signUp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin\authentication" />
@@ -560,6 +560,8 @@
       <workItem from="1652849145574" duration="6712000" />
       <workItem from="1652859959955" duration="4264000" />
       <workItem from="1652867328989" duration="4084000" />
+      <workItem from="1653633426123" duration="5000" />
+      <workItem from="1653634287367" duration="10741000" />
     </task>
     <servers />
   </component>
@@ -577,5 +579,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/views.customer/footer_login_message.jsp</url>
+          <line>61</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

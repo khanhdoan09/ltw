@@ -20,7 +20,7 @@
                                         class="fas fa-bell color-header" style="margin-right: 10px"></i><span
                                         style="margin: 0 5px;" class="color-header">Thông
                                     báo</span><span style="margin-right: 10px;"
-                                                  class="color-header">(0)</span></a>
+                                                    class="color-header">(0)</span></a>
                                 </li>
                                 <li class="account"><a href="customer.html" id="wishlist-total"
                                                        title="Wish List (0)"><i class="fa fa-heart color-header"></i><span
@@ -65,15 +65,15 @@
                         <form id="form-header-search" class="search-product" action="" method="post">
                             <input name="input-search-header" id="input-search-header"
                                    class="input-text-search-top"
-                                    placeholder="Tìm kiếm" type="text" autocomplete="off"/>
+                                   placeholder="Tìm kiếm" type="text" autocomplete="off"/>
                             <button type="submit" class="search-product-top" id="button-search-header"><i class="fa fa-search"></i></button>
                         </form>
                         <div class="contain-search-popular">
-<%--                            <span>X-Ray 2</span>--%>
-<%--                            <span>Nike Air Force 2</span>--%>
-<%--                            <span>Under Armour darkside</span>--%>
-<%--                            <span>X9000L4 Shoes Mens</span>--%>
-<%--                            <span>Adidas dragon sport</span>--%>
+                            <%--                            <span>X-Ray 2</span>--%>
+                            <%--                            <span>Nike Air Force 2</span>--%>
+                            <%--                            <span>Under Armour darkside</span>--%>
+                            <%--                            <span>X9000L4 Shoes Mens</span>--%>
+                            <%--                            <span>Adidas dragon sport</span>--%>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                                     <c:forEach items="${list}" var="item">
                                         <td class="text-center">
                                             <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"
-                                                             height="100px"></a>
+                                                                                              height="100px"></a>
                                         </td>
                                         <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
                                             <div class="SL-Gia">
@@ -108,11 +108,11 @@
                                         </td>
                                         <td class="text-center">
                                             <a class="cart-remove" pid="${item.id}">
-                                            <button class="btn btn-danger btn-xs" title="Remove" type="button"><i
-                                                class="fa fa-delete-left"></i> </button>
+                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i
+                                                        class="fa fa-delete-left"></i> </button>
                                             </a>
                                         </td>
-                                    </tr>
+                                        </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
@@ -165,7 +165,7 @@
 
                         <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
                             <li id="running-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
+                                <a href="../SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
                             </li>
                             <li id="slides-man"  class="category-product category-product-man">
                                 <a href="../SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
@@ -187,22 +187,22 @@
 
                         <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                             <li id="running-woman"  class="category-product category-product-woman">
-                                <a href="CategoryProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
+                                <a href="../SearchListProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
                             </li>
                             </li>
                             <li id="slides-woman"  class="category-product category-product-woman">
-                                <a href="CategoryProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                                <a href="../SearchListProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
                             </li>
                             </li>
                             <li id="sneakers-woman"  class="category-product category-product-woman">
-                                <a href="CategoryProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                                <a href="../SearchListProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
                             </li>
                             </li>
                             <li id="skateboard-woman"  class="category-product category-product-woman">
-                                <a href="CategoryProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
+                                <a href="../SearchListProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
                             </li>
                             <li id="trainers-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?categoryOnNav=Trainers Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                                <a href="../SearchListProduct?categoryOnNav=Trainers Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
                             </li>
                             </li>
                         </ul>
@@ -216,14 +216,14 @@
 
                     <div class="item-nav-detail-info" id="item-category-brand">
                         <div class="contain-brand" >
-                            <img onclick="location.href='SearchListProduct?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
-                            <img onclick="location.href='SearchListProduct?brand=ADIDAS'" src="image/brand/logo-brand-02.svg">
-                            <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
-                            <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
-                            <img onclick="location.href='CategoryProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-05.svg">
-                            <img onclick="location.href='CategoryProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-06.svg">
-                            <img onclick="location.href='CategoryProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-07.jpg">
-                            <img onclick="location.href='CategoryProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-08.svg">
+                            <img onclick="location.href='../SearchListProduct?brand=ASICS&pagination=1'" src="../image/brand/logo-brand-01.svg">
+                            <img onclick="location.href='../SearchListProduct?brand=ADIDAS'" src="../image/brand/logo-brand-02.svg">
+                            <img onclick="location.href='../SearchListProduct?category=VANS&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-03.jpg">
+                            <img onclick="location.href='../SearchListProduct?category=NIKE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-04.svg">
+                            <img onclick="location.href='../SearchListProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-05.svg">
+                            <img onclick="location.href='../SearchListProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-06.svg">
+                            <img onclick="location.href='../SearchListProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-07.jpg">
+                            <img onclick="location.href='../SearchListProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-08.svg">
                         </div>
                     </div>
 
