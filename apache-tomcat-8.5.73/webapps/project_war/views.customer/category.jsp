@@ -207,7 +207,7 @@
 
             <div class="navbar-collapse" style="background-color: #0f6cb2;">
                 <ul class="main-navigation">
-                    <li><a href="index.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
+                    <li><a href="/project_war/views.customer/blog.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                     <li style="position: relative">
                         <a href="SearchListProduct?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
                             NAM

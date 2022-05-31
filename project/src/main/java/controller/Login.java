@@ -17,17 +17,26 @@ public  Login(){
 }
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     try {
-        String user = request.getParameter("email");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
 
         UserDao dao = UserDao.getInstance();
-        User use = new User(user,password);
-        System.out.println(use.getPassword());
+        User use = new User(email,password);
 
-        boolean validationFlag = dao.login(use);
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(validationFlag + "");
+
+        boolean validationFlag = dao.checkEmail(use);
+        if (!validationFlag) {
+            response.getWriter().write("wrong email");
+            return;
+        }
+        validationFlag = dao.checkPassword(use);
+        if (!validationFlag) {
+            response.getWriter().write("wrong password");
+            return;
+        }
+        response.getWriter().write("true");
     } catch (Exception e) {
 
         e.printStackTrace();

@@ -30,7 +30,12 @@ public class UserDao {
        map.put("02",new User("19130035@mail.com","12345"));
        return map;
     }
-    public static boolean login(User user){
-        return map.get("01").getEmail().equals(user.getEmail()) || map.get("01").getPassword().equals(user.getPassword());
+
+    public static boolean checkEmail(User user){
+        return map.get("01").getEmail().equals(user.getEmail());
+    }
+    public static boolean checkPassword(User user) {
+        return map.get("01").getPassword().equals(user.getPassword());
+
     }
 }

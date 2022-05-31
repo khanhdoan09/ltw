@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    .validation {
+        color: red;
+    }
+</style>
 <footer style="margin: 10px 0;">
     <div class="container">
         <hr>
@@ -67,8 +72,8 @@
                             <h5>Đăng kí để nhận thư</h5>
                             <div class="input-group">
                                 <input type="text" class=" form-control" placeholder="email@website.com">
-                                <button type="submit" value="Sign up"
-                                        class="btn btn-large btn-primary">Đăng kí</button>
+                                <a type="submit" value="Sign up"
+                                        class="btn btn-large btn-primary">Đăng kí</a>
                             </div>
                         </form>
                     </div>
@@ -120,14 +125,20 @@
                 <img src="../image/icon_gg.png" alt="Google" class="icon-login-another">
                 <img src="../image/icon_apple.png" alt="Apple" class="icon-login-another">
             </div>
-<form action="/Login">
+<form id="form-login" action="/Login" method="post">
             <div class="modal-input-section">
-                <input type="email" name="email" placeholder="Địa chỉ email..." class="email">
-                <input type="password" name="password" placeholder="Nhập mật khẩu..." class="email password">
+                <div>
+                    <input type="email" name="email" placeholder="Địa chỉ email..." class="email" id="email-login">
+                    <p class="validation" id="validation-email"></p>
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Nhập mật khẩu..." class="email password" id="password-login">
+                    <p class="validation" id="validation-password"></p>
+                </div>
                 <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
             </div>
 
-            <div class="modal-bnt-login">
+            <div class="modal-bnt-login" id="submit-login">
                 <button type="submit" class="bnt-login">Đăng Nhập</button>
             </div>
 </form>
@@ -225,4 +236,31 @@
         </div>
     </div>
 </div>
+<script>
+    $("#submit-login").click(function(e){
+        e.preventDefault()
+        let emailValue = $("#email-login").val()
+        let passwordValue = $("#password-login").val()
+        $.ajax(
+            {url: `/project_war/Login`,
+                type: 'POST',
+                data:{
+                    "email":emailValue,
+                    "password": passwordValue
+                },
+                success: function(result){
+                    if (result == "wrong email") {
+                        $("#validation-email").text("email validation")
+                    }
+                    else if (result == "wrong password") {
+                        $("#validation-password").text("password validation")
+                    }
+                    else {
+                        window.location.href = "index.jsp"
+                    }
+                }
+            }
+        );
+    });
+</script>
 <!-- End: modal message -->
