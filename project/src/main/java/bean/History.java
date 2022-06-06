@@ -1,6 +1,9 @@
-package model.customer;
+package bean;
 
-public class History {
+import java.io.Serializable;
+
+public class History implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String customerId;
     private String orderId;
     private String productName;

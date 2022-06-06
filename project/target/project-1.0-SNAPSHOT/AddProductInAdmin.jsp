@@ -1,4 +1,4 @@
-<%@ page import="model.Product" %>
+<%@ page import="bean.Product" %>
 <%@ page import="model.Image" %>
 <%@ page import="java.io.File" %>
 <%@ page import="controller.admin.UploadFile" %>

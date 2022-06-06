@@ -1,7 +1,8 @@
 <%@ page import="model.User" %>
-<%@ page import="model.customer.History" %>
+<%@ page import="bean.History" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +26,7 @@
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="javascript/jstree.min.js" type="text/javascript"></script>
-    <script src="javascript/template.js" type="text/javascript"></script>
+<%--    <script src="javascript/template.js" type="text/javascript"></script>--%>
     <script src="javascript/common.js" type="text/javascript"></script>
     <script src="javascript/global.js" type="text/javascript"></script>
     <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
@@ -34,14 +35,9 @@
     <link rel="stylesheet" href="css/dat-css.css">
     <link rel="stylesheet" href="css/khanh-css.css">
     <link rel="stylesheet" href="css/hung-css.css">
-    <script src="javascript/khanh-js.js"></script>
-    <script src="javascript/khanh-js.js" type="text/javascript"></script>
-    <script src="data/location/city.js" type="text/javascript"></script>
-    <script src="data/location/district.js" type="text/javascript"></script>
-    <script src="data/location/ward.js" type="text/javascript"></script>
-    <script src="javascript/khanh-js.js" type="text/javascript"></script>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body class="checkout col-2 left-col">
@@ -738,6 +734,62 @@
         );
     })
 </script>
+<script src="javascript/city.js" type="text/javascript"></script>
+<script src="javascript/district.js" type="text/javascript"></script>
+<script src="javascript/ward.js" type="text/javascript"></script>
+
+<script>
+    loadCity()
+    loadDistrict(89)
+    loadWard(883)
+    $('#contain-option-city').on('change', function () {
+        let cityCode = $(this).val();
+        alert(cityCode)
+        loadDistrict(cityCode);
+        let codeFirstDistrict = "";
+        for (let i = 0; i < districts.length; i++) {
+            if (districts[i].parent_code == cityCode) {
+                codeFirstDistrict = districts[i].code;
+                break;
+            }
+        }
+        loadWard(codeFirstDistrict);
+    });
+    $('#contain-option-district').on('change', function (e) {
+        let districtCode = $(this).val();
+        loadWard(districtCode);
+    });
+
+        function loadCity() {
+                let city = "";
+                cities.forEach((element) => {
+                    city += "<option value=\"" + element.code + "\"" + "class=\"city\">" + element.name + "</option>\n";
+                });
+                $("#contain-option-city").append(city);
+        }
+    function loadDistrict(districtCode) {
+            districtArr = districts.filter((value) => value.parent_code == districtCode);
+            let district = "";
+            districtArr.forEach((element) => {
+                district += "<option value=\"" + element.code + "\"" + "class=\"district\">" + element.name + "</option>\n";
+            });
+            $("#contain-option-district").text("");
+            $("#contain-option-district").append(district)
+    }
+    function loadWard(wardCode) {
+            let wardArr = wards.filter((value) => value.parent_code == wardCode);
+            let ward = "";
+            wardArr.forEach((element) => {
+                ward += "<option value=\"" + element.code + "\"" + "class=\"ward\">" + element.name + "</option>\n";
+            });
+            $("#contain-option-ward").text("");
+            $("#contain-option-ward").append(ward);
+    }
+</script>
+<%--<script src="data/location/city.js" type="text/javascript"></script>--%>
+<%--<script src="data/location/district.js" type="text/javascript"></script>--%>
+<%--<script src="data/location/ward.js" type="text/javascript"></script>--%>
+<script src="javascript/khanh-js.js" type="text/javascript"></script>
 </body>
 
 </html>

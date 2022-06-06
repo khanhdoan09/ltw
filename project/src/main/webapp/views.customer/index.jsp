@@ -1,6 +1,8 @@
 <%@ page import="model.DaoProduct" %>
-<%@ page import="model.Product" %>
+<%@ page import="bean.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 
 <head>
@@ -69,6 +71,7 @@
     })
 </script><div class="container general-contain" style="margin-bottom: 20px; padding: 0;">
     <div class="mainbanner">
+        <c:out value = "${'<tag> , &'}"/>
         <div id="main-banner" class="owl-carousel home-slider" style="margin: 0; padding: 0;">
             <div class="item">
                 <a href="#"><img src="../image/banners/Main-Banner1.jpg" alt="main-banner1"

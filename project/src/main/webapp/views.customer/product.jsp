@@ -1,5 +1,5 @@
 <%@ page import="model.DaoProduct" %>
-<%@ page import="model.Product" %>
+<%@ page import="bean.Product" %>
 <%@ page import="model.DaoLinkImage" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>

@@ -1,4 +1,4 @@
-<%@ page import="model.Product" %>
+<%@ page import="bean.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="model.Admin.DaoProductAdmin" %><%--

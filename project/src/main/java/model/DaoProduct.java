@@ -1,5 +1,6 @@
 package model;
 
+import bean.Product;
 import databaseConnection.DatabaseConnection;
 
 import java.sql.*;
