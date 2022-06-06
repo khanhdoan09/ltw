@@ -1,7 +1,7 @@
 package model.customer;
 
+import bean.History;
 import databaseConnection.DatabaseConnection;
-import model.Product;
 import model.User;
 
 import java.security.MessageDigest;

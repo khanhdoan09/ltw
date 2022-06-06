@@ -1,4 +1,4 @@
- [
+let city=[
     {
         "name": "An Giang",
         "slug": "an-giang",
@@ -441,3 +441,8 @@
         "code": "06"
     }
 ]
+
+$(function() {
+    alert(123)
+    console.log( "ready!" );
+});

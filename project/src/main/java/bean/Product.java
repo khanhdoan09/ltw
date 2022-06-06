@@ -1,10 +1,16 @@
-package model;
+package bean;
 
 import model.Admin.DaoProductAdmin;
+import model.DaoProduct;
+import model.Image;
+import model.ImgProduct;
+import model.ProductDetail;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Product {
+public class Product implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String id;
     private String brand;
     private String name;

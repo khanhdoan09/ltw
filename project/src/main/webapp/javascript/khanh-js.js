@@ -447,12 +447,12 @@ $(function () {
                 break;
             }
         }
-        loadWard(codeFirstDistrict);
+        // loadWard(codeFirstDistrict);
     });
 
     $('#contain-option-district').on('change', function (e) {
         let districtCode = $(this).val();
-        loadWard(districtCode);
+        // loadWard(districtCode);
     });
 });
 
@@ -461,52 +461,52 @@ function loadDefaultLocation() {
     // loadDistrict(89,);
     // loadWard(883);
 }
-
-function loadCity() {
-    let location = new XMLHttpRequest();
-    location.open("GET", "data/location/city.js");
-    location.send();
-    location.onload = function () {
-        let cities = JSON.parse(location.responseText);
-        let city = "";
-        cities.forEach((element) => {
-            city += "<option value=\"" + element.code + "\"" + "class=\"city\">" + element.name + "</option>\n";
-        });
-        $("#contain-option-city").append(city);
-    }
-}
-
-function loadDistrict(districtCode) {
-    let location = new XMLHttpRequest();
-    location.open("GET", "data/location/district.js");
-    location.send();
-    location.onload = function () {
-        let data = JSON.parse(location.responseText);
-        districtArr = data.filter((value) => value.parent_code == districtCode);
-        let district = "";
-        districtArr.forEach((element) => {
-            district += "<option value=\"" + element.code + "\"" + "class=\"district\">" + element.name + "</option>\n";
-        });
-        $("#contain-option-district").text("");
-        $("#contain-option-district").append(district)
-    }
-}
-
-function loadWard(wardCode) {
-    let location = new XMLHttpRequest();
-    location.open("GET", "data/location/ward.js");
-    location.send();
-    location.onload = function () {
-        let data = JSON.parse(location.responseText);
-        let wardArr = data.filter((value) => value.parent_code == wardCode);
-        let ward = "";
-        wardArr.forEach((element) => {
-            ward += "<option value=\"" + element.code + "\"" + "class=\"ward\">" + element.name + "</option>\n";
-        });
-        $("#contain-option-ward").text("");
-        $("#contain-option-ward").append(ward);
-    }
-}
+//
+// function loadCity() {
+//     let location = new XMLHttpRequest();
+//     location.open("GET", "data/location/city.js");
+//     location.send();
+//     location.onload = function () {
+//         let cities = JSON.parse(location.responseText);
+//         let city = "";
+//         cities.forEach((element) => {
+//             city += "<option value=\"" + element.code + "\"" + "class=\"city\">" + element.name + "</option>\n";
+//         });
+//         $("#contain-option-city").append(city);
+//     }
+// }
+//
+// function loadDistrict(districtCode) {
+//     let location = new XMLHttpRequest();
+//     location.open("GET", "data/location/district.js");
+//     location.send();
+//     location.onload = function () {
+//         let data = JSON.parse(location.responseText);
+//         districtArr = data.filter((value) => value.parent_code == districtCode);
+//         let district = "";
+//         districtArr.forEach((element) => {
+//             district += "<option value=\"" + element.code + "\"" + "class=\"district\">" + element.name + "</option>\n";
+//         });
+//         $("#contain-option-district").text("");
+//         $("#contain-option-district").append(district)
+//     }
+// }
+//
+// function loadWard(wardCode) {
+//     let location = new XMLHttpRequest();
+//     location.open("GET", "data/location/ward.js");
+//     location.send();
+//     location.onload = function () {
+//         let data = JSON.parse(location.responseText);
+//         let wardArr = data.filter((value) => value.parent_code == wardCode);
+//         let ward = "";
+//         wardArr.forEach((element) => {
+//             ward += "<option value=\"" + element.code + "\"" + "class=\"ward\">" + element.name + "</option>\n";
+//         });
+//         $("#contain-option-ward").text("");
+//         $("#contain-option-ward").append(ward);
+//     }
+// }
 
 $(function() {
     $("#button-filter").click(()=>{

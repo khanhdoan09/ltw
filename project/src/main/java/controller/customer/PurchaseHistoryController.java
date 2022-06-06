@@ -1,10 +1,8 @@
 package controller.customer;
 
 import com.google.gson.Gson;
-import model.Product;
-import model.User;
 import model.customer.DaoCustomer;
-import model.customer.History;
+import bean.History;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
