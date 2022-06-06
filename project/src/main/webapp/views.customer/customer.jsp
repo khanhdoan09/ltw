@@ -253,32 +253,24 @@
                             <p style="cursor: pointer; color: rgb(57, 57, 207);" class="adjust-address-customer">
                                 Chỉnh sửa</p>
                         </div>
-                        <div class="available-address">
-                            <p style="color: black;margin: 10px 0;"><span style="color: rgb(70, 67, 67);">Địa chỉ :
-                                    </span> a199t, tổ 1a, khu phố bình nhâm, bình nhâm 20, Phường Bình Nhâm, Thị xã
-                                Thuận An, Bình Dương</p>
-                            <p style="color: black;margin: 10px 0;"><span style="color: rgb(73, 72, 72);">Điện thoại
-                                        :</span> 0123456789</p>
 
-
-                        </div>
 
                         <form class="contain-form-adjust-address">
                             <div class="contain-adjust-address">
                                 <span class="label-address">Tỉnh/ Thành phố:</span>
                                 <select id="contain-option-city" class="input-address">
-                                    <!-- khanh-js loadLocation() display this -->
+                                    <!-- loadLocation() display this -->
                                 </select>
                                 <span class="label-address">Quận/ Huyện:</span>
                                 <select id="contain-option-district" class="input-address">
-                                    <!-- khanh-js loadLocation() display this -->
+                                    <!--  loadLocation() display this -->
                                 </select>
                                 <span class="label-address">Phường/ Xã:</span>
                                 <select id="contain-option-ward" class="input-address">
-                                    <!-- khanh-js loadLocation() display this -->
+                                    <!-- loadLocation() display this -->
                                 </select>
                                 <span class="label-address">Địa chỉ</span>
-                                <textarea rows="4" cols="50" style="border-radius: 10px;"></textarea>
+                                <textarea id="contain-option-description" rows="4" cols="50" style="border-radius: 10px;"></textarea>
                             </div>
                             <div class="contain-default-address-customer" style="margin: 10px 0">
                                 <input type="checkbox" id="default-address-customer">
@@ -739,6 +731,21 @@
 <script src="javascript/ward.js" type="text/javascript"></script>
 
 <script>
+    function renderCity(id) {
+        let city = cities.find(element => element.code == id)
+        return city.name
+    }
+    function renderDistrict(id) {
+        let district = districts.find(element => element.code == id)
+        return district.name
+    }
+    function renderWard(id) {
+        let ward = wards.find(element => element.code == id)
+        return ward.name
+    }
+
+</script>
+<script>
     loadCity()
     loadDistrict(89)
     loadWard(883)
@@ -753,7 +760,7 @@
                 break;
             }
         }
-        loadWard(codeFirstDistrict);
+        $("#contain-option-ward").text("");
     });
     $('#contain-option-district').on('change', function (e) {
         let districtCode = $(this).val();
@@ -786,9 +793,69 @@
             $("#contain-option-ward").append(ward);
     }
 </script>
-<%--<script src="data/location/city.js" type="text/javascript"></script>--%>
-<%--<script src="data/location/district.js" type="text/javascript"></script>--%>
-<%--<script src="data/location/ward.js" type="text/javascript"></script>--%>
+<script>
+    $("#submit-adjust-address-customer").click((e)=>{
+        e.preventDefault()
+        let cityValue = $("#contain-option-city").val()
+        let districtValue = $("#contain-option-district").val()
+        let wardValue = $("#contain-option-ward").val()
+        let descriptionValue = $("#contain-option-description").val()
+
+        $.ajax(
+            {url: `/project_war/adress`,
+                type: 'POST',
+                data:{
+                    "city": cityValue,
+                    "district": districtValue,
+                    "ward": wardValue,
+                    "description": descriptionValue
+                },
+                success: function(result){
+                    if (result == true) {
+                        alert("ok")
+                    }
+                    else {
+                        alert(false)
+                    }
+                }
+            }
+        );
+    })
+</script>
+<script>
+    $("#nav-map-customer").click((e)=>{
+        e.preventDefault()
+        $("#nav-bank-customer").removeClass("customer-category-after-click");
+        $("#nav-map-customer").removeClass("customer-category-after-click");
+        $("#nav-password-customer").removeClass("customer-category-after-click");
+        $("#nav-favorite-customer").removeClass("customer-category-after-click");
+        $("#nav-history-customer").removeClass("customer-category-after-click");
+        $("#bank-customer").css("display", "none");
+        $("#map-customer").css("display", "none");
+        $("#password-customer").css("display", "none");
+        $("#history-customer").css("display", "none");
+        $("#favorite-customer").css("display", "none")
+        $.ajax(
+            {
+                url: `/project_war/getAddress`,
+                type: 'POST',
+                success: function (result) {
+                    let arrAddress = JSON.parse(result)
+                    console.log(arrAddress)
+                    let re = ""
+                    for(var k in arrAddress) {
+                        re += ` <div class="available-address">
+                            <p style="color: black;margin: 10px 0;"><span style="color: rgb(70, 67, 67);">Địa chỉ :
+                                    </span>`+ renderCity(arrAddress[k].city)+` / `+ renderDistrict(arrAddress[k].district)+` / `+renderWard(arrAddress[k].ward)+ ` / `+ arrAddress[k].description + `</p>
+
+                        </div>`
+                    }
+                    $(".contain-available-address").append(re)
+                }
+            }
+        );
+    })
+</script>
 <script src="javascript/khanh-js.js" type="text/javascript"></script>
 </body>
 
