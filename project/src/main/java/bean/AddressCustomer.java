@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class AddressCustomer implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    private String id;
     private String city;
     private String district;
     private String ward;
     private String description;
 
-    public AddressCustomer(String city, String district, String ward, String description) {
+    public AddressCustomer(String id, String city, String district, String ward, String description) {
+        this.id = id;
         this.city = city;
         this.district = district;
         this.ward = ward;

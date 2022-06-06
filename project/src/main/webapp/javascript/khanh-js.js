@@ -387,19 +387,19 @@ function accessInfoCustomer() {
     //
     // });
 
-    $(".adjust-address-customer").click(() => {
-        $(".contain-form-adjust-address").css("display", "block");
-        $(".default-address").css("display", "none");
-        $(".available-address").css("display", "none");
-        $("#submit-adjust-address-customer").val("Chỉnh sửa");
-    });
+    // $(".adjust-address-customer").click(() => {
+    //     $(".contain-form-adjust-address").css("display", "block");
+    //     $(".default-address").css("display", "none");
+    //     $(".available-address").css("display", "none");
+    //     $("#submit-adjust-address-customer").val("Chỉnh sửa");
+    // });
 
-    $(".contain-add-map").click(() => {
-        $(".contain-form-adjust-address").css("display", "block");
-        $(".available-address").css("display", "none");
-        $("#submit-adjust-address-customer").val("Thêm");
-        $(".default-address").css("display", "none");
-    });
+    // $(".contain-add-map").click(() => {
+    //     $(".contain-form-adjust-address").css("display", "block");
+    //     $(".available-address").css("display", "none");
+    //     $("#submit-adjust-address-customer").val("Thêm");
+    //     $(".default-address").css("display", "none");
+    // });
 
     $("#submit-adjust-address-customer").click(() => {
         $(".contain-form-adjust-address").css("display", "none");

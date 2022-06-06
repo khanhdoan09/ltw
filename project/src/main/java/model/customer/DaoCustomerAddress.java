@@ -67,6 +67,7 @@ public class DaoCustomerAddress {
 
     public  List<AddressCustomer> getAddress(String customerId) {
         List<AddressCustomer> re = new ArrayList<AddressCustomer>();
+        String id="";
         String city="";
         String district="";
         String ward="";
@@ -77,11 +78,12 @@ public class DaoCustomerAddress {
             s.setString(1, customerId);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
+                id = rs.getString("idAddress");
                 city = rs.getString("idCity");
                 district = rs.getString("idDistrict");
                 ward = rs.getString("idWard");
                 description = rs.getString("description");
-                AddressCustomer adderssCustomer = new AddressCustomer(city, district, ward, description);
+                AddressCustomer adderssCustomer = new AddressCustomer(id, city, district, ward, description);
                 re.add(adderssCustomer);
             }
         } catch (SQLException e) {
@@ -89,4 +91,37 @@ public class DaoCustomerAddress {
         }
         return re;
     }
+    public boolean deleteAddress(String idAddress) {
+        PreparedStatement s = null;
+        String sql = "DELETE FROM address WHERE idAddress=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, idAddress);
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean editAddress(String idAddress, String idCity, String idDistrict, String idWard, String description) {
+        PreparedStatement s = null;
+        String sql = "UPDATE address SET idCity=?, idDistrict=?, idWard=?, description=? WHERE idAddress=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, idCity);
+            s.setString(2, idDistrict);
+            s.setString(3, idWard);
+            s.setString(4, description);
+            s.setString(5, idAddress);
+            System.out.println(s.toString());
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println(s.toString());
+            return false;
+        }    }
+
 }

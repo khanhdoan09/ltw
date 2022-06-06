@@ -919,19 +919,29 @@ header {
 .available-address {
     background-color: #f5f5f5;
     margin: 10px 0;
-
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.delete-address, .edit-address {
+    cursor: pointer;
+    color: red;
+    margin-top: 5px;
+}
+.edit-address {
+    color: #212179;
 }
 .contain-form-adjust-address {
     display: none;
 }
 
-#submit-adjust-address-customer {
+.btn-adderss-customer {
     color: rgb(74, 74, 74);
     background-color: rgb(253, 216, 53);
     padding: 10px;
     border-radius: 10px;
 }
-#submit-adjust-address-customer:hover {
+.btn-address-customer:hover {
     background-color: #f5f570;
 
 }

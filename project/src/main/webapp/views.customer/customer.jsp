@@ -84,7 +84,7 @@
         <div class="col-sm-9 bg-item bd-rd mg-t" id="contain-info-customer">
             <div id="accordion" class="panel-group bg-item bd-rd">
                 <!-- lam o day -->
-                <form action="changeCustomerInfoController" id="info-customer">
+                <form action="changeCustomerInfoController"  class="screen-custoner" id="info-customer">
                     <h1 class="hoso">Hồ Sơ Của Tôi</h1>
                     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
@@ -243,17 +243,12 @@
                     <button type="submit" class="save">Lưu</button>
                 </form>
 
-                <div id="map-customer">
+                <div id="map-customer" class="screen-custoner">
                     <button class="contain-add-map">
                         <i class="fas fa-plus"></i>
                         <span class="add-address">Thêm địa chỉ mới</span>
                     </button>
                     <div class="contain-available-address">
-                        <div class="option-address">
-                            <p style="cursor: pointer; color: rgb(57, 57, 207);" class="adjust-address-customer">
-                                Chỉnh sửa</p>
-                        </div>
-
 
                         <form class="contain-form-adjust-address">
                             <div class="contain-adjust-address">
@@ -277,7 +272,8 @@
                                 <label for="default-address-customer" style="font-size: 17px">Đặt làm địa chỉ mặc
                                     định</label><br>
                             </div>
-                            <input type="button" id="submit-adjust-address-customer" value="Chỉnh sửa">
+                            <input type="button" id="submit-add-address-customer" class="btn-address-customer" value="Thêm">
+                            <input type="button" id="submit-adjust-address-customer" class="btn-address-customer" value="Chỉnh sửa">
                             <input type="button" id="delete-adjust-address-customer" value="Xóa">
 
                         </form>
@@ -285,7 +281,7 @@
 
                     </div>
                 </div>
-                <form id="password-customer" action="newCustomerPassword">
+                <form id="password-customer" action="newCustomerPassword" class="screen-custoner">
                     <div>
                         <label for="username">Mật Khẩu Hiện Tại:</label>
                         <input id="oldPassword" required type="password" name="oldPassword" style="width: 25%;">
@@ -307,7 +303,7 @@
                     </button>
                     <%--                    <input type="submit" value="Lưu Thay Đổi" style="background-color: #108bea; color: white;">--%>
                 </form>
-                <div id="favorite-customer">
+                <div id="favorite-customer"  class="screen-custoner">
                     <div class="product-layout product-grid border-fav"
                          style="background-color: white; padding: 10px 0">
                         <div class="product-thumb">
@@ -572,7 +568,7 @@
                 <%--                <%List<History> purchaseHistory = (List<History>) request.getAttribute("purchaseHistory");--%>
                 <%--                if(purchaseHistory != null) {%>--%>
 
-                <div id="history-customer">
+                <div id="history-customer"  class="screen-custoner">
                     <div class=contain-history>
                         <table id="table-history">
                             <thead>
@@ -675,20 +671,10 @@
     }
 </script>
 <script>
-
-
     $("#nav-history-customer").click((e) => {
         e.preventDefault()
-        $("#nav-bank-customer").removeClass("customer-category-after-click");
-        $("#nav-map-customer").removeClass("customer-category-after-click");
-        $("#nav-password-customer").removeClass("customer-category-after-click");
-        $("#nav-favorite-customer").removeClass("customer-category-after-click");
-        $("#nav-history-customer").removeClass("customer-category-after-click");
-        $("#bank-customer").css("display", "none");
-        $("#map-customer").css("display", "none");
-        $("#password-customer").css("display", "none");
-        $("#history-customer").css("display", "none");
-        $("#favorite-customer").css("display", "none")
+       $(".screen-custoner").css("display", "none")
+        $("#history-customer").css("display", "block")
         $.ajax(
             {
                 url: `/project_war/purchaseHistory`,
@@ -703,7 +689,7 @@
                             <p>`+arrHistory[k].productName+`</p>
                                                         </td>
                                                         <td>
-                                                            <img src="image/product/`+arrHistory[k].avatar+`" alt="">
+                                                            <img  alt="">
                                                         </td>
                                                         <td>
                                                             <p>`+arrHistory[k].productQuantity+`</p>
@@ -794,33 +780,44 @@
     }
 </script>
 <script>
-    $("#submit-adjust-address-customer").click((e)=>{
-        e.preventDefault()
-        let cityValue = $("#contain-option-city").val()
-        let districtValue = $("#contain-option-district").val()
-        let wardValue = $("#contain-option-ward").val()
-        let descriptionValue = $("#contain-option-description").val()
+    $(".contain-add-map").click(() => {
+        $(".contain-form-adjust-address").css("display", "block");
+        $(".available-address").css("display", "none");
+        $(".default-address").css("display", "none");
+        $("#submit-add-address-customer").css("display", "block");
+        $("#submit-adjust-address-customer").css("display", "none");
+        $("#submit-none-address-customer").css("display", "block");
 
-        $.ajax(
-            {url: `/project_war/adress`,
-                type: 'POST',
-                data:{
-                    "city": cityValue,
-                    "district": districtValue,
-                    "ward": wardValue,
-                    "description": descriptionValue
-                },
-                success: function(result){
-                    if (result == true) {
-                        alert("ok")
-                    }
-                    else {
-                        alert(false)
+
+        $("#submit-add-address-customer").click((e)=>{
+            e.preventDefault()
+            let cityValue = $("#contain-option-city").val()
+            let districtValue = $("#contain-option-district").val()
+            let wardValue = $("#contain-option-ward").val()
+            let descriptionValue = $("#contain-option-description").val()
+
+            $.ajax(
+                {url: `/project_war/adress`,
+                    type: 'POST',
+                    data:{
+                        "city": cityValue,
+                        "district": districtValue,
+                        "ward": wardValue,
+                        "description": descriptionValue
+                    },
+                    success: function(result){
+                        if (result == "true") {
+                            alert("ok")
+                        }
+                        else {
+                            alert(false)
+                        }
                     }
                 }
-            }
-        );
-    })
+            );
+        })
+    });
+
 </script>
 <script>
     $("#nav-map-customer").click((e)=>{
@@ -843,18 +840,98 @@
                     let arrAddress = JSON.parse(result)
                     console.log(arrAddress)
                     let re = ""
-                    for(var k in arrAddress) {
-                        re += ` <div class="available-address">
-                            <p style="color: black;margin: 10px 0;"><span style="color: rgb(70, 67, 67);">Địa chỉ :
-                                    </span>`+ renderCity(arrAddress[k].city)+` / `+ renderDistrict(arrAddress[k].district)+` / `+renderWard(arrAddress[k].ward)+ ` / `+ arrAddress[k].description + `</p>
 
+                    for(var k in arrAddress) {
+                        let cityName = renderCity(arrAddress[k].city)
+                        let districtName = renderDistrict(arrAddress[k].district)
+                        let wardName = renderWard(arrAddress[k].ward)
+                        let descriptionName = arrAddress[k].description
+                        re += ` <div class="available-address">
+                            <p style="color: black;margin: 10px 0;" id="address-detail-+`+arrAddress[k].id+`"><span style="color: rgb(70, 67, 67);">Địa chỉ :
+                                    </span>`+ cityName+` / `+ districtName +` / `+ wardName + ` / `+ descriptionName + `</p>
+                            <div>
+                                <i class="fa-solid fa-pen-to-square edit-address" data-city="`+arrAddress[k].city+`" data-district="`+arrAddress[k].district+`" data-ward="`+arrAddress[k].ward+`" data-description="`+descriptionName+`" data-address="`+arrAddress[k].id+`" data-detail="`+arrAddress[k].id+`"></i>
+                                <i class="fa-solid fa-trash-can delete-address" data-address="`+arrAddress[k].id+`" ></i>
+                            </div>
                         </div>`
                     }
                     $(".contain-available-address").append(re)
+                    $(".edit-address").each(function(){
+                        $(this).click(()=>{
+                            alert($(this).data("city"))
+                                $(".contain-form-adjust-address").css("display", "block");
+                                $(".default-address").css("display", "none");
+                                $(".available-address").css("display", "none");
+                                $("#submit-adjust-address-customer").css("display", "block")
+                                $("#submit-add-address-customer").css("display", "none")
+                            $("#contain-option-city").val($(this).data("city")).change()
+                            $("#contain-option-district").val($(this).data("district")).change()
+                            $("#contain-option-ward").val($(this).data("ward")).change()
+                            $("#contain-option-description").val($(this).data("description"))
+
+                            $("#submit-adjust-address-customer").click(()=>{
+                                let idAddress = $(this).data("address")
+                                let cityValue = $("#contain-option-city").val()
+                                let districtValue = $("#contain-option-district").val()
+                                let wardValue = $("#contain-option-ward").val()
+                                let descriptionValue = $("#contain-option-desciption").val()
+                                alert(idAddress)
+                                $.ajax(
+                                    {url: `/project_war/editAddress`,
+                                        type: 'POST',
+                                        data:{
+                                            "idAddress":idAddress,
+                                            "idCity": cityValue,
+                                            "idDistrict": disctrictValue,
+                                            "idWard": wardValue,
+                                            "description": descriptionValue
+                                        },
+                                        success: function(result){
+                                            if (result == true) {
+                                                let detail = $(this).data("detail")
+                                                $("address-detail-"+detail).text(cityValue+` / `+ districtValue +` / `+ wardValue + ` / `+ descriptionValue)
+                                                alert("ok")
+                                            }
+                                            else {
+                                                alert(false)
+                                            }
+                                        }
+                                    }
+                                );
+                            })
+                        })
+                    })
+                    $(".delete-address").each(function (){
+                        $(this).click(()=>{
+                            console.log(arrAddress[k].id)
+                            $.ajax(
+                                {url: `/project_war/deleteAddress`,
+                                    type: 'POST',
+                                    data:{
+                                        "idAddress": $(this).data("address")
+                                    },
+                                    success: function(result){
+                                        if (result == "true") {
+                                            $(this).remove()
+                                            alert("ok")
+                                        }
+                                        else {
+                                            alert("false")
+                                        }
+                                    }
+                                }
+                            );
+
+                        })
+                    })
                 }
             }
         );
     })
+
+</script>
+<script>
+
 </script>
 <script src="javascript/khanh-js.js" type="text/javascript"></script>
 </body>
