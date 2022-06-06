@@ -1,46 +1,53 @@
+<%@ page import="model.User" %>
+<%@ page import="model.customer.History" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Customer | Dragon Sport</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="e-commerce site well design with responsive view." />
+    <meta name="description" content="e-commerce site well design with responsive view."/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
-          type="text/css" />
+          type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link href="../css/stylesheet.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="../font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
-    <link href="../owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-    <link href="../owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-    <script src="../javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../javascript/jstree.min.js" type="text/javascript"></script>
-    <script src="../javascript/template.js" type="text/javascript"></script>
-    <script src="../javascript/common.js" type="text/javascript"></script>
-    <script src="../javascript/global.js" type="text/javascript"></script>
-    <script src="../owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="../image/logo.png" />
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
+    <link rel="stylesheet" href="css/dat-css.css">
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen"/>
+    <!-- <script src="javascript/Dat-js.js" type="text/javascript"></script> -->
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="javascript/jstree.min.js" type="text/javascript"></script>
+    <script src="javascript/template.js" type="text/javascript"></script>
+    <script src="javascript/common.js" type="text/javascript"></script>
+    <script src="javascript/global.js" type="text/javascript"></script>
+    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="image/logo.png"/>
 
-    <link rel="stylesheet" href="../css/dat-css.css">
-    <link rel="stylesheet" href="../css/khanh-css.css">
-    <link rel="stylesheet" href="../css/hung-css.css">
-    <script src="../javascript/khanh-js.js" type="text/javascript"></script>
-    <script src="../data/location/city.js" type="text/javascript"></script>
-    <script src="../data/location/district.js" type="text/javascript"></script>
-    <script src="../data/location/ward.js" type="text/javascript"></script>
-    <script src="../javascript/khanh-js.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/dat-css.css">
+    <link rel="stylesheet" href="css/khanh-css.css">
+    <link rel="stylesheet" href="css/hung-css.css">
+    <script src="javascript/khanh-js.js"></script>
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
+    <script src="data/location/city.js" type="text/javascript"></script>
+    <script src="data/location/district.js" type="text/javascript"></script>
+    <script src="data/location/ward.js" type="text/javascript"></script>
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
 
 
 </head>
 
 <body class="checkout col-2 left-col">
 
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
+<%User customer = (User) request.getAttribute("customer"); %>
 <div class="container">
 
     <div class="row">
@@ -48,8 +55,9 @@
         <div class="col-sm-3 mg-t">
             <div class="contain-nav-customer bg-item bd-rd">
                 <div class="contain-name-img-customer">
-                    <img class="img-customer" src="../image/1.jpg">
-                    <p class="name-customer">hungphan0501</p>
+                    <img class="img-customer" src="image/1.jpg">
+                    <p class="name-customer"><%=customer.getName()%>
+                    </p>
 
                     <a class="" style="margin: 35px 0 0 -135px;cursor: pointer;"><i class="fas fa-pen"></i> Sửa Hồ
                         Sơ</a>
@@ -80,26 +88,39 @@
         <div class="col-sm-9 bg-item bd-rd mg-t" id="contain-info-customer">
             <div id="accordion" class="panel-group bg-item bd-rd">
                 <!-- lam o day -->
-                <div id="info-customer">
+                <form action="changeCustomerInfoController" id="info-customer">
                     <h1 class="hoso">Hồ Sơ Của Tôi</h1>
                     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
                     <div class="info col-half-sub">
-                        <p class="name-login col-half-info">Tên Đăng Nhập</p>
-                        <p id="id-customer " class=" id-customer name col-half-picture">hungphan0501</p>
                         <p class="Ten col-half-info">Tên</p>
-                        <input type="text" class="col-half-picture">
+                        <input name="name" type="text" class="col-half-picture" required
+                               value="<%=customer.getName()%>">
                         <p class="email col-half-info">Email</p>
-                        <input type="text" class="col-half-picture">
+                        <input name="email" type="text" class="col-half-picture" value="<%=customer.getEmail()%>">
                         <p class="phone col-half-info">Số Điện Thoại</p>
-                        <input type="text" class="col-half-picture">
-                        <p class="name-shop col-half-info">Tên Shop</p>
-                        <input type="text" class="col-half-picture">
-                        <p class="sex col-half-info">Giới Tính</p>
+                        <input name="phone" type="text" class="col-half-picture" value="<%=customer.getPhone()%>">
+
                         <ul id="sex" class="col-half-picture">
-                            <li class="men"><input type="radio" name="gioitinh" value="Nam" checked /> Nam</li>
-                            <li class="woman"><input type="radio" name="gioitinh" value="Nữ" checked /> Nữ</li>
-                            <li class="more"><input type="radio" name="gioitinh" value="Khác" checked /> Khác</li>
+                            <%!String gender;%>
+                            <%gender = customer.getGender();%>
+                            <%!
+                                public String genderChecked(String curGender) {
+                                    if (gender.equalsIgnoreCase(curGender)) {
+                                        return "checked";
+                                    }
+                                    return "";
+                                }
+                            %>
+                            <li class="men"><input type="radio" name="gender" value="man" <%=genderChecked("man")%> />
+                                Nam
+                            </li>
+                            <li class="woman"><input type="radio" name="gender"
+                                                     value="woman"<%=genderChecked("woman")%> /> Nữ
+                            </li>
+                            <li class="more"><input type="radio" name="gender" value="null" <%=genderChecked("null")%>/>
+                                Khác
+                            </li>
                         </ul>
                         <p class="birthday col-half-info">Ngày Sinh</p>
                         <ul id="birthday" class="col-half-picture">
@@ -212,11 +233,10 @@
                                 </select>
                             </li>
                         </ul>
-                        <button class="save">Lưu</button>
                     </div>
                     <div class="picture col-half">
                         <div id="picture">
-                            <img src="../image/1.jpg" alt="">
+                            <img src="image/1.jpg" alt="">
                         </div>
                         <button class="select-picture">Chọn Ảnh</button>
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;">Dụng lượng file tối đa
@@ -224,7 +244,8 @@
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;"> Định dạng:.JPEG, .PNG
                         </p>
                     </div>
-                </div>
+                    <button type="submit" class="save">Lưu</button>
+                </form>
 
                 <div id="map-customer">
                     <button class="contain-add-map">
@@ -276,25 +297,28 @@
 
                     </div>
                 </div>
-                <div id="password-customer">
+                <form id="password-customer" action="newCustomerPassword">
                     <div>
                         <label for="username">Mật Khẩu Hiện Tại:</label>
-                        <input type="password" id="username" name="username" z style="width: 25%;">
+                        <input id="oldPassword" required type="password" name="oldPassword" style="width: 25%;">
+                        <p class="validation" id="validation-oldPassword"></p>
                     </div>
-
                     <div>
                         <label for="pass">Mật Khẩu Mới:</label>
-                        <input type="password" id="pass" name="password" minlength="8" required style="width: 25%;">
+                        <input id="newPassword" type="password" name="newPassword" required style="width: 25%;">
+                        <p class="validation" id="validation-newPassword"></p>
                     </div>
-
                     <div>
                         <label for="pass">Nhập Lại Mật Khẩu Mới:</label>
-                        <input type="password" id="pass" name="password" minlength="8" required style="width: 25%;">
+                        <input id="confirmNewPassword" type="password" name="confirmNewPassword" required
+                               style="width: 25%;">
+                        <p class="validation" id="validation-confirmPassword"></p>
                     </div>
-
-                    <input type="submit" value="Lưu Thay Đổi" style="background-color: #108bea; color: white;">
-
-                </div>
+                    <button id="submitChangeNewPassword" type="submit" style="background-color: #108bea; color: white;">
+                        Lưu Thay Đổi
+                    </button>
+                    <%--                    <input type="submit" value="Lưu Thay Đổi" style="background-color: #108bea; color: white;">--%>
+                </form>
                 <div id="favorite-customer">
                     <div class="product-layout product-grid border-fav"
                          style="background-color: white; padding: 10px 0">
@@ -305,8 +329,8 @@
                                         <h5 style='margin-top: 10px'> -20%</h5>
                                     </div>
                                     <img id="imgCategory" height="250px" width="250px"
-                                         src="../image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list" />
+                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
+                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
                                 </a>
 
                             </div>
@@ -334,7 +358,7 @@
                                         class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                         class="fa fa-star-o fa-stack-2x"></i></span> <span
                                         class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
+                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
 
                             <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
@@ -356,8 +380,8 @@
                                         <h5 style='margin-top: 10px'> -20%</h5>
                                     </div>
                                     <img id="imgCategory" height="250px" width="250px"
-                                         src="../image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list" />
+                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
+                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
                                 </a>
 
                             </div>
@@ -385,59 +409,7 @@
                                         class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                         class="fa fa-star-o fa-stack-2x"></i></span> <span
                                         class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-                            </div>
-
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="../image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list" />
-                                </a>
-
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
+                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
 
                             <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
@@ -460,8 +432,8 @@
                                         <h5 style='margin-top: 10px'> -20%</h5>
                                     </div>
                                     <img id="imgCategory" height="250px" width="250px"
-                                         src="../image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list" />
+                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
+                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
                                 </a>
 
                             </div>
@@ -489,7 +461,7 @@
                                         class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                         class="fa fa-star-o fa-stack-2x"></i></span> <span
                                         class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
+                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
 
                             <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
@@ -512,8 +484,8 @@
                                         <h5 style='margin-top: 10px'> -20%</h5>
                                     </div>
                                     <img id="imgCategory" height="250px" width="250px"
-                                         src="../image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list" />
+                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
+                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
                                 </a>
 
                             </div>
@@ -541,7 +513,7 @@
                                         class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                         class="fa fa-star-o fa-stack-2x"></i></span> <span
                                         class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
+                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
 
                             <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
@@ -555,89 +527,104 @@
 
                     </div>
 
+                    <div class="product-layout product-grid border-fav"
+                         style="background-color: white; padding: 10px 0">
+                        <div class="product-thumb">
+                            <div class="image product-imageblock">
+                                <a href="product.html">
+                                    <div class="related-product-sale">
+                                        <h5 style='margin-top: 10px'> -20%</h5>
+                                    </div>
+                                    <img id="imgCategory" height="250px" width="250px"
+                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
+                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
+                                </a>
+
+                            </div>
+                            <div class="caption product-detail intro-product-detail-list">
+                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
+                                <h4 class="product-name">
+                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
+                                       style='text-transform: capitalize'>
+                                        Nike air force 1</a>
+                                </h4>
+                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
+                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
+                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
+                                    Cover
+                                    Flow. Browse through your music collection by flipping..</p>
+                                <p id="priceCategory" class="price product-price produce-price-list">
+                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
+                                    1.500.00 VND
+                                </p>
+                                <div class="rating"> <span class="fa fa-stack"><i
+                                        class="fa fa-star fa-stack-2x"></i><i
+                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
+                            </div>
+
+                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
+                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
+                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
+                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
 
                 </div>
+                <%--                <%List<History> purchaseHistory = (List<History>) request.getAttribute("purchaseHistory");--%>
+                <%--                if(purchaseHistory != null) {%>--%>
+
                 <div id="history-customer">
                     <div class=contain-history>
-                        <table>
+                        <table id="table-history">
                             <thead>
-                            <th>Id order</th>
                             <th>Name product</th>
                             <th>Image</th>
-                            <th>Count</th>
-                            <th>Trạng thái</th>
+                            <th>Quantity</th>
+                            <th>Size</th>
+                            <th>Create at</th>
                             <th>Total cost</th>
 
                             </thead>
-                            <tr>
-                                <td>
-                                    <p><a href="#">357Y</a></p>
-                                </td>
-                                <td>
-                                    <p>Nike Air Force 1</p>
-                                </td>
-                                <td>
-                                    <img src="../image/product/product-01.jpg" alt="">
-                                </td>
-                                <td>
-                                    <p>1</p>
-                                </td>
-                                <td>
-                                    <p>Đã giao</p>
-                                </td>
-                                <td>
-                                    <p>100.00</p>
-                                </td>
+                            <%--                            <%--%>
+                            <%--                                for (History history : purchaseHistory){%>--%>
+                            <%--                                      <tr>--%>
+                            <%--                                <td>--%>
+                            <%--                                    <p><%=history.getProductName()%></p>--%>
+                            <%--                                </td>--%>
+                            <%--                                <td>--%>
+                            <%--                                    <img src="image/product/<%=history.getAvatar()%>" alt="">--%>
+                            <%--                                </td>--%>
+                            <%--                                <td>--%>
+                            <%--                                    <p><%=history.getProductQuantity()%></p>--%>
+                            <%--                                </td>--%>
+                            <%--                                          <td>--%>
+                            <%--                                              <p><%=history.getProductSize()%></p>--%>
+                            <%--                                          </td>--%>
+                            <%--                                          <td>--%>
+                            <%--                                              <p><%=history.getCreateAt()%></p>--%>
+                            <%--                                          </td>--%>
+                            <%--                                <td>--%>
+                            <%--                                    <p><%=history.getProductPrice() * history.getProductSize()%></p>--%>
+                            <%--                                </td>--%>
 
-                            </tr>
+                            <%--                            </tr>--%>
+                            <%--                               <%}%>--%>
 
-                            <tr>
-                                <td>
-                                    <p><a href="#">1235X</a></p>
-                                </td>
-                                <td>
-                                    <p>Nike Air Max Dawn</p>
-                                </td>
-                                <td>
-                                    <img src="../image/product/product-02.jpg" alt="">
-                                </td>
-                                <td>
-                                    <p>1</p>
-                                </td>
-                                <td>
-                                    <p>Đã giao</p>
-                                </td>
-                                <td>
-                                    <p>100.00</p>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <p><a href="#">4568Z</a></p>
-                                </td>
-                                <td>
-                                    <p>Under Armour white</p>
-                                </td>
-                                <td>
-                                    <img src="../image/product/product-06.jpg" alt="">
-                                </td>
-                                <td>
-                                    <p>1</p>
-                                </td>
-                                <td>
-                                    <p>Đã giao</p>
-                                </td>
-                                <td>
-                                    <p>100.00</p>
-                                </td>
-
-                            </tr>
                         </table>
                     </div>
                 </div>
+                <%--                <%}%>--%>
             </div>
         </div>
 
@@ -646,8 +633,111 @@
 
 </div>
 
-<%@include file="footer_login_message.jsp"%>
-<script src="../javascript/hung-js.js"></script>
+<%@include file="footer_login_message.jsp" %>
+<script src="javascript/hung-js.js"></script>
+<script>
+    $("#submitChangeNewPassword").click((e) => {
+        e.preventDefault()
+        let oldPassword = $("#oldPassword").val()
+        let newPassword = $("#newPassword").val()
+        if (!checkValidation()) {
+            return
+        }
+        $.ajax(
+            {
+                url: `/project_war/newCustomerPassword`,
+                type: 'POST',
+                data: {
+                    "oldPassword": oldPassword,
+                    "newPassword": newPassword
+                },
+                success: function (result) {
+                    if (result == "wrong") {
+                        $("#validation-oldPassword").text("wrong password")
+                    } else if (result == "fail") {
+                        $("#validation-newPassword").text("fail to change")
+                    } else {
+                        $("#validation-newPassword").text("success to change")
+                    }
+                }
+            }
+        );
+    })
+
+    function checkValidation() {
+        let oldPassword = $("#oldPassword").val()
+        let newPassword = $("#newPassword").val()
+        let confirmNewPassword = $("#confirmNewPassword").val()
+        if (newPassword != confirmNewPassword) {
+            $("#validation-confirmPassword").text("not correct")
+            return false
+        }
+        if (newPassword.length < 8) {
+            $("#validation-newPassword").text("password is too short")
+        }
+        if (newPassword.length > 16) {
+            $("#validation-newPassword").text("password is too long")
+            return false
+        }
+        if (newPassword.length < 8) {
+            $("#validation-newPassword").text("password is too short")
+            return false
+        }
+        return true
+    }
+</script>
+<script>
+
+
+    $("#nav-history-customer").click((e) => {
+        e.preventDefault()
+        $("#nav-bank-customer").removeClass("customer-category-after-click");
+        $("#nav-map-customer").removeClass("customer-category-after-click");
+        $("#nav-password-customer").removeClass("customer-category-after-click");
+        $("#nav-favorite-customer").removeClass("customer-category-after-click");
+        $("#nav-history-customer").removeClass("customer-category-after-click");
+        $("#bank-customer").css("display", "none");
+        $("#map-customer").css("display", "none");
+        $("#password-customer").css("display", "none");
+        $("#history-customer").css("display", "none");
+        $("#favorite-customer").css("display", "none")
+        $.ajax(
+            {
+                url: `/project_war/purchaseHistory`,
+                type: 'POST',
+                success: function (result) {
+                    let arrHistory = JSON.parse(result)
+                    let re = ""
+                    console.log(arrHistory)
+                    for(var k in arrHistory) {
+                        re += `<tr>
+                        <td>
+                            <p>`+arrHistory[k].productName+`</p>
+                                                        </td>
+                                                        <td>
+                                                            <img src="image/product/`+arrHistory[k].avatar+`" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <p>`+arrHistory[k].productQuantity+`</p>
+                                                        </td>
+                                                                  <td>
+                                                                      <p>`+arrHistory[k].productSize+`</p>
+                                                                  </td>
+                                                                  <td>
+                                                                      <p>`+arrHistory[k].createAt+`</p>
+                                                                  </td>
+                                                        <td>
+                                                            <p>`+arrHistory[k].productPrice*arrHistory[k].productQuantity+`</p>
+                                                        </td>
+                                        </tr>`
+                    }
+
+                    $("#table-history").append(re)
+                }
+            }
+        );
+    })
+</script>
 </body>
 
 </html>

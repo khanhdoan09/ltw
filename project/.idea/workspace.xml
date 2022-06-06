@@ -11,15 +11,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/customer/ChangeCustomerInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/customer/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/customer/NewCustomerPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/customer/PurchaseHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/customer/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/footer_login_message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/footer_login_message.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/footer_login_message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/footer_login_message.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/footer_login_message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/footer_login_message.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +43,9 @@
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Kotlin Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,7 +86,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -101,6 +113,7 @@
       <recent name="C:\Users\khanh\Desktop\HK2-2021\LTW\project\ltw\ltw\project\src\main\webapp\css" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
       <recent name="controller.admin" />
     </key>
   </component>
@@ -575,6 +588,18 @@
       <workItem from="1653634287367" duration="10741000" />
       <workItem from="1654003743438" duration="2292000" />
       <workItem from="1654007135624" duration="3785000" />
+      <workItem from="1654053958347" duration="220000" />
+      <workItem from="1654054270350" duration="64000" />
+      <workItem from="1654307317854" duration="344000" />
+      <workItem from="1654332015796" duration="5344000" />
+      <workItem from="1654346419083" duration="8613000" />
+      <workItem from="1654387873353" duration="5160000" />
+      <workItem from="1654396476453" duration="3269000" />
+      <workItem from="1654427283378" duration="414000" />
+      <workItem from="1654476069644" duration="256000" />
+      <workItem from="1654477394980" duration="235000" />
+      <workItem from="1654477700254" duration="4521000" />
+      <workItem from="1654482942691" duration="22000" />
     </task>
     <servers />
   </component>

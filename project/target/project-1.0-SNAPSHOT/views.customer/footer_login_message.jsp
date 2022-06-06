@@ -9,6 +9,7 @@
 <style>
     .validation {
         color: red;
+        text-transform: capitalize;
     }
 </style>
 <footer style="margin: 10px 0;">
@@ -241,6 +242,8 @@
         e.preventDefault()
         let emailValue = $("#email-login").val()
         let passwordValue = $("#password-login").val()
+        $("#validation-email").text("")
+        $("#validation-password").text("")
         $.ajax(
             {url: `/project_war/Login`,
                 type: 'POST',

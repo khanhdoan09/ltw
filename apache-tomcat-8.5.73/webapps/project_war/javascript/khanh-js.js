@@ -379,12 +379,13 @@ function accessInfoCustomer() {
         removeDefaultNavContentCategory()
     });
 
-    $("#nav-history-customer").click(() => {
-        resetAllSectionCustomer();
-        $("#history-customer").css("display", "block");
-        $("#nav-history-customer").addClass("customer-category-after-click");
-        $("#info-customer").css("display", "none");
-    });
+    // $("#nav-history-customer").click(() => {
+    //     resetAllSectionCustomer();
+    //     $("#history-customer").css("display", "block");
+    //     $("#nav-history-customer").addClass("customer-category-after-click");
+    //     $("#info-customer").css("display", "none");
+    //
+    // });
 
     $(".adjust-address-customer").click(() => {
         $(".contain-form-adjust-address").css("display", "block");
@@ -456,9 +457,9 @@ $(function () {
 });
 
 function loadDefaultLocation() {
-    loadCity();
-    loadDistrict(89,);
-    loadWard(883);
+    // loadCity();
+    // loadDistrict(89,);
+    // loadWard(883);
 }
 
 function loadCity() {
