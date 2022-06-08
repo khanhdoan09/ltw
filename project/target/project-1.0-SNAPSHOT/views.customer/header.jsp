@@ -158,7 +158,7 @@
                 <ul class="main-navigation">
                     <li><a href="index.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                     <li style="position: relative">
-                        <a href="SearchListProduct?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
+                        <a href="caterogyGender?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
                             NAM
                             <i class="fas fa-caret-down"></i>
                         </a>
@@ -183,7 +183,7 @@
 
                     </li>
                     <li style="position: relative"
-                    ><a href="SearchListProduct?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
+                    ><a href="caterogyGender?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
 
                         <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                             <li id="running-woman"  class="category-product category-product-woman">

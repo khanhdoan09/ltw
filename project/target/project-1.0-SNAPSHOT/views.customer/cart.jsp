@@ -4,7 +4,7 @@
 
 <%@ page import="model.Cart" %>
 <%@ page import="model.DaoProduct" %>
-<%@ page import="bean.Product" %>
+<%@ page import="beans.Product" %>
 <%@ page import="model.DaoLinkImage" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>

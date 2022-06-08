@@ -1,4 +1,4 @@
-package bean;
+package beans;
 
 import model.Admin.DaoProductAdmin;
 import model.DaoProduct;

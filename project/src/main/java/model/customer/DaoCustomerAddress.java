@@ -1,11 +1,8 @@
 package model.customer;
 
 import databaseConnection.DatabaseConnection;
-import model.User;
-import bean.AddressCustomer;
+import beans.AddressCustomer;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

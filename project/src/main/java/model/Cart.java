@@ -1,6 +1,6 @@
 package model;
 
-import bean.Product;
+import beans.Product;
 
 import java.util.Collection;
 import java.util.HashMap;

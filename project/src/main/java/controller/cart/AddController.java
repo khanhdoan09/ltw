@@ -2,7 +2,7 @@ package controller.cart;
 
 import model.Cart;
 import model.DaoProduct;
-import bean.Product;
+import beans.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

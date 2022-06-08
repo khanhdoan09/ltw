@@ -2,7 +2,7 @@ package model.Admin;
 
 import databaseConnection.DatabaseConnection;
 import model.Image;
-import bean.Product;
+import beans.Product;
 import model.ProductDetail;
 
 import javax.servlet.http.HttpServletRequest;

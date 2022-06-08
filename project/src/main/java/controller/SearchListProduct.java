@@ -1,7 +1,7 @@
 package controller;
 
 import model.DaoProduct;
-import bean.Product;
+import beans.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -67,7 +67,6 @@ public class SearchListProduct extends HttpServlet {
 
         ArrayList<String> list = new ArrayList<String>();
         // nav filter
-
         String[] searchInHeader = request.getParameterValues("input-search-header");
         String sql = "";
         String sqlAllCount = "SELECT COUNT(product.id) FROM product ";
@@ -78,7 +77,6 @@ public class SearchListProduct extends HttpServlet {
             }
             else
                 request.setAttribute("categoryGender", "Woman");
-
         }
         else if (categoriesByOnNav != null) {
             listFilter = new ArrayList<Product>();
