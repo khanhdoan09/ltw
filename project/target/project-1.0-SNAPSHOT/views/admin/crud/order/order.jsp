@@ -1,4 +1,4 @@
-<%@ page import="bean.Product" %>
+<%@ page import="beans.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="model.Admin.DaoProductAdmin" %>
@@ -35,61 +35,15 @@
             display: none;
         }
     </style>
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
+
 
 </head>
 
 <body>
 <div id="ebazar-layout" class="theme-blue">
 
-    <div class="sidebar px-4 py-4 py-md-4 me-0">
-        <div class="d-flex flex-column h-100">
-            <a href="admin/index.html" class="mb-0 brand-icon">
-
-                <span class="logo-text">Dragon Sport</span>
-            </a>
-            <!-- Menu: main ul -->
-            <ul class="menu-list flex-grow-1 mt-3">
-                <li><a class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
-                <li class="collapsed">
-                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/Route?page=order">
-                        <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Hóa đơn</span> </a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="menu-product">
-
-                        <li><a class="ms-link" href="product-edit.html">Chỉnh sửa sản phẩm</a></li>
-                        <li><a class="ms-link" href="product-add.html">Thêm sản phẩm</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="collapsed">
-                    <a class="m-link" href="<%=request.getContextPath()%>/Route?page=listProduct">
-                        <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
-
-
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" href="<%=request.getContextPath()%>/Route?page=customer">
-                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
-
-                </li>
-
-                <li class="collapsed">
-                    <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
-                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>
-
-                </li>
-
-
-
-
-            </ul>
-            <!-- Menu: menu collepce btn -->
-            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
-                <span class="ms-2"><i class="fas fa-dot-circle"></i></span>
-            </button>
-        </div>
-    </div>
+    <%@include file="../header.jsp" %>
 
 
     <!-- main body area -->
@@ -145,7 +99,7 @@
                                         <th>Price</th>
                                         <th>Date</th>
                                         <th>Status</th>
-                                        <th>Hành động</th>
+                                        <th>Chọn</th>
                                     </tr>
                                     </thead>
 
@@ -164,10 +118,7 @@
                                         <td>
                                             <div class="d-grid">
                                                 <a class="view-order-detail" href="<%=request.getContextPath()%>/Route?page=orderDetail&idOrder=<%=order.getId()%>">
-                                                        <i class="fas fa-edit"></i>
-                                                </a>
-                                                <a >
-                                                    <i class="fas fa-trash-alt"></i>
+                                                    <i class="fa-solid fa-eye"></i>
                                                 </a>
                                             </div>
                                         </td>

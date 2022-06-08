@@ -11,127 +11,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/category/CaterogyGenderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/javascript/customer/address.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/javascript/customer/changePassword.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/javascript/customer/history.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/banner.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/bean/AddressCustomer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/bean/Banner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/bean/History.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/bean/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/ListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/ListProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/SearchListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/SearchListProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/AddImgProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/AddImgProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/ListProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/ListProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/SaveAddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/SaveAddProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/SaveEditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/admin/SaveEditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/cart/AddController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/cart/AddController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/cart/DelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/cart/DelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/cart/UpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/cart/UpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/customer/GetAddressController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/customer/GetAddressController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/customer/PurchaseHistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/controller/customer/PurchaseHistoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/Admin/DaoProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/Admin/DaoProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/Cart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/DaoBanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/DaoBanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/customer/DaoCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/customer/DaoCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/customer/DaoCustomerAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/model/customer/DaoCustomerAddress.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/css/khanh-css.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/admin/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/admin/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/filter/SecurityFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/order-invoices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/order-invoices.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/AddressCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/AddressCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Banner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Banner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ListProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ListProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProductDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SearchListProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SearchListProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/AddImgProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/AddImgProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/EditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/EditProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/ListProductAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/ListProductAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/SaveAddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/SaveAddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/SaveEditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/SaveEditProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/cart/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/cart/AddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/cart/DelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/cart/DelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/cart/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/cart/UpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/customer/GetAddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/customer/GetAddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/customer/PurchaseHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/customer/PurchaseHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Admin/DaoProductAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Admin/DaoProductAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DaoBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DaoBanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DaoProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomerAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomerAddress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filter/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filter/SecurityFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/AddressCustomer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/Banner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/History.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ListProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/SearchListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/SearchListProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/AddImgProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/AddImgProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/ListProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/ListProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/SaveAddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/SaveAddProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/SaveEditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/SaveEditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/cart/AddController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/cart/AddController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/cart/DelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/cart/DelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/cart/UpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/cart/UpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/customer/GetAddressController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/customer/GetAddressController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/customer/PurchaseHistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/customer/PurchaseHistoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Admin/DaoProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Admin/DaoProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Cart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DaoBanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DaoBanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomerAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomerAddress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/order-invoices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/order-invoices.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/filter/SecurityFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/bean/AddressCustomer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/bean/Banner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/bean/History.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/bean/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ListProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/SearchListProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/SearchListProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/AddImgProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/AddImgProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/ListProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/ListProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/SaveAddProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/SaveAddProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/SaveEditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/SaveEditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/cart/AddController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/cart/AddController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/cart/DelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/cart/DelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/cart/UpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/cart/UpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/customer/GetAddressController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/customer/GetAddressController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/customer/PurchaseHistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/customer/PurchaseHistoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Admin/DaoProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Admin/DaoProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Cart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoBanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoBanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomerAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomerAddress.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/filter/SecurityFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/order-invoices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/order-invoices.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +102,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/javascript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -200,11 +115,11 @@
       <recent name="controller.admin.authentication.api" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\css" />
+      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\image\admin" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\javascript" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\WEB-INF" />
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views.customer" />
-      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp" />
-      <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\views\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\HK2-2021\LTW\project\last\project\src\main\webapp\javascript\customer" />
@@ -714,6 +629,8 @@
       <workItem from="1654669192432" duration="1228000" />
       <workItem from="1654670479948" duration="850000" />
       <workItem from="1654671404170" duration="1842000" />
+      <workItem from="1654687705509" duration="49000" />
+      <workItem from="1654695288571" duration="6696000" />
     </task>
     <servers />
   </component>

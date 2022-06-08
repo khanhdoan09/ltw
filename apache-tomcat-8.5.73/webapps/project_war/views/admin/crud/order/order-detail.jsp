@@ -1,4 +1,4 @@
-<%@ page import="bean.Product" %>
+<%@ page import="beans.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="model.Admin.DaoProductAdmin" %>
@@ -31,6 +31,7 @@
 
     <!-- project css file  -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css">
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
 
     <script src="javascript/khanh-js.js"></script>
 
@@ -49,53 +50,7 @@
 <body>
 <div id="ebazar-layout" class="theme-blue">
 
-    <div class="sidebar px-4 py-4 py-md-4 me-0">
-        <div class="d-flex flex-column h-100">
-            <a href="admin/index.html" class="mb-0 brand-icon">
-
-                <span class="logo-text">Dragon Sport</span>
-            </a>
-            <!-- Menu: main ul -->
-            <ul class="menu-list flex-grow-1 mt-3">
-                <li><a class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="#">
-                        <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Sản phẩm</span> </a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="menu-product">
-
-                        <li><a class="ms-link" href="product-edit.html">Chỉnh sửa sản phẩm</a></li>
-                        <li><a class="ms-link" href="product-add.html">Thêm sản phẩm</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="collapsed">
-                    <a class="m-link active" href="admin/order-invoices.html">
-                        <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
-
-
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" href="admin/customers.html">
-                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
-
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" href="admin/customers.html">
-                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>
-
-                </li>
-
-
-
-            </ul>
-            <!-- Menu: menu collepce btn -->
-            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
-                <span class="ms-2"><i class="fas fa-dot-circle"></i></span>
-            </button>
-        </div>
-    </div>
+    <%@include file="../header.jsp" %>
 
 
     <!-- main body area -->

@@ -19,8 +19,6 @@ public class SecurityFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         String loginURI = request.getContextPath() + "/views/admin/authentication/signIn/signIn.jsp";
 
-
-
         String path = request.getRequestURI().substring(request.getContextPath().length());
         if(!path.contains("views/admin/crud") && !path.contains("Route")){
             boolean isLogin = request.getSession(true).getAttribute("user") != null ? true : false;

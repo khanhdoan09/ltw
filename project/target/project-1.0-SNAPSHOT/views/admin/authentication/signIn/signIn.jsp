@@ -43,7 +43,7 @@
                             </div>
                             <!-- Image block -->
                             <div class="">
-                                <img src="img.png" alt="login-img">
+                                <img src="<%=request.getContextPath()%>/image/admin/img.png" alt="login-img">
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                     <a class="btn btn-lg btn-light btn-block" href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/project_war_exploded/SignIn&response_type=code
     &client_id=856852490504-qhoe9aat1865vaujhem7ge55lardi2t9.apps.googleusercontent.com&approval_prompt=force">
                                             <span class="d-flex justify-content-center align-items-center">
-                                                <img class="avatar xs me-2" src="img_1.png" alt="Image Description">
+                                                <img class="avatar xs me-2" src="<%=request.getContextPath()%>/image/admin/img_1.png" alt="Image Description">
                                                 Sign in with Google
                                             </span>
                                     </a>

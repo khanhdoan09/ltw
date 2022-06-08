@@ -601,10 +601,13 @@ $(function() {
                                         <td>${e.value}</td>
                                         <td>-${e.saleRate}</td>
                                         <td>
+                                        <div class="d-grid">
                                             <a class="edit-remove-admin remove-admin"
                                             data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
                                                <a class="edit-remove-admin edit-admin" href="EditProduct.jsp">
                                             <i class="fas fa-edit"></i></a>
+</div>
+                                       
                                         </td>
                                     </tr>`
                 })
@@ -682,9 +685,11 @@ $(function() {
                                         <td>${e.value}</td>
                                         <td>-${e.saleRate}</td>
                                         <td>
-                                            <a class="edit-remove-admin remove-admin"
+                                        <div class="d-grid">
+                                                                                    <a class="edit-remove-admin remove-admin"
                                             data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>
                                             <a class="edit-remove-admin edit-admin" href="EditProduct?id=${e.id}>"><i class="fas fa-edit"></i></a>
+</div>
                                         </td>
                                     </tr>`
                         })

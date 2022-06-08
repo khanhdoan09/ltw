@@ -37,55 +37,7 @@
 <div id="ebazar-layout" class="theme-blue">
 
     <!-- sidebar -->
-    <div class="sidebar px-4 py-4 py-md-4 me-0">
-        <div class="d-flex flex-column h-100">
-            <a href="index.html" class="mb-0 brand-icon">
-                    <span class="logo-icon">
-                        <i class="bi bi-bag-check-fill fs-4"></i>
-                    </span>
-                <span class="logo-text">Dragon Sport</span>
-            </a>
-            <!-- Menu: main ul -->
-            <ul class="menu-list flex-grow-1 mt-3">
-                <li><a class="m-link" href="index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Dashboard</span></a></li>
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/Route?page=order">
-                        <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Products</span> </a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="menu-product">
-
-                        <li><a class="ms-link" href="product-edit.html">Product Edit</a></li>
-                        <li><a class="ms-link" href="product-add.html">Product Add</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="collapsed">
-                    <a class="m-link"  href="<%=request.getContextPath()%>/Route?page=listProduct">
-                        <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Orders</span> </a>
-
-
-                </li>
-                <li class="collapsed">
-                    <a class="m-link active"  href="<%=request.getContextPath()%>/Route?page=customer">
-                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Customers</span> </a>
-
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
-                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>
-
-                </li>
-
-
-
-            </ul>
-            <!-- Menu: menu collepce btn -->
-            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
-                <span class="ms-2"><i class="fas fa-dot-circle"></i></span>
-            </button>
-        </div>
-    </div>
+    <%@include file="../header.jsp" %>
 
 
     <!-- main body area -->
@@ -101,9 +53,6 @@
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
                             <h3 class="fw-bold mb-0">Customers Information</h3>
-                            <div class="col-auto d-flex w-sm-100">
-                                <button type="button" class="btn btn-primary btn-set-task w-sm-100" data-bs-toggle="modal" data-bs-target="#expadd"><i class="icofont-plus-circle me-2 fs-6"></i>Add Customers</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,10 +137,6 @@
         <div class="modal fade" id="expadd" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title  fw-bold" id="expaddLabel">Add Customers</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
                     <div class="modal-body">
                         <div class="deadline-form">
                             <form>

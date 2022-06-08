@@ -1,4 +1,4 @@
-<%@ page import="bean.Product" %>
+<%@ page import="beans.Product" %>
 <%@ page import="model.Image" %>
 <%@ page import="java.io.File" %>
 <%@ page import="controller.admin.UploadFile" %>
@@ -48,6 +48,27 @@
         #brands {
             display: none;
         }
+        .remove-img-detail {
+            width: 27%;
+            margin: 5px 0;
+            background-color: #dedee4;
+        }
+        .fileNewImg {
+            background-color: #62637a;
+            color:white;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        .remove-color {
+            background-color: #62637a;
+            color:white;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 15px;
+            margin: 5px 0;
+        }
     </style>
 
 </head>
@@ -57,49 +78,7 @@
 <div id="ebazar-layout" class="theme-blue">
 
     <!-- sidebar -->
-    <div class="sidebar px-4 py-4 py-md-4 me-0">
-        <div class="d-flex flex-column h-100">
-            <a href="index.html" class="mb-0 brand-icon">
-
-                <span class="logo-text">Dragon Sport 123</span>
-            </a>
-            <!-- Menu: main ul -->
-            <ul class="menu-list flex-grow-1 mt-3">
-                <li><a class="m-link" href="index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
-                <li class="collapsed">
-                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#menu-product" href="#">
-                        <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Sản phẩm</span> </a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="menu-product">
-
-                        <li><a class="ms-link active" href="product-edit.html">Chỉnh sửa sản phẩm</a></li>
-                        <li><a class="ms-link" href="product-add.html">Thêm sản phẩm</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="collapsed">
-                    <a class="m-link"  href="order-invoices.html">
-                        <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
-
-
-                </li>
-                <li class="collapsed">
-                    <a class="m-link"  href="customers.html">
-                        <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
-
-                </li>
-
-
-
-
-            </ul>
-            <!-- Menu: menu collepce btn -->
-            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
-                <span class="ms-2"><i class="fas fa-dot-circle"></i></span>
-            </button>
-        </div>
-    </div>
+    <%@include file="../header.jsp" %>
 
 
     <!-- main body area -->
@@ -136,7 +115,7 @@
                                     <div class="row g-3 align-items-center">
                                         <div class="col-md-12">
                                             <label class="form-label">Id sản phẩm</label>
-                                            <input name="id" value="<%=product.getId()%>" placeholder="<%=product.getId()%>"/>
+                                            <input name="id" value="<%=product.getId()%>" placeholder="<%=product.getId()%>" readonly/>
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label">Giá sản phẩm</label>
@@ -155,7 +134,7 @@
                             </div>
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                    <h6 class="m-0 fw-bold">Màu</h6>
+                                    <h5 class="m-0 fw-bold">Màu</h5>
                                 </div>
                                 <div class="card-body">
                                     <table style="width: 100%;" class="add-new-detail">
@@ -209,7 +188,7 @@
 
                                     </table>
 
-                                    <h3>Thêm mới</h3>
+                                    <h5 class="m-0 fw-bold" style="margin: 10px ">Thêm size</h5>
                                     <table style="width: 100%;" class="table-add-detail">
                                         <thead>
                                         <th>color</th>
@@ -285,7 +264,7 @@
 <%--                            </div>--%>
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                    <h6 class="m-0 fw-bold">Ngày công bố</h6>
+                                    <h5 class="m-0 fw-bold">Ngày công bố</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="row g-3 align-items-center">
@@ -383,12 +362,12 @@
                                                         <input id="input-img-<%=i%>" class="imgLoad" data-img="img-<%=i%>" type="file" name="fileImg" />
                                                         <button class="remove-img-detail" data-nameimg="<%=nameImg%>">Xóa</button>
                                                         <div class="d-flex align-items-center my-2">
-                                                            <input  style="width: 35px; height:35px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage_<%=j%>" value="<%=nameImg+"@"+color%>"
+                                                            <input  style="width: 30px; height:30px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage_<%=j%>" value="<%=nameImg+"@"+color%>"
                                                                 <% if(product.getListImg().get(i).getLelvel()==0){%>
                                                                    checked
                                                                 <%}%>
                                                             />
-                                                            <label style="cursor: pointer" for="mainImage_<%=i%>"><h5>Main Image</h5></label>
+                                                            <label style="cursor: pointer" for="mainImage_<%=i%>"><h6>Main Image</h6></label>
                                                         </div>
                                                     </div>
                                                     <%}%>
@@ -968,13 +947,13 @@
         let j = $("#"+idInput).data('j')
         let i = new Date().getTime()
         alert(idInput+" "+$("#"+idInput).data('color'))
-        let newImg = `<div class="d-grid" style="border: 1px solid black; margin-right: 5px">
+        let newImg = `<div class="d-flex justify-content-around" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
                         <input type="file" id="input-img-`+id+`" class="imgLoad" data-img="img-`+id+`" name="fileNewImg_`+color+`" />
                         <button class="remove-img-detail">Xóa</button>
 <div class="d-flex align-items-center my-2">
-                                                            <input style="width: 35px; height:35px" type="radio" id="mainImage_`+i+`" name="chooseMainImage_`+j+`">
-                                                            <label style="cursor: pointer" for="mainImage_`+i+`"><h5>Main Image</h5></label>
+                                                            <input style="width: 30px; height:30px" type="radio" id="mainImage_`+i+`" name="chooseMainImage_`+j+`">
+                                                            <label style="cursor: pointer" for="mainImage_`+i+`"><h6>Main Image</h6></label>
                                                         </div>
                         </div>
 
