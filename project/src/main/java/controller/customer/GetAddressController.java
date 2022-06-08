@@ -1,6 +1,6 @@
 package controller.customer;
 
-import bean.AddressCustomer;
+import beans.AddressCustomer;
 import com.google.gson.Gson;
 import model.customer.DaoCustomerAddress;
 

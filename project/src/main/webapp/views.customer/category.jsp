@@ -16,8 +16,8 @@
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="model.*" %>
 <%@ page import="model.Admin.DaoProductAdmin" %>
-<%@ page import="bean.Product" %>
-<%@ page import="bean.Banner" %>
+<%@ page import="beans.Product" %>
+
 
 
 <html lang="en">
@@ -41,7 +41,6 @@
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="javascript/jstree.min.js" type="text/javascript"></script>
-    <script src="javascript/template.js" type="text/javascript"></script>
     <script src="javascript/common.js" type="text/javascript"></script>
     <script src="javascript/global.js" type="text/javascript"></script>
     <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
@@ -210,7 +209,7 @@
                 <ul class="main-navigation">
                     <li><a href="/project_war/views.customer/blog.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                     <li style="position: relative">
-                        <a href="SearchListProduct?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
+                        <a href="caterogyGender?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
                             NAM
                             <i class="fas fa-caret-down"></i>
                         </a>
@@ -742,69 +741,10 @@
                             </option>
                             <%}%>
                         </select> <span> of <%if (list != null)%><%=lengthPagination%></span>
+                        <%}%>
                     </ul>
                 </div>
             </div>
-            <%
-            } else {
-                Object objGender = request.getAttribute("categoryGender");
-                String categoryGender = objGender.toString();
-                List<Banner> listCarousel;
-                List<Banner> listIntro;
-                if (categoryGender.equals("Man")) {
-                    listCarousel =  DaoBanner.getInstance().getCarouselCategory("carousel-man");
-                    listIntro = DaoBanner.getInstance().getIntroCategory("intro-category-man");
-                } else {
-                    listCarousel =  DaoBanner.getInstance().getCarouselCategory("carousel-woman");
-                    listIntro = DaoBanner.getInstance().getIntroCategory("intro-category-woman");
-                }
-            %>
-
-            <div class="mainbanner" style="padding: 10px; width: 100%; background-color: #f3f3f3;">
-                <div id="main-banner" class="owl-carousel home-slider" style="height: fit-content">
-                    <%for(Banner banner : listCarousel) {%>
-                    <div class="item">
-                        <a href="#">
-                            <img src="image/banners/<%=banner.getUrlImg()%>" id="category-carousel-intro-1" alt="main-banner1"
-                                 class="img-responsive img-border-radius" style="width: 100%;"/></a>
-                        <div class="main-banner-section-center">
-                        </div>
-                    </div>
-                    <%}%>
-
-                </div>
-
-                <div class="grid-list-wrapper bg-item">
-
-                    <div class="contain-carousel-category">
-
-                        <div class="featured-category">
-                            Featured category
-                        </div>
-                        <div class="list-contain">
-                            <ul value="!23">
-                                <%for (Banner banner : listIntro) {%>
-                                <li id="intro-hitops" class="intro-category category-product" onclick="location.href='<%=banner.getLinkTo()%>'">
-                                  <a href='<%=banner.getLinkTo()%>'>
-                                      <img src="image/category/<%=banner.getUrlImg()%>" alt="">
-                                      <p class="title-category"><%=banner.getTitle()%></p>
-                                      <p class="introduce-category"><%=banner.getText()%></p>
-                                  </a>
-                                </li>
-
-                                <%}%>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- khanh-js.js display this product -->
-                </div>
-            </div>
-
-        </div>
-
-        <%}%>
     </div>
 </div>
 <%@include file="footer_login_message.jsp"%>

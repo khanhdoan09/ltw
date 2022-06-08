@@ -1,6 +1,6 @@
 package model;
 
-import bean.Banner;
+import beans.Banner;
 import databaseConnection.DatabaseConnection;
 
 import java.sql.Connection;

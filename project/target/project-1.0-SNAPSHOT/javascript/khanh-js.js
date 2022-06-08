@@ -379,27 +379,6 @@ function accessInfoCustomer() {
         removeDefaultNavContentCategory()
     });
 
-    // $("#nav-history-customer").click(() => {
-    //     resetAllSectionCustomer();
-    //     $("#history-customer").css("display", "block");
-    //     $("#nav-history-customer").addClass("customer-category-after-click");
-    //     $("#info-customer").css("display", "none");
-    //
-    // });
-
-    // $(".adjust-address-customer").click(() => {
-    //     $(".contain-form-adjust-address").css("display", "block");
-    //     $(".default-address").css("display", "none");
-    //     $(".available-address").css("display", "none");
-    //     $("#submit-adjust-address-customer").val("Chỉnh sửa");
-    // });
-
-    // $(".contain-add-map").click(() => {
-    //     $(".contain-form-adjust-address").css("display", "block");
-    //     $(".available-address").css("display", "none");
-    //     $("#submit-adjust-address-customer").val("Thêm");
-    //     $(".default-address").css("display", "none");
-    // });
 
     $("#submit-adjust-address-customer").click(() => {
         $(".contain-form-adjust-address").css("display", "none");

@@ -1,6 +1,6 @@
 package model.customer;
 
-import bean.History;
+import beans.History;
 import databaseConnection.DatabaseConnection;
 import model.User;
 

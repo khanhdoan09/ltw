@@ -2,7 +2,7 @@ package controller.customer;
 
 import com.google.gson.Gson;
 import model.customer.DaoCustomer;
-import bean.History;
+import beans.History;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

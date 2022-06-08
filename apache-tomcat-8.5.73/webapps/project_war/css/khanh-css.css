@@ -936,13 +936,14 @@ header {
 }
 
 .btn-adderss-customer {
-    color: rgb(74, 74, 74);
-    background-color: rgb(253, 216, 53);
-    padding: 10px;
-    border-radius: 10px;
+    color: rgb(74, 74, 74) !important;
+    background-color: rgb(253, 216, 53) !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    margin:5px 0;
 }
 .btn-address-customer:hover {
-    background-color: #f5f570;
+    background-color: #f5f570 !important;
 
 }
 #delete-adjust-address-customer {

@@ -2,7 +2,7 @@ package controller.admin;
 
 import model.Admin.DaoProductAdmin;
 import model.DaoProduct;
-import bean.Product;
+import beans.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
