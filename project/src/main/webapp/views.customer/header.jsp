@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<c:set var="list" value="${cart.data}"/>
+
 <header>
     <div class="contain-header-inner">
         <div class="container">
@@ -82,10 +84,10 @@
 
                     <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
                         <button type="button"
-                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav p-3">
-                            <span class="color-header">
-                                <span class="cart-title color-header m-2" style="margin-left: 10px">Giỏ hàng - </span>254.000 Đ</span>
-                            <span class="value-header-product" style="margin: 0 10px">3</span>
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
+                            <span
+                                    class="color-header"><span class="cart-title color-header" id="sum_price" style="margin-left: 10px">Giỏ hàng - </span></span>
+                            <span class="value-header-product" id="header_quantity" style="margin: -6px 0 0 20px">0</span>
                             <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
 
@@ -93,17 +95,18 @@
                         <ul class="dropdown-menu pull-right cart-dropdown-menu">
                             <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">
                                 <table class="table table-striped">
-                                    <tbody>
-                                    <c:set var="list" value="${cart.data}"/>
+                                    <tbody id="list-cart">
+
                                     <c:forEach items="${list}" var="item">
+                                        <%--                                        <c:set var="sum" value=(${item.gettotal()} * ${item.quantitySold})/>--%>
                                         <td class="text-center">
                                             <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"
                                                                                               height="100px"></a>
                                         </td>
                                         <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
                                             <div class="SL-Gia">
-                                                <p class="gia">${item.gettotal()}$</p>
-                                                <p class="SL">SL: ${item.quantitySold}</p>
+                                                <p class="gia">${item.gettotal()}</p>
+                                                <p class="SL">${item.quantitySold}</p>
                                             </div>
                                         </td>
                                         <td class="text-center">
@@ -124,7 +127,7 @@
                                         <br>
                                         <tr>
                                             <td class="text-right"><strong>Tạm tính</strong></td>
-                                            <td class="text-right">254.000Đ</td>
+                                            <td class="text-right" id="total-value"></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -252,6 +255,28 @@
                         alert("Xoa That Bai");
                 }
             })
-        })
+        });
+        $(".btn").click(function (){
+            let value = 0;
+            let num = 0;
+            let i = 0;
+            while(true){
+                let child = $("#list-cart .SL-Gia:nth-child("+ i++ +")");
+                if(child.length!==0){
+                    for(let j = 0;j<child.length;j++){
+                        let price =Number(child[j].children[0].innerHTML);
+                        let quantity = Number(child[j].children[1].innerHTML);
+                        console.log(typeof price + price);
+                        value += price;
+                        num += quantity;
+                    }
+                    console.log(value);
+                    break;
+                }else if(i===10) break;
+            }
+            $("#total-value").text(value);
+            $("#header_quantity").text(num);
+            $("#sum_price").text("Giỏ Hàng - "+value+"$");
+        });
     })
 </script>
