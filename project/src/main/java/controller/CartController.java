@@ -22,7 +22,7 @@ public class CartController extends HttpServlet {
             session.setAttribute("cart", cart);
         }
         request.setAttribute("cart", cart);
-        request.getRequestDispatcher("/cart.jsp").forward(request,response);
+        request.getRequestDispatcher("./views.customer/cart.jsp").forward(request,response);
     }
 
     @Override

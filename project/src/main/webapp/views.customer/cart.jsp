@@ -20,27 +20,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="css/dat-css.css">
-    <link href="../css/stylesheet.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="../font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
-    <link href="../owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-    <link href="../owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-    <script src="../javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../javascript/jstree.min.js" type="text/javascript"></script>
-    <script src="../javascript/template.js" type="text/javascript"></script>
-    <script src="../javascript/common.js" type="text/javascript"></script>
-    <script src="../javascript/global.js" type="text/javascript"></script>
-    <script src="../owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="../image/logo.png" />
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="javascript/jstree.min.js" type="text/javascript"></script>
+    <script src="javascript/template.js" type="text/javascript"></script>
+    <script src="javascript/common.js" type="text/javascript"></script>
+    <script src="javascript/global.js" type="text/javascript"></script>
+    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="image/logo.png" />
 
-    <link rel="stylesheet" href="../css/dat-css.css">
-    <link rel="stylesheet" href="../css/khanh-css.css">
-    <link rel="stylesheet" href="../css/hung-css.css">
-    <script src="../javascript/khanh-js.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/dat-css.css">
+    <link rel="stylesheet" href="css/khanh-css.css">
+    <link rel="stylesheet" href="css/hung-css.css">
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
     <style>
         .icon-update:hover {
             background-color: #0e0e0e !important;
@@ -81,8 +81,8 @@
                         <c:set var="list" value="${cart.data}"/>
                         <c:forEach items="${list}" var="item">
                             <tr>
-                                <td class="text-center">
-                                    <input type="checkbox" id="html " name="fav_language" value="HTML">
+                                <td class="text-center check_pr">
+                                    <input type="checkbox" id="html " class="checked_pr" name="fav_language" value="HTML" checked>
                                     <a href="ProductDetail?idProduct=${item.id}"><img class="img-thumbnail"
                                                                 title="women's New Wine is an alcoholic"
                                                                 alt="women's New Wine is an alcoholic"
@@ -107,7 +107,7 @@
                                     </div>
                                 </td>
                                 <td class="text-right">${item.getSalePrice()}</td>
-                                <td class="text-right">${item.gettotal()}</td>
+                                <td class="text-right total-price">${item.gettotal()}</td>
                             </tr>
                         </c:forEach>
 
@@ -172,13 +172,13 @@
                                 <td class="text-right">210.000 VNĐ</td>
                             </tr>
                             <tr>
-                                <td class="text-right"><strong>VAT :</strong></td>
+                                <td class="text-right"><strong>Phí vận chuyển :</strong></td>
                                 <td class="text-right">VNĐ</td>
                             </tr>
                             <tr>
                                 <td class="text-right"><strong>Tổng:</strong></td>
                                 <td class="text-right">
-                                    <p id="totalPrice">VNĐ</p>
+                                    <p id="total_price"></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -203,7 +203,7 @@
         $(".cart-remove").click(function () {
             var id = $(this).attr("pid");
             tr = $(this).closest("tr");
-            console.log(id);
+            // console.log(id);
             $.ajax({
                 url: "/project/Cart-remove",
                 method: "POST",
@@ -243,6 +243,44 @@
                     }
                 })
         })
+        $(function () {
+        //     let value = 0.0;
+        //     let arrChecked = $(".checked_pr")
+        //         arrChecked.each(function(){
+        //             let child = $(this).prop('checked');
+        //             console.log(child);
+        //             if (child == true) {
+        //                 let product = parseFloat($(".total-price").text());
+        //                 console.log(product)
+        //                 value += product;
+        //             }
+        //
+        //         })
+        //     console.log(value);
+        //     $("#total_price").text(value+" $");
+        // });
+        $(function () {
+            let value = 0.0;
+
+            let arrChecked = $(".checked_pr")
+            console.log(arrChecked.length)
+
+            arrChecked.each(function(){
+
+              $(this).click(()=>{
+                  let child = $(this).prop('checked');
+                  console.log(child);
+                  if (child == true) {
+                      let product = parseFloat($(".total-price").text());
+                      console.log(product)
+                      value += product;
+                  }
+              })
+
+            })
+            console.log(value);
+            $("#total_price").text(value+" $");
+        });
     })
 </script>
 

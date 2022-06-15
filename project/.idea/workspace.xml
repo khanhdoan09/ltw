@@ -11,42 +11,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/admin/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/admin/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/admin/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/WEB-INF/classes/filter/SecurityFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views.customer/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/order/order.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/order-invoices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-8.5.73/webapps/project_war/views/admin/crud/product/order-invoices.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/project_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/project_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/project_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/project_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_03_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_03_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_09_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_09_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_11_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_11_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filter/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filter/SecurityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/order-invoices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/order-invoices.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/filter/SecurityFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/project.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/filter/SecurityFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/khanh-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/order-invoices.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/order-invoices.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/CartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/header.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +73,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="21w86Zde1q9CJTiS5E3YpzpjFnS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -102,10 +90,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
@@ -139,7 +127,7 @@
       <command value="active" />
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.711">
+  <component name="RunManager" selected="Tomcat Server.Tomcat">
     <configuration name="gson-2.8.2.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/gson-2.8.2.jar" />
       <method v="2" />
@@ -159,13 +147,12 @@
     <configuration name="city.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/main/webapp/data/location/city.js" working-dir="$PROJECT_DIR$/src/main/webapp/data/location">
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 8.5.711" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.711" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/project_war/" />
+    <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="project:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/project_war" />
+            <option name="CONTEXT_PATH" value="/project" />
           </settings>
         </artifact>
         <artifact name="project:war exploded">
@@ -260,7 +247,7 @@
       <item itemvalue="JavaScript Debug.product.jsp" />
       <item itemvalue="Node.js.Unnamed" />
       <item itemvalue="Node.js.city.js" />
-      <item itemvalue="Tomcat Server.Tomcat 8.5.711" />
+      <item itemvalue="Tomcat Server.Tomcat" />
     </list>
     <recent_temporary>
       <list>
@@ -631,6 +618,10 @@
       <workItem from="1654671404170" duration="1842000" />
       <workItem from="1654687705509" duration="49000" />
       <workItem from="1654695288571" duration="6696000" />
+      <workItem from="1654848199058" duration="605000" />
+      <workItem from="1654848955200" duration="1619000" />
+      <workItem from="1655198008021" duration="3017000" />
+      <workItem from="1655262030690" duration="6353000" />
     </task>
     <servers />
   </component>
@@ -647,7 +638,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
