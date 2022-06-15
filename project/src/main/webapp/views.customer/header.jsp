@@ -1,3 +1,7 @@
+<%@ page import="javax.swing.*" %>
+
+<%@ page import="model.*" %>
+<%@ page import="model.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: khanh
@@ -10,6 +14,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="list" value="${cart.data}"/>
 
+<%
+    User user = (User) session.getAttribute("auth");
+%>
 <header>
     <div class="contain-header-inner">
         <div class="container">
@@ -256,7 +263,7 @@
                 }
             })
         });
-        $(".btn").click(function (){
+        $(function (){
             let value = 0;
             let num = 0;
             let i = 0;
@@ -266,11 +273,11 @@
                     for(let j = 0;j<child.length;j++){
                         let price =Number(child[j].children[0].innerHTML);
                         let quantity = Number(child[j].children[1].innerHTML);
-                        console.log(typeof price + price);
+                        // console.log(typeof price + price);
                         value += price;
                         num += quantity;
                     }
-                    console.log(value);
+                    // console.log(value);
                     break;
                 }else if(i===10) break;
             }
@@ -279,4 +286,26 @@
             $("#sum_price").text("Giỏ Hàng - "+value+"$");
         });
     })
+
+    function excuteData() {
+        <%
+            String id = "";
+            if(user == null) {
+        %>
+        let value= "";
+        value +="<li>"
+        value += "                                                    <div href=\".jsp\" class=\"minicart-item\">";
+        value += "                                                        <div class=\"left-info\">";
+        value += "                                                            <div class=\"product-title\"><a  class=\"product-name\">vui lòng đăng nhập để mở chức năng giỏ hàng<\/a><\/div>";
+        value += "                                                        <\/div>";
+        value += "                                                    <\/div>";
+        value += "                                                <\/li>";
+        document.getElementById("products-cart").innerHTML=strVar;
+        return;
+        <%}else{
+           id = user.getId();
+        }%>
+
+
+    }
 </script>
