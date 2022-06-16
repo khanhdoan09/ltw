@@ -11,10 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-<form class="body d-flex py-3" method="post" enctype="multipart/form-data" action="UploadDownLoadFileServlet">
+<form  action="UploadDownLoadFileServlet" method="POST" enctype="multipart/form-data">
     <input type="file" name="fileImg" />
+    <input type="text" name="price" value="123">
     <button type="submit">Submit</button>
-    <img src="upload/product/421424_c.jpg">
+
 </form>
 
 </body>

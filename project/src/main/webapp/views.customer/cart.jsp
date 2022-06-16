@@ -82,7 +82,7 @@
                         <c:forEach items="${list}" var="item">
                             <tr>
                                 <td class="text-center check_pr">
-                                    <input type="checkbox" id="html " class="checked_pr" name="fav_language" value="HTML" checked>
+                                    <input type="checkbox" id="html " class="checked_pr" data-price="${item.gettotal()}" name="fav_language" value="HTML" checked>
                                     <a href="ProductDetail?idProduct=${item.id}"><img class="img-thumbnail"
                                                                 title="women's New Wine is an alcoholic"
                                                                 alt="women's New Wine is an alcoholic"
@@ -99,7 +99,7 @@
                                                 <a class="" href="/project/Cart">
                                                    <i class="fa fa-refresh icon-update" style="padding: 9px 20px;background-color: #1a94ff;color: white;"></i>
                                                 </a>
-                                                <a class="cart-remove" pid="${item.id}"><button class="btn btn-danger" title="" data-toggle="tooltip"
+                                                <a class="cart-remove" data-price="${item.gettotal()}" pid="${item.id}"><button class="btn btn-danger" title="" data-toggle="tooltip"
                                                         type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
                                                 </a>
@@ -169,7 +169,7 @@
                             <tbody>
                             <tr>
                                 <td class="text-right"><strong>Tổng phụ:</strong></td>
-                                <td class="text-right">210.000 VNĐ</td>
+                                <td class="text-right" id="total-price">210.000 VNĐ</td>
                             </tr>
                             <tr>
                                 <td class="text-right"><strong>Phí vận chuyển :</strong></td>
@@ -203,6 +203,7 @@
         $(".cart-remove").click(function () {
             var id = $(this).attr("pid");
             tr = $(this).closest("tr");
+            let productPrice = Math.floor($(this).data("price"))
             // console.log(id);
             $.ajax({
                 url: "/project/Cart-remove",
@@ -212,13 +213,19 @@
                 },
                 success: function (data) {
                     tr.remove();
+                    let value = Math.floor(parseFloat($("#total_price").text()))
+                    console.log(value +"~"+productPrice)
+                    value -= productPrice
+                    $("#total_price").text(value+" $");
+                    $("#sum_price").text("Giỏ Hàng - "+value+"$");
                 },
                 error: function (data) {
-                    if(data.status === 404)
-                    alert("Xoa That Bai");
+                    if (data.status === 404)
+                        alert("Xoa That Bai");
                 }
             })
         })
+    })
         $(".changeQuantity").blur(function () {
             var id = $(this).attr("pid");
             var oldQuantity = $(this).attr("oldQuantity");
@@ -243,45 +250,48 @@
                     }
                 })
         })
-        $(function () {
-        //     let value = 0.0;
-        //     let arrChecked = $(".checked_pr")
-        //         arrChecked.each(function(){
-        //             let child = $(this).prop('checked');
-        //             console.log(child);
-        //             if (child == true) {
-        //                 let product = parseFloat($(".total-price").text());
-        //                 console.log(product)
-        //                 value += product;
-        //             }
-        //
-        //         })
-        //     console.log(value);
-        //     $("#total_price").text(value+" $");
-        // });
-        $(function () {
-            let value = 0.0;
+        // $(function () {
+        //     //     let value = 0.0;
+        //     //     let arrChecked = $(".checked_pr")
+        //     //         arrChecked.each(function(){
+        //     //             let child = $(this).prop('checked');
+        //     //             console.log(child);
+        //     //             if (child == true) {
+        //     //                 let product = parseFloat($(".total-price").text());
+        //     //                 console.log(product)
+        //     //                 value += product;
+        //     //             }
+        //     //
+        //     //         })
+        //     //     console.log(value);
+        //     //     $("#total_price").text(value+" $");
+        //     // });
+        // })
 
-            let arrChecked = $(".checked_pr")
-            console.log(arrChecked.length)
+    // fix o day
+    $(function () {
 
-            arrChecked.each(function(){
+        let arrChecked = $(".checked_pr")
 
-              $(this).click(()=>{
-                  let child = $(this).prop('checked');
-                  console.log(child);
-                  if (child == true) {
-                      let product = parseFloat($(".total-price").text());
-                      console.log(product)
-                      value += product;
-                  }
-              })
+        arrChecked.each(function(){
 
+            $(this).click(()=>{
+                let value = Math.floor(parseFloat($("#total_price").text()))
+                let child = $(this).prop('checked');
+                let productPrice = Math.floor($(this).data("price"))
+                if (child == true) {
+                    value += productPrice;
+                }
+                else {
+                    value -= productPrice
+                }
+                $("#total_price").text(value+" $");
             })
-            console.log(value);
-            $("#total_price").text(value+" $");
-        });
+
+        })
     })
+
+
 </script>
 
 </body>
