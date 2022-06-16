@@ -278,10 +278,12 @@
                         num += quantity;
                     }
                     // console.log(value);
+                    value = Math.round(value)
                     break;
                 }else if(i===10) break;
             }
             $("#total-value").text(value);
+            $("#total_price").text(value +"$");
             $("#header_quantity").text(num);
             $("#sum_price").text("Giỏ Hàng - "+value+"$");
         });

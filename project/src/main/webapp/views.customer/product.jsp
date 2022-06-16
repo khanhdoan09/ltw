@@ -339,39 +339,39 @@
                             <%List<String> listMainImg = p.getImg().getMain();
                                 List<String> listSubImg = p.getImg().getSub();
                             %>
-                            <script>
+<%--                            <script>--%>
 
-                                $(function(){
-                                    <%
-                                    for (int i = 0; i < listMainImg.size(); i++) {
-                                    %>
-                                    $("#color-shoe-<%=i%>").on("click", ()=>{
-                                        $("#main-img").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")
-                                        <%int tmp = i*3;%>
-                                        $("#zero").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")
-                                        $("#one").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+1)%>.jpg")
-                                        $("#two").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+2)%>.jpg")
-                                        $("#three").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+3)%>.jpg")
-                                    })
-                                    <%}%>
-
-
-                                    <%--$("#color-shoe-0").click(()=>{--%>
-
-                                    <%--    console.log("<%=listImg.get(0)%>")--%>
-                                    <%--    $("#main-img").attr("src","data/imgAll/<%=listImg.get(0)%>.jpg")--%>
-                                    <%--})--%>
-
-                                    <%--$("#color-shoe-1").click(()=>{--%>
-                                    <%--    $("#main-img").attr("src","data/imgAll/<%=listImg.get(1)%>.jpg")--%>
-                                    <%--    console.log("<%=listImg.get(1)%>")--%>
-
-                                    <%--})--%>
-                                })
+<%--                                $(function(){--%>
+<%--                                    <%--%>
+<%--                                    for (int i = 0; i < listMainImg.size(); i++) {--%>
+<%--                                    %>--%>
+<%--                                    $("#color-shoe-<%=i%>").on("click", ()=>{--%>
+<%--                                        $("#main-img").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")--%>
+<%--                                        <%int tmp = i*3;%>--%>
+<%--                                        $("#zero").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")--%>
+<%--                                        $("#one").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+1)%>.jpg")--%>
+<%--                                        $("#two").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+2)%>.jpg")--%>
+<%--                                        $("#three").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+3)%>.jpg")--%>
+<%--                                    })--%>
+<%--                                    <%}%>--%>
 
 
+<%--                                    &lt;%&ndash;$("#color-shoe-0").click(()=>{&ndash;%&gt;--%>
 
-                            </script>
+<%--                                    &lt;%&ndash;    console.log("<%=listImg.get(0)%>")&ndash;%&gt;--%>
+<%--                                    &lt;%&ndash;    $("#main-img").attr("src","data/imgAll/<%=listImg.get(0)%>.jpg")&ndash;%&gt;--%>
+<%--                                    &lt;%&ndash;})&ndash;%&gt;--%>
+
+<%--                                    &lt;%&ndash;$("#color-shoe-1").click(()=>{&ndash;%&gt;--%>
+<%--                                    &lt;%&ndash;    $("#main-img").attr("src","data/imgAll/<%=listImg.get(1)%>.jpg")&ndash;%&gt;--%>
+<%--                                    &lt;%&ndash;    console.log("<%=listImg.get(1)%>")&ndash;%&gt;--%>
+
+<%--                                    &lt;%&ndash;})&ndash;%&gt;--%>
+<%--                                })--%>
+
+
+
+<%--                            </script>--%>
                             <!-- anh chinh -->
                             <%String mainColor = p.getMainColor();%>
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
