@@ -1,7 +1,12 @@
 package controller.admin;
 
+import beans.Image;
+import dao.product.DaoProduct;
+import dao.product.brand.DaoProductBrand;
+import dao.product.color.DaoProductColor;
+import dao.product.detail.DaoProductDetail;
+import dao.product.image.DaoProductImage;
 import model.Admin.DaoProductAdmin;
-import model.Image;
 import beans.Product;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -65,7 +70,7 @@ public class SaveEditProduct extends HttpServlet {
                 if (item.getFieldName().equals("id")) {
                     id = item.getString();
                     System.out.println(id);
-                    productDetail = DaoProductAdmin.getInstance().getDetailProduct(item.getString());
+                    productDetail = DaoProductDetail.getInstance().getDetailProduct(item.getString());
                     if( productDetail.getListImg()!=null)
                         countNewImg = productDetail.getListImg().size();
 
@@ -96,9 +101,9 @@ public class SaveEditProduct extends HttpServlet {
                     productDetail.setName(item.getString());
                 if (item.getFieldName().equals("brand")) {
                     String brand = item.getString();
-                    List<String>brands = DaoProductAdmin.getInstance().getListBrand();
+                    List<String>brands = DaoProductBrand.getInstance().getListBrand();
                     if (!brands.contains(brand)) {
-                        DaoProductAdmin.getInstance().saveNewBrand(brand);
+                        DaoProductBrand.getInstance().saveNewBrand(brand);
                     }
                     productDetail.setBrand(brand);
                 }
@@ -132,7 +137,7 @@ public class SaveEditProduct extends HttpServlet {
                     if(productDetail.getListImg().get(countColor).getLelvel()==0) {
                         String colorOld = productDetail.getListImg().get(countColor).getColor();
                         String colorNew = item.getString();
-                        DaoProductAdmin.getInstance().editColor(productDetail.getId(), colorNew, colorOld);
+                        DaoProductColor.getInstance().editColor(productDetail.getId(), colorNew, colorOld);
                         countColor++;
                     }
                 }
@@ -141,14 +146,14 @@ public class SaveEditProduct extends HttpServlet {
                     String[] data = item.getString().split("@");
                     System.out.println(data.length + " "  +data[0]);
                     if (data.length>1)
-                    DaoProductAdmin.getInstance().changeLevelImg(data[0], data[1], id);
+                    DaoProductImage.getInstance().changeLevelImg(data[0], data[1], id);
                 }
                 if (item.getFieldName().equals("chooseMainColor")) {
-                    DaoProductAdmin.getInstance().saveMainColor(id, item.getString());
+                    DaoProductColor.getInstance().saveMainColor(id, item.getString());
                 }
                 if (item.getFieldName().equals("active")) {
                     System.out.print(item.getString());
-                    DaoProductAdmin.getInstance().saveActive(id, item.getString());
+                    DaoProduct.getInstance().saveActive(id, item.getString());
                 }
                 if (item.getFieldName().equals("fileImg")) {
                    if (item.getSize()==0) {
@@ -173,21 +178,21 @@ public class SaveEditProduct extends HttpServlet {
                     System.out.println(nameImg);
                     File file = saveImage(request, nameImg + ".jpg");
                     item.write(file);
-                    DaoProductAdmin.getInstance().saveImg(productDetail.getId(),nameImg,1, color);
-                    productDetail.getListImg().add(new Image(nameImg,1,color));
+                    DaoProductImage.getInstance().saveImg(productDetail.getId(),nameImg,1, color);
+//                    productDetail.getListImg().add(new beans.Image(nameImg,1,color));
 
                     if (data.length>2) {
                         if(data[2].equals("checked")){
-                            DaoProductAdmin.getInstance().changeLevelImg(nameImg, color, id);
+                            DaoProductImage.getInstance().changeLevelImg(nameImg, color, id);
                         }
                     }
 
                 }
             }
 
-            DaoProductAdmin.getInstance().editProduct(id, productDetail);
+            DaoProduct.getInstance().editProduct(id, productDetail);
 
-            request.setAttribute("productDetail", DaoProductAdmin.getInstance().getDetailProduct(id));
+            request.setAttribute("productDetail", DaoProductDetail.getInstance().getDetailProduct(id));
             request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
         } catch (FileUploadException e) {
             e.printStackTrace();

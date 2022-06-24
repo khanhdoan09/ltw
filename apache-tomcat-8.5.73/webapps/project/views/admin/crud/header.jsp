@@ -27,6 +27,10 @@
 
             </li>
             <li class="collapsed">
+                <a id="addProduct" class="m-link" href="<%=request.getContextPath()%>/Route?page=addNewProduct">
+                    <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
+            </li>
+            <li class="collapsed">
                 <a id="customer" class="m-link" href="<%=request.getContextPath()%>/Route?page=customer">
                     <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
 
@@ -48,6 +52,8 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
     let url = $(location).attr('href');
     if (url.includes("listProduct")){
@@ -58,6 +64,9 @@
     }
     else if (url.includes("order")){
         $("#order").addClass("active")
+    }
+    else if (url.includes("addProduct")){
+        $("#addProduct").addClass("active")
     }
     else {
         $("#home").addClass("active")

@@ -21,11 +21,10 @@ public class SecurityFilter implements Filter {
 
         String path = request.getRequestURI().substring(request.getContextPath().length());
         if(!path.contains("views/admin/crud") && !path.contains("Route")){
-            boolean isLogin = request.getSession(true).getAttribute("user") != null ? true : false;
                 chain.doFilter(request, response);
         }
         else {
-            boolean isLogin = request.getSession().getAttribute("user") != null ? true : false;
+            boolean isLogin = request.getSession().getAttribute("userAdmin") != null ? true : false;
             if (isLogin==true) {
             chain.doFilter(request, response);
             }

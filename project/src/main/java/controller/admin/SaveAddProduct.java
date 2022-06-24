@@ -1,5 +1,8 @@
 package controller.admin;
 
+import dao.product.DaoProduct;
+import dao.product.brand.DaoProductBrand;
+import dao.product.image.DaoProductImage;
 import model.Admin.DaoProductAdmin;
 import model.Image;
 import beans.Product;
@@ -51,17 +54,20 @@ public class SaveAddProduct extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println(123);
         Product productDetail = new Product();
-        String id=DaoProductAdmin.getInstance().getAutoIncrement();
+        String id="";
+        int countDetail = 0;
         int countNewImg = 0;
         int countImg=0;
         int countColor=0;
+        String currentNewColor="";
         try {
             List<FileItem> fileItemList = uploader.parseRequest(request);
             Iterator<FileItem> fileItemIterator = fileItemList.iterator();
             while (fileItemIterator.hasNext()) {
                 FileItem item = fileItemIterator.next();
+
                 if (item.getFieldName().equals("price")) {
                     try {
                         double num = (Double.parseDouble(item.getString()));
@@ -87,23 +93,80 @@ public class SaveAddProduct extends HttpServlet {
                     productDetail.setName(item.getString());
                 if (item.getFieldName().equals("brand")) {
                     String brand = item.getString();
-                    List<String>brands = DaoProductAdmin.getInstance().getListBrand();
+                    List<String>brands = DaoProductBrand.getInstance().getListBrand();
                     if (!brands.contains(brand)) {
-                        DaoProductAdmin.getInstance().saveNewBrand(brand);
+                        DaoProductBrand.getInstance().saveNewBrand(brand);
                     }
                     productDetail.setBrand(brand);
                 }
+                if (item.getFieldName().equals("chooseMainImage"))
+                    System.out.println(item.getString()+"chooseMainImage");
                 if (item.getFieldName().equals("description"))
                     productDetail.setDescription(item.getString());
-                productDetail.setCreate_at(new Date().getYear()+"/" +new Date().getMonth()+"/"+new Date().getDay());
-                productDetail.setUpdate_at(new Date().getYear()+"/" +new Date().getMonth()+"/"+new Date().getDay());
-                productDetail.setListImg(new ArrayList<Image>());
+                if (item.getFieldName().equals("sold")) {
+                    try {
+                        productDetail.setSoleValue(Integer.parseInt(item.getString()));
+                    } catch (NumberFormatException e) {
+                        request.setAttribute("expSaleRate", "Sale rate must be a number");
+                    }
+                }
+                if (item.getFieldName().equals("total-quantity")) {
+                    try {
+                        productDetail.setQuantity(Integer.parseInt(item.getString()));
+                    } catch (NumberFormatException e) {
+                        request.setAttribute("totalQuantity", "Total quantity must be a number");
+                    }
+                }
+                if(item.getFieldName().equals("gender")) {
+                    String[] arr = productDetail.getCategory().split("\\s+");
+                    productDetail.setCategory(arr[0] + " " +item.getString());
+                }
+                if(item.getFieldName().equals("category")) {
+                    String[] arr = productDetail.getCategory().split("\\s+");
+                    productDetail.setCategory(item.getString() + " " + arr[1]);
+                }
+                if (item.getFieldName().contains("chooseMainImage_")) {
+                    System.out.println(item.getString() +"chooseMainImage");
+                    String[] data = item.getString().split("@");
+                    System.out.println(data.length + " "  +data[0]);
+                }
+                if (item.getFieldName().equals("chooseMainColor")) {
+//                    DaoProductAdmin.getInstance().saveMainColor(id, item.getString());
+                }
+                if (item.getFieldName().equals("active")) {
+                    System.out.print(item.getString());
+//                    DaoProductAdmin.getInstance().saveActive(id, item.getString());
+                }
+                if (item.getFieldName().contains("fileNewImg")) {
+                    if (item.getSize()==0) {
+                        continue;
+                    }
+                    String[] data = item.getFieldName().split("_");
+                    System.out.println("test: "+item.getFieldName());
+                    String color = data[1];
+                    countNewImg++;
+                    String nameImg = id+"_"+countNewImg;
+                    System.out.println(nameImg);
+                    File file = saveImage(request, nameImg + ".jpg");
+                    item.write(file);
+                    // nho fix day
+//                    DaoProductAdmin.getInstance().saveImg(productDetail.getId(),nameImg,1, color);
+                    List<Image>listImage = new ArrayList<Image>();
+//                    productDetail.setListImg(listImage);
+//                    productDetail.getListImg().add(new Image(nameImg,1,color));
+
+                    if (data.length>2) {
+                        if(data[2].equals("checked")){
+                            DaoProductImage.getInstance().changeLevelImg(nameImg, color, id);
+                        }
+                    }
+
+                }
             }
 
-            DaoProductAdmin.getInstance().addProduct(productDetail);
-            productDetail.setId(id);
-            request.setAttribute("productDetail", productDetail);
-            request.getRequestDispatcher("EditProduct.jsp?id="+id).forward(request, response);
+            DaoProduct.getInstance().addProduct(productDetail);
+
+            request.getRequestDispatcher("/SaveAddProduct").forward(request, response);
         } catch (FileUploadException e) {
             e.printStackTrace();
         } catch (Exception e) {

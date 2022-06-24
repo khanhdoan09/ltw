@@ -1,6 +1,6 @@
 package model.Admin;
 
-import databaseConnection.DatabaseConnection;
+import connection.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,6 +1,6 @@
 package model.customer;
 
-import databaseConnection.DatabaseConnection;
+import connection.DatabaseConnection;
 import beans.AddressCustomer;
 
 import java.sql.Connection;

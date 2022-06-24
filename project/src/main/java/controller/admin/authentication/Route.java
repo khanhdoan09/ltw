@@ -10,6 +10,9 @@ import java.io.IOException;
 @WebServlet(name = "Route", value = "/Route")
 public class Route extends HttpServlet {
     @Override
+    // do đường dẫn kiểu vậy http://localhost:8080/project_war_exploded/views/admin/crud/product/SaveAddProduct
+    // khi tới controller
+    // nên dùng route
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = request.getParameter("page");
         if (page.equals("listProduct")) {
@@ -26,11 +29,19 @@ public class Route extends HttpServlet {
             request.getRequestDispatcher("/ListOrderDetail?idOrder="+idOrder).forward(request, response);
         }
         else if (page.equals("listProductForm")) {
-            System.out.println(123);
             request.getRequestDispatcher("/ListProductAdmin").forward(request, response);
         }
+        else if (page.equals("listProductForm")) {
+            request.getRequestDispatcher("/ListProductAdmin").forward(request, response);
+        }
+        else if (page.equals("addProduct")) {
+            System.out.println(12345678);
+            request.getRequestDispatcher("/SaveAddProduct").forward(request, response);
+        }
+        else if (page.equals("addNewProduct")) {
+            request.getRequestDispatcher("/views/admin/crud/product/addProduct.jsp").forward(request, response);
+        }
         else if (page.equals("editProduct")) {
-            System.out.println(123);
             String id = request.getParameter("id");
             request.getRequestDispatcher("/EditProduct?id="+id).forward(request, response);
         }

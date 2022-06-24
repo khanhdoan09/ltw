@@ -1,7 +1,7 @@
 package controller.admin;
 
+import dao.product.DaoProduct;
 import model.Admin.DaoProductAdmin;
-import model.DaoProduct;
 import beans.Product;
 
 import javax.servlet.ServletException;
@@ -79,7 +79,7 @@ public class ListProductAdmin extends HttpServlet {
     }
 
     public void removeProduct(String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        boolean isDeleted = DaoProductAdmin.getInstance().deleteProductInAdmin(id, request);
+        boolean isDeleted = DaoProduct.getInstance().deleteProductInAdmin(id, request);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         if (isDeleted)
