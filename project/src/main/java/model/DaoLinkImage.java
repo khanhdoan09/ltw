@@ -1,6 +1,6 @@
 package model;
 
-import databaseConnection.DatabaseConnection;
+import connection.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

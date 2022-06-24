@@ -1,6 +1,6 @@
 package model.Admin;
 
-import databaseConnection.DatabaseConnection;
+import connection.DatabaseConnection;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -1,7 +1,8 @@
 <%@ page import="beans.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
-<%@ page import="model.Admin.DaoProductAdmin" %><%--
+<%@ page import="model.Admin.DaoProductAdmin" %>
+<%@ page import="dao.product.brand.DaoProductBrand" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 13/1/2022
@@ -9,6 +10,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  boolean isLogin = request.getSession().getAttribute("userAdmin") != null ? true : false;
+  if (isLogin == false) {
+    request.getRequestDispatcher("/views/admin/authentication/signIn/signIn.jsp").forward(request, response);
+  }
+%>
 <html class="no-js" lang="en" dir="ltr"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -150,7 +157,7 @@
               </select>
               <input list="brands" type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" autocomplete="off"  value="<%if(request.getAttribute("type")!=null){%><%=request.getAttribute("type")%><%}%>"/>
               <datalist id="brands">
-                <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
+                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
                   for (String brand: brands){%>
                 <option><%=brand%></option>
                 <%}%>

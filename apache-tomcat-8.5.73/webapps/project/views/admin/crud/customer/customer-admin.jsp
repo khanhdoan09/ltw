@@ -8,6 +8,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    boolean isLogin = request.getSession().getAttribute("userAdmin") != null ? true : false;
+    if (isLogin == false) {
+        request.getRequestDispatcher("/views/admin/authentication/signIn/signIn.jsp").forward(request, response);
+    }
+%>
 <html  class="no-js" lang="en" dir="ltr">
 
 <head>

@@ -1,6 +1,6 @@
 package controller.admin;
 
-import model.Admin.DaoOrderAdmin;
+import dao.product.order.DaoOrderAdmin;
 import model.Admin.Order;
 
 import javax.servlet.ServletException;

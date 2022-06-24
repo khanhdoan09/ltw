@@ -1,7 +1,8 @@
 package model;
 
 import beans.Product;
-import databaseConnection.DatabaseConnection;
+import beans.ProductDetail;
+import connection.DatabaseConnection;
 
 import java.sql.*;
 import java.util.ArrayList;

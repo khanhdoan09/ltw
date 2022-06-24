@@ -1,11 +1,11 @@
 <%@ page import="beans.Product" %>
-<%@ page import="model.Image" %>
+<%@ page import="beans.Image" %>
 <%@ page import="java.io.File" %>
-<%@ page import="controller.admin.UploadFile" %>
-<%@ page import="model.ProductDetail" %>
+<%@ page import="beans.ProductDetail" %>
 <%@ page import="java.util.*" %>
-<%@ page import="model.Admin.DaoProductAdmin" %>
-<%@ page import="model.DaoProduct" %><%--
+<%@ page import="dao.product.DaoProduct" %>
+<%@ page import="dao.product.color.DaoProductColor" %>
+<%@ page import="dao.product.brand.DaoProductBrand" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 10/2/2022
@@ -13,6 +13,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    boolean isLogin = request.getSession().getAttribute("userAdmin") != null ? true : false;
+    if (isLogin == false) {
+        request.getRequestDispatcher("/views/admin/authentication/signIn/signIn.jsp").forward(request, response);
+    }
+%>
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
@@ -85,14 +91,10 @@
     <div class="main px-lg-4 px-md-4">
 
         <!-- Body: Header -->
-        <%!
-            public String getExceptionForm(Object exp) {
-               return exp!=null ?exp.toString():"";
-        }%>
-
 
         <!-- Body: Body -->
-        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="SaveEditProduct?id=<%=product.getId()%>">
+<%--        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="SaveEditProduct?id=<%=product.getId()%>">--%>
+        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="EditCurrentProduct?id=<%=product.getId()%>">
 
         <div class="container-xxl">
                 <div class="row align-items-center">
@@ -119,14 +121,11 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label">Giá sản phẩm</label>
-                                            <input type="text" class="form-control" name="price" value="<%=product.getPrice()%>">
-                                            <p class="exception-form"><%=getExceptionForm(request.getAttribute("expPrice"))%></p>
-
+                                            <input required type="number" min="0" max="10000" class="form-control" name="price" value="<%=product.getPrice()%>">
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label">Giảm giá</label>
-                                            <input type="text" class="form-control" name="sale-rate" value="<%=product.getSaleRate()%>">
-                                            <p class="exception-form"><%=getExceptionForm(request.getAttribute("expSaleRate"))%></p>
+                                            <input required type="number" class="form-control" name="sale-rate" value="<%=product.getSaleRate()%>" min="0" max="100">
                                         </div>
 
                                     </div>
@@ -134,7 +133,7 @@
                             </div>
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                    <h5 class="m-0 fw-bold">Màu</h5>
+                                    <h5 class="m-0 fw-bold">Thống kê:</h5>
                                 </div>
                                 <div class="card-body">
                                     <table style="width: 100%;" class="add-new-detail">
@@ -196,7 +195,7 @@
                                         <th>total</th>
                                         <th>sole</th>
                                         </thead>
-                                        <%List<String>colors = DaoProductAdmin.getInstance().getListColor(product.getId());
+                                        <%List<String>colors = DaoProductColor.getInstance().getListColor(product.getId());
                                             for(String color : colors){%>
                                         <tr class="tr-add-detail" data-color="<%=color%>">
                                             <td><%=color%></td>
@@ -220,48 +219,6 @@
 
                                 </div>
                             </div>
-<%--                            <div class="card mb-3">--%>
-<%--                                <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">--%>
-<%--                                    <h6 class="m-0 fw-bold">Màu</h6>--%>
-<%--                                </div>--%>
-<%--                                <div class="card-body">--%>
-<%--                                    <%--%>
-<%--                                        Set<String> listColor = product.getListSizeColor().listColor();--%>
-<%--                                        for (Iterator<String> it = listColor.iterator(); it.hasNext(); ) {--%>
-<%--                                            String color = it.next();--%>
-<%--                                            %>--%>
-<%--                                    <div class="form-check">--%>
-<%--                                        <input class="form-check-input" id="color-<%=color%>" type="checkbox" checked>--%>
-<%--                                        <label class="form-check-label" for="color-<%=color%>">--%>
-<%--                                            <%=color%>--%>
-<%--                                        </label>--%>
-<%--                                    </div>--%>
-<%--                                        <%--%>
-<%--                                        }--%>
-<%--                                        %>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="card mb-3">--%>
-<%--                                <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">--%>
-<%--                                    <h6 class="m-0 fw-bold">Size</h6>--%>
-<%--                                </div>--%>
-<%--                                <div class="card-body">--%>
-<%--                                    <%--%>
-<%--                                        List<Integer> listSize = product.getListSizeColor().getListSize();--%>
-<%--                                        for(int i = 0,j=37; i < listSize.size(); i++,j++){%>--%>
-<%--                                    <div class="form-check">--%>
-<%--                                        <input name="size" value="<%=j%>"class="form-check-input" checked type="checkbox" id="sizecheck<%=j%>">--%>
-<%--                                        <label class="form-check-label" for="sizecheck<%=j%>">--%>
-<%--                                            <%if(j==listSize.get(i)){%>--%>
-<%--                                            <%=listSize.get(i)%>--%>
-<%--                                            <%}else{%>--%>
-<%--                                            <%=j%>--%>
-<%--                                            <%}%>--%>
-<%--                                        </label>--%>
-<%--                                    </div>--%>
-<%--                                    <%}%>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
                                     <h5 class="m-0 fw-bold">Ngày công bố</h5>
@@ -270,11 +227,7 @@
                                     <div class="row g-3 align-items-center">
                                         <div class="col-md-12">
                                             <label class="form-label">Ngày</label>
-                                            <input type="date" class="form-control w-100" value="<%=product.getCreate_at()%>">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label class="form-label">Giờ</label>
-                                            <input type="time" class="form-control w-100" value="10:30">
+                                            <input type="date" name="date" class="form-control w-100" value="<%=product.getCreate_at()%>">
                                         </div>
                                     </div>
                                 </div>
@@ -294,13 +247,13 @@
                                     <div class="row g-3 align-items-center">
                                         <div class="col-md-6">
                                             <label class="form-label">Tên</label>
-                                            <input type="text" class="form-control" name="name" value="<%=product.getName()%>">
+                                            <input required type="text" class="form-control" name="name" value="<%=product.getName()%>">
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">Nhãn hàng</label>
                                             <input type="text" list="brands" class="form-control" name="brand" autocomplete="off" value="<%=product.getBrand()%>"/>
                                             <datalist id="brands">
-                                                <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
+                                                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
                                                 for (String brand: brands){%>
                                                 <option><%=brand%></option>
                                                 <%}%>
@@ -308,7 +261,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="description">Mô tả</label>
-                                            <input name="description" type="text" style="display: block; width: 100%; height: 80px;" id="description" placeholder="
+                                            <input required name="description" type="text" style="display: block; width: 100%; height: 80px;" id="description" placeholder="
                                               <%=product.getDescription()%>" value="<%=product.getDescription()%>" >
                                         </div>
 
@@ -336,10 +289,11 @@
                                                 <div style="display: flex; flex-wrap: wrap" class="images">
                                                     <%
                                                         String mainColor = DaoProduct.getInstance().getMainColor(product.getId());
-                                                        List<String>listColor = DaoProductAdmin.getInstance().getListColor(product.getId());%>
-                                                    <%
+                                                        List<String>listColor = DaoProductColor.getInstance().getListColor(product.getId());
+                                                        %>
+    <%
                                                         for(int j = 0; j < listColor.size(); j++){%>
-                                                        <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu: <input name="color" value="<%=listColor.get(j)%>" />
+                                                        <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
                                                             <br>
                                                             <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
                                                             <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
@@ -360,9 +314,11 @@
                                                         <%String nameImg = product.getListImg().get(i).getImg();%>
                                                         <img id="img-<%=i%>" src="data/imgAll/upload/product/<%=nameImg%>.jpg" width="280" height="280">
                                                         <input id="input-img-<%=i%>" class="imgLoad" data-img="img-<%=i%>" type="file" name="fileImg" />
-                                                        <button class="remove-img-detail" data-nameimg="<%=nameImg%>">Xóa</button>
+                                                        <div>
+                                                            <button class="remove-img-detail" data-nameimg="<%=nameImg%>">Xóa</button>
+                                                        </div>
                                                         <div class="d-flex align-items-center my-2">
-                                                            <input  style="width: 30px; height:30px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage_<%=j%>" value="<%=nameImg+"@"+color%>"
+                                                            <input  style="width: 30px; height:30px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage" value="<%=nameImg%>~<%=product.getId()%>~<%=color%>"
                                                                 <% if(product.getListImg().get(i).getLelvel()==0){%>
                                                                    checked
                                                                 <%}%>
@@ -460,223 +416,41 @@
                                             <%}%>>Running</option>
                                 </select>
                             </div>
-
-
+                        </div>
+                        <%}%>
+                        <div class="col-md-12">
                             <div class="col-md-12">
-                                <div class="col-md-12">
-                                        <div>
-                                            <label class="form-label">Active product</label>
-                                            <div class="">
-                                                <div class="d-flex align-items-center">
-                                                    <label for="active-yes">Active</label>
-                                                    <input class="mx-2" id="active-yes" type="radio" name="active" value="1"
+                                <div>
+                                    <label class="form-label">Active product</label>
+                                    <div class="">
+                                        <div class="d-flex align-items-center">
+                                            <label for="active-yes">Active</label>
+                                            <input class="mx-2" id="active-yes" type="radio" name="active" value="1"
                                                     <%if(product.getActive()==1){%>
-                                                            checked
-                                                           <%}%>
-                                                    />
-                                                </div>
-
-                                             <div class="d-flex align-items-center">
-                                                 <label for="active-no">Not active</label>
-                                                 <input class="mx-2" type="radio" id="active-no" name="active" value="0"
-                                                         <%if(product.getActive()==0){%>
-                                                        checked
-                                                         <%}%>
-                                                 />
-                                             </div>
-                                            </div>
+                                                   checked
+                                                    <%}%>
+                                            />
                                         </div>
+
+                                        <div class="d-flex align-items-center">
+                                            <label for="active-no">Not active</label>
+                                            <input class="mx-2" type="radio" id="active-no" name="active" value="0"
+                                                    <%if(product.getActive()==0){%>
+                                                   checked
+                                                    <%}%>
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <%}%>
+
                     </div>
                 </div>
                 <!-- Row end  -->
 
         </div>
         </form>
-
-<%--        <form id="form-edit-img"  action="UploadDownLoadFileServlet" method="POST" enctype="multipart/form-data">--%>
-<%--            <input type="file" name="fileImg" />--%>
-<%--        </form>--%>
-
-<%--        <!-- Modal Custom Settings-->--%>
-<%--        <div class="modal fade right" id="Settingmodal" tabindex="-1" aria-hidden="true">--%>
-<%--            <div class="modal-dialog  modal-sm">--%>
-<%--                <div class="modal-content">--%>
-<%--                    <div class="modal-header">--%>
-<%--                        <h5 class="modal-title">Custom Settings</h5>--%>
-<%--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
-<%--                    </div>--%>
-<%--                    <div class="modal-body custom_setting">--%>
-<%--                        <!-- Settings: Color -->--%>
-<%--                        <div class="setting-theme pb-3">--%>
-<%--                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-color-bucket fs-4 me-2 text-primary"></i>Template Color Settings</h6>--%>
-<%--                            <ul class="list-unstyled row row-cols-3 g-2 choose-skin mb-2 mt-2">--%>
-<%--                                <li data-theme="indigo">--%>
-<%--                                    <div class="indigo"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="tradewind">--%>
-<%--                                    <div class="tradewind"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="monalisa">--%>
-<%--                                    <div class="monalisa"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="blue" class="active">--%>
-<%--                                    <div class="blue"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="cyan">--%>
-<%--                                    <div class="cyan"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="green">--%>
-<%--                                    <div class="green"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="orange">--%>
-<%--                                    <div class="orange"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="blush">--%>
-<%--                                    <div class="blush"></div>--%>
-<%--                                </li>--%>
-<%--                                <li data-theme="red">--%>
-<%--                                    <div class="red"></div>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                        <div class="sidebar-gradient py-3">--%>
-<%--                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-paint fs-4 me-2 text-primary"></i>Sidebar Gradient</h6>--%>
-<%--                            <div class="form-check form-switch gradient-switch pt-2 mb-2">--%>
-<%--                                <input class="form-check-input" type="checkbox" id="CheckGradient">--%>
-<%--                                <label class="form-check-label" for="CheckGradient">Enable Gradient! ( Sidebar )</label>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <!-- Settings: Template dynamics -->--%>
-<%--                        <div class="dynamic-block py-3">--%>
-<%--                            <ul class="list-unstyled choose-skin mb-2 mt-1">--%>
-<%--                                <li data-theme="dynamic">--%>
-<%--                                    <div class="dynamic"><i class="icofont-paint me-2"></i> Click to Dyanmic Setting</div>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
-<%--                            <div class="dt-setting">--%>
-<%--                                <ul class="list-group list-unstyled mt-1">--%>
-<%--                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">--%>
-<%--                                        <label>Primary Color</label>--%>
-<%--                                        <button id="primaryColorPicker" class="btn bg-primary avatar xs border-0 rounded-0"></button>--%>
-<%--                                    </li>--%>
-<%--                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">--%>
-<%--                                        <label>Secondary Color</label>--%>
-<%--                                        <button id="secondaryColorPicker" class="btn bg-secondary avatar xs border-0 rounded-0"></button>--%>
-<%--                                    </li>--%>
-<%--                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">--%>
-<%--                                        <label class="text-muted">Chart Color 1</label>--%>
-<%--                                        <button id="chartColorPicker1" class="btn chart-color1 avatar xs border-0 rounded-0"></button>--%>
-<%--                                    </li>--%>
-<%--                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">--%>
-<%--                                        <label class="text-muted">Chart Color 2</label>--%>
-<%--                                        <button id="chartColorPicker2" class="btn chart-color2 avatar xs border-0 rounded-0"></button>--%>
-<%--                                    </li>--%>
-<%--                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">--%>
-<%--                                        <label class="text-muted">Chart Color 3</label>--%>
-<%--                                        <button id="chartColorPicker3" class="btn chart-color3 avatar xs border-0 rounded-0"></button>--%>
-<%--                                    </li>--%>
-<%--                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">--%>
-<%--                                        <label class="text-muted">Chart Color 4</label>--%>
-<%--                                        <button id="chartColorPicker4" class="btn chart-color4 avatar xs border-0 rounded-0"></button>--%>
-<%--                                    </li>--%>
-<%--                                    <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">--%>
-<%--                                        <label class="text-muted">Chart Color 5</label>--%>
-<%--                                        <button id="chartColorPicker5" class="btn chart-color5 avatar xs border-0 rounded-0"></button>--%>
-<%--                                    </li>--%>
-<%--                                </ul>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <!-- Settings: Font -->--%>
-<%--                        <div class="setting-font py-3">--%>
-<%--                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-font fs-4 me-2 text-primary"></i> Font Settings</h6>--%>
-<%--                            <ul class="list-group font_setting mt-1">--%>
-<%--                                <li class="list-group-item py-1 px-2">--%>
-<%--                                    <div class="form-check mb-0">--%>
-<%--                                        <input class="form-check-input" type="radio" name="font" id="font-poppins" value="font-poppins">--%>
-<%--                                        <label class="form-check-label" for="font-poppins">--%>
-<%--                                            Poppins Google Font--%>
-<%--                                        </label>--%>
-<%--                                    </div>--%>
-<%--                                </li>--%>
-<%--                                <li class="list-group-item py-1 px-2">--%>
-<%--                                    <div class="form-check mb-0">--%>
-<%--                                        <input class="form-check-input" type="radio" name="font" id="font-opensans" value="font-opensans" checked="">--%>
-<%--                                        <label class="form-check-label" for="font-opensans">--%>
-<%--                                            Open Sans Google Font--%>
-<%--                                        </label>--%>
-<%--                                    </div>--%>
-<%--                                </li>--%>
-<%--                                <li class="list-group-item py-1 px-2">--%>
-<%--                                    <div class="form-check mb-0">--%>
-<%--                                        <input class="form-check-input" type="radio" name="font" id="font-montserrat" value="font-montserrat">--%>
-<%--                                        <label class="form-check-label" for="font-montserrat">--%>
-<%--                                            Montserrat Google Font--%>
-<%--                                        </label>--%>
-<%--                                    </div>--%>
-<%--                                </li>--%>
-<%--                                <li class="list-group-item py-1 px-2">--%>
-<%--                                    <div class="form-check mb-0">--%>
-<%--                                        <input class="form-check-input" type="radio" name="font" id="font-mukta" value="font-mukta">--%>
-<%--                                        <label class="form-check-label" for="font-mukta">--%>
-<%--                                            Mukta Google Font--%>
-<%--                                        </label>--%>
-<%--                                    </div>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                        <!-- Settings: Light/dark -->--%>
-<%--                        <div class="setting-mode py-3">--%>
-<%--                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-layout fs-4 me-2 text-primary"></i>Contrast Layout</h6>--%>
-<%--                            <ul class="list-group list-unstyled mb-0 mt-1">--%>
-<%--                                <li class="list-group-item d-flex align-items-center py-1 px-2">--%>
-<%--                                    <div class="form-check form-switch theme-switch mb-0">--%>
-<%--                                        <input class="form-check-input" type="checkbox" id="theme-switch">--%>
-<%--                                        <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>--%>
-<%--                                    </div>--%>
-<%--                                </li>--%>
-<%--                                <li class="list-group-item d-flex align-items-center py-1 px-2">--%>
-<%--                                    <div class="form-check form-switch theme-high-contrast mb-0">--%>
-<%--                                        <input class="form-check-input" type="checkbox" id="theme-high-contrast">--%>
-<%--                                        <label class="form-check-label" for="theme-high-contrast">Enable High Contrast</label>--%>
-<%--                                    </div>--%>
-<%--                                </li>--%>
-<%--                                <li class="list-group-item d-flex align-items-center py-1 px-2">--%>
-<%--                                    <div class="form-check form-switch theme-rtl mb-0">--%>
-<%--                                        <input class="form-check-input" type="checkbox" id="theme-rtl">--%>
-<%--                                        <label class="form-check-label" for="theme-rtl">Enable RTL Mode!</label>--%>
-<%--                                    </div>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="modal-footer justify-content-start">--%>
-<%--                        <button type="button" class="btn btn-white border lift" data-dismiss="modal">Close</button>--%>
-<%--                        <button type="button" class="btn btn-primary lift">Save Changes</button>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
-<%--        <!-- Modal Cropper-->--%>
-<%--        <div class="modal docs-cropped" id="getCroppedCanvasModal" tabindex="-1" aria-hidden="true">--%>
-<%--            <div class="modal-dialog">--%>
-<%--                <div class="modal-content">--%>
-<%--                    <div class="modal-header">--%>
-<%--                        <h5 class="modal-title">Cropped</h5>--%>
-<%--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
-<%--                    </div>--%>
-<%--                    <div class="modal-body"></div>--%>
-<%--                    <div class="modal-footer">--%>
-<%--                        <button type="button" class="btn btn-white border lift" data-bs-dismiss="modal">Close</button>--%>
-<%--                        <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">Download</a>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
 
     </div>
 
@@ -717,14 +491,13 @@
         removeDetailInAdmin()
     })
 
-    $(function addDetailAdmin(){
+    function addDetailAdmin(){
         $(".add-detail-admin").each(function () {
             $(this).click(()=>{
                 let color = $(this).data("color")
                 let size = $("#add-"+color+"-size").val()
                 let total = $("#add-"+color+"-total").val()
                 let sole = $("#add-"+color+"-sole").val()
-                alert(color + " " + size + " " + total + " " + sole)
                 let check = true
                 $(".exp-edit").text("")
 
@@ -756,6 +529,8 @@
                     check=false;
                     $("#exp-"+color+"-total").text("Total must be \n bigger than sole");
                 }
+                alert(check + "" +color + "" +size)
+
                 if (check) {
                     $.ajax({
                         url: `AddDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size+`&total=`+total+`&sole=`+sole,
@@ -800,6 +575,9 @@
                 }
             })
         })
+    }
+    $(function() {
+        addDetailAdmin()
     })
 
     function removeDetail(tr) {
@@ -814,7 +592,6 @@
                 url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
                 type: 'POST',
                 success: function (data) {
-                    alert(data)
                     $("#totalValue").val($("#totalValue").val()-total)
                     $("#totalSole").val($("#totalSole").val()-sole)
                 },
@@ -835,7 +612,7 @@
                     url: `RemoveImg?id=<%=product.getId()%>&nameImg=`+img,
                     type: 'POST',
                     success: function (data) {
-                        alert(data)
+                        alert("remove " + data)
                     },
                     error: function() {
                         alert("Error")
@@ -855,7 +632,7 @@
         $(".imgLoad").each(function(){
             $(this).change(function () {
                 let idImgShow = $(this).data("img")
-                if (this.files && this.files[0]) {
+                if (this.files) {
                     let reader = new FileReader()
                     reader.onload = function (e) {
                         $("#"+idImgShow).attr('src', e.target.result)
@@ -872,7 +649,7 @@
     $(function addNewColor() {
         let count=-1
         $(".add-new-color").click(()=>{
-            let color = ` <h5 style="display: block; width: 100%">Màu: <input name="addNewColor" id="new-color-`+count+`" />
+            let color = ` <h5 style="display: block; width: 100%">Màu: <input type="text" name="newColor" id="new-color-`+count+`" />
                          <br>
                          <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`"  data-j="`+new Date().getTime()+`" data-maincolor="`+count+`" value="Thêm mới"  type="button" />
                         </h5>
@@ -883,8 +660,8 @@
                          <div id="contain-img-`+count+`" class="d-flex flex-wrap"></div>`
             $(".images").prepend(color)
 
-            testChangeDataColor("add-img-"+count, "new-color-"+count)
-            testColor("add-img-"+count)
+            changeDataColor("add-img-"+count, "new-color-"+count)
+            addColor("add-img-"+count)
             addDetailProduct("add-img-"+count)
             count--
         })
@@ -914,17 +691,16 @@
                                         </tr>
 `
                 $(".table-add-detail").append(newDetail)
+                addDetailAdmin()
             }
             wasClicked=true
         })
     }
 
-    function testChangeDataColor(id, idColor) {
+    function changeDataColor(id, idColor) {
         $("#"+idColor).keyup(()=>{
             $("#"+id).data("color", $("#"+idColor).val())
-            alert($("#"+id).data("maincolor"))
             $("#mainColor_"+$("#"+id).data("maincolor")).val($("#"+idColor).val())
-            alert($("#mainColor_"+$("#"+id).data("maincolor")).val())
         })
     }
 
@@ -936,7 +712,7 @@
         })
     })
 
-    function testColor(id) {
+    function addColor(id) {
         $("#"+id).click(()=>test(id))
     }
 
@@ -946,7 +722,6 @@
         let color=$("#"+idInput).data('color')
         let j = $("#"+idInput).data('j')
         let i = new Date().getTime()
-        alert(idInput+" "+$("#"+idInput).data('color'))
         let newImg = `<div class="d-flex justify-content-around" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
                         <input type="file" id="input-img-`+id+`" class="imgLoad" data-img="img-`+id+`" name="fileNewImg_`+color+`" />
@@ -964,10 +739,7 @@
         $("#"+divContain).append(newImg)
 
         $("#mainImage_"+i).click(()=>{
-            console.log(213)
-            alert(123)
             $("#input-img-"+id).attr('name', "fileNewImg_"+color+"_checked");
-            alert($("#input-img-"+id).attr("id") + " " + $("#input-img-"+id).attr("name"))
         })
 
         $(this).bind('change', ()=>{
@@ -975,7 +747,9 @@
             reader.onload = function (e) {
                 $("#img-"+id).attr('src', e.target.result)
             }
-            reader.readAsDataURL(this.files[0])
+            if (this.files) {
+                reader.readAsDataURL(this.files[0])
+            }
         })
 
         loadImg()
@@ -987,12 +761,10 @@
         $(".remove-color").each(function (){
             $(this).click(()=>{
                 let color = $(this).data('color')
-                alert(color)
                 $.ajax({
                     url: `RemoveColor?id=<%=product.getId()%>&color=`+color,
                     type: 'POST',
                     success: function (data) {
-                        alert(data)
                         $(".tr-detail").each(function (){
                             if ($(this).data("color")==color) {
                                 $(this).remove()

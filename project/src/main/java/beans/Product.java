@@ -1,10 +1,10 @@
 package beans;
 
+import dao.product.color.DaoProductColor;
 import model.Admin.DaoProductAdmin;
 import model.DaoProduct;
 import model.Image;
 import model.ImgProduct;
-import model.ProductDetail;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,10 +32,38 @@ public class Product implements Serializable {
     private int quantity ;
     private String mainColor;
     //admin
-    private List<Image>listImg;
+    private List<beans.Image>listImg;
 
     public Product() {
 
+    }
+
+    // admin
+    public Product( double price, int sale, String brand, String name, String date, String description ) {
+        this.brand = brand;
+        this.name = name;
+        this.price=price;
+        this.saleRate = sale;
+        this.create_at=date;
+        this.description=description;
+    }
+
+    // detail
+    public Product(String id, String brand, String name, String categoryP, double price, int saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<beans.ProductDetail> listSize, String create_at, List<beans.Image> listImg) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.category = categoryP;
+        this.price = price;
+        this.saleRate = saleRate;
+        this.starRate = starRate;
+        this.description = description;
+        this.totalValue = totalValue;
+        this.soleValue = soleValue;
+        this.active = active;
+        this.create_at= create_at;
+        this.detail = listSize;
+        this.listImg=listImg;
     }
 
 //cart
@@ -75,7 +103,7 @@ public class Product implements Serializable {
     }
 
     // detail
-    public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<ProductDetail> detail, String create_at, List<Image> img) {
+    public Product(String id, String brand, String name, String category, double price, double saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<ProductDetail> detail, String create_at, List<beans.Image> img) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -175,12 +203,13 @@ public class Product implements Serializable {
     }
 
     public String getCreate_at() {
-        String[] date = create_at.split("\\W");
-        if (date[0].length()==1)
-            date[0]="0"+date[0];
-        if (date[1].length()==1)
-            date[1]="0"+date[1];
-        return date[2]+"-"+date[1]+"-"+date[0];
+//        String[] date = create_at.split("\\W");
+//        if (date[0].length()==1)
+//            date[0]="0"+date[0];
+//        if (date[1].length()==1)
+//            date[1]="0"+date[1];
+//        return date[2]+"-"+date[1]+"-"+date[0];
+        return create_at;
     }
 
     public String getUpdate_at() {
@@ -332,7 +361,7 @@ public class Product implements Serializable {
     }
 
     public List<String> getListColor() {
-        return DaoProductAdmin.getInstance().getListColor(this.getId());
+        return DaoProductColor.getInstance().getListColor(this.getId());
     }
 
     public String getMainColor() {return this.mainColor;}
@@ -350,10 +379,10 @@ public class Product implements Serializable {
                 return re;
     }
 
-    public List<Image> getListImg() {
+    public List<beans.Image> getListImg() {
         return listImg;
     }
-    public void setListImg(List<Image>list){
+    public void setListImg(List<beans.Image>list){
         this.listImg=list;
     }
 }
