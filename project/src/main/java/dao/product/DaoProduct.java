@@ -549,4 +549,47 @@ public class DaoProduct  {
         }
         return re;
     }
+
+    public String getName(String idProduct) {
+        try {
+            String sql = "SELECT name FROM product WHERE id=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idProduct);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getString("name");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return "";
+    }
+    public String getBrand(String idProduct) {
+        try {
+            String sql = "SELECT brand FROM product WHERE id=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idProduct);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getString("brand");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return "";
+    }
+    public double getPrice(String idProduct) {
+        try {
+            String sql = "SELECT price FROM product WHERE id=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idProduct);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getDouble("price");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0;
+    }
 }

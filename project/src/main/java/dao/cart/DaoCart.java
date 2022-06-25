@@ -2,6 +2,7 @@ package dao.cart;
 
 import beans.ProductInCart;
 import connection.DatabaseConnection;
+import dao.product.DaoProduct;
 
 import java.io.File;
 import java.sql.Connection;
@@ -23,6 +24,48 @@ public class DaoCart {
 
     private DaoCart() {
 
+    }
+
+    public List<ProductInCart> getListProductInCart(String idCustomer) {
+        List<ProductInCart> re = new ArrayList<ProductInCart>();
+        try {
+            String sql = "SELECT * FROM cart WHERE idCustomer=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idCustomer);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String idProduct = rs.getString("idProduct");
+                String colorShoe= rs.getString("colorShoe");
+                int quantity =  rs.getInt("quantity");
+                int size = rs.getInt("size");
+                String name= DaoProduct.getInstance().getName(idProduct);
+                String brand= DaoProduct.getInstance().getBrand(idProduct);
+                double price = DaoProduct.getInstance().getPrice(idProduct);
+                ProductInCart productInCart = new ProductInCart(idCustomer, idProduct, colorShoe, quantity, size, name, brand, price);
+                re.add(productInCart);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
+    }
+
+    // lấy số sản phẩm trong cart để trên header
+    public int getProductAmountInCart(String idCustomer) {
+        int re = 0;
+        try {
+            String sql = "SELECT * FROM cart WHERE idCustomer=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idCustomer);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+             re ++;
+            }
+            return re;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
     }
 
     public boolean insertShoeToCart(ProductInCart productInCart) {
@@ -81,7 +124,6 @@ public class DaoCart {
     }
 
     public boolean deleteProductInCart(ProductInCart productInCart) {
-        System.out.println(12345678);
         PreparedStatement s = null;
         String sql = "DELETE FROM cart WHERE idCustomer=? AND idProduct=? AND colorShoe=? AND size=?";
         try {
@@ -90,7 +132,6 @@ public class DaoCart {
             s.setString(2, productInCart.getIdProduct());
             s.setString(3, productInCart.getColorShoe());
             s.setInt(4, productInCart.getSizeShoe());
-            System.out.println(s.toString());
             s.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

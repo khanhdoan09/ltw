@@ -159,13 +159,18 @@
 
                 <div class="text-center contain-search">
                     <div class="contain-search-product-popular">
-                        <form id="form-header-search" class="search-product" >
+                        <form id="form-header-search" class="search-product" action="" method="post">
                             <input name="input-search-header" id="input-search-header"
                                    class="input-text-search-top"
                                    placeholder="Tìm kiếm" type="text" autocomplete="off"/>
                             <button type="submit" class="search-product-top" id="button-search-header"><i class="fa fa-search"></i></button>
                         </form>
                         <div class="contain-search-popular">
+                            <%--                            <span>X-Ray 2</span>--%>
+                            <%--                            <span>Nike Air Force 2</span>--%>
+                            <%--                            <span>Under Armour darkside</span>--%>
+                            <%--                            <span>X9000L4 Shoes Mens</span>--%>
+                            <%--                            <span>Adidas dragon sport</span>--%>
                         </div>
                     </div>
                 </div>
@@ -173,61 +178,65 @@
                 <div class="col-sm-4 col-xs-12 header-right header-nav-right">
 
                     <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
-                        <button type="button"
-                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav p-3">
-                            <span class="color-header">
-                                <span class="cart-title color-header m-2" style="margin-left: 10px">Giỏ hàng - </span>254.000 Đ</span>
-                            <span class="value-header-product" style="margin: 0 10px">3</span>
+                        <button id="button_cart" type="button"
+                                class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
+                            <span
+                                    class="color-header">
+                                <span class="cart-title color-header" id="sum_price" style="margin-left: 10px"
+                                >Giỏ hàng  </span>
+                            </span>
+                            <span class="value-header-product" id="header_quantity" style="margin: -6px 0 5px 10px">0</span>
                             <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
 
 
-                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">
-                                <table class="table table-striped">
-                                    <tbody>
-                                    <c:set var="list" value="${cart.data}"/>
-                                    <c:forEach items="${list}" var="item">
-                                        <td class="text-center">
-                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"
-                                                                                              height="100px"></a>
-                                        </td>
-                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.idProduct}">${item.name}</a>
-                                            <div class="SL-Gia">
-                                                <p class="gia">${item.gettotal()}$</p>
-                                                <p class="SL">SL: ${item.quantitySold}</p>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <a class="cart-remove" pid="${item.id}">
-                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i
-                                                        class="fa fa-delete-left"></i> </button>
-                                            </a>
-                                        </td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <div>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                        <br>
-                                        <tr>
-                                            <td class="text-right"><strong>Tạm tính</strong></td>
-                                            <td class="text-right">254.000Đ</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i
-                                            class="fa fa-shopping-cart"></i> View
-                                                        Cart</strong></a></span> <span class="btn-checkout"><a
-                                            href="checkout.html"><strong><i class="fa fa-share"></i>
-                                                        Checkout</strong></a></span> </p>
-                                </div>
-                            </li>
-                        </ul>
+                        <%--                        <ul class="dropdown-menu pull-right cart-dropdown-menu">--%>
+                        <%--                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">--%>
+                        <%--                                <table class="table table-striped">--%>
+                        <%--                                    <tbody id="list-cart">--%>
+
+                        <%--                                    <c:forEach items="${list}" var="item">--%>
+                        <%--                                        &lt;%&ndash;                                        <c:set var="sum" value=(${item.gettotal()} * ${item.quantitySold})/>&ndash;%&gt;--%>
+                        <%--                                        <td class="text-center">--%>
+                        <%--                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"--%>
+                        <%--                                                                                              height="100px"></a>--%>
+                        <%--                                        </td>--%>
+                        <%--                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>--%>
+                        <%--                                            <div class="SL-Gia">--%>
+                        <%--                                                <p class="gia">${item.gettotal()}</p>--%>
+                        <%--                                                <p class="SL">${item.quantitySold}</p>--%>
+                        <%--                                            </div>--%>
+                        <%--                                        </td>--%>
+                        <%--                                        <td class="text-center">--%>
+                        <%--                                            <a class="cart-remove" pid="${item.id}">--%>
+                        <%--                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i--%>
+                        <%--                                                        class="fa fa-delete-left"></i> </button>--%>
+                        <%--                                            </a>--%>
+                        <%--                                        </td>--%>
+                        <%--                                        </tr>--%>
+                        <%--                                    </c:forEach>--%>
+                        <%--                                    </tbody>--%>
+                        <%--                                </table>--%>
+                        <%--                            </li>--%>
+                        <%--                            <li>--%>
+                        <%--                                <div>--%>
+                        <%--                                    <table class="table table-bordered">--%>
+                        <%--                                        <tbody>--%>
+                        <%--                                        <br>--%>
+                        <%--                                        <tr>--%>
+                        <%--                                            <td class="text-right"><strong>Tạm tính</strong></td>--%>
+                        <%--                                            <td class="text-right" id="total-value"></td>--%>
+                        <%--                                        </tr>--%>
+                        <%--                                        </tbody>--%>
+                        <%--                                    </table>--%>
+                        <%--                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i--%>
+                        <%--                                            class="fa fa-shopping-cart"></i> View--%>
+                        <%--                                                        Cart</strong></a></span> <span class="btn-checkout"><a--%>
+                        <%--                                            href="checkout.html"><strong><i class="fa fa-share"></i>--%>
+                        <%--                                                        Checkout</strong></a></span> </p>--%>
+                        <%--                                </div>--%>
+                        <%--                            </li>--%>
+                        <%--                        </ul>--%>
                     </div>
 
 
@@ -250,51 +259,51 @@
                 <ul class="main-navigation">
                     <li><a href="index.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                     <li style="position: relative">
-                        <a href="SearchListProduct?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
+                        <a href="caterogyGender?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
                             NAM
                             <i class="fas fa-caret-down"></i>
                         </a>
 
                         <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
                             <li id="running-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
+                                <a href="../SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
                             </li>
                             <li id="slides-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                                <a href="../SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
                             </li>
                             <li id="sneakers-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                                <a href="../SearchListProduct?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
                             </li>
                             <li id="skateboard-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
+                                <a href="../SearchListProduct?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
                             </li>
                             <li id="trainers-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?categoryOnNav=Trainers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                                <a href="../SearchListProduct?categoryOnNav=Trainers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
                             </li>
                         </ul>
 
                     </li>
                     <li style="position: relative"
-                    ><a href="SearchListProduct?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
+                    ><a href="caterogyGender?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
 
                         <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                             <li id="running-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
+                                <a href="../SearchListProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
                             </li>
                             </li>
                             <li id="slides-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                                <a href="../SearchListProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
                             </li>
                             </li>
                             <li id="sneakers-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                                <a href="../SearchListProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
                             </li>
                             </li>
                             <li id="skateboard-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
+                                <a href="../SearchListProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
                             </li>
                             <li id="trainers-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?categoryOnNav=Trainers Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                                <a href="../SearchListProduct?categoryOnNav=Trainers Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
                             </li>
                             </li>
                         </ul>
@@ -308,14 +317,14 @@
 
                     <div class="item-nav-detail-info" id="item-category-brand">
                         <div class="contain-brand" >
-                            <img onclick="location.href='SearchListProduct?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
-                            <img onclick="location.href='SearchListProduct?brand=ADIDAS'" src="image/brand/logo-brand-02.svg">
-                            <img onclick="location.href='CategoryProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
-                            <img onclick="location.href='CategoryProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
-                            <img onclick="location.href='CategoryProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-05.svg">
-                            <img onclick="location.href='CategoryProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-06.svg">
-                            <img onclick="location.href='CategoryProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-07.jpg">
-                            <img onclick="location.href='CategoryProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-08.svg">
+                            <img onclick="location.href='../SearchListProduct?brand=ASICS&pagination=1'" src="../image/brand/logo-brand-01.svg">
+                            <img onclick="location.href='../SearchListProduct?brand=ADIDAS'" src="../image/brand/logo-brand-02.svg">
+                            <img onclick="location.href='../SearchListProduct?category=VANS&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-03.jpg">
+                            <img onclick="location.href='../SearchListProduct?category=NIKE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-04.svg">
+                            <img onclick="location.href='../SearchListProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-05.svg">
+                            <img onclick="location.href='../SearchListProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-06.svg">
+                            <img onclick="location.href='../SearchListProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-07.jpg">
+                            <img onclick="location.href='../SearchListProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-08.svg">
                         </div>
                     </div>
 
@@ -324,6 +333,117 @@
         </div>
     </nav>
 </header>
+
+<script>
+    $(function() {
+        $("#button_cart").click(()=>{
+            // to controller
+            window.location.href="GetProductInCart"
+        })
+    })
+
+    // lấy số sản phẩm trên header
+    $(function() {
+        $.ajax({
+            url: "GetAmountProductInHeader",
+            method: "GET",
+            success: function (data) {
+                $("#header_quantity").text(data)
+            },
+            error: function (data) {
+                if (data.status === 404)
+                    alert("Xoa That Bai");
+            }
+        })
+    })
+</script>
+<%--<script>--%>
+<%--    $(function() {--%>
+<%--                $.ajax({--%>
+<%--                    url: "/project/Cart-remove",--%>
+<%--                    method: "POST",--%>
+<%--                    data: {--%>
+<%--                        id: id--%>
+<%--                    },--%>
+<%--                    success: function (data) {--%>
+<%--                        tr.remove();--%>
+<%--                    },--%>
+<%--                    error: function (data) {--%>
+<%--                        if (data.status === 404)--%>
+<%--                            alert("Xoa That Bai");--%>
+<%--                    }--%>
+<%--                })--%>
+<%--    })--%>
+<%--</script>--%>
+<script>
+    // $(document).ready(function () {
+    //     $(".cart-remove").click(function () {
+    //         var id = $(this).attr("pid");
+    //         tr = $(this).closest("tr");
+    //         console.log(id);
+    //         $.ajax({
+    //             url: "/project/Cart-remove",
+    //             method: "POST",
+    //             data: {
+    //                 id: id
+    //             },
+    //             success: function (data) {
+    //                 tr.remove();
+    //             },
+    //             error: function (data) {
+    //                 if (data.status === 404)
+    //                     alert("Xoa That Bai");
+    //             }
+    //         })
+    //     });
+    //     $(function (){
+    //         let value = 0;
+    //         let num = 0;
+    //         let i = 0;
+    //         while(true){
+    //             let child = $("#list-cart .SL-Gia:nth-child("+ i++ +")");
+    //             if(child.length!==0){
+    //                 for(let j = 0;j<child.length;j++){
+    //                     let price =Number(child[j].children[0].innerHTML);
+    //                     let quantity = Number(child[j].children[1].innerHTML);
+    //                     // console.log(typeof price + price);
+    //                     value += price;
+    //                     num += quantity;
+    //                 }
+    //                 // console.log(value);
+    //                 value = Math.round(value)
+    //                 break;
+    //             }else if(i===10) break;
+    //         }
+    //         $("#total-value").text(value);
+    //         $("#total_price").text(value +"$");
+    //         $("#header_quantity").text(num);
+    //         $("#sum_price").text("Giỏ Hàng - "+value+"$");
+    //     });
+    // })
+
+    // function excuteData() {
+    <%--        <%--%>
+    <%--            String id = "";--%>
+    <%--            if(user == null) {--%>
+    <%--        %>--%>
+    <%--        let value= "";--%>
+    <%--        value +="<li>"--%>
+    <%--        value += "                                                    <div href=\".jsp\" class=\"minicart-item\">";--%>
+    <%--        value += "                                                        <div class=\"left-info\">";--%>
+    <%--        value += "                                                            <div class=\"product-title\"><a  class=\"product-name\">vui lòng đăng nhập để mở chức năng giỏ hàng<\/a><\/div>";--%>
+    <%--        value += "                                                        <\/div>";--%>
+    <%--        value += "                                                    <\/div>";--%>
+    <%--        value += "                                                <\/li>";--%>
+    <%--        document.getElementById("products-cart").innerHTML=strVar;--%>
+    <%--        return;--%>
+    <%--        <%}else{--%>
+    <%--           id = user.getId();--%>
+    <%--        }%>--%>
+
+
+    // }
+</script>
 
 <%
     Object obj = request.getAttribute("idProduct");
@@ -497,7 +617,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                 <%=p.getBrand()%>
                             </div>
                         </li>
-                        <form id="form-to-cart" action="cartCustomer?id=132" method="get">
+                        <form id="form-to-cart" action="updateCart?id=132" method="get">
                             <!-- bug không gửi được parameter trên url nên dùng 5 cái input dưới-->
                             <input name="idCustomer" value="123" style="width: 1px; height: 1px; visibility: hidden">
                             <input name="idProduct" value="<%=p.getId()%>" style="width: 1px; height: 1px; visibility: hidden">
@@ -867,20 +987,6 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
     $(function() {
         $("#add-cart").click((e)=>{
             e.preventDefault()
-            // không biết tại sao không submit được parameter nên dùng tạm ajax
-            alert($("#form-to-cart").attr('action'))
-
-                // $.ajax({
-                //     url: $("#form-to-cart").attr('action'),
-                //     type: 'GET',
-                //     success: function (data) {
-                //         alert(data+"QWE")
-                //         window.location.href="views.customer/cart.jsp"
-                //     },
-                //     error: function() {
-                //         alert("Error")
-                //     }
-                // })
             $("#form-to-cart").submit()
         })
     })

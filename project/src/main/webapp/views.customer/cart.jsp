@@ -52,8 +52,10 @@
 <div class="container bg-item pd-5 bd-rd">
 
     <div class="row">
-
-        <form action="CheckoutController" id="content" style="width: 100%;">
+        <%String idCustomer = (String) request.getAttribute("idCustomer");%>
+        <form action="OrderController" id="content" style="width: 100%;">
+            <!-- bug không được parameter trên url nên dùng input dưới-->
+            <input style="visibility: hidden; width: 1px; height: 1px;" name="idCustomer" value="<%=idCustomer%>">
             <h1>Giỏ Hàng </h1>
             <div>
                 <div class="table-responsive">
@@ -77,7 +79,7 @@
                             totalPrice += product.getPrice();%>
                             <tr id="tr_<%=i%>">
                                 <td class="text-center check_pr">
-                                    <input type="checkbox" id="html " class="checked_pr" name="fav_language" value="HTML" checked>
+                                    <input type="checkbox" id="html " class="checked_pr" name="checkbox_product_in_cart" value="<%=product.getName()%>_<%=product.getIdProduct()%>_<%=product.getColorShoe()%>_<%=product.getSizeShoe()%>_<%=product.getQuantityShoe()%>_<%=product.getPrice()%>" checked>
                                     <a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><img class="img-thumbnail"
                                                                 title="women's New Wine is an alcoholic"
                                                                 alt="women's New Wine is an alcoholic"
@@ -93,7 +95,7 @@
                                                 <a class="" href="/project/Cart">
                                                    <i class="fa fa-refresh icon-update" style="padding: 9px 20px;background-color: #1a94ff;color: white;"></i>
                                                 </a>
-                                                <a data-tr="tr_<%=i%>" data-price="<%=product.getPrice()%>" data-quantity="<%=product.getQuantityShoe()%> href="DeleteProductInCart?idProduct=<%=product.getIdProduct()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
+                                                <a data-tr="tr_<%=i%>" data-price="<%=product.getPrice()%>" data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProduct()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
                                                     <button class="btn btn-danger" title="" data-toggle="tooltip"
                                                         type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
