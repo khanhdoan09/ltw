@@ -90,62 +90,65 @@
                 <div class="col-sm-4 col-xs-12 header-right header-nav-right">
 
                     <div id="cart" class="btn-group btn-block" style="margin: 0; padding: 0;">
-                        <button type="button"
+                        <button id="button_cart" type="button"
                                 class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button cart-nav">
                             <span
-                                    class="color-header"><span class="cart-title color-header" id="sum_price" style="margin-left: 10px">Giỏ hàng - </span></span>
-                            <span class="value-header-product" id="header_quantity" style="margin: -6px 0 0 20px">0</span>
+                                    class="color-header">
+                                <span class="cart-title color-header" id="sum_price" style="margin-left: 10px"
+                                >Giỏ hàng  </span>
+                            </span>
+                            <span class="value-header-product" id="header_quantity" style="margin: -6px 0 5px 10px">0</span>
                             <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
 
 
-                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">
-                                <table class="table table-striped">
-                                    <tbody id="list-cart">
+<%--                        <ul class="dropdown-menu pull-right cart-dropdown-menu">--%>
+<%--                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">--%>
+<%--                                <table class="table table-striped">--%>
+<%--                                    <tbody id="list-cart">--%>
 
-                                    <c:forEach items="${list}" var="item">
-                                        <%--                                        <c:set var="sum" value=(${item.gettotal()} * ${item.quantitySold})/>--%>
-                                        <td class="text-center">
-                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"
-                                                                                              height="100px"></a>
-                                        </td>
-                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
-                                            <div class="SL-Gia">
-                                                <p class="gia">${item.gettotal()}</p>
-                                                <p class="SL">${item.quantitySold}</p>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <a class="cart-remove" pid="${item.id}">
-                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i
-                                                        class="fa fa-delete-left"></i> </button>
-                                            </a>
-                                        </td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <div>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                        <br>
-                                        <tr>
-                                            <td class="text-right"><strong>Tạm tính</strong></td>
-                                            <td class="text-right" id="total-value"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i
-                                            class="fa fa-shopping-cart"></i> View
-                                                        Cart</strong></a></span> <span class="btn-checkout"><a
-                                            href="checkout.html"><strong><i class="fa fa-share"></i>
-                                                        Checkout</strong></a></span> </p>
-                                </div>
-                            </li>
-                        </ul>
+<%--                                    <c:forEach items="${list}" var="item">--%>
+<%--                                        &lt;%&ndash;                                        <c:set var="sum" value=(${item.gettotal()} * ${item.quantitySold})/>&ndash;%&gt;--%>
+<%--                                        <td class="text-center">--%>
+<%--                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"--%>
+<%--                                                                                              height="100px"></a>--%>
+<%--                                        </td>--%>
+<%--                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>--%>
+<%--                                            <div class="SL-Gia">--%>
+<%--                                                <p class="gia">${item.gettotal()}</p>--%>
+<%--                                                <p class="SL">${item.quantitySold}</p>--%>
+<%--                                            </div>--%>
+<%--                                        </td>--%>
+<%--                                        <td class="text-center">--%>
+<%--                                            <a class="cart-remove" pid="${item.id}">--%>
+<%--                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i--%>
+<%--                                                        class="fa fa-delete-left"></i> </button>--%>
+<%--                                            </a>--%>
+<%--                                        </td>--%>
+<%--                                        </tr>--%>
+<%--                                    </c:forEach>--%>
+<%--                                    </tbody>--%>
+<%--                                </table>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <div>--%>
+<%--                                    <table class="table table-bordered">--%>
+<%--                                        <tbody>--%>
+<%--                                        <br>--%>
+<%--                                        <tr>--%>
+<%--                                            <td class="text-right"><strong>Tạm tính</strong></td>--%>
+<%--                                            <td class="text-right" id="total-value"></td>--%>
+<%--                                        </tr>--%>
+<%--                                        </tbody>--%>
+<%--                                    </table>--%>
+<%--                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i--%>
+<%--                                            class="fa fa-shopping-cart"></i> View--%>
+<%--                                                        Cart</strong></a></span> <span class="btn-checkout"><a--%>
+<%--                                            href="checkout.html"><strong><i class="fa fa-share"></i>--%>
+<%--                                                        Checkout</strong></a></span> </p>--%>
+<%--                                </div>--%>
+<%--                            </li>--%>
+<%--                        </ul>--%>
                     </div>
 
 
@@ -242,54 +245,96 @@
         </div>
     </nav>
 </header>
+
 <script>
-    $(document).ready(function () {
-        $(".cart-remove").click(function () {
-            var id = $(this).attr("pid");
-            tr = $(this).closest("tr");
-            console.log(id);
-            $.ajax({
-                url: "/project/Cart-remove",
-                method: "POST",
-                data: {
-                    id: id
-                },
-                success: function (data) {
-                    tr.remove();
-                },
-                error: function (data) {
-                    if (data.status === 404)
-                        alert("Xoa That Bai");
-                }
-            })
-        });
-        $(function (){
-            let value = 0;
-            let num = 0;
-            let i = 0;
-            while(true){
-                let child = $("#list-cart .SL-Gia:nth-child("+ i++ +")");
-                if(child.length!==0){
-                    for(let j = 0;j<child.length;j++){
-                        let price =Number(child[j].children[0].innerHTML);
-                        let quantity = Number(child[j].children[1].innerHTML);
-                        // console.log(typeof price + price);
-                        value += price;
-                        num += quantity;
-                    }
-                    // console.log(value);
-                    value = Math.round(value)
-                    break;
-                }else if(i===10) break;
-            }
-            $("#total-value").text(value);
-            $("#total_price").text(value +"$");
-            $("#header_quantity").text(num);
-            $("#sum_price").text("Giỏ Hàng - "+value+"$");
-        });
+    $(function() {
+        $("#button_cart").click(()=>{
+            // to controller
+            window.location.href="GetProductInCart"
+        })
     })
 
-    function excuteData() {
+    // lấy số sản phẩm trên header
+    $(function() {
+                        $.ajax({
+                            url: "GetAmountProductInHeader",
+                            method: "GET",
+                            success: function (data) {
+                                $("#header_quantity").text(data)
+                            },
+                            error: function (data) {
+                                if (data.status === 404)
+                                    alert("Xoa That Bai");
+                            }
+                        })
+    })
+</script>
+<%--<script>--%>
+<%--    $(function() {--%>
+<%--                $.ajax({--%>
+<%--                    url: "/project/Cart-remove",--%>
+<%--                    method: "POST",--%>
+<%--                    data: {--%>
+<%--                        id: id--%>
+<%--                    },--%>
+<%--                    success: function (data) {--%>
+<%--                        tr.remove();--%>
+<%--                    },--%>
+<%--                    error: function (data) {--%>
+<%--                        if (data.status === 404)--%>
+<%--                            alert("Xoa That Bai");--%>
+<%--                    }--%>
+<%--                })--%>
+<%--    })--%>
+<%--</script>--%>
+<script>
+    // $(document).ready(function () {
+    //     $(".cart-remove").click(function () {
+    //         var id = $(this).attr("pid");
+    //         tr = $(this).closest("tr");
+    //         console.log(id);
+    //         $.ajax({
+    //             url: "/project/Cart-remove",
+    //             method: "POST",
+    //             data: {
+    //                 id: id
+    //             },
+    //             success: function (data) {
+    //                 tr.remove();
+    //             },
+    //             error: function (data) {
+    //                 if (data.status === 404)
+    //                     alert("Xoa That Bai");
+    //             }
+    //         })
+    //     });
+    //     $(function (){
+    //         let value = 0;
+    //         let num = 0;
+    //         let i = 0;
+    //         while(true){
+    //             let child = $("#list-cart .SL-Gia:nth-child("+ i++ +")");
+    //             if(child.length!==0){
+    //                 for(let j = 0;j<child.length;j++){
+    //                     let price =Number(child[j].children[0].innerHTML);
+    //                     let quantity = Number(child[j].children[1].innerHTML);
+    //                     // console.log(typeof price + price);
+    //                     value += price;
+    //                     num += quantity;
+    //                 }
+    //                 // console.log(value);
+    //                 value = Math.round(value)
+    //                 break;
+    //             }else if(i===10) break;
+    //         }
+    //         $("#total-value").text(value);
+    //         $("#total_price").text(value +"$");
+    //         $("#header_quantity").text(num);
+    //         $("#sum_price").text("Giỏ Hàng - "+value+"$");
+    //     });
+    // })
+
+    // function excuteData() {
 <%--        <%--%>
 <%--            String id = "";--%>
 <%--            if(user == null) {--%>
@@ -309,5 +354,5 @@
 <%--        }%>--%>
 
 
-    }
+    // }
 </script>

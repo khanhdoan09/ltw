@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import beans.Banner;
-import model.DaoBanner;
+import dao.banner.DaoBanner;
 
 @WebServlet(name = "CaterogyGenderController", value = "/caterogyGender")
 public class CaterogyGenderController extends HttpServlet {

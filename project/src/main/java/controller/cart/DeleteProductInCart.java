@@ -16,8 +16,8 @@ public class DeleteProductInCart extends HttpServlet {
         String idCustomer = request.getParameter("idCustomer");
         String colorShoe= request.getParameter("colorShoe");
         int size= Integer.parseInt(request.getParameter("size"));
-        System.out.println(idProduct +"~"+idCustomer+"~"+colorShoe+"~"+size);
         ProductInCart productInCart = new ProductInCart(idCustomer, idProduct, colorShoe, size);
+        System.out.println(123123);
         DaoCart.getInstance().deleteProductInCart(productInCart);
 
         response.setContentType("text/html");
