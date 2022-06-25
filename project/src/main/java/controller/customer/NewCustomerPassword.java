@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import model.User;
+
 import model.customer.DaoCustomer;
 
 @WebServlet(name = "NewCustomerPassword", value = "/newCustomerPassword")

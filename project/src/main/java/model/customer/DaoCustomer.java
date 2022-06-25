@@ -2,7 +2,7 @@ package model.customer;
 
 import beans.History;
 import connection.DatabaseConnection;
-import model.User;
+import beans.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

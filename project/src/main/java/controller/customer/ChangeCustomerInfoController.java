@@ -1,6 +1,6 @@
 package controller.customer;
 
-import model.User;
+import beans.User;
 import model.customer.DaoCustomer;
 
 import javax.servlet.*;

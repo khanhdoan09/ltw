@@ -1,7 +1,8 @@
 <%@ page import="javax.swing.*" %>
 
 <%@ page import="model.*" %>
-<%@ page import="model.User" %>
+<%@ page import="beans.User" %>
+<%@ page import="dao.user.UserDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: khanh
@@ -38,6 +39,16 @@
                                                                       class="color-header">(0)</span></a>
                                 </li>
                                 <li class="dropdown">
+                                    <%Object obj = session.getAttribute("userId");if (obj != null) {
+                                        String userId = (String) obj;
+                                        String userName = UserDao.getInstance().getUser(userId);%>
+                                    <a href="customer" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-user color-header"></i><span class="color-header"><%=userName%></span> <span style=" font-size: 15px;"
+                                                                   class="caret color-header"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="SignOutController" class="js-login">Đăng xuất</a></li>
+                                    </ul>
+                                    <%}else {%>
                                     <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="fa fa-user color-header"></i><span class="color-header">Tài
                                                 khoản</span> <span style=" font-size: 15px;"
@@ -46,6 +57,7 @@
                                         <li><a href="#" class="js-login" id="Login">Đăng Nhập</a></li>
                                         <li><a href="#" class="js_register">Đăng Ký</a></li>
                                     </ul>
+                                    <%}%>
                                 </li>
                             </ul>
                         </div>
