@@ -1,9 +1,8 @@
 package controller.admin;
 
-import dao.product.DaoProduct;
+import dao.product.DaoProductAdmin;
 import dao.product.brand.DaoProductBrand;
 import dao.product.image.DaoProductImage;
-import model.Admin.DaoProductAdmin;
 import model.Image;
 import beans.Product;
 import org.apache.commons.fileupload.FileItem;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -164,7 +162,7 @@ public class SaveAddProduct extends HttpServlet {
                 }
             }
 
-            DaoProduct.getInstance().addProduct(productDetail);
+            DaoProductAdmin.getInstance().addProduct(productDetail);
 
             request.getRequestDispatcher("/SaveAddProduct").forward(request, response);
         } catch (FileUploadException e) {

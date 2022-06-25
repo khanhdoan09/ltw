@@ -3,7 +3,7 @@
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="model.Admin.DaoProductAdmin" %>
 <%@ page import="model.Admin.Order" %>
-<%@ page import="dao.product.order.DaoOrderAdmin" %><%--
+<%@ page import="dao.order.DaoOrderAdmin" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 13/1/2022

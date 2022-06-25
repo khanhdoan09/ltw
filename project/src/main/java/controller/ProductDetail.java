@@ -1,6 +1,6 @@
 package controller;
 
-import model.DaoProduct;
+import dao.product.DaoProduct;
 import beans.Product;
 
 import javax.servlet.ServletException;
@@ -24,11 +24,6 @@ public class ProductDetail extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idProduct = request.getParameter("idProduct");
         List<Product> listHotProduct = DaoProduct.getInstance().getListHotProduct(idProduct);
-        request.setAttribute("listHotProduct", listHotProduct);
-        System.out.println(listHotProduct.size()+"~");
-
-        request.setAttribute("idProduct", idProduct);
-        request.getRequestDispatcher("views.customer/product.jsp").forward(request, response);
 
         // product was watched
         HttpSession session = request.getSession(true);
@@ -37,7 +32,13 @@ public class ProductDetail extends HttpServlet {
             listProductWatched = new ArrayList<String>();
             session.setAttribute("listProductWatched", listProductWatched);
         }
-        if (!listProductWatched.contains(idProduct))
+        if (!listProductWatched.contains(idProduct)) {
             listProductWatched.add(idProduct);
+        }
+
+        request.setAttribute("listHotProduct", listHotProduct);
+
+        request.setAttribute("idProduct", idProduct);
+        request.getRequestDispatcher("views.customer/product.jsp").forward(request, response);
     }
 }

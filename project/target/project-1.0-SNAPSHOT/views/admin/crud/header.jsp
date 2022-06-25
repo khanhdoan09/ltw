@@ -37,7 +37,7 @@
             </li>
             <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
-                    <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>
+                    <i class="fa fa-sign-out" aria-hidden="true" style="margin: 0 10px;"></i><span>Đăng xuất</span> </a>
 
             </li>
 

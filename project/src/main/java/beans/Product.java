@@ -2,9 +2,9 @@ package beans;
 
 import dao.product.color.DaoProductColor;
 import model.Admin.DaoProductAdmin;
-import model.DaoProduct;
-import model.Image;
-import model.ImgProduct;
+import dao.product.DaoProduct;
+import beans.Image;
+import beans.ImgProduct;
 
 import java.io.Serializable;
 import java.util.List;

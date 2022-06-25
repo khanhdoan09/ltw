@@ -1,4 +1,4 @@
-package dao.product.order;
+package dao.order;
 
 import connection.DatabaseConnection;
 import model.Admin.Order;

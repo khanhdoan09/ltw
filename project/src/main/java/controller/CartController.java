@@ -1,7 +1,5 @@
 package controller;
 
-import model.Cart;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,13 +14,7 @@ public class CartController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //get cart
         HttpSession session = request.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
-            cart = Cart.getInstance();
-            session.setAttribute("cart", cart);
-        }
-        request.setAttribute("cart", cart);
-        request.getRequestDispatcher("./views.customer/cart.jsp").forward(request,response);
+
     }
 
     @Override

@@ -1,7 +1,6 @@
 package controller.admin;
 
-import dao.product.DaoProduct;
-import model.Admin.DaoProductAdmin;
+import dao.product.DaoProductAdmin;
 import beans.Product;
 
 import javax.servlet.ServletException;
@@ -45,19 +44,19 @@ public class ListProductAdmin extends HttpServlet {
         ArrayList<String>listName=null;
         String sql = "";
         if (type.equals("brand")) {
-            sql =  DaoProduct.getInstance().getProductByCategory("brand", name);
+            sql =  DaoProductAdmin.getInstance().getProductByCategory("brand", name);
             listName = new ArrayList<String>(Arrays.asList(name));
         }
         else if (type.equals("id")) {
-            sql =  DaoProduct.getInstance().getProductByCategory("id", name);
+            sql =  DaoProductAdmin.getInstance().getProductByCategory("id", name);
             listName = new ArrayList<String>(Arrays.asList(name));
         }
         else if (type.equals("name")) {
-            sql =  DaoProduct.getInstance().getProductByCategory("name", name);
+            sql =  DaoProductAdmin.getInstance().getProductByCategory("name", name);
             listName = new ArrayList<String>(Arrays.asList(name));
         }
         String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE " + sql +  " GROUP BY product.id LIMIT "+pagination*9+", 9";
-        list = DaoProduct.getInstance().excQuery(listName,sqlAll);
+        list = DaoProductAdmin.getInstance().excQuery(listName,sqlAll);
         if (pagination != 0) { // not use when first time submit
             if (list.size() == 0){ // no more data
                 response.setContentType("text/html");
@@ -79,7 +78,7 @@ public class ListProductAdmin extends HttpServlet {
     }
 
     public void removeProduct(String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        boolean isDeleted = DaoProduct.getInstance().deleteProductInAdmin(id, request);
+        boolean isDeleted = DaoProductAdmin.getInstance().deleteProductInAdmin(id, request);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         if (isDeleted)

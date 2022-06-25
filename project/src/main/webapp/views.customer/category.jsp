@@ -6,18 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="java.sql.DriverManager" %>
-<%@page import="java.sql.Connection" %>
-<%@ page import="databaseConnection.DatabaseConnection" %>
+<%@ page import="connection.DatabaseConnection" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
-<%@ page import="model.*" %>
-<%@ page import="model.Admin.DaoProductAdmin" %>
 <%@ page import="beans.Product" %>
-
+<%@ page import="dao.product.brand.DaoProductBrand" %>
+<%@ page import="model.DaoLinkImage" %>
 
 
 <html lang="en">
@@ -345,7 +342,7 @@
                                         }
                                         return "";
                                     }%>
-                                <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();
+                                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
                                 for(String brand: brands){%>
                                 <label class="checkbox-filter-search">
                                     <input name="filterBrand" type="checkbox"

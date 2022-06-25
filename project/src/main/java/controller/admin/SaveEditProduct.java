@@ -1,12 +1,11 @@
 package controller.admin;
 
 import beans.Image;
-import dao.product.DaoProduct;
+import dao.product.DaoProductAdmin;
 import dao.product.brand.DaoProductBrand;
 import dao.product.color.DaoProductColor;
 import dao.product.detail.DaoProductDetail;
 import dao.product.image.DaoProductImage;
-import model.Admin.DaoProductAdmin;
 import beans.Product;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -153,7 +152,7 @@ public class SaveEditProduct extends HttpServlet {
                 }
                 if (item.getFieldName().equals("active")) {
                     System.out.print(item.getString());
-                    DaoProduct.getInstance().saveActive(id, item.getString());
+                    DaoProductAdmin.getInstance().saveActive(id, item.getString());
                 }
                 if (item.getFieldName().equals("fileImg")) {
                    if (item.getSize()==0) {
@@ -190,7 +189,7 @@ public class SaveEditProduct extends HttpServlet {
                 }
             }
 
-            DaoProduct.getInstance().editProduct(id, productDetail);
+            DaoProductAdmin.getInstance().editProduct(id, productDetail);
 
             request.setAttribute("productDetail", DaoProductDetail.getInstance().getDetailProduct(id));
             request.getRequestDispatcher("EditProduct.jsp").forward(request, response);

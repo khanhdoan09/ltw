@@ -12,11 +12,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<c:set var="list" value="${cart.data}"/>
+<%--<c:set var="list" value="${cart.data}"/>--%>
 
-<%
-    User user = (User) session.getAttribute("auth");
-%>
+<%--<%--%>
+<%--    User user = (User) session.getAttribute("auth");--%>
+<%--%>--%>
 <header>
     <div class="contain-header-inner">
         <div class="container">
@@ -290,23 +290,23 @@
     })
 
     function excuteData() {
-        <%
-            String id = "";
-            if(user == null) {
-        %>
-        let value= "";
-        value +="<li>"
-        value += "                                                    <div href=\".jsp\" class=\"minicart-item\">";
-        value += "                                                        <div class=\"left-info\">";
-        value += "                                                            <div class=\"product-title\"><a  class=\"product-name\">vui lòng đăng nhập để mở chức năng giỏ hàng<\/a><\/div>";
-        value += "                                                        <\/div>";
-        value += "                                                    <\/div>";
-        value += "                                                <\/li>";
-        document.getElementById("products-cart").innerHTML=strVar;
-        return;
-        <%}else{
-           id = user.getId();
-        }%>
+<%--        <%--%>
+<%--            String id = "";--%>
+<%--            if(user == null) {--%>
+<%--        %>--%>
+<%--        let value= "";--%>
+<%--        value +="<li>"--%>
+<%--        value += "                                                    <div href=\".jsp\" class=\"minicart-item\">";--%>
+<%--        value += "                                                        <div class=\"left-info\">";--%>
+<%--        value += "                                                            <div class=\"product-title\"><a  class=\"product-name\">vui lòng đăng nhập để mở chức năng giỏ hàng<\/a><\/div>";--%>
+<%--        value += "                                                        <\/div>";--%>
+<%--        value += "                                                    <\/div>";--%>
+<%--        value += "                                                <\/li>";--%>
+<%--        document.getElementById("products-cart").innerHTML=strVar;--%>
+<%--        return;--%>
+<%--        <%}else{--%>
+<%--           id = user.getId();--%>
+<%--        }%>--%>
 
 
     }

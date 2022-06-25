@@ -1,6 +1,6 @@
 package controller;
 
-import model.DaoProduct;
+import dao.product.DaoProduct;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

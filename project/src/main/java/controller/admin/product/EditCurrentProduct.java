@@ -1,24 +1,17 @@
 package controller.admin.product;
 
 import beans.Product;
-import dao.product.DaoProduct;
+import dao.product.DaoProductAdmin;
 import dao.product.brand.DaoProductBrand;
 import dao.product.color.DaoProductColor;
 import dao.product.detail.DaoProductDetail;
 import dao.product.image.DaoProductImage;
-import model.Admin.product.DaoProductAdmin;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 
 @MultipartConfig(fileSizeThreshold=1024*1024*2,// 2MB
@@ -128,7 +121,7 @@ public class EditCurrentProduct extends HttpServlet {
             DaoProductImage.getInstance().setImgToMain(nameImg, idProduct, color);
         }
 
-        DaoProduct.getInstance().editProduct(id, productDetail);
+        DaoProductAdmin.getInstance().editProduct(id, productDetail);
 
         request.setAttribute("productDetail", DaoProductDetail.getInstance().getDetailProduct(id));
         request.getRequestDispatcher("EditProduct.jsp").forward(request, response);

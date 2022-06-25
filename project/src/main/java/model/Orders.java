@@ -14,8 +14,6 @@ public class Orders {
         return instance;
     }
 
-    public void createOrder(Cart cart) {
 
-    }
 
 }
