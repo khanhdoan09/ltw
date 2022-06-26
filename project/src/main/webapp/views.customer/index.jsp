@@ -11,28 +11,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
           type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link href="../css/stylesheet.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="../font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
-    <link href="../owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-    <link href="../owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-    <script src="../javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../javascript/jstree.min.js" type="text/javascript"></script>
-    <script src="../javascript/template.js" type="text/javascript"></script>
-    <script src="../javascript/common.js" type="text/javascript"></script>
-    <script src="../javascript/global.js" type="text/javascript"></script>
-    <script src="../owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="../image/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="../css/dat-css.css">
-    <link rel="stylesheet" href="../css/khanh-css.css">
-    <link rel="stylesheet" href="../css/hung-css.css">
-    <script src="../javascript/khanh-js.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="../image/logo.png" />
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="javascript/jstree.min.js" type="text/javascript"></script>
+    <script src="javascript/template.js" type="text/javascript"></script>
+    <script src="javascript/common.js" type="text/javascript"></script>
+    <script src="javascript/global.js" type="text/javascript"></script>
+    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="image/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="css/dat-css.css">
+    <link rel="stylesheet" href="css/khanh-css.css">
+    <link rel="stylesheet" href="css/hung-css.css">
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="image/logo.png" />
 
 
     <style>
@@ -43,51 +43,31 @@
 </head>
 
 <body>
-<div class="preloader loader" style="display: block; background:#f2f2f2;"> <img src="../image/loader.gif" alt="#" />
+<div class="preloader loader" style="display: block; background:#f2f2f2;"> <img src="image/loader.gif" alt="#" />
 </div>
 
-<%@include file="./header.jsp"%>
-<script>
-    $(document).ready(function () {
-        $(".cart-remove").click(function () {
-            var id = $(this).attr("pid");
-            tr = $(this).closest("tr");
-            console.log(id);
-            $.ajax({
-                url: "/project/Cart-remove",
-                method: "POST",
-                data: {
-                    id: id
-                },
-                success: function (data) {
-                    tr.remove();
-                },
-                error: function (data) {
-                    if (data.status === 404)
-                        alert("Xoa That Bai");
-                }
-            })
-        })
-    })
-</script><div class="container general-contain" style="margin-bottom: 20px; padding: 0;">
+<%@include file="header.jsp" %>
+
+<div class="container general-contain" style="margin-bottom: 20px; padding: 0;">
+        <%=request.getContextPath()%>
     <div class="mainbanner">
         <div id="main-banner" class="owl-carousel home-slider" style="margin: 0; padding: 0;">
             <div class="item">
-                <a href="#"><img src="../image/banners/Main-Banner1.jpg" alt="main-banner1"
+                <a href="#"><img src="image/banners/Main-Banner1.jpg" alt="main-banner1"
                                  class="img-responsive img-border-radius" /></a>
                 <div class="main-banner-section-center">
                     <a href="" class="shop-now-btn">MUA NGAY</a>
                 </div>
             </div>
             <div class="item">
-                <a href="#"><img src="../image/banners/Main-Banner2.jpg" alt="main-banner2"
+                <a href="#"><img src="image/banners/Main-Banner2.jpg" alt="main-banner2"
                                  class="img-responsive img-border-radius" /></a>
                 <div class="main-banner-section-center">
                     <a href="" class="shop-now-btn">MUA NGAY</a>
                 </div>
             </div>
             <div class="item">
-                <a href="#"><img src="../image/banners/Main-Banner3.jpg" alt="main-banner3"
+                <a href="#"><img src="image/banners/Main-Banner3.jpg" alt="main-banner3"
                                  class="img-responsive img-border-radius" /></a>
                 <div class="main-banner-section-center">
                     <a href="" class="shop-now-btn">MUA NGAY</a>
@@ -100,45 +80,51 @@
     <div class="row">
         <div id="brand_carouse" class="owl-carousel brand-logo">
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-01.svg" alt="Disney" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-01.svg" alt="Disney" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-02.svg" alt="Dell" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-02.svg" alt="Dell" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-03.svg" alt="Harley" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-03.svg" alt="Harley" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-04.svg" alt="Canon" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-04.svg" alt="Canon" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-05.svg" alt="Canon" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-05.svg" alt="Canon" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-06.svg" alt="Canon" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-06.svg" alt="Canon" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-07.svg" alt="Canon" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-07.svg" alt="Canon" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-08.svg" alt="Canon" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-08.svg" alt="Canon" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-09.svg" alt="Canon" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-09.svg" alt="Canon" class="img-responsive" /></a>
             </div>
             <div class="item text-center">
-                <a href="#"><img src="../image/brand/logo-brand-10.svg" alt="Canon" class="img-responsive" /></a>
+                <a><img src="image/brand/logo-brand-10.svg" alt="Canon" class="img-responsive" /></a>
             </div>
         </div>
         <div class="cms_banner ">
             <div class="col-md-4 cms-banner-left">
-                <a href="#"><img alt="#" style="width: 100%;" src="../image/banners/subbanner1.jpg"></a>
+                <a>![](../../../../target/project-1.0-SNAPSHOT/image/BIDV1.gif)
+                    <img alt="#" style="width: 100%;" src="<%=request.getContextPath()%>">
+                    <img alt="#" style="width: 100%;" src="<%=request.getServletContext().getRealPath("")%>">
+                    <img alt="#" style="width: 100%;" src="<%=request.getServletPath()%>">
+                    <img alt="#" style="width: 100%;" src="<%=request.getServletContext().getContextPath()%>">
+                    <img alt="#" style="width: 100%;" src="../../../../target/project-1.0-SNAPSHOT/upload/wp3196680-wallpaper-hd-simpsons.jpg">
+                </a>
             </div>
             <div class="col-md-4 cms-banner-middle">
-                <a href="#"> <img alt="#" style="width: 100%;" src="../image/banners/subbanner2.jpg"></a>
+                <a> <img alt="#" style="width: 100%;" src="image/banners/subbanner2.jpg"></a>
             </div>
             <div class="col-md-4 cms-banner-right">
-                <a href="#"><img alt="#" style="width: 100%;" src="../image/banners/subbanner3.jpg"></a>
+                <a><img alt="#" style="width: 100%;" src="image/banners/subbanner3.jpg"></a>
             </div>
         </div>
     </div>
@@ -164,7 +150,8 @@
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>">
+                                            <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">
@@ -289,13 +276,13 @@
                         <li class="item blog-slider-item">
                             <div class="panel-default">
                                 <div class="blog-image">
-                                    <a href="#" class="blog-imagelink"><img src="../image/blog/blog_1.jpg" alt="#"></a>
+                                    <a class="blog-imagelink"><img src="image/blog/blog_1.jpg" alt="#"></a>
                                     <span class="blog-hover"></span> <span class="blog-date">25/05/2021</span> <span
                                         class="blog-readmore-outer"><a href="#" class="blog-readmore">Read
                                                 More</a></span>
                                 </div>
                                 <div class="blog-content">
-                                    <a href="#" class="blog-name">
+                                    <a class="blog-name">
                                         <h2>Những Sản Phẩm Hot Và Ưa Chuộng Của NIKE</h2>
                                     </a>
                                     <div class="blog-desc">Hiện nay, có rất là nhiều bạn yêu thích và đam mê môn
@@ -312,7 +299,7 @@
                         <li class="item blog-slider-item">
                             <div class="panel-default">
                                 <div class="blog-image">
-                                    <a href="#" class="blog-imagelink"><img src="../image/blog/blog_2.jpg" alt="#"></a>
+                                    <a href="#" class="blog-imagelink"><img src="image/blog/blog_2.jpg" alt="#"></a>
                                     <span class="blog-hover"></span> <span class="blog-date">06/07/2020</span> <span
                                         class="blog-readmore-outer"><a href="#" class="blog-readmore">Read
                                                 More</a></span>
@@ -335,7 +322,7 @@
                         <li class="item blog-slider-item">
                             <div class="panel-default">
                                 <div class="blog-image">
-                                    <a href="#" class="blog-imagelink"><img src="../image/blog/blog_3.jpg" alt="#"></a>
+                                    <a href="#" class="blog-imagelink"><img src="image/blog/blog_3.jpg" alt="#"></a>
                                     <span class="blog-hover"></span> <span class="blog-date">06/07/2020</span> <span
                                         class="blog-readmore-outer"><a href="singale-blog.html"
                                                                        class="blog-readmore">Read More</a></span>
@@ -358,7 +345,7 @@
                         <li class="item blog-slider-item">
                             <div class="panel-default">
                                 <div class="blog-image">
-                                    <a href="#" class="blog-imagelink"><img src="../image/blog/blog_4.png" alt="#"></a>
+                                    <a class="blog-imagelink"><img src="image/blog/blog_4.png" alt="#"></a>
                                     <span class="blog-hover"></span> <span class="blog-date">06/07/2020</span> <span
                                         class="blog-readmore-outer"><a href="#" class="blog-readmore">Read
                                                 More</a></span>
@@ -379,7 +366,7 @@
                         <li class="item blog-slider-item">
                             <div class="panel-default">
                                 <div class="blog-image">
-                                    <a href="#" class="blog-imagelink"><img src="../image/blog/blog_5.jpg" alt="#"></a>
+                                    <a class="blog-imagelink"><img src="image/blog/blog_5.jpg" alt="#"></a>
                                     <span class="blog-hover"></span> <span class="blog-date">06/07/2020</span> <span
                                         class="blog-readmore-outer"><a href="#" class="blog-readmore">Read
                                                 More</a></span>
@@ -412,7 +399,7 @@
 <div class="container general-contain" style="margin-bottom: 20px;">
     <div id="subbanner4" class="banner" style="margin: 0;">
         <div class="item">
-            <a href="#"><img src="../image/banners/subbanner4.jpg" alt="Sub Banner4" class="img-responsive" /></a>
+            <a><img src="image/banners/subbanner4.jpg" alt="Sub Banner4" class="img-responsive" /></a>
         </div>
     </div>
 </div>
@@ -429,7 +416,7 @@
     });
 </script>
 
-<script src="../javascript/hung-js.js"></script>
+<script src="javascript/hung-js.js"></script>
 
 </body>
 

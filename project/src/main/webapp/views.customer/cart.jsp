@@ -5,7 +5,7 @@
 <%@ page import="beans.ProductInCart" %>
 <%@ page import="dao.product.DaoProduct" %>
 <%@ page import="beans.Product" %>
-<%@ page import="model.DaoLinkImage" %>
+<%@ page import="dao.product.image.DaoLinkImage" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
@@ -48,7 +48,7 @@
 </head>
 
 <body class="cart col-2">
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 <div class="container bg-item pd-5 bd-rd">
 
     <div class="row">

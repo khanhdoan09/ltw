@@ -1,9 +1,8 @@
 package dao.order;
 
 import connection.DatabaseConnection;
-import model.Admin.Order;
-import model.Admin.OrderDetail;
-
+import beans.OrderInAdmin;
+import beans.OrderDetailInAdmin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,8 +26,8 @@ public class DaoOrderAdmin {
     Connection connect = DatabaseConnection.getConnection();
 
 
-    public List<Order> getListOrder() {
-        List<Order> re = new ArrayList<Order>();
+    public List<OrderInAdmin> getListOrder() {
+        List<OrderInAdmin> re = new ArrayList<OrderInAdmin>();
         // get list size
         try {
             String sql = "SELECT id,customer,total, create_at, status FROM orders";
@@ -42,7 +41,7 @@ public class DaoOrderAdmin {
                 String status = rs.getString("status");
 
 
-                re.add(new Order(id, customer, total, createAt, status));
+                re.add(new OrderInAdmin(id, customer, total, createAt, status));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -50,8 +49,8 @@ public class DaoOrderAdmin {
         return re;
     }
 
-    public List<OrderDetail> getListOrderDetail(String idOrder) {
-        List<OrderDetail> re = new ArrayList<OrderDetail>();
+    public List<OrderDetailInAdmin> getListOrderDetail(String idOrder) {
+        List<OrderDetailInAdmin> re = new ArrayList<OrderDetailInAdmin>();
         // get list size
         try {
             String sql = "SELECT idOrder, idShoe, size, color, quantity FROM order_detail WHERE idOrder=?";
@@ -64,7 +63,7 @@ public class DaoOrderAdmin {
                 int size = rs.getInt("size");
                 String color = rs.getString("color");
                 int quantity = rs.getInt("quantity");
-                re.add(new OrderDetail(id, idShoe, size, color, quantity));
+                re.add(new OrderDetailInAdmin(id, idShoe, size, color, quantity));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -25,7 +25,7 @@
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="javascript/jstree.min.js" type="text/javascript"></script>
-<%--    <script src="javascript/template.js" type="text/javascript"></script>--%>
+    <%--    <script src="javascript/template.js" type="text/javascript"></script>--%>
     <script src="javascript/common.js" type="text/javascript"></script>
     <script src="javascript/global.js" type="text/javascript"></script>
     <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>

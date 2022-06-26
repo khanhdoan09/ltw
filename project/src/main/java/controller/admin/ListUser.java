@@ -1,8 +1,7 @@
 package controller.admin;
 
 import model.Admin.DaoUserAdmin;
-import model.Admin.User;
-
+import beans.User;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

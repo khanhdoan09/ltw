@@ -129,8 +129,8 @@ public class EditCurrentProduct extends HttpServlet {
 
 
     private void saveImageToFolder(HttpServletRequest request) throws ServletException, IOException {
-
-        String appPath = request.getServletContext().getRealPath("");
+        String appPath = getServletContext().getRealPath("");
+//        String appPath = request.getServletContext().getRealPath("");
         String savePath = appPath  + SAVE_DIR;
 
         File fileSaveDir = new File(savePath);
@@ -142,6 +142,7 @@ public class EditCurrentProduct extends HttpServlet {
             String fileName = extractFileName(part);
             if(fileName!="") {
                 part.write(savePath + "\\" + fileName);
+                System.out.println(savePath + "\\" + fileName);
             }
         }
     }

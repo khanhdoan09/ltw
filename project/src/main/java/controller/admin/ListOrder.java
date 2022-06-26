@@ -1,8 +1,7 @@
 package controller.admin;
 
 import dao.order.DaoOrderAdmin;
-import model.Admin.Order;
-
+import beans.OrderInAdmin;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +19,7 @@ public class ListOrder extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Order> orders = DaoOrderAdmin.getInstance().getListOrder();
+        List<OrderInAdmin> orders = DaoOrderAdmin.getInstance().getListOrder();
         request.setAttribute("orders", orders);
         request.getRequestDispatcher("/views/admin/crud/order/order.jsp").forward(request, response);
     }

@@ -1,7 +1,7 @@
 package controller.admin.product;
 
 import beans.Product;
-import model.Admin.product.DaoProductAdmin;
+import dao.product.DaoProductAdmin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

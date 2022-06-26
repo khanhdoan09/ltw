@@ -12,8 +12,26 @@ public class User {
     private String isAdmin;
     private String idCart;
     private String avatar;
+    private String createAt;
+    private String updateAt;
+
     public User() {
 
+    }
+    public User(String id, String name, String email, String phoneNumber, String dob, String gender, String idAddress, int isAdmin, String createAt, String updateAt, String idCart, String avatar, String password) {
+        this.id=id;
+        this.name = name;
+        this.email = email;
+        this.phone = phoneNumber;
+        this.dob = dob;
+        this.gender = gender;
+        this.idAddress = idAddress;
+        this.isAdmin = String.valueOf(isAdmin);
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.idCart = idCart;
+        this.avatar = avatar;
+        this.password = password;
     }
     public User(String email, String password){
         this.email = email;
