@@ -30,12 +30,12 @@ public class SignInDao {
 
     Connection connect = DatabaseConnection.getConnection();
 
-    public boolean checkEmail(User user) {
+    public boolean checkEmail(String email) {
         try {
             String idUser = null;
             String sql = "SELECT id FROM user WHERE email=?";
             PreparedStatement s = connect.prepareStatement(sql);
-            s.setString(1, user.getEmail());
+            s.setString(1, email);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 idUser = rs.getString("id");
@@ -53,13 +53,12 @@ public class SignInDao {
     }
 
     public String checkPassword(User user) {
-        String encryptPassword = encryptPassword(user.getPassword());
         String idUser = null;
         try {
             String sql = "SELECT id FROM user WHERE email=? AND password=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, user.getEmail());
-            s.setString(2, encryptPassword);
+            s.setString(2, user.getPassword());
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 idUser = rs.getString("id");
@@ -72,24 +71,5 @@ public class SignInDao {
         }
         return null;
     }
-
-    private String encryptPassword(String password) {
-        String encryptPassword = null;
-        try {
-            MessageDigest m = MessageDigest.getInstance("MD5");
-            m.update(password.getBytes());
-            byte[] bytes = m.digest();
-            StringBuilder s = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
-                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            encryptPassword = s.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return encryptPassword;
-    }
-
 
 }

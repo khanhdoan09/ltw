@@ -2,7 +2,7 @@ package controller.sign_in;
 
 import dao.sign.SignInDao;
 import beans.User;
-
+import service.customer.sign.SignInService;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -20,26 +20,27 @@ public class SignInController extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-            SignInDao dao = SignInDao.getInstance();
-            User user = new User(email, password);
-
             response.setContentType("text/plain");
             response.setCharacterEncoding("UTF-8");
 
-            boolean validationFlag = dao.checkEmail(user);
-            if (!validationFlag) {
+            SignInService signInService = new SignInService();
+            // kiem tra email
+            boolean checkEmail = signInService.checkEmail(email);
+            if (!checkEmail) {
                 response.getWriter().write("wrong email");
                 return;
             }
-            String userId = dao.checkPassword(user);
+            // kiem tra password
+            String userId = signInService.checkPassword(email, password);
             if (userId == null) {
+                // password sai
                 response.getWriter().write("wrong password");
-                return;
             }
-
-            HttpSession session = request.getSession(true);
-            session.setAttribute("userId", userId);
-
-            response.getWriter().write("true");
+            else {
+                // password đúng
+                HttpSession session = request.getSession(true);
+                session.setAttribute("userId", userId);
+                response.getWriter().write("true");
+            }
     }
 }

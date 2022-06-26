@@ -3,6 +3,7 @@ package controller.sign_up;
 import beans.User;
 import dao.sign.SignInDao;
 import dao.sign.SignUpDao;
+import service.customer.sign.SignUpService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,20 +22,20 @@ public class SignUpController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        SignUpDao dao = SignUpDao.getInstance();
-        User user = new User(email, password);
+        SignUpService signUpService = new SignUpService();
 
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
 
-        boolean validationFlag = dao.checkEmailExist(user);
+        boolean validationFlag = signUpService.checkEmailExist(email);
+        // email đã tồn tại
         if (!validationFlag) {
             System.out.println(email +"~~~"+password);
             response.getWriter().write("email exist");
             return;
         }
         else {
-            String userId = dao.createNewUser(user);
+            String userId = signUpService.createNewUser(email, password);
             HttpSession session = request.getSession(true);
             session.setAttribute("userId", userId);
         }

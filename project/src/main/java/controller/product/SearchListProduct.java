@@ -1,7 +1,10 @@
-package controller;
+package controller.product;
 
 import dao.product.DaoProduct;
 import beans.Product;
+import dao.product.search.DaoCountProduct;
+import dao.product.search.DaoSearchProduct;
+import service.customer.product.search.SearchService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,40 +22,19 @@ public class SearchListProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
-    String pag;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        SearchService searchService = new SearchService();
+        int pagination = Integer.parseInt(request.getParameter("pagination").toString());
 
-        String wordSearchHeader = request.getParameter("wordSearchHeader");
-        if (wordSearchHeader != null) {
-            response.setContentType("text/plain");
-            response.setCharacterEncoding("UTF-8");
-            List<Product> words = DaoProduct.getInstance().getDataFromWordInSearchHeader(wordSearchHeader);
-            if (words != null) {
-                response.getWriter().write(DaoProduct.getInstance().analysisArrayList(words));
-            }
-            else
-                response.getWriter().write("none");
-            return;
-        }
-
-
-        int pagination = 1;
-        pag = request.getParameter("pagination");
-        if (pag != null) {
-            pagination = Integer.parseInt(pag.toString());
-        }
-
-        List<Product> listFilter = null;
+        List<Product> listProductResult = new ArrayList<Product>();
         int totalNumberProduct = 0;
 
         String group = " GROUP BY product.id ";
         String limit = " LIMIT 0,9 ";
 
-        String categoryGender = request.getParameter("categoryGender");
-        String[] categoriesByOnNav = request.getParameterValues("categoryOnNav");
-        // by panel filter
+        String[] category = request.getParameterValues("category");
         String[] size = request.getParameterValues("size");
         String[] brands = request.getParameterValues("brand");
         String[] underPrice = request.getParameterValues("underPrice");
@@ -64,68 +46,39 @@ public class SearchListProduct extends HttpServlet {
         String[] highestLowest = request.getParameterValues("highestLowest");
         String[] star = request.getParameterValues("star");
 
+        ArrayList<String> listParameterCondition = new ArrayList<String>();
 
-        ArrayList<String> list = new ArrayList<String>();
-        // nav filter
-        String[] searchInHeader = request.getParameterValues("input-search-header");
+        String[] searchInHeader = request.getParameterValues("nameProduct");
         String sql = "";
-        String sqlAllCount = "SELECT COUNT(product.id) FROM product ";
+        String sqlCountProduct = "SELECT COUNT(product.id) FROM product ";
 
-        if (categoryGender != null){
-            if (categoryGender.equals("Man")) {
-                request.setAttribute("categoryGender", "Man");
-            }
-            else
-                request.setAttribute("categoryGender", "Woman");
-        }
-        else if (categoriesByOnNav != null) {
-            listFilter = new ArrayList<Product>();
-            listFilter = DaoProduct.getInstance().getProductByCategoryByNav("categoryOnNav", categoriesByOnNav[0], pagination);
-            sql += "  WHERE "+DaoProduct.getInstance().getTotalNumberProduct("category", categoriesByOnNav);
-            list.addAll(Arrays.asList(categoriesByOnNav));
-            // use for form action
-            request.setAttribute("TypeCategory", "category");
-            request.setAttribute("ValueCategory", categoriesByOnNav[0]);
-        }
-        else {
-            listFilter = new ArrayList<Product>();
-            // panel filter
-            String[] categoryT = request.getParameterValues("category");
-            String brandT = request.getParameter("brand");
-
+        // đã tìm bằng name rồi thì không tìm thể loại nên mới có if else bên dưới
             if (searchInHeader != null) {
-                sql = "  WHERE ";
-                sql += DaoProduct.getInstance().getProductByCategory("searchInHeader", searchInHeader);
+                sql = " WHERE ";
+                sql += searchService.getSqlSearchWithCondition("searchInHeader", searchInHeader);
                 request.setAttribute("TypeCategory", "input-search-header");
                 request.setAttribute("ValueCategory", searchInHeader[0]);
                 searchInHeader[0] = "%"+searchInHeader[0]+"%";
-                list.add(searchInHeader[0]);
+                listParameterCondition.add(searchInHeader[0]);
             }
-            else if (categoryT != null) {
+            else if (category != null) {
                 request.setAttribute("TypeCategory", "category");
-                request.setAttribute("ValueCategory", categoryT[0]);
+                request.setAttribute("ValueCategory", category[0]);
                 sql = " WHERE category=?     ";
-                list.addAll(Arrays.asList(categoryT));
+                listParameterCondition.addAll(Arrays.asList(category));
             }
-            else if (categoryT == null) { // luc nay la tim kiem bang brand tren navigation
-                request.setAttribute("TypeCategory", "brand");
-                request.setAttribute("ValueCategory", brandT);
-                sql = " WHERE ";
-            }
+
             if (size != null) {
-                String s = "\\";
-                int t = s.lastIndexOf("\\",1);
-                sql = "JOIN product_detail ON product.id=product_detail.id " + sql +"&&"+ DaoProduct.getInstance().getProductByCategory("size", size) ;
-                list.addAll(Arrays.asList(size));
-                System.out.println(size[0]);
+                sql = "JOIN product_detail ON product.id=product_detail.id " + sql +" && "+ searchService.getSqlSearchWithCondition("size", size) ;
+                listParameterCondition.addAll(Arrays.asList(size));
             }
             if (brands != null) {
-                sql +="&&"+ DaoProduct.getInstance().getProductByCategory("brand", brands);
-                list.addAll(Arrays.asList(brands));
+                sql +="&&"+ searchService.getSqlSearchWithCondition("brand", brands);
+                listParameterCondition.addAll(Arrays.asList(brands));
             }
             if (underPrice != null) {
-                sql +="&& ("+  DaoProduct.getInstance().getProductByCategory("underPrice", underPrice);
-                list.addAll(Arrays.asList(underPrice));
+                sql +="&& ("+  searchService.getSqlSearchWithCondition("underPrice", underPrice);
+                listParameterCondition.addAll(Arrays.asList(underPrice));
             }
             if (fromPrice != null && toPrice != null) {
                 String[] fromToPrice = {fromPrice[0], toPrice[0]};
@@ -136,20 +89,19 @@ public class SearchListProduct extends HttpServlet {
                 else {
                     sql += "&&(";
                 }
-                sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice);
-                list.addAll(Arrays.asList(fromToPrice));
+                sql += searchService.getSqlSearchWithCondition("fromToPrice", fromToPrice);
+                listParameterCondition.addAll(Arrays.asList(fromToPrice));
             }
             if (upPrice != null) {
                 if (sql.contains(" price ")) {
                     sql = sql.substring(0, sql.length()-1);
                     sql += " || ";
-
                 }
                 else {
                     sql += "&&(";
                 }
-                sql += DaoProduct.getInstance().getProductByCategory("upPrice", upPrice);
-                list.addAll(Arrays.asList(upPrice));
+                sql += searchService.getSqlSearchWithCondition("upPrice", upPrice);
+                listParameterCondition.addAll(Arrays.asList(upPrice));
             }
             if (fromInputPrice != null && toInputPrice != null) {
                 try {
@@ -181,8 +133,8 @@ public class SearchListProduct extends HttpServlet {
                         sql += " && ( ";
 
                     String[] fromToPrice = {"10", "100"};
-                    sql += DaoProduct.getInstance().getProductByCategory("fromToPrice", fromToPrice);
-                    list.addAll(Arrays.asList(fromToPrice));
+                    sql += searchService.getSqlSearchWithCondition("fromToPrice", fromToPrice);
+                    listParameterCondition.addAll(Arrays.asList(fromToPrice));
                 } catch (NumberFormatException e) {
                     request.setAttribute("errorInputPrice", e.getMessage());
                 } catch (ArithmeticException e) {
@@ -190,35 +142,29 @@ public class SearchListProduct extends HttpServlet {
                 }
             }
             if (star != null) {
-                sql += "&&"+DaoProduct.getInstance().getProductByCategory("star", star);
-                list.addAll(Arrays.asList(star));
+                sql += " && " + searchService.getSqlSearchWithCondition("star", star);
+                listParameterCondition.addAll(Arrays.asList(star));
             }
             if (highestLowest != null) {
-                group = "";
+                group = ""; // reset group because of searchService.getSqlSearchWithCondition will set new group
                 if (highestLowest[0].equals("DESC")) {
-                    sql += ""+DaoProduct.getInstance().getProductByCategory("highestPrice", highestLowest);
+                    sql += searchService.getSqlSearchWithCondition("highestPrice", highestLowest);
                 }
                 else{
-                    sql +=""+ DaoProduct.getInstance().getProductByCategory("lowestPrice", highestLowest);
+                    sql += searchService.getSqlSearchWithCondition("lowestPrice", highestLowest);
                 }
             }
 
-            System.out.println("####"+sql);
-            System.out.println("@@@@@"+sql);
-
             String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 AND product.mainColor=linkimg.color " + sql + group + limit;
-            listFilter = DaoProduct.getInstance().excQuery(list, sqlAll);
-            System.out.println("SqlAll: "+sqlAll);
-        }
+            listProductResult = DaoSearchProduct.getInstance().getListProduct(listParameterCondition, sqlAll);
 
-        sqlAllCount += sql;
-        totalNumberProduct = DaoProduct.getInstance().excQueryTotal(list,  sqlAllCount);
-        request.setAttribute("TotalNumberProduct", totalNumberProduct);
+        sqlCountProduct += sql;
+        totalNumberProduct = DaoCountProduct.getInstance().getCountProduct(listParameterCondition, sqlCountProduct);
+
+        request.setAttribute("totalNumberProduct", totalNumberProduct);
         request.setAttribute("pagination", pagination);
-        request.setAttribute("categoryProduct", listFilter);
+        request.setAttribute("categoryProduct", listProductResult);
 
-//        request.getRequestDispatcher("category.jsp").forward(request, response);
-        System.out.println("done");
         request.getRequestDispatcher("./views.customer/category.jsp").forward(request, response);
 
     }

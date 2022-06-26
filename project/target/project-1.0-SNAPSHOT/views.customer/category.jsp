@@ -460,9 +460,9 @@
                 <div class="pagination-inner" id="tessss">
                     <ul class="pagination">
                         <%
-                            int totalNumber = (int) request.getAttribute("TotalNumberProduct");
-                            double d = totalNumber;
-                            int lengthPagination = (int) Math.ceil(d / 9);%>
+                            double totalNumber = new Double(request.getAttribute("totalNumberProduct").toString());
+
+                        int lengthPagination = (int) Math.ceil(totalNumber / 9);%>
                         <li>
                             <a id="left-page"
                                href="
@@ -475,6 +475,7 @@
 
                         </li>
                         <li>
+                            <!--URLDecoder.decode để chuyển % &3 thành / &-->
                             <a id="right-page"
                                href="
                                    <%int pagIntRight = pagination >= lengthPagination ? lengthPagination: pagination+1;
