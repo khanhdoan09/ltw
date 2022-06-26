@@ -32,7 +32,7 @@
 </head>
 
 <body class="contact col-2 left-col">
-<%@include file="header.jsp"%>>
+<%@include file="header.jsp" %>
 <div class="container">
     <ul class="breadcrumb">
         <li><a href="index.html"><i class="fa fa-home"></i></a></li>

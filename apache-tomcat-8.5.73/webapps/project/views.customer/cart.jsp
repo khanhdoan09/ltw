@@ -2,16 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<%@ page import="model.Cart" %>
-<%@ page import="model.DaoProduct" %>
+<%@ page import="beans.ProductInCart" %>
+<%@ page import="dao.product.DaoProduct" %>
 <%@ page import="beans.Product" %>
-<%@ page import="model.DaoLinkImage" %>
+<%@ page import="dao.product.image.DaoLinkImage" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
 
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -49,22 +48,16 @@
 </head>
 
 <body class="cart col-2">
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 <div class="container bg-item pd-5 bd-rd">
 
     <div class="row">
-
-        <div class="" id="content" style="width: 100%;">
+        <%String idCustomer = (String) request.getAttribute("idCustomer");%>
+        <form action="OrderController" id="content" style="width: 100%;">
+            <!-- bug không được parameter trên url nên dùng input dưới-->
+            <input style="visibility: hidden; width: 1px; height: 1px;" name="idCustomer" value="<%=idCustomer%>">
             <h1>Giỏ Hàng </h1>
-            <div id="checkAll_Product">
-                <%--@declare id="allproduct"--%><input type="checkbox" id="" class="check_all">
-                <label class="label_check_all" for="allProduct">Chọn tất cả</label>
-            </div>
-            <div id="remove_pr">
-                <%--@declare id="bin"--%><i class="fa fa-trash icon_remove_pr"></i>
-                <label for="bin" class="lb_remove">Xóa</label>
-            </div>
-            <form enctype="multipart/form-data" method="post" action="#">
+            <div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
@@ -78,44 +71,47 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:set var="list" value="${cart.data}"/>
-                        <c:forEach items="${list}" var="item">
-                            <tr>
+                     <%
+                         List<ProductInCart> listProductInCart = (List<ProductInCart>) request.getAttribute("listProductInCart");
+                         double totalPrice = 0;
+                         for (int i = 0; i < listProductInCart.size(); i++) {
+                            ProductInCart product = listProductInCart.get(i);
+                            totalPrice += product.getPrice();%>
+                            <tr id="tr_<%=i%>">
                                 <td class="text-center check_pr">
-                                    <input type="checkbox" id="html " class="checked_pr" data-price="${item.gettotal()}" name="fav_language" value="HTML" checked>
-                                    <a href="ProductDetail?idProduct=${item.id}"><img class="img-thumbnail"
+                                    <input type="checkbox" id="html " class="checked_pr" name="checkbox_product_in_cart" value="<%=product.getName()%>_<%=product.getIdProduct()%>_<%=product.getColorShoe()%>_<%=product.getSizeShoe()%>_<%=product.getQuantityShoe()%>_<%=product.getPrice()%>" checked>
+                                    <a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><img class="img-thumbnail"
                                                                 title="women's New Wine is an alcoholic"
                                                                 alt="women's New Wine is an alcoholic"
                                                                 src="data/imgAll/${item.avatar}.jpg"></a>
                                 </td>
-                                <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
+                                <td class="text-left"><a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><%=product.getName()%></a>
                                 </td>
-                                <td class="text-left">${item.brand}</td>
+                                <td class="text-left"><%=product.getBrand()%></td>
                                 <td class="text-left">
                                     <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity changeQuantity" pid="${item.id}" oldQuantity="${item.quantitySold}" size="1" value="${item.quantitySold}"
-                                               name="quantity">
+                                        <input type="text" class="form-control quantity changeQuantity text-center" pid="<%=product.getIdProduct()%>"  value="<%=product.getQuantityShoe()%>" name="quantity">
                                         <span class="input-group-btn">
                                                 <a class="" href="/project/Cart">
                                                    <i class="fa fa-refresh icon-update" style="padding: 9px 20px;background-color: #1a94ff;color: white;"></i>
                                                 </a>
-                                                <a class="cart-remove" data-price="${item.gettotal()}" pid="${item.id}"><button class="btn btn-danger" title="" data-toggle="tooltip"
+                                                <a data-tr="tr_<%=i%>" data-price="<%=product.getPrice()%>" data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProduct()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
+                                                    <button class="btn btn-danger" title="" data-toggle="tooltip"
                                                         type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
                                                 </a>
                                             </span>
                                     </div>
                                 </td>
-                                <td class="text-right">${item.getSalePrice()}</td>
-                                <td class="text-right total-price">${item.gettotal()}</td>
+                                <td class="text-right"><%=product.getPrice()%></td>
+                                <td class="text-right total-price"><%=product.getPrice() * product.getQuantityShoe()%></td>
                             </tr>
-                        </c:forEach>
-
+                        <%}%>
                         <!-- sản phẩm đã đưa vào giỏi hàng -->
                         </tbody>
                     </table>
                 </div>
-            </form>
+            </div>
             <h2>Bạn muốn chọn gì tiếp theo ?</h2>
             <p>Nếu bạn có code giảm giá hoặc điểm thưởng muốn sử dụng hoặc ước tính chi phí giao hàng của mình.</p>
             <div id="accordion" class="panel-group">
@@ -169,16 +165,16 @@
                             <tbody>
                             <tr>
                                 <td class="text-right"><strong>Tổng phụ:</strong></td>
-                                <td class="text-right" id="total-price">210.000 VNĐ</td>
+                                <td class="text-right" id="total-sub-price"><%=totalPrice%></td>
                             </tr>
                             <tr>
                                 <td class="text-right"><strong>Phí vận chuyển :</strong></td>
                                 <td class="text-right">VNĐ</td>
                             </tr>
                             <tr>
-                                <td class="text-right"><strong>Tổng:</strong></td>
+                                <td class="text-right"><strong>Tổng: </strong></td>
                                 <td class="text-right">
-                                    <p id="total_price"></p>
+                                    <p id="total-price"><%=totalPrice%></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -187,11 +183,10 @@
                 </div>
                 <div class="buttons">
                     <div class="pull-left"><a class="btn btn-default" href="/project/ServletTest123">Tiếp Tục Mua Sắm</a></div>
-                    <div class="pull-right"><a class="btn btn-primary" href="checkout.html" id="Thanhtoan">Thanh
-                        Toán</a></div>
+                    <button class="pull-right" type="submit">Thanh Toán</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
 </div>
@@ -268,28 +263,31 @@
         //     // });
         // })
 
-    // fix o day
-    $(function () {
 
-        let arrChecked = $(".checked_pr")
-
-        arrChecked.each(function(){
-
-            $(this).click(()=>{
-                let value = Math.floor(parseFloat($("#total_price").text()))
-                let child = $(this).prop('checked');
-                let productPrice = Math.floor($(this).data("price"))
-                if (child == true) {
-                    value += productPrice;
-                }
-                else {
-                    value -= productPrice
-                }
-                $("#total_price").text(value+" $");
+    // remove product
+    $(function() {
+        $(".cart-remove").each(function(){
+            $(this).click((e)=>{
+                e.preventDefault()
+                let idTr = $(this).data("tr")
+                let quantity = $(this).data("quantity")
+                let price = $(this).data("price")
+                let totalPrice = $("#total-price").text()
+                price = price * quantity
+                $.ajax(
+                    {url: $(this).attr('href'),
+                        success: function(){
+                            // update price when delete product
+                            let updatePrice = totalPrice - price
+                            $("#total-sub-price").text(updatePrice)
+                            $("#total-price").text(updatePrice)
+                            $("#"+idTr).remove()
+                    }
+                    });
             })
-
         })
     })
+
 
 
 </script>

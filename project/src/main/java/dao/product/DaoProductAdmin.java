@@ -4,10 +4,7 @@ import beans.Product;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -254,5 +251,41 @@ public class DaoProductAdmin {
             System.out.println("~~~*** sql word search header " + sql);
         }
         return "";
+    }
+
+    public int addNewProduct(Product product) {
+        PreparedStatement s = null;
+        String sql = "Insert INTO product(price, saleRate, brand, name, create_at, description) VALUES(?, ?, ? ,?, ?, ?)";
+        try {
+            s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            s.setDouble(1, product.getPrice());
+            s.setDouble(2, product.getSalePrice());
+            s.setString(3, product.getBrand());
+            s.setString(4, product.getName());
+            s.setString(5, product.getCreate_at());
+            s.setString(6, product.getDescription());
+            // return id of auto increment
+            s.executeUpdate();
+            ResultSet rs = s.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+    public int editProductDetail(Product product) {
+        PreparedStatement s = null;
+        String sql = "Insert INTO product_detail(id, size, totalValue, soleValue, createAt, color) VALUES(?, ?, ?, ?, ?, ?)";
+        try {
+            s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            System.out.println(s.toString());
+            // return id of auto increment
+            return s.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 }

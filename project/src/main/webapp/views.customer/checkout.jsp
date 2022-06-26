@@ -39,7 +39,7 @@
 </head>
 
 <body class="checkout col-2 left-col">
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 <div class="container">
 
     <div class="row">

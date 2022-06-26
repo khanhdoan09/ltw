@@ -1,13 +1,14 @@
 package model.Admin;
 
 import connection.DatabaseConnection;
-
+import beans.User;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 
 public class DaoAuthentication {
@@ -44,6 +45,7 @@ public class DaoAuthentication {
         return encryptPassword;
     }
     public void saveUser(User user) {
+        String toDay = LocalDate.now().toString();
         try {
             String encryptPassword = ecryptPassword(user.getPassword());
             user.setPassword(encryptPassword);
@@ -51,13 +53,13 @@ public class DaoAuthentication {
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, user.getName());
             s.setString(2, user.getEmail());
-            s.setString(3, user.getPhoneNumber());
+            s.setString(3, user.getPhone());
             s.setString(4, user.getDob());
             s.setString(5, user.getGender());
             s.setString(6, user.getIdAddress());
-            s.setInt(7, user.getIsAdmin());
-            s.setString(8, user.getCreateAt());
-            s.setString(9, user.getUpdateAt());
+            s.setInt(7, 1);
+            s.setString(8, toDay);
+            s.setString(9, toDay);
             s.setString(10, user.getIdCart());
             s.setString(11, user.getAvatar());
             s.setString(12, user.getPassword());

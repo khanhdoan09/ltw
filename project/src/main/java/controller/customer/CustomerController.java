@@ -19,14 +19,20 @@ public class CustomerController extends HttpServlet {
 //        else {
 //
 //        }
-        String idCustomer = "12";
-        User customer = DaoCustomer.getInstance().getUser(idCustomer);
-        if (customer.getGender() ==null){
-            customer.setGender("null");
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            String idCustomer = (String) obj;
+            User customer = DaoCustomer.getInstance().getUser(idCustomer);
+            if (customer.getGender() ==null){
+                customer.setGender("null");
+            }
+            request.setAttribute("customer", customer);
+            request.getRequestDispatcher("./views.customer/customer.jsp").forward(request, response);
         }
-        request.setAttribute("customer", customer);
-        request.getRequestDispatcher("./views.customer/customer.jsp").forward(request, response);
-
+        else {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+        }
     }
 
     @Override

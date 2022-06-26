@@ -7,40 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link href="../css/stylesheet.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="../font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
-    <link href="../owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-    <link href="../owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-    <script src="../javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../javascript/jstree.min.js" type="text/javascript"></script>
-    <script src="../javascript/template.js" type="text/javascript"></script>
-    <script src="../javascript/common.js" type="text/javascript"></script>
-    <script src="../javascript/global.js" type="text/javascript"></script>
-    <script src="../owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="../image/logo.png" />
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="javascript/jstree.min.js" type="text/javascript"></script>
+    <script src="javascript/template.js" type="text/javascript"></script>
+    <script src="javascript/common.js" type="text/javascript"></script>
+    <script src="javascript/global.js" type="text/javascript"></script>
+    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="image/logo.png" />
 
-    <link rel="stylesheet" href="../css/dat-css.css">
-    <link rel="stylesheet" href="../css/khanh-css.css">
-    <link rel="stylesheet" href="../css/hung-css.css">
-    <script src="../javascript/khanh-js.js" type="text/javascript"></script>
-    <script src="../data/product/Running/RunningShoeWoman.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/dat-css.css">
+    <link rel="stylesheet" href="css/khanh-css.css">
+    <link rel="stylesheet" href="css/hung-css.css">
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
 </head>
 
 <body class="blog col-2">
 
-<%@include file="./header.jsp"%>
+<%@include file="header.jsp" %>
 <div class="container">
 
     <div class="row">
 
         <div id="content" class="col-sm-9">
             <div class="blog1 sub blog">
-                <div class="blog_img col-half-sub" ><img src="../image/blog/blog_1.jpg" alt="" /></div>
+                <div class="blog_img col-half-sub" ><img src="image/blog/blog_1.jpg" alt="" /></div>
                 <div class="col-half-sub">
                     <button class="shose-slect">Giày Nike</button>
                     <h1 class="blog-title">Những Sản Phẩm Hot Và Ưa Chuộng Của NIKE</h1>
@@ -57,7 +56,7 @@
                 </div>
             </div>
             <div class="blog1 sub blog">
-                <div class="blog_img col-half-sub" ><img src="../image/blog/blog_2.jpg" alt="" /></div>
+                <div class="blog_img col-half-sub" ><img src="image/blog/blog_2.jpg" alt="" /></div>
                 <div class="col-half-sub">
                     <button class="shose-slect">Giày Hoka</button>
                     <h1 class="blog-title">CẨM NANG LỰA CHỌN GIÀY CHẠY ROAD HOKA</h1>
@@ -74,7 +73,7 @@
                 </div>
             </div>
             <div class="blog1 sub blog">
-                <div class="blog_img col-half-sub" ><img src="../image/blog/blog_3.jpg" alt="" /></div>
+                <div class="blog_img col-half-sub" ><img src="image/blog/blog_3.jpg" alt="" /></div>
                 <div class="col-half-sub">
                     <button class="shose-slect">Giày Brooks</button>
                     <h1 class="blog-title">Brooks – Ông vua thị trường giày chạy bộ</h1>
@@ -90,7 +89,7 @@
                 </div>
             </div>
             <div class="blog1 sub blog">
-                <div class="blog_img col-half-sub" ><img src="../image/blog/blog_4.jfif" alt="" /></div>
+                <div class="blog_img col-half-sub" ><img src="image/blog/blog_4.jfif" alt="" /></div>
                 <div class="col-half-sub">
                     <button class="shose-slect">Giày Sneaker</button>
                     <h1 class="blog-title">Top các mẫu giày Sneaker Classic trắng tinh siêu đẹp và siêu Hot</h1>
@@ -108,7 +107,7 @@
                 </div>
             </div>
             <div class="blog1 sub blog">
-                <div class="blog_img col-half-sub" ><img src="../image/blog/blog_5.jpg" alt="" /></div>
+                <div class="blog_img col-half-sub" ><img src="image/blog/blog_5.jpg" alt="" /></div>
                 <div class="col-half-sub">
                     <button class="shose-slect">Air Jordan</button>
                     <h1 class="blog-title">Air Jordan 1 Retro High OG Shadow 2.0- “Bóng 2.0” sẽ ra mắt vào tháng 5 rực rỡ</h1>

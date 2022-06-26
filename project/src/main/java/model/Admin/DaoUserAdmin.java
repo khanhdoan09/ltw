@@ -1,7 +1,7 @@
 package model.Admin;
 
 import connection.DatabaseConnection;
-
+import beans.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

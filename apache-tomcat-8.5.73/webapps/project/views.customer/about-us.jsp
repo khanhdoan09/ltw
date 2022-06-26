@@ -2,43 +2,46 @@
 <html lang="en">
 
 <head>
-    <title>About | Dragon Sport</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Customer | Dragon Sport</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="e-commerce site well design with responsive view." />
+    <meta name="description" content="e-commerce site well design with responsive view."/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"
-          type="text/css" />
+          type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link href="../css/stylesheet.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="../font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
-    <link href="../owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-    <link href="../owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-    <script src="../javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../javascript/jstree.min.js" type="text/javascript"></script>
-    <script src="../javascript/template.js" type="text/javascript"></script>
-    <script src="../javascript/common.js" type="text/javascript"></script>
-    <script src="../javascript/global.js" type="text/javascript"></script>
-    <script src="../owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="../image/logo.png" />
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
+    <link rel="stylesheet" href="css/dat-css.css">
+    <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen"/>
+    <!-- <script src="javascript/Dat-js.js" type="text/javascript"></script> -->
+    <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="javascript/jstree.min.js" type="text/javascript"></script>
+    <%--    <script src="javascript/template.js" type="text/javascript"></script>--%>
+    <script src="javascript/common.js" type="text/javascript"></script>
+    <script src="javascript/global.js" type="text/javascript"></script>
+    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="image/logo.png"/>
+
+    <link rel="stylesheet" href="css/dat-css.css">
+    <link rel="stylesheet" href="css/khanh-css.css">
+    <link rel="stylesheet" href="css/hung-css.css">
 
 
-    <link rel="stylesheet" href="../css/khanh-css.css">
-    <link rel="stylesheet" href="../css/hung-css.css">
-
-    <script src="javascript/khanh-js.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-<%@include file="./header.jsp" %>
+<%@include file="header.jsp" %>
 <div class="container">
 
     <div class="row bg-item bd-rd pd-5">
         <div class="wwd">
-            <div class="col-sm-6"><img class="img-responsive" src="../image/about/about-us.jpg" alt="#"></div>
+            <div class="col-sm-6"><img class="img-responsive" src="image/about/about-us.jpg" alt="#"></div>
             <div class="col-sm-6">
                 <div class="column-inner ">
                     <div class="wrapper">
@@ -113,7 +116,7 @@
             </div>
             <div class="col-md-3 col-sm-3 team1 ">
                 <div class="photo">
-                    <div class="imageblock"> <img alt="#" src="../image/th.jpg" class="img-responsive"> </div>
+                    <div class="imageblock"> <img alt="#" src="image/th.jpg" class="img-responsive"> </div>
                     <!-- <div class="name"> <a href="#">IBRAHIM ISTALIK</a> </div>
                     <h3>Founder and CEO</h3>
                     <p>Page editors now use Lorem Ipsum as their default modelum sites</p> -->
@@ -121,7 +124,7 @@
             </div>
             <div class="col-md-3 col-sm-3 team1 ">
                 <div class="photo">
-                    <div class="imageblock"> <img alt="#" src="../image/payment/mastero.jpg" class="img-responsive">
+                    <div class="imageblock"> <img alt="#" src="image/payment/mastero.jpg" class="img-responsive">
                     </div>
                     <!-- <div class="name"> <a href="#">IBRAHIM ISTALIK</a> </div>
                     <h3>Founder and CEO</h3>
@@ -130,7 +133,7 @@
             </div>
             <div class="col-md-3 col-sm-3 team1 ">
                 <div class="photo">
-                    <div class="imageblock"> <img alt="#" src="../image/banking.jpg" class="img-responsive"> </div>
+                    <div class="imageblock"> <img alt="#" src="image/banking.jpg" class="img-responsive"> </div>
                     <!-- <div class="name"> <a href="#">IBRAHIM ISTALIK</a> </div>
                     <h3>Founder and CEO</h3>
                     <p>Page editors now use Lorem Ipsum as their default modelum sites</p> -->
@@ -138,7 +141,7 @@
             </div>
             <div class="col-md-3 col-sm-3 team1 ">
                 <div class="photo">
-                    <div class="imageblock"> <img alt="#" src="../image/payment/currus.jpg" class="img-responsive">
+                    <div class="imageblock"> <img alt="#" src="image/payment/currus.jpg" class="img-responsive">
                     </div>
 
                 </div>

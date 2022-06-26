@@ -26,7 +26,7 @@
                     <div class="contain-nav-info">
                         <div id="top-links" class="nav pull-left">
                             <ul class="list-inline">
-                                <li class="account"><a href="/admin/pixelwibes.com/template/ebazar/html/dist/index.html" class="notify"><i
+                                <li class="account"><a href="home" class="notify"><i
                                         class="fas fa-bell color-header" style="margin-right: 10px"></i><span
                                         style="margin: 0 5px;" class="color-header">Thông
                                     báo</span><span style="margin-right: 10px;"
@@ -39,16 +39,6 @@
                                                                       class="color-header">(0)</span></a>
                                 </li>
                                 <li class="dropdown">
-                                    <%Object obj = session.getAttribute("userId");if (obj != null) {
-                                        String userId = (String) obj;
-                                        String userName = UserDao.getInstance().getUser(userId);%>
-                                    <a href="customer" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-user color-header"></i><span class="color-header"><%=userName%></span> <span style=" font-size: 15px;"
-                                                                   class="caret color-header"></span></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="SignOutController" class="js-login">Đăng xuất</a></li>
-                                    </ul>
-                                    <%}else {%>
                                     <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="fa fa-user color-header"></i><span class="color-header">Tài
                                                 khoản</span> <span style=" font-size: 15px;"
@@ -57,7 +47,6 @@
                                         <li><a href="#" class="js-login" id="Login">Đăng Nhập</a></li>
                                         <li><a href="#" class="js_register">Đăng Ký</a></li>
                                     </ul>
-                                    <%}%>
                                 </li>
                             </ul>
                         </div>
@@ -74,7 +63,7 @@
                     <div>
                         <div class="header-middle-top">
                             <div id="logo" class="color-header" style="margin: 0; padding: 0;">
-                                <a href="index.html"><img src="/project_war/image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                <a href="home"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
                                                           class="logo-header" /></a>
                             </div>
                         </div>
@@ -114,53 +103,53 @@
                         </button>
 
 
-<%--                        <ul class="dropdown-menu pull-right cart-dropdown-menu">--%>
-<%--                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">--%>
-<%--                                <table class="table table-striped">--%>
-<%--                                    <tbody id="list-cart">--%>
+                        <%--                        <ul class="dropdown-menu pull-right cart-dropdown-menu">--%>
+                        <%--                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">--%>
+                        <%--                                <table class="table table-striped">--%>
+                        <%--                                    <tbody id="list-cart">--%>
 
-<%--                                    <c:forEach items="${list}" var="item">--%>
-<%--                                        &lt;%&ndash;                                        <c:set var="sum" value=(${item.gettotal()} * ${item.quantitySold})/>&ndash;%&gt;--%>
-<%--                                        <td class="text-center">--%>
-<%--                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"--%>
-<%--                                                                                              height="100px"></a>--%>
-<%--                                        </td>--%>
-<%--                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>--%>
-<%--                                            <div class="SL-Gia">--%>
-<%--                                                <p class="gia">${item.gettotal()}</p>--%>
-<%--                                                <p class="SL">${item.quantitySold}</p>--%>
-<%--                                            </div>--%>
-<%--                                        </td>--%>
-<%--                                        <td class="text-center">--%>
-<%--                                            <a class="cart-remove" pid="${item.id}">--%>
-<%--                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i--%>
-<%--                                                        class="fa fa-delete-left"></i> </button>--%>
-<%--                                            </a>--%>
-<%--                                        </td>--%>
-<%--                                        </tr>--%>
-<%--                                    </c:forEach>--%>
-<%--                                    </tbody>--%>
-<%--                                </table>--%>
-<%--                            </li>--%>
-<%--                            <li>--%>
-<%--                                <div>--%>
-<%--                                    <table class="table table-bordered">--%>
-<%--                                        <tbody>--%>
-<%--                                        <br>--%>
-<%--                                        <tr>--%>
-<%--                                            <td class="text-right"><strong>Tạm tính</strong></td>--%>
-<%--                                            <td class="text-right" id="total-value"></td>--%>
-<%--                                        </tr>--%>
-<%--                                        </tbody>--%>
-<%--                                    </table>--%>
-<%--                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i--%>
-<%--                                            class="fa fa-shopping-cart"></i> View--%>
-<%--                                                        Cart</strong></a></span> <span class="btn-checkout"><a--%>
-<%--                                            href="checkout.html"><strong><i class="fa fa-share"></i>--%>
-<%--                                                        Checkout</strong></a></span> </p>--%>
-<%--                                </div>--%>
-<%--                            </li>--%>
-<%--                        </ul>--%>
+                        <%--                                    <c:forEach items="${list}" var="item">--%>
+                        <%--                                        &lt;%&ndash;                                        <c:set var="sum" value=(${item.gettotal()} * ${item.quantitySold})/>&ndash;%&gt;--%>
+                        <%--                                        <td class="text-center">--%>
+                        <%--                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"--%>
+                        <%--                                                                                              height="100px"></a>--%>
+                        <%--                                        </td>--%>
+                        <%--                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>--%>
+                        <%--                                            <div class="SL-Gia">--%>
+                        <%--                                                <p class="gia">${item.gettotal()}</p>--%>
+                        <%--                                                <p class="SL">${item.quantitySold}</p>--%>
+                        <%--                                            </div>--%>
+                        <%--                                        </td>--%>
+                        <%--                                        <td class="text-center">--%>
+                        <%--                                            <a class="cart-remove" pid="${item.id}">--%>
+                        <%--                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i--%>
+                        <%--                                                        class="fa fa-delete-left"></i> </button>--%>
+                        <%--                                            </a>--%>
+                        <%--                                        </td>--%>
+                        <%--                                        </tr>--%>
+                        <%--                                    </c:forEach>--%>
+                        <%--                                    </tbody>--%>
+                        <%--                                </table>--%>
+                        <%--                            </li>--%>
+                        <%--                            <li>--%>
+                        <%--                                <div>--%>
+                        <%--                                    <table class="table table-bordered">--%>
+                        <%--                                        <tbody>--%>
+                        <%--                                        <br>--%>
+                        <%--                                        <tr>--%>
+                        <%--                                            <td class="text-right"><strong>Tạm tính</strong></td>--%>
+                        <%--                                            <td class="text-right" id="total-value"></td>--%>
+                        <%--                                        </tr>--%>
+                        <%--                                        </tbody>--%>
+                        <%--                                    </table>--%>
+                        <%--                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i--%>
+                        <%--                                            class="fa fa-shopping-cart"></i> View--%>
+                        <%--                                                        Cart</strong></a></span> <span class="btn-checkout"><a--%>
+                        <%--                                            href="checkout.html"><strong><i class="fa fa-share"></i>--%>
+                        <%--                                                        Checkout</strong></a></span> </p>--%>
+                        <%--                                </div>--%>
+                        <%--                            </li>--%>
+                        <%--                        </ul>--%>
                     </div>
 
 
@@ -181,7 +170,7 @@
 
             <div class="navbar-collapse" style="background-color: #0f6cb2;">
                 <ul class="main-navigation">
-                    <li><a href="index.jsp" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
+                    <li><a href="home" style="color: white" class="parent" id="home-nav">TRANG CHỦ</a> </li>
                     <li style="position: relative">
                         <a href="caterogyGender?categoryGender=Man" style="color: white" class="parent category-item" id="category-man">
                             NAM
@@ -190,19 +179,19 @@
 
                         <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
                             <li id="running-man"  class="category-product category-product-man">
-                                <a href="../SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
+                                <a href="SearchListProduct?categoryOnNav=Running Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
                             </li>
                             <li id="slides-man"  class="category-product category-product-man">
-                                <a href="../SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                                <a href="SearchListProduct?categoryOnNav=Slides Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
                             </li>
                             <li id="sneakers-man"  class="category-product category-product-man">
-                                <a href="../SearchListProduct?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                                <a href="SearchListProduct?categoryOnNav=Sneakers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
                             </li>
                             <li id="skateboard-man"  class="category-product category-product-man">
-                                <a href="../SearchListProduct?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
+                                <a href="SearchListProduct?categoryOnNav=Skateboard Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
                             </li>
                             <li id="trainers-man"  class="category-product category-product-man">
-                                <a href="../SearchListProduct?categoryOnNav=Trainers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                                <a href="SearchListProduct?categoryOnNav=Trainers Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
                             </li>
                         </ul>
 
@@ -212,43 +201,43 @@
 
                         <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
                             <li id="running-woman"  class="category-product category-product-woman">
-                                <a href="../SearchListProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
+                                <a href="SearchListProduct?category=Running Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
                             </li>
                             </li>
                             <li id="slides-woman"  class="category-product category-product-woman">
-                                <a href="../SearchListProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
+                                <a href="SearchListProduct?category=Slides Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
                             </li>
                             </li>
                             <li id="sneakers-woman"  class="category-product category-product-woman">
-                                <a href="../SearchListProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
+                                <a href="SearchListProduct?category=Sneakers Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
                             </li>
                             </li>
                             <li id="skateboard-woman"  class="category-product category-product-woman">
-                                <a href="../SearchListProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
+                                <a href="SearchListProduct?category=Skateboard Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
                             </li>
                             <li id="trainers-woman"  class="category-product category-product-woman">
-                                <a href="../SearchListProduct?categoryOnNav=Trainers Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
+                                <a href="SearchListProduct?categoryOnNav=Trainers Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
                             </li>
                             </li>
                         </ul>
 
                     </li>
-                    <li><a href="category.html" style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
-                    <li><a href="/project_war/views.customer/blog.jsp" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
-                    <li><a href="about-us.html" style="color: white"  id="about-nav" >VỀ CHÚNG TÔI</a></li>
+                    <li><a style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
+                    <li><a href="blog" style="color: white" class="parent" id="blog-nav">BLOG</a></li>
+                    <li><a href="about" style="color: white"  id="about-nav" >VỀ CHÚNG TÔI</a></li>
                 </ul>
                 <div class="nav-detail-info">
 
                     <div class="item-nav-detail-info" id="item-category-brand">
                         <div class="contain-brand" >
-                            <img onclick="location.href='../SearchListProduct?brand=ASICS&pagination=1'" src="../image/brand/logo-brand-01.svg">
-                            <img onclick="location.href='../SearchListProduct?brand=ADIDAS'" src="../image/brand/logo-brand-02.svg">
-                            <img onclick="location.href='../SearchListProduct?category=VANS&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-03.jpg">
-                            <img onclick="location.href='../SearchListProduct?category=NIKE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-04.svg">
-                            <img onclick="location.href='../SearchListProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-05.svg">
-                            <img onclick="location.href='../SearchListProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-06.svg">
-                            <img onclick="location.href='../SearchListProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-07.jpg">
-                            <img onclick="location.href='../SearchListProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="../image/brand/logo-brand-08.svg">
+                            <img onclick="location.href='SearchListProduct?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
+                            <img onclick="location.href='SearchListProduct?brand=ADIDAS'" src="image/brand/logo-brand-02.svg">
+                            <img onclick="location.href='SearchListProduct?category=VANS&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-03.jpg">
+                            <img onclick="location.href='SearchListProduct?category=NIKE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-04.svg">
+                            <img onclick="location.href='SearchListProduct?category=REEBOK&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-05.svg">
+                            <img onclick="location.href='SearchListProduct?category=NEW BALANCE&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-06.svg">
+                            <img onclick="location.href='SearchListProduct?category=ON RUNNING&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-07.jpg">
+                            <img onclick="location.href='SearchListProduct?category=UNDER ARMOUR&categoryGender=brand&pagination=1'" src="image/brand/logo-brand-08.svg">
                         </div>
                     </div>
 
@@ -268,17 +257,17 @@
 
     // lấy số sản phẩm trên header
     $(function() {
-                        $.ajax({
-                            url: "GetAmountProductInHeader",
-                            method: "GET",
-                            success: function (data) {
-                                $("#header_quantity").text(data)
-                            },
-                            error: function (data) {
-                                if (data.status === 404)
-                                    alert("Xoa That Bai");
-                            }
-                        })
+        $.ajax({
+            url: "GetAmountProductInHeader",
+            method: "GET",
+            success: function (data) {
+                $("#header_quantity").text(data)
+            },
+            error: function (data) {
+                if (data.status === 404)
+                    alert("Xoa That Bai");
+            }
+        })
     })
 </script>
 <%--<script>--%>
@@ -347,23 +336,23 @@
     // })
 
     // function excuteData() {
-<%--        <%--%>
-<%--            String id = "";--%>
-<%--            if(user == null) {--%>
-<%--        %>--%>
-<%--        let value= "";--%>
-<%--        value +="<li>"--%>
-<%--        value += "                                                    <div href=\".jsp\" class=\"minicart-item\">";--%>
-<%--        value += "                                                        <div class=\"left-info\">";--%>
-<%--        value += "                                                            <div class=\"product-title\"><a  class=\"product-name\">vui lòng đăng nhập để mở chức năng giỏ hàng<\/a><\/div>";--%>
-<%--        value += "                                                        <\/div>";--%>
-<%--        value += "                                                    <\/div>";--%>
-<%--        value += "                                                <\/li>";--%>
-<%--        document.getElementById("products-cart").innerHTML=strVar;--%>
-<%--        return;--%>
-<%--        <%}else{--%>
-<%--           id = user.getId();--%>
-<%--        }%>--%>
+    <%--        <%--%>
+    <%--            String id = "";--%>
+    <%--            if(user == null) {--%>
+    <%--        %>--%>
+    <%--        let value= "";--%>
+    <%--        value +="<li>"--%>
+    <%--        value += "                                                    <div href=\".jsp\" class=\"minicart-item\">";--%>
+    <%--        value += "                                                        <div class=\"left-info\">";--%>
+    <%--        value += "                                                            <div class=\"product-title\"><a  class=\"product-name\">vui lòng đăng nhập để mở chức năng giỏ hàng<\/a><\/div>";--%>
+    <%--        value += "                                                        <\/div>";--%>
+    <%--        value += "                                                    <\/div>";--%>
+    <%--        value += "                                                <\/li>";--%>
+    <%--        document.getElementById("products-cart").innerHTML=strVar;--%>
+    <%--        return;--%>
+    <%--        <%}else{--%>
+    <%--           id = user.getId();--%>
+    <%--        }%>--%>
 
 
     // }

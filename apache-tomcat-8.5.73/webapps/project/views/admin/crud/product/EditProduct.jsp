@@ -3,7 +3,7 @@
 <%@ page import="java.io.File" %>
 <%@ page import="beans.ProductDetail" %>
 <%@ page import="java.util.*" %>
-<%@ page import="dao.product.DaoProduct" %>
+<%@ page import="dao.product.DaoProductAdmin" %>
 <%@ page import="dao.product.color.DaoProductColor" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %><%--
   Created by IntelliJ IDEA.
@@ -288,7 +288,7 @@
                                                 <label class="form-label">Product Images Upload</label>
                                                 <div style="display: flex; flex-wrap: wrap" class="images">
                                                     <%
-                                                        String mainColor = DaoProduct.getInstance().getMainColor(product.getId());
+                                                        String mainColor = DaoProductAdmin.getInstance().getMainColor(product.getId());
                                                         List<String>listColor = DaoProductColor.getInstance().getListColor(product.getId());
                                                         %>
     <%
