@@ -27,12 +27,12 @@ public class SignUpDao {
     Connection connect = DatabaseConnection.getConnection();
 
     // kiểm tra email có tồn tại không để đăng kí
-    public boolean checkEmailExist(User user) {
+    public boolean checkEmailExist(String email) {
         try {
             String idUser = null;
             String sql = "SELECT id FROM user WHERE email=?";
             PreparedStatement s = connect.prepareStatement(sql);
-            s.setString(1, user.getEmail());
+            s.setString(1, email);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 idUser = rs.getString("id");
@@ -53,8 +53,6 @@ public class SignUpDao {
     public String createNewUser(User user) {
         String today = java.time.LocalDate.now().toString();
         try {
-            String encryptPassword = encryptPassword(user.getPassword());
-            user.setPassword(encryptPassword);
             String sql = "INSERT INTO user(name, email, phone_number, dob, gender, idAddress, isAdmin, create_at, update_at, idCart, avatar, password) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             s.setString(1, user.getName());
@@ -82,21 +80,4 @@ public class SignUpDao {
         return null;
     }
 
-    private String encryptPassword(String password) {
-        String encryptPassword = null;
-        try {
-            MessageDigest m = MessageDigest.getInstance("MD5");
-            m.update(password.getBytes());
-            byte[] bytes = m.digest();
-            StringBuilder s = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
-                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            encryptPassword = s.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return encryptPassword;
-    }
 }

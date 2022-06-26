@@ -112,12 +112,8 @@
         </div>
         <div class="cms_banner ">
             <div class="col-md-4 cms-banner-left">
-                <a>![](../../../../target/project-1.0-SNAPSHOT/image/BIDV1.gif)
-                    <img alt="#" style="width: 100%;" src="<%=request.getContextPath()%>">
-                    <img alt="#" style="width: 100%;" src="<%=request.getServletContext().getRealPath("")%>">
-                    <img alt="#" style="width: 100%;" src="<%=request.getServletPath()%>">
-                    <img alt="#" style="width: 100%;" src="<%=request.getServletContext().getContextPath()%>">
-                    <img alt="#" style="width: 100%;" src="../../../../target/project-1.0-SNAPSHOT/upload/wp3196680-wallpaper-hd-simpsons.jpg">
+                <a>
+                    <img alt="#" style="width: 100%;" src="upload/wp3196680-wallpaper-hd-simpsons.jpg">
                 </a>
             </div>
             <div class="col-md-4 cms-banner-middle">

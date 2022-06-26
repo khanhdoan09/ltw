@@ -2,6 +2,8 @@ package controller;
 
 import dao.product.DaoProduct;
 import beans.Product;
+import dao.product.search.DaoSearchProduct;
+import service.customer.product.search.SearchService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,19 +30,20 @@ public class ListProduct extends HttpServlet {
         System.out.println(type + " " + order + " " + name);
         String sql="";
         ArrayList<String> list = new ArrayList<String>();
+        SearchService searchService = new SearchService();
 
         if (type != null) {
             if (type[0].equals("brand")) {
-                sql += DaoProduct.getInstance().getProductByCategory("brand", name);
+                sql += searchService.getSqlSearchWithCondition("brand", name);
                 list.addAll(Arrays.asList(name));
             }
         }
         if (order != null) {
-            sql += DaoProduct.getInstance().getProductByCategory("brand", name);
+            sql += searchService.getSqlSearchWithCondition("brand", name);
             if (order[0].equals("DESC"))
-                sql += DaoProduct.getInstance().getProductByCategory("highestPrice", order);
+                sql += searchService.getSqlSearchWithCondition("highestPrice", order);
             else
-                sql += DaoProduct.getInstance().getProductByCategory("lowestPrice", order);
+                sql += searchService.getSqlSearchWithCondition("lowestPrice", order);
         }
 
         List<Product> listFilter = null;
@@ -54,7 +57,7 @@ public class ListProduct extends HttpServlet {
             sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group ;
             sql += " ORDER BY "+item[0] + " " + orderType[0] + " " + limit;
             sqlAll += sql;
-            listFilter = DaoProduct.getInstance().excQuery(list, sqlAll);
+            listFilter = DaoSearchProduct.getInstance().getListProduct(list, sqlAll);
             response.setContentType("text/html");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(this.toJson(listFilter));
@@ -64,7 +67,7 @@ public class ListProduct extends HttpServlet {
         request.setAttribute("name", name[0]);
 
         sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group + limit;
-        listFilter = DaoProduct.getInstance().excQuery(list,  sqlAll);
+        listFilter = DaoSearchProduct.getInstance().getListProduct(list,  sqlAll);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(this.toJson(listFilter));

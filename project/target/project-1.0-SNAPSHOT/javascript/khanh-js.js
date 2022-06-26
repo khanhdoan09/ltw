@@ -526,46 +526,43 @@ $(function() {
 })
 
 
-$(function() {
-    $("#button-search-header").click((e)=>{
-        e.preventDefault()
-        let url = "SearchListProduct?"
-        url += "input-search-header=" + $("#input-search-header").val() + "&"
-        url += "pagination=1"
-        $('#form-header-search').attr('action', url);
-        $('#form-header-search').submit()
-    })
-})
+// $(function() {
+//     $("#button-search-header").click((e)=>{
+//         e.preventDefault()
+//         let url = "SearchListProduct?"
+//         url += "input-search-header=" + $("#input-search-header").val() + "&"
+//         url += "pagination=1"
+//         $('#form-header-search').attr('action', url);
+//         $('#form-header-search').submit()
+//     })
+// })
+//
+// $(function () {
+//     $("#input-search-header").on("input", function(e) {
+//         let word = $(this).val();
+//         let xhttp = new XMLHttpRequest();
+//         //  onreadystatechange này sẽ được kích hoạt mỗi khi trạng thái readyState thay đổi -- readyState:thuộc tính này định nghĩa trạng thái hiện tại của đối tượng XMLHttpRequest.
+//         xhttp.onreadystatechange = function() {
+//             if (this.readyState == 4 && this.status == 200) { //HTTP REPONSE => 4=DONE:The operation is complete 200=SUCCESS
+//                 getDataFromServlet(xhttp)
+//             }
+//         };
+//         xhttp.open("POST", `SearchHintProductInHeader?wordSearchHeader=${word}`, true);
+//         xhttp.send();
+//     });
+// })
 
-$(function () {
-    $("#input-search-header").on("input", function(e) {
-        let word = $(this).val();
-        let xhttp = new XMLHttpRequest();
-        //  onreadystatechange này sẽ được kích hoạt mỗi khi trạng thái readyState thay đổi -- readyState:thuộc tính này định nghĩa trạng thái hiện tại của đối tượng XMLHttpRequest.
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) { //HTTP REPONSE => 4=DONE:The operation is complete 200=SUCCESS
-                getDataFromServlet(xhttp)
-            }
-        };
-        xhttp.open("POST", `SearchListProduct?wordSearchHeader=${word}`, true);
-        xhttp.send();
-    });
-
-})
-
-function getDataFromServlet(xhttp) {
-    let data = xhttp.responseText.split("\n")
-    $(".contain-search-popular").empty()
-        data.forEach((value) => {
-            let item = value.split("@@##**") // to split id and name
-            if (item[1] != "undefined") {
-                $(".contain-search-popular")
-                    .append(`<span onclick="location.href='ProductDetail?idProduct=${item[0]}'">${item[1]}</span><br/>`)
-            }
-        })
-
-
-}
+// function getDataFromServlet(xhttp) {
+//     let data = xhttp.responseText.split("\n")
+//     $(".contain-search-popular").empty()
+//         data.forEach((value) => {
+//             let item = value.split("@@##**") // to split id and name
+//             if (item[1] != "undefined") {
+//                 $(".contain-search-popular")
+//                     .append(`<span onclick="location.href='ProductDetail?idProduct=${item[0]}'">${item[1]}</span><br/>`)
+//             }
+//         })
+// }
 
 
 
