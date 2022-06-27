@@ -1,9 +1,8 @@
 <%@ page import="beans.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
-<%@ page import="model.Admin.DaoProductAdmin" %>
-<%@ page import="model.Admin.Order" %>
-<%@ page import="model.Admin.OrderDetail" %><%--
+<%@ page import="beans.OrderInAdmin" %>
+<%@ page import="beans.OrderDetailInAdmin" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 13/1/2022
@@ -100,8 +99,8 @@
 
                                     <%Object objFilter = request.getAttribute("orderDetails");
                                         if (objFilter != null) {
-                                            List<OrderDetail> list = (List<OrderDetail>) objFilter;
-                                            for (OrderDetail order : list) {%>
+                                            List<OrderDetailInAdmin> list = (List<OrderDetailInAdmin>) objFilter;
+                                            for (OrderDetailInAdmin order : list) {%>
                                     <tr id="tr-product-<%=order.getIdOrder()%>">
                                         <td><strong><%=order.getIdOrder()%></strong></td>
                                         <td><strong><%=order.getIdShoe()%></strong></td>

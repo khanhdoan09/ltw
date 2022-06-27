@@ -1,6 +1,7 @@
-<%@ page import="model.Admin.User" %>
+<%@ page import="beans.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.Admin.DaoUserAdmin" %><%--
+<%@ page import="dao.user.DaoUserAdmin" %>
+<%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 4/4/2022
@@ -92,8 +93,8 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <%Object objFilter = request.getAttribute("users");
-                                            List<User> list = DaoUserAdmin.getInstance().getListUser();
+                                    <%Object obj = request.getAttribute("users");
+                                            List<User> list = (List<User>) obj;
                                             for (User user : list) {%>
                                     <tr>
                                         <td><strong><%=user.getId()%></strong></td>
@@ -112,7 +113,7 @@
                                             <%=user.getCreateAt()%>
                                         </td>
                                         <td><%=user.getGender()%></td>
-                                        <td><%=user.getPhoneNumber()%></td>
+                                        <td><%=user.getPhone()%></td>
                                         <td><%=user.getIdAddress()%></td>
                                         <td><%=user.getIdCart()%></td>
                                         <td><%=user.getIsAdmin()%></td>

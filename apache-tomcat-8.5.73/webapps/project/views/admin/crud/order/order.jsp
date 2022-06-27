@@ -1,8 +1,7 @@
 <%@ page import="beans.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
-<%@ page import="model.Admin.DaoProductAdmin" %>
-<%@ page import="model.Admin.Order" %>
+<%@ page import="beans.OrderInAdmin" %>
 <%@ page import="dao.order.DaoOrderAdmin" %><%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -39,6 +38,19 @@
         }
         #brands {
             display: none;
+        }
+        .contain-load-more {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        #load-more-product {
+            background-color: #6060b9;
+            color: white;
+            width: fit-content;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
         }
     </style>
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
@@ -111,10 +123,9 @@
 
                                     <tbody id="listProduct">
 
-                                    <%Object objFilter = request.getAttribute("orders");
-//                                        if (objFilter != null) {
-                                            List<Order> list = DaoOrderAdmin.getInstance().getListOrder();
-                                            for (Order order : list) {%>
+                                    <%Object obj = request.getAttribute("orders");
+                                            List<OrderInAdmin> list = (List<OrderInAdmin>) obj;
+                                            for (OrderInAdmin order : list) {%>
                                     <tr id="tr-product-<%=order.getId()%>">
                                         <td><strong><%=order.getId()%></strong></td>
                                         <td><%=order.getIdCustomer()%></td>
@@ -123,7 +134,7 @@
                                         <td><%=order.getStatus()%></td>
                                         <td>
                                             <div class="d-grid">
-                                                <a class="view-order-detail" href="<%=request.getContextPath()%>/Route?page=orderDetail&idOrder=<%=order.getId()%>">
+                                                <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=<%=order.getId()%>">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </a>
                                             </div>
@@ -133,8 +144,10 @@
 <%--                                    <%}%>--%>
                                     </tbody>
                                 </table>
-                                <% if (objFilter != null) {%>
-                                <button id="load-more-product" style="width: 100%">Load more</button>
+                                <% if (obj != null) {%>
+                                <div class="contain-load-more">
+                                    <button id="load-more-product" >Load more</button>
+                                </div>
                                 <%}%>
                             </div>
                         </div>
@@ -183,4 +196,49 @@
     });
 </script>
 
+<script>
+    let paginationOrderInAdmin = 0
+    $(function() {
+        $("#load-more-product").click(()=>{
+            let type = $("#type-product-admin").val()
+            let name = $("#input-name-product-admin").val()
+            paginationOrderInAdmin += 1
+            $.ajax({
+                url: `ListOrderAdmin?pagination=`+paginationOrderInAdmin,
+                type: 'POST',
+                success: function (data) {
+                    if (data==='no more data') {
+                        $("#load-more-product").remove()
+                    }
+                    else {
+                        let arr = JSON.parse(data);
+                        let re = ""
+                        arr.forEach((e) => {
+                            re += `<tr id='tr-product-`+e.id+`'>
+                                        <td><strong>`+e.id+`</strong></td>
+                                        <td>`+e.idCustomer+`</td>
+                                        <td>`+e.total+`</td>
+                                        <td>`+e.createDate+`</td>
+                                        <td>`+e.status+`</td>
+                                        <td>
+                                            <div class="d-grid">
+                                                <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=`+e.id+`">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>`
+                        })
+                        $("#listProduct").append(re)
+                    }
+                    removeProductInAdmin()
+                },
+                error: function () {
+                    $('#notification-bar').text('An error occurred');
+                }
+            });
+
+        })})
+
+</script>
 </body></html>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditProduct", value = "/EditProduct")
+@WebServlet(name = "EditProduct", value = "/EditProductAdmin")
 public class EditProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,9 +20,8 @@ public class EditProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-        Product productDetail = DaoProductDetail.getInstance().getDetailProduct(id);
-        request.setAttribute("productDetail", productDetail);
-//        request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
+        Product product = DaoProductDetail.getInstance().getDetailProduct(id);
+        request.setAttribute("productDetail", product);
         request.getRequestDispatcher("/views/admin/crud/product/EditProduct.jsp").forward(request, response);
 
     }

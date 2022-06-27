@@ -113,7 +113,7 @@
         <div class="cms_banner ">
             <div class="col-md-4 cms-banner-left">
                 <a>
-                    <img alt="#" style="width: 100%;" src="upload/wp3196680-wallpaper-hd-simpsons.jpg">
+                    <img alt="#" style="width: 100%;" src="image/banners/subbanner1.jpg">
                 </a>
             </div>
             <div class="col-md-4 cms-banner-middle">
@@ -147,7 +147,7 @@
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
                                         <a href="ProductDetail?idProduct=<%=product.getId()%>">
-                                            <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
+                                            <img src="upload/product/<%=product.getAvatar()%>.jpg"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">
@@ -182,7 +182,7 @@
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="upload/product/<%=product.getAvatar()%>.jpg"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">
@@ -226,7 +226,7 @@
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="upload/product/<%=product.getAvatar()%>.jpg"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">

@@ -1,7 +1,6 @@
 package controller.admin.product;
 
 import dao.product.detail.DaoProductDetail;
-import model.Admin.DaoProductAdmin;
 import beans.Product;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;

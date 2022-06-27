@@ -1,7 +1,6 @@
 package controller.admin.product;
 
 import dao.product.detail.DaoProductDetail;
-import model.Admin.DaoProductAdmin;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

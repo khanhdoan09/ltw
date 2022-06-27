@@ -3,7 +3,7 @@
 <%@ page import="java.io.File" %>
 <%@ page import="beans.ProductDetail" %>
 <%@ page import="java.util.*" %>
-<%@ page import="model.DaoProduct" %>
+<%@ page import="dao.product.DaoProduct" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %><%--
   Created by IntelliJ IDEA.
   User: Admin

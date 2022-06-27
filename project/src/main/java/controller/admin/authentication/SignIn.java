@@ -56,7 +56,7 @@ public class SignIn extends HttpServlet {
             if (emailValidation == null && passwordValidation == null) {
                 if (DaoAuthentication.getInstance().checkPassword(password) == false) {
                     request.getSession(true).setAttribute("userAdmin", true);
-                    request.getRequestDispatcher("/Route?page=listProduct").forward(request, response);
+                    request.getRequestDispatcher("/views/admin/crud/product/list-product.jsp").forward(request, response);
                     return;
                 }
             }

@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Locale;
 
 @WebFilter(filterName = "SecurityFilter")
 public class SecurityFilter implements Filter {
@@ -20,7 +21,7 @@ public class SecurityFilter implements Filter {
         String loginURI = request.getContextPath() + "/views/admin/authentication/signIn/signIn.jsp";
 
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        if(!path.contains("views/admin/crud") && !path.contains("Route")){
+        if(path.contains("/views/admin/authentication") || !path.toLowerCase().contains("admin")){
                 chain.doFilter(request, response);
         }
         else {

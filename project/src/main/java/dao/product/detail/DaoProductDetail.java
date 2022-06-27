@@ -29,7 +29,7 @@ public class DaoProductDetail {
     Connection connect = DatabaseConnection.getConnection();
 
     public Product getDetailProduct(String idPr) {
-        String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at FROM product WHERE product.id=?";
+        String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at, gender FROM product WHERE product.id=?";
         PreparedStatement s = null;
         try {
             s= connect.prepareStatement(sql);
@@ -48,9 +48,10 @@ public class DaoProductDetail {
                 int soleValue = rs.getInt("soleValue");
                 int active = rs.getInt("Active");
                 String create_at = rs.getString("create_at");
+                String gender = rs.getString("gender");
                 List<ProductDetail> listSize =  getListProductDetail(id);
                 List<Image> listImg = DaoProductImage.getInstance().getListImg(id);
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, create_at, listImg);
+                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, create_at, listImg, gender);
                 return product;
             }
         } catch (SQLException e) {
