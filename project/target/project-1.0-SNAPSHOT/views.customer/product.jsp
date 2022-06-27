@@ -196,12 +196,7 @@
 </script>
 
 <%
-    Object obj = request.getAttribute("idProduct");
-    Product p = null;
-    if (obj != null) {
-        String id = obj.toString();
-        p = DaoProduct.getInstance().getDetailProduct(id);
-    }
+    Product p  = (Product) request.getAttribute("product");
 %>
 
 <div class="container">
@@ -216,52 +211,27 @@
                             <%List<String> listMainImg = p.getImg().getMain();
                                 List<String> listSubImg = p.getImg().getSub();
                             %>
-                            <%--                            <script>--%>
 
-                            <%--                                $(function(){--%>
-                            <%--                                    <%--%>
-                            <%--                                    for (int i = 0; i < listMainImg.size(); i++) {--%>
-                            <%--                                    %>--%>
-                            <%--                                    $("#color-shoe-<%=i%>").on("click", ()=>{--%>
-                            <%--                                        $("#main-img").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")--%>
-                            <%--                                        <%int tmp = i*3;%>--%>
-                            <%--                                        $("#zero").attr("src","data/imgAll/upload/product/<%=listMainImg.get(i)%>.jpg")--%>
-                            <%--                                        $("#one").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+1)%>.jpg")--%>
-                            <%--                                        $("#two").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+2)%>.jpg")--%>
-                            <%--                                        $("#three").attr("src","data/imgAll/upload/product/<%=listSubImg.get(tmp+3)%>.jpg")--%>
-                            <%--                                    })--%>
-                            <%--                                    <%}%>--%>
-
-
-                            <%--                                    &lt;%&ndash;$("#color-shoe-0").click(()=>{&ndash;%&gt;--%>
-
-                            <%--                                    &lt;%&ndash;    console.log("<%=listImg.get(0)%>")&ndash;%&gt;--%>
-                            <%--                                    &lt;%&ndash;    $("#main-img").attr("src","data/imgAll/<%=listImg.get(0)%>.jpg")&ndash;%&gt;--%>
-                            <%--                                    &lt;%&ndash;})&ndash;%&gt;--%>
-
-                            <%--                                    &lt;%&ndash;$("#color-shoe-1").click(()=>{&ndash;%&gt;--%>
-                            <%--                                    &lt;%&ndash;    $("#main-img").attr("src","data/imgAll/<%=listImg.get(1)%>.jpg")&ndash;%&gt;--%>
-                            <%--                                    &lt;%&ndash;    console.log("<%=listImg.get(1)%>")&ndash;%&gt;--%>
-
-                            <%--                                    &lt;%&ndash;})&ndash;%&gt;--%>
-                            <%--                                })--%>
-
-
-
-                            <%--                            </script>--%>
                             <!-- anh chinh -->
                             <%String mainColor = p.getMainColor();%>
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
-                                <img id="main-img" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="../data/imgAll/upload/product/<%=p.getMainImg(mainColor)%>.jpg"/>
+                                <img id="avatar" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="upload/product/<%=p.getMainImg(mainColor)%>.jpg"/>
                             </a>
                         </div>
 
                         <div id="product-thumbnail" class="owl-carousel" style="width: 100%;">
+                            <div class="item mg-l">
+                                <div class="image-additional">
+                                    <div class="thumbnail main imag1">
+                                        <img class="sub-img" src="upload/product/<%=p.getMainImg(mainColor)%>.jpg" title="lorem ippsum dolor dummy" />
+                                    </div>
+                                </div>
+                            </div>
                             <%for(String img: p.getListSubImg(mainColor)){%>
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail main imag1">
-                                        <img src="data/imgAll/upload/product/<%=img%>.jpg" title="lorem ippsum dolor dummy" alt="<%=img%>" />
+                                        <img class="sub-img" src="upload/product/<%=img%>.jpg" title="lorem ippsum dolor dummy" alt="<%=img%>" />
                                     </div>
                                 </div>
                             </div>
@@ -380,14 +350,14 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                 <div class="num-size ul-checkbox">
                                     <ul class="d-flex flex-wrap ul-checkbox">
                                         <%for(String color : p.getListColor()){%>
-                                        <li class="li_bor color-shoe" data-color="<%=color%>">
+                                        <li class="li_bor">
                                             <input type="radio" value="<%=color%>" name="color" class="js-color-black color-black input-bor" id="color-shoe-<%=color%>"
                                             <%if (mainColor.equals(color)) {%>
                                                 checked
                                                 <%}%>>
                                             <label for="color-shoe-<%=color%>"  <%if(color.equals(mainColor)){%>
                                                    style="background-color: #2f52a4; color: white"
-                                                    <%}%> class="label_bor"><%=color%></label>
+                                                    <%}%> class="label_bor color-shoe" data-color="<%=color%>"><%=color%></label>
                                         </li>
                                         <%}%>
                                     </ul>
@@ -401,7 +371,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                     <ul class="d-flex flex-wrap ul-checkbox">
                                         <%for (int size : listSize) {%>
                                         <li class="li_bor">
-                                            <input required type="radio" class="input-bor" id="shoe_<%=size%>" name="size" value="<%=size%>">
+                                            <input  type="radio" class="input-bor" id="shoe_<%=size%>" name="size" value="<%=size%>">
                                             <label for="shoe_<%=size%>" class="label_bor size-item"><%=size%>
                                             </label>
                                         </li>
@@ -512,7 +482,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                         <div class="item">
                                             <div class="product-thumb transition">
                                                 <div class="image product-imageblock">
-                                                    <a href="product.html"> <img src="data/imgAll/upload/product/<%=productWatched.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                                    <a href="product.html"> <img src="upload/product/<%=productWatched.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                                     <div class="button-group">
                                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -599,7 +569,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                     <div class="item" style="display: grid; place-items: center;">
                                         <div class="product-thumb transition" style="width: 100%;">
                                             <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="data/imgAll/upload/product/<%=product.getAvatar()%>.jpg"
+                                                <a href="product.html"> <img src="upload/product/<%=product.getAvatar()%>.jpg"
                                                                              alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                              class="img-responsive" />
 
@@ -650,61 +620,81 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
 
 <script>
 
+    function removeAllActiveColor() {
+        $(".color-shoe").each(function() {
+            $(this).css("background-color", "white");
+            $(this).css("color", "black");
+        })
+    }
+
     $(function() {
+        $(".color-shoe").each(function() {
+            $(this).click(function (e){
+                e.preventDefault()
+                removeAllActiveColor()
+                $(this).css("background-color", "#2f52a4");
+                $(this).css("color", "white");
+                $.ajax({
+                    url: `ListSizeAndImg?id=<%=p.getId()%>&color=`+$(this).data('color'),
+                    type: 'POST',
+                    success: function (data) {
+                        let dataDetail=JSON.parse(data)
+                        $("#avatar").attr("src","upload/product/"+dataDetail.mainImg+".jpg")
+                        $("#products-available").text(dataDetail.remain + " Sản phẩm có sẵn")
+                        // change img
+                        let arrImg = dataDetail.listImg
+                        let re=`
+                          <div class="owl-item" style="width: 100px;">
+                         <div class="item mg-l">
+                            <div class="image-additional">
+                                <div class="thumbnail main imag1">
+                                    <img class="sub-img" src="upload/product/`+dataDetail.mainImg+`.jpg" title="lorem ippsum dolor dummy" id="zero" />
+                                </div>
+                            </div>
+                        </div>
+                     </div>`
+                        for(let i = 0; i < arrImg.length; i++) {
+                            re+=`
+                       <div class="owl-item" style="width: 100px;">
+                         <div class="item mg-l">
+                            <div class="image-additional">
+                                <div class="thumbnail main imag1">
+                                    <img class="sub-img" src="upload/product/`+arrImg[i]+`.jpg" title="lorem ippsum dolor dummy" id="zero" />
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                        `
+                        }
+                        $(".owl-wrapper").empty()
+                        $(".owl-wrapper").append(re)
+                        swapSubImgAndAvatar()
 
-        <%--$(".color-shoe").click(function (e){--%>
-        <%--    e.preventDefault()--%>
-        <%--    $(".color-shoe").css("background-color", "white");--%>
-        <%--    $(".color-shoe").css("color", "black");--%>
-        <%--    $(this).css("background-color", "#2f52a4");--%>
-        <%--    $(this).css("color", "white");--%>
-        <%--    $.ajax({--%>
-        <%--        url: `ListImg?id=<%=p.getId()%>&color=`+$(this).data('color'),--%>
-        <%--        type: 'POST',--%>
-        <%--        success: function (data) {--%>
-        <%--            let dataDetail=JSON.parse(data)--%>
-        <%--            $("#main-img").attr("src","data/imgAll/upload/product/"+dataDetail.mainImg+".jpg")--%>
-        <%--            $("#products-available").text(dataDetail.remain + " Sản phẩm có sẵn")--%>
-        <%--            let arrImg = dataDetail.listImg--%>
-        <%--            let re=``--%>
-        <%--            for(let i = 0; i < arrImg.length; i++) {--%>
-        <%--                re+=`--%>
-        <%--               <div class="owl-item" style="width: 100px;">--%>
-        <%--                 <div class="item mg-l">--%>
-        <%--                    <div class="image-additional">--%>
-        <%--                        <div class="thumbnail main imag1">--%>
-        <%--                            <img src="data/imgAll/upload/product/`+arrImg[i]+`.jpg" title="lorem ippsum dolor dummy" id="zero" />--%>
-        <%--                        </div>--%>
-        <%--                    </div>--%>
-        <%--                </div>--%>
-        <%--             </div>--%>
-        <%--                `--%>
-        <%--            }--%>
-        <%--            $(".owl-wrapper").empty()--%>
-        <%--            $(".owl-wrapper").append(re)--%>
+                        // change size
+                        let arrSize = dataDetail.listSize
+                        re=``
+                        for(let i = 0; i < arrSize.length; i++) {
+                            re+=`
+                          <ul class="d-flex flex-wrap">
+                                    <li class="li_bor">
+                                        <input type="radio" class="input-bor" id="shoe_`+arrSize[i]+`" name="size" value="`+arrSize[i]+`">
+                                        <label class="label_bor size-item" for="shoe_`+arrSize[i]+`">`+arrSize[i]+`</label>
+                                    </li>
 
-        <%--            let arrSize = dataDetail.listSize--%>
-        <%--            re=``--%>
-        <%--            for(let i = 0; i < arrSize.length; i++) {--%>
-        <%--                re+=`--%>
-        <%--                  <ul class="d-flex flex-wrap">--%>
-        <%--                            <li class="li_bor">--%>
-        <%--                                <input type="checkbox" class="my-2 size-item input-bor" id="shoe_`+arrSize[i]+`" name="size" value="`+arrSize[i]+`">--%>
-        <%--                                <label for="shoe_`+arrSize[i]+`">`+arrSize[i]+`</label>--%>
-        <%--                            </li>--%>
+                                </ul>
+                        `
+                        }
+                        $(".list-size").empty()
+                        $(".list-size").append(re)
+                        chooseSize()
+                    },
+                    error: function() {
+                        alert("Error")
+                    }
+                })
+            })
 
-        <%--                        </ul>--%>
-        <%--                `--%>
-        <%--            }--%>
-        <%--            $(".list-size").empty()--%>
-        <%--            $(".list-size").append(re)--%>
-        <%--            chooseSize()--%>
-        <%--        },--%>
-        <%--        error: function() {--%>
-        <%--            alert("Error")--%>
-        <%--        }--%>
-        <%--    })--%>
-        <%--})--%>
+        })
     })
 
 
@@ -742,7 +732,20 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
     })
 </script>
 
+<script>
+    function swapSubImgAndAvatar() {
+        $(".sub-img").each(function(){
+            $(this).click(function(){
+                let srcSubImg = $(this).attr('src');
+                $("#avatar").attr("src", srcSubImg);
+            })
+        })
+    }
 
+    $(function() {
+        swapSubImgAndAvatar()
+    })
+</script>
 </body>
 
 

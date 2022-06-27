@@ -1,7 +1,6 @@
 package beans;
 
 import dao.product.color.DaoProductColor;
-import model.Admin.DaoProductAdmin;
 import dao.product.DaoProduct;
 import beans.Image;
 import beans.ImgProduct;
@@ -31,6 +30,7 @@ public class Product implements Serializable {
     private int quantitySold = 1;
     private int quantity ;
     private String mainColor;
+    private String gender;
     //admin
     private List<beans.Image>listImg;
 
@@ -48,8 +48,8 @@ public class Product implements Serializable {
         this.description=description;
     }
 
-    // detail
-    public Product(String id, String brand, String name, String categoryP, double price, int saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<beans.ProductDetail> listSize, String create_at, List<beans.Image> listImg) {
+    // detail in admin
+    public Product(String id, String brand, String name, String categoryP, double price, int saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<beans.ProductDetail> listSize, String create_at, List<beans.Image> listImg, String gender) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -64,6 +64,7 @@ public class Product implements Serializable {
         this.create_at= create_at;
         this.detail = listSize;
         this.listImg=listImg;
+        this.gender=gender;
     }
 
 //cart
@@ -365,6 +366,11 @@ public class Product implements Serializable {
     }
 
     public String getMainColor() {return this.mainColor;}
+
+    public String getGender() {
+        return this.gender;
+    }
+
 
     // use in admin page
     public String toJson() {

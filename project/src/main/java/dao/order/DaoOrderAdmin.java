@@ -26,17 +26,16 @@ public class DaoOrderAdmin {
     Connection connect = DatabaseConnection.getConnection();
 
 
-    public List<OrderInAdmin> getListOrder() {
+    public List<OrderInAdmin> getListOrder(String sql) {
         List<OrderInAdmin> re = new ArrayList<OrderInAdmin>();
         // get list size
         try {
-            String sql = "SELECT id,customer,total, create_at, status FROM orders";
             PreparedStatement s = connect.prepareStatement(sql);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id =  rs.getString("id");
                 String customer = rs.getString("customer");
-                double total = rs.getDouble("total");
+                double total = rs.getDouble("total_price");
                 String createAt = rs.getString("create_at");
                 String status = rs.getString("status");
 

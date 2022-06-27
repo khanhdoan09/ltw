@@ -16,28 +16,28 @@
         <ul class="menu-list flex-grow-1 mt-3">
             <li><a id="home" class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
             <li class="collapsed">
-                <a id="order" class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/Route?page=order">
+                <a id="order" class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/ListOrderAdmin">
                     <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Hóa đơn</span> </a>
             </li>
 
             <li class="collapsed">
-                <a id="product" class="m-link" href="<%=request.getContextPath()%>/Route?page=listProduct">
+                <a id="product" class="m-link" href="<%=request.getContextPath()%>/views/admin/crud/product/list-product.jsp">
                     <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
 
 
             </li>
             <li class="collapsed">
-                <a id="addProduct" class="m-link" href="<%=request.getContextPath()%>/Route?page=addNewProduct">
+                <a id="addProduct" class="m-link" href="<%=request.getContextPath()%>/views/admin/crud/product/addProduct.jsp">
                     <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
             </li>
             <li class="collapsed">
-                <a id="customer" class="m-link" href="<%=request.getContextPath()%>/Route?page=customer">
-                    <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>
+                <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">
+                    <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Người dùng</span> </a>
 
             </li>
             <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
-                    <i class="fa fa-sign-out" aria-hidden="true" style="margin: 0 10px;"></i><span>Đăng xuất</span> </a>
+                    <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px"></i><span>Đăng xuất</span> </a>
 
             </li>
 

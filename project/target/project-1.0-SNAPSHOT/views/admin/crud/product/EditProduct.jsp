@@ -218,6 +218,8 @@
                                     </table>
 
                                 </div>
+
+
                             </div>
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
@@ -358,10 +360,9 @@
                             </div>
                         </div>
 
-                        <%if(product.getCategory() != null) {
-                            String[] category = product.getCategory().split("\\s+");
-                        String gender = category[1];
-                        String typeCategory = category[0];
+                        <%
+                        String gender = product.getGender();
+                        String typeCategory = product.getCategory();
                         %>
                         <div class="card mb-3">
                             <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
@@ -372,7 +373,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" value="Man"
                                         <%
-                                         if(gender.equals("Man")){%>
+                                         if(gender.equals("man")){%>
                                             <%="checked"%>
                                         <%}%>>
                                     <label class="form-check-label">
@@ -382,7 +383,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" value="Woman"
                                         <%
-                                         if(gender.equals("Woman")){%>
+                                         if(gender.equals("woman")){%>
                                         <%="checked"%>
                                         <%}%>>
                                     <label class="form-check-label">
@@ -417,7 +418,7 @@
                                 </select>
                             </div>
                         </div>
-                        <%}%>
+
                         <div class="col-md-12">
                             <div class="col-md-12">
                                 <div>

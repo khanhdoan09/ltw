@@ -16,7 +16,7 @@ public class Route extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = request.getParameter("page");
         if (page.equals("listProduct")) {
-            request.getRequestDispatcher("/views/admin/crud/product/order-invoices.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/admin/crud/product/list-product.jsp").forward(request, response);
         }
         else if (page.equals("customer")) {
             request.getRequestDispatcher("/views/admin/crud/customer/customer-admin.jsp").forward(request, response);
@@ -35,7 +35,6 @@ public class Route extends HttpServlet {
             request.getRequestDispatcher("/ListProductAdmin").forward(request, response);
         }
         else if (page.equals("addProduct")) {
-            System.out.println(12345678);
             request.getRequestDispatcher("/SaveAddProduct").forward(request, response);
         }
         else if (page.equals("addNewProduct")) {
