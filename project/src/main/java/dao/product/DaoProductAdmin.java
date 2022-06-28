@@ -152,14 +152,12 @@ public class DaoProductAdmin {
     }
 
 
-    public List<Product> excQuery(ArrayList<String> category,  String sql) {
+    public List<Product> excQuery(String category,  String sql) {
         PreparedStatement s = null;
         List<Product> re = new ArrayList<Product>();
         try {
             s = connect.prepareStatement(sql);
-            for (int i = 0; i < category.size(); i++) {
-                s.setString(i + 1, category.get(i));
-            }
+            s.setString( 1, category);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("id");

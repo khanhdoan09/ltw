@@ -93,10 +93,9 @@
         <!-- Body: Header -->
 
         <!-- Body: Body -->
-<%--        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="SaveEditProduct?id=<%=product.getId()%>">--%>
-        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="EditCurrentProduct?id=<%=product.getId()%>">
+        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="ProductDetailAdmin?id=<%=product.getId()%>">
 
-        <div class="container-xxl">
+            <div class="container-xxl">
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
@@ -144,46 +143,46 @@
                                         <th>sole</th>
                                         </thead>
 
-                                    <%
-                                        int totalQuantity=0;
-                                        int totalSole=0;
-                                     List<ProductDetail>list = product.getDetail();
-                                     int countDetail=0;
-                                     if (list != null) {
-                                        for (ProductDetail detail : list ) {
-                                            String color = detail.getColor();
-                                            int size = detail.getSize();
-                                            int totalValue = detail.getTotalValue();
-                                            int soleValue = detail.getSoleValue();
-                                    %>
+                                        <%
+                                            int totalQuantity=0;
+                                            int totalSole=0;
+                                            List<ProductDetail>list = product.getDetail();
+                                            int countDetail=0;
+                                            if (list != null) {
+                                                for (ProductDetail detail : list ) {
+                                                    String color = detail.getColor();
+                                                    int size = detail.getSize();
+                                                    int totalValue = detail.getTotalValue();
+                                                    int soleValue = detail.getSoleValue();
+                                        %>
                                         <tr id="tr-detail-<%=countDetail%>" class="tr-detail" data-color="<%=color%>">
-                                                <td>
-                                                    <span style="width: 50px;"><%=color%></span>
-                                                </td>
-                                                <td style="display: flex;">
-                                                    <label class="form-check-label" for="size-<%=size%>">
-                                                        <%=size%>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <input name="totalValue" style="width: 50px;" id="totalValue-<%=totalValue%>"value="<%=totalValue%>" type="number">
-                                                </td>
-                                                <td>
-                                                    <input  name="soleValue" style="width: 50px;" id="soleValue-<%=soleValue%>"value="<%=soleValue%>"  type="number">
-                                                </td>
+                                            <td>
+                                                <span style="width: 50px;"><%=color%></span>
+                                            </td>
+                                            <td style="display: flex;">
+                                                <label class="form-check-label" for="size-<%=size%>">
+                                                    <%=size%>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input name="totalValue" style="width: 50px;" id="totalValue-<%=totalValue%>"value="<%=totalValue%>" type="number">
+                                            </td>
+                                            <td>
+                                                <input  name="soleValue" style="width: 50px;" id="soleValue-<%=soleValue%>"value="<%=soleValue%>"  type="number">
+                                            </td>
                                             <td>
                                                 <a class="remove-detail" style="cursor: pointer; font-size: 18px" data-detail="<%=countDetail%>" data-color="<%=color%>" data-size="<%=size%>" data-total="<%=totalValue%>" data-sole="<%=soleValue%>" >
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                    <%
-                                            totalQuantity+=totalValue;
-                                            totalSole+=soleValue;
-                                            countDetail++;
+                                        <%
+                                                    totalQuantity+=totalValue;
+                                                    totalSole+=soleValue;
+                                                    countDetail++;
+                                                }
                                             }
-                                        }
-                                    %>
+                                        %>
 
                                     </table>
 
@@ -256,7 +255,7 @@
                                             <input type="text" list="brands" class="form-control" name="brand" autocomplete="off" value="<%=product.getBrand()%>"/>
                                             <datalist id="brands">
                                                 <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
-                                                for (String brand: brands){%>
+                                                    for (String brand: brands){%>
                                                 <option><%=brand%></option>
                                                 <%}%>
                                             </datalist>
@@ -292,38 +291,38 @@
                                                     <%
                                                         String mainColor = DaoProductAdmin.getInstance().getMainColor(product.getId());
                                                         List<String>listColor = DaoProductColor.getInstance().getListColor(product.getId());
-                                                        %>
-    <%
+                                                    %>
+                                                    <%
                                                         for(int j = 0; j < listColor.size(); j++){%>
-                                                        <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
-                                                            <br>
-                                                            <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
-                                                            <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
-                                                            <div class="d-flex align-items-center">
-                                                                <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
+                                                    <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
+                                                        <br>
+                                                        <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
+                                                        <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
+                                                        <div class="d-flex align-items-center">
+                                                            <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
                                                                 <%if(mainColor.equals(listColor.get(j))){ %>
-                                                                        checked
+                                                                   checked
                                                                 <%}%>>
-                                                                <label for="mainColor_<%=listColor.get(j)%>" style="cursor: pointer">Choose main color</label>
-                                                            </div>
-                                                        </h5>
-                                                        <div id="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" class="contain-color-image d-flex flex-wrap"></div>
+                                                            <label for="mainColor_<%=listColor.get(j)%>" style="cursor: pointer">Choose main color</label>
+                                                        </div>
+                                                    </h5>
+                                                    <div id="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" class="contain-color-image d-flex flex-wrap"></div>
 
                                                     <%for(int i= 0;i < product.getListImg().size(); i++){%>
                                                     <%String color = product.getListImg().get(i).getColor();
-                                                    if (color.equals(listColor.get(j))){%>
+                                                        if (color.equals(listColor.get(j))){%>
                                                     <div style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px" class="contain-color-image" data-color="<%=color%>">
                                                         <%String nameImg = product.getListImg().get(i).getImg();%>
-                                                        <img id="img-<%=i%>" src="data/imgAll/upload/product/<%=nameImg%>.jpg" width="280" height="280">
+                                                        <img id="img-<%=i%>" src="upload/product/<%=nameImg%>.jpg" width="280" height="280">
                                                         <input id="input-img-<%=i%>" class="imgLoad" data-img="img-<%=i%>" type="file" name="fileImg" />
                                                         <div>
                                                             <button class="remove-img-detail" data-nameimg="<%=nameImg%>">Xóa</button>
                                                         </div>
                                                         <div class="d-flex align-items-center my-2">
                                                             <input  style="width: 30px; height:30px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage" value="<%=nameImg%>~<%=product.getId()%>~<%=color%>"
-                                                                <% if(product.getListImg().get(i).getLelvel()==0){%>
-                                                                   checked
-                                                                <%}%>
+                                                                    <% if(product.getListImg().get(i).getLelvel()==0){%>
+                                                                    checked
+                                                                    <%}%>
                                                             />
                                                             <label style="cursor: pointer" for="mainImage_<%=i%>"><h6>Main Image</h6></label>
                                                         </div>
@@ -361,8 +360,8 @@
                         </div>
 
                         <%
-                        String gender = product.getGender();
-                        String typeCategory = product.getCategory();
+                            String gender = product.getGender();
+                            String typeCategory = product.getCategory();
                         %>
                         <div class="card mb-3">
                             <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
@@ -374,7 +373,7 @@
                                     <input class="form-check-input" type="radio" name="gender" value="Man"
                                         <%
                                          if(gender.equals("man")){%>
-                                            <%="checked"%>
+                                        <%="checked"%>
                                         <%}%>>
                                     <label class="form-check-label">
                                         Nam
@@ -450,7 +449,7 @@
                 </div>
                 <!-- Row end  -->
 
-        </div>
+            </div>
         </form>
 
     </div>
@@ -582,24 +581,24 @@
     })
 
     function removeDetail(tr) {
-            let data = $(tr).data("detail")
-            let color = $(tr).data("color")
-            let size = $(tr).data("size")
-            let total = $(tr).data("total")
-            let sole = $(tr).data("sole")
-            alert(`Are you sure wanna delete this tr-detail-`+data + " " + color + " "+size)
-            $(`#tr-detail-`+data).remove()
-            $.ajax({
-                url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
-                type: 'POST',
-                success: function (data) {
-                    $("#totalValue").val($("#totalValue").val()-total)
-                    $("#totalSole").val($("#totalSole").val()-sole)
-                },
-                error: function() {
-                    alert("Error")
-                }
-            })
+        let data = $(tr).data("detail")
+        let color = $(tr).data("color")
+        let size = $(tr).data("size")
+        let total = $(tr).data("total")
+        let sole = $(tr).data("sole")
+        alert(`Are you sure wanna delete this tr-detail-`+data + " " + color + " "+size)
+        $(`#tr-detail-`+data).remove()
+        $.ajax({
+            url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
+            type: 'POST',
+            success: function (data) {
+                $("#totalValue").val($("#totalValue").val()-total)
+                $("#totalSole").val($("#totalSole").val()-sole)
+            },
+            error: function() {
+                alert("Error")
+            }
+        })
 
     }
 
