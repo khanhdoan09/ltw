@@ -394,7 +394,7 @@
                             <div class="related-product-sale">
                                 <h5 style='margin-top: 10px'>-<%=p.getSaleRate()%>%</h5>
                             </div>
-                            <img src="upload/product/<%=p.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy"
+                            <img src="upload/product/<%=p.getAvatar()%>" alt="lorem ippsum dolor dummy"
                                  title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
                         <div class="button-group">
                             <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích">

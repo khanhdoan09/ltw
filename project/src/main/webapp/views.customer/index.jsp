@@ -147,7 +147,7 @@
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
                                         <a href="ProductDetail?idProduct=<%=product.getId()%>">
-                                            <img src="upload/product/<%=product.getAvatar()%>.jpg"
+                                            <img src="upload/product/<%=product.getAvatar()%>"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">
@@ -182,7 +182,7 @@
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="upload/product/<%=product.getAvatar()%>.jpg"
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="upload/product/<%=product.getAvatar()%>"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">
@@ -226,7 +226,7 @@
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="upload/product/<%=product.getAvatar()%>.jpg"
+                                        <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="upload/product/<%=product.getAvatar()%>"
                                                                      alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                      class="img-responsive" /> </a>
                                         <div class="button-group">

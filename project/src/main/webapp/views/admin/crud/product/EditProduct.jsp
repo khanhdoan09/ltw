@@ -93,8 +93,12 @@
         <!-- Body: Header -->
 
         <!-- Body: Body -->
+<<<<<<< Updated upstream
 <%--        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="SaveEditProduct?id=<%=product.getId()%>">--%>
         <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="EditCurrentProduct?id=<%=product.getId()%>">
+=======
+        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="EditCurrentProductAdmin?id=<%=product.getId()%>">
+>>>>>>> Stashed changes
 
         <div class="container-xxl">
                 <div class="row align-items-center">
@@ -287,7 +291,7 @@
                                     <div class="row g-3 align-items-center">
                                         <div>
                                             <div class="col-md-12" style="display: flex; flex-wrap: wrap">
-                                                <label class="form-label">Product Images Upload</label>
+                                                <label class="form-label">Úp ảnh</label>
                                                 <div style="display: flex; flex-wrap: wrap" class="images">
                                                     <%
                                                         String mainColor = DaoProductAdmin.getInstance().getMainColor(product.getId());
@@ -295,25 +299,42 @@
                                                         %>
     <%
                                                         for(int j = 0; j < listColor.size(); j++){%>
+<<<<<<< Updated upstream
                                                         <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
                                                             <br>
                                                             <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
                                                             <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
                                                             <div class="d-flex align-items-center">
                                                                 <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
+=======
+                                                    <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
+                                                        <br>
+                                                        <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm ảnh mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
+                                                        <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
+                                                        <div class="d-flex align-items-center">
+                                                            <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
+>>>>>>> Stashed changes
                                                                 <%if(mainColor.equals(listColor.get(j))){ %>
                                                                         checked
                                                                 <%}%>>
+<<<<<<< Updated upstream
                                                                 <label for="mainColor_<%=listColor.get(j)%>" style="cursor: pointer">Choose main color</label>
                                                             </div>
                                                         </h5>
                                                         <div id="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" class="contain-color-image d-flex flex-wrap"></div>
+=======
+                                                            <label for="mainColor_<%=listColor.get(j)%>" style="cursor: pointer">Chọn Màu Chính</label>
+                                                        </div>
+                                                    </h5>
+                                                    <div id="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" class="contain-color-image d-flex flex-wrap"></div>
+>>>>>>> Stashed changes
 
                                                     <%for(int i= 0;i < product.getListImg().size(); i++){%>
                                                     <%String color = product.getListImg().get(i).getColor();
                                                     if (color.equals(listColor.get(j))){%>
                                                     <div style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px" class="contain-color-image" data-color="<%=color%>">
                                                         <%String nameImg = product.getListImg().get(i).getImg();%>
+<<<<<<< Updated upstream
                                                         <img id="img-<%=i%>" src="data/imgAll/upload/product/<%=nameImg%>.jpg" width="280" height="280">
                                                         <input id="input-img-<%=i%>" class="imgLoad" data-img="img-<%=i%>" type="file" name="fileImg" />
                                                         <div>
@@ -324,6 +345,18 @@
                                                                 <% if(product.getListImg().get(i).getLelvel()==0){%>
                                                                    checked
                                                                 <%}%>
+=======
+                                                        <img id="img-<%=i%>" src="upload/product/<%=nameImg%>" width="280" height="280">
+                                                        <input id="input-img-<%=i%>" class="imgLoad imgExist" data-nameimg="<%=nameImg%>" data-containhiddenimgexist="containHiddenImgExist-<%=i%>" data-color="<%=color%>" data-img="img-<%=i%>" type="file" name="fileImg" />
+                                                        <!-- to change img -->
+                                                        <input type="hidden" name="containHiddenImgExist" id="containHiddenImgExist-<%=i%>" value="empty" >
+                                                        <button class="remove-img-detail" data-nameimg="<%=nameImg%>">Xóa</button>
+                                                        <div class="d-flex align-items-center my-2">
+                                                            <input  style="width: 30px; height:30px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage" value="<%=nameImg%>~<%=color%>"
+                                                                    <% if(product.getListImg().get(i).getLelvel()==0){%>
+                                                                    checked
+                                                                    <%}%>
+>>>>>>> Stashed changes
                                                             />
                                                             <label style="cursor: pointer" for="mainImage_<%=i%>"><h6>Main Image</h6></label>
                                                         </div>
@@ -373,8 +406,13 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" value="Man"
                                         <%
+<<<<<<< Updated upstream
                                          if(gender.equals("man")){%>
                                             <%="checked"%>
+=======
+                                         if(gender.toLowerCase().equals("man")){%>
+                                        <%="checked"%>
+>>>>>>> Stashed changes
                                         <%}%>>
                                     <label class="form-check-label">
                                         Nam
@@ -383,7 +421,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" value="Woman"
                                         <%
-                                         if(gender.equals("woman")){%>
+                                         if(gender.toLowerCase().equals("woman")){%>
                                         <%="checked"%>
                                         <%}%>>
                                     <label class="form-check-label">
@@ -609,17 +647,18 @@
             $(this).click((e)=>{
                 e.preventDefault()
                 let img = $(this).data("nameimg")
+                let imgCurrent = $(this)
                 $.ajax({
                     url: `RemoveImg?id=<%=product.getId()%>&nameImg=`+img,
                     type: 'POST',
                     success: function (data) {
                         alert("remove " + data)
+                        imgCurrent.parent().remove()
                     },
                     error: function() {
                         alert("Error")
                     }
                 })
-                $(this).parent().remove()
             })
         })
     }
@@ -631,7 +670,16 @@
 
     function loadImg() {
         $(".imgLoad").each(function(){
-            $(this).change(function () {
+            $(this).change(function (ef) {
+                let idHidden = $(this).data("containhidden")
+                let idChooseMainImg = $(this).data("containmainimg")
+                let color = $(this).data("color")
+                let nameImg = ef.target.files[0].name
+                // save color and name img
+                $("#"+idHidden).val($("#"+idHidden).val()+"#"+nameImg)
+                $("#"+idChooseMainImg).val(nameImg+"~"+color)
+
+
                 let idImgShow = $(this).data("img")
                 if (this.files) {
                     let reader = new FileReader()
@@ -725,10 +773,13 @@
         let i = new Date().getTime()
         let newImg = `<div class="d-flex justify-content-around" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
-                        <input type="file" id="input-img-`+id+`" class="imgLoad" data-img="img-`+id+`" name="fileNewImg_`+color+`" />
+                        <input type="file" name="fileImg" id="input-img-`+id+`" data-containmainimg="mainImage_`+i+`" data-containhidden="hidden-`+j+`" data-color="`+color+`" class="imgLoad" data-img="img-`+id+`"/>
+                        <!--send color and file name-->
+                        <input value="`+color+`" name="newimg" type="hidden" id="hidden-`+j+`" />
+
                         <button class="remove-img-detail">Xóa</button>
 <div class="d-flex align-items-center my-2">
-                                                            <input style="width: 30px; height:30px" type="radio" id="mainImage_`+i+`" name="chooseMainImage_`+j+`">
+                                                            <input style="width: 30px; height:30px" type="radio" id="mainImage_`+i+`" name="chooseMainImage" value="">
                                                             <label style="cursor: pointer" for="mainImage_`+i+`"><h6>Main Image</h6></label>
                                                         </div>
                         </div>
@@ -793,7 +844,19 @@
 
 </script>
 
-
+<!-- to change img -->
+<script>
+    $(".imgExist").each(function() {
+        $(this).change(function (ef) {
+            let id = $(this).data("containhiddenimgexist")
+            alert(id)
+            let color = $(this).data("color")
+            let oldNameImg = $(this).data("nameimg")
+            // use when click change
+            let newNameImg = ef.target.files[0].name
+        })
+    })
+</script>
 </body>
 
 </html>

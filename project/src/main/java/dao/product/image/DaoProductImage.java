@@ -2,8 +2,11 @@ package dao.product.image;
 
 import connection.DatabaseConnection;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DaoProductImage {
+// extends HttpServlet de dung getServletContext()
+public class DaoProductImage extends HttpServlet {
+    // delete img in admin
     private static DaoProductImage instance = null;
 
     public static DaoProductImage getInstance() {
@@ -24,12 +29,11 @@ public class DaoProductImage {
     }
     Connection connect = DatabaseConnection.getConnection();
 
-    public boolean deleteImg(HttpServletRequest request, String id, String img) {
+    public boolean deleteImg(HttpServletRequest request, String id, String img, String appPath) throws ServletException, IOException {
         File productDir = new File(request.getServletContext().getAttribute("FILES_DIR") + File.separator + "product");
         if (!productDir.exists()) {
             productDir.mkdirs();
         }
-
 
         PreparedStatement s1 = null;
         String sql1 = "DELETE FROM linkimg WHERE id=? && img=?";
@@ -39,26 +43,21 @@ public class DaoProductImage {
             s2 = connect.prepareStatement(sql2);
             s2.setString(1, id);
             s2.setString(2, img);
-            System.out.println("~"+s2.toString());
             ResultSet rs = s2.executeQuery();
             while (rs.next()) {
                 String src = rs.getString("img");
                 System.out.println("~"+src);
-                File file = new File(productDir.getAbsolutePath() + File.separator + src+".jpg");
-                System.out.println(file.getAbsolutePath());
+                File file = new File(appPath + "\\" + src+".jpg");
                 if (file.exists()) {
                     System.out.println("Deleted the file: " + file.getName());
                 } else {
                     System.out.println("Failed to delete the file.");
                 }
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
         }
-
-
         try {
             s1 = connect.prepareStatement(sql1);
             s1.setString(1, id);
@@ -104,8 +103,9 @@ public class DaoProductImage {
             s2.setString(1, id);
             s2.setString(2, img);
             s2.setString(3, color);
+            System.out.println(s1.toString());
+            System.out.println(s2.toString());
             s2.executeUpdate();
-            System.out.println("oke");
             return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());

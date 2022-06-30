@@ -30,7 +30,7 @@ public class DaoProductAdmin {
     public int editProduct(String id, Product product) {
         PreparedStatement s=null;
         try {
-            String sql = "UPDATE product SET price=?, name=?, saleRate=?, description=?, totalValue=?, soleValue=?, category=?, brand=?, Active=?, create_at=? WHERE id=?";
+            String sql = "UPDATE product SET price=?, name=?, saleRate=?, description=?, totalValue=?, soleValue=?, category=?, brand=?, Active=?, create_at=?, gender=? WHERE id=?";
             s = connect.prepareStatement(sql);
             s.setDouble(1, product.getPrice());
             s.setString(2,product.getName());
@@ -42,7 +42,8 @@ public class DaoProductAdmin {
             s.setString(8, product.getBrand());
             s.setInt(9, product.getActive());
             s.setString(10, product.getCreate_at());
-            s.setString(11, id);
+            s.setString(11, product.getGender());
+            s.setString(12, id);
 
             return s.executeUpdate();
         } catch (SQLException e) {
@@ -51,11 +52,8 @@ public class DaoProductAdmin {
         }
         return 0;
     }
-    public boolean deleteProductInAdmin(String id, HttpServletRequest request) {
-        File productDir = new File(request.getServletContext().getAttribute("FILES_DIR") + File.separator + "product");
-        if (!productDir.exists()) {
-            productDir.mkdirs();
-        }
+    public boolean deleteProductInAdmin(String id, String appPath) {
+
         PreparedStatement s = null;
         String sql = "DELETE FROM product WHERE product.Id="+id;
 
@@ -68,8 +66,7 @@ public class DaoProductAdmin {
             while (rs.next()) {
                 String src = rs.getString("img");
                 System.out.println(src);
-                File file = new File(productDir.getAbsolutePath() + File.separator + src+".jpg");
-                System.out.println(file.getAbsolutePath());
+                File file = new File(appPath + "\\" + src);
                 if (file.delete()) {
                     System.out.println("Deleted the file: " + file.getName());
                 } else {
@@ -234,5 +231,40 @@ public class DaoProductAdmin {
             System.out.println(e.getMessage());
             return 0;
         }
+    }
+    public boolean saveImg(String id, String img, int level, String color) {
+        PreparedStatement s = null;
+        String sql = "INSERT INTO linkimg VALUES(?,?, ?, ?)";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.setString(2, img);
+            s.setInt(3, level);
+            s.setString(4, color);
+            System.out.println(s.toString());
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean changeImg(String id, String color, String oldNameImg, String newNameImg) {
+        PreparedStatement s = null;
+        String sql = "UPDATE linkimg SET img=? WHERE id=? AND img=? AND color=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, newNameImg);
+            s.setString(2, id);
+            s.setString(3, oldNameImg);
+            s.setString(4, color);
+            System.out.println(s.toString());
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }

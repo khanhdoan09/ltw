@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "RemoveColor", value = "/RemoveColor")
 public class RemoveColor extends HttpServlet {
+    // xoa mau trong product detail in admin
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);

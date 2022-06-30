@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/src/main/java/controller/admin/customer/ListCustomer.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controller/admin/product/DeleteProduct.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/service/admin/ProductAdminService.java" afterDir="false" />
@@ -278,6 +279,44 @@
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/addNewProduct.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/addProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/addProduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/order-invoices.jsp" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/product/DeleteProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/product/DeleteProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/product/EditCurrentProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/product/EditCurrentProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/product/EditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/product/ProductDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/product/RemoveColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/product/RemoveColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/product/RemoveImg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/product/RemoveImg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/DaoProductAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/DaoProductAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/image/DaoProductImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/image/DaoProductImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/list-product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/list-product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/product/DeleteProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/product/DeleteProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/product/EditCurrentProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/product/EditCurrentProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/product/EditProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/product/RemoveColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/product/RemoveColor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/product/RemoveImg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/product/RemoveImg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/DaoProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/DaoProductAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/image/DaoProductImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/image/DaoProductImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/DeleteProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/DeleteProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/EditCurrentProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/EditCurrentProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/EditProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/RemoveColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/RemoveColor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/RemoveImg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/product/RemoveImg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProductAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/image/DaoProductImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/image/DaoProductImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/EditProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/EditProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/list-product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/product/list-product.jsp" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -345,7 +384,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/HK1-Nam3/NMCNPM/project/2022_SangT5_Nhom8" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Problems" />
@@ -926,6 +965,24 @@
       <workItem from="1656294074621" duration="5355000" />
       <workItem from="1656300426642" duration="9336000" />
       <workItem from="1656316320787" duration="8855000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1656416257846" duration="1402000" />
+      <workItem from="1656423392363" duration="165000" />
+      <workItem from="1656424083965" duration="682000" />
+      <workItem from="1656428261530" duration="217000" />
+      <workItem from="1656428659254" duration="444000" />
+      <workItem from="1656431616015" duration="99000" />
+      <workItem from="1656463908846" duration="552000" />
+      <workItem from="1656476639362" duration="4547000" />
+      <workItem from="1656485084540" duration="12367000" />
+      <workItem from="1656504112606" duration="11005000" />
+      <workItem from="1656547126318" duration="329000" />
+      <workItem from="1656548308588" duration="1057000" />
+      <workItem from="1656553127746" duration="20000" />
+      <workItem from="1656558690673" duration="8256000" />
+      <workItem from="1656572771919" duration="7467000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
