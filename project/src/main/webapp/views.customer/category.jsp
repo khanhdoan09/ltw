@@ -13,6 +13,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="beans.Product" %>
+<%@ page import="beans.Brand" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %>
 <%@ page import="dao.product.image.DaoLinkImage" %>
 
@@ -103,12 +104,12 @@
                                         }
                                         return "";
                                     }%>
-                                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
-                                for(String brand: brands){%>
+                                <%ArrayList<Brand> brands = DaoProductBrand.getInstance().getBrands();
+                                for(Brand brand: brands){%>
                                 <label class="checkbox-filter-search">
                                     <input name="filterBrand" type="checkbox"
-                                           value="<%=brand%>"<%=isBrandChecked(brand)%> />
-                                    <%=brand%></label>
+                                           value="<%=brand.getName()%>"<%=isBrandChecked(brand.getName())%> />
+                                    <%=brand.getName()%></label>
                                 <%}%>
                             </div>
                         </div>
@@ -394,7 +395,7 @@
                             <div class="related-product-sale">
                                 <h5 style='margin-top: 10px'>-<%=p.getSaleRate()%>%</h5>
                             </div>
-                            <img src="upload/product/<%=p.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy"
+                            <img src="upload/product/<%=p.getAvatar()%>" alt="lorem ippsum dolor dummy"
                                  title="lorem ippsum dolor dummy" class="img-responsive"/> </a>
                         <div class="button-group">
                             <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào yêu thích">

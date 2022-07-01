@@ -92,7 +92,8 @@
 
 
         <!-- Body: Body -->
-        <form id="form-edit-product" class="body d-flex py-3" method="post" action="<%=request.getContextPath()%>/AddNewProductAdmin">
+<%--        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="SaveEditProduct?id=<%=product.getId()%>">--%>
+        <form id="form-edit-product" class="body d-flex py-3" method="post" action="<%=request.getContextPath()%>/AddNewProduct">
             <div class="container-xxl">
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">

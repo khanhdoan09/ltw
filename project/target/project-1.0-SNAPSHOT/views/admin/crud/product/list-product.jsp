@@ -192,7 +192,7 @@
                       for (Product product : list) {%>
                   <tr id="tr-product-<%=product.getId()%>">
                     <td><strong><%=product.getId()%></strong></td>
-                    <td><img src="upload/product/<%=product.getAvatar()%>.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
+                    <td><img src="upload/product/<%=product.getAvatar()%>" class="avatar lg rounded me-2" alt="profile-image"></td>
                     <td><%=product.getBrand()%></td>
                     <td><%=product.getName()%></td>
                     <td>May 16, 2021</td>
@@ -202,7 +202,7 @@
                       <div class="d-grid">
                         <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
                           <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
-                        <a class="edit-remove-admin edit-admin" href="<%=request.getContextPath()%>/EditProductAdmin?id=<%=product.getId()%>">
+                        <a class="edit-remove-admin edit-admin" href="<%=request.getContextPath()%>/ProductDetailAdmin?id=<%=product.getId()%>">
                           <i class="fas fa-edit"></i>
                         </a>
                       </div>
@@ -370,7 +370,7 @@
             arr.forEach((e) => {
               re += `<tr id='tr-product-`+e.id+`'>
                                         <td><strong>`+e.id+`</strong></td>
-                                        <td><img src="upload/product/`+e.avatar+`.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
+                                        <td><img src="upload/product/`+e.avatar+`" class="avatar lg rounded me-2" alt="profile-image"></td>
                                         <td>`+e.name+`</td>
                                         <td>`+e.brand+`</td>
                                         <td>May 16, 2021</td>

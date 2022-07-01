@@ -19,7 +19,7 @@ public class ListProductAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String type = request.getParameter("type");
-        String name = request.getParameter("name");
+        String[] name = request.getParameterValues("name");
         String paginationProduct = request.getParameter("pagination");
         int pagination = 0;
         if (paginationProduct != null)  // just count when call this function first time
@@ -31,16 +31,19 @@ public class ListProductAdmin extends HttpServlet {
 
         String sql = "";
         if (type.equals("brand")) {
-            sql =  productAdminService.getSqlWithCondition("brand");
+            sql =  productAdminService.getSqlWithCondition("brand", name);
+            listParameterOfCondition = new ArrayList<String>(Arrays.asList(name));
         }
         else if (type.equals("id")) {
-            sql =  productAdminService.getSqlWithCondition("id");
+            sql =  productAdminService.getSqlWithCondition("id", name);
+            listParameterOfCondition = new ArrayList<String>(Arrays.asList(name));
         }
         else if (type.equals("name")) {
-            sql =  productAdminService.getSqlWithCondition("name");
+            sql =  productAdminService.getSqlWithCondition("name", name);
+            listParameterOfCondition = new ArrayList<String>(Arrays.asList(name));
         }
         String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE " + sql +  " GROUP BY product.id LIMIT "+pagination*9+", 9";
-        list = productAdminService.getListProduct(name,sqlAll);
+        list = productAdminService.getListProduct(listParameterOfCondition,sqlAll);
 
         // when use load more
         if (pagination != 0) { // not use when first time submit
@@ -57,7 +60,7 @@ public class ListProductAdmin extends HttpServlet {
             return;
         }
 
-        request.setAttribute("type", name);
+        request.setAttribute("type", name[0]);
         request.setAttribute("listProduct", list);
         request.getRequestDispatcher("/views/admin/crud/product/list-product.jsp").forward(request, response);
 

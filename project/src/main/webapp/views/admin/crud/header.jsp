@@ -31,6 +31,11 @@
                     <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
             </li>
             <li class="collapsed">
+                <a id="containBrand" class="m-link" href="<%=request.getContextPath()%>/GetBrandAdminController">
+                    <i class="fa-brands fa-dribbble mx-2"></i> <span>Nhãn hàng</span> </a>
+            </li>
+            </li>
+            <li class="collapsed">
                 <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">
                     <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Người dùng</span> </a>
 
@@ -67,6 +72,9 @@
     }
     else if (url.includes("addProduct")){
         $("#addProduct").addClass("active")
+    }
+    else if (url.includes("Brand")){
+        $("#containBrand").addClass("active")
     }
     else {
         $("#home").addClass("active")

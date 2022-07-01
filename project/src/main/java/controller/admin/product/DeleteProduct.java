@@ -7,10 +7,15 @@ import java.io.IOException;
 
 @WebServlet(name = "DeleteProduct", value = "/DeleteProductAdmin")
 public class DeleteProduct extends HttpServlet {
+    private static final String SAVE_DIR = "upload\\product";
+
+    // delete product in listproduct.jsp
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String appPath = getServletContext().getRealPath("") + SAVE_DIR;
+
         String removeProductId = request.getParameter("removeProduct");
-        boolean isDeleted = DaoProductAdmin.getInstance().deleteProductInAdmin(removeProductId, request);
+        boolean isDeleted = DaoProductAdmin.getInstance().deleteProductInAdmin(removeProductId, appPath);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         if (isDeleted)

@@ -370,6 +370,9 @@ public class Product implements Serializable {
     public String getGender() {
         return this.gender;
     }
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
 
     // use in admin page
