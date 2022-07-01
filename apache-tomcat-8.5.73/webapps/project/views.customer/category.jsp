@@ -13,6 +13,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="beans.Product" %>
+<%@ page import="beans.Brand" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %>
 <%@ page import="dao.product.image.DaoLinkImage" %>
 
@@ -103,12 +104,12 @@
                                         }
                                         return "";
                                     }%>
-                                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
-                                for(String brand: brands){%>
+                                <%ArrayList<Brand> brands = DaoProductBrand.getInstance().getBrands();
+                                for(Brand brand: brands){%>
                                 <label class="checkbox-filter-search">
                                     <input name="filterBrand" type="checkbox"
-                                           value="<%=brand%>"<%=isBrandChecked(brand)%> />
-                                    <%=brand%></label>
+                                           value="<%=brand.getName()%>"<%=isBrandChecked(brand.getName())%> />
+                                    <%=brand.getName()%></label>
                                 <%}%>
                             </div>
                         </div>
