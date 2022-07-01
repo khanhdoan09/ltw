@@ -4,6 +4,7 @@ import beans.Product;
 import beans.ProductDetail;
 import beans.ImgProduct;
 import connection.DatabaseConnection;
+import dao.product.brand.DaoProductBrand;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class DaoProduct  {
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("id");
-                String brand = rs.getString("brand");
+                String idBrand = rs.getString("brand");
                 String name = rs.getString("name");
                 String categoryP = rs.getString("category");
                 double price = rs.getDouble("price");
@@ -81,7 +82,8 @@ public class DaoProduct  {
                 String mainColor = rs.getString("mainColor");
                 List<ProductDetail> listSize =  getListProductDetail(id);
                 ImgProduct listImg = getListImg(id);
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, create_at, listImg, mainColor);
+                String nameBrand = DaoProductBrand.getInstance().getNameBrand(idBrand);
+                Product product = new Product(id, nameBrand, name, categoryP, price, saleRate, starRate, description, totalValue, soleValue, active, listSize, create_at, listImg, mainColor);
                 return product;
             }
         } catch (SQLException e) {

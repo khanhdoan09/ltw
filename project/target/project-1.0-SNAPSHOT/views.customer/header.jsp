@@ -3,6 +3,10 @@
 <%@ page import="model.*" %>
 <%@ page import="beans.User" %>
 <%@ page import="dao.user.UserDao" %>
+<%@ page import="beans.Brand" %>
+<%@ page import="dao.product.brand.DaoProductBrand" %>
+<%@ page import="java.util.ArrayList" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: khanh
@@ -98,54 +102,6 @@
                             <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
 
-
-                        <%--                        <ul class="dropdown-menu pull-right cart-dropdown-menu">--%>
-                        <%--                            <li  class="cart-filter" style="display: grid;max-height: 328px;overflow-y: scroll;overflow-x: hidden">--%>
-                        <%--                                <table class="table table-striped">--%>
-                        <%--                                    <tbody id="list-cart">--%>
-
-                        <%--                                    <c:forEach items="${list}" var="item">--%>
-                        <%--                                        &lt;%&ndash;                                        <c:set var="sum" value=(${item.gettotal()} * ${item.quantitySold})/>&ndash;%&gt;--%>
-                        <%--                                        <td class="text-center">--%>
-                        <%--                                            <a href="ProductDetail?idProduct=${item.id}"><img src="data/imgAll/${item.avatar}.jpg" width="100px"--%>
-                        <%--                                                                                              height="100px"></a>--%>
-                        <%--                                        </td>--%>
-                        <%--                                        <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>--%>
-                        <%--                                            <div class="SL-Gia">--%>
-                        <%--                                                <p class="gia">${item.gettotal()}</p>--%>
-                        <%--                                                <p class="SL">${item.quantitySold}</p>--%>
-                        <%--                                            </div>--%>
-                        <%--                                        </td>--%>
-                        <%--                                        <td class="text-center">--%>
-                        <%--                                            <a class="cart-remove" pid="${item.id}">--%>
-                        <%--                                                <button class="btn btn-danger btn-xs" title="Remove" type="button"><i--%>
-                        <%--                                                        class="fa fa-delete-left"></i> </button>--%>
-                        <%--                                            </a>--%>
-                        <%--                                        </td>--%>
-                        <%--                                        </tr>--%>
-                        <%--                                    </c:forEach>--%>
-                        <%--                                    </tbody>--%>
-                        <%--                                </table>--%>
-                        <%--                            </li>--%>
-                        <%--                            <li>--%>
-                        <%--                                <div>--%>
-                        <%--                                    <table class="table table-bordered">--%>
-                        <%--                                        <tbody>--%>
-                        <%--                                        <br>--%>
-                        <%--                                        <tr>--%>
-                        <%--                                            <td class="text-right"><strong>Tạm tính</strong></td>--%>
-                        <%--                                            <td class="text-right" id="total-value"></td>--%>
-                        <%--                                        </tr>--%>
-                        <%--                                        </tbody>--%>
-                        <%--                                    </table>--%>
-                        <%--                                    <p class="text-right"> <span class="btn-viewcart"><a href="/project/Cart"><strong><i--%>
-                        <%--                                            class="fa fa-shopping-cart"></i> View--%>
-                        <%--                                                        Cart</strong></a></span> <span class="btn-checkout"><a--%>
-                        <%--                                            href="checkout.html"><strong><i class="fa fa-share"></i>--%>
-                        <%--                                                        Checkout</strong></a></span> </p>--%>
-                        <%--                                </div>--%>
-                        <%--                            </li>--%>
-                        <%--                        </ul>--%>
                     </div>
 
 
@@ -226,14 +182,12 @@
 
                     <div class="item-nav-detail-info" id="item-category-brand">
                         <div class="contain-brand" >
-                            <img onclick="location.href='SearchListProduct?brand=ASICS&pagination=1'" src="image/brand/logo-brand-01.svg">
-                            <img onclick="location.href='SearchListProduct?brand=ADIDAS&pagination=1'" src="image/brand/logo-brand-02.svg">
-                            <img onclick="location.href='SearchListProduct?brand=VANS&pagination=1'" src="image/brand/logo-brand-03.jpg">
-                            <img onclick="location.href='SearchListProduct?brand=NIKE&pagination=1'" src="image/brand/logo-brand-04.svg">
-                            <img onclick="location.href='SearchListProduct?brand=REEBOK&pagination=1'" src="image/brand/logo-brand-05.svg">
-                            <img onclick="location.href='SearchListProduct?brand=NEW BALANCE&pagination=1'" src="image/brand/logo-brand-06.svg">
-                            <img onclick="location.href='SearchListProduct?brand=ON RUNNING&pagination=1'" src="image/brand/logo-brand-07.jpg">
-                            <img onclick="location.href='SearchListProduct?brand=UNDER ARMOUR&pagination=1'" src="image/brand/logo-brand-08.svg">
+
+                            <%
+                                ArrayList<Brand> listBrand = DaoProductBrand.getInstance().getBrands();
+                                for (Brand brand: listBrand) {%>
+                                <img onclick="location.href='SearchListProduct?brand=<%=brand.getId()%>&pagination=1'" src="upload/brand/<%=brand.getImg()%>">
+                            <%}%>
                         </div>
                     </div>
 

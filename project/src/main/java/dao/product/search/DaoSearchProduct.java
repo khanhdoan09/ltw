@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import connection.DatabaseConnection;
+import dao.product.brand.DaoProductBrand;
 
 public class DaoSearchProduct {
     private static DaoSearchProduct instance = null;
@@ -32,14 +33,15 @@ public class DaoSearchProduct {
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("id");
-                String brand = rs.getString("brand");
+                String idBrand = rs.getString("brand");
                 String name = rs.getString("name");
                 String categoryP = rs.getString("category");
                 double price = rs.getDouble("price");
                 int saleRate = rs.getInt("saleRate");
                 int active = rs.getInt("Active");
                 String avatar = rs.getString("img");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
+                String nameBrand = DaoProductBrand.getInstance().getNameBrand(idBrand);
+                Product product = new Product(id, nameBrand, name, categoryP, price, saleRate, active, avatar);
                 re.add(product);
             }
             System.out.println(s.toString());

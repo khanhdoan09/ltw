@@ -13,6 +13,7 @@ import javax.servlet.annotation.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 @MultipartConfig(fileSizeThreshold=1024*1024*2,// 2MB
         maxFileSize=1024*1024*10,// 10MB
@@ -24,10 +25,10 @@ import java.util.List;
 //maxRequestSize: maximum size for a request.
 //All sizes are measured in bytes.
 
-@WebServlet(name = "EditCurrentProduct", value = "/EditCurrentProduct")
+@WebServlet(name = "EditCurrentProduct", value = "/EditCurrentProductAdmin")
 public class EditCurrentProduct extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final String SAVE_DIR = "upload";
+    private static final String SAVE_DIR = "upload\\product";
     private static final int THRESHOLD_SIZE = 1024 * 1024 * 3; // 3MB
     private static final int MAX_FILE_SIZE = 1024 * 1024 * 40;// 40MB
     private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
@@ -38,8 +39,9 @@ public class EditCurrentProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        saveImageToFolder(id, request);
         updateProduct(request, response);
-        saveImageToFolder(request);
     }
 
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -72,9 +74,8 @@ public class EditCurrentProduct extends HttpServlet {
 
         productDetail.setDescription(request.getParameter("description"));
 
-//        // gender
-//        String[] gender = productDetail.getCategory().split("\\s+");
-//        productDetail.setCategory(gender[0] + " " +request.getParameter("gender"));
+        String gender = request.getParameter("gender");
+        productDetail.setGender(gender);
 //        // category
 //        String[] category = productDetail.getCategory().split("\\s+");
 //        productDetail.setCategory(request.getParameter("category") + " " + category[1]);
@@ -112,37 +113,63 @@ public class EditCurrentProduct extends HttpServlet {
         else {
             DaoProductColor.getInstance().saveMainColor(id, "null");
         }
+
+        // save new and update old
+        String[] newImg = request.getParameterValues("newimg");
+        if (newImg != null) {
+            for (int i =0 ; i < newImg.length; i ++) {
+                String[] colorAndNameImg = newImg[i].split("#");
+                String color = colorAndNameImg[0];
+                String nameImg = colorAndNameImg[1];
+                nameImg = id+"_"+nameImg;
+                DaoProductAdmin.getInstance().saveImg(productDetail.getId(),nameImg,1, color);
+            }
+        }
         String mainImage = request.getParameter("chooseMainImage");
         if (mainImage != null) {
             String[] data = mainImage.split("~");
             String nameImg = data[0];
-            String idProduct = data[1];
-            String color = data[2];
-            DaoProductImage.getInstance().setImgToMain(nameImg, idProduct, color);
+            String color = data[1];
+            DaoProductImage.getInstance().setImgToMain(nameImg, productDetail.getId(), color);
+        }
+
+        String[] changeImageArr = request.getParameterValues("containHiddenImgExist");
+        if (changeImageArr != null) {
+            for (int i = 0; i < changeImageArr.length; i++) {
+                String changeImg = changeImageArr[i];
+                if (changeImg.toLowerCase().trim() != "empty") {
+                    String[] arr  = changeImg.split("#");
+                    if (arr.length > 1) {
+                        String oldNameImg = arr[0];
+                        String newNameImg = arr[1];
+                        String color = arr[2];
+                        DaoProductAdmin.getInstance().changeImg(id, color, oldNameImg, newNameImg);
+                    }
+                    System.out.println(changeImageArr[i] +" change img");
+                }
+            }
         }
 
         DaoProductAdmin.getInstance().editProduct(id, productDetail);
 
         request.setAttribute("productDetail", DaoProductDetail.getInstance().getDetailProduct(id));
-        request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/crud/product/EditProduct.jsp").forward(request, response);
     }
 
 
-    private void saveImageToFolder(HttpServletRequest request) throws ServletException, IOException {
+    private void saveImageToFolder(String idProduct, HttpServletRequest request) throws ServletException, IOException {
         String appPath = getServletContext().getRealPath("");
-//        String appPath = request.getServletContext().getRealPath("");
         String savePath = appPath  + SAVE_DIR;
 
         File fileSaveDir = new File(savePath);
         if (!fileSaveDir.exists()) {
             fileSaveDir.mkdir();
         }
-
         for (Part part : request.getParts()) {
             String fileName = extractFileName(part);
             if(fileName!="") {
-                part.write(savePath + "\\" + fileName);
-                System.out.println(savePath + "\\" + fileName);
+                System.out.println(savePath + "\\"+idProduct+"_"+fileName);
+                part.write(savePath + "\\"+idProduct+"_"+fileName);
             }
         }
     }
@@ -151,7 +178,9 @@ public class EditCurrentProduct extends HttpServlet {
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length()-1);
+                String nameImg = s.substring(s.indexOf("=") + 2, s.length()-1);
+
+                return nameImg;
             }
         }
         return "";

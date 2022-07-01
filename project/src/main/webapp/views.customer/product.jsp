@@ -215,7 +215,7 @@
                             <!-- anh chinh -->
                             <%String mainColor = p.getMainColor();%>
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
-                                <img id="avatar" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="upload/product/<%=p.getMainImg(mainColor)%>.jpg"/>
+                                <img id="avatar" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="upload/product/<%=p.getMainImg(mainColor)%>"/>
                             </a>
                         </div>
 
@@ -223,7 +223,7 @@
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail main imag1">
-                                        <img class="sub-img" src="upload/product/<%=p.getMainImg(mainColor)%>.jpg" title="lorem ippsum dolor dummy" />
+                                        <img class="sub-img" src="upload/product/<%=p.getMainImg(mainColor)%>" title="lorem ippsum dolor dummy" />
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +231,7 @@
                             <div class="item mg-l">
                                 <div class="image-additional">
                                     <div class="thumbnail main imag1">
-                                        <img class="sub-img" src="upload/product/<%=img%>.jpg" title="lorem ippsum dolor dummy" alt="<%=img%>" />
+                                        <img class="sub-img" src="upload/product/<%=img%>" title="lorem ippsum dolor dummy" alt="<%=img%>" />
                                     </div>
                                 </div>
                             </div>
@@ -482,7 +482,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                         <div class="item">
                                             <div class="product-thumb transition">
                                                 <div class="image product-imageblock">
-                                                    <a href="product.html"> <img src="upload/product/<%=productWatched.getAvatar()%>.jpg" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                                    <a href="product.html"> <img src="upload/product/<%=productWatched.getAvatar()%>" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                                     <div class="button-group">
                                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -569,7 +569,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                     <div class="item" style="display: grid; place-items: center;">
                                         <div class="product-thumb transition" style="width: 100%;">
                                             <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="upload/product/<%=product.getAvatar()%>.jpg"
+                                                <a href="product.html"> <img src="upload/product/<%=product.getAvatar()%>"
                                                                              alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                              class="img-responsive" />
 
@@ -639,7 +639,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                     type: 'POST',
                     success: function (data) {
                         let dataDetail=JSON.parse(data)
-                        $("#avatar").attr("src","upload/product/"+dataDetail.mainImg+".jpg")
+                        $("#avatar").attr("src","upload/product/"+dataDetail.mainImg)
                         $("#products-available").text(dataDetail.remain + " Sản phẩm có sẵn")
                         // change img
                         let arrImg = dataDetail.listImg
@@ -648,7 +648,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                          <div class="item mg-l">
                             <div class="image-additional">
                                 <div class="thumbnail main imag1">
-                                    <img class="sub-img" src="upload/product/`+dataDetail.mainImg+`.jpg" title="lorem ippsum dolor dummy" id="zero" />
+                                    <img class="sub-img" src="upload/product/`+dataDetail.mainImg+`" title="lorem ippsum dolor dummy" id="zero" />
                                 </div>
                             </div>
                         </div>
@@ -659,7 +659,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                          <div class="item mg-l">
                             <div class="image-additional">
                                 <div class="thumbnail main imag1">
-                                    <img class="sub-img" src="upload/product/`+arrImg[i]+`.jpg" title="lorem ippsum dolor dummy" id="zero" />
+                                    <img class="sub-img" src="upload/product/`+arrImg[i]+`" title="lorem ippsum dolor dummy" id="zero" />
                                 </div>
                             </div>
                         </div>
