@@ -2,7 +2,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="beans.OrderInAdmin" %>
-<%@ page import="dao.order.DaoOrderAdmin" %><%--
+<%@ page import="dao.order.DaoOrderAdmin" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 13/1/2022
@@ -73,7 +75,7 @@
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Danh sách sản phẩm</h3>
+                            <h3 class="fw-bold mb-0">Danh sách hóa đơn</h3>
                         </div>
                     </div>
                 </div>
@@ -81,74 +83,52 @@
                 <div class="row mb-3">
                     <div class="col-sm-12">
 
-                        <form action="<%=request.getContextPath()%>/ListOrder" method="post" style="margin: 20px 0;" id="form-product-admin">
-<%--                            <%!String typeSelected="";%>--%>
-<%--                            <% typeSelected= (String) request.getParameter("type");%>--%>
-
-<%--                            <select name="type" id="type-product-admin">--%>
-<%--                                <%!public String selected(String type) {--%>
-<%--                                    if (type.equals(typeSelected))--%>
-<%--                                        return "selected";--%>
-<%--                                    return "";--%>
-<%--                                }%>--%>
-<%--                                <option value="id" <%=selected("id")%>>ID</option>--%>
-<%--                                <option value="brand"<%=selected("brand")%>>BRAND</option>--%>
-<%--                                <option value="name"<%=selected("name")%>>NAME</option>--%>
-<%--                            </select>--%>
-<%--                            <input list="brands" type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" autocomplete="off"  value="<%=request.getAttribute("type")%>"/>--%>
-<%--                            <datalist id="brands">--%>
-<%--                                <%List<String> brands = DaoProductAdmin.getInstance().getListBrand();--%>
-<%--                                    for (String brand: brands){%>--%>
-<%--                                <option><%=brand%></option>--%>
-<%--                                <%}%>--%>
-<%--                            </datalist>--%>
-
-                            <button type="submit" id="submit-admin" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
-
-                        </form>
 
                         <div class="card">
                             <div class="card-body">
                                 <table id="listOrder" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Id Customer</th>
-                                        <th>Price</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>ID hóa đơn</th>
+                                        <th>ID khách hàng</th>
+                                        <th>Tổng giá</th>
+                                        <th>Ngày</th>
+                                        <th>Trạng thái</th>
                                         <th>Chọn</th>
                                     </tr>
                                     </thead>
 
                                     <tbody id="listProduct">
+                                    <c:forEach var="i" items="${orders}">
+                                        <tr id="tr-product-${i.id}">
+                                            <td><strong>${i.id}</strong></td>
+                                            <td>${i.idCustomer}</td>
+                                            <td>${i.total}</td>
+                                            <td>${i.createDate}</td>
+                                            <td>${i.status}</td>
+                                            <td>
+                                                <div class="d-grid">
+                                                    <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=${i.id}">
+                                                        <i class="fa-solid fa-eye"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
 
                                     <%Object obj = request.getAttribute("orders");
-                                            List<OrderInAdmin> list = (List<OrderInAdmin>) obj;
-                                            for (OrderInAdmin order : list) {%>
-                                    <tr id="tr-product-<%=order.getId()%>">
-                                        <td><strong><%=order.getId()%></strong></td>
-                                        <td><%=order.getIdCustomer()%></td>
-                                        <td><%=order.getTotal()%></td>
-                                        <td><%=order.getCreateDate()%></td>
-                                        <td><%=order.getStatus()%></td>
-                                        <td>
-                                            <div class="d-grid">
-                                                <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=<%=order.getId()%>">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <%    } %>
-<%--                                    <%}%>--%>
+                                    %>
                                     </tbody>
                                 </table>
-                                <% if (obj != null) {%>
+                                <% if (obj != null) {
+                                    List<OrderInAdmin> list = (List<OrderInAdmin>) obj;
+                                    if (list.size() >= 9){
+                                %>
                                 <div class="contain-load-more">
                                     <button id="load-more-product" >Load more</button>
                                 </div>
-                                <%}%>
+                                <%}
+                                }%>
                             </div>
                         </div>
                     </div>
