@@ -11,97 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/admin/BrandAdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_7_2022_7_23_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_7_2022_7_23_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/admin/CustomerAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/brand/AddBrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/brand/AddBrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/brand/DeleteBrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/brand/DeleteBrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/brand/GetBrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/brand/GetBrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/brand/UpdateBrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/brand/UpdateBrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/banner/DaoBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/banner/DaoBanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/cart/DaoCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/cart/DaoCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/checkout/DaoCheckout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/checkout/DaoCheckout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/order/DaoOrderAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/order/DaoOrderAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/DaoProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/DaoProductAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/DaoProductAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/brand/DaoProductBrand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/brand/DaoProductBrand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/category/DaoCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/category/DaoCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/color/DaoProductColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/color/DaoProductColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/detail/DaoProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/detail/DaoProductDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/image/DaoLinkImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/image/DaoLinkImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/image/DaoProductImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/image/DaoProductImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/search/DaoCountProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/search/DaoCountProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/search/DaoSearchProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/search/DaoSearchProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/search/DaoSearchWithHint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/search/DaoSearchWithHint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/sign/SignInDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/sign/SignInDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/sign/SignUpDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/sign/SignUpDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/user/DaoUserAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/user/DaoUserAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/user/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/user/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Admin/DaoAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Admin/DaoAuthentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomerAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/customer/DaoCustomerAddress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/brand/brand.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/brand/brand.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connection/DatabaseConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/brand/AddBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/brand/AddBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/brand/DeleteBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/brand/DeleteBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/brand/GetBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/brand/GetBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/brand/UpdateBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/brand/UpdateBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/banner/DaoBanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/banner/DaoBanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/cart/DaoCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/cart/DaoCart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/checkout/DaoCheckout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/checkout/DaoCheckout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/order/DaoOrderAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/order/DaoOrderAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/DaoProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/DaoProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/brand/DaoProductBrand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/brand/DaoProductBrand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/category/DaoCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/category/DaoCategory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/color/DaoProductColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/color/DaoProductColor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/detail/DaoProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/detail/DaoProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/image/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/image/DaoLinkImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/image/DaoProductImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/image/DaoProductImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/search/DaoCountProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/search/DaoCountProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/search/DaoSearchProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/search/DaoSearchProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/search/DaoSearchWithHint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/search/DaoSearchWithHint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/sign/SignInDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/sign/SignInDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/sign/SignUpDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/sign/SignUpDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/user/DaoUserAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/user/DaoUserAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/user/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/user/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Admin/DaoAuthentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Admin/DaoAuthentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomerAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/customer/DaoCustomerAddress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/customer/ListCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/customer/ListCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/customer/ListCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/customer/ListCustomer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/connection/DatabaseConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/AddBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/AddBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/DeleteBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/DeleteBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/GetBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/GetBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/UpdateBrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/brand/UpdateBrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/banner/DaoBanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/banner/DaoBanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/cart/DaoCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/cart/DaoCart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/checkout/DaoCheckout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/checkout/DaoCheckout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/order/DaoOrderAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/order/DaoOrderAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProductAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProductAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/brand/DaoProductBrand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/brand/DaoProductBrand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/category/DaoCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/category/DaoCategory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/color/DaoProductColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/color/DaoProductColor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/detail/DaoProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/detail/DaoProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/image/DaoLinkImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/image/DaoLinkImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/image/DaoProductImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/image/DaoProductImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/search/DaoCountProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/search/DaoCountProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/search/DaoSearchProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/search/DaoSearchProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/search/DaoSearchWithHint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/search/DaoSearchWithHint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/sign/SignInDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/sign/SignInDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/sign/SignUpDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/sign/SignUpDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoUserAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoUserAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Admin/DaoAuthentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/Admin/DaoAuthentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomerAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/model/customer/DaoCustomerAddress.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/authentication/signIn/signIn.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/authentication/signIn/signIn.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/brand/brand.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/brand/brand.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/category/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/category/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/customer/ListCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/customer/ListCustomer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/customer/customer-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/customer/customer-admin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/header.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -784,6 +702,7 @@
       <workItem from="1657000130453" duration="9774000" />
       <workItem from="1657016105131" duration="3139000" />
       <workItem from="1657024521578" duration="2240000" />
+      <workItem from="1657028579799" duration="670000" />
     </task>
     <servers />
   </component>

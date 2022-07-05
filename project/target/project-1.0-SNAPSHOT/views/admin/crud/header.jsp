@@ -41,7 +41,7 @@
             </li>
             <li class="collapsed">
                 <a id="containCategory" class="m-link" href="<%=request.getContextPath()%>/GetCategoryAdmin">
-                    <i class="fa fa-list-alt" aria-hidden="true"></i> <span>Thể loại</span> </a>
+                    <i class="fa fa-list-alt mx-2" style="margin-left: 8px" aria-hidden="true"></i> <span>Thể loại</span> </a>
             </li>
             <li class="collapsed">
                 <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">
