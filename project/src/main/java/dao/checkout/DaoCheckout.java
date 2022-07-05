@@ -2,7 +2,7 @@ package dao.checkout;
 
 import beans.ProductInCheckout;
 import beans.ProductInCart;
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 import dao.cart.DaoCart;
 
 import java.sql.*;

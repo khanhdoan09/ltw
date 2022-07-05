@@ -2,13 +2,12 @@ package dao.product;
 
 import beans.Product;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 
 
 public class DaoProductAdmin {

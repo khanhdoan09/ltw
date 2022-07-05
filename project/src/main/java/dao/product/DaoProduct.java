@@ -3,7 +3,7 @@ package dao.product;
 import beans.Product;
 import beans.ProductDetail;
 import beans.ImgProduct;
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 import dao.product.brand.DaoProductBrand;
 
 import java.sql.*;

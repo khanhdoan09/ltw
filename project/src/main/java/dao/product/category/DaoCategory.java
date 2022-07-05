@@ -1,5 +1,5 @@
 package dao.product.category;
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 import beans.Category;
 import java.util.List;
 import java.util.ArrayList;

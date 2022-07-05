@@ -5,7 +5,7 @@ import beans.Product;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 import dao.product.brand.DaoProductBrand;
 
 public class DaoSearchProduct {

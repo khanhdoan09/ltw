@@ -30,25 +30,9 @@
             height: 40px;
             margin-right: 5px;
         }
-        .clicked {
-            color: #eeee13;
-        }
-        #brands {
-            display: none;
-        }
-        .contain-load-more {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        #load-more-product {
-            background-color: #6060b9;
-            color: white;
-            width: fit-content;
-            padding: 20px;
-            border: none;
-            border-radius: 15px;
-        }
+       #add-category {
+           width: 150px;
+       }
     </style>
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
 
@@ -77,7 +61,7 @@
                 <!-- Row end  -->
                 <div class="row mb-3">
                     <div class="col-sm-12">
-                        <button id="add-category" class="btn btn-info">Thêm thể loại</button>
+                        <button id="add-category" class="btn btn-info">Thêm Thể Loại</button>
                         <div class="card">
                             <div class="card-body">
                                 <table id="listOrder" class="table table-striped table-bordered" style="width:100%">

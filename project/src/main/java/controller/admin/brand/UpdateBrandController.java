@@ -1,6 +1,7 @@
 package controller.admin.brand;
 
 import dao.product.brand.DaoProductBrand;
+import service.admin.BrandAdminService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -32,9 +33,10 @@ public class UpdateBrandController extends HttpServlet {
         String nameBrand = request.getParameter("nameBrand");
         System.out.println(idBrand);
         System.out.println(nameBrand);
-        DaoProductBrand.getInstance().updateNewNameBrand(idBrand, nameBrand);
+        BrandAdminService brandAdminService = new BrandAdminService();
+        brandAdminService.updateNewNameBrand(idBrand, nameBrand);
         saveImageToFolder(idBrand, request);
-       request.getRequestDispatcher("/GetBrandAdminController").forward(request, response);
+        request.getRequestDispatcher("/GetBrandAdminController").forward(request, response);
     }
     private void saveImageToFolder(String idBrand, HttpServletRequest request) throws ServletException, IOException {
         String appPath = getServletContext().getRealPath("");

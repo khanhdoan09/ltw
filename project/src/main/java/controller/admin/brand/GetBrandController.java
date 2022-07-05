@@ -8,6 +8,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import service.admin.BrandAdminService;
 
 @WebServlet(name = "GetBrandController", value = "/GetBrandAdminController")
 public class GetBrandController extends HttpServlet {
@@ -18,7 +19,8 @@ public class GetBrandController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<Brand> listBrand = DaoProductBrand.getInstance().getBrands();
+        BrandAdminService brandAdminService = new BrandAdminService();
+        ArrayList<Brand> listBrand = brandAdminService.getBrands();
         request.setAttribute("listBrand", listBrand);
         request.getRequestDispatcher("/views/admin/crud/brand/brand.jsp").forward(request, response);
     }

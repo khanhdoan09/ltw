@@ -2,14 +2,9 @@ package dao.sign;
 
 import beans.Banner;
 import beans.User;
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SignUpDao {
     private static SignUpDao instance = null;

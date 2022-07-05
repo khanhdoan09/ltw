@@ -1,6 +1,7 @@
 package controller.admin.brand;
 
 import dao.product.brand.DaoProductBrand;
+import service.admin.BrandAdminService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -27,16 +28,14 @@ public class AddBrandController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("123");
         String nameBrand = request.getParameter("nameBrand");
-        System.out.println(nameBrand);
         saveImageToFolder(nameBrand, request);
         request.getRequestDispatcher("/GetBrandAdminController").forward(request, response);
     }
     private void saveImageToFolder(String nameBrand, HttpServletRequest request) throws ServletException, IOException {
         String appPath = getServletContext().getRealPath("");
         String savePath = appPath  + SAVE_DIR;
-
+        BrandAdminService brandAdminService = new BrandAdminService();
         File fileSaveDir = new File(savePath);
         if (!fileSaveDir.exists()) {
             fileSaveDir.mkdir();
@@ -44,7 +43,7 @@ public class AddBrandController extends HttpServlet {
         for (Part part : request.getParts()) {
             String fileName = extractFileName(part);
             if(fileName!="") {
-                DaoProductBrand.getInstance().saveANewBrand(nameBrand, fileName);
+                brandAdminService.saveANewBrand(nameBrand, fileName);
                 part.write(savePath + "\\"+fileName);
             }
         }

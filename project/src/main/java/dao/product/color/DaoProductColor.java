@@ -1,5 +1,5 @@
 package dao.product.color;
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
