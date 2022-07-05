@@ -2,6 +2,8 @@ package controller.admin.order;
 
 import dao.order.DaoOrderAdmin;
 import beans.OrderDetailInAdmin;
+import service.admin.OrderAdminService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,11 +22,10 @@ public class ListOrderDetail extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(123456789);
         String id = request.getParameter("idOrder");
-        System.out.println(id);
-        List<OrderDetailInAdmin> orderDetails = DaoOrderAdmin.getInstance().getListOrderDetail(id);
-        System.out.println(orderDetails.size());
+        OrderAdminService orderAdminService = new OrderAdminService();
+
+        List<OrderDetailInAdmin> orderDetails = orderAdminService.getListOrderDetail(id);
         request.setAttribute("orderDetails", orderDetails);
         request.getRequestDispatcher("views/admin/crud/order/order-detail.jsp").forward(request, response);
     }

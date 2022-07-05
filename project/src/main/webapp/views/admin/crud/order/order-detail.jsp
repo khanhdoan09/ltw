@@ -2,7 +2,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="beans.OrderInAdmin" %>
-<%@ page import="beans.OrderDetailInAdmin" %><%--
+<%@ page import="beans.OrderDetailInAdmin" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 13/1/2022
@@ -75,43 +77,32 @@
                 <div class="row mb-3">
                     <div class="col-sm-12">
 
-                        <form action="/project_war_exploded/ListOrder" method="post" style="margin: 20px 0;" id="form-product-admin">
-
-                            <button type="submit" id="submit-admin" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
-
-                        </form>
 
                         <div class="card">
                             <div class="card-body">
                                 <table id="patient-table" class="table table-hover align-middle mb-0" style="width: 100%;">
                                     <thead>
                                     <tr>
-                                        <th>Id order</th>
-                                        <th>Image</th>
-                                        <th>Id shoe</th>
-                                        <th>Color</th>
-                                        <th>Size</th>
-                                        <th>Quantity</th>
+                                        <th>ID hóa đơn</th>
+                                        <th>ID sản phẩm</th>
+                                        <th>Màu</th>
+                                        <th>Kích thước</th>
+                                        <th>Số lượng</th>
                                     </tr>
                                     </thead>
 
                                     <tbody id="listProduct">
 
-                                    <%Object objFilter = request.getAttribute("orderDetails");
-                                        if (objFilter != null) {
-                                            List<OrderDetailInAdmin> list = (List<OrderDetailInAdmin>) objFilter;
-                                            for (OrderDetailInAdmin order : list) {%>
-                                    <tr id="tr-product-<%=order.getIdOrder()%>">
-                                        <td><strong><%=order.getIdOrder()%></strong></td>
-                                        <td><strong><%=order.getIdShoe()%></strong></td>
-                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>
-                                        <td><%=order.getColor()%></td>
-                                        <td><%=order.getSize()%></td>
-                                        <td><%=order.getQuantity()%></td>
 
-                                    </tr>
-                                    <%    } %>
-                                    <%}%>
+                                    <c:forEach var="i" items="${orderDetails}">
+                                        <tr id="tr-product-${i.idOrder}">
+                                            <td><strong>${i.idOrder}</strong></td>
+                                            <td><strong>${i.idShoe}</strong></td>
+                                            <td>${i.color}</td>
+                                            <td>${i.size}</td>
+                                            <td>${i.quantity}</td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
 

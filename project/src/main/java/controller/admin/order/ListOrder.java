@@ -3,6 +3,7 @@ package controller.admin.order;
 import com.google.gson.Gson;
 import dao.order.DaoOrderAdmin;
 import beans.OrderInAdmin;
+import service.admin.OrderAdminService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +27,9 @@ public class ListOrder extends HttpServlet {
             pagination = Integer.parseInt(paginationProduct);
 
         String sql = "SELECT id,customer,total_price, create_at, status FROM orders LIMIT "+pagination*9+", 9";
+        OrderAdminService orderAdminService = new OrderAdminService();
 
-        List<OrderInAdmin> orders = DaoOrderAdmin.getInstance().getListOrder(sql);
+        List<OrderInAdmin> orders = orderAdminService.getListOrder(sql);
 
         // when use load more
         if (pagination != 0) { // not use when first time submit
