@@ -1,6 +1,7 @@
 <%@ page import="beans.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="dao.user.DaoUserAdmin" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -93,30 +94,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <%Object obj = request.getAttribute("users");
-                                            List<User> list = (List<User>) obj;
-                                            for (User user : list) {%>
+
+                                    <c:forEach var="i" items="${users}">
+
                                     <tr>
-                                        <td><strong><%=user.getId()%></strong></td>
+                                        <td><strong>${i.id}</strong></td>
                                         <td>
                                             <a href="customer-detail.html">
                                                 <img class="avatar rounded" src="assets/images/xs/avatar1.svg" alt="">
                                             </a>
                                         </td>
                                         <td>
-                                            <%=user.getEmail()%>
+                                                ${i.email}
                                         </td>
                                         <td>
-                                            <%=user.getName()%>
+                                                ${i.name}
                                         </td>
                                         <td>
-                                            <%=user.getCreateAt()%>
+                                                ${i.createAt}
                                         </td>
-                                        <td><%=user.getGender()%></td>
-                                        <td><%=user.getPhone()%></td>
-                                        <td><%=user.getIdAddress()%></td>
-                                        <td><%=user.getIdCart()%></td>
-                                        <td><%=user.getIsAdmin()%></td>
+                                        <td>${i.gender}</td>
+                                        <td>${i.phone}</td>
+                                        <td>${i.idAddress}</td>
+                                        <td>${i.idCart}</td>
+                                        <td>${i.isAdmin}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic outlined example">
                                                 <button type="button" class="btn btn-outline-secondary deleterow"><i class="fas fa-trash-alt"></i></button>
@@ -124,8 +125,8 @@
                                         </td>
                                     </tr>
 
+                                    </c:forEach>
 
-                                    <%}%>
 
                                     </tbody>
                                 </table>
