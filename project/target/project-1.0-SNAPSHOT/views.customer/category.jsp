@@ -108,7 +108,7 @@
                                 for(Brand brand: brands){%>
                                 <label class="checkbox-filter-search">
                                     <input name="filterBrand" type="checkbox"
-                                           value="<%=brand.getName()%>"<%=isBrandChecked(brand.getName())%> />
+                                           value="<%=brand.getId()%>"<%=isBrandChecked(brand.getId())%> />
                                     <%=brand.getName()%></label>
                                 <%}%>
                             </div>
