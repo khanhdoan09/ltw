@@ -67,6 +67,11 @@ public class SearchListProduct extends HttpServlet {
                 sql = " WHERE category=?     ";
                 listParameterCondition.addAll(Arrays.asList(category));
             }
+            // category == null là do tìm kiếm bằng brand trên header
+            else {
+                sql = " WHERE 1 ";
+                // để số 1 là do tí nữa sql = (&& brand=)
+            }
 
             if (size != null) {
                 sql = "JOIN product_detail ON product.id=product_detail.id " + sql +" && "+ searchService.getSqlSearchWithCondition("size", size) ;

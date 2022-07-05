@@ -6,6 +6,8 @@
 <%@ page import="beans.Brand" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="beans.Category" %>
+<%@ page import="dao.product.category.DaoCategory" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -130,49 +132,25 @@
                         </a>
 
                         <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
-                            <li id="running-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?category=Running&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Runnings</a>
+                            <%List<Category> listCategoryMan = DaoCategory.getInstance().getListCategoryOnNav("man");%>
+                            <%for (Category category: listCategoryMan) {%>
+                            <li class="category-product category-product-man">
+                                <a href=`SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1` class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
                             </li>
-                            <li id="slides-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?category=Slides&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
-                            </li>
-                            <li id="sneakers-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?category=Sneakers&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
-                            </li>
-                            <li id="skateboard-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?category=Skateboard&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">SkateBoard</a>
-                            </li>
-                            <li id="trainers-man"  class="category-product category-product-man">
-                                <a href="SearchListProduct?category=Trainers&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
-                            </li>
+                            <%}%>
                         </ul>
 
                     </li>
-                    <li style="position: relative"
-                    ><a href="caterogyGender?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
+                    <li style="position: relative"><a href="caterogyGender?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
 
                         <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
+                            <%List<Category> listCategoryWoman = DaoCategory.getInstance().getListCategoryOnNav("woman");%>
+                            <%for (Category category: listCategoryWoman) {%>
                             <li id="running-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Running&gender=Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Running</a>
+                                <a href=`SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1` class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
                             </li>
-                            </li>
-                            <li id="slides-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Slides&gender=Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Slides</a>
-                            </li>
-                            </li>
-                            <li id="sneakers-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Sneakers&gender=Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Sneakers</a>
-                            </li>
-                            </li>
-                            <li id="skateboard-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Skateboard&gender=Woman&categoryGender=description&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Skateboard</a>
-                            </li>
-                            <li id="trainers-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=Trainers&gender=Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2">Trainers</a>
-                            </li>
-                            </li>
+                            <%}%>
                         </ul>
-
                     </li>
                     <li><a style="color: white" class="parent category-item" id="category-brand">NHÃN HÀNG <i class="fas fa-caret-down"></i></a></li>
                     <li><a href="blog" style="color: white" class="parent" id="blog-nav">BLOG</a></li>

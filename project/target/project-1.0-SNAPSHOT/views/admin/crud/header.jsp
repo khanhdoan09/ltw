@@ -34,6 +34,9 @@
                 <a id="containBrand" class="m-link" href="<%=request.getContextPath()%>/GetBrandAdminController">
                     <i class="fa-brands fa-dribbble mx-2"></i> <span>Nhãn hàng</span> </a>
             </li>
+            <li class="collapsed">
+                <a id="containCategory" class="m-link" href="<%=request.getContextPath()%>/GetCategoryAdmin">
+                    <i class="fa fa-list-alt mx-2" aria-hidden="true"></i> <span>Thể loại</span> </a>
             </li>
             <li class="collapsed">
                 <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">
@@ -75,6 +78,9 @@
     }
     else if (url.includes("Brand")){
         $("#containBrand").addClass("active")
+    }
+    else if (url.includes("Category")){
+        $("#containCategory").addClass("active")
     }
     else {
         $("#home").addClass("active")

@@ -18,6 +18,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views.customer/customer.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views.customer" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views.customer" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views.customer" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/category/category.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/category" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/order" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/addNewProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product" />
