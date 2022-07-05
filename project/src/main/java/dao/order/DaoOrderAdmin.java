@@ -1,6 +1,6 @@
 package dao.order;
 
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 import beans.OrderInAdmin;
 import beans.OrderDetailInAdmin;
 import java.sql.Connection;

@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    .m-link {
+        display: flex;
+    }
+</style>
 <div class="sidebar px-4 py-4 py-md-4 me-0">
     <div class="d-flex flex-column h-100">
         <a href="admin/index.html" class="mb-0 brand-icon">
@@ -36,7 +41,7 @@
             </li>
             <li class="collapsed">
                 <a id="containCategory" class="m-link" href="<%=request.getContextPath()%>/GetCategoryAdmin">
-                    <i class="fa fa-list-alt mx-2" aria-hidden="true"></i> <span>Thể loại</span> </a>
+                    <i class="fa fa-list-alt mx-2" style="margin-left: 8px" aria-hidden="true"></i> <span>Thể loại</span> </a>
             </li>
             <li class="collapsed">
                 <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">

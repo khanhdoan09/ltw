@@ -1,8 +1,7 @@
 package dao.product.brand;
 
 import beans.Brand;
-import connection.DatabaseConnection;
-
+import database.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

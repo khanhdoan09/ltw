@@ -6,7 +6,9 @@
 <%@ page import="dao.product.DaoProductAdmin" %>
 <%@ page import="dao.product.color.DaoProductColor" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %>
-<%@ page import="beans.Brand" %><%--
+<%@ page import="beans.Brand" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 10/2/2022
@@ -59,39 +61,16 @@
             padding: 5px;
         }
         .size-brand {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 40px;
         }
         .btn-danger {
             color: black;
         }
-        .clicked {
-            color: #eeee13;
-        }
-        #brands {
-            display: none;
-        }
-        .remove-img-detail {
-            width: 27%;
-            margin: 5px 0;
-            background-color: #dedee4;
-        }
-        .fileNewImg {
-            background-color: #62637a;
-            color:white;
-            padding: 5px;
-            border-radius: 10px;
-            font-size: 15px;
-            margin: 5px 0;
-        }
-        .remove-color {
-            background-color: #62637a;
-            color:white;
-            padding: 5px;
-            border-radius: 10px;
-            font-size: 15px;
-            margin: 5px 0;
-        }
+      .btn-info {
+          color: white;
+          width: 150px;
+      }
     </style>
 
 </head>
@@ -117,8 +96,7 @@
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Chỉnh sửa sản phẩm</h3>
-                            <button type="submit" id="bt-save-edit-product" class="btn btn-primary btn-set-task w-sm-100 py-2 px-5 text-uppercase">Save</button>
+                            <h3 class="fw-bold mb-0">Chỉnh sửa nhãn hàng</h3>
                         </div>
                     </div>
                 </div>
@@ -127,10 +105,7 @@
                     <div class="col-xl-12 col-lg-12">
 
                         <div class="card mb-3">
-                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold ">Images</h6>
-                            </div>
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <div>
                                     <div class="row g-3 align-items-center">
                                         <div>
@@ -138,24 +113,21 @@
                                                 <label class="form-label">Nhãn hàng</label>
                                             </div>
                                             <div>
-                                                <button id="add-new-brand">Thêm nhãn hàng</button>
+                                                <button id="add-new-brand" class="btn btn-info">Thêm nhãn hàng</button>
                                             </div>
                                             <div class="d-flex flex-wrap contain-list-brand">
-                                                <%List<Brand> listBrand = (List<Brand>) request.getAttribute("listBrand");
-                                                    for (int i =0 ; i < listBrand.size(); i++) {
-                                                        Brand brand = listBrand.get(i);%>
-                                                <form action="UpdateBrandAdminController?idBrand=<%=brand.getId()%>" id="form-<%=i%>"  method="post" enctype="multipart/form-data" class="d-grid contain-brand contain-form-brand">
-                                                    <span>id: </span>
-                                                    <input type="text" value="<%=brand.getId()%>" readonly>
-                                                    <span>name: </span>
-                                                    <input  id="nameBrand-<%=i%>" type="text" value="<%=brand.getName()%>" name="nameBrand">
-                                                    <img id="imgShow-<%=i%>" alt="brand" src="upload/brand/<%=brand.getImg()%>" width="150px" height="150px">
-                                                    <input type="file" name="imgBrand" class="imgLoad" data-imgshow="imgShow-<%=i%>">
-                                                    <button class="remove-brand size-brand my-2 btn btn-primary" data-id="<%=brand.getId()%>" data-contain="form-<%=i%>">Xóa</button>
-                                                    <button class="saveBrand size-brand btn btn-danger" data-idbrand="<%=brand.getId()%>">Save</button>
-                                                </form>
-                                                <%}
-                                                %>
+                                                <c:forEach var="i" items="${listBrand}">
+                                                    <form action="UpdateBrandAdminController?idBrand=${i.id}" id="form-${i.id}"  method="post" enctype="multipart/form-data" class="d-grid contain-brand contain-form-brand">
+                                                        <span>id: </span>
+                                                        <input type="text" value="${i.id}" readonly>
+                                                        <span>name: </span>
+                                                        <input  id="nameBrand-${i.id}" type="text" value="${i.name}" name="nameBrand">
+                                                        <img id="imgShow-${i.id}" alt="brand" src="upload/brand/${i.img}" width="150px" height="150px">
+                                                        <input type="file" name="imgBrand" class="imgLoad" data-imgshow="imgShow-${i.id}">
+                                                        <button class="remove-brand size-brand my-2 btn btn-primary" data-id="${i.id}" data-contain="form-${i.id}">Xóa</button>
+                                                        <button class="saveBrand size-brand btn btn-danger" data-idbrand="${i.id}">Save</button>
+                                                    </form>
+                                                </c:forEach>
                                             </div>
                                             <div class="d-flex flex-wrap contain-add-brand">
                                             </div>

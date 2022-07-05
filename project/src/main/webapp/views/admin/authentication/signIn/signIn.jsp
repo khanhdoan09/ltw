@@ -33,22 +33,7 @@
             <div class="container-xxl">
 
                 <div class="row g-0">
-                    <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center rounded-lg auth-h100">
-                        <div style="max-width: 25rem;">
-                            <div class="text-center mb-5">
-                                <i class="bi bi-bag-check-fill  text-primary" style="font-size: 90px;"></i>
-                            </div>
-                            <div class="mb-5">
-                                <h2 class="color-900 text-center">A few clicks is all it takes.</h2>
-                            </div>
-                            <!-- Image block -->
-                            <div class="">
-                                <img src="<%=request.getContextPath()%>/image/admin/img.png" alt="login-img">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
+                    <div class="col-lg-12 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
                         <div class="w-100 p-3 p-md-5 card border-0 shadow-sm" style="max-width: 32rem;">
                             <!-- Form -->
                             <form class="row g-1 p-3 p-md-4"  action="/project_war_exploded/SignIn" method="post">
@@ -83,7 +68,6 @@
                                         <div class="form-label">
                                                 <span class="d-flex justify-content-between align-items-center">
                                                     Password
-                                                    <a class="text-secondary" href="auth-password-reset.html">Forgot Password?</a>
                                                 </span>
                                         </div>
                                         <input name="password" type="password" class="form-control form-control-lg" placeholder="***************">
@@ -92,14 +76,6 @@
                                             if(passwordValidation != null){%>
                                         <p class="validation"><%=passwordValidation.toString()%></p>
                                         <%}%>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Remember me
-                                        </label>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4">

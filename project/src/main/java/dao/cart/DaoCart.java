@@ -1,10 +1,9 @@
 package dao.cart;
 
 import beans.ProductInCart;
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 import dao.product.DaoProduct;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,6 +1,6 @@
 package dao.user;
 
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 import beans.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

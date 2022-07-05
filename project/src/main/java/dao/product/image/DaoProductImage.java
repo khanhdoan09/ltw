@@ -1,6 +1,6 @@
 package dao.product.image;
 
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -1,6 +1,6 @@
 package dao.product.image;
 
-import connection.DatabaseConnection;
+import database.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
