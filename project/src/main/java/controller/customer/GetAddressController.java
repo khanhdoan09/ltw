@@ -2,7 +2,8 @@ package controller.customer;
 
 import beans.AddressCustomer;
 import com.google.gson.Gson;
-import model.customer.DaoCustomerAddress;
+import dao.user.DaoCustomerAddress;
+import service.customer.personal.PersonalAddressService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,8 +20,15 @@ public class GetAddressController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String customerId = "12";
-        List<AddressCustomer> listAddress =  DaoCustomerAddress.getInstance().getAddress(customerId);
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+            return;
+        }
+        String idCustomer = (String) obj;
+        PersonalAddressService personalAddressService = new PersonalAddressService();
+        List<AddressCustomer> listAddress =  personalAddressService.getAddress(idCustomer);
         String json = new Gson().toJson(listAddress);
 
         response.setContentType("text/plain");

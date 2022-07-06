@@ -1,6 +1,7 @@
 package controller.customer;
 
-import model.customer.DaoCustomerAddress;
+import service.customer.personal.PersonalAddressService;
+import service.customer.personal.PersonalCustomerService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,13 +17,20 @@ public class AddAdressController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+            return;
+        }
+        String idCustomer = (String) obj;
         String city = request.getParameter("city");
         String district = request.getParameter("district");
         String ward = request.getParameter("ward");
         String description = request.getParameter("description");
 
-        String customerId = "12";
-        boolean isChange = DaoCustomerAddress.getInstance().addAddress(customerId, city, district, ward, description);
+        PersonalAddressService personalCustomerService = new PersonalAddressService ();
+        boolean isChange = personalCustomerService.addAddress(idCustomer, city, district, ward, description);
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         if (isChange) {

@@ -1,6 +1,7 @@
 package controller.customer;
 
-import model.customer.DaoCustomerAddress;
+import dao.user.DaoCustomerAddress;
+import service.customer.personal.PersonalAddressService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,8 +17,17 @@ public class DeleteAddressController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+            return;
+        }
+        String idCustomer = (String) obj;
+
         String idAddress = request.getParameter("idAddress");
-        boolean isDelete = DaoCustomerAddress.getInstance().deleteAddress(idAddress);
+        PersonalAddressService personalAddressService = new PersonalAddressService();
+        boolean isDelete = personalAddressService.deleteAddress(idAddress, idCustomer);
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         if (isDelete) {

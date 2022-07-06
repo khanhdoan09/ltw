@@ -1,8 +1,9 @@
 package controller.customer;
 
 import com.google.gson.Gson;
-import model.customer.DaoCustomer;
+import dao.user.DaoCustomer;
 import beans.History;
+import service.customer.personal.PersonalAddressService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,15 +20,16 @@ public class PurchaseHistoryController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //        boolean isLogin = request.getSession(true).getAttribute("user") != null ? true : false;
-//        if (isLogin) {
-//            String idCustomer = (String) request.getSession().getAttribute("idCustomer");
-//        }
-//        else {
-//
-//        }
-        String customerId = "12";
-        List<History> purchaseHistory = DaoCustomer.getInstance().getHistoryPurchase(customerId);
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+            return;
+        }
+        String idCustomer = (String) obj;
+        PersonalAddressService personalAddressService = new PersonalAddressService();
+
+        List<History> purchaseHistory = personalAddressService.getHistoryPurchase(idCustomer);
         String json = new Gson().toJson(purchaseHistory);
 
         response.setContentType("text/plain");

@@ -1,6 +1,7 @@
 package controller.customer;
 
-import model.customer.DaoCustomerAddress;
+import dao.user.DaoCustomerAddress;
+import service.customer.personal.PersonalAddressService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,13 +17,21 @@ public class EditAddressController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+            return;
+        }
+        String idCustomer = (String) obj;
+        PersonalAddressService personalAddressService = new PersonalAddressService();
+
         String idCity = request.getParameter("idCity");
         String idDistrict = request.getParameter("idDistrict");
         String idWard = request.getParameter("idWard");
         String description = request.getParameter("description");
         String idAddress = request.getParameter("idAddress");
-        System.out.println(idCity+""+idDistrict+""+idWard+""+description+""+idAddress + "~~~");
-        boolean isChange = DaoCustomerAddress.getInstance().editAddress(idAddress, idCity, idDistrict, idWard, description);
+        boolean isChange = personalAddressService.editAddress(idCustomer, idAddress, idCity, idDistrict, idWard, description);
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         if (isChange) {

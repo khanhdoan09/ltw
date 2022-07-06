@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="connection.DatabaseConnection" %>
+<%@ page import="database.DatabaseConnection" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.Arrays" %>
@@ -15,7 +15,6 @@
 <%@ page import="beans.Product" %>
 <%@ page import="beans.Brand" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %>
-<%@ page import="dao.product.image.DaoLinkImage" %>
 
 
 <html lang="en">
@@ -383,7 +382,6 @@
                 Object objCategory = request.getAttribute("categoryProduct");
                 List<Product> list = (List<Product>) objCategory;
                 if (list != null) {
-                    Map<String, ArrayList<String>> map = DaoLinkImage.getInstance().getAll();
                     for (int i = 0; i < list.size(); i++) {
                         Product p = list.get(i);
             %>

@@ -5,7 +5,9 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-import model.customer.DaoCustomer;
+import dao.user.DaoCustomer;
+import service.customer.personal.PersonalAddressService;
+import service.customer.personal.PersonalCustomerService;
 
 @WebServlet(name = "NewCustomerPassword", value = "/newCustomerPassword")
 public class NewCustomerPassword extends HttpServlet {
@@ -16,23 +18,25 @@ public class NewCustomerPassword extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //        boolean isLogin = request.getSession(true).getAttribute("user") != null ? true : false;
-//        if (isLogin) {
-//            String idCustomer = (String) request.getSession().getAttribute("idCustomer");
-//        }
-//        else {
-//
-//        }
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+            return;
+        }
+        String idCustomer = (String) obj;
+        PersonalAddressService personalAddressService = new PersonalAddressService();
+
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
-        String customerId = "12";
         String oldPassword = request.getParameter("oldPassword");
-        boolean isExistOldPassowrd = DaoCustomer.getInstance().checkOldPasswordToChange(customerId, oldPassword);
+        PersonalCustomerService personalCustomerService = new PersonalCustomerService();
+        boolean isExistOldPassword = personalCustomerService.checkOldPasswordToChange(idCustomer, oldPassword);
         System.out.println(oldPassword);
 
-        if (isExistOldPassowrd) {
+        if (isExistOldPassword) {
             String newPassword = request.getParameter("newPassword");
-            boolean isChangePassword = DaoCustomer.getInstance().changePassword(customerId, newPassword);
+            boolean isChangePassword = personalCustomerService.changePassword(idCustomer, newPassword);
             if (isChangePassword) {
                 response.getWriter().write("success");
             }

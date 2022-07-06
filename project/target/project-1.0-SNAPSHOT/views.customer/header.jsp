@@ -132,10 +132,10 @@
                         </a>
 
                         <ul class="man-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left:-15px;">
-                            <%List<Category> listCategoryMan = DaoCategory.getInstance().getListCategoryOnNav("man");%>
+                            <%ArrayList<Category> listCategoryMan = DaoCategory.getInstance().getListCategoryOnNav("man");%>
                             <%for (Category category: listCategoryMan) {%>
                             <li class="category-product category-product-man">
-                                <a href=`SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1` class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
+                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
                             </li>
                             <%}%>
                         </ul>
@@ -144,10 +144,10 @@
                     <li style="position: relative"><a href="caterogyGender?categoryGender=Woman" style="color: white" class="parent category-item" id="category-woman">NỮ <i class="fas fa-caret-down"></i></a>
 
                         <ul class="woman-category" style="background-color: #0f6cb2; border:none; position:absolute; top: 35px;left: -15px">
-                            <%List<Category> listCategoryWoman = DaoCategory.getInstance().getListCategoryOnNav("woman");%>
+                            <%ArrayList<Category> listCategoryWoman = DaoCategory.getInstance().getListCategoryOnNav("woman");%>
                             <%for (Category category: listCategoryWoman) {%>
                             <li id="running-woman"  class="category-product category-product-woman">
-                                <a href=`SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1` class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
+                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
                             </li>
                             <%}%>
                         </ul>

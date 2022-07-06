@@ -1,6 +1,7 @@
 package dao.product.category;
-import database.DatabaseConnection;
+import database.DbConnection;
 import beans.Category;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.Connection;
@@ -20,7 +21,7 @@ public class DaoCategory {
 
     }
 
-    Connection connect = DatabaseConnection.getConnection();
+    Connection connect = DbConnection.getConnection();
 
 
     public List<Category> getListCategory() {
@@ -40,8 +41,8 @@ public class DaoCategory {
         return re;
     }
 
-    public List<Category> getListCategoryOnNav(String gender) {
-        List<Category> re = new ArrayList<Category>();
+    public ArrayList<Category> getListCategoryOnNav(String gender) {
+        ArrayList<Category> re = new ArrayList<Category>();
         try {
             String sql = "SELECT * FROM category WHERE gender=?";
             PreparedStatement s = connect.prepareStatement(sql);

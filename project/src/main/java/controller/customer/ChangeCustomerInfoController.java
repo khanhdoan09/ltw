@@ -1,7 +1,8 @@
 package controller.customer;
 
 import beans.User;
-import model.customer.DaoCustomer;
+import dao.user.DaoCustomer;
+import service.customer.personal.PersonalCustomerService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,21 +18,25 @@ public class ChangeCustomerInfoController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        if(obj != null) {
+            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
+            return;
+        }
+        String idCustomer = (String) obj;
+
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String gender = request.getParameter("gender");
+        PersonalCustomerService personalCustomerService = new PersonalCustomerService();
 
-
-        String idCustomer = "12";
-        boolean isChanged = DaoCustomer.getInstance().updateInfo(idCustomer, name, email, phone, gender);
+        boolean isChanged = personalCustomerService.updateInfo(idCustomer, name, email, phone, gender);
         if (isChanged) {
-            User customer = DaoCustomer.getInstance().getUser(idCustomer);
+            User customer = personalCustomerService.getUser(idCustomer);
             request.setAttribute("customer", customer);
             request.getRequestDispatcher("./views.customer/customer.jsp").forward(request, response);
-        }
-        else {
-
         }
     }
 }

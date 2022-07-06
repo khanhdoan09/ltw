@@ -1,7 +1,8 @@
 package controller.customer;
 
 import beans.User;
-import model.customer.DaoCustomer;
+import dao.user.DaoCustomer;
+import service.customer.personal.PersonalCustomerService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -12,18 +13,12 @@ import java.io.IOException;
 public class CustomerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        boolean isLogin = request.getSession(true).getAttribute("user") != null ? true : false;
-//        if (isLogin) {
-//            String idCustomer = (String) request.getSession().getAttribute("idCustomer");
-//        }
-//        else {
-//
-//        }
         HttpSession session = request.getSession();
         Object obj = session.getAttribute("userId");
         if(obj != null) {
             String idCustomer = (String) obj;
-            User customer = DaoCustomer.getInstance().getUser(idCustomer);
+            PersonalCustomerService personalCustomerService = new PersonalCustomerService();
+            User customer = personalCustomerService.getUser(idCustomer);
             if (customer.getGender() ==null){
                 customer.setGender("null");
             }
