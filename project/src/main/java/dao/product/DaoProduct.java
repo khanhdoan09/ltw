@@ -34,7 +34,7 @@ public class DaoProduct  {
         List<Product> re = new ArrayList<Product>();
         try {
             Statement s = connect.createStatement();
-            ResultSet rs = s.executeQuery("SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active,img FROM product inner join linkimg on product.id=linkimg.id where linkimg.level=0");
+            ResultSet rs = s.executeQuery("SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active,img FROM product inner join linkimg on product.id=linkimg.idProduct where linkimg.level=0");
             while (rs.next()) {
                 String id = rs.getString("id");
                 String brand = rs.getString("brand");
@@ -62,7 +62,7 @@ public class DaoProduct  {
 
     public Product getDetailProduct(String idPr) {
         try {
-            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at, mainColor FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
+            String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at, mainColor FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 WHERE product.id=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idPr);
             ResultSet rs = s.executeQuery();
@@ -94,7 +94,7 @@ public class DaoProduct  {
 
     public Product getWatchedProduct(String idPr) {
         try {
-            String sql = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=?";
+            String sql = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 WHERE product.id=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idPr);
             ResultSet rs = s.executeQuery();
@@ -144,7 +144,7 @@ public class DaoProduct  {
         // get list size
         try {
             // main img
-            String sql = "SELECT img FROM product JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id=? ";
+            String sql = "SELECT img FROM product JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 WHERE product.id=? ";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, id);
             ResultSet rs = s.executeQuery();
@@ -154,7 +154,7 @@ public class DaoProduct  {
             }
 
             // list sub img
-            sql = "SELECT img FROM product JOIN linkimg ON product.id=linkimg.id && linkimg.level=1 WHERE product.id=? ";
+            sql = "SELECT img FROM product JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=1 WHERE product.id=? ";
             s = connect.prepareStatement(sql);
             s.setString(1, id);
             rs = s.executeQuery();
@@ -352,7 +352,7 @@ public class DaoProduct  {
     public List<Product> getListHotProduct(String id) {
         List<Product> re = new ArrayList<Product>();
         PreparedStatement s = null;
-        String sql = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 WHERE product.id!=? ORDER BY starRate, saleRate DESC LIMIT 0, 5";
+        String sql = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 WHERE product.id!=? ORDER BY starRate, saleRate DESC LIMIT 0, 5";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, id);
@@ -469,7 +469,7 @@ public class DaoProduct  {
     public List<Product> getBestSale() {
         List<Product>re = new ArrayList<Product>();
         try {
-            String sql = "SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY product.saleRate DESC LIMIT 0, 10;";
+            String sql = "SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY product.saleRate DESC LIMIT 0, 10;";
             PreparedStatement s = connect.prepareStatement(sql);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
@@ -493,7 +493,7 @@ public class DaoProduct  {
     public List<Product> getBestSeller() {
         List<Product>re = new ArrayList<Product>();
         try {
-            String sql = " SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY (product.totalValue/product.soleValue) LIMIT 0, 10;";
+            String sql = " SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY (product.totalValue/product.soleValue) LIMIT 0, 10;";
             PreparedStatement s = connect.prepareStatement(sql);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
@@ -518,7 +518,7 @@ public class DaoProduct  {
     public List<Product> getNewestProduct() {
         List<Product>re = new ArrayList<Product>();
         try {
-            String sql = "SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY product.create_at DESC LIMIT 0, 10";
+            String sql = "SELECT product.id, brand, name, category, price, saleRate, Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 && linkimg.color=product.mainColor ORDER BY product.create_at DESC LIMIT 0, 10";
             PreparedStatement s = connect.prepareStatement(sql);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {

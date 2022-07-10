@@ -1,5 +1,6 @@
 <%@ page import="beans.Product" %>
 <%@ page import="beans.Image" %>
+<%@ page import="beans.Brand" %>
 <%@ page import="java.io.File" %>
 <%@ page import="beans.ProductDetail" %>
 <%@ page import="java.util.*" %>
@@ -12,6 +13,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html class="no-js" lang="en" dir="ltr">
 
 <head>
@@ -41,33 +43,11 @@
 
 
     <style>
-        .clicked {
-            color: #eeee13;
-        }
-        #brands {
-            display: none;
-        }
         .remove-img-detail {
             width: fit-content;
             height: fit-content;
             margin: 5px 0;
             background-color: #dedee4;
-        }
-        .fileNewImg {
-            background-color: #62637a;
-            color:white;
-            padding: 5px;
-            border-radius: 10px;
-            font-size: 15px;
-            margin: 5px 0;
-        }
-        .remove-color {
-            background-color: #62637a;
-            color:white;
-            padding: 5px;
-            border-radius: 10px;
-            font-size: 15px;
-            margin: 5px 0;
         }
     </style>
 
@@ -92,7 +72,6 @@
 
 
         <!-- Body: Body -->
-<%--        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="SaveEditProduct?id=<%=product.getId()%>">--%>
         <form id="form-edit-product" class="body d-flex py-3" method="post" action="<%=request.getContextPath()%>/AddNewProduct">
             <div class="container-xxl">
                 <div class="row align-items-center">
@@ -128,25 +107,6 @@
                             </div>
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                    <h5 class="m-0 fw-bold">Màu</h5>
-                                </div>
-                                <div class="card-body">
-                                    <table style="width: 100%;" class="add-new-detail">
-                                        <thead>
-                                        <th>color</th>
-                                        <th>size</th>
-                                        <th>total</th>
-                                        <th>sole</th>
-                                        </thead>
-
-
-                                    </table>
-
-                                </div>
-                            </div>
-
-                            <div class="card mb-3">
-                                <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
                                     <h5 class="m-0 fw-bold">Ngày công bố</h5>
                                 </div>
                                 <div class="card-body">
@@ -176,32 +136,54 @@
                                             <input type="text" class="form-control" name="name">
                                         </div>
                                         <div class="col-md-6">
-                                            <label class="form-label">Nhãn hàng</label>
-                                            <input type="text" list="brands" class="form-control" name="brand" autocomplete="off" />
-                                            <datalist id="brands">
-                                                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
-                                                    for (String brand: brands){%>
-                                                <option><%=brand%></option>
-                                                <%}%>
-                                            </datalist>
+                                            <p>Nhãn hàng</p>
+                                            <select required name="brand">
+                                                <c:forEach var="i" items="${brands}">
+                                                    <option value="${i.id}">${i.name}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="description">Mô tả</label>
                                             <input name="description" type="text" style="display: block; width: 100%; height: 80px;" id="description">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <label class="form-label">Active product</label>
+                                                    <div class="">
+                                                        <div class="d-flex align-items-center">
+                                                            <label for="active-yes">Active</label>
+                                                            <input class="mx-2" id="active-yes" type="radio" name="active" value="1"/>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <label for="active-no">Not active</label>
+                                                            <input class="mx-2" type="radio" id="active-no" name="active" value="0"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card mb-3">
+                                            <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
+                                                <h6 class="m-0 fw-bold">Giới tính</h6>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <label class="form-label">Thể loại</label>
+                                                <select required class="form-select" size="3" aria-label="size 3 select example" name="category">
+                                                    <c:forEach var="i" items="${categories}">
+                                                        <option value="${i.id}">${i.name} ${i.gender}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="card">
-                            <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                <h6 class="m-0 fw-bold">Inventory Info</h6>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <!-- Row end  -->

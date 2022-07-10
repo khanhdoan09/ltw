@@ -54,7 +54,7 @@ public class ListProduct extends HttpServlet {
         String[] item = request.getParameterValues("item");
         if (item != null) {
             String[] orderType = request.getParameterValues("orderType");
-            sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group ;
+            sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 " + sql + group ;
             sql += " ORDER BY "+item[0] + " " + orderType[0] + " " + limit;
             sqlAll += sql;
             listFilter = DaoSearchProduct.getInstance().getListProduct(list, sqlAll);
@@ -66,7 +66,7 @@ public class ListProduct extends HttpServlet {
         request.setAttribute("type",type[0]);
         request.setAttribute("name", name[0]);
 
-        sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 " + sql + group + limit;
+        sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 " + sql + group + limit;
         listFilter = DaoSearchProduct.getInstance().getListProduct(list,  sqlAll);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");

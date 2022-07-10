@@ -98,14 +98,14 @@ public class SaveEditProduct extends HttpServlet {
                 }
                 if (item.getFieldName().equals("name"))
                     productDetail.setName(item.getString());
-                if (item.getFieldName().equals("brand")) {
-                    String brand = item.getString();
-                    List<String>brands = DaoProductBrand.getInstance().getListBrand();
-                    if (!brands.contains(brand)) {
-                        DaoProductBrand.getInstance().saveNewBrand(brand);
-                    }
-                    productDetail.setBrand(brand);
-                }
+//                if (item.getFieldName().equals("brand")) {
+//                    String brand = item.getString();
+//                    List<String>brands = DaoProductBrand.getInstance().getListBrand();
+//                    if (!brands.contains(brand)) {
+//                        DaoProductBrand.getInstance().saveNewBrand(brand);
+//                    }
+//                    productDetail.setBrand(brand);
+//                }
                 if (item.getFieldName().equals("chooseMainImage"))
                     System.out.println(item.getString());
                 if (item.getFieldName().equals("description"))

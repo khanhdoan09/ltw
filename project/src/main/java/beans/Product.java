@@ -38,18 +38,19 @@ public class Product implements Serializable {
 
     }
 
-    // admin
-    public Product( double price, int sale, String brand, String name, String date, String description ) {
+    // add new in admin
+    public Product( double price, int sale, String brand, String name, String date, String description, String category) {
         this.brand = brand;
         this.name = name;
         this.price=price;
         this.saleRate = sale;
         this.create_at=date;
         this.description=description;
+        this.category = category;
     }
 
     // detail in admin
-    public Product(String id, String brand, String name, String categoryP, double price, int saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<beans.ProductDetail> listSize, String create_at, List<beans.Image> listImg, String gender) {
+    public Product(String id, String brand, String name, String categoryP, double price, int saleRate, int starRate, String description, int totalValue, int soleValue, int active, List<beans.ProductDetail> listSize, String create_at, List<beans.Image> listImg) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -64,7 +65,6 @@ public class Product implements Serializable {
         this.create_at= create_at;
         this.detail = listSize;
         this.listImg=listImg;
-        this.gender=gender;
     }
 
 //cart

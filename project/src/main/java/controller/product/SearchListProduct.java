@@ -160,7 +160,7 @@ public class SearchListProduct extends HttpServlet {
                 }
             }
 
-            String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.id && linkimg.level=0 AND product.mainColor=linkimg.color " + sql + group + limit;
+            String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct && linkimg.level=0 AND product.mainColor=linkimg.color " + sql + group + limit;
             listProductResult = DaoSearchProduct.getInstance().getListProduct(listParameterCondition, sqlAll);
 
         sqlCountProduct += sql;

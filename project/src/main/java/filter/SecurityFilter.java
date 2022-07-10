@@ -18,7 +18,7 @@ public class SecurityFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
-        String loginURI = request.getContextPath() + "/views/admin/authentication/signIn/signIn.jsp";
+        String loginURI = request.getContextPath() + "/views/admin/authentication/signIn/signInAdmin.jsp";
 
         String path = request.getRequestURI().substring(request.getContextPath().length());
         if(path.contains("/views/admin/authentication") || !path.toLowerCase().contains("admin")){

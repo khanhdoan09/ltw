@@ -12,7 +12,7 @@ public class SignOut extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().invalidate();
-        response.sendRedirect(request.getContextPath() + "/views/admin/authentication/signIn/signIn.jsp");
+        response.sendRedirect(request.getContextPath() + "/views/admin/authentication/signIn/signInAdmin.jsp");
     }
 
     @Override

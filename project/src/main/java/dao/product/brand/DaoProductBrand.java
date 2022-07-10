@@ -35,15 +35,16 @@ public class DaoProductBrand {
         return "";
     }
 
-    public List<String> getListBrand() {
-        List<String> re = new ArrayList<String>();
+    public ArrayList<Brand> getListBrand() {
+        ArrayList<Brand> re = new ArrayList<Brand>();
         PreparedStatement s = null;
-        String sql = "SELECT id FROM brand";
+        String sql = "SELECT id, name, img FROM brand";
         try {
             s = connect.prepareStatement(sql);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                re.add(rs.getString("id"));
+                Brand brand = new Brand(rs.getString("id"), rs.getString("name"), rs.getString("img"));
+                re.add(brand);
             }
             return re;
         } catch (SQLException e) {

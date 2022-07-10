@@ -1,5 +1,7 @@
 <%@ page import="beans.Product" %>
+<%@ page import="beans.Brand" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %><%--
   Created by IntelliJ IDEA.
@@ -156,9 +158,9 @@
               </select>
               <input list="brands" type="text" style="margin: 0 10px" id="input-name-product-admin" name="name" autocomplete="off"  value="<%if(request.getAttribute("type")!=null){%><%=request.getAttribute("type")%><%}%>"/>
               <datalist id="brands">
-                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
-                  for (String brand: brands){%>
-                <option><%=brand%></option>
+                <%ArrayList<Brand> brands = DaoProductBrand.getInstance().getListBrand();
+                  for (Brand brand: brands){%>
+                <option value="<%=brand.getId()%>"><%=brand.getName()%></option>
                 <%}%>
               </datalist>
 

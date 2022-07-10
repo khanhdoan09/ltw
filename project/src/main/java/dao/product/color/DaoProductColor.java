@@ -25,7 +25,7 @@ public class DaoProductColor {
     public List<String> getListColor(String id) {
         List<String>list = new ArrayList<String>();
         try {
-            String sql = "SELECT DISTINCT color FROM linkimg WHERE id=? ";
+            String sql = "SELECT color FROM linkimg WHERE idProduct=? GROUP BY color";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, id);
             ResultSet rs = s.executeQuery();
@@ -42,7 +42,7 @@ public class DaoProductColor {
 
     public boolean removeColor(String id, String color) {
         PreparedStatement s = null;
-        String sql = "DELETE FROM linkimg WHERE id=? && color=?";
+        String sql = "DELETE FROM linkimg WHERE idProduct=? && color=?";
 
         PreparedStatement s2 = null;
         String sql2 = "DELETE FROM product_detail WHERE id=? && color=?";
@@ -68,7 +68,7 @@ public class DaoProductColor {
         PreparedStatement s = null;
         String sql = "UPDATE product_detail SET color=? WHERE id=? && color=?";
         PreparedStatement s2 = null;
-        String sql2 = "UPDATE linkimg SET color=? WHERE id=? && color=?";
+        String sql2 = "UPDATE linkimg SET color=? WHERE idProduct=? && color=?";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, colorNew);

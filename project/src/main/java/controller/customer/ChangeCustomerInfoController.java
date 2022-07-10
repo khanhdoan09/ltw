@@ -20,23 +20,25 @@ public class ChangeCustomerInfoController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Object obj = session.getAttribute("userId");
-        if(obj != null) {
+        if(obj == null) {
             request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
             return;
         }
         String idCustomer = (String) obj;
-
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String gender = request.getParameter("gender");
+        String day = request.getParameter("day");
+        String month = request.getParameter("month");
+        String year = request.getParameter("year");
+        String dob = day+"/"+month+"/"+year+"";
         PersonalCustomerService personalCustomerService = new PersonalCustomerService();
-
-        boolean isChanged = personalCustomerService.updateInfo(idCustomer, name, email, phone, gender);
+        boolean isChanged = personalCustomerService.updateInfo(idCustomer, name, email, phone, gender, dob);
         if (isChanged) {
             User customer = personalCustomerService.getUser(idCustomer);
             request.setAttribute("customer", customer);
-            request.getRequestDispatcher("./views.customer/customer.jsp").forward(request, response);
+            request.getRequestDispatcher("customer").forward(request, response);
         }
     }
 }
