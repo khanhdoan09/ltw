@@ -36,9 +36,9 @@ public class DaoProductImage extends HttpServlet {
         }
 
         PreparedStatement s1 = null;
-        String sql1 = "DELETE FROM linkimg WHERE id=? && img=?";
+        String sql1 = "DELETE FROM linkimg WHERE idProduct=? && img=?";
         PreparedStatement s2 = null;
-        String sql2 = "SELECT * FROM linkimg WHERE id=? && img=?";
+        String sql2 = "SELECT * FROM linkimg WHERE idProduct=? && img=?";
         try {
             s2 = connect.prepareStatement(sql2);
             s2.setString(1, id);
@@ -89,9 +89,9 @@ public class DaoProductImage extends HttpServlet {
 
     public boolean setImgToMain(String img, String id, String color) {
         PreparedStatement s1 = null;
-        String sql1 = "UPDATE linkimg SET level=1 WHERE id=? AND color=?";
+        String sql1 = "UPDATE linkimg SET level=1 WHERE idProduct=? AND color=?";
         PreparedStatement s2 = null;
-        String sql2 = "UPDATE linkimg SET level=0 WHERE id=? AND img=? AND color=?";
+        String sql2 = "UPDATE linkimg SET level=0 WHERE idProduct=? AND img=? AND color=?";
         try {
             // 1. set all not to main
             s1 = connect.prepareStatement(sql1);
@@ -139,7 +139,7 @@ public class DaoProductImage extends HttpServlet {
         // get list size
         try {
             // main img
-            String sql = "SELECT img,level,color FROM product JOIN linkimg ON product.id=linkimg.id WHERE product.id=? ";
+            String sql = "SELECT img,level,color FROM product JOIN linkimg ON product.id=linkimg.idProduct WHERE product.id=? ";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, id);
             ResultSet rs = s.executeQuery();

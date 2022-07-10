@@ -7,7 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import database.DatabaseConnection;
+import dao.product.brand.DaoProductBrand;
+import database.DbConnection;
 
 
 public class DaoProductAdmin {
@@ -22,14 +23,14 @@ public class DaoProductAdmin {
 
     }
 
-    Connection connect = DatabaseConnection.getConnection();
+    Connection connect = DbConnection.getConnection();
 
 
 
     public int editProduct(String id, Product product) {
         PreparedStatement s=null;
         try {
-            String sql = "UPDATE product SET price=?, name=?, saleRate=?, description=?, totalValue=?, soleValue=?, category=?, brand=?, Active=?, create_at=?, gender=? WHERE id=?";
+            String sql = "UPDATE product SET price=?, name=?, saleRate=?, description=?, totalValue=?, soleValue=?, category=?, brand=?, Active=?, create_at=? WHERE id=?";
             s = connect.prepareStatement(sql);
             s.setDouble(1, product.getPrice());
             s.setString(2,product.getName());
@@ -41,8 +42,7 @@ public class DaoProductAdmin {
             s.setString(8, product.getBrand());
             s.setInt(9, product.getActive());
             s.setString(10, product.getCreate_at());
-            s.setString(11, product.getGender());
-            s.setString(12, id);
+            s.setString(11, id);
 
             return s.executeUpdate();
         } catch (SQLException e) {
@@ -57,7 +57,7 @@ public class DaoProductAdmin {
         String sql = "DELETE FROM product WHERE product.Id="+id;
 
         PreparedStatement s2 = null;
-        String sql2 = "SELECT * FROM linkimg WHERE id="+id;
+        String sql2 = "SELECT * FROM linkimg WHERE idProduct="+id;
         try {
             s2 = connect.prepareStatement(sql2);
             System.out.println("~"+s2.toString());
@@ -159,14 +159,15 @@ public class DaoProductAdmin {
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("id");
-                String brand = rs.getString("brand");
+                String idBrand = rs.getString("brand");
                 String name = rs.getString("name");
                 String categoryP = rs.getString("category");
                 double price = rs.getDouble("price");
                 int saleRate = rs.getInt("saleRate");
                 int active = rs.getInt("Active");
                 String avatar = rs.getString("img");
-                Product product = new Product(id, brand, name, categoryP, price, saleRate, active, avatar);
+                String nameBrand = DaoProductBrand.getInstance().getNameBrand(idBrand);
+                Product product = new Product(id, nameBrand, name, categoryP, price, saleRate, active, avatar);
                 re.add(product);
             }
             System.out.println(s.toString());
@@ -191,14 +192,14 @@ public class DaoProductAdmin {
                 return rs.getString("mainColor");
             }
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header " + sql);
+            System.out.println(e.getMessage());
         }
         return "";
     }
 
     public int addNewProduct(Product product) {
         PreparedStatement s = null;
-        String sql = "Insert INTO product(price, saleRate, brand, name, create_at, description) VALUES(?, ?, ? ,?, ?, ?)";
+        String sql = "Insert INTO product(price, saleRate, brand, name, create_at, description, category) VALUES(?, ?, ? ,?, ?, ?, ?)";
         try {
             s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             s.setDouble(1, product.getPrice());
@@ -207,6 +208,7 @@ public class DaoProductAdmin {
             s.setString(4, product.getName());
             s.setString(5, product.getCreate_at());
             s.setString(6, product.getDescription());
+            s.setString(7, product.getCategory());
             // return id of auto increment
             s.executeUpdate();
             ResultSet rs = s.getGeneratedKeys();
@@ -251,7 +253,7 @@ public class DaoProductAdmin {
 
     public boolean changeImg(String id, String color, String oldNameImg, String newNameImg) {
         PreparedStatement s = null;
-        String sql = "UPDATE linkimg SET img=? WHERE id=? AND img=? AND color=?";
+        String sql = "UPDATE linkimg SET img=? WHERE idProduct=? AND img=? AND color=?";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, newNameImg);

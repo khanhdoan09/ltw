@@ -23,8 +23,9 @@ public class AddNewProduct extends HttpServlet {
         int sale = Integer.parseInt(request.getParameter("sale"));
         String date = request.getParameter("date");
         String description = request.getParameter("description");
-        Product product = new Product(price, sale, brand, name, date, description);
+        String category = request.getParameter("category");
+        Product product = new Product(price, sale, brand, name, date, description, category);
         int id = DaoProductAdmin.getInstance().addNewProduct(product);
-        request.getRequestDispatcher("/EditProduct?id="+id).forward(request, response);
+        request.getRequestDispatcher("/ProductDetailAdmin?id="+id).forward(request, response);
     }
 }

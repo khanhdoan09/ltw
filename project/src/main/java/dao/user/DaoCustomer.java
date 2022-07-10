@@ -1,7 +1,7 @@
 package dao.user;
 
 import beans.History;
-import database.DatabaseConnection;
+import database.DbConnection;
 import beans.User;
 
 import java.security.MessageDigest;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class DaoCustomer {
     private static DaoCustomer instance = null;
-    Connection connect = DatabaseConnection.getConnection();
+    Connection connect = DbConnection.getConnection();
 
 
     public static DaoCustomer getInstance() {
@@ -27,16 +27,17 @@ public class DaoCustomer {
     private DaoCustomer() {
     }
 
-    public boolean updateInfo(String id, String name, String email, String phone, String gender) {
+    public boolean updateInfo(String id, String name, String email, String phone, String gender, String dob) {
         try {
-            String sql = "UPDATE user SET name = ?, email = ?, phone_number = ?, gender=? WHERE id = ?;";
+            String sql = "UPDATE user SET name = ?, email = ?, phone_number = ?, gender=?, dob=? WHERE id = ?;";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, name);
             s.setString(2, email);
             s.setString(3, phone);
             s.setString(4, gender);
-            s.setString(5, id);
-
+            s.setString(5, dob);
+            s.setString(6, id);
+            System.out.println(s.toString());
             int row = s.executeUpdate();
             return row == 1? true: false;
         } catch (SQLException e) {
@@ -150,7 +151,7 @@ public class DaoCustomer {
     private String getAvatarShoe(String shoeId, String colorId) {
         String re="";
         try {
-            String sql = "SELECT img FROM `linkimg` inner join product on linkimg.id=product.id where product.id=? and color=? and level=0;";
+            String sql = "SELECT img FROM `linkimg` inner join product on linkimg.idProduct=product.id where product.id=? and color=? and level=0;";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, shoeId);
             s.setString(2, colorId);

@@ -3,7 +3,6 @@ package service.customer.personal;
 import dao.user.DaoCustomer;
 import dao.user.DaoCustomerAddress;
 import beans.AddressCustomer;
-import beans.History;
 import java.util.List;
 
 public class PersonalAddressService {
@@ -23,7 +22,4 @@ public class PersonalAddressService {
         return DaoCustomerAddress.getInstance().getAddress(idCustomer);
     }
 
-    public List<History> getHistoryPurchase(String idCustomer) {
-        return DaoCustomer.getInstance().getHistoryPurchase(idCustomer);
-    }
 }

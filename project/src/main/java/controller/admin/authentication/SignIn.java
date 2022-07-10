@@ -3,13 +3,15 @@ package controller.admin.authentication;
 import controller.admin.authentication.api.ConstantsSignIn;
 import controller.admin.authentication.api.GoogleItem;
 import controller.admin.authentication.api.GooglePojo;
-import model.Admin.DaoAuthentication;
+import dao.user.DaoAuthentication;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "SignIn", value = "/SignIn")
@@ -34,7 +36,7 @@ public class SignIn extends HttpServlet {
                 request.getRequestDispatcher("/Route?page=listProduct").forward(request, response);
                 return;
             }
-            request.getRequestDispatcher("/views/admin/authentication/signIn/signIn.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/admin/authentication/signIn/signInAdmin.jsp").forward(request, response);
             return;
         }
         else {
@@ -55,6 +57,10 @@ public class SignIn extends HttpServlet {
             }
             if (emailValidation == null && passwordValidation == null) {
                 if (DaoAuthentication.getInstance().checkPassword(password) == false) {
+                    HttpSession session = request.getSession(true);
+
+                    session.setMaxInactiveInterval(900); // set timeout in 15 minute
+
                     request.getSession(true).setAttribute("userAdmin", true);
                     request.getRequestDispatcher("/views/admin/crud/product/list-product.jsp").forward(request, response);
                     return;
@@ -62,7 +68,7 @@ public class SignIn extends HttpServlet {
             }
             request.setAttribute("emailValidation", emailValidation);
             request.setAttribute("passwordValidation", passwordValidation);
-            request.getRequestDispatcher("/views/admin/authentication/signIn/signIn.jsp").forward(request, response);
+            request.getRequestDispatcher("/views/admin/authentication/signIn/signInAdmin.jsp").forward(request, response);
         }
     }
 }

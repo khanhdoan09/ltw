@@ -32,7 +32,7 @@
 
             </li>
             <li class="collapsed">
-                <a id="addProduct" class="m-link" href="<%=request.getContextPath()%>/views/admin/crud/product/addProduct.jsp">
+                <a id="addProduct" class="m-link" href="<%=request.getContextPath()%>/GetAddFormAdmin">
                     <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
             </li>
             <li class="collapsed">

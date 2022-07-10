@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import beans.Product;
 import dao.product.DaoProductAdmin;
+import dao.product.detail.DaoProductDetail;
 
 public class ProductAdminService {
 
@@ -64,5 +65,15 @@ public class ProductAdminService {
     public List<Product> getListProduct(ArrayList<String> listParameterOfCondition, String sqlAll) {
         return DaoProductAdmin.getInstance().excQuery(listParameterOfCondition, sqlAll);
     }
+
+    public int editProduct(String id, Product productDetail) {
+        return  DaoProductAdmin.getInstance().editProduct(id, productDetail);
+    }
+
+    public Product getDetailProduct(String id) {
+        return DaoProductDetail.getInstance().getDetailProduct(id);
+    }
+
+
 
 }

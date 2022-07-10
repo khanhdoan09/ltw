@@ -53,5 +53,19 @@ public class DaoUserAdmin {
         }
         return re;
     }
+    public String getUserName(String id) {
+        try {
+            String sql = "SELECT name FROM user WHERE id=? ";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getString("name");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 
 }

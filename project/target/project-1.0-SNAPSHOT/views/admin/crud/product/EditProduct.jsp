@@ -1,9 +1,12 @@
 <%@ page import="beans.Product" %>
 <%@ page import="beans.Image" %>
+<%@ page import="beans.Brand" %>
+<%@ page import="beans.Category" %>
 <%@ page import="java.io.File" %>
 <%@ page import="beans.ProductDetail" %>
 <%@ page import="java.util.*" %>
 <%@ page import="dao.product.DaoProductAdmin" %>
+<%@ page import="dao.product.category.DaoCategory" %>
 <%@ page import="dao.product.color.DaoProductColor" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %><%--
   Created by IntelliJ IDEA.
@@ -48,16 +51,10 @@
 
 
     <style>
-        .clicked {
-            color: #eeee13;
-        }
-        #brands {
-            display: none;
-        }
         .remove-img-detail {
             width: 27%;
             margin: 5px 0;
-            background-color: #dedee4;
+            color: white;
         }
         .fileNewImg {
             background-color: #62637a;
@@ -74,6 +71,13 @@
             border-radius: 10px;
             font-size: 15px;
             margin: 5px 0;
+        }
+        .main_img {
+            width: 20px;
+            height: 20px;
+        }
+        input[type='file'] {
+            color: transparent;
         }
     </style>
 
@@ -96,7 +100,7 @@
 
         <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="EditCurrentProductAdmin?id=<%=product.getId()%>">
 
-        <div class="container-xxl">
+            <div class="container-xxl">
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
@@ -133,67 +137,67 @@
                             </div>
                             <div class="card mb-3">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                    <h5 class="m-0 fw-bold">Thống kê:</h5>
+                                    <h5 class="m-0 fw-bold">Thống kê</h5>
                                 </div>
                                 <div class="card-body">
                                     <table style="width: 100%;" class="add-new-detail">
                                         <thead>
-                                        <th>color</th>
+                                        <th>màu</th>
                                         <th>size</th>
-                                        <th>total</th>
-                                        <th>sole</th>
+                                        <th>tổng</th>
+                                        <th>đã bán</th>
                                         </thead>
 
-                                    <%
-                                        int totalQuantity=0;
-                                        int totalSole=0;
-                                     List<ProductDetail>list = product.getDetail();
-                                     int countDetail=0;
-                                     if (list != null) {
-                                        for (ProductDetail detail : list ) {
-                                            String color = detail.getColor();
-                                            int size = detail.getSize();
-                                            int totalValue = detail.getTotalValue();
-                                            int soleValue = detail.getSoleValue();
-                                    %>
+                                        <%
+                                            int totalQuantity=0;
+                                            int totalSole=0;
+                                            List<ProductDetail>list = product.getDetail();
+                                            int countDetail=0;
+                                            if (list != null) {
+                                                for (ProductDetail detail : list ) {
+                                                    String color = detail.getColor();
+                                                    int size = detail.getSize();
+                                                    int totalValue = detail.getTotalValue();
+                                                    int soleValue = detail.getSoleValue();
+                                        %>
                                         <tr id="tr-detail-<%=countDetail%>" class="tr-detail" data-color="<%=color%>">
-                                                <td>
-                                                    <span style="width: 50px;"><%=color%></span>
-                                                </td>
-                                                <td style="display: flex;">
-                                                    <label class="form-check-label" for="size-<%=size%>">
-                                                        <%=size%>
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <input name="totalValue" style="width: 50px;" id="totalValue-<%=totalValue%>"value="<%=totalValue%>" type="number">
-                                                </td>
-                                                <td>
-                                                    <input  name="soleValue" style="width: 50px;" id="soleValue-<%=soleValue%>"value="<%=soleValue%>"  type="number">
-                                                </td>
+                                            <td>
+                                                <span style="width: 50px;"><%=color%></span>
+                                            </td>
+                                            <td style="display: flex;">
+                                                <label class="form-check-label" for="size-<%=size%>">
+                                                    <%=size%>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input name="totalValue" style="width: 50px;" id="totalValue-<%=totalValue%>"value="<%=totalValue%>" type="number">
+                                            </td>
+                                            <td>
+                                                <input  name="soleValue" style="width: 50px;" id="soleValue-<%=soleValue%>"value="<%=soleValue%>"  type="number">
+                                            </td>
                                             <td>
                                                 <a class="remove-detail" style="cursor: pointer; font-size: 18px" data-detail="<%=countDetail%>" data-color="<%=color%>" data-size="<%=size%>" data-total="<%=totalValue%>" data-sole="<%=soleValue%>" >
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                    <%
-                                            totalQuantity+=totalValue;
-                                            totalSole+=soleValue;
-                                            countDetail++;
+                                        <%
+                                                    totalQuantity+=totalValue;
+                                                    totalSole+=soleValue;
+                                                    countDetail++;
+                                                }
                                             }
-                                        }
-                                    %>
+                                        %>
 
                                     </table>
 
                                     <h5 class="m-0 fw-bold" style="margin: 10px ">Thêm size</h5>
                                     <table style="width: 100%;" class="table-add-detail">
                                         <thead>
-                                        <th>color</th>
+                                        <th>màu</th>
                                         <th>size</th>
-                                        <th>total</th>
-                                        <th>sole</th>
+                                        <th>tổng</th>
+                                        <th>đã bán</th>
                                         </thead>
                                         <%List<String>colors = DaoProductColor.getInstance().getListColor(product.getId());
                                             for(String color : colors){%>
@@ -251,16 +255,7 @@
                                             <label class="form-label">Tên</label>
                                             <input required type="text" class="form-control" name="name" value="<%=product.getName()%>">
                                         </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Nhãn hàng</label>
-                                            <input type="text" list="brands" class="form-control" name="brand" autocomplete="off" value="<%=product.getBrand()%>"/>
-                                            <datalist id="brands">
-                                                <%List<String> brands = DaoProductBrand.getInstance().getListBrand();
-                                                for (String brand: brands){%>
-                                                <option><%=brand%></option>
-                                                <%}%>
-                                            </datalist>
-                                        </div>
+                                        <div class="col-md-6"> <label class="form-label">Nhãn hàng</label> <select id="form-label" name="brand"> <% String brandCurrent = product.getBrand(); ArrayList<Brand> brands = DaoProductBrand.getInstance().getListBrand(); for (Brand brand: brands){%> <option value="<%=brand.getId()%>" <%if(brand.getId().equals(brandCurrent)){%>selected<%}%>><%=brand.getName()%></option> <%}%> </select> </div>
                                         <div class="col-md-12">
                                             <label class="form-label" for="description">Mô tả</label>
                                             <input required name="description" type="text" style="display: block; width: 100%; height: 80px;" id="description" placeholder="
@@ -292,8 +287,8 @@
                                                     <%
                                                         String mainColor = DaoProductAdmin.getInstance().getMainColor(product.getId());
                                                         List<String>listColor = DaoProductColor.getInstance().getListColor(product.getId());
-                                                        %>
-    <%
+                                                    %>
+                                                    <%
                                                         for(int j = 0; j < listColor.size(); j++){%>
 
                                                     <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
@@ -303,7 +298,7 @@
                                                         <div class="d-flex align-items-center">
                                                             <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
                                                                 <%if(mainColor.equals(listColor.get(j))){ %>
-                                                                        checked
+                                                                   checked
                                                                 <%}%>>
 
                                                             <label for="mainColor_<%=listColor.get(j)%>" style="cursor: pointer">Chọn Màu Chính</label>
@@ -313,17 +308,17 @@
 
                                                     <%for(int i= 0;i < product.getListImg().size(); i++){%>
                                                     <%String color = product.getListImg().get(i).getColor();
-                                                    if (color.equals(listColor.get(j))){%>
+                                                        if (color.equals(listColor.get(j))){%>
                                                     <div style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px" class="contain-color-image" data-color="<%=color%>">
                                                         <%String nameImg = product.getListImg().get(i).getImg();%>
 
                                                         <img id="img-<%=i%>" src="upload/product/<%=nameImg%>" width="280" height="280">
                                                         <input id="input-img-<%=i%>" class="imgLoad imgExist" data-nameimg="<%=nameImg%>" data-containhiddenimgexist="containHiddenImgExist-<%=i%>" data-color="<%=color%>" data-img="img-<%=i%>" type="file" name="fileImg" />
                                                         <!-- to change img -->
-                                                        <input type="hidden" name="containHiddenImgExist" id="containHiddenImgExist-<%=i%>" value="empty" >
-                                                        <button class="remove-img-detail" data-nameimg="<%=nameImg%>">Xóa</button>
+                                                        <input class="btn btn-primary" type="hidden" name="containHiddenImgExist" id="containHiddenImgExist-<%=i%>" value="empty" >
+                                                        <button class="remove-img-detail btn btn-danger" data-nameimg="<%=nameImg%>">Xóa</button>
                                                         <div class="d-flex align-items-center my-2">
-                                                            <input  style="width: 30px; height:30px" type="radio" id="mainImage_<%=i%>" name="chooseMainImage" value="<%=nameImg%>~<%=color%>"
+                                                            <input class="main_img" type="radio" id="mainImage_<%=i%>" name="chooseMainImage" value="<%=nameImg%>~<%=color%>"
                                                                     <% if(product.getListImg().get(i).getLelvel()==0){%>
                                                                     checked
                                                                     <%}%>
@@ -363,65 +358,7 @@
                             </div>
                         </div>
 
-                        <%
-                        String gender = product.getGender();
-                        String typeCategory = product.getCategory();
-                        %>
-                        <div class="card mb-3">
-                            <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                                <h6 class="m-0 fw-bold">Giới tính</h6>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" value="Man"
-                                        <%
-
-                                         if(gender.toLowerCase().equals("man")){%>
-                                        <%="checked"%>
-                                        <%}%>>
-                                    <label class="form-check-label">
-                                        Nam
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" value="Woman"
-                                        <%
-                                         if(gender.toLowerCase().equals("woman")){%>
-                                        <%="checked"%>
-                                        <%}%>>
-                                    <label class="form-check-label">
-                                        Nữ
-                                    </label>
-                                </div>
-
-                            </div>
-                            <div class="card-body">
-                                <label class="form-label">Thể loại</label>
-                                <select class="form-select" size="3" aria-label="size 3 select example" name="category">
-                                    <option value="Skateboard"  <%
-                                        if(typeCategory.equals("Skateboard")){%>
-                                            <%="selected"%>
-                                            <%}%>>Skateboard</option>
-                                    <option value="Slides" <%
-                                        if(typeCategory.equals("Slides")){%>
-                                            <%="selected"%>
-                                            <%}%>>Slides</option>
-                                    <option value="Sneakers" <%
-                                        if(typeCategory.equals("Sneakers")){%>
-                                            <%="selected"%>
-                                            <%}%>>Sneakers</option>
-                                    <option value="Trainers" <%
-                                        if(typeCategory.equals("Trainers")){%>
-                                            <%="selected"%>
-                                            <%}%>>Trainers</option>
-                                    <option value="Running" <%
-                                        if(typeCategory.equals("Running")){%>
-                                            <%="selected"%>
-                                            <%}%>>Running</option>
-                                </select>
-                            </div>
-                        </div>
+                        <div class="card-body"> <label class="form-label">Thể loại</label> <select class="form-select" size="3" aria-label="size 3 select example" name="category"> <%for (Category category : DaoCategory.getInstance().getListCategory()) {%> <option value = "<%=category.getId()%>" <%if(category.getId().toString().equals(product.getCategory().toString())) {%> selected <%}%> ><%=category.getName() +" " +category.getGender() %></option> <%}%> </select> </div>
 
                         <div class="col-md-12">
                             <div class="col-md-12">
@@ -454,7 +391,7 @@
                 </div>
                 <!-- Row end  -->
 
-        </div>
+            </div>
         </form>
 
     </div>
@@ -586,24 +523,24 @@
     })
 
     function removeDetail(tr) {
-            let data = $(tr).data("detail")
-            let color = $(tr).data("color")
-            let size = $(tr).data("size")
-            let total = $(tr).data("total")
-            let sole = $(tr).data("sole")
-            alert(`Are you sure wanna delete this tr-detail-`+data + " " + color + " "+size)
-            $(`#tr-detail-`+data).remove()
-            $.ajax({
-                url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
-                type: 'POST',
-                success: function (data) {
-                    $("#totalValue").val($("#totalValue").val()-total)
-                    $("#totalSole").val($("#totalSole").val()-sole)
-                },
-                error: function() {
-                    alert("Error")
-                }
-            })
+        let data = $(tr).data("detail")
+        let color = $(tr).data("color")
+        let size = $(tr).data("size")
+        let total = $(tr).data("total")
+        let sole = $(tr).data("sole")
+        alert(`Are you sure wanna delete this tr-detail-`+data + " " + color + " "+size)
+        $(`#tr-detail-`+data).remove()
+        $.ajax({
+            url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
+            type: 'POST',
+            success: function (data) {
+                $("#totalValue").val($("#totalValue").val()-total)
+                $("#totalSole").val($("#totalSole").val()-sole)
+            },
+            error: function() {
+                alert("Error")
+            }
+        })
 
     }
 
@@ -739,13 +676,13 @@
         let i = new Date().getTime()
         let newImg = `<div class="d-flex justify-content-around" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
-                        <input type="file" name="fileImg" id="input-img-`+id+`" data-containmainimg="mainImage_`+i+`" data-containhidden="hidden-`+j+`" data-color="`+color+`" class="imgLoad" data-img="img-`+id+`"/>
+                        <input type="file" name="fileImg" id="input-img-`+id+`" data-containmainimg="mainImage_`+i+`" data-containhidden="hidden-`+j+`" data-color="`+color+`" class="imgLoad btn btn-primary" data-img="img-`+id+`"/>
                         <!--send color and file name-->
                         <input value="`+color+`" name="newimg" type="hidden" id="hidden-`+j+`" />
 
-                        <button class="remove-img-detail">Xóa</button>
+                        <button class="remove-img-detail btn btn-danger">Xóa</button>
 <div class="d-flex align-items-center my-2">
-                                                            <input style="width: 30px; height:30px" type="radio" id="mainImage_`+i+`" name="chooseMainImage" value="">
+                                                            <input class="main_img" type="radio" id="mainImage_`+i+`" name="chooseMainImage" value="">
                                                             <label style="cursor: pointer" for="mainImage_`+i+`"><h6>Main Image</h6></label>
                                                         </div>
                         </div>

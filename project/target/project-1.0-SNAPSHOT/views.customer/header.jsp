@@ -5,6 +5,7 @@
 <%@ page import="dao.user.UserDao" %>
 <%@ page import="beans.Brand" %>
 <%@ page import="dao.product.brand.DaoProductBrand" %>
+<%@ page import="dao.user.DaoUserAdmin" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="beans.Category" %>
 <%@ page import="dao.product.category.DaoCategory" %>
@@ -21,9 +22,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%--<c:set var="list" value="${cart.data}"/>--%>
 
-<%--<%--%>
-<%--    User user = (User) session.getAttribute("auth");--%>
-<%--%>--%>
 <header>
     <div class="contain-header-inner">
         <div class="container">
@@ -46,12 +44,24 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-user color-header"></i><span class="color-header">Tài
-                                                khoản</span> <span style=" font-size: 15px;"
+                                        <i class="fa fa-user color-header"></i><span class="color-header">
+                                            <% Object isLogin = request.getSession().getAttribute("userId");
+                                            if (isLogin != null) {
+                                            String idCustomer = (String) isLogin;%>
+                                                <%= DaoUserAdmin.getInstance().getUserName(idCustomer) %>
+                                            <%}else {%>
+                                                Tài khoản
+                                            <%}%>
+                                    </span> <span style=" font-size: 15px;"
                                                                    class="caret color-header"></span></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
+                                        <%
+                                        if (isLogin == null){%>
                                         <li><a href="#" class="js-login" id="Login">Đăng Nhập</a></li>
                                         <li><a href="#" class="js_register">Đăng Ký</a></li>
+                                        <%}else {%>
+                                        <li><a id="sign_out" class="js-login">Đăng xuất</a></li>
+                                        <%}%>
                                     </ul>
                                 </li>
                             </ul>

@@ -23,6 +23,7 @@ public class ProductDetail extends HttpServlet {
         Product product = DaoProductDetail.getInstance().getDetailProduct(id);
         request.setAttribute("productDetail", product);
         request.getRequestDispatcher("/views/admin/crud/product/EditProduct.jsp").forward(request, response);
+//        request.getRequestDispatcher("/views/admin/crud/product/productDetail.jsp").forward(request, response);
 
     }
 }
