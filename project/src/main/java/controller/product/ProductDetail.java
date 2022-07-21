@@ -1,7 +1,9 @@
 package controller.product;
 
+import dao.comment.DaoComment;
 import dao.product.DaoProduct;
 import beans.Product;
+import beans.Comment;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +28,13 @@ public class ProductDetail extends HttpServlet {
         List<Product> listHotProduct = DaoProduct.getInstance().getListHotProduct(idProduct);
         request.setAttribute("listHotProduct", listHotProduct);
 
+        List<Comment> listComment = DaoComment.getInstance().getListComment(idProduct);
+        request.setAttribute("listComment", listComment);
+        System.out.println("comment");
+        for (Comment c :
+                listComment) {
+            System.out.println("comment "+c.getIdComment());
+        }
         Product productDetail = DaoProduct.getInstance().getDetailProduct(idProduct);
         request.setAttribute("product", productDetail);
 

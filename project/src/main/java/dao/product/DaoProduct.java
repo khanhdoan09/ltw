@@ -1,6 +1,7 @@
 package dao.product;
 
 import beans.Product;
+import beans.Comment;
 import beans.ProductDetail;
 import beans.ImgProduct;
 import database.DatabaseConnection;
@@ -137,6 +138,8 @@ public class DaoProduct  {
         }
         return list;
     }
+
+
 
     private ImgProduct getListImg(String id) {
         List<String> mainImg = new ArrayList<String>();

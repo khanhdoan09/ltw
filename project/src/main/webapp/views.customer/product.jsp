@@ -3,7 +3,8 @@
 <%@ page import="dao.product.image.DaoLinkImage" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="beans.Comment" %><%--
   Created by IntelliJ IDEA.
   User: khanh
   Date: 12/10/2021
@@ -322,7 +323,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
             <div class="productinfo-tab bg-white bd-rd pd-5" style="width: 100%; max-width: 830px;">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab-description" data-toggle="tab">Mô tả</a></li>
-                    <li><a href="#tab-review" data-toggle="tab">Bình luận (1)</a></li>
+                    <li><a href="#tab-review" data-toggle="tab">Bình luận</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab-description">
@@ -337,38 +338,59 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                         <!-- cpt_container_end -->
                     </div>
                     <div class="tab-pane" id="tab-review">
-                        <div class="form-horizontal">
-                            <div id="review"></div>
+                        <div class="filter-search" style=" width: 791px;height: 450px;overflow-y: auto;::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #1a94ff;;
+}">
+                            <div id="data">
+                                <script>
+                                    function loadName(idp,iduser) {
+                                        const xhttp = new XMLHttpRequest();
+                                        xhttp.onload = function() {
+                                            document.getElementById(idp).innerText =this.responseText;
+                                        }
+                                        xhttp.open("GET", "GetUsername?idUser="+iduser);
+                                        xhttp.send();
+                                    }
 
-                            <div class="form-group required">
-                                <div class="col-sm-12">
-                                    <label class="control-label" for="input-review">Bình luận của bạn</label>
-                                    <textarea name="text" rows="5" id="input-review"
-                                              class="form-control"></textarea>
+                                </script>
+                                <%
+                                    List<Comment> listComment = (List<Comment>) request.getAttribute("listComment");
+                                    for (Comment comment : listComment ) {%>
 
-                                </div>
-                            </div>
-                            <div class="form-group required">
-                                <div class="col-sm-12" style="margin-left: 5px;">
-                                    Bad
-                                    <input type="radio" name="rating" value="1" />
-                                    <input type="radio" name="rating" value="2" />
-                                    <input type="radio" name="rating" value="3" />
-                                    <input type="radio" name="rating" value="4" />
-                                    <input type="radio" name="rating" value="5" />
-                                    Good
-                                </div>
-                            </div>
-                            <div class="buttons clearfix">
-                                <div class="pull-right">
-                                    <button type="button" id="button-review" data-loading-text="Loading..."
-                                            class="btn btn-primary">Continue
-                                    </button>
-                                </div>
+                                <div  style="padding:10px;border-radius: 10px; width: 750px;min-height: 70px;display: inline-block;background-color: #f4f4f485; padding-bottom: 10px;border-bottom: 1px solid gray;  margin: 0 0 20px;">
+                                <div style="width: 33%;float: left;">
+                                    <img src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/277422021_1130457087715524_1385118291544427440_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=g6KTcOYQRG4AX9VX2bN&_nc_oc=AQmhjgOMSZ0lIl9BzCRrnSNLwaqwWgEy3trVsRWnHl1SNTNbib10boJ4WJEbWmxN2OdpAXFiVbLDb1s9853TBCkS&tn=-Wi9PJrRsfNg76hU&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-MERZ3VGuYZVp83PkhcsFVp3UQnBpy_oJRxc2a5oceRg&oe=62DC5E40" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">
+                                    <div class="abc" style="margin: -50px 0 0 62px;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">
+                                        <p class="username" id = "<%= comment.getIdUser()%>"style="margin: 0;margin-bottom: 2px;"> </p>
+                                        <script>
+                                            loadName("<%= comment.getIdUser()%>","<%=comment.getIdUser()%>");
+                                        </script>
+                                        <img src="image/Vietnam-icon-2.png" alt="" class="icon" style="width: 20px;">
+                                        <p class="vn" style="margin: -24px 0 0 25px;font-size: 13px;font-weight: normal;">Việt Nam</p>
+                                        </div>
+                                    </div>
+                                <div  style="width: 67%;float: left;min-height: 70px;">
+                                    <p  style="margin: 0px 0 3px 15px;font-family: system-ui;;font-family: system-ui;"><%= comment.getDateComment()%></p>
+                                     <div class="change_tym_color" style="background-color: #6ececc;float:right;cursor: pointer; width: 22px;height: 20px;margin-top:-30px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"> </div>
+                                    <div class="textContent" style="margin:  0 15px;text-align: justify; font-family: system-ui;">
+                                        <p style="margin: 0;color:black;"> <%= comment.getContent()%>> </p>
+                                    </div>
+                                    </div>
+                                </div></br>
+                                <%}%>
+
                             </div>
                         </div>
+                        <form id="myForm" style="margin-top: 15px">
+
+                            <textarea id="contentComment" rows="2" cols="85" name="comment" style="border-radius: 5px;" placeholder="Nhập bình luận của bạn...";maxlength="200";>
+                            </textarea>
+                            <input type="button" onclick="myFunction()" value="Bình luận" style="float: right;margin: 20px 40px 0 0;padding: 5px 20px;border-radius: 10px;background-color: #1a94ff;color: white;font-weight: bold;">
+                        </form>
+
                     </div>
-                </div>
 
             </div>
 
@@ -659,6 +681,68 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
     $(function() {
         swapSubImgAndAvatar()
     })
+    function loadName(idp,iduser) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById(idp).innerText =this.responseText;
+        }
+        xhttp.open("GET", "GetUsername?idUser="+iduser);
+        xhttp.send();
+    }
+
+
+//    up comment
+    function myFunction() {
+        <%if(session.getAttribute("userId")==null){%>
+        alert("do not login")
+        <%}else{%>
+
+        <%--var username= loadName("<%= p.getId()%>","<%=session.getAttribute("userId")%>");--%>
+        var date = new Date();
+        var today = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+ "    |    " + date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+        let comment = document.getElementById("contentComment").value;
+        let data = document.getElementById("data").innerHTML;
+        data = '<div  style="padding:10px;border-radius: 10px; width: 750px;min-height: 70px;display: inline-block;background-color: #f4f4f485; padding-bottom: 10px;border-bottom: 1px solid gray;  margin: 0 0 20px;"> ' +
+            ' <div style="width: 33%;float: left;">'
+            + '<img src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/277422021_1130457087715524_1385118291544427440_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=g6KTcOYQRG4AX9VX2bN&_nc_oc=AQmhjgOMSZ0lIl9BzCRrnSNLwaqwWgEy3trVsRWnHl1SNTNbib10boJ4WJEbWmxN2OdpAXFiVbLDb1s9853TBCkS&tn=-Wi9PJrRsfNg76hU&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-MERZ3VGuYZVp83PkhcsFVp3UQnBpy_oJRxc2a5oceRg&oe=62DC5E40" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">'
+            + '<div class="abc" style="margin: -50px 0 0 62px;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">'
+            + ' <p class="username" style="margin: 0;margin-bottom: 2px;">'+username+'</p>'
+            + '  <img src="image/Vietnam-icon-2.png" alt="" class="icon" style="width: 20px;">'
+            + ' <p class="vn" style="margin: -24px 0 0 25px;font-size: 13px;font-weight: normal;">Việt Nam</p>'
+            + '</div>'
+            + '</div>'
+            + '<div  style="width: 67%;float: left;min-height: 70px;">'
+            + '<p  style="margin: 0px 0 3px 15px;font-family: system-ui;;font-family: system-ui;">'+today+'</p>'
+            + ' <div class="change_tym_color" style="background-color: #6ececc;float:right;cursor: pointer; width: 22px;height: 20px;margin-top:-30px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"> </div>'
+            + '<div class="textContent" style="margin:  0 15px;text-align: justify; font-family: system-ui;">'
+            + '<p style="margin: 0;color:black;">' + comment + '</p>'
+            + '</div>'
+            + '</div>'
+            + '</div></br>' + data;
+
+        document.getElementById("data").innerHTML = data
+        document.getElementById('contentComment').value = '';
+        const xhttp = new XMLHttpRequest();
+        // xhttp.onload = function() {
+        //     document.getElementById("demo").innerHTML = this.responseText;
+        // }
+        // let idComment = document.getElementById("data").innerText;
+        let mcomment = document.getElementById("contentComment").value;
+        let idUser ="<%=session.getAttribute("userId")%>";
+        let idProduct =<%= p.getId()%>;
+
+        xhttp.open("POST", "CommentController", true);
+        // xhttp.send("idComment="++"&idProduct=&idUser=&=dateComment&contentComment=");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        // xhttp.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+        xhttp.send("contentComment="+comment+"&dateComment="+today+"&idProduct="+idProduct+"&idUser="+idUser);
+        document.getElementById('contentComment').value = '';
+        <%}%>
+
+    }
+    document.getElementById('contentComment').value = '';
+    $(".change_tym_color").on("click", function () {
+        $(this).css("background", "red");});
 </script>
 </body>
 
