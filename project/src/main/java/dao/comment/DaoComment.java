@@ -69,7 +69,6 @@ public class DaoComment {
             s.setString(5, comment.getDateComment());
             s.executeUpdate();
 
-            // lấy id user được tự động tạo ra sau khi insert
             ResultSet rs = s.getGeneratedKeys();
             rs.next();
             String idCommentNew = rs.getString(1);
@@ -83,9 +82,8 @@ public class DaoComment {
     public int getAmountComment(String idProduct) {
         int amount = 0;
         try {
-            String sql = "SELECT DISTINCT COUNT(idComment) FROM comment WHERE idProduct=?";
+            String sql = "SELECT  COUNT(idComment) FROM comment";
             PreparedStatement s = connect.prepareStatement(sql);
-            s.setString(1, idProduct);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 amount = rs.getInt("COUNT(idComment)");

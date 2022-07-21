@@ -349,6 +349,8 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                         const xhttp = new XMLHttpRequest();
                                         xhttp.onload = function() {
                                             document.getElementById(idp).innerText =this.responseText;
+                                            console.log(this.responseText);
+                                            console.log(idp);
                                         }
                                         xhttp.open("GET", "GetUsername?idUser="+iduser);
                                         xhttp.send();
@@ -363,9 +365,9 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                 <div style="width: 33%;float: left;">
                                     <img src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/277422021_1130457087715524_1385118291544427440_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=g6KTcOYQRG4AX9VX2bN&_nc_oc=AQmhjgOMSZ0lIl9BzCRrnSNLwaqwWgEy3trVsRWnHl1SNTNbib10boJ4WJEbWmxN2OdpAXFiVbLDb1s9853TBCkS&tn=-Wi9PJrRsfNg76hU&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-MERZ3VGuYZVp83PkhcsFVp3UQnBpy_oJRxc2a5oceRg&oe=62DC5E40" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">
                                     <div class="abc" style="margin: -50px 0 0 62px;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">
-                                        <p class="username" id = "<%= comment.getIdUser()%>"style="margin: 0;margin-bottom: 2px;"> </p>
+                                        <p class="username" id = "<%= comment.getIdComment()%>"style="margin: 0;margin-bottom: 2px;"> </p>
                                         <script>
-                                            loadName("<%= comment.getIdUser()%>","<%=comment.getIdUser()%>");
+                                            loadName("<%= comment.getIdComment()%>","<%=comment.getIdUser()%>");
                                         </script>
                                         <img src="image/Vietnam-icon-2.png" alt="" class="icon" style="width: 20px;">
                                         <p class="vn" style="margin: -24px 0 0 25px;font-size: 13px;font-weight: normal;">Việt Nam</p>
@@ -681,14 +683,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
     $(function() {
         swapSubImgAndAvatar()
     })
-    function loadName(idp,iduser) {
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
-            document.getElementById(idp).innerText =this.responseText;
-        }
-        xhttp.open("GET", "GetUsername?idUser="+iduser);
-        xhttp.send();
-    }
+
 
 
 //    up comment
@@ -697,7 +692,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
         alert("do not login")
         <%}else{%>
 
-        <%--var username= loadName("<%= p.getId()%>","<%=session.getAttribute("userId")%>");--%>
+        var username= loadName("<%= p.getId()%>","<%=session.getAttribute("userId")%>");
         var date = new Date();
         var today = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+ "    |    " + date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
         let comment = document.getElementById("contentComment").value;

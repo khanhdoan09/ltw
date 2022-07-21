@@ -10,35 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/beans/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/comment/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/comment/GetUsername.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/comment/DaoComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/Vietnam-icon-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/beans/Comment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/comment/CommentController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/comment/GetUsername.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/comment/DaoComment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Comment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/comment/CommentController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/comment/GetUsername.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/comment/DaoComment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/image/Vietnam-icon-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/image/img.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/product/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/product/ProductDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/product/DaoProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/product/DaoProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/khanh-css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/comment/DaoComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/comment/DaoComment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/product/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/product/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/product/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/product/ProductDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/DaoProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/css/khanh-css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/comment/DaoComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/comment/DaoComment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/comment/DaoComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/comment/DaoComment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,14 +165,14 @@
     <configuration name="Tomcat 8.5.711" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.711" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="project:war">
+        <artifact name="project:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/project" />
+            <option name="CONTEXT_PATH" value="/project_war_exploded" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="a1b8008e-0101-43e7-a490-13af038af435" />
+        <option name="BASE_DIRECTORY_NAME" value="91e6e405-204c-4e0e-b280-a131b031c313" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -203,7 +180,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="57224" />
+        <option name="DEBUG_PORT" value="62701" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -268,7 +245,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="project:war" />
+          <artifact name="project:war exploded" />
         </option>
       </method>
     </configuration>
@@ -748,6 +725,7 @@
       <workItem from="1658305597656" duration="5145000" />
       <workItem from="1658325184338" duration="5335000" />
       <workItem from="1658375063852" duration="17973000" />
+      <workItem from="1658406706584" duration="3167000" />
     </task>
     <servers />
   </component>
