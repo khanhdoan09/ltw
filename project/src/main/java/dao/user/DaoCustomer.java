@@ -29,15 +29,13 @@ public class DaoCustomer {
 
     public boolean updateInfo(String id, String name, String email, String phone, String gender, String dob) {
         try {
-            String sql = "UPDATE user SET name = ?, email = ?, phone_number = ?, gender=?, dob=? WHERE id = ?;";
+            String sql = "UPDATE user SET name = ?, phone_number = ?, gender=?, dob=? WHERE id = ?;";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, name);
-            s.setString(2, email);
-            s.setString(3, phone);
-            s.setString(4, gender);
-            s.setString(5, dob);
-            s.setString(6, id);
-            System.out.println(s.toString());
+            s.setString(2, phone);
+            s.setString(3, gender);
+            s.setString(4, dob);
+            s.setString(5, id);
             int row = s.executeUpdate();
             return row == 1? true: false;
         } catch (SQLException e) {
@@ -164,5 +162,22 @@ public class DaoCustomer {
             System.out.println(e.getMessage());
         }
         return re;
+    }
+
+    public boolean updateUrlAvatar(String idCustomer, String url) {
+        PreparedStatement s = null;
+        String sql = "UPDATE user SET avatar=? WHERE id=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, idCustomer+"_"+url);
+            s.setString(2, idCustomer);
+            System.out.println(s.toString());
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("xx"+e.getMessage());
+        }
+        return false;
+
     }
 }
