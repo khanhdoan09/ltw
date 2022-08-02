@@ -31,7 +31,6 @@ public class PurchaseHistoryController extends HttpServlet {
 
         List<History> purchaseHistory = personalCustomerService.getHistoryPurchase(idCustomer);
         String json = new Gson().toJson(purchaseHistory);
-        System.out.println(json);
 
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
