@@ -4,6 +4,7 @@ import dao.comment.DaoComment;
 import dao.product.DaoProduct;
 import beans.Product;
 import beans.Comment;
+import service.customer.product.detail.DetailService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +26,7 @@ public class ProductDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idProduct = request.getParameter("idProduct");
-        List<Product> listHotProduct = DaoProduct.getInstance().getListHotProduct(idProduct);
-        request.setAttribute("listHotProduct", listHotProduct);
+
 
         List<Comment> listComment = DaoComment.getInstance().getListComment(idProduct);
         request.setAttribute("listComment", listComment);
@@ -35,8 +35,11 @@ public class ProductDetail extends HttpServlet {
                 listComment) {
             System.out.println("comment "+c.getIdComment());
         }
-        Product productDetail = DaoProduct.getInstance().getDetailProduct(idProduct);
-        request.setAttribute("product", productDetail);
+
+
+        DetailService detailService = new DetailService();
+        request.setAttribute("product", detailService.getDetail(idProduct));
+        request.setAttribute("listHotProduct", detailService.getListHotProduct(idProduct));
 
         // product was watched
         HttpSession session = request.getSession(true);

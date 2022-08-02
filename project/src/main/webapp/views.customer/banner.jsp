@@ -13,8 +13,6 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLDecoder" %>
-<%@ page import="model.*" %>
-<%@ page import="model.Admin.DaoProductAdmin" %>
 <%@ page import="beans.Banner" %>
 
 
