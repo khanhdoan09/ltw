@@ -1,5 +1,6 @@
 <%@ page import="dao.product.DaoProduct" %>
 <%@ page import="beans.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
@@ -38,6 +39,7 @@
     <style>
         .product-imageblock {
             height: 35% !important;
+            background-color: #ededed;
         }
     </style>
 </head>
@@ -140,8 +142,8 @@
                 <div id="tab-latest" class="tab-content">
                     <div class="box">
                         <div id="latest-slidertab" class="row owl-carousel product-slider">
-                            <%for (Product product : DaoProduct
-                                    .getInstance().getNewestProduct()) {%>
+                            <%   List<Product> listNewestProduct = (List<Product>) request.getAttribute("listNewestProduct");
+                                for (Product product : listNewestProduct) {%>
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
@@ -176,8 +178,8 @@
                 <div id="tab-special" class="tab-content">
                     <div class="box">
                         <div id="special-slidertab" class="row owl-carousel product-slider">
-                            <%for (Product product : DaoProduct
-            .getInstance().getBestSale()) {%>
+                            <%List<Product> listBestSaleProduct = (List<Product>) request.getAttribute("listBestSaleProduct");
+                                for (Product product : listBestSaleProduct)  {%>
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
@@ -220,8 +222,8 @@
                 <div id="tab-bestseller" class="tab-content">
                     <div class="box">
                         <div id="bestseller-slidertab" class="row owl-carousel product-slider">
-                            <%for (Product product : DaoProduct
-                                    .getInstance().getBestSeller()) {%>
+                            <%List<Product> listBestSellerProduct = (List<Product>) request.getAttribute("listBestSellerProduct");
+                                for (Product product : listBestSellerProduct)  {%>
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">

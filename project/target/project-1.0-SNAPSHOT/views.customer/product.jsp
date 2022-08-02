@@ -123,10 +123,6 @@
                 <div class="col-sm-6">
                     <div class="thumbnails">
                         <div>
-                            <%List<String> listMainImg = p.getImg().getMain();
-                                List<String> listSubImg = p.getImg().getSub();
-                            %>
-
                             <!-- anh chinh -->
                             <%String mainColor = p.getMainColor();%>
                             <a class="thumbnail" href="" title="lorem ippsum dolor dummy">
@@ -451,7 +447,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
 
             </div>
         </div>
-
+        </div>
         <div id="column-left" class="col-sm-3 column-left" style="flex: 1; padding: 0px; margin-top: 10px;">
             <div class="column-block ">
                 <div class="column-block">
@@ -549,8 +545,8 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
 
 
         </div>
+
     </div>
-</div>
 
 <%@include file="footer_login_message.jsp"%>
 <script src="../javascript/hung-js.js"></script>

@@ -373,7 +373,7 @@ public class DaoProduct  {
                 re.add(product);
             }
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header " + sql);
+            System.out.println(e.getMessage());
         }
         return re;
     }
@@ -391,7 +391,7 @@ public class DaoProduct  {
                 re.add(rs.getInt("size"));
             }
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header " + sql);
+            System.out.println(e.getMessage());
         }
         return re;
     }
@@ -399,7 +399,7 @@ public class DaoProduct  {
     public List<String> getListSubImg(String id, String color) {
         List<String> re = new ArrayList<String>();
         PreparedStatement s = null;
-        String sql = "SELECT img FROM linkimg WHERE id=? AND color=? AND level=1";
+        String sql = "SELECT img FROM linkimg WHERE idProduct=? AND color=? AND level=1";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, id);
@@ -409,14 +409,14 @@ public class DaoProduct  {
                 re.add(rs.getString("img"));
             }
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header " + sql);
+            System.out.println(e.getMessage());
         }
         return re;
     }
 
     public String getMainImg(String id, String color) {
         PreparedStatement s = null;
-        String sql = "SELECT img FROM linkimg WHERE id=? AND color=? AND level=0";
+        String sql = "SELECT img FROM linkimg WHERE idProduct=? AND color=? AND level=0";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, id);
@@ -426,7 +426,7 @@ public class DaoProduct  {
                 return rs.getString("img");
             }
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header " + sql);
+            System.out.println(e.getMessage());
         }
         return "";
     }
@@ -447,7 +447,7 @@ public class DaoProduct  {
             }
             return total-sole;
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header " + sql);
+            System.out.println(e.getMessage());
         }
         return 0;
     }
@@ -463,7 +463,7 @@ public class DaoProduct  {
               return rs.getString("mainColor");
             }
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header " + sql);
+            System.out.println(e.getMessage());
         }
         return "";
     }

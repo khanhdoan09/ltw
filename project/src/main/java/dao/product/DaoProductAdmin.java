@@ -82,7 +82,7 @@ public class DaoProductAdmin {
             System.out.println(s.executeUpdate());
             return true;
         } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header" + sql);
+            System.out.println(e.getMessage());
         }
         return false;
     }

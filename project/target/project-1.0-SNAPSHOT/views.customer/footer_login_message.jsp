@@ -216,13 +216,13 @@
 
 <!-- Begin: modal message -->
 <div class="icon-message">
-    <img class="icon-mess js-open-mess" src="../image/icon/icon-mess.ico" alt="">
+    <img class="icon-mess js-open-mess" src="image/icon/icon-mess.ico" alt="">
 </div>
 <div class="modal-message message">
     <div class="mess-section">
         <div class="mess-header">
-            <img class="icon-logo " src="../image/logo.png" alt="">
-            <img class="icon-close js-close-mess" src="../image/icon/icon-close.png" alt="">
+            <img class="icon-logo " src="image/logo.png" alt="">
+            <img class="icon-close js-close-mess" src="image/icon/icon-close.png" alt="">
         </div>
         <div class="mess-content">
             <div class="mess-content-section">
