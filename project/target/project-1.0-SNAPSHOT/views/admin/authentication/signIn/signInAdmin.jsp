@@ -36,7 +36,7 @@
                     <div class="col-lg-12 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
                         <div class="w-100 p-3 p-md-5 card border-0 shadow-sm" style="max-width: 32rem;">
                             <!-- Form -->
-                            <form class="row g-1 p-3 p-md-4"  action="/project_war_exploded/SignIn" method="post">
+                            <form class="row g-1 p-3 p-md-4"  action="<%=request.getContextPath()%>/SignIn" method="post">
                                 <div class="col-12 text-center mb-5">
                                     <h1>Sign in</h1>
                                     <span>Free access to our dashboard.</span>
