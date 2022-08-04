@@ -41,16 +41,6 @@
                                     <h1>Sign in</h1>
                                     <span>Free access to our dashboard.</span>
                                 </div>
-                                <div class="col-12 text-center mb-4">
-                                    <a class="btn btn-lg btn-light btn-block" href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/project_war_exploded/SignIn&response_type=code
-    &client_id=856852490504-qhoe9aat1865vaujhem7ge55lardi2t9.apps.googleusercontent.com&approval_prompt=force">
-                                            <span class="d-flex justify-content-center align-items-center">
-                                                <img class="avatar xs me-2" src="<%=request.getContextPath()%>/image/admin/img_1.png" alt="Image Description">
-                                                Sign in with Google
-                                            </span>
-                                    </a>
-                                    <span class="dividers text-muted mt-4">OR</span>
-                                </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Email address</label>
@@ -80,9 +70,6 @@
                                 </div>
                                 <div class="col-12 text-center mt-4">
                                     <button type="submit" class="btn btn-lg btn-block btn-light lift text-uppercase" atl="signin">SIGN IN</button>
-                                </div>
-                                <div class="col-12 text-center mt-4">
-                                    <span>Don't have an account yet? <a href="auth-signup.html" class="text-secondary">Sign up here</a></span>
                                 </div>
                             </form>
                             <!-- End Form -->

@@ -74,55 +74,6 @@
 <body>
 <div id="ebazar-layout"   class="theme-blue">
 
-<%--  <div class="sidebar px-4 py-4 py-md-4 me-0">--%>
-<%--    <div class="d-flex flex-column h-100">--%>
-<%--      <a href="admin/index.html" class="mb-0 brand-icon">--%>
-
-<%--        <span class="logo-text">Dragon Sport</span>--%>
-<%--      </a>--%>
-<%--      <!-- Menu: main ul -->--%>
-<%--      <ul class="menu-list flex-grow-1 mt-3">--%>
-<%--        <li><a class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>--%>
-<%--        <li class="collapsed">--%>
-<%--          <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/Route?page=order">--%>
-<%--            <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Sản phẩm</span> </a>--%>
-<%--          <!-- Menu: Sub menu ul -->--%>
-<%--          <ul class="sub-menu collapse" id="menu-product">--%>
-
-<%--            <li><a class="ms-link" href="product-edit.html">Chỉnh sửa sản phẩm</a></li>--%>
-<%--            <li><a class="ms-link" href="product-add.html">Thêm sản phẩm</a></li>--%>
-
-<%--          </ul>--%>
-<%--        </li>--%>
-
-<%--        <li class="collapsed">--%>
-<%--          <a class="m-link active" href="<%=request.getContextPath()%>/Route?page=listProduct">--%>
-<%--            <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>--%>
-
-
-<%--        </li>--%>
-<%--        <li class="collapsed">--%>
-<%--          <a class="m-link" href="<%=request.getContextPath()%>/Route?page=customer">--%>
-<%--            <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Khách hàng</span> </a>--%>
-
-<%--        </li>--%>
-<%--        <li class="collapsed">--%>
-<%--          <a class="m-link" href="<%=request.getContextPath()%>/SignOut">--%>
-<%--            <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Sign out</span> </a>--%>
-
-<%--        </li>--%>
-
-
-
-
-<%--      </ul>--%>
-<%--      <!-- Menu: menu collepce btn -->--%>
-<%--      <button type="button" class="btn btn-link sidebar-mini-btn text-light">--%>
-<%--        <span class="ms-2"><i class="fas fa-dot-circle"></i></span>--%>
-<%--      </button>--%>
-<%--    </div>--%>
-<%--  </div>--%>
-
   <%@include file="../header.jsp" %>
 
   <!-- main body area -->
@@ -171,7 +122,7 @@
             <div class="card">
               <div class="card-body">
 
-                <table id="listProduct" class="table table-striped table-bordered" style="width:100%">
+                <table id="listProducts" class="table table-striped table-bordered" style="width:100%">
                   <thead>
                   <tr>
                     <th>Id</th>
@@ -187,7 +138,6 @@
                   </thead>
 
                   <tbody id="listProduct">
-
                   <%Object objFilter = request.getAttribute("listProduct");
                     if (objFilter != null) {
                       List<Product> list = (List<Product>) objFilter;
@@ -201,9 +151,13 @@
                     <td>$<%=product.getPrice()%></td>
                     <td>-<%=product.getSaleRate()%>%</td>
                     <td>
-                      <div class="d-grid">
+                      <div class="d-grid text-center">
                         <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
-                          <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i></a>
+                          <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i>
+                        </a>
+                        <a class="edit-remove-admin view-admin" href="<%=request.getContextPath()%>/ViewDetailProductAdmin?id=<%=product.getId()%>">
+                          <i class="fa-solid fa-eye"></i>
+                        </a>
                         <a class="edit-remove-admin edit-admin" href="<%=request.getContextPath()%>/ProductDetailAdmin?id=<%=product.getId()%>">
                           <i class="fas fa-edit"></i>
                         </a>
@@ -252,7 +206,7 @@
 
   $(document).ready(function () {
 
-    $('#listProduct').DataTable({
+    $('#listProducts').DataTable({
       "paging": false,
       "bInfo" : false,
       columnDefs: [
@@ -264,60 +218,6 @@
 </script>
 <script>
   let arrDataProductInAdmin = ""
-
-<%--  $(function() {--%>
-<%--    $('.admin-product-order').on("click", function (event) {--%>
-<%--      event.preventDefault();--%>
-
-<%--      if ($(this).is('.clicked')) {--%>
-<%--        $(this).removeClass('clicked');--%>
-<%--      }--%>
-<%--      else {--%>
-<%--        $('.admin-product-order').removeClass("clicked") // down--%>
-<%--        $(this).addClass('clicked'); // up--%>
-<%--      }--%>
-
-<%--      let url = this.href;--%>
-<%--      $.ajax({--%>
-<%--        url: url,--%>
-<%--        type: 'POST',--%>
-<%--        success: function (data) {--%>
-<%--          let arr = JSON.parse(data);--%>
-<%--          let re = ""--%>
-<%--          arrDataProductInAdmin = arr--%>
-<%--          arr.forEach((e) => {--%>
-<%--            re += `<tr>--%>
-<%--                                        <td><strong>${e.id}</strong></td>--%>
-<%--                                        <td><img src="assets/images/product/product-02.jpg" class="avatar lg rounded me-2" alt="profile-image"></td>--%>
-<%--                                        <td>${e.name}</td>--%>
-<%--                                        <td>${e.brand}</td>--%>
-<%--                                        <td>May 16, 2021</td>--%>
-<%--                                        <td>${e.value}</td>--%>
-<%--                                        <td>-${e.saleRate}</td>--%>
-<%--                                        <td>--%>
-<%--                                        <div class="d-grid">--%>
-<%--                                            <a class="edit-remove-admin remove-admin"--%>
-<%--                                            data-id="${e.id}"><i class="fas fa-trash-alt" data-id="${e.id}"></i></a>--%>
-<%--                                               <a class="edit-remove-admin edit-admin" href="EditProduct.jsp">--%>
-<%--                                            <i class="fas fa-edit"></i></a>--%>
-<%--</div>--%>
-
-<%--                                        </td>--%>
-<%--                                    </tr>`--%>
-<%--          })--%>
-<%--          $("#listProduct").empty()--%>
-<%--          $("#listProduct").append(re)--%>
-<%--          removeProductInAdmin()--%>
-<%--        },--%>
-<%--        error: function () {--%>
-<%--          $('#notification-bar').text('An error occurred');--%>
-<%--        },--%>
-<%--        async: false--%>
-<%--      });--%>
-
-<%--    });--%>
-<%--  })--%>
-
 
   function promiseRemove(id) {
     return new Promise((resolve, reject)=>{
@@ -379,11 +279,17 @@
                                         <td>`+e.value+`</td>
                                         <td>-`+e.saleRate+`</td>
                                         <td>
-                                        <div class="d-grid">
-                                                                                    <a class="edit-remove-admin remove-admin"
-                                            data-id="`+e.id+`"><i class="fas fa-trash-alt" data-id="`+e.id+`"></i></a>
-                                            <a class="edit-remove-admin edit-admin" href="EditProduct?id=`+e.id+`>"><i class="fas fa-edit"></i></a>
-</div>
+                                        <div class="d-grid text-center">
+                                            <a class="edit-remove-admin remove-admin" data-id="`+e.id+`">
+                                                <i class="fas fa-trash-alt" data-id="`+e.id+`"></i>
+                                            </a>
+                                            <a class="edit-remove-admin view-admin" href="ViewDetailProductAdmin?id=`+e.id+`>">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
+                                            <a class="edit-remove-admin edit-admin" href="EditProduct?id=`+e.id+`>">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </div>
                                         </td>
                                     </tr>`
             })

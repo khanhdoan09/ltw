@@ -59,6 +59,7 @@
                                         <li><a href="#" class="js-login" id="Login">Đăng Nhập</a></li>
                                         <li><a href="#" class="js_register">Đăng Ký</a></li>
                                         <%}else {%>
+                                        <li><a href="customer" class="js-login">Cá nhân</a></li>
                                         <li><a id="sign_out" class="js-login">Đăng xuất</a></li>
                                         <%}%>
                                     </ul>

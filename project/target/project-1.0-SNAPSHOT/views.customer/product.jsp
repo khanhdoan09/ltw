@@ -17,7 +17,7 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <title>Product | Dragon Sport</title>
+    <title>Home | Dragon Sport</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
@@ -29,10 +29,8 @@
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/fonts/fontawesome-free-6.0.0-beta3-web/css/all.css">
-    <link rel="stylesheet" href="css/dat-css.css">
     <link href="owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
     <link href="owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-    <!-- <script src="javascript/Dat-js.js" type="text/javascript"></script> -->
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="javascript/jstree.min.js" type="text/javascript"></script>
@@ -40,12 +38,12 @@
     <script src="javascript/common.js" type="text/javascript"></script>
     <script src="javascript/global.js" type="text/javascript"></script>
     <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="image/logo.png" />
-
-
+    <link rel="stylesheet" href="image/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="css/dat-css.css">
     <link rel="stylesheet" href="css/khanh-css.css">
     <link rel="stylesheet" href="css/hung-css.css">
+    <script src="javascript/khanh-js.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="image/logo.png" />
     <script src="../javascript/khanh-js.js"></script>
 
     <style>

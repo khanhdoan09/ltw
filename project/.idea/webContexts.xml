@@ -24,6 +24,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/EditProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/addNewProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/addProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/list-product.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/order-invoices.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product" />
       </map>
     </option>

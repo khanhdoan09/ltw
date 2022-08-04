@@ -44,7 +44,6 @@ public class DaoSearchProduct {
                 Product product = new Product(id, nameBrand, name, categoryP, price, saleRate, active, avatar);
                 re.add(product);
             }
-            System.out.println(s.toString());
 
         } catch (SQLException e) {
             e.printStackTrace();

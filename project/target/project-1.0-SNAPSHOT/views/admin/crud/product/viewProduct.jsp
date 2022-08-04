@@ -98,17 +98,9 @@
 
         <!-- Body: Body -->
 
-        <form id="form-edit-product" class="body d-flex py-3" method="post" enctype="multipart/form-data" action="EditCurrentProductAdmin?id=<%=product.getId()%>">
+        <div id="form-edit-product" class="body d-flex py-3">
 
             <div class="container-xxl">
-                <div class="row align-items-center">
-                    <div class="border-0 mb-4">
-                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Chỉnh sửa sản phẩm</h3>
-                            <button type="submit" id="bt-save-edit-product" class="btn btn-primary btn-set-task w-sm-100 py-2 px-5 text-uppercase">Lưu</button>
-                        </div>
-                    </div>
-                </div>
                 <!-- Row end  -->
                 <div class="row g-3 mb-3">
                     <div class="col-xl-4 col-lg-4">
@@ -392,7 +384,7 @@
                 <!-- Row end  -->
 
             </div>
-        </form>
+        </div>
 
     </div>
 

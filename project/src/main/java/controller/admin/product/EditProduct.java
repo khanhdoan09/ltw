@@ -137,7 +137,7 @@ public class EditProduct extends HttpServlet {
         Product productEdited = productAdminService.getDetailProduct(id);
 
         request.setAttribute("productDetail", productEdited);
-        request.getRequestDispatcher("/views/admin/crud/product/EditProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/crud/product/editProduct.jsp").forward(request, response);
     }
 
 

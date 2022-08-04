@@ -138,7 +138,7 @@ public class EditProductDetailAdmin  extends HttpServlet {
         DaoProductAdmin.getInstance().editProduct(id, productDetail);
 
         request.setAttribute("productDetail", DaoProductDetail.getInstance().getDetailProduct(id));
-        request.getRequestDispatcher("/views/admin/crud/product/EditProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/crud/product/editProduct.jsp").forward(request, response);
     }
 
 
