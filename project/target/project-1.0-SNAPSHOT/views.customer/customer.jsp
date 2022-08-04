@@ -46,7 +46,7 @@
         <div class="col-sm-3 mg-t">
             <div class="contain-nav-customer bg-item bd-rd">
                 <div class="contain-name-img-customer">
-                    <img class="img-customer" src="image/1.jpg">
+                    <img class="img-customer" src="upload/customer/<%=customer.getAvatar()%>">
                 </div>
                 <div class="pane-group">
                     <ul>
@@ -74,7 +74,7 @@
         <div class="col-sm-9 bg-item bd-rd mg-t" id="contain-info-customer">
             <div id="accordion" class="panel-group bg-item bd-rd">
                 <!-- lam o day -->
-                <form action="changeCustomerInfoController?id=<%=customer.getId()%>"  class="screen-custoner" id="info-customer">
+                <form action="changeCustomerInfoController?id=<%=customer.getId()%>" method="post" enctype="multipart/form-data" class="screen-custoner" id="info-customer">
                     <h1 class="hoso">Hồ Sơ Của Tôi</h1>
                     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
@@ -83,9 +83,9 @@
                         <input name="name" type="text" class="col-half-picture" required
                                value="<%=customer.getName()%>">
                         <p class="email col-half-info">Email</p>
-                        <input name="email" type="text" class="col-half-picture" value="<%=customer.getEmail()%>">
+                        <input required name="email" type="text" readonly class="col-half-picture" value="<%=customer.getEmail()%>">
                         <p class="phone col-half-info">Số Điện Thoại</p>
-                        <input name="phone" type="text" class="col-half-picture" value="<%=customer.getPhone()%>">
+                        <input required name="phone" type="text" class="col-half-picture" value="<%=customer.getPhone()%>">
 
                         <ul id="sex" class="col-half-picture">
                             <%!String gender;%>
@@ -148,9 +148,9 @@
                     </div>
                     <div class="picture col-half">
                         <div id="picture">
-                            <img id="loadAvatar" src="image/1.jpg" alt="" width="170px" height="170px">
+                            <img id="loadAvatar"  src="upload/customer/<%=customer.getAvatar()%>" alt="" width="170px" height="170px">
                         </div>
-                        <input type="file" id="chooseAvatar">
+                        <input type="file" id="chooseAvatar" name="avatar">
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;">Dụng lượng file tối đa
                             1 MB</p>
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;"> Định dạng:.JPEG, .PNG
@@ -199,17 +199,17 @@
                 </div>
                 <form id="password-customer" action="newCustomerPassword" class="screen-custoner">
                     <div>
-                        <label for="username">Mật Khẩu Hiện Tại:</label>
+                        <label for="oldPassword">Mật Khẩu Hiện Tại:</label>
                         <input id="oldPassword" required type="password" name="oldPassword" style="width: 25%;">
                         <p class="validation" id="validation-oldPassword"></p>
                     </div>
                     <div>
-                        <label for="pass">Mật Khẩu Mới:</label>
+                        <label for="validation-newPassword">Mật Khẩu Mới:</label>
                         <input id="newPassword" type="password" name="newPassword" required style="width: 25%;">
                         <p class="validation" id="validation-newPassword"></p>
                     </div>
                     <div>
-                        <label for="pass">Nhập Lại Mật Khẩu Mới:</label>
+                        <label for="confirmNewPassword">Nhập Lại Mật Khẩu Mới:</label>
                         <input id="confirmNewPassword" type="password" name="confirmNewPassword" required
                                style="width: 25%;">
                         <p class="validation" id="validation-confirmPassword"></p>
@@ -219,275 +219,274 @@
                     </button>
                     <%--                    <input type="submit" value="Lưu Thay Đổi" style="background-color: #108bea; color: white;">--%>
                 </form>
-                <div id="favorite-customer"  class="screen-custoner">
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
+<%--                <div id="favorite-customer"  class="screen-custoner">--%>
+<%--                    <div class="product-layout product-grid border-fav"--%>
+<%--                         style="background-color: white; padding: 10px 0">--%>
+<%--                        <div class="product-thumb">--%>
+<%--                            <div class="image product-imageblock">--%>
+<%--                                <a href="product.html">--%>
+<%--                                    <div class="related-product-sale">--%>
+<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
+<%--                                    </div>--%>
+<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
+<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
+<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
+<%--                                </a>--%>
 
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
+<%--                            </div>--%>
+<%--                            <div class="caption product-detail intro-product-detail-list">--%>
+<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
+<%--                                <h4 class="product-name">--%>
+<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
+<%--                                       style='text-transform: capitalize'>--%>
+<%--                                        Nike air force 1</a>--%>
+<%--                                </h4>--%>
+<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
+<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
+<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
+<%--                                    Cover--%>
+<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
+<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
+<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
+<%--                                    1.500.00 VND--%>
+<%--                                </p>--%>
+<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
+<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
+<%--                            </div>--%>
 
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
+<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
 
-                            </div>
+<%--                            </div>--%>
 
-                        </div>
+<%--                        </div>--%>
 
-                    </div>
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
+<%--                    </div>--%>
+<%--                    <div class="product-layout product-grid border-fav"--%>
+<%--                         style="background-color: white; padding: 10px 0">--%>
+<%--                        <div class="product-thumb">--%>
+<%--                            <div class="image product-imageblock">--%>
+<%--                                <a href="product.html">--%>
+<%--                                    <div class="related-product-sale">--%>
+<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
+<%--                                    </div>--%>
+<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
+<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
+<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
+<%--                                </a>--%>
 
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
+<%--                            </div>--%>
+<%--                            <div class="caption product-detail intro-product-detail-list">--%>
+<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
+<%--                                <h4 class="product-name">--%>
+<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
+<%--                                       style='text-transform: capitalize'>--%>
+<%--                                        Nike air force 1</a>--%>
+<%--                                </h4>--%>
+<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
+<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
+<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
+<%--                                    Cover--%>
+<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
+<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
+<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
+<%--                                    1.500.00 VND--%>
+<%--                                </p>--%>
+<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
+<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
+<%--                            </div>--%>
 
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
+<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
 
-                            </div>
+<%--                            </div>--%>
 
-                        </div>
+<%--                        </div>--%>
 
-                    </div>
+<%--                    </div>--%>
 
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
+<%--                    <div class="product-layout product-grid border-fav"--%>
+<%--                         style="background-color: white; padding: 10px 0">--%>
+<%--                        <div class="product-thumb">--%>
+<%--                            <div class="image product-imageblock">--%>
+<%--                                <a href="product.html">--%>
+<%--                                    <div class="related-product-sale">--%>
+<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
+<%--                                    </div>--%>
+<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
+<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
+<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
+<%--                                </a>--%>
 
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
+<%--                            </div>--%>
+<%--                            <div class="caption product-detail intro-product-detail-list">--%>
+<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
+<%--                                <h4 class="product-name">--%>
+<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
+<%--                                       style='text-transform: capitalize'>--%>
+<%--                                        Nike air force 1</a>--%>
+<%--                                </h4>--%>
+<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
+<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
+<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
+<%--                                    Cover--%>
+<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
+<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
+<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
+<%--                                    1.500.00 VND--%>
+<%--                                </p>--%>
+<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
+<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
+<%--                            </div>--%>
 
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
+<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
 
-                            </div>
+<%--                            </div>--%>
 
-                        </div>
+<%--                        </div>--%>
 
-                    </div>
+<%--                    </div>--%>
 
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
+<%--                    <div class="product-layout product-grid border-fav"--%>
+<%--                         style="background-color: white; padding: 10px 0">--%>
+<%--                        <div class="product-thumb">--%>
+<%--                            <div class="image product-imageblock">--%>
+<%--                                <a href="product.html">--%>
+<%--                                    <div class="related-product-sale">--%>
+<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
+<%--                                    </div>--%>
+<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
+<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
+<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
+<%--                                </a>--%>
 
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
+<%--                            </div>--%>
+<%--                            <div class="caption product-detail intro-product-detail-list">--%>
+<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
+<%--                                <h4 class="product-name">--%>
+<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
+<%--                                       style='text-transform: capitalize'>--%>
+<%--                                        Nike air force 1</a>--%>
+<%--                                </h4>--%>
+<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
+<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
+<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
+<%--                                    Cover--%>
+<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
+<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
+<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
+<%--                                    1.500.00 VND--%>
+<%--                                </p>--%>
+<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
+<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
+<%--                            </div>--%>
 
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
+<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
 
-                            </div>
+<%--                            </div>--%>
 
-                        </div>
+<%--                        </div>--%>
 
-                    </div>
+<%--                    </div>--%>
 
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
+<%--                    <div class="product-layout product-grid border-fav"--%>
+<%--                         style="background-color: white; padding: 10px 0">--%>
+<%--                        <div class="product-thumb">--%>
+<%--                            <div class="image product-imageblock">--%>
+<%--                                <a href="product.html">--%>
+<%--                                    <div class="related-product-sale">--%>
+<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
+<%--                                    </div>--%>
+<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
+<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
+<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
+<%--                                </a>--%>
 
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
+<%--                            </div>--%>
+<%--                            <div class="caption product-detail intro-product-detail-list">--%>
+<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
+<%--                                <h4 class="product-name">--%>
+<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
+<%--                                       style='text-transform: capitalize'>--%>
+<%--                                        Nike air force 1</a>--%>
+<%--                                </h4>--%>
+<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
+<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
+<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
+<%--                                    Cover--%>
+<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
+<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
+<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
+<%--                                    1.500.00 VND--%>
+<%--                                </p>--%>
+<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
+<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
+<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
+<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
+<%--                            </div>--%>
 
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
+<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
+<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
 
-                            </div>
+<%--                            </div>--%>
 
-                        </div>
+<%--                        </div>--%>
 
-                    </div>
+<%--                    </div>--%>
 
 
-                </div>
+<%--                </div>--%>
                 <div id="history-customer"  class="screen-custoner">
                     <div class=contain-history>
                         <table id="table-history">
                             <thead>
                             <th>Tên</th>
                             <th>Ảnh</th>
-                            <th>Màu</th>
                             <th>Số lượng</th>
                             <th>Size</th>
                             <th>Ngày</th>
@@ -596,8 +595,7 @@
                     for (let i in arrHistory) {
                         console.log(arrHistory[i])
                         re += `<tr> <td>`+arrHistory[i].productName+`</td>
-                                <td><img width="80px" height="5=80px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
-                                <td>`+arrHistory[i].productColor+`</td>
+                                <td><img width="40px" height="40px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
                                 <td>`+arrHistory[i].productQuantity+`</td>
                                 <td>`+arrHistory[i].productSize+`</td>
                                 <td>`+arrHistory[i].createAt+`</td>

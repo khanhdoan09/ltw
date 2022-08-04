@@ -9,6 +9,11 @@ public class PersonalCustomerService {
         return DaoCustomer.getInstance().getUser(id);
     }
 
+    public boolean updateAvatar() {
+        return false;
+    }
+
+
     public boolean updateInfo(String idCustomer, String name, String email, String phone, String gender, String dob) {
         return DaoCustomer.getInstance().updateInfo(idCustomer, name, email, phone, gender, dob);
     }

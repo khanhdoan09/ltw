@@ -1,6 +1,5 @@
 <%@ page import="javax.swing.*" %>
 
-<%@ page import="model.*" %>
 <%@ page import="beans.User" %>
 <%@ page import="dao.user.UserDao" %>
 <%@ page import="beans.Brand" %>
@@ -158,7 +157,7 @@
                             <%ArrayList<Category> listCategoryWoman = DaoCategory.getInstance().getListCategoryOnNav("woman");%>
                             <%for (Category category: listCategoryWoman) {%>
                             <li id="running-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
+                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
                             </li>
                             <%}%>
                         </ul>
@@ -187,6 +186,26 @@
 </header>
 
 <script>
+    $(function() {
+        currentLocation = window.location.toString()
+        if (currentLocation.includes("home")) {
+            $("#home-nav").addClass("active-nav")
+        }
+        else if (currentLocation.includes("gender=Man")) {
+            $("#category-man").addClass("active-nav")
+        }
+        else if (currentLocation.includes("gender=Woman")) {
+            $("#category-woman").addClass("active-nav")
+        }
+        else if (currentLocation.includes("blog")) {
+            $("#blog-nav").addClass("active-nav")
+        }
+        else if (currentLocation.includes("about")) {
+            $("#about-nav").addClass("active-nav")
+        }
+    })
+
+
     $(function() {
         $("#button_cart").click(()=>{
             // to controller

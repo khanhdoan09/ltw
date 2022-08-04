@@ -28,16 +28,14 @@ public class UpdateBrandController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("123");
         String idBrand = request.getParameter("idBrand");
         String nameBrand = request.getParameter("nameBrand");
-        System.out.println(idBrand);
-        System.out.println(nameBrand);
         BrandAdminService brandAdminService = new BrandAdminService();
         brandAdminService.updateNewNameBrand(idBrand, nameBrand);
         saveImageToFolder(idBrand, request);
         request.getRequestDispatcher("/GetBrandAdminController").forward(request, response);
     }
+
     private void saveImageToFolder(String idBrand, HttpServletRequest request) throws ServletException, IOException {
         String appPath = getServletContext().getRealPath("");
         String savePath = appPath  + SAVE_DIR;
@@ -60,7 +58,6 @@ public class UpdateBrandController extends HttpServlet {
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
                 String nameImg = s.substring(s.indexOf("=") + 2, s.length()-1);
-
                 return nameImg;
             }
         }
