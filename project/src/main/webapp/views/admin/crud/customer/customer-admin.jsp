@@ -57,23 +57,10 @@
         <!-- Body: Body -->
         <div class="body d-flex py-lg-3 py-md-2">
             <div class="container-xxl">
-                <div class="row align-items-center">
-                    <div class="border-0 mb-4">
-                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Customers Information</h3>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- Row end  -->
                 <div class="row clearfix g-3">
                     <div class="col-sm-12">
-
-                        <form style="margin: 20px 0;" action="<%=request.getContextPath()%>/ListUser">
-
-                            <button type="submit" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
-
-                        </form>
-
 
                         <div class="card mb-3">
                             <div class="card-body">
@@ -101,7 +88,7 @@
                                         <td><strong>${i.id}</strong></td>
                                         <td>
                                             <a href="customer-detail.html">
-                                                <img class="avatar rounded" src="assets/images/xs/avatar1.svg" alt="">
+                                                <img class="avatar rounded" src="upload/customer/${i.avatar}" alt="avatar">
                                             </a>
                                         </td>
                                         <td>

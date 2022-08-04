@@ -105,7 +105,7 @@
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
                             <h3 class="fw-bold mb-0">Chỉnh sửa sản phẩm</h3>
-                            <button type="submit" id="bt-save-edit-product" class="btn btn-primary btn-set-task w-sm-100 py-2 px-5 text-uppercase">Save</button>
+                            <button type="submit" id="bt-save-edit-product" class="btn btn-primary btn-set-task w-sm-100 py-2 px-5 text-uppercase">Lưu</button>
                         </div>
                     </div>
                 </div>
@@ -320,7 +320,7 @@
                                                         <div class="d-flex align-items-center my-2">
                                                             <input class="main_img" type="radio" id="mainImage_<%=i%>" name="chooseMainImage" value="<%=nameImg%>~<%=color%>"
                                                                     <% if(product.getListImg().get(i).getLelvel()==0){%>
-                                                                    checked
+                                                                   checked
                                                                     <%}%>
                                                             />
                                                             <label style="cursor: pointer" for="mainImage_<%=i%>"><h6>Main Image</h6></label>

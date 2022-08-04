@@ -62,6 +62,7 @@ public class SignIn extends HttpServlet {
                     session.setMaxInactiveInterval(900); // set timeout in 15 minute
 
                     request.getSession(true).setAttribute("userAdmin", true);
+                    request.getSession(true).setAttribute("adminName", email);
                     request.getRequestDispatcher("/views/admin/crud/product/list-product.jsp").forward(request, response);
                     return;
                 }

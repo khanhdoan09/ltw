@@ -109,9 +109,6 @@
                                 <div>
                                     <div class="row g-3 align-items-center">
                                         <div>
-                                            <div class="col-md-12" style="display: flex; flex-wrap: wrap">
-                                                <label class="form-label">Nhãn hàng</label>
-                                            </div>
                                             <div>
                                                 <button id="add-new-brand" class="btn btn-info">Thêm nhãn hàng</button>
                                             </div>

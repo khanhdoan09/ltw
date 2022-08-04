@@ -10,30 +10,26 @@
     .m-link {
         display: flex;
     }
+    .username {
+        color: white;
+    }
 </style>
 <div class="sidebar px-4 py-4 py-md-4 me-0">
     <div class="d-flex flex-column h-100">
-        <a href="admin/index.html" class="mb-0 brand-icon">
-
-            <span class="logo-text">Dragon Sport</span>
-        </a>
+        <p class="my-3 username"><%=request.getSession(true).getAttribute("adminName")%></p>
         <!-- Menu: main ul -->
         <ul class="menu-list flex-grow-1 mt-3">
-            <li><a id="home" class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i> <span>Trang chủ</span></a></li>
+            <li>
+                <a id="home" class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i>
+                    <span>Trang chủ</span></a>
+            </li>
             <li class="collapsed">
                 <a id="order" class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/ListOrderAdmin">
                     <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Hóa đơn</span> </a>
             </li>
-
             <li class="collapsed">
-                <a id="product" class="m-link" href="<%=request.getContextPath()%>/views/admin/crud/product/list-product.jsp">
-                    <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Danh sách sản phẩm</span> </a>
-
-
-            </li>
-            <li class="collapsed">
-                <a id="addProduct" class="m-link" href="<%=request.getContextPath()%>/GetAddFormAdmin">
-                    <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
+                <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">
+                    <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Người dùng</span> </a>
             </li>
             <li class="collapsed">
                 <a id="containBrand" class="m-link" href="<%=request.getContextPath()%>/GetBrandAdminController">
@@ -44,19 +40,17 @@
                     <i class="fa fa-list-alt" style="margin-left: 10px" aria-hidden="true"></i> <span>Thể loại</span> </a>
             </li>
             <li class="collapsed">
-                <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">
-                    <i class="fas fa-user-alt" style="margin: 0 10px;"></i> <span>Người dùng</span> </a>
-
+                <a id="product" class="m-link" href="<%=request.getContextPath()%>/views/admin/crud/product/list-product.jsp">
+                    <i class="fab fa-intercom" style="margin: 0 10px;"></i> <span>Sản phẩm</span> </a>
+            </li>
+            <li class="collapsed">
+                <a id="addProduct" class="m-link" href="<%=request.getContextPath()%>/GetAddFormAdmin">
+                    <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
             </li>
             <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
                     <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px"></i><span>Đăng xuất</span> </a>
-
             </li>
-
-
-
-
         </ul>
         <!-- Menu: menu collepce btn -->
         <button type="button" class="btn btn-link sidebar-mini-btn text-light">
@@ -69,13 +63,16 @@
 
 <script>
     let url = $(location).attr('href');
-    if (url.includes("listProduct")){
+    if (url.includes("list-product.jsp")){
+        $("#product").addClass("active")
+    }
+    else if (url.includes("ListProductAdmin")){
         $("#product").addClass("active")
     }
     else if (url.includes("customer")){
         $("#customer").addClass("active")
     }
-    else if (url.includes("order")){
+    else if (url.includes("ListOrder")){
         $("#order").addClass("active")
     }
     else if (url.includes("addProduct")){
@@ -86,6 +83,12 @@
     }
     else if (url.includes("Category")){
         $("#containCategory").addClass("active")
+    }
+    else if (url.includes("ListCustomer")){
+        $("#customer").addClass("active")
+    }
+    else if (url.includes("GetAdd")){
+        $("#addProduct").addClass("active")
     }
     else {
         $("#home").addClass("active")

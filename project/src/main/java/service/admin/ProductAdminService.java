@@ -56,7 +56,7 @@ public class ProductAdminService {
             sql += "name LIKE ?     ";
         }
         sql = sql.substring(0, sql.length() - 4); // to remove ||
-        if (!attrProduct.equals("highestPrice") && !attrProduct.equals("lowestPrice")){
+        if (!attrProduct.equals("highestPrice") && !attrProduct.equals("lowestPrice") && !attrProduct.equals("id")){
             sql+=")";
         }
         return sql;
