@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<%@ page import="beans.ProductInCart" %>
+<%@ page import="beans.Cart" %>
 <%@ page import="dao.product.DaoProduct" %>
 <%@ page import="beans.Product" %>
 <%@ page import="dao.product.image.DaoLinkImage" %>
@@ -72,42 +72,45 @@
                         </thead>
                         <tbody>
                      <%
-                         List<ProductInCart> listProductInCart = (List<ProductInCart>) request.getAttribute("listProductInCart");
+                         List<Cart> listCart = (List<Cart>) request.getAttribute("listProductInCart");
                          double totalPrice = 0;
-                         for (int i = 0; i < listProductInCart.size(); i++) {
-                            ProductInCart product = listProductInCart.get(i);
+                         for (int i = 0; i < listCart.size(); i++) {
+                            Cart product = listCart.get(i);
                             totalPrice += product.getPrice();%>
                             <tr id="tr_<%=i%>">
                                 <td class="text-center check_pr">
                                     <input type="checkbox" id="html " class="checked_pr" name="checkbox_product_in_cart" value="<%=product.getName()%>_<%=product.getIdProduct()%>_<%=product.getColorShoe()%>_<%=product.getSizeShoe()%>_<%=product.getQuantityShoe()%>_<%=product.getPrice()%>" checked>
-                                    <a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><img class="img-thumbnail"
-                                                                title="women's New Wine is an alcoholic"
-                                                                alt="women's New Wine is an alcoholic"
-                                                                src="data/imgAll/${item.avatar}.jpg"></a>
+                                    <a href="ProductDetail?idProduct=<%=product.getIdProduct()%>">
+                                        <img class="img-thumbnail"
+                                                                                                             title="women's New Wine is an alcoholic"
+                                                                                                             alt="women's New Wine is an alcoholic"
+                                                                                                             src="data/imgAll/${item.avatar}.jpg"></a>
                                 </td>
                                 <td class="text-left"><a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><%=product.getName()%></a>
                                 </td>
-                                <td class="text-left"><%=product.getBrand()%></td>
+                                <td class="text-left"><%=product.getSizeShoe()%></td>
                                 <td class="text-left">
                                     <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity changeQuantity text-center" pid="<%=product.getIdProduct()%>"  value="<%=product.getQuantityShoe()%>" name="quantity">
+                                        <form class="cart-update d-flex" action="/UpdateQuantityCart?idProductDetail=<%=product.getIdProductDetail()%>">
+                                            <input type="number" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity">
+                                            <button type="submit">
+                                                <i class="fa fa-refresh icon-update" style="padding: 8px 20px;background-color: #1a94ff;color: white;"></i>
+                                            </button>
+                                        </form>
                                         <span class="input-group-btn">
-                                                <a class="" href="/project/Cart">
-                                                   <i class="fa fa-refresh icon-update" style="padding: 9px 20px;background-color: #1a94ff;color: white;"></i>
-                                                </a>
-                                                <a data-tr="tr_<%=i%>" data-price="<%=product.getPrice()%>" data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProduct()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
+                                                <a data-tr="tr_<%=i%>" data-price="<%=product.getPrice()%>" data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProductDetail()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
                                                     <button class="btn btn-danger" title="" data-toggle="tooltip"
                                                         type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
                                                 </a>
-                                            </span>
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="text-right"><%=product.getPrice()%></td>
                                 <td class="text-right total-price"><%=product.getPrice() * product.getQuantityShoe()%></td>
                             </tr>
                         <%}%>
-                        <!-- sản phẩm đã đưa vào giỏi hàng -->
+                        <!-- sản phẩm đã đưa vào giỏ hàng -->
                         </tbody>
                     </table>
                 </div>
@@ -194,57 +197,19 @@
 <%@include file="footer_login_message.jsp"%>
 <script src="../javascript/hung-js.js"></script>
 <script>
-    $(document).ready(function () {
-        $(".cart-remove").click(function () {
-            var id = $(this).attr("pid");
-            tr = $(this).closest("tr");
-            let productPrice = Math.floor($(this).data("price"))
-            // console.log(id);
-            $.ajax({
-                url: "/project/Cart-remove",
-                method: "POST",
-                data: {
-                    id: id
-                },
-                success: function (data) {
-                    tr.remove();
-                    let value = Math.floor(parseFloat($("#total_price").text()))
-                    console.log(value +"~"+productPrice)
-                    value -= productPrice
-                    $("#total_price").text(value+" $");
-                    $("#sum_price").text("Giỏ Hàng - "+value+"$");
-                },
-                error: function (data) {
-                    if (data.status === 404)
-                        alert("Xoa That Bai");
-                }
+    $(function() {
+        $(".cart-update").each(function(){
+            $(this).click((e)=>{
+                e.preventDefault()
+                alert($(this).attr('href'))
+                $.ajax(
+                    {url: $(this).attr('href'),
+                        success: function(){
+                        }
+                    });
             })
         })
     })
-        $(".changeQuantity").blur(function () {
-            var id = $(this).attr("pid");
-            var oldQuantity = $(this).attr("oldQuantity");
-            var update = $(this);
-            var quantity = $(this).val();
-            if(oldQuantity != quantity)
-                $.ajax({
-                    url: "/project/Cart-update",
-                    method: "POST",
-                    data: {
-                        id: id,
-                        quantity: quantity
-                    },
-                    success: function (data) {
-                        update.attr("oldQuantity", quantity)
-                    },
-                    error: function (data) {
-                        if(data.status === 404)
-                            alert("Sản phẩm không tồn tại, hoặc bị xóa khỏi giỏ hàng!");
-                        else  if(data.status === 485)
-                            alert("Số lượng vượt quá giới hạn mua hoặc bé hơn 1!");
-                    }
-                })
-        })
         // $(function () {
         //     //     let value = 0.0;
         //     //     let arrChecked = $(".checked_pr")
@@ -279,6 +244,8 @@
                         success: function(){
                             // update price when delete product
                             let updatePrice = totalPrice - price
+                            let quantityInHeader = parseInt($("#header_quantity").text())
+                            $("#header_quantity").text(quantityInHeader - 1)
                             $("#total-sub-price").text(updatePrice)
                             $("#total-price").text(updatePrice)
                             $("#"+idTr).remove()

@@ -1,6 +1,6 @@
 package controller.cart;
 
-import beans.ProductInCart;
+import beans.Cart;
 import dao.cart.DaoCart;
 
 import javax.servlet.*;
@@ -14,10 +14,8 @@ public class DeleteProductInCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idProduct = request.getParameter("idProduct");
         String idCustomer = request.getParameter("idCustomer");
-        String colorShoe= request.getParameter("colorShoe");
-        int size= Integer.parseInt(request.getParameter("size"));
-        ProductInCart productInCart = new ProductInCart(idCustomer, idProduct, colorShoe, size);
-        DaoCart.getInstance().deleteProductInCart(productInCart);
+        Cart cart = new Cart(idCustomer, idProduct);
+        DaoCart.getInstance().deleteProductInCart(cart);
 
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");

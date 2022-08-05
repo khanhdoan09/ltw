@@ -26,6 +26,24 @@ public class DaoProductDetail {
     }
     Connection connect = DatabaseConnection.getConnection();
 
+    public String getIdProductDetail(String idProduct, String color, int size) {
+        String sql = "SELECT idDetail FROM product_detail WHERE id=? AND color=? AND size=?";
+        PreparedStatement s = null;
+        try {
+            s= connect.prepareStatement(sql);
+            s.setString(1, idProduct);
+            s.setString(2, color);
+            s.setInt(3, size);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                 return rs.getString("idDetail");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return "";
+    }
+
     public Product getDetailProduct(String idPr) {
         String sql = "SELECT product.id, brand, name, category, price, saleRate,starRate, description,totalValue, soleValue, Active, create_at FROM product WHERE product.id=?";
         PreparedStatement s = null;
@@ -108,12 +126,10 @@ public class DaoProductDetail {
             s.setString(5, date);
             s.setString(6, date);
             s.setString(7, detail.getColor());
-
-
-            System.out.println(s.toString());
             s.executeUpdate();
             return true;
         } catch (SQLException e) {
+            System.out.println(s.toString());
             System.out.println(e.getMessage());
             return false;
         }

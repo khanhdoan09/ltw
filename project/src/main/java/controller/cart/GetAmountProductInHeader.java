@@ -11,7 +11,9 @@ import java.io.IOException;
 public class GetAmountProductInHeader extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idCustomer = "123";
+        HttpSession session = request.getSession();
+        Object obj = session.getAttribute("userId");
+        String idCustomer = obj.toString();
         int productAmount = DaoCart.getInstance().getProductAmountInCart(idCustomer);
 
         response.setContentType("text/html");

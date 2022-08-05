@@ -1,5 +1,5 @@
 package dao.product.category;
-import database.DbConnection;
+import database.DatabaseConnection;
 import beans.Category;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class DaoCategory {
 
     }
 
-    Connection connect = DbConnection.getConnection();
+    Connection connect = DatabaseConnection.getConnection();
 
 
     public List<Category> getListCategory() {

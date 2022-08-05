@@ -1,7 +1,7 @@
 package dao.user;
 
 import beans.History;
-import database.DbConnection;
+import database.DatabaseConnection;
 import beans.User;
 
 import java.security.MessageDigest;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class DaoCustomer {
     private static DaoCustomer instance = null;
-    Connection connect = DbConnection.getConnection();
+    Connection connect = DatabaseConnection.getConnection();
 
 
     public static DaoCustomer getInstance() {

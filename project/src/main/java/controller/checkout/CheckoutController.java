@@ -1,13 +1,12 @@
 package controller.checkout;
 
-import beans.ProductInCheckout;
+import beans.Checkout;
 import dao.checkout.DaoCheckout;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "CheckoutController", value = "/CheckoutController")
@@ -15,17 +14,19 @@ public class CheckoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        List<ProductInCheckout> listProductInCheckout = (List<ProductInCheckout>) session.getAttribute("listProductInCheckout");
+        Object obj = session.getAttribute("userId");
+        String idUser = obj.toString();
+        List<Checkout> listCheckout = (List<Checkout>) session.getAttribute("listProductInCheckout");
         double totalPrice = 0;
-        for (ProductInCheckout productInCheckout : listProductInCheckout) {
-            totalPrice += productInCheckout.getPrice();
+        for (Checkout checkout : listCheckout) {
+            totalPrice += checkout.getPrice();
         }
         // lưu order
-        int orderId = DaoCheckout.getInstance().saveOrder("123", totalPrice);
+        int orderId = DaoCheckout.getInstance().saveOrder(idUser, totalPrice);
         // lưu order detail
-        DaoCheckout.getInstance().saveOrderDetail(orderId, listProductInCheckout);
+        DaoCheckout.getInstance().saveOrderDetail(idUser, orderId, listCheckout);
 
-        response.getWriter().write(listProductInCheckout.size()+"");
+        response.getWriter().write(listCheckout.size()+"");
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
     }

@@ -1,4 +1,4 @@
-<%@ page import="beans.ProductInCheckout" %>
+<%@ page import="beans.Checkout" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -71,23 +71,23 @@
                                     <tbody>
                                     <%
                                         double totalPrice = 0;
-                                        List<ProductInCheckout> listProductInCheckout = (List<ProductInCheckout>) request.getAttribute("listProductInCheckout");
-                                        for(int i = 0; i < listProductInCheckout.size(); i++){
-                                            ProductInCheckout productInCheckout = listProductInCheckout.get(i);
-                                            totalPrice += productInCheckout.getQuantity() * productInCheckout.getPrice();
+                                        ArrayList<Checkout> listCheckout = (ArrayList<Checkout>) request.getAttribute("listProductInCheckout");
+                                        for(int i = 0; i < listCheckout.size(); i++){
+                                            Checkout checkout = listCheckout.get(i);
+                                            totalPrice += checkout.getQuantity() * checkout.getPrice();
                                     %>
                                     <tr>
                                         <td class="text-left"><a
-                                                href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46"><%=productInCheckout.getName()%></a></td>
-                                        <td class="text-left"><%=productInCheckout.getColor()%></td>
-                                        <td class="text-left"><%=productInCheckout.getSize()%></td>
+                                                href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46"><%=checkout.getName()%></a></td>
+                                        <td class="text-left"><%=checkout.getColor()%></td>
+                                        <td class="text-left"><%=checkout.getSize()%></td>
                                         <td class="text-left">
-                                            <img src="../image/checkout/<%=productInCheckout.getUrlImg()%>"
+                                            <img src="../image/checkout/<%=checkout.getUrlImg()%>"
                                                  class="checkout-product-img" width="100" height="100">
                                         </td>
-                                        <td class="text-right"><%=productInCheckout.getQuantity()%></td>
-                                        <td class="text-right">$<%=productInCheckout.getPrice()%></td>
-                                        <td class="text-right">$<%=productInCheckout.getQuantity() * productInCheckout.getPrice()%></td>
+                                        <td class="text-right"><%=checkout.getQuantity()%></td>
+                                        <td class="text-right">$<%=checkout.getPrice()%></td>
+                                        <td class="text-right">$<%=checkout.getQuantity() * checkout.getPrice()%></td>
                                     </tr>
                                           <%  }%>
 
@@ -166,10 +166,10 @@
                     <input type="text" placeholder="Mã giảm giá">
                     <button>Áp dụng</button>
                 </form>
-                <ul>
-                    <li>Tạm tính</li>
-                    <li><%=totalPrice%>đ</li>
-                </ul>
+<%--                <ul>--%>
+<%--                    <li>Tạm tính</li>--%>
+<%--                    <li><%=totalPrice%>đ</li>--%>
+<%--                </ul>--%>
                 <ul>
                     <li>Mã giảm giá</li>
                     <li class="pay-all-item-money">0</li>
@@ -180,7 +180,7 @@
                 </ul>
                 <ul>
                     <li>Tổng cộng</li>
-                    <li style="color: rgb(187, 60, 60); font-weight: bold"><%=totalPrice%>đ</li>
+<%--                    <li style="color: rgb(187, 60, 60); font-weight: bold"><%=totalPrice%>đ</li>--%>
                 </ul>
                 <div class="buttons">
                     <div class="pull-right">

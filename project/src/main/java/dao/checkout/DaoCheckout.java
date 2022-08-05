@@ -1,7 +1,7 @@
 package dao.checkout;
 
-import beans.ProductInCheckout;
-import beans.ProductInCart;
+import beans.Checkout;
+import beans.Cart;
 import database.DatabaseConnection;
 import dao.cart.DaoCart;
 
@@ -40,33 +40,29 @@ public class DaoCheckout {
             int idOrderCreated = rs.getInt(1);
             return idOrderCreated;
         } catch (SQLException e) {
-            System.out.println(e.getMessage() +"~~");
-            System.out.println(s.toString() +"::");
+            System.out.println("~~"+e.getMessage());
         }
         return 0;
     }
 
-    public boolean saveOrderDetail(int orderId, List<ProductInCheckout> listProductInCheckout) {
+    public boolean saveOrderDetail(String idUser, int orderId, List<Checkout> listCheckout) {
         PreparedStatement s=null;
         LocalDate today = java.time.LocalDate.now();
         try {
-            String sql = "INSERT INTO `order_detail` (`idOrder`, `idShoe`, `size`, `color`, `quantity`) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO `order_detail` (`idOrder`, `idProductDetail`, `quantity`) VALUES (?, ?, ?)";
             s = connect.prepareStatement(sql);
-            for (ProductInCheckout productInCheckout : listProductInCheckout) {
+            for (Checkout checkout : listCheckout) {
                 s.setInt(1, orderId);
-                s.setString(2, productInCheckout.getIdProduct());
-                s.setString(3, productInCheckout.getSize());
-                s.setString(4, productInCheckout.getColor());
-                s.setInt(5, productInCheckout.getQuantity());
-                increaseSoleProduct(productInCheckout.getIdProduct());
-                increaseSoleProductDetail(productInCheckout.getIdProduct(), productInCheckout.getColor(), productInCheckout.getSize());
+                s.setString(2, checkout.getIdProductDetail());
+                s.setInt(3, checkout.getQuantity());
+                increaseSoleProduct(checkout.getIdProduct());
+                increaseSoleProductDetail(idUser, checkout.getIdProductDetail());
                 s.executeUpdate();
             }
 
             return true;
         } catch (SQLException e) {
-            System.out.println(e.getMessage() +"~~");
-            System.out.println(s.toString() +"::");
+            System.out.println(e.getMessage());
         }
         return false;
     }
@@ -80,29 +76,24 @@ public class DaoCheckout {
             s.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.out.println(e.getMessage() +"~~");
-            System.out.println(s.toString() +"::");
+            System.out.println(e.getMessage());
         }
         return false;
     }
 
     // tăng số lượng sp đã bán và xóa sp đó khỏi cart
-    private boolean increaseSoleProductDetail(String idProduct, String color, String  size) {
+    private boolean increaseSoleProductDetail(String idUser, String idProductDetail) {
         PreparedStatement s=null;
         try {
-            String sql = "UPDATE product_detail SET soleValue=soleValue-1 WHERE id=? AND size=? AND color=?";
+            String sql = "UPDATE product_detail SET soleValue=soleValue-1 WHERE idDetail=?";
             s = connect.prepareStatement(sql);
-                s.setString(1, idProduct);
-                s.setString(2, size);
-                s.setString(3, color);
-
-                ProductInCart productInCart = new ProductInCart("123", idProduct, color, Integer.parseInt(size));
-                DaoCart.getInstance().deleteProductInCart(productInCart);
+                s.setString(1, idProductDetail);
+                Cart cart = new Cart(idUser, idProductDetail);
+                DaoCart.getInstance().deleteProductInCart(cart);
             s.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.out.println(e.getMessage() +"~~");
-            System.out.println(s.toString() +"::");
+            System.out.println(e.getMessage());
         }
         return false;
     }

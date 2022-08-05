@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.product.brand.DaoProductBrand;
-import database.DbConnection;
+import database.DatabaseConnection;
 
 
 public class DaoProductAdmin {
@@ -23,7 +23,7 @@ public class DaoProductAdmin {
 
     }
 
-    Connection connect = DbConnection.getConnection();
+    Connection connect = DatabaseConnection.getConnection();
 
 
 

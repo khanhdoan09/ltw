@@ -1,6 +1,6 @@
 package dao.cart;
 
-import beans.ProductInCart;
+import beans.Cart;
 import database.DatabaseConnection;
 import dao.product.DaoProduct;
 
@@ -25,23 +25,24 @@ public class DaoCart {
 
     }
 
-    public List<ProductInCart> getListProductInCart(String idCustomer) {
-        List<ProductInCart> re = new ArrayList<ProductInCart>();
+    public List<Cart> getListProductInCart(String idCustomer) {
+        List<Cart> re = new ArrayList<Cart>();
         try {
-            String sql = "SELECT * FROM cart WHERE idCustomer=?";
+            String sql = "SELECT * FROM cart INNER JOIN product_detail WHERE idCustomer=? AND cart.idProductDetail=product_detail.idDetail";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idCustomer);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                String idProduct = rs.getString("idProduct");
-                String colorShoe= rs.getString("colorShoe");
+                String idProduct = rs.getString("id");
+                String idProductDetail = rs.getString("idProductDetail");
+                String colorShoe= rs.getString("color");
                 int quantity =  rs.getInt("quantity");
                 int size = rs.getInt("size");
                 String name= DaoProduct.getInstance().getName(idProduct);
                 String brand= DaoProduct.getInstance().getBrand(idProduct);
                 double price = DaoProduct.getInstance().getPrice(idProduct);
-                ProductInCart productInCart = new ProductInCart(idCustomer, idProduct, colorShoe, quantity, size, name, brand, price);
-                re.add(productInCart);
+                Cart cart = new Cart(idCustomer, idProduct, idProductDetail, colorShoe, quantity, size, name, brand, price);
+                re.add(cart);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -67,53 +68,15 @@ public class DaoCart {
         return re;
     }
 
-    public boolean insertShoeToCart(ProductInCart productInCart) {
+    public boolean insertShoeToCart(Cart cart) {
         PreparedStatement s=null;
         try {
-            // dùng REPLACE INTO để nếu có sp đã tồn tại thì update còn không thì insert
-            String sql = "REPLACE INTO cart (idCustomer, idProduct, colorShoe, quantity, size) VALUES (?, ?, ?, ?, ?)";
+            // dùng REPLACE INTO để nếu có sp đã tồn tại trong cart roi thì update còn không thì insert
+            String sql = "REPLACE INTO cart (idCustomer, idProductDetail, quantity) VALUES (?, ?, ?)";
             s = connect.prepareStatement(sql);
-            s.setString(1, productInCart.getIdCustomer());
-            s.setString(2, productInCart.getIdProduct());
-            s.setString(3, productInCart.getColorShoe());
-            s.setInt(4, productInCart.getQuantityShoe());
-            s.setInt(5, productInCart.getSizeShoe());
-            s.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage() +"~~");
-            System.out.println(s.toString() +"::");
-        }
-        return false;
-    }
-
-    public List<ProductInCart> getListProductInCart(String idCustomer, String name, String brand, double price) {
-        List<ProductInCart> re = new ArrayList<ProductInCart>();
-        try {
-            String sql = "SELECT * FROM cart WHERE idCustomer=?";
-            PreparedStatement s = connect.prepareStatement(sql);
-            s.setString(1, idCustomer);
-            ResultSet rs = s.executeQuery();
-            while (rs.next()) {
-              ProductInCart productInCart = new ProductInCart(rs.getString("idCustomer"), rs.getString("idProduct"), rs.getString("colorShoe"), rs.getInt("quantity"), rs.getInt("size"), name, brand, price);
-              re.add(productInCart);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return re;
-    }
-
-    public boolean updateQuantityShoe(ProductInCart productInCart) {
-        PreparedStatement s = null;
-        String sql = "UPDATE cart SET quantity=?  WHERE idCustomer=? AND idProduct=? AND size=? AND colorShoe=?";
-        try {
-            s = connect.prepareStatement(sql);
-            s.setInt(1, productInCart.getQuantityShoe());
-            s.setString(2, productInCart.getIdCustomer());
-            s.setString(3, productInCart.getIdProduct());
-            s.setInt(4, productInCart.getSizeShoe());
-            s.setString(5, productInCart.getColorShoe());
+            s.setString(1, cart.getIdCustomer());
+            s.setString(2, cart.getIdProductDetail());
+            s.setInt(3, cart.getQuantityShoe());
             s.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -122,28 +85,37 @@ public class DaoCart {
         return false;
     }
 
-    public boolean deleteProductInCart(ProductInCart productInCart) {
+
+    public boolean updateQuantityShoe(Cart cart) {
         PreparedStatement s = null;
-        String sql = "DELETE FROM cart WHERE idCustomer=? AND idProduct=? AND colorShoe=? AND size=?";
+        String sql = "UPDATE cart SET quantity=? WHERE idCustomer=? AND idProductDetail=?";
         try {
             s = connect.prepareStatement(sql);
-            s.setString(1, productInCart.getIdCustomer());
-            s.setString(2, productInCart.getIdProduct());
-            s.setString(3, productInCart.getColorShoe());
-            s.setInt(4, productInCart.getSizeShoe());
+            s.setInt(1, cart.getQuantityShoe());
+            s.setString(2, cart.getIdCustomer());
+            s.setString(3, cart.getIdProductDetail());
             s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean deleteProductInCart(Cart cart) {
+        PreparedStatement s = null;
+        String sql = "DELETE FROM cart WHERE idCustomer=? AND idProductDetail=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, cart.getIdCustomer());
+            s.setString(2, cart.getIdProductDetail());
+            s.executeUpdate();
+            return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
         }
-
-        try {
-            s = connect.prepareStatement(sql);
-            System.out.println(s.executeUpdate());
-            return true;
-        } catch (SQLException e) {
-            System.out.println("~~~*** sql word search header" + sql);
-        }
-        return false;
     }
+
+
 }
