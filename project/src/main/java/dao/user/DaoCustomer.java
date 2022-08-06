@@ -122,7 +122,7 @@ public class DaoCustomer {
         List<History> re = new ArrayList<History>();
 
         try {
-            String sql = "SELECT orders.id, idShoe, product.name, orders.status, order_detail.quantity, order_detail.size, order_detail.color, product.price, orders.create_at FROM user inner join orders on user.id=orders.customer inner join order_detail on orders.id = order_detail.idOrder inner join product on product.id=order_detail.idShoe where user.id=?";
+            String sql = "SELECT orders.id, idProductDetail, product.name, orders.status, order_detail.quantity, product_detail.size, product_detail.color, product.price, orders.create_at FROM user inner join orders on user.id=orders.customer inner join order_detail on orders.id = order_detail.idOrder inner join product_detail on product_detail.idDetail=order_detail.idProductDetail inner join product on product.id=product_detail.id where user.id=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, customerId);
             ResultSet rs = s.executeQuery();
@@ -132,7 +132,7 @@ public class DaoCustomer {
                 String orderStatus = rs.getString("status");
                 String productColor = rs.getString("color");
                 String createAt = rs.getString("create_at");
-                String shoeId = rs.getString("idShoe");
+                String shoeId = rs.getString("idProductDetail");
                 String avatar = getAvatarShoe(shoeId, productColor);
                 int productQuantity = rs.getInt("quantity");
                 int productSize = rs.getInt("size");
@@ -169,13 +169,13 @@ public class DaoCustomer {
         String sql = "UPDATE user SET avatar=? WHERE id=?";
         try {
             s = connect.prepareStatement(sql);
-            s.setString(1, idCustomer+"_"+url);
+            s.setString(1, url);
             s.setString(2, idCustomer);
             System.out.println(s.toString());
             s.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.out.println("xx"+e.getMessage());
+            System.out.println(e.getMessage());
         }
         return false;
 

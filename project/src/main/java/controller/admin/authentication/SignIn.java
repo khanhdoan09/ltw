@@ -63,7 +63,7 @@ public class SignIn extends HttpServlet {
 
                     request.getSession(true).setAttribute("userAdmin", true);
                     request.getSession(true).setAttribute("adminName", email);
-                    request.getRequestDispatcher("/views/admin/crud/product/list-product.jsp").forward(request, response);
+                    request.getRequestDispatcher("/views/admin/crud/home/home.jsp").forward(request, response);
                     return;
                 }
             }

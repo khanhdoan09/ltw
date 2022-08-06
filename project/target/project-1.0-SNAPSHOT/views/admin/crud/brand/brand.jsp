@@ -51,6 +51,12 @@
 
 
     <style>
+        textarea:focus, input:focus{
+            outline: none;
+        }
+        *:focus {
+            outline: none;
+        }
         .contain-list-brand {
             margin: 5px;
             padding: 5px;

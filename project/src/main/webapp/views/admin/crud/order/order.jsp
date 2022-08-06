@@ -122,7 +122,7 @@
                                 </table>
                                 <% if (obj != null) {
                                     List<OrderInAdmin> list = (List<OrderInAdmin>) obj;
-                                    if (list.size() >= 9){
+                                    if (list.size() >= 8 || list.size() == 1){
                                 %>
                                 <div class="contain-load-more">
                                     <button id="load-more-product" >Load more</button>

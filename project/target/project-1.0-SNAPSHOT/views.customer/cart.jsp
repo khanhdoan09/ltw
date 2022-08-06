@@ -64,7 +64,7 @@
                         <tr>
                             <td class="text-center">Ảnh</td>
                             <td class="text-left">Tên sản phẩm</td>
-                            <td class="text-left">Kiểu mẫu</td>
+                            <td class="text-left">Size</td>
                             <td class="text-left">Số lượng</td>
                             <td class="text-right">Đơn giá</td>
                             <td class="text-right">Tổng</td>

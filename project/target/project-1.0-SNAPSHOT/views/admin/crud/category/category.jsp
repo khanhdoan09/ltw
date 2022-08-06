@@ -25,6 +25,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 
     <style>
+        textarea:focus, input:focus{
+            outline: none;
+        }
+        *:focus {
+            outline: none;
+        }
         .btn {
             width: 40px;
             height: 40px;
@@ -80,7 +86,7 @@
                                            <form action="EditCategoryAdmin?id=${i.id}" method="get">
                                                <td>
                                                    <div class="d-flex align-items-center">
-                                                       <p>${i.id}</p>
+                                                       <input value="${i.id}" name="id" readonly>
                                                    </div>
                                                </td>
                                                <td>
@@ -158,10 +164,10 @@
                                                </td>
                                                <td>
                                                    <div class="d-flex align-items-center">
-                                                       <input name="nameCategory" type="text" value="">
+                                                       <input name="nameCategory" type="text" value="" class="mx-2">
                                                    </div>
                                                </td>
-                                               <td class="d-flex align-items-center">
+                                               <td class="d-flex align-items-center mx-2">
                                                    <div class="d-flex align-items-center">
                                                        <select name="gender">
                                                                <option value="man" selected>Nam</option>
@@ -170,7 +176,7 @@
                                                    </div>
                                                </td>
                                                <td>
-                                                   <div class="d-flex">
+                                                   <div class="d-flex mx-2">
                                                        <button class="save-category btn btn-primary">
                                                            <i class="fas fa-save"></i>
                                                        </button>

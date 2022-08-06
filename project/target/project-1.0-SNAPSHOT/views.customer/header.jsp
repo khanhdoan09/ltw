@@ -60,7 +60,7 @@
                                         <li><a href="#" class="js_register">Đăng Ký</a></li>
                                         <%}else {%>
 
-                                        <li><a href="/customer" class="js-login">Cá nhân</a></li>
+                                        <li><a href="<%=request.getContextPath()%>/customer" class="js-login">Cá nhân</a></li>
                                         <li><a id="sign_out" class="js-login">Đăng xuất</a></li>
                                         <%}%>
                                     </ul>
