@@ -166,10 +166,10 @@
                     <input type="text" placeholder="Mã giảm giá">
                     <button>Áp dụng</button>
                 </form>
-<%--                <ul>--%>
-<%--                    <li>Tạm tính</li>--%>
-<%--                    <li><%=totalPrice%>đ</li>--%>
-<%--                </ul>--%>
+                <ul>
+                    <li>Tạm tính</li>
+                    <li><%=totalPrice%>đ</li>
+                </ul>
                 <ul>
                     <li>Mã giảm giá</li>
                     <li class="pay-all-item-money">0</li>
@@ -180,7 +180,7 @@
                 </ul>
                 <ul>
                     <li>Tổng cộng</li>
-<%--                    <li style="color: rgb(187, 60, 60); font-weight: bold"><%=totalPrice%>đ</li>--%>
+                    <li style="color: rgb(187, 60, 60); font-weight: bold"><%=totalPrice%>đ</li>
                 </ul>
                 <div class="buttons">
                     <div class="pull-right">

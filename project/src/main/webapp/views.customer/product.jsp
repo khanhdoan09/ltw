@@ -686,7 +686,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
         alert("do not login")
         <%}else{%>
 
-        var username= loadName("<%= p.getId()%>","<%=session.getAttribute("userId")%>");
+        var username= '<%= session.getAttribute("username")%>';
         var date = new Date();
         var today = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+ "    |    " + date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
         let comment = document.getElementById("contentComment").value;

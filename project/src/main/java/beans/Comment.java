@@ -15,6 +15,13 @@ public class Comment {
         this.dateComment = dateComment;
     }
 
+    public Comment( String idProduct, String content, String idUser, String dateComment)  {
+        this.idProduct = idProduct;
+        this.content = content;
+        this.idUser =idUser;
+        this.dateComment = dateComment;
+    }
+
     public String getIdComment() {
         return idComment;
     }

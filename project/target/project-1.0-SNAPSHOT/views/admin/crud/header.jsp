@@ -48,6 +48,10 @@
                     <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
             </li>
             <li class="collapsed">
+                <a id="listComment" class="m-link" href="<%=request.getContextPath()%>/GetComment">
+                    <i class="fa-solid fa-plus mx-2"></i> <span>Phản hồi khách hàng</span> </a>
+            </li>
+            <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
                     <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px"></i><span>Đăng xuất</span> </a>
             </li>
@@ -89,6 +93,9 @@
     }
     else if (url.includes("GetAdd")){
         $("#addProduct").addClass("active")
+    }
+    else if (url.includes("GetComment")){
+        $("#listComment").addClass("active")
     }
     else {
         $("#home").addClass("active")

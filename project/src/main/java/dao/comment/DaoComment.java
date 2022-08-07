@@ -42,6 +42,27 @@ public class DaoComment {
         return list;
     }
 
+    public List<Comment> getListComment() {
+        List<Comment> list = new ArrayList<Comment>();
+        try {
+            String sql = "SELECT  idComment,idProduct,content,dateComment,idUser FROM comment";
+            PreparedStatement s = connect.prepareStatement(sql);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String idComment = rs.getString("idComment");
+                String id_Product = rs.getString("idProduct");
+                String content = rs.getString("content");
+                String dateComment = rs.getString("dateComment");
+                String idUser = rs.getString("idUser");
+
+                list.add(new Comment(idComment,id_Product,content,idUser,dateComment));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
+
     public String getNameUser(String idUser) {
         String name = "";
         try {
@@ -58,25 +79,25 @@ public class DaoComment {
         }
         return name;
     }
-    public String createNewComment(Comment comment) {
+    public void createNewComment(Comment comment) {
         try {
-            String sql = "INSERT INTO comment(idComment,idProduct,content,idUser,dateComment) VALUES( ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO comment(idProduct,content,idUser,dateComment) VALUES( ?, ?, ?, ?)";
             PreparedStatement s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            s.setString(1, comment.getIdComment());
-            s.setString(2, comment.getIdProduct());
-            s.setString(3, comment.getContent());
-            s.setString(4, comment.getIdUser());
-            s.setString(5, comment.getDateComment());
+//            s.setString(1, comment.getIdComment());
+            s.setString(1, comment.getIdProduct());
+            s.setString(2, comment.getContent());
+            s.setString(3, comment.getIdUser());
+            s.setString(4, comment.getDateComment());
             s.executeUpdate();
 
             ResultSet rs = s.getGeneratedKeys();
             rs.next();
-            String idCommentNew = rs.getString(1);
-            return idCommentNew;
+//            String idCommentNew = rs.getString(1);
+//            return idCommentNew;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return null;
+
     }
 
     public int getAmountComment(String idProduct) {

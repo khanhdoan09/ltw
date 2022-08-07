@@ -2,6 +2,7 @@ package controller.sign_in;
 
 import dao.sign.SignInDao;
 import beans.User;
+import dao.user.UserDao;
 import service.customer.sign.SignInService;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -36,10 +37,13 @@ public class SignInController extends HttpServlet {
                 // password sai
                 response.getWriter().write("wrong password");
             }
+
             else {
                 // password đúng
+                String username = UserDao.getInstance().getUser(userId);
                 HttpSession session = request.getSession(true);
                 session.setAttribute("userId", userId);
+                session.setAttribute("username", username);
                 response.getWriter().write("true");
             }
     }

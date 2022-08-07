@@ -21,17 +21,17 @@ public class CommentController extends HttpServlet {
 //        String idComment = request.getParameter("idComment");
 
         String idProduct = request.getParameter("idProduct");
-        int amount = DaoComment.getInstance().getAmountComment(idProduct) +1;
-        String idComment = "CM" + amount;
+//        int amount = DaoComment.getInstance().getAmountComment(idProduct) +1;
+//        String idComment = "CM" + amount;
         System.out.println("run me");
         String content = request.getParameter("contentComment").trim();
         String idUser = request.getParameter("idUser");
         String dateComment = request.getParameter("dateComment");;
         Date d = new Date();
         System.out.println("jdk comment "+content);
-        Comment comment = new Comment(idComment, idProduct,content,idUser,dateComment);
+        Comment comment = new Comment(idProduct,content,idUser,dateComment);
 
-        String id_Comment = DaoComment.getInstance().createNewComment(comment);
+        DaoComment.getInstance().createNewComment(comment);
         HttpSession session = request.getSession(true);
     }
 }
