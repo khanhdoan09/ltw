@@ -52,13 +52,13 @@ public class DaoOrderAdmin {
         List<OrderDetailInAdmin> re = new ArrayList<OrderDetailInAdmin>();
         // get list size
         try {
-            String sql = "SELECT idOrder, idShoe, size, color, quantity FROM order_detail WHERE idOrder=?";
+            String sql = "SELECT idOrder, idProductDetail, size, color, quantity FROM order_detail INNER JOIN product_detail ON idProductDetail=idDetail WHERE idOrder=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idOrder);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id =  rs.getString("idOrder");
-                String idShoe =  rs.getString("idShoe");
+                String idShoe =  rs.getString("idProductDetail");
                 int size = rs.getInt("size");
                 String color = rs.getString("color");
                 int quantity = rs.getInt("quantity");

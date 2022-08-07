@@ -67,7 +67,7 @@ public class ChangeCustomerInfoController extends HttpServlet {
             String fileName = extractFileName(part);
             if(fileName!="") {
                 String avatar = idCustomer+"_"+fileName;
-                DaoCustomer.getInstance().updateUrlAvatar(idCustomer, fileName);
+                DaoCustomer.getInstance().updateUrlAvatar(idCustomer, avatar);
                 part.write(savePath + "\\"+avatar);
             }
         }

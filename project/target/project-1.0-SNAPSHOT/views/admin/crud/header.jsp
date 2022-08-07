@@ -20,7 +20,7 @@
         <!-- Menu: main ul -->
         <ul class="menu-list flex-grow-1 mt-3">
             <li>
-                <a id="home" class="m-link" href="admin/index.html"><i class="fas fa-home" style="margin: 0 10px;"></i>
+                <a id="home" class="m-link" href="<%=request.getContextPath()%>/HomeAdmin"><i class="fas fa-home" style="margin: 0 10px;"></i>
                     <span>Trang chủ</span></a>
             </li>
             <li class="collapsed">
@@ -67,7 +67,10 @@
 
 <script>
     let url = $(location).attr('href');
-    if (url.includes("list-product.jsp")){
+    if (url.includes("home")){
+        $("#home").addClass("active")
+    }
+    else if (url.includes("list-product.jsp")){
         $("#product").addClass("active")
     }
     else if (url.includes("ListProductAdmin")){

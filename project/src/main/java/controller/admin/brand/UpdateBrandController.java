@@ -47,6 +47,7 @@ public class UpdateBrandController extends HttpServlet {
         for (Part part : request.getParts()) {
             String fileName = extractFileName(part);
             if(fileName!="") {
+                System.out.println(savePath + "\\"+idBrand+"_"+fileName);
                 DaoProductBrand.getInstance().updateUrlBrand(idBrand, fileName);
                 part.write(savePath + "\\"+idBrand+"_"+fileName);
             }
@@ -57,6 +58,7 @@ public class UpdateBrandController extends HttpServlet {
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
+                System.out.println(s);
                 String nameImg = s.substring(s.indexOf("=") + 2, s.length()-1);
                 return nameImg;
             }

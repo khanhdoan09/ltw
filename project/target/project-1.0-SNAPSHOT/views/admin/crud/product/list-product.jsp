@@ -151,7 +151,7 @@
                     <td>$<%=product.getPrice()%></td>
                     <td>-<%=product.getSaleRate()%>%</td>
                     <td>
-                      <div class="d-grid text-center">
+                      <div class="text-center d-flex justify-content-between">
                         <a class="edit-remove-admin remove-admin"  data-id="<%=product.getId()%>">
                           <i class="fas fa-trash-alt" data-id="<%=product.getId()%>"></i>
                         </a>
