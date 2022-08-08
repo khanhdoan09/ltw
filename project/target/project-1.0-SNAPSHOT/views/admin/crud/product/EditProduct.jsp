@@ -53,8 +53,14 @@
     <style>
         .remove-img-detail {
             width: 27%;
+            height: fit-content;
             margin: 5px 0;
             color: white;
+        }
+        .img-load {
+            height: fit-content;
+            width: 90px;
+            overflow:hidden;
         }
         .fileNewImg {
             background-color: #62637a;
@@ -75,6 +81,13 @@
         .main_img {
             width: 20px;
             height: 20px;
+        }
+        .contain-color-image {
+          margin: 5px 0; display: grid;margin: 5px; width: fit-content;
+        }
+        .exp-edit {
+            color: red;
+            display: block;
         }
         input[type='file'] {
             color: transparent;
@@ -281,9 +294,9 @@
                                 <div>
                                     <div class="row g-3 align-items-center">
                                         <div>
-                                            <div class="col-md-12" style="display: flex; flex-wrap: wrap">
+                                            <div class="col-md-12">
                                                 <label class="form-label">Úp ảnh</label>
-                                                <div style="display: flex; flex-wrap: wrap" class="images">
+                                                <div style="display: flex; flex-wrap: wrap" class="images d-grid">
                                                     <%
                                                         String mainColor = DaoProductAdmin.getInstance().getMainColor(product.getId());
                                                         List<String>listColor = DaoProductColor.getInstance().getListColor(product.getId());
@@ -293,7 +306,7 @@
 
                                                     <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
                                                         <br>
-                                                        <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm ảnh mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
+                                                        <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm ảnh mới" id="add-img-<%=j%>"  type="button"  class="fileNewImg" />
                                                         <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
                                                         <div class="d-flex align-items-center">
                                                             <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
@@ -309,7 +322,7 @@
                                                     <%for(int i= 0;i < product.getListImg().size(); i++){%>
                                                     <%String color = product.getListImg().get(i).getColor();
                                                         if (color.equals(listColor.get(j))){%>
-                                                    <div style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px" class="contain-color-image" data-color="<%=color%>">
+                                                    <div class="contain-color-image" data-color="<%=color%>">
                                                         <%String nameImg = product.getListImg().get(i).getImg();%>
 
                                                         <img id="img-<%=i%>" src="upload/product/<%=nameImg%>" width="280" height="280">
@@ -323,7 +336,7 @@
                                                                    checked
                                                                     <%}%>
                                                             />
-                                                            <label style="cursor: pointer" for="mainImage_<%=i%>"><h6>Main Image</h6></label>
+                                                            <label style="cursor: pointer" for="mainImage_<%=i%>"><h6>Ảnh chính</h6></label>
                                                         </div>
                                                     </div>
                                                     <%}%>
@@ -467,15 +480,14 @@
                     check=false
                     $("#exp-"+color+"-sole").text("Sole is negative");
                 }
-                if (total < sole) {
+                if (parseInt(total) < parseInt(sole)) {
                     check=false;
-                    $("#exp-"+color+"-total").text("Total must be \n bigger than sole");
+                    alert("Total must be bigger than sole")
                 }
-                alert(check + "" +color + "" +size)
 
                 if (check) {
                     $.ajax({
-                        url: `AddDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size+`&total=`+total+`&sole=`+sole,
+                        url: `AddDetailAdmin?id=<%=product.getId()%>&color=`+color+`&size=`+size+`&total=`+total+`&sole=`+sole,
                         type: 'POST',
                         success: function (data) {
                             $("#totalValue").val($("#totalValue").val()+total)
@@ -580,7 +592,7 @@
                 let nameImg = ef.target.files[0].name
                 // save color and name img
                 $("#"+idHidden).val($("#"+idHidden).val()+"#"+nameImg)
-                $("#"+idChooseMainImg).val(nameImg+"~"+color)
+                $("#"+idChooseMainImg).val('<%=product.getId()%>_'+nameImg+"~"+color)
 
 
                 let idImgShow = $(this).data("img")
@@ -601,21 +613,24 @@
     $(function addNewColor() {
         let count=-1
         $(".add-new-color").click(()=>{
-            let color = ` <h5 style="display: block; width: 100%">Màu: <input type="text" name="newColor" id="new-color-`+count+`" />
+            let color = `
+<div class="d-block">
+ <h5 style="display: block; width: 100%">Màu: <input type="text" name="newColor" id="new-color-`+count+`" />
                          <br>
-                         <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`"  data-j="`+new Date().getTime()+`" data-maincolor="`+count+`" value="Thêm mới"  type="button" />
+                         <input data-containimg="contain-img-`+count+`" data-color="`+$("#new-color-"+count).val()+`" id="add-img-`+count+`" data-maincolor="`+count+`" value="Thêm ảnh mới"  type="button" />
                         </h5>
                            <div class="d-flex align-items-center">
-                               <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_`+count+`" value="">
-                                      <label for="mainColor_`+count+`" style="cursor: pointer">Choose main color</label>
+                               <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_`+count+`" value="" checked>
+                                      <label for="mainColor_`+count+`" style="cursor: pointer">Chọn màu chính</label>
                                    </div>
-                         <div id="contain-img-`+count+`" class="d-flex flex-wrap"></div>`
+                         <div id="contain-img-`+count+`" class="d-flex flex-wrap"></div>
+</div>`
             $(".images").prepend(color)
 
             changeDataColor("add-img-"+count, "new-color-"+count)
             addColor("add-img-"+count)
             addDetailProduct("add-img-"+count)
-            count--
+            count-=1
         })
     })
 
@@ -659,36 +674,39 @@
     $(function addNewImage() {
         $(".fileNewImg").each(function(){
             $(this).click(()=>{
-                test($(this).attr('id'))
+                addNewImg($(this).attr('id'))
             })
         })
     })
 
     function addColor(id) {
-        $("#"+id).click(()=>test(id))
+        $("#"+id).click(()=>addNewImg(id))
     }
 
-    function test(idInput) {
-        // $("#"+idInput).click(()=>{
+    let countNewImg = 0
+    function addNewImg(idInput) {
         let id = new Date().getTime()
         let color=$("#"+idInput).data('color')
-        let j = $("#"+idInput).data('j')
+        // let j = $("#"+idInput).data('j')
         let i = new Date().getTime()
-        let newImg = `<div class="d-flex justify-content-around" style="border: 1px solid black; margin-right: 5px">
+        let newImg = `<div class="" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
-                        <input type="file" name="fileImg" id="input-img-`+id+`" data-containmainimg="mainImage_`+i+`" data-containhidden="hidden-`+j+`" data-color="`+color+`" class="imgLoad btn btn-primary" data-img="img-`+id+`"/>
+                        <div class="d-grid">
+                       <input type="file" name="fileImg" id="input-img-`+id+`" data-containmainimg="mainImage_`+i+`" data-containhidden="hidden-`+countNewImg+`" data-color="`+color+`" class="imgLoad" data-img="img-`+id+`"/>
                         <!--send color and file name-->
-                        <input value="`+color+`" name="newimg" type="hidden" id="hidden-`+j+`" />
+                        <input value="`+color+`" name="newimg" type="hidden" id="hidden-`+countNewImg+`" />
 
                         <button class="remove-img-detail btn btn-danger">Xóa</button>
+                        </div>
+
 <div class="d-flex align-items-center my-2">
-                                                            <input class="main_img" type="radio" id="mainImage_`+i+`" name="chooseMainImage" value="">
-                                                            <label style="cursor: pointer" for="mainImage_`+i+`"><h6>Main Image</h6></label>
+                                                            <input class="main_img" type="radio" id="mainImage_`+i+`" name="chooseMainImage" value="" checked>
+                                                            <label style="cursor: pointer" for="mainImage_`+i+`"><h6>Ảnh chính</h6></label>
                                                         </div>
                         </div>
 
                         `
-
+        countNewImg++
 
         let divContain=$("#"+idInput).data("containimg")
         $("#"+divContain).append(newImg)
@@ -752,7 +770,6 @@
     $(".imgExist").each(function() {
         $(this).change(function (ef) {
             let id = $(this).data("containhiddenimgexist")
-            alert(id)
             let color = $(this).data("color")
             let oldNameImg = $(this).data("nameimg")
             // use when click change

@@ -1,6 +1,7 @@
 package dao.product.color;
 import database.DatabaseConnection;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,22 +41,43 @@ public class DaoProductColor {
         return list;
     }
 
-    public boolean removeColor(String id, String color) {
-        PreparedStatement s = null;
-        String sql = "DELETE FROM linkimg WHERE idProduct=? && color=?";
+    public boolean removeColor(String id, String color, String appPath) {
+        PreparedStatement s1 = null;
+        String sql3 = "SELECT * FROM linkimg WHERE idProduct=? && color=?";
 
         PreparedStatement s2 = null;
         String sql2 = "DELETE FROM product_detail WHERE id=? && color=?";
+
+        PreparedStatement s3 = null;
+        String sql = "DELETE FROM linkimg WHERE idProduct=? && color=?";
+
         try {
-            s = connect.prepareStatement(sql);
-            s.setString(1, id);
-            s.setString(2, color);
-            s.executeUpdate();
-            // sau nay set relationship roi thi khoi can lam cai nay
+            // remove image in folder
+            s1 = connect.prepareStatement(sql3);
+            s1.setString(1, id);
+            s1.setString(2, color);
+            ResultSet rs = s1.executeQuery();
+            while (rs.next()) {
+                String src = rs.getString("img");
+                File file = new File(appPath + "\\" + src);
+                if (file.exists()) {
+                    System.out.println("Deleted the file: " + file.getName());
+                    file.delete();
+                } else {
+                    System.out.println("Failed to delete the file: " + appPath+"\\"+src);
+                }
+            }
             s2 = connect.prepareStatement(sql2);
             s2.setString(1, id);
             s2.setString(2, color);
             s2.executeUpdate();
+
+            s3 = connect.prepareStatement(sql);
+            s3.setString(1, id);
+            s3.setString(2, color);
+            s3.executeUpdate();
+
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
@@ -74,7 +96,6 @@ public class DaoProductColor {
             s.setString(1, colorNew);
             s.setString(2, id);
             s.setString(3, colorOld);
-            System.out.println(s.toString());
             s.executeUpdate();
 
             // sau nay set key lien ket roi nho xoa cai nay
@@ -82,7 +103,6 @@ public class DaoProductColor {
             s2.setString(1, colorNew);
             s2.setString(2, id);
             s2.setString(3, colorOld);
-            System.out.println(s2.toString());
             s2.executeUpdate();
             return true;
         } catch (SQLException e) {

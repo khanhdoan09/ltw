@@ -183,36 +183,6 @@
 
                                     </table>
 
-                                    <h5 class="m-0 fw-bold" style="margin: 10px ">Thêm size</h5>
-                                    <table style="width: 100%;" class="table-add-detail">
-                                        <thead>
-                                        <th>màu</th>
-                                        <th>size</th>
-                                        <th>tổng</th>
-                                        <th>đã bán</th>
-                                        </thead>
-                                        <%List<String>colors = DaoProductColor.getInstance().getListColor(product.getId());
-                                            for(String color : colors){%>
-                                        <tr class="tr-add-detail" data-color="<%=color%>">
-                                            <td><%=color%></td>
-                                            <td>
-                                                <input id="add-<%=color%>-size" style="width: 50px;" type="number" min="32" max="50">
-                                                <span class="exp-edit" id="exp-<%=color%>-size"></span>
-                                            </td>
-                                            <td>
-                                                <input id="add-<%=color%>-total" style="width: 50px;" type="number" min="0">
-                                                <span class="exp-edit" id="exp-<%=color%>-total"></span>
-                                            </td>
-                                            <td>
-                                                <input id="add-<%=color%>-sole" style="width: 50px;" type="number" min="0">
-                                                <span class="exp-edit" id="exp-<%=color%>-sole"></span>
-                                            </td>
-                                            <td><a class="add-detail-admin" data-color="<%=color%>" style="font-size: 22px; cursor:pointer;"><i class="fas fa-save"></i></a></td>
-                                        </tr>
-
-                                        <%}%>
-                                    </table>
-
                                 </div>
 
 
@@ -254,12 +224,6 @@
                                               <%=product.getDescription()%>" value="<%=product.getDescription()%>" >
                                         </div>
 
-                                        <div class="col-md-12">
-                                            <div class="col-md-12">
-                                                <h5>Thêm màu mới <input type="button" value="thêm màu mới" class="add-new-color"></h5>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -285,10 +249,8 @@
 
                                                     <h5 id="color-<%=j%>" class="contain-color-image" data-color="<%=listColor.get(j)%>" style="display: block; width: 100%">Màu<input name="color" value="<%=listColor.get(j)%>" />
                                                         <br>
-                                                        <input data-containimg="contain-img-<%=j%>" data-color="<%=listColor.get(j)%>" value="Thêm ảnh mới" id="add-img-<%=j%>" data-j="<%=j%>"  type="button"  class="fileNewImg" />
-                                                        <input type="button" class="remove-color" data-color="<%=listColor.get(j)%>" value="Xóa màu <%=listColor.get(j)%>">
                                                         <div class="d-flex align-items-center">
-                                                            <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%>"
+                                                            <input type="radio" style="width: 20px;height:20px" name="chooseMainColor" id="mainColor_<%=listColor.get(j)%>" value="<%=listColor.get(j)%> readonly"
                                                                 <%if(mainColor.equals(listColor.get(j))){ %>
                                                                    checked
                                                                 <%}%>>

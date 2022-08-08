@@ -20,11 +20,12 @@ public class NewCustomerPassword extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Object obj = session.getAttribute("userId");
-        if(obj != null) {
+        if(obj == null) {
             request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
             return;
         }
-        String idCustomer = (String) obj;
+        String idCustomer = obj.toString();
+
         PersonalAddressService personalAddressService = new PersonalAddressService();
 
         response.setContentType("text/plain");

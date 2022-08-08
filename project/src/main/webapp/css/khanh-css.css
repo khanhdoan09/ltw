@@ -64,15 +64,6 @@ header {
     display: flex; flex-wrap: wrap;  width: 100%;
 }
 
-.value-header-product {
-    background-color: yellow;
-    color: #1f507a;
-    height: 40px !important;
-    width: 40px !important;
-    border-radius: 100%;
-    font-size: 12px;
-    padding: 3px 7px;
-}
 
 .bt-nav-collapse {
     margin-left: 10px;

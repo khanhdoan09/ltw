@@ -101,7 +101,6 @@
                                             <label class="form-label">Giảm giá</label>
                                             <input type="number" min="0" max="100" class="form-control" name="sale">
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +111,7 @@
                                 <div class="card-body">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-md-12">
-                                            <label class="form-label">Ngày</label>
+                                            <label class="fom-label">Ngày</label>
                                             <input type="date" class="form-control w-100" name="date">
                                         </div>
                                     </div>
@@ -137,7 +136,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <p>Nhãn hàng</p>
-                                            <select required name="brand">
+                                            <select class="form-select form-select-md mb-2" required name="brand">
                                                 <c:forEach var="i" items="${brands}">
                                                     <option value="${i.id}">${i.name}</option>
                                                 </c:forEach>
@@ -261,7 +260,7 @@
                         <button class="remove-img-detail">Xóa</button>
 <div class="d-flex align-items-center my-2">
                                                             <input style="width: 30px; height:30px" type="radio" id="mainImage_`+i+`" name="chooseMainImage_`+j+`">
-                                                            <label style="cursor: pointer" for="mainImage_`+i+`"><h6>Main Image</h6></label>
+                                                            <label style="cursor: pointer" for="mainImage_`+i+`" class="mx-2"><h6>Main Image</h6></label>
                                                         </div>
                         </div>
 

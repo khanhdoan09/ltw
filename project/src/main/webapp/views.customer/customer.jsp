@@ -79,6 +79,7 @@
                     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
                     <div class="info col-half-sub d-grid">
+
                         <p class="Ten col-half-info">Tên</p>
                         <input name="name" type="text" class="col-half-picture" required
                                value="<%=customer.getName()%>">
@@ -197,28 +198,71 @@
 
                     </div>
                 </div>
-                <form id="password-customer" action="newCustomerPassword" class="screen-custoner">
-                    <div>
-                        <label for="oldPassword">Mật Khẩu Hiện Tại:</label>
-                        <input id="oldPassword" required type="password" name="oldPassword" style="width: 25%;">
-                        <p class="validation" id="validation-oldPassword"></p>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <form id="password-customer" method="post" action="newCustomerPassword?id=<%=customer.getId()%>">
+                                        <div class="form-group row">
+                                            <label for="oldPassword" class="col-md-4 col-form-label text-md-right">Current Password</label>
+                                            <div class="col-md-6">
+                                                <input id="oldPassword" type="password" class="form-control" name="oldPassword" required>
+                                                <p class="validation" id="validation-oldPassword"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="newPassword" class="col-md-4 col-form-label text-md-right">New Password</label>
+                                            <div class="col-md-6">
+                                                <input id="newPassword" type="password" class="form-control" name="newPassword" required >
+                                                <p class="validation" id="validation-newPassword"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="confirmNewPassword" class="col-md-4 col-form-label text-md-right">New Confirm Password</label>
+                                            <div class="col-md-6">
+                                                <input id="confirmNewPassword" type="password" class="form-control" name="confirmNewPassword" required>
+                                                <p class="validation" id="validation-confirmPassword"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-8 offset-md-4">
+                                                <button id="submitChangeNewPassword" type="submit" class="btn btn-primary">
+                                                    Update Password
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label for="validation-newPassword">Mật Khẩu Mới:</label>
-                        <input id="newPassword" type="password" name="newPassword" required style="width: 25%;">
-                        <p class="validation" id="validation-newPassword"></p>
-                    </div>
-                    <div>
-                        <label for="confirmNewPassword">Nhập Lại Mật Khẩu Mới:</label>
-                        <input id="confirmNewPassword" type="password" name="confirmNewPassword" required
-                               style="width: 25%;">
-                        <p class="validation" id="validation-confirmPassword"></p>
-                    </div>
-                    <button id="submitChangeNewPassword" type="submit" style="background-color: #108bea; color: white;">
-                        Lưu Thay Đổi
-                    </button>
-                    <%--                    <input type="submit" value="Lưu Thay Đổi" style="background-color: #108bea; color: white;">--%>
-                </form>
+                </div>
+<%--                <form id="password-customer" method="post" action="newCustomerPassword?id=<%=customer.getId()%>" class="screen-custoner">--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="oldPassword">Mật Khẩu Hiện Tại:</label>--%>
+<%--                        <input id="oldPassword" class="form-control" required type="password" name="oldPassword" style="width: 25%;">--%>
+<%--                        <p class="validation" id="validation-oldPassword"></p>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="validation-newPassword">Mật Khẩu Mới:</label>--%>
+<%--                        <input id="newPassword" type="password" class="form-control" name="newPassword" required style="width: 25%;">--%>
+<%--                        <p class="validation" id="validation-newPassword"></p>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="confirmNewPassword">Nhập Lại Mật Khẩu Mới:</label>--%>
+<%--                        <input id="confirmNewPassword" class="form-control" type="password" name="confirmNewPassword" required--%>
+<%--                               style="width: 25%;">--%>
+<%--                        <p class="validation" id="validation-confirmPassword"></p>--%>
+<%--                    </div>--%>
+<%--                    <button id="submitChangeNewPassword" type="submit" style="background-color: #108bea; color: white;">--%>
+<%--                        Lưu Thay Đổi--%>
+<%--                    </button>--%>
+<%--                </form>--%>
 <%--                <div id="favorite-customer"  class="screen-custoner">--%>
 <%--                    <div class="product-layout product-grid border-fav"--%>
 <%--                         style="background-color: white; padding: 10px 0">--%>
@@ -514,8 +558,56 @@
 <script src="javascript/ward.js" type="text/javascript"></script>
 <script src="javascript/customer/history.js" type="text/javascript"></script>
 <script src="javascript/customer/address.js" type="text/javascript"></script>
-<script src="javascript/customer/changePassword.js" type="text/javascript"></script>
+<script>
+    $("#submitChangeNewPassword").click((e) => {
+        e.preventDefault()
+        let oldPassword = $("#oldPassword").val()
+        let newPassword = $("#newPassword").val()
+        if (!checkValidation()) {
+            return
+        }
+        let url = $("#password-customer").attr('action')
+        $.ajax(
+            {
+                url: url,
+                type: 'POST',
+                data: {
+                    "oldPassword": oldPassword,
+                    "newPassword": newPassword
+                },
+                success: function (result) {
+                    if (result == "wrong") {
+                        $("#validation-oldPassword").text("wrong password")
+                    } else if (result == "fail") {
+                        $("#validation-newPassword").text("fail to change")
+                    } else {
+                        $("#validation-oldPassword").text("")
+                        $("#validation-newPassword").text("")
+                        alert("success to change")
+                    }
+                }
+            }
+        );
+    })
 
+    function checkValidation() {
+        let oldPassword = $("#oldPassword").val()
+        let newPassword = $("#newPassword").val()
+        let confirmNewPassword = $("#confirmNewPassword").val()
+        if (newPassword.length < 8) {
+            $("#validation-newPassword").text("password is too short")
+        }
+        if (newPassword.length > 16) {
+            $("#validation-newPassword").text("password is too long")
+            return false
+        }
+        if (newPassword != confirmNewPassword) {
+            $("#validation-confirmPassword").text("not correct")
+            return false
+        }
+        return true
+    }
+</script>
 
 <script src="javascript/khanh-js.js" type="text/javascript"></script>
 </body>

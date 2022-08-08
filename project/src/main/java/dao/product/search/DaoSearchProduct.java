@@ -30,6 +30,7 @@ public class DaoSearchProduct {
             for (int i = 0; i < parameterOfCondition.size(); i++) {
                 s.setString(i + 1, parameterOfCondition.get(i));
             }
+            System.out.println(s.toString());
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("id");

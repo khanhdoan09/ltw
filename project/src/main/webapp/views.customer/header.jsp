@@ -20,6 +20,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%--<c:set var="list" value="${cart.data}"/>--%>
+<style>
+    .value-header-product {
+        background-color: yellow;
+        color: #1f507a;
+        border-radius: 100%;
+        font-size: 19px;
+        margin: 10px;
+        padding: 0 8px;
+    }
+</style>
 
 <header>
     <div class="contain-header-inner">
@@ -59,7 +69,6 @@
                                         <li><a href="#" class="js-login" id="Login">Đăng Nhập</a></li>
                                         <li><a href="#" class="js_register">Đăng Ký</a></li>
                                         <%}else {%>
-
                                         <li><a href="<%=request.getContextPath()%>/customer" class="js-login">Cá nhân</a></li>
                                         <li><a id="sign_out" class="js-login">Đăng xuất</a></li>
                                         <%}%>
@@ -111,7 +120,7 @@
                                 <span class="cart-title color-header" id="sum_price" style="margin-left: 10px"
                                 >Giỏ hàng  </span>
                             </span>
-                            <span class="value-header-product" id="header_quantity" style="margin: -6px 0 5px 10px">0</span>
+                            <span class="value-header-product" id="header_quantity">0</span>
                             <i class="fas fa-shopping-cart cart-icon-nav"></i>
                         </button>
 
@@ -146,7 +155,7 @@
                             <%ArrayList<Category> listCategoryMan = DaoCategory.getInstance().getListCategoryOnNav("man");%>
                             <%for (Category category: listCategoryMan) {%>
                             <li class="category-product category-product-man">
-                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
+                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Man&pagination=1" class="link-navigation" data-id="<%=category.getId()%>" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
                             </li>
                             <%}%>
                         </ul>
@@ -158,7 +167,7 @@
                             <%ArrayList<Category> listCategoryWoman = DaoCategory.getInstance().getListCategoryOnNav("woman");%>
                             <%for (Category category: listCategoryWoman) {%>
                             <li id="running-woman"  class="category-product category-product-woman">
-                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Woman&pagination=1" class="link-navigation" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
+                                <a href="SearchListProduct?category=<%=category.getId()%>&gender=Woman&pagination=1" class="link-navigation" data-id="<%=category.getId()%>" style="color:white;background-color: #0f6cb2"><%=category.getName()%></a>
                             </li>
                             <%}%>
                         </ul>
@@ -229,94 +238,6 @@
         })
     })
 </script>
-<%--<script>--%>
-<%--    $(function() {--%>
-<%--                $.ajax({--%>
-<%--                    url: "/project/Cart-remove",--%>
-<%--                    method: "POST",--%>
-<%--                    data: {--%>
-<%--                        id: id--%>
-<%--                    },--%>
-<%--                    success: function (data) {--%>
-<%--                        tr.remove();--%>
-<%--                    },--%>
-<%--                    error: function (data) {--%>
-<%--                        if (data.status === 404)--%>
-<%--                            alert("Xoa That Bai");--%>
-<%--                    }--%>
-<%--                })--%>
-<%--    })--%>
-<%--</script>--%>
-<script>
-    // $(document).ready(function () {
-    //     $(".cart-remove").click(function () {
-    //         var id = $(this).attr("pid");
-    //         tr = $(this).closest("tr");
-    //         console.log(id);
-    //         $.ajax({
-    //             url: "/project/Cart-remove",
-    //             method: "POST",
-    //             data: {
-    //                 id: id
-    //             },
-    //             success: function (data) {
-    //                 tr.remove();
-    //             },
-    //             error: function (data) {
-    //                 if (data.status === 404)
-    //                     alert("Xoa That Bai");
-    //             }
-    //         })
-    //     });
-    //     $(function (){
-    //         let value = 0;
-    //         let num = 0;
-    //         let i = 0;
-    //         while(true){
-    //             let child = $("#list-cart .SL-Gia:nth-child("+ i++ +")");
-    //             if(child.length!==0){
-    //                 for(let j = 0;j<child.length;j++){
-    //                     let price =Number(child[j].children[0].innerHTML);
-    //                     let quantity = Number(child[j].children[1].innerHTML);
-    //                     // console.log(typeof price + price);
-    //                     value += price;
-    //                     num += quantity;
-    //                 }
-    //                 // console.log(value);
-    //                 value = Math.round(value)
-    //                 break;
-    //             }else if(i===10) break;
-    //         }
-    //         $("#total-value").text(value);
-    //         $("#total_price").text(value +"$");
-    //         $("#header_quantity").text(num);
-    //         $("#sum_price").text("Giỏ Hàng - "+value+"$");
-    //     });
-    // })
-
-    // function excuteData() {
-    <%--        <%--%>
-    <%--            String id = "";--%>
-    <%--            if(user == null) {--%>
-    <%--        %>--%>
-    <%--        let value= "";--%>
-    <%--        value +="<li>"--%>
-    <%--        value += "                                                    <div href=\".jsp\" class=\"minicart-item\">";--%>
-    <%--        value += "                                                        <div class=\"left-info\">";--%>
-    <%--        value += "                                                            <div class=\"product-title\"><a  class=\"product-name\">vui lòng đăng nhập để mở chức năng giỏ hàng<\/a><\/div>";--%>
-    <%--        value += "                                                        <\/div>";--%>
-    <%--        value += "                                                    <\/div>";--%>
-    <%--        value += "                                                <\/li>";--%>
-    <%--        document.getElementById("products-cart").innerHTML=strVar;--%>
-    <%--        return;--%>
-    <%--        <%}else{--%>
-    <%--           id = user.getId();--%>
-    <%--        }%>--%>
-
-
-    // }
-</script>
-
 <script>
     $(function () {
         $("#input-search").on("input", function(e) {
@@ -343,4 +264,17 @@
         });
     })
 
+</script>
+
+<script>
+    $(function(){
+        $(".link-navigation").each(function(){
+            let url = window.location.href
+            let idCategory = $(this).data("id")
+            if (url.includes("category="+idCategory)) {
+                $(this).css("background-color", "white")
+                $(this).css("color", "black")
+            }
+        })
+    })
 </script>

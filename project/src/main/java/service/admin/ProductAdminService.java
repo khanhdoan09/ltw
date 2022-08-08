@@ -62,6 +62,10 @@ public class ProductAdminService {
         return sql;
     }
 
+    public int addProduct(Product product) {
+        return DaoProductAdmin.getInstance().addNewProduct(product);
+    }
+
     public List<Product> getListProduct(ArrayList<String> listParameterOfCondition, String sqlAll) {
         return DaoProductAdmin.getInstance().excQuery(listParameterOfCondition, sqlAll);
     }

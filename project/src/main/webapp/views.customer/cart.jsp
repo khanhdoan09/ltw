@@ -84,26 +84,26 @@
                                         <img class="img-thumbnail"
                                                                                                              title="women's New Wine is an alcoholic"
                                                                                                              alt="women's New Wine is an alcoholic"
-                                                                                                             src="data/imgAll/${item.avatar}.jpg"></a>
+                                                                                                             src="upload/product/${item.avatar}.jpg"></a>
                                 </td>
                                 <td class="text-left"><a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><%=product.getName()%></a>
                                 </td>
                                 <td class="text-left"><%=product.getSizeShoe()%></td>
                                 <td class="text-left">
-                                    <div style="max-width: 200px;" class="input-group btn-block">
-                                        <form class="cart-update d-flex" action="/UpdateQuantityCart?idProductDetail=<%=product.getIdProductDetail()%>">
-                                            <input type="number" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity">
+                                    <div class="input-group btn-block">
+                                        <form action="/UpdateQuantityCart?idProductDetail=<%=product.getIdProductDetail()%>" class="d-flex">
+                                            <input type="number" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity" style="width: 60px">
                                             <button type="submit">
                                                 <i class="fa fa-refresh icon-update" style="padding: 8px 20px;background-color: #1a94ff;color: white;"></i>
                                             </button>
-                                        </form>
-                                        <span class="input-group-btn">
+                                            <span class="input-group-btn">
                                                 <a data-tr="tr_<%=i%>" data-price="<%=product.getPrice()%>" data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProductDetail()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
                                                     <button class="btn btn-danger" title="" data-toggle="tooltip"
-                                                        type="button" data-original-title="Remove">
+                                                            type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
                                                 </a>
                                         </span>
+                                        </form>
                                     </div>
                                 </td>
                                 <td class="text-right"><%=product.getPrice()%></td>

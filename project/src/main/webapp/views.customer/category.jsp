@@ -20,6 +20,7 @@
 <html lang="en">
 
 <head>
+    <title>Category | Dragon Sport</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
@@ -246,10 +247,10 @@
                                         }%>
                                     <input type="radio" id="price-search-highest" name="price-search-radio"
                                            value="DESC" <%=isHighestLowestChecked("DESC")%>/>
-                                    <label for="price-search-highest">From high to low</label>
+                                    <label for="price-search-highest" style="margin-left: 5px">From high to low</label>
                                     <input type="radio" id="price-search-lowest" name="price-search-radio"
                                            value="ASC" <%=isHighestLowestChecked("ASC")%>/>
-                                    <label for="price-search-lowest">From low to high</label>
+                                    <label for="price-search-lowest" style="margin-left: 5px">From low to high</label>
                                 </div>
 
                                 <div class="contain-filter-search-range" id="checkboxPriceRangeFilter">
@@ -460,8 +461,14 @@
                     <ul class="pagination">
                         <%
                             double totalNumber = new Double(request.getAttribute("totalNumberProduct").toString());
-
-                        int lengthPagination = (int) Math.ceil(totalNumber / 9);%>
+                            int lengthPagination = 0;
+                            if (totalNumber >0 && totalNumber < 9 ) {
+                                lengthPagination = 1;
+                            }
+                            else if (totalNumber % 9 == 0){
+                                lengthPagination = (int) Math.ceil(totalNumber / 9);
+                            }
+                        %>
                         <li>
                             <a id="left-page"
                                href="
@@ -504,6 +511,7 @@
                 </div>
             </div>
     </div>
+</div>
 </div>
 <%@include file="footer_login_message.jsp"%>
 <script src="javascript/hung-js.js"></script>

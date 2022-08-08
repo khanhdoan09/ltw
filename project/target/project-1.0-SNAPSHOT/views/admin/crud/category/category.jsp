@@ -73,7 +73,6 @@
                                 <table id="listOrder" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Tên</th>
                                         <th>Giới tính</th>
                                         <th>Hành động</th>
@@ -83,15 +82,10 @@
                                     <tbody id="listProduct">
                                     <c:forEach var="i" items="${category}">
                                        <tr id="contain-${i.id}">
-                                           <form action="EditCategoryAdmin?id=${i.id}" method="get">
+                                           <form action="EditCategoryAdmin?id=${i.id}" method="post">
                                                <td>
-                                                   <div class="d-flex align-items-center">
-                                                       <input value="${i.id}" name="id" readonly>
-                                                   </div>
-                                               </td>
-                                               <td>
-                                                   <div class="d-flex align-items-center">
-                                                       <input name="nameCategory" type="text" value="${i.name}">
+                                                   <div>
+                                                       <input class="form-control" name="nameCategory" type="text" value="${i.name}">
                                                    </div>
                                                </td>
                                                <td class="d-flex align-items-center">

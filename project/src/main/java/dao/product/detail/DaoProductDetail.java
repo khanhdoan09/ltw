@@ -111,27 +111,64 @@ public class DaoProductDetail {
         }
     }
 
-    // check lai co can sua sql hay bo ham nay khong
     public boolean addDetailProductInAdmin(String id, ProductDetail detail) {
         PreparedStatement s = null;
         String date = java.time.LocalDate.now().toString();
-        String sql = "REPLACE INTO product_detail VALUES(?, ?, ?, ?, ?, ?, 1, ?)";
-        // if data exists auto replace or not insert new
+        if (checkProductDetailIsExist(id, detail)) {
+            String sql = "UPDATE product_detail SET totalValue=?, soleValue=?, updateAt=? WHERE id=? AND color=? AND size=?";
+            // if data exists auto replace or not insert new
+            try {
+                s = connect.prepareStatement(sql);
+                s.setInt(1, detail.getTotalValue());
+                s.setInt(2, detail.getSoleValue());
+                s.setString(3, date);
+                s.setString(4, id);
+                s.setString(5, detail.getColor());
+                s.setInt(6, detail.getSize());
+                s.executeUpdate();
+                return true;
+            } catch (SQLException e) {
+                System.out.println(s.toString());
+                System.out.println(e.getMessage());
+                return false;
+            }
+        }
+        else {
+            String sql = "INSERT INTO product_detail (`id`, `size`, `totalValue`, `soleValue`, `createAt`, `updateAt`, `active`, `color`) VALUES(?, ?, ?, ?, ?, ?, 1, ?)";
+            // if data exists auto replace or not insert new
+            try {
+                s = connect.prepareStatement(sql);
+                s.setString(1, id);
+                s.setInt(2, detail.getSize());
+                s.setInt(3, detail.getTotalValue());
+                s.setInt(4, detail.getSoleValue());
+                s.setString(5, date);
+                s.setString(6, date);
+                s.setString(7, detail.getColor());
+                s.executeUpdate();
+                return true;
+            } catch (SQLException e) {
+                System.out.println(s.toString());
+                System.out.println(e.getMessage());
+                return false;
+            }
+        }
+    }
+
+    private boolean checkProductDetailIsExist(String id, ProductDetail detail) {
         try {
-            s = connect.prepareStatement(sql);
+            String sql = "SELECT id FROM `product_detail` WHERE id=? and size=? and color=?";
+            PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, id);
             s.setInt(2, detail.getSize());
-            s.setInt(3, detail.getTotalValue());
-            s.setInt(4, detail.getSoleValue());
-            s.setString(5, date);
-            s.setString(6, date);
-            s.setString(7, detail.getColor());
-            s.executeUpdate();
-            return true;
+            s.setString(3, detail.getColor());
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
         } catch (SQLException e) {
-            System.out.println(s.toString());
             System.out.println(e.getMessage());
-            return false;
         }
+        return false;
     }
 }

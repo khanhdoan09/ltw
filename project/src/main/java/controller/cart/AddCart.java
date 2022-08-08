@@ -10,13 +10,16 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CartCustomerController", value = "/updateCart")
+@WebServlet(name = "CartCustomerController", value = "/addCart")
 public class AddCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // lấy id customer
         HttpSession session = request.getSession();
         Object obj = session.getAttribute("userId");
+        if (obj == null) {
+            return;
+        }
         String idProduct = request.getParameter("idProduct");
         String idCustomer = obj.toString();
         int quantityShoe = Integer.parseInt(request.getParameter("quantity"));

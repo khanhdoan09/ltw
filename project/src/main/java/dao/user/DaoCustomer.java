@@ -69,7 +69,7 @@ public class DaoCustomer {
             String sql = "SELECT * FROM user WHERE id=? AND password=?";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, id);
-            s.setString(2, oldPassword);
+            s.setString(2, encryptPassword);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 return true;

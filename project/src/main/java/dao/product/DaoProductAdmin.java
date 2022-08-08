@@ -79,7 +79,7 @@ public class DaoProductAdmin {
 
         try {
             s = connect.prepareStatement(sql);
-            System.out.println(s.executeUpdate());
+            s.executeUpdate();
             return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -203,7 +203,7 @@ public class DaoProductAdmin {
         try {
             s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             s.setDouble(1, product.getPrice());
-            s.setDouble(2, product.getSalePrice());
+            s.setDouble(2, product.getSaleRate());
             s.setString(3, product.getBrand());
             s.setString(4, product.getName());
             s.setString(5, product.getCreate_at());

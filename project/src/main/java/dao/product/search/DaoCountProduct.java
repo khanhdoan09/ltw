@@ -38,8 +38,7 @@ public class DaoCountProduct {
             }
             System.out.println(re);
         } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("!!! "+sqlCount);
+            System.out.println(e.getMessage());
         }
         return re;
     }

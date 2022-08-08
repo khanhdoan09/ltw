@@ -63,20 +63,28 @@
         }
         .contain-brand {
             border: 1px solid black;
+            border-radius: 10px;
             margin: 5px;
             padding: 5px;
         }
         .size-brand {
-            width: 60px;
+            width: 90px;
             height: 40px;
+        }
+        .save-brand {
+            color: white;
         }
         .btn-danger {
             color: black;
         }
-      .btn-info {
+        .btn-info {
           color: white;
           width: 150px;
-      }
+        }
+        .imgLoad {
+            display: none;
+            width: 80px;
+        }
     </style>
 
 </head>
@@ -102,7 +110,7 @@
                 <div class="row align-items-center">
                     <div class="border-0 mb-4">
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Chỉnh sửa nhãn hàng</h3>
+                            <h3 class="fw-bold mb-0">Quản lí nhãn hàng</h3>
                         </div>
                     </div>
                 </div>
@@ -118,17 +126,26 @@
                                             <div>
                                                 <button id="add-new-brand" class="btn btn-info">Thêm nhãn hàng</button>
                                             </div>
-                                            <div class="d-flex flex-wrap contain-list-brand">
+                                            <div class="d-flex flex-wrap justify-content-evenly contain-list-brand">
                                                 <c:forEach var="i" items="${listBrand}">
-                                                    <form action="UpdateBrandAdminController?idBrand=${i.id}" id="form-${i.id}"  method="post" enctype="multipart/form-data" class="d-grid contain-brand contain-form-brand">
-                                                        <span>id: </span>
-                                                        <input type="text" value="${i.id}" readonly>
-                                                        <span>name: </span>
-                                                        <input  id="nameBrand-${i.id}" type="text" value="${i.name}" name="nameBrand">
-                                                        <img id="imgShow-${i.id}" alt="brand" src="upload/brand/${i.img}" width="150px" height="150px">
-                                                        <input type="file" name="imgBrand" class="imgLoad" data-imgshow="imgShow-${i.id}">
-                                                        <button class="remove-brand size-brand my-2 btn btn-primary" data-id="${i.id}" data-contain="form-${i.id}">Xóa</button>
-                                                        <button class="saveBrand size-brand btn btn-danger" data-idbrand="${i.id}">Save</button>
+                                                    <form action="UpdateBrandAdminController?idBrand=${i.id}" id="form-${i.id}"  method="post" enctype="multipart/form-data" class=" my-2 d-grid contain-brand contain-form-brand">
+                                                        <div class="input-group input-group-sm mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">name</span>
+                                                            </div>
+                                                            <input required id="nameBrand-${i.id}" type="text" value="${i.name}" name="nameBrand" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                                        </div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <img id="imgShow-${i.id}" alt="brand" src="upload/brand/${i.img}" width="150px" height="150px">
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <label for="imgBrand-${i.id}" class="my-2 size-brand btn btn-secondary">
+                                                                Chọn ảnh
+                                                            </label>
+                                                            <input id="imgBrand-${i.id}" type="file" name="imgBrand" class="imgLoad" data-imgshow="imgShow-${i.id}">
+                                                            <button class="remove-brand size-brand my-2 mx-2 btn btn-primary" data-id="${i.id}" data-contain="form-${i.id}">Xóa</button>
+                                                            <button class="saveBrand size-brand btn btn-danger my-2" style="color: white" data-idbrand="${i.id}">Save</button>
+                                                        </div>
                                                     </form>
                                                 </c:forEach>
                                             </div>
@@ -198,14 +215,24 @@
     $("#add-new-brand").click(function(e){
         e.preventDefault()
         let newBrand=`
-                      <form action="AddBrandAdminController" method="post" enctype="multipart/form-data" class="d-grid contain-brand contain-form-brand d-grid" >
-                             <span>name: </span>
-                             <input required type="text" value="" name="nameBrand">
-                             <img id="imgShow" alt="brand" src="" width="150px" height="150px">
-                             <input required type="file" name="imgBrand" class="imgLoad" data-imgshow="imgShow">
-                             <button class="remove-new-brand size-brand btn btn-info">Xóa</button>
-                             <button class="saveBrand size-brand btn btn-danger">Save</button>
-                       </form>
+                                                                  <form action="AddBrandAdminController" method="post" enctype="multipart/form-data" class="d-grid contain-brand contain-form-brand d-grid"  style="width: fit-content;">
+                                                    <div class="input-group input-group-sm mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="inputGroup-sizing-sm">name</span>
+                                                        </div>
+                                                        <input required type="text" name="nameBrand" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                                    </div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <img id="imgShow" alt="brand"  width="150px" height="150px">
+                                                    </div>
+                                                    <div class="d-flex justify-content-evenly">
+                                                        <label for="imgBrand--1" class="my-2 size-brand btn btn-secondary">
+                                                            Chọn ảnh
+                                                        </label>
+                                                        <input id="imgBrand--1" type="file" name="imgBrand" class="imgLoad" data-imgshow="imgShow">
+                                                        <button class="saveBrand size-brand btn btn-danger my-2" style="color: white">Save</button>
+                                                    </div>
+                                                </form>
 `
         $(".contain-list-brand").prepend(newBrand)
         loadImg()

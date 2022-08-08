@@ -30,42 +30,42 @@ public class DaoProductImage extends HttpServlet {
     Connection connect = DatabaseConnection.getConnection();
 
     public boolean deleteImg(HttpServletRequest request, String id, String img, String appPath) throws ServletException, IOException {
-        File productDir = new File(request.getServletContext().getAttribute("FILES_DIR") + File.separator + "product");
-        if (!productDir.exists()) {
-            productDir.mkdirs();
-        }
-
-        PreparedStatement s1 = null;
-        String sql1 = "DELETE FROM linkimg WHERE idProduct=? && img=?";
+        // delete in folder
+        deleteImageInFolder(id, img, appPath);
+        // delete in database
         PreparedStatement s2 = null;
-        String sql2 = "SELECT * FROM linkimg WHERE idProduct=? && img=?";
+        String sql2 = "DELETE FROM linkimg WHERE idProduct=? && img=?";
         try {
             s2 = connect.prepareStatement(sql2);
             s2.setString(1, id);
             s2.setString(2, img);
-            ResultSet rs = s2.executeQuery();
-            while (rs.next()) {
-                String src = rs.getString("img");
-                System.out.println("~"+src);
-                File file = new File(appPath + "\\" + src+".jpg");
-                if (file.exists()) {
-                    System.out.println("Deleted the file: " + file.getName());
-                } else {
-                    System.out.println("Failed to delete the file.");
-                }
-            }
+            s2.executeUpdate();
+            return true;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    public void deleteImageInFolder(String id, String img, String appPath){
+        PreparedStatement s1 = null;
+        String sql1 = "SELECT * FROM linkimg WHERE idProduct=? && img=?";
         try {
             s1 = connect.prepareStatement(sql1);
             s1.setString(1, id);
             s1.setString(2, img);
-            s1.executeUpdate();
-            return true;
+            ResultSet rs = s1.executeQuery();
+            while (rs.next()) {
+                String src = rs.getString("img");
+                File file = new File(appPath + "\\" + src);
+                if (file.exists()) {
+                    System.out.println("Deleted the file: " + file.getName());
+                    file.delete();
+                } else {
+                    System.out.println("Failed to delete the file: " + appPath+"\\"+src);
+                }
+            }
         } catch (SQLException e) {
-            return false;
+            System.out.println(e.getMessage());
         }
     }
 
@@ -103,8 +103,6 @@ public class DaoProductImage extends HttpServlet {
             s2.setString(1, id);
             s2.setString(2, img);
             s2.setString(3, color);
-            System.out.println(s1.toString());
-            System.out.println(s2.toString());
             s2.executeUpdate();
             return true;
         } catch (SQLException e) {

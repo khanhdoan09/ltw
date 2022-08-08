@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                                 <!-- row end -->
-                            </div>s
+                            </div>
                         </div>
                     </div>
                 </div>

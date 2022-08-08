@@ -248,7 +248,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                 <%=p.getBrand()%>
                             </div>
                         </li>
-                        <form id="form-to-cart" action="updateCart?id=132" method="get">
+                        <form id="form-to-cart" action="addCart" method="get">
                             <!-- bug không gửi được parameter trên url nên dùng 5 cái input dưới-->
                             <input name="idCustomer" value="123" style="width: 1px; height: 1px; visibility: hidden">
                             <input name="idProduct" value="<%=p.getId()%>" style="width: 1px; height: 1px; visibility: hidden">
@@ -629,7 +629,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
         </div>
 
     </div>
-
+</div>
 <%@include file="footer_login_message.jsp"%>
 <script src="../javascript/hung-js.js"></script>
 
@@ -743,7 +743,13 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
     $(function() {
         $("#add-cart").click((e)=>{
             e.preventDefault()
-            $("#form-to-cart").submit()
+            // $.ajax({
+            //     url: `addCart`,
+            //     type: 'POST',
+            //     success: function (data) {
+            //     }
+            // })
+            <%if(request.getSession().getAttribute("userId")==null){%>alert("need login")<%}else{%>$("#form-to-cart").submit()<%}%>
         })
     })
 </script>

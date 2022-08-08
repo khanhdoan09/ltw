@@ -49,11 +49,11 @@
             </li>
             <li class="collapsed">
                 <a id="listComment" class="m-link" href="<%=request.getContextPath()%>/GetComment">
-                    <i class="fa-solid fa-plus mx-2"></i> <span>Phản hồi khách hàng</span> </a>
+                    <i class="fa-solid fa-comment mx-2"></i> <span>Phản hồi khách hàng</span> </a>
             </li>
             <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
-                    <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px"></i><span>Đăng xuất</span> </a>
+                    <i class="fa fa-sign-out mx-2" aria-hidden="true"></i><span>Đăng xuất</span> </a>
             </li>
         </ul>
         <!-- Menu: menu collepce btn -->
@@ -73,7 +73,10 @@
     else if (url.includes("list-product.jsp")){
         $("#product").addClass("active")
     }
-    else if (url.includes("ListProductAdmin")){
+    else if (url.includes("ProductAdmin")){
+        $("#product").addClass("active")
+    }
+    else if (url.includes("ProductDetailAdmin")){
         $("#product").addClass("active")
     }
     else if (url.includes("customer")){
@@ -99,6 +102,9 @@
     }
     else if (url.includes("GetComment")){
         $("#listComment").addClass("active")
+    }
+    else if (url.includes("AddNew")){
+        $("#addProduct").addClass("active")
     }
     else {
         $("#home").addClass("active")

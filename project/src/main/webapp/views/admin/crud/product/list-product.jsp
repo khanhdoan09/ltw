@@ -139,15 +139,16 @@
 
                   <tbody id="listProduct">
                   <%Object objFilter = request.getAttribute("listProduct");
+                    List<Product> list = null;
                     if (objFilter != null) {
-                      List<Product> list = (List<Product>) objFilter;
+                      list = (List<Product>) objFilter;
                       for (Product product : list) {%>
                   <tr id="tr-product-<%=product.getId()%>">
                     <td><strong><%=product.getId()%></strong></td>
                     <td><img src="upload/product/<%=product.getAvatar()%>" class="avatar lg rounded me-2" alt="profile-image"></td>
                     <td><%=product.getBrand()%></td>
                     <td><%=product.getName()%></td>
-                    <td>May 16, 2021</td>
+                    <td><%=product.getCreate_at()%></td>
                     <td>$<%=product.getPrice()%></td>
                     <td>-<%=product.getSaleRate()%>%</td>
                     <td>
@@ -168,11 +169,13 @@
                   <%}%>
                   </tbody>
                 </table>
-               <% if (objFilter != null) {%>
+               <% if (list != null) {
+               if (list.size() != 1) {%>
                 <div class="contain-load-more">
-                  <button id="load-more-product" >Load more</button>
+                  <button id="load-more-product" >Tải thêm</button>
                 </div>
-                <%}%>
+                <%}
+               }%>
               </div>
             </div>
           </div>
@@ -275,18 +278,18 @@
                                         <td><img src="upload/product/`+e.avatar+`" class="avatar lg rounded me-2" alt="profile-image"></td>
                                         <td>`+e.name+`</td>
                                         <td>`+e.brand+`</td>
-                                        <td>May 16, 2021</td>
+                                        <td>`+e.createAt+`</td>
                                         <td>`+e.value+`</td>
-                                        <td>-`+e.saleRate+`</td>
+                                        <td>-`+e.saleRate+`%</td>
                                         <td>
-                                        <div class="d-grid text-center">
+                                        <div class="d-flex justify-content-between text-center">
                                             <a class="edit-remove-admin remove-admin" data-id="`+e.id+`">
                                                 <i class="fas fa-trash-alt" data-id="`+e.id+`"></i>
                                             </a>
                                             <a class="edit-remove-admin view-admin" href="ViewDetailProductAdmin?id=`+e.id+`>">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
-                                            <a class="edit-remove-admin edit-admin" href="EditProduct?id=`+e.id+`>">
+                                            <a class="edit-remove-admin edit-admin" href="ProductDetailAdmin?id=`+e.id+`">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                         </div>
