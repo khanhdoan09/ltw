@@ -5,7 +5,9 @@
   Time: 10:00 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="beans.HomeAdmin" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% HomeAdmin homeAdmin = (HomeAdmin) request.getAttribute("homeAdmin");%>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -56,7 +58,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Khách hàng</span>
-                                                    <div><span class="fs-6 fw-bold me-2">14,208</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getCountUser()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fas fa-users"></i>                                                    </div>
@@ -68,7 +70,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Đơn hàng</span>
-                                                    <div><span class="fs-6 fw-bold me-2">2314</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getCountOrder()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fas fa-shopping-cart"></i>                                                    </div>
@@ -80,7 +82,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Doanh thu</span>
-                                                    <div><span class="fs-6 fw-bold me-2">$1770</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getTurnover()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fas fa-percent"></i>                                                    </div>
@@ -92,7 +94,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Số lượng sản phẩm</span>
-                                                    <div><span class="fs-6 fw-bold me-2">185</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getQuantityProduct()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fas fa-calculator"></i>                                                    </div>
@@ -104,7 +106,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Tổng số lượng chi tiết sản phẩm</span>
-                                                    <div><span class="fs-6 fw-bold me-2">184511</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getqPDetail()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fas fa-shopping-bag"></i>                                                    </div>
@@ -116,7 +118,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Tổng sản phẩm đã bán</span>
-                                                    <div><span class="fs-6 fw-bold me-2">32</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getCountOrderOk()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fa-solid fa-check"></i>
@@ -129,7 +131,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Tổng giá sản phẩm</span>
-                                                    <div><span class="fs-6 fw-bold me-2">$35000</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getSumPrice()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fas fa-square-root-alt"></i>                                                    </div>
@@ -141,7 +143,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Tổng sản phẩm đã giảm giá</span>
-                                                    <div><span class="fs-6 fw-bold me-2">122</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getCountProductSale()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fas fa-star"></i>
@@ -154,7 +156,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Tổng số lượng nhãn hàng</span>
-                                                    <div><span class="fs-6 fw-bold me-2">32</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getCountBrand()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fab fa-delicious"></i>
@@ -167,7 +169,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Tổng số lượng bình luận</span>
-                                                    <div><span class="fs-6 fw-bold me-2">32</span>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getCountComment()%></span>
                                                     </div>
                                                 </div>
                                                 <div class="right-icon">
@@ -181,7 +183,7 @@
                                             <div class="card-body py-xl-4 py-3 d-flex flex-wrap align-items-center justify-content-between">
                                                 <div class="left-info">
                                                     <span class="text-muted">Tổng số lượng thể loại</span>
-                                                    <div><span class="fs-6 fw-bold me-2">32</span></div>
+                                                    <div><span class="fs-6 fw-bold me-2"><%= homeAdmin.getCountCategory()%></span></div>
                                                 </div>
                                                 <div class="right-icon">
                                                     <i class="fa-solid fa-store"></i>

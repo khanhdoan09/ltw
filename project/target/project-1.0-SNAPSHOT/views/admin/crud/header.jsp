@@ -20,7 +20,7 @@
         <!-- Menu: main ul -->
         <ul class="menu-list flex-grow-1 mt-3">
             <li>
-                <a id="home" class="m-link" href="<%=request.getContextPath()%>/HomeAdmin"><i class="fas fa-home" style="margin: 0 10px;"></i>
+                <a id="home" class="m-link" href="<%=request.getContextPath()%>/HomeControllerAdmin"><i class="fas fa-home" style="margin: 0 10px;"></i>
                     <span>Trang chủ</span></a>
             </li>
             <li class="collapsed">

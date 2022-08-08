@@ -20,6 +20,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("listNewestProduct", homeService.getListNewestProduct());
         request.setAttribute("listBestSaleProduct", homeService.getBestSaleProduct());
         request.setAttribute("listBestSellerProduct", homeService.getBestSaleProduct());
+        System.out.println("---------------------------");
         request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
     }
 }

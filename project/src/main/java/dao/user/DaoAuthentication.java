@@ -106,5 +106,25 @@ public class DaoAuthentication {
         return id==null;
     }
 
+    public String getIdAdmin(String email, String password) {
+        String result = "";
+        String encryptPassword = ecryptPassword(password);
+        try {
+            String sql = "SELECT id FROM user WHERE email=? and password=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, email);
+            s.setString(2, encryptPassword);
+
+            System.out.println(s.toString());
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                result =  rs.getString("id");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
 
 }

@@ -4,7 +4,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
-<%@ page import="beans.Comment" %><%--
+<%@ page import="beans.Comment" %>
+<%@ page import="dao.comment.DaoComment" %>
+<%@ page import="dao.comment.DaoComment2" %><%--
   Created by IntelliJ IDEA.
   User: khanh
   Date: 12/10/2021
@@ -199,14 +201,14 @@
                                 <h6 class="price-box price-sale" style="float: left;  text-decoration: line-through;
     padding: 0 20px;
     color: rgb(146, 145, 145);
-    margin: 18px 0;"><%=p.getPrice()%>VNĐ</h6>                            </li>
+    margin: 18px 0;"><%=p.getPrice()%>$</h6>                            </li>
                             <li><h1 class="price-box price" style="float: left;color: #1a94ff;
 font-size: 25px;
-margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></li>
+margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                             <li><h6 class="price-box sale" style=" float: left;background-color: #1a94ff;
     color: white;
     padding: 4px;
-    margin: 12px 10px;">20% GIẢM</h6></li>
+    margin: 12px 10px;"><%=(p.getPrice()*p.getSaleRate()/100)%>% GIẢM</h6></li>
                         </ul>
                     </div>
                     <hr>
@@ -353,29 +355,111 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>VNĐ</h1></
                                 </script>
                                 <%
                                     List<Comment> listComment = (List<Comment>) request.getAttribute("listComment");
-                                    for (Comment comment : listComment ) {%>
+                                    for (Comment comment : listComment ) {
 
-                                <div  style="padding:10px;border-radius: 10px; width: 750px;min-height: 70px;display: inline-block;background-color: #f4f4f485; padding-bottom: 10px;border-bottom: 1px solid gray;  margin: 0 0 20px;">
-                                <div style="width: 33%;float: left;">
-                                    <img src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/277422021_1130457087715524_1385118291544427440_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=g6KTcOYQRG4AX9VX2bN&_nc_oc=AQmhjgOMSZ0lIl9BzCRrnSNLwaqwWgEy3trVsRWnHl1SNTNbib10boJ4WJEbWmxN2OdpAXFiVbLDb1s9853TBCkS&tn=-Wi9PJrRsfNg76hU&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-MERZ3VGuYZVp83PkhcsFVp3UQnBpy_oJRxc2a5oceRg&oe=62DC5E40" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">
-                                    <div class="abc" style="margin: -50px 0 0 62px;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">
-                                        <p class="username" id = "<%= comment.getIdComment()%>"style="margin: 0;margin-bottom: 2px;"> </p>
-                                        <script>
-                                            loadName("<%= comment.getIdComment()%>","<%=comment.getIdUser()%>");
-                                        </script>
-                                        <img src="image/Vietnam-icon-2.png" alt="" class="icon" style="width: 20px;">
-                                        <p class="vn" style="margin: -24px 0 0 25px;font-size: 13px;font-weight: normal;">Việt Nam</p>
+                                if(comment.getId_reply().equals("0") ) {%>
+                                    <div id="<%= comment.getIdComment()%>"  style="padding:10px;border-radius: 10px; width: 750px;min-height: 70px;display: inline-block;background-color: #ebebeb; padding-bottom: 10px;border-bottom: 1px solid gray;  margin: 0 0 30px;">
+                                    <div style="width: 33%;float: left;">
+                                        <img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.6435-9/162727357_903091187118783_7242266150893662124_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=Iove_O02woAAX_U3PR1&_nc_ht=scontent.fsgn3-1.fna&oh=00_AT8PUV0C1cuQcEF7SCP-h58fWg7bJOWo68hEIc2JZrJvaw&oe=63157145" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">
+                                        <div class="abc" style="margin: -50px 0 0 62px;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">
+                                            <p class="username" id = "<%= comment.getIdComment()%>"style="margin: 0;margin-bottom: 2px;"> <%= (String) DaoComment2.getInstance().getUserName(comment.getIdComment())%></p>
+
+<%--                                            <script>--%>
+<%--                                                loadName("<%= comment.getIdComment()%>","<%=comment.getIdUser()%>");--%>
+<%--                                            </script>--%>
+                                            <img src="image/Vietnam-icon-2.png" alt="" class="icon" style="width: 20px;">
+                                            <p class="vn" style="margin: -24px 0 0 25px;font-size: 13px;font-weight: normal;">Việt Nam</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                <div  style="width: 67%;float: left;min-height: 70px;">
-                                    <p  style="margin: 0px 0 3px 15px;font-family: system-ui;;font-family: system-ui;"><%= comment.getDateComment()%></p>
-                                     <div class="change_tym_color" style="background-color: #6ececc;float:right;cursor: pointer; width: 22px;height: 20px;margin-top:-30px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"> </div>
-                                    <div class="textContent" style="margin:  0 15px;text-align: justify; font-family: system-ui;">
-                                        <p style="margin: 0;color:black;"> <%= comment.getContent()%>> </p>
-                                    </div>
-                                    </div>
-                                </div></br>
+                                    <div  style="width: 67%;float: left;min-height: 70px;">
+                                        <p  style="margin: 0px 0 3px 15px;font-family: system-ui;;font-family: system-ui;"><%= comment.getDateComment()%></p>
+                                         <div class="change_tym_color" style="background-color: #6ececc;float:right;cursor: pointer; width: 22px;height: 20px;margin-top:-30px;margin-right: 10px; clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"> </div>
+                                        <div class="textContent" style="margin:  0 15px;text-align: justify; font-family: system-ui;">
+                                            <p style="margin: 0;color:black;"><%= comment.getContent()%> </p>
+                                        </div>
+                                        </div>
+                                    </div></br>
+<%--                                <div id=""> <%= DaoComment.getInstance().ch%></div>--%>
+                                    <%
+                                        List<Comment> list = (List<Comment>) DaoComment2.getInstance().checkComment(comment.getIdComment());
+                                        for (Comment cm : list ) {%>
+                                        <div  id='+ i++ +' class="feedback_admin" style="clip-path: polygon(0 4%, 91% 4%, 94% 0, 97% 4%, 100% 4%, 100% 100%, 0 100%);padding: 22px 20px 20px 20px; background-color: rgb(235, 235, 235);width: 650px; min-height: 130px; display: inline-block;    margin: -20px 0 20px 100px;">
+                                            <div class="header" style="border-bottom: 1px solid #ccc; height: 55px;">
+                                                <div style="width: 37%;float: left;">
+                                                    <img src="./image/logo.png" alt=""style="padding: 5px;margin-top: -6px; width: 50px;height: 50px; border-radius: 50%;display: inline-flex;background-color: white;  object-fit: cover; margin-right: 5px;">
+                                                    <div class="abc" style="margin: -50px 0 0 64px;display: inline-block;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">
+                                                        <p class="username" style="margin-bottom: 2px;"><%= DaoComment2.getInstance().getUserName(cm.getIdComment())%></p>
+                                                    </div>
+                                                    <p style="font-size: 13px;font-family: system-ui;display: inline-block;margin: -23px 0 0 63px;"><%= cm.getDateComment()%></p>
+                                                </div>
+                                                <div class=""style="background-color: #108bea; display: inline-block; padding: 3px 8px 4px; border-radius: 10px; color: white;margin:-5px 0 0 0px;">Quản trị viên.</div>
+
+                                                <div class="change_tym_color"style="background-color: #6ececc;margin: -15px 0 0 587px;cursor: pointer; width: 22px;height: 20px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"></div>
+                                            </div>
+
+                                            <div class="content_admin"style="padding: 15px;float: right;background: white;border-radius: 10px;margin-top:10px;width: 88.5%;">
+                                                <div class="detail" style="border-left: 1px solid #ccc; padding: 0 10px;">
+                                                    <p class="contentComment" style="margin:0;text-align: justify;color: black; font-family: system-ui;"><%= cm.getContent()%></p>
+                                                </div>
+                                            </div></br>
+                                        </div>
+
+                                    <%}%>
                                 <%}%>
+
+                            <%}%>
+
+<%--                                else {%>--%>
+<%--                                <script>--%>
+
+<%--                                </script>--%>
+<%--                                <div id="CM_<%= comment.getId_reply()%>"+>--%>
+<%--                                    <div  id='+ i++ +' class="feedback_admin" style="clip-path: polygon(0 4%, 91% 4%, 94% 0, 97% 4%, 100% 4%, 100% 100%, 0 100%);padding: 22px 20px 20px 20px; background-color: rgb(235, 235, 235);width: 600px; min-height: 130px; display: inline-block;    margin: -17px 0 20px 79px;">--%>
+<%--                                        <div class="header" style="border-bottom: 1px solid #ccc; height: 55px;">--%>
+<%--                                            <div style="width: 30%;float: left;">'--%>
+<%--                                                <img src="./logo.png" alt=""style="padding: 5px; width: 35px;height: 35px; border-radius: 50%;display: inline-flex;background-color: white;  object-fit: cover; margin-right: 5px;">--%>
+<%--                                                <div class="abc" style="margin: -21px 0 0 4px;display: inline-block; position: absolute;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">--%>
+<%--                                                    <p class="username" style="margin-bottom: 2px;">Phan Văn Hùng</p>--%>
+<%--                                                </div>--%>
+<%--                                                <p style="font-size: 13px;font-family: system-ui;display: inline-block;position: absolute;margin: 27px 0 0 4px;">16:1:56 | 24/7/2022</p>--%>
+<%--                                            </div>--%>
+<%--                                            <div class=""style="background-color: #108bea; display: inline-block; padding: 3px 8px 4px; border-radius: 10px; color: white;margin:-2px 0 0 28px;">Quản trị viên.</div>--%>
+
+<%--                                            <div class="change_tym_color"style="background-color: #6ececc;margin: -15px 0 0 580px;cursor: pointer; position: absolute; width: 22px;height: 20px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"></div>--%>
+<%--                                        </div>--%>
+
+<%--                                        <div class="content_admin"style="padding: 15px;float: right;background: white;border-radius: 10px;margin-top:10px;width: 86%;">--%>
+<%--                                            <div class="detail" style="border-left: 1px solid #ccc; padding: 0 10px;">--%>
+<%--                                                <p class="contentComment" style="margin:0;text-align: justify; font-family: system-ui;"><%= comment.getContent()%></p>--%>
+<%--                                            </div>--%>
+<%--                                        </div></br>--%>
+<%--                                        <div id='+ "u" +i +'> </div>--%>
+<%--                                </div>--%>
+<%--                                <script>--%>
+<%--                                    let data =  '  <div   class="feedback_admin" style="clip-path: polygon(0 4%, 91% 4%, 94% 0, 97% 4%, 100% 4%, 100% 100%, 0 100%);padding: 22px 20px 20px 20px; background-color: rgb(235, 235, 235);width: 600px; min-height: 130px; display: inline-block;    margin: -17px 0 20px 79px;">'--%>
+<%--                                        + '<div class="header" style="border-bottom: 1px solid #ccc; height: 55px;">'--%>
+<%--                                        + '<div style="width: 37%;float: left;">'--%>
+<%--                                        + '<img src="./image/logo.png" alt=""style="padding: 5px; width: 35px;height: 35px; border-radius: 50%;display: inline-flex;background-color: white;  object-fit: cover; margin-right: 5px;">'--%>
+<%--                                        + '<div class="abc" style="margin: -38px 0 0 52px;;display: inline-block; padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">'--%>
+<%--                                        + '<p class="username" style="margin-bottom: 2px;"></p>'--%>
+<%--                                        + '</div>'--%>
+<%--                                        + '<p style="font-size: 13px;font-family: system-ui;display: inline-block;margin: -19px 0 0 51px;">16:1:56 | 24/7/2022</p>'--%>
+<%--                                        + '</div>'--%>
+<%--                                        + '<div class=""style="background-color: #108bea; display: inline-block; padding: 3px 8px 4px; border-radius: 10px; color: white;margin:-2px 0 0 28px;">Quản trị viên.</div>'--%>
+
+<%--                                        + ' <div class="change_tym_color"style="background-color: #6ececc;margin: -15px 0 0 580px;cursor: pointer; position: absolute; width: 22px;height: 20px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"></div>'--%>
+<%--                                        + '</div>'--%>
+
+<%--                                        + '<div class="content_admin"style="padding: 15px;float: right;background: white;border-radius: 10px;margin-top:10px;width: 86%;">'--%>
+<%--                                        + ' <div class="detail" style="border-left: 1px solid #ccc; padding: 0 10px;">'--%>
+<%--                                        + '<p class="contentComment" style="margin:0;text-align: justify; font-family: system-ui;">'<%= comment.getContent()%></p>'--%>
+<%--                                        + '</div>'--%>
+<%--                                        + '</div></br>';--%>
+<%--                                    document.getElementById("CM_<%= comment.getId_reply()%>").innerHTML += data;--%>
+<%--                                </script>--%>
+
+
+<%--                                <%}%>--%>
 
                             </div>
                         </div>

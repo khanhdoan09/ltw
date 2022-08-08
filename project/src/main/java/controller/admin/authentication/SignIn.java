@@ -42,6 +42,7 @@ public class SignIn extends HttpServlet {
         else {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
+
             String emailValidation = null;
             String passwordValidation = null;
 
@@ -63,7 +64,8 @@ public class SignIn extends HttpServlet {
 
                     request.getSession(true).setAttribute("userAdmin", true);
                     request.getSession(true).setAttribute("adminName", email);
-                    request.getRequestDispatcher("/views/admin/crud/home/home.jsp").forward(request, response);
+                    request.getSession(true).setAttribute("idAdmin" , DaoAuthentication.getInstance().getIdAdmin(email,password));
+                    request.getRequestDispatcher("HomeControllerAdmin").forward(request, response);
                     return;
                 }
             }

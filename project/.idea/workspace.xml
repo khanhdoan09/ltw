@@ -10,34 +10,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1029d9-eefd-4046-85ca-93fb5745c2cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/admin/comment/GetComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/comment/comment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_03_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_03_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_09_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_09_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_11_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2022_1_11_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_6_2022_8_11_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_6_2022_8_11_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/beans/HomeAdmin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/admin/comment/ReplyComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/admin/home/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/comment/DaoComment2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/homeAdmin/DaoHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/beans/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/comment/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/comment/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/sign_in/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/sign_in/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/authentication/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/authentication/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/home/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/home/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/product/ProductDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/product/ProductDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/comment/DaoComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/comment/DaoComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/user/DaoAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/user/DaoAuthentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/comment/comment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/comment/comment.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/home/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/home/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/beans/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/comment/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/comment/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/sign_in/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/sign_in/SignInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/authentication/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/authentication/SignIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/home/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/home/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/product/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/product/ProductDetail.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dao/comment/DaoComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/comment/DaoComment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/user/DaoAuthentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/user/DaoAuthentication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/comment/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/comment/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/sign_in/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/sign_in/SignInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/authentication/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/authentication/SignIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/home/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/home/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/product/ProductDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/product/ProductDetail.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/comment/DaoComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/comment/DaoComment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/checkout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoAuthentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoAuthentication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/comment/comment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/comment/comment.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/home/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/home/home.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +53,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -67,8 +73,8 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/controller/admin/authentication/Route.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/editProduct.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/filter/SecurityFilter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JspContextManager">
     <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" />
@@ -79,6 +85,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="21lWHX2mbJSPqdBWLgkziHQFTo9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -213,6 +222,7 @@
       <workItem from="1659680441237" duration="187000" />
       <workItem from="1659680657073" duration="4086000" />
       <workItem from="1659853254907" duration="623000" />
+      <workItem from="1659930758294" duration="16716000" />
     </task>
     <servers />
   </component>

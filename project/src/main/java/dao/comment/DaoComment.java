@@ -23,7 +23,7 @@ public class DaoComment {
     public List<Comment> getListComment(String idProduct) {
         List<Comment> list = new ArrayList<Comment>();
         try {
-            String sql = "SELECT  idComment,idProduct,content,dateComment,idUser FROM comment WHERE idProduct=?  AND idUser IN (SELECT id FROM user)";
+            String sql = "SELECT  idComment,idProduct,content,dateComment,idUser,id_reply FROM comment WHERE idProduct=?  AND idUser IN (SELECT id FROM user)";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idProduct);
             ResultSet rs = s.executeQuery();
@@ -33,8 +33,10 @@ public class DaoComment {
                 String content = rs.getString("content");
                 String dateComment = rs.getString("dateComment");
                 String idUser = rs.getString("idUser");
+                String id_reply = rs.getString("id_reply");
 
-                list.add(new Comment(idComment,id_Product,content,idUser,dateComment));
+
+                list.add(new Comment(idComment,id_Product,content,idUser,dateComment,id_reply));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -45,7 +47,7 @@ public class DaoComment {
     public List<Comment> getListComment() {
         List<Comment> list = new ArrayList<Comment>();
         try {
-            String sql = "SELECT  idComment,idProduct,content,dateComment,idUser FROM comment";
+            String sql = "SELECT  idComment,idProduct,content,dateComment,idUser,id_reply FROM comment";
             PreparedStatement s = connect.prepareStatement(sql);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
@@ -54,8 +56,9 @@ public class DaoComment {
                 String content = rs.getString("content");
                 String dateComment = rs.getString("dateComment");
                 String idUser = rs.getString("idUser");
+                String id_reply = rs.getString("id_reply");
 
-                list.add(new Comment(idComment,id_Product,content,idUser,dateComment));
+                list.add(new Comment(idComment,id_Product,content,idUser,dateComment,id_reply));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -81,7 +84,7 @@ public class DaoComment {
     }
     public void createNewComment(Comment comment) {
         try {
-            String sql = "INSERT INTO comment(idProduct,content,idUser,dateComment) VALUES( ?, ?, ?, ?)";
+            String sql = "INSERT INTO comment(idProduct,content,idUser,dateComment,id_reply) VALUES( ?, ?, ?, ?, 0)";
             PreparedStatement s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 //            s.setString(1, comment.getIdComment());
             s.setString(1, comment.getIdProduct());
@@ -92,8 +95,7 @@ public class DaoComment {
 
             ResultSet rs = s.getGeneratedKeys();
             rs.next();
-//            String idCommentNew = rs.getString(1);
-//            return idCommentNew;
+//
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -115,6 +117,26 @@ public class DaoComment {
         }
 
         return amount;
+    }
+
+    public void replyComment(Comment comment) {
+        try {
+            String sql = "INSERT INTO comment( idProduct, content, dateComment, idUser, id_reply) VALUES (?,?,?,?,?)";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, comment.getIdProduct());
+            s.setString(2, comment.getContent());
+            s.setString(4, comment.getIdUser());
+            s.setString(3, comment.getDateComment());
+            s.setString(5, comment.getId_reply());
+            System.out.println(s.toString());
+            s.executeUpdate();
+
+            ResultSet rs = s.getGeneratedKeys();
+            rs.next();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 

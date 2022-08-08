@@ -33,7 +33,7 @@ public class ProductDetail extends HttpServlet {
         System.out.println("comment");
         for (Comment c :
                 listComment) {
-            System.out.println("comment "+c.getIdComment());
+            System.out.println("comment "+c.getIdComment() + c.getId_reply());
         }
 
 

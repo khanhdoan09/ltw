@@ -67,15 +67,17 @@
 <div id="ebazar-layout" class="theme-blue">
 
     <%@include file="../header.jsp" %>
-    <form id="form_feedback"class="form-inline" style="position: absolute;
+    <form id="form_feedback" action="ReplyComment" class="form-inline" style="position: absolute;
     background-color: #1979cc;
     padding: 50px;
     z-index: 100000;
-    display: flex;
+    display: none;
     margin: 274px 520px;">
         <div class="form-group mb-2">
-            <label for="staticEmail2" class="sr-only">Email</label>
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+            <label for="staticEmail2" class="sr-only">Trả lời bình luận!</label>
+            <input type="text" class="form-control-plaintext" name="content" id="staticEmail2" placeholder="Nhập bình luận">
+            <input id="id_admin" name="id" hidden>
+            <input id="id_pr" name="product" hidden>
         </div>
 
         <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
@@ -123,9 +125,9 @@
                                             <td>${i.content}</td>
                                             <td>${i.dateComment}</td>
                                             <td>
-                                                <div class="d-grid" class="form_modal">
+                                                <div class="d-grid" class="">
 <%--                                                    <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=${i.}">--%>
-                                                        <i class="fa-solid fa-eye"></i>
+                                                        <i class="fa-solid fa-eye form_modal" data-id="${i.idComment}" data-product="${i.idProduct}" ></i>
 <%--                                                    </a>--%>
                                                 </div>
                                             </td>
@@ -181,20 +183,15 @@
 </script>
 
 <script>
-    // $('.form-modal').click(() => {
-    //     $("#form_feedback").css("display", "flex");
-    // }) ;
-    const modal = document.querySelector('.form_modal');
-    const modalLogin = document.querySelector('#form_feedback');
-    function showForm() {
-        modalLogin.classList.add('open')
-        alert("oke")
-    }
-    function hideForm() {
-        modalLogin.classList.remove('open')
-    }
-console.log(modal)
-    modal.addEventListener('click',showForm);
+    $('.form_modal').each(function () {
+        $(this).click(() => {
+            $("#form_feedback").css("display", "flex");
+            alert($(this).data("id"));
+            $('#id_admin').val($(this).data("id"));
+            $('#id_pr').val($(this).data("product"));
+            // $('#form_feedback').attr('action', 'ReplyComment?id='+ $(this).data("id")+'&product='+$(this).data("product"));
+        })
+    }) ;
 </script>
 
 <script>
