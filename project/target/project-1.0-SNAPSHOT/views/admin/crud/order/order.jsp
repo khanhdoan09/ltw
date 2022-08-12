@@ -93,6 +93,7 @@
                                         <th>ID khách hàng</th>
                                         <th>Tổng giá</th>
                                         <th>Ngày</th>
+                                        <th>Địa chỉ</th>
                                         <th>Trạng thái</th>
                                         <th>Chọn</th>
                                     </tr>
@@ -105,6 +106,7 @@
                                             <td>${i.idCustomer}</td>
                                             <td>${i.total}</td>
                                             <td>${i.createDate}</td>
+                                            <td class="address">${i.address}</td>
                                             <td>${i.status}</td>
                                             <td>
                                                 <div class="d-grid">
@@ -156,7 +158,12 @@
 <!-- Jquery Page Js -->
 <script src="../js/template.js"></script>
 
-
+<script src="javascript/city.js" type="text/javascript"></script>
+<script src="javascript/district.js" type="text/javascript"></script>
+<script src="javascript/ward.js" type="text/javascript"></script>
+<script src="javascript/customer/history.js" type="text/javascript"></script>
+<script src="javascript/customer/address.js" type="text/javascript"></script>
+<script src="javascript/khanh-js.js" type="text/javascript"></script>
 <script>
     $("#type-product-admin").change(()=>{
         $("#input-name-product-admin").val("")
@@ -200,6 +207,7 @@
                                         <td>`+e.idCustomer+`</td>
                                         <td>`+e.total+`</td>
                                         <td>`+e.createDate+`</td>
+                                        <td class="address">`+e.address+`</td>
                                         <td>`+e.status+`</td>
                                         <td>
                                             <div class="d-grid">
@@ -212,7 +220,7 @@
                         })
                         $("#listProduct").append(re)
                     }
-                    removeProductInAdmin()
+                    renderAddress()
                 },
                 error: function () {
                     $('#notification-bar').text('An error occurred');
@@ -220,6 +228,29 @@
             });
 
         })})
-
 </script>
-</body></html>
+<script>
+    $(function(){
+        renderAddress()
+    })
+    // render address
+    function renderAddress() {
+        $(".address").each(function(){
+            let text = $(this).text()
+            let arrAddress = text.split("/")
+            console.log(text)
+            console.log(arrAddress.length)
+            if (arrAddress.length > 3) {
+                console.log("arr:"+arrAddress)
+                let city = renderCity(arrAddress[0])
+                let district = renderDistrict(arrAddress[1])
+                let ward = renderWard(arrAddress[2])
+                console.log("address:"+city+"~"+district+"~"+ward)
+                console.log("detail:"+arrAddress[3])
+                $(this).text(city+"/"+district+"/"+ward+"/"+arrAddress[3])
+            }
+        })
+    }
+</script>
+</body>
+</html>

@@ -7,6 +7,7 @@ public class OrderInAdmin {
     private double total;
     private String createDate;
     private String status;
+    private String address;
 
 
     public OrderInAdmin(String id, String idCustomer, double total, String createDate, String status) {
@@ -15,6 +16,15 @@ public class OrderInAdmin {
         this.total = total;
         this.createDate=createDate;
         this.status=status;
+    }
+
+    public OrderInAdmin(String id, String idCustomer, double total, String createDate, String status, String address) {
+        this.id = id;
+        this.idCustomer = idCustomer;
+        this.total = total;
+        this.createDate=createDate;
+        this.status=status;
+        this.address=address;
     }
 
     public String getId() {
@@ -55,5 +65,13 @@ public class OrderInAdmin {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -1,5 +1,6 @@
 package dao.order;
 
+import beans.AddressCustomer;
 import database.DatabaseConnection;
 import beans.OrderInAdmin;
 import beans.OrderDetailInAdmin;
@@ -38,9 +39,29 @@ public class DaoOrderAdmin {
                 double total = rs.getDouble("total_price");
                 String createAt = rs.getString("create_at");
                 String status = rs.getString("status");
+                String address = getAddress(customer, rs.getString("idAddress"));
+                re.add(new OrderInAdmin(id, customer, total, createAt, status, address));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
+    }
 
-
-                re.add(new OrderInAdmin(id, customer, total, createAt, status));
+    private String getAddress(String customerId, String idAddress) {
+        String re = "";
+        try {
+            String sql = "SELECT * FROM address where idCustomer=? AND idAddress=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, customerId);
+            s.setString(2, idAddress);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                re += rs.getString("idCity")+"/";
+                re += rs.getString("idDistrict")+"/";
+                re += rs.getString("idWard")+"/";
+                re += rs.getString("description");
+                return re;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

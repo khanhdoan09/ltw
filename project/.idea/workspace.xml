@@ -11,25 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18e12bfe-846f-4d86-a13c-10ab1548c396" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/customer/AddTemporaryAddress.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/beans/AddressCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/AddressCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/checkout/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/checkout/CheckoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/checkout/DaoCheckout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/checkout/DaoCheckout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/user/DaoCustomerAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/user/DaoCustomerAddress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/data/location/city.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/data/location/city.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascript/customer/address.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascript/customer/address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/beans/AddressCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/AddressCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/checkout/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/checkout/CheckoutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/user/DaoCustomerAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/user/DaoCustomerAddress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beans/OrderInAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/OrderInAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/admin/order/ListOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/admin/order/ListOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/order/DaoOrderAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/order/DaoOrderAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans/OrderInAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/OrderInAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/admin/order/ListOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/admin/order/ListOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/order/DaoOrderAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/order/DaoOrderAdmin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/AddressCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/AddressCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/checkout/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/checkout/CheckoutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoCustomerAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoCustomerAddress.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/customer/address.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/javascript/customer/address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/OrderInAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/OrderInAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/order/ListOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/admin/order/ListOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/order/DaoOrderAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/order/DaoOrderAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +209,7 @@
       <workItem from="1659853254907" duration="623000" />
       <workItem from="1659930758294" duration="16716000" />
       <workItem from="1659956920942" duration="2926000" />
-      <workItem from="1660299129209" duration="14657000" />
+      <workItem from="1660299129209" duration="17967000" />
     </task>
     <servers />
   </component>

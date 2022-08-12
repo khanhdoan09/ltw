@@ -26,7 +26,7 @@ public class ListOrder extends HttpServlet {
         if (paginationProduct != null)  // just count when call this function first time
             pagination = Integer.parseInt(paginationProduct);
 
-        String sql = "SELECT id,customer,total_price, create_at, status FROM orders LIMIT "+pagination*9+", 9";
+        String sql = "SELECT id,customer,total_price, create_at, status, idAddress FROM orders LIMIT "+pagination*9+", 9";
         OrderAdminService orderAdminService = new OrderAdminService();
 
         List<OrderInAdmin> orders = orderAdminService.getListOrder(sql);
