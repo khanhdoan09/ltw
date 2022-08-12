@@ -3,10 +3,7 @@ package dao.user;
 import database.DatabaseConnection;
 import beans.AddressCustomer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +49,6 @@ public class DaoCustomerAddress {
             s.setString(3, wardId);
             s.setString(4, description);
             s.setString(5, customerId);
-            System.out.println(s.toString());
-
             s.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -62,6 +57,28 @@ public class DaoCustomerAddress {
         return false;
     }
 
+    public String addAddressTemporary(AddressCustomer addressCustomer) {
+        String idAdress = "";
+        try {
+            String sql = "REPLACE INTO address(idCity, idDistrict, idWard, description, idCustomer, isTemporary) VALUES(?, ?, ?, ?, ?, ?)";
+            PreparedStatement s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            s.setString(1, addressCustomer.getCity());
+            s.setString(2, addressCustomer.getDistrict());
+            s.setString(3, addressCustomer.getWard());
+            s.setString(4, addressCustomer.getDescription());
+            s.setString(5, addressCustomer.getIdCustomer());
+            s.setString(6, addressCustomer.isTemporary());
+            s.executeUpdate();
+            ResultSet rs = s.getGeneratedKeys();
+            rs.next();
+            idAdress = String.valueOf(rs.getInt(1));
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return idAdress;
+    }
+
+    // không lấy địa chỉ tạm thời
     public  List<AddressCustomer> getAddress(String customerId) {
         List<AddressCustomer> re = new ArrayList<AddressCustomer>();
         String id="";

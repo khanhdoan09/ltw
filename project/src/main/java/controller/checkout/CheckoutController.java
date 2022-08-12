@@ -16,13 +16,14 @@ public class CheckoutController extends HttpServlet {
         HttpSession session = request.getSession();
         Object obj = session.getAttribute("userId");
         String idUser = obj.toString();
+        String idAddress = request.getParameter("idAddress");
         List<Checkout> listCheckout = (List<Checkout>) session.getAttribute("listProductInCheckout");
         double totalPrice = 0;
         for (Checkout checkout : listCheckout) {
             totalPrice += checkout.getPrice();
         }
         // lưu order
-        int orderId = DaoCheckout.getInstance().saveOrder(idUser, totalPrice);
+        int orderId = DaoCheckout.getInstance().saveOrder(idUser, totalPrice, idAddress);
         // lưu order detail
         DaoCheckout.getInstance().saveOrderDetail(idUser, orderId, listCheckout);
 

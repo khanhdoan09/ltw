@@ -17,7 +17,6 @@ $(function() {
     loadWard(883)
     $('#contain-option-city').on('change', function () {
         let cityCode = $(this).val();
-        alert(cityCode)
         loadDistrict(cityCode);
         let codeFirstDistrict = "";
         for (let i = 0; i < districts.length; i++) {
@@ -206,5 +205,20 @@ $("#nav-map-customer").click((e)=>{
             }
         }
     );
+})
+
+$(function(){
+    $(".detail_exist_address").each(function(){
+        let idCity = $(this).data("city")
+        let idDistrict = $(this).data("district")
+        let idWard = $(this).data("ward")
+        let description = $(this).text()
+
+        let city = renderCity(idCity)
+        let district = renderDistrict(idDistrict)
+        let ward = renderWard(idWard)
+
+        $(this).text(`${city}/${district}/${ward}/${description}`)
+    })
 })
 

@@ -22,16 +22,17 @@ public class DaoCheckout {
     private DaoCheckout() {
     }
 
-    public int saveOrder(String idCustomer, double totalPrice) {
+    public int saveOrder(String idCustomer, double totalPrice, String idAddress) {
         PreparedStatement s=null;
         LocalDate today = java.time.LocalDate.now();
         try {
-            String sql = "INSERT INTO `orders` (`customer`, `total_price`, `create_at`, `status`) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO `orders` (`customer`, `total_price`, `create_at`, `idAddress`, `status`) VALUES (?, ?, ?, ?, ?)";
             s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             s.setString(1, idCustomer);
             s.setDouble(2, totalPrice);
             s.setString(3, today.toString());
-            s.setString(4, "đang giao");
+            s.setString(4, idAddress);
+            s.setString(5, "đang giao");
             s.executeUpdate();
 
             // lấy id order được tự động tạo ra sau khi insert

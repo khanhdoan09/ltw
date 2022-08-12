@@ -1,5 +1,7 @@
 <%@ page import="beans.Checkout" %>
 <%@ page import="java.util.List" %>
+<%@ page import="beans.AddressCustomer" %>
+<%@ page import="dao.user.DaoCustomerAddress" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +32,7 @@
     <link rel="stylesheet" href="css/dat-css.css">
     <link rel="stylesheet" href="css/khanh-css.css">
     <link rel="stylesheet" href="css/hung-css.css">
-    <script src="javascript/khanh-js.js" type="text/javascript"></script>
+
     <style>
         .icon-update:hover {
             background-color: #0e0e0e !important;
@@ -48,12 +50,82 @@
             <div id="accordion" class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading a">
+                        <h2 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion"
+                                                   data-toggle="collapse" href="#collapse-checkout-option"
+                                                   aria-expanded="false">
+                            Thông tin nhận hàng <i class="fa fa-caret-down"></i></a></h2>
+                    </div>
+                    <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse in"
+                         aria-expanded="true" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="d-flex form-group" style="display:table">
+                                        <input class="form-control" name="type-address" type="radio" id="temporary-address" style="display: table-cell">
+                                        <label for="temporary-address" style="display: table-cell" class="mx-2">
+                                            <h1>Dùng địa chỉ tạm thời</h1>
+                                        </label>
+                                    </div>
+                                    <form action="AddTemporaryAddress" method="post">
+                                        <div class="section-input-form">
+                                            <input type="text" id="name" name="name" class="form-input" placeholder="Họ tên">
+                                            <input type="text" id="phone" name="phone" class="form-input" placeholder="Số điện thoại" type="tel" pattern="[0-9]{9}">
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input type="email" id="email" name="email" class="form-input" placeholder="Địa chỉ email">
+                                        </div>
+                                        <div class="contain-adjust-address">
+                                            <span class="label-address">Tỉnh/ Thành phố:</span>
+                                            <select id="contain-option-city" name="city">
+                                                <!-- loadLocation() display this -->
+                                            </select>
+                                            <span class="label-address">Quận/ Huyện:</span>
+                                            <select id="contain-option-district" name="district">
+                                                <!-- loadLocation() display this -->
+                                            </select>
+                                            <span class="label-address">Phường/ Xã:</span>
+                                            <select id="contain-option-ward" name="ward">
+                                                <!-- loadLocation() display this -->
+                                            </select>
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input name="address" id="address" type="text" class="form-input"
+                                                   placeholder="Địa chỉ (Ví dụ: 1056, Bình Chiểu, Thủ Đức)">
+                                        </div>
+                                        <div class="section-input-form">
+                                            <input name="note" id="note" type="text" class="form-input"
+                                                   placeholder="Ghi chú thêm (Ví dụ: Giao hàng giờ hành chính)">
+                                        </div>
+                                    </form>
+                                    <div class="d-flex form-group" style="display:table">
+                                        <input class="form-control" type="radio" name="type-address" id="exist-address" style="display:table-cell">
+                                        <label for="exist-address" style="display:table-cell" class="mx-2">
+                                            <h1>Dùng địa chỉ có sẵn</h1>
+                                        </label>
+                                    </div>
+                                    <select id="select-address" class="form-select">
+                                        <%for (AddressCustomer addressCustomer: DaoCustomerAddress.getInstance().getAddress("15")){%>
+                                            <option value="<%=addressCustomer.getId()%>" class="detail_exist_address" id="<%=addressCustomer.getId()%>" data-city="<%=addressCustomer.getCity()%>" data-district="<%=addressCustomer.getDistrict()%>" data-ward="<%=addressCustomer.getWard()%>">
+                                                <%=addressCustomer.getDescription()%>
+                                            </option>
+                                        <%}%>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading a">
                         <h2 class="panel-title">
-                            <a class="accordion-toggle"
-                               href="#collapse-checkout-confirm">Xác nhận đơn hàng <i
+                            <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse"
+                               href="#collapse-checkout-confirm" aria-expanded="true">Xác nhận đơn hàng <i
                                     class="fa fa-caret-down"></i></a></h2>
                     </div>
-                    <div >
+                    <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse"
+                         aria-expanded="true">
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-checkout">
@@ -201,20 +273,83 @@
     $(function(){
         $("#button-confirm-checkout").click((e)=>{
             e.preventDefault();
-            $.ajax(
-                {url: "CheckoutController",
-                    success: function(data){
-                    // data là số lượng sp trong cart đã dc mua
-                        let header_quantity = $("#header_quantity").text()
-                        header_quantity = header_quantity - data
-                        $("#header_quantity").text(header_quantity)
-                        alert("ok")
-                        window.location.href="customer"
-                    }
-                });
+            // kiểm tra đã có địa chỉ giao hàng chưa
+            if($("#temporary-address")[0].checked==false && $('#exist-address')[0].checked==false) {
+                alert('chưa chọn loại địa chỉ giao hàng')
+                return
+            }
+            else if($('#temporary-address')[0].checked) {
+                if($("#name").val() == '') {
+                    alert("chưa điền tên");
+                    return
+                }
+                if($("#phone").val() == '') {
+                    alert("chưa điền số điện thoại");
+                    return
+                }
+                if($("#email").val() == '') {
+                    alert("chưa điền email");
+                    return
+                }
+                if($("#address").val() == '') {
+                    alert("chưa điền địa chỉ");
+                    return
+                }
+            }
+
+            // choose exist address
+            if($("#exist-address")[0].checked) {
+                submitCheckout($("#select-address").val())
+            }
+            // choose temporary address
+            else if($("#temporary-address")[0].checked) {
+                $.ajax(
+                    {url: "AddTemporaryAddress",
+                        method: "POST",
+                        data: {
+                            name: $('#name').val(),
+                            phone: $('#phone').val(),
+                            email: $('#email').val(),
+                            city: $('#contain-option-city').val(),
+                            district: $('#contain-option-district').val(),
+                            ward: $('#contain-option-ward').val(),
+                            address: $('#address').val(),
+                            note: $('#note').val(),
+
+                        },
+
+                        success: function(data){
+                            idAdress = data
+                            submitCheckout(data)
+                        }
+                    });
+            }
         })
     })
+
+    function submitCheckout(idAddress) {
+        $.ajax(
+            {url: "CheckoutController",
+                method: "POST",
+                data: { idAddress: idAddress},
+                success: function(data){
+                    // data là số lượng sp trong cart đã dc mua
+                    let header_quantity = $("#header_quantity").text()
+                    header_quantity = header_quantity - data
+                    $("#header_quantity").text(header_quantity)
+                    alert("thanh toán thành công")
+                    window.location.href="customer"
+                }
+            });
+    }
+
 </script>
+<script src="javascript/city.js" type="text/javascript"></script>
+<script src="javascript/district.js" type="text/javascript"></script>
+<script src="javascript/ward.js" type="text/javascript"></script>
+<script src="javascript/customer/history.js" type="text/javascript"></script>
+<script src="javascript/customer/address.js" type="text/javascript"></script>
+<script src="javascript/khanh-js.js" type="text/javascript"></script>
 </body>
 
 </html>

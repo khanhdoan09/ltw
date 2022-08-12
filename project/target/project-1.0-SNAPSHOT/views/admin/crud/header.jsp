@@ -53,7 +53,7 @@
             </li>
             <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
-                    <i class="fa fa-sign-out mx-2" aria-hidden="true"></i><span>Đăng xuất</span> </a>
+                    <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px"></i><span>Đăng xuất</span> </a>
             </li>
         </ul>
         <!-- Menu: menu collepce btn -->

@@ -1,4 +1,4 @@
-let city=[
+ let city=[
     {
         "name": "An Giang",
         "slug": "an-giang",
