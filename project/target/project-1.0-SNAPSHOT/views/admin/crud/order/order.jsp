@@ -238,15 +238,10 @@
         $(".address").each(function(){
             let text = $(this).text()
             let arrAddress = text.split("/")
-            console.log(text)
-            console.log(arrAddress.length)
             if (arrAddress.length > 3) {
-                console.log("arr:"+arrAddress)
                 let city = renderCity(arrAddress[0])
                 let district = renderDistrict(arrAddress[1])
                 let ward = renderWard(arrAddress[2])
-                console.log("address:"+city+"~"+district+"~"+ward)
-                console.log("detail:"+arrAddress[3])
                 $(this).text(city+"/"+district+"/"+ward+"/"+arrAddress[3])
             }
         })
