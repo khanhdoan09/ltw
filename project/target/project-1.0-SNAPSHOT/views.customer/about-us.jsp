@@ -148,13 +148,13 @@
 
 </div>
 <%@include file="./footer_login_message.jsp"%>
-<script src="../javascript/hung-js.js"></script>
+<script src="javascript/hung-js.js"></script>
 
 
 
-<script src="../js/jQuery.js"></script>
+<script src="js/jQuery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>
 </body>
 
 </html>

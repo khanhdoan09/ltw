@@ -60,9 +60,6 @@
                         <li id="nav-password-customer">
                             <i class="fas fa-key"></i> Đổi mật khẩu
                         </li>
-                        <li id="nav-favorite-customer">
-                            <i class="fas fa-shopping-basket"></i> Danh sách yêu thích
-                        </li>
                         <li id="nav-history-customer">
                             <i class="fa fa-history" aria-hidden="true"></i> Lịch sử mua hàng
                         </li>
@@ -242,289 +239,6 @@
                         </div>
                     </div>
                 </div>
-<%--                <form id="password-customer" method="post" action="newCustomerPassword?id=<%=customer.getId()%>" class="screen-custoner">--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="oldPassword">Mật Khẩu Hiện Tại:</label>--%>
-<%--                        <input id="oldPassword" class="form-control" required type="password" name="oldPassword" style="width: 25%;">--%>
-<%--                        <p class="validation" id="validation-oldPassword"></p>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="validation-newPassword">Mật Khẩu Mới:</label>--%>
-<%--                        <input id="newPassword" type="password" class="form-control" name="newPassword" required style="width: 25%;">--%>
-<%--                        <p class="validation" id="validation-newPassword"></p>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="confirmNewPassword">Nhập Lại Mật Khẩu Mới:</label>--%>
-<%--                        <input id="confirmNewPassword" class="form-control" type="password" name="confirmNewPassword" required--%>
-<%--                               style="width: 25%;">--%>
-<%--                        <p class="validation" id="validation-confirmPassword"></p>--%>
-<%--                    </div>--%>
-<%--                    <button id="submitChangeNewPassword" type="submit" style="background-color: #108bea; color: white;">--%>
-<%--                        Lưu Thay Đổi--%>
-<%--                    </button>--%>
-<%--                </form>--%>
-<%--                <div id="favorite-customer"  class="screen-custoner">--%>
-<%--                    <div class="product-layout product-grid border-fav"--%>
-<%--                         style="background-color: white; padding: 10px 0">--%>
-<%--                        <div class="product-thumb">--%>
-<%--                            <div class="image product-imageblock">--%>
-<%--                                <a href="product.html">--%>
-<%--                                    <div class="related-product-sale">--%>
-<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
-<%--                                    </div>--%>
-<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
-<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
-<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
-<%--                                </a>--%>
-
-<%--                            </div>--%>
-<%--                            <div class="caption product-detail intro-product-detail-list">--%>
-<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
-<%--                                <h4 class="product-name">--%>
-<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
-<%--                                       style='text-transform: capitalize'>--%>
-<%--                                        Nike air force 1</a>--%>
-<%--                                </h4>--%>
-<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
-<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
-<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
-<%--                                    Cover--%>
-<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
-<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
-<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
-<%--                                    1.500.00 VND--%>
-<%--                                </p>--%>
-<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
-<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
-<%--                            </div>--%>
-
-<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
-
-<%--                            </div>--%>
-
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="product-layout product-grid border-fav"--%>
-<%--                         style="background-color: white; padding: 10px 0">--%>
-<%--                        <div class="product-thumb">--%>
-<%--                            <div class="image product-imageblock">--%>
-<%--                                <a href="product.html">--%>
-<%--                                    <div class="related-product-sale">--%>
-<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
-<%--                                    </div>--%>
-<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
-<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
-<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
-<%--                                </a>--%>
-
-<%--                            </div>--%>
-<%--                            <div class="caption product-detail intro-product-detail-list">--%>
-<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
-<%--                                <h4 class="product-name">--%>
-<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
-<%--                                       style='text-transform: capitalize'>--%>
-<%--                                        Nike air force 1</a>--%>
-<%--                                </h4>--%>
-<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
-<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
-<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
-<%--                                    Cover--%>
-<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
-<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
-<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
-<%--                                    1.500.00 VND--%>
-<%--                                </p>--%>
-<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
-<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
-<%--                            </div>--%>
-
-<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
-
-<%--                            </div>--%>
-
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-
-<%--                    <div class="product-layout product-grid border-fav"--%>
-<%--                         style="background-color: white; padding: 10px 0">--%>
-<%--                        <div class="product-thumb">--%>
-<%--                            <div class="image product-imageblock">--%>
-<%--                                <a href="product.html">--%>
-<%--                                    <div class="related-product-sale">--%>
-<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
-<%--                                    </div>--%>
-<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
-<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
-<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
-<%--                                </a>--%>
-
-<%--                            </div>--%>
-<%--                            <div class="caption product-detail intro-product-detail-list">--%>
-<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
-<%--                                <h4 class="product-name">--%>
-<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
-<%--                                       style='text-transform: capitalize'>--%>
-<%--                                        Nike air force 1</a>--%>
-<%--                                </h4>--%>
-<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
-<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
-<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
-<%--                                    Cover--%>
-<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
-<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
-<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
-<%--                                    1.500.00 VND--%>
-<%--                                </p>--%>
-<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
-<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
-<%--                            </div>--%>
-
-<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
-
-<%--                            </div>--%>
-
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-
-<%--                    <div class="product-layout product-grid border-fav"--%>
-<%--                         style="background-color: white; padding: 10px 0">--%>
-<%--                        <div class="product-thumb">--%>
-<%--                            <div class="image product-imageblock">--%>
-<%--                                <a href="product.html">--%>
-<%--                                    <div class="related-product-sale">--%>
-<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
-<%--                                    </div>--%>
-<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
-<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
-<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
-<%--                                </a>--%>
-
-<%--                            </div>--%>
-<%--                            <div class="caption product-detail intro-product-detail-list">--%>
-<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
-<%--                                <h4 class="product-name">--%>
-<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
-<%--                                       style='text-transform: capitalize'>--%>
-<%--                                        Nike air force 1</a>--%>
-<%--                                </h4>--%>
-<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
-<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
-<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
-<%--                                    Cover--%>
-<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
-<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
-<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
-<%--                                    1.500.00 VND--%>
-<%--                                </p>--%>
-<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
-<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
-<%--                            </div>--%>
-
-<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
-
-<%--                            </div>--%>
-
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-
-<%--                    <div class="product-layout product-grid border-fav"--%>
-<%--                         style="background-color: white; padding: 10px 0">--%>
-<%--                        <div class="product-thumb">--%>
-<%--                            <div class="image product-imageblock">--%>
-<%--                                <a href="product.html">--%>
-<%--                                    <div class="related-product-sale">--%>
-<%--                                        <h5 style='margin-top: 10px'> -20%</h5>--%>
-<%--                                    </div>--%>
-<%--                                    <img id="imgCategory" height="250px" width="250px"--%>
-<%--                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"--%>
-<%--                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>--%>
-<%--                                </a>--%>
-
-<%--                            </div>--%>
-<%--                            <div class="caption product-detail intro-product-detail-list">--%>
-<%--                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>--%>
-<%--                                <h4 class="product-name">--%>
-<%--                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"--%>
-<%--                                       style='text-transform: capitalize'>--%>
-<%--                                        Nike air force 1</a>--%>
-<%--                                </h4>--%>
-<%--                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to--%>
-<%--                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to--%>
-<%--                                    40,000 songs or up to 200 hours of video or any combination wherever you go.--%>
-<%--                                    Cover--%>
-<%--                                    Flow. Browse through your music collection by flipping..</p>--%>
-<%--                                <p id="priceCategory" class="price product-price produce-price-list">--%>
-<%--                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>--%>
-<%--                                    1.500.00 VND--%>
-<%--                                </p>--%>
-<%--                                <div class="rating"> <span class="fa fa-stack"><i--%>
-<%--                                        class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i--%>
-<%--                                        class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span--%>
-<%--                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>--%>
-<%--                            </div>--%>
-
-<%--                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xem</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>--%>
-<%--                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>--%>
-
-<%--                            </div>--%>
-
-<%--                        </div>--%>
-
-<%--                    </div>--%>
-
-
-<%--                </div>--%>
                 <div id="history-customer"  class="screen-custoner">
                     <div class=contain-history>
                         <table id="table-history">
@@ -657,10 +371,7 @@
             removeDefaultNavContentCategory()
         });
         $("#nav-password-customer").click(() => {
-            resetAllSectionCustomer();
-            $("#password-customer").css("display", "block");
-            $("#nav-password-customer").addClass("customer-category-after-click");
-            removeDefaultNavContentCategory()
+            showChangePassword()
         });
         $("#submit-adjust-address-customer").click(() => {
             $(".contain-form-adjust-address").css("display", "none");
@@ -683,9 +394,9 @@
                 type: 'POST',
                 success: function (data) {
                     let arrHistory = JSON.parse(data)
+                    console.log(arrHistory)
                     let re = ``
                     for (let i in arrHistory) {
-                        console.log(arrHistory[i])
                         re += `<tr> <td>`+arrHistory[i].productName+`</td>
                                 <td><img width="40px" height="40px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
                                 <td>`+arrHistory[i].productQuantity+`</td>
@@ -724,5 +435,56 @@
         $("#info-customer").css("display", "none");
     }
     $(window).ready(accessInfoCustomer);
+
+    $(function() {
+        let url = window.location.href
+        console.log(url)
+        if (url.includes('#history-customer')) {
+            showHistory()
+        }
+        else if (url.includes('#change-password')) {
+            showChangePassword()
+        }
+    })
+
+</script>
+<script>
+    function showChangePassword() {
+        resetAllSectionCustomer();
+        $("#password-customer").css("display", "block");
+        $("#nav-password-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
+    }
+</script>
+<script>
+    function showHistory() {
+        resetAllSectionCustomer();
+        $("#history-customer").css("display", "block");
+        $("#nav-history-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
+        $.ajax({
+            url: `PurchaseHistoryController`,
+            type: 'POST',
+            success: function (data) {
+                let arrHistory = JSON.parse(data)
+                let re = ``
+                for (let i in arrHistory) {
+                    console.log(arrHistory[i])
+                    re += `<tr> <td>`+arrHistory[i].productName+`</td>
+                                <td><img width="40px" height="40px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
+                                <td>`+arrHistory[i].productQuantity+`</td>
+                                <td>`+arrHistory[i].productSize+`</td>
+                                <td>`+arrHistory[i].createAt+`</td>
+                                <td>`+arrHistory[i].productPrice+`</td>
+                               </tr>`
+                }
+
+                $("#contain_history").append(re)
+            },
+            error: function () {
+                alert("Error")
+            }
+        })
+    }
 </script>
 </html>

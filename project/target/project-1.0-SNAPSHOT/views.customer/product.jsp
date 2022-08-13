@@ -19,7 +19,7 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <title>Home | Dragon Sport</title>
+    <title>Sản phẩm | Dragon Sport</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
@@ -46,7 +46,6 @@
     <link rel="stylesheet" href="css/hung-css.css">
     <script src="javascript/khanh-js.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="image/logo.png" />
-    <script src="../javascript/khanh-js.js"></script>
 
     <style>
         .size_clicked {
@@ -107,8 +106,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@include file="header.jsp" %>
-
-
 
 <%
     Product p  = (Product) request.getAttribute("product");
@@ -282,7 +279,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                     <ul class="d-flex flex-wrap ul-checkbox">
                                         <%for (int size : listSize) {%>
                                         <li class="li_bor">
-                                            <input  type="radio" class="input-bor" id="shoe_<%=size%>" name="size" value="<%=size%>">
+                                            <input  type="radio" class="input-bor size-shoe" id="shoe_<%=size%>" name="size" value="<%=size%>">
                                             <label for="shoe_<%=size%>" class="label_bor size-item"><%=size%>
                                             </label>
                                         </li>
@@ -408,59 +405,6 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                 <%}%>
 
                             <%}%>
-
-<%--                                else {%>--%>
-<%--                                <script>--%>
-
-<%--                                </script>--%>
-<%--                                <div id="CM_<%= comment.getId_reply()%>"+>--%>
-<%--                                    <div  id='+ i++ +' class="feedback_admin" style="clip-path: polygon(0 4%, 91% 4%, 94% 0, 97% 4%, 100% 4%, 100% 100%, 0 100%);padding: 22px 20px 20px 20px; background-color: rgb(235, 235, 235);width: 600px; min-height: 130px; display: inline-block;    margin: -17px 0 20px 79px;">--%>
-<%--                                        <div class="header" style="border-bottom: 1px solid #ccc; height: 55px;">--%>
-<%--                                            <div style="width: 30%;float: left;">'--%>
-<%--                                                <img src="./logo.png" alt=""style="padding: 5px; width: 35px;height: 35px; border-radius: 50%;display: inline-flex;background-color: white;  object-fit: cover; margin-right: 5px;">--%>
-<%--                                                <div class="abc" style="margin: -21px 0 0 4px;display: inline-block; position: absolute;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">--%>
-<%--                                                    <p class="username" style="margin-bottom: 2px;">Phan Văn Hùng</p>--%>
-<%--                                                </div>--%>
-<%--                                                <p style="font-size: 13px;font-family: system-ui;display: inline-block;position: absolute;margin: 27px 0 0 4px;">16:1:56 | 24/7/2022</p>--%>
-<%--                                            </div>--%>
-<%--                                            <div class=""style="background-color: #108bea; display: inline-block; padding: 3px 8px 4px; border-radius: 10px; color: white;margin:-2px 0 0 28px;">Quản trị viên.</div>--%>
-
-<%--                                            <div class="change_tym_color"style="background-color: #6ececc;margin: -15px 0 0 580px;cursor: pointer; position: absolute; width: 22px;height: 20px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"></div>--%>
-<%--                                        </div>--%>
-
-<%--                                        <div class="content_admin"style="padding: 15px;float: right;background: white;border-radius: 10px;margin-top:10px;width: 86%;">--%>
-<%--                                            <div class="detail" style="border-left: 1px solid #ccc; padding: 0 10px;">--%>
-<%--                                                <p class="contentComment" style="margin:0;text-align: justify; font-family: system-ui;"><%= comment.getContent()%></p>--%>
-<%--                                            </div>--%>
-<%--                                        </div></br>--%>
-<%--                                        <div id='+ "u" +i +'> </div>--%>
-<%--                                </div>--%>
-<%--                                <script>--%>
-<%--                                    let data =  '  <div   class="feedback_admin" style="clip-path: polygon(0 4%, 91% 4%, 94% 0, 97% 4%, 100% 4%, 100% 100%, 0 100%);padding: 22px 20px 20px 20px; background-color: rgb(235, 235, 235);width: 600px; min-height: 130px; display: inline-block;    margin: -17px 0 20px 79px;">'--%>
-<%--                                        + '<div class="header" style="border-bottom: 1px solid #ccc; height: 55px;">'--%>
-<%--                                        + '<div style="width: 37%;float: left;">'--%>
-<%--                                        + '<img src="./image/logo.png" alt=""style="padding: 5px; width: 35px;height: 35px; border-radius: 50%;display: inline-flex;background-color: white;  object-fit: cover; margin-right: 5px;">'--%>
-<%--                                        + '<div class="abc" style="margin: -38px 0 0 52px;;display: inline-block; padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">'--%>
-<%--                                        + '<p class="username" style="margin-bottom: 2px;"></p>'--%>
-<%--                                        + '</div>'--%>
-<%--                                        + '<p style="font-size: 13px;font-family: system-ui;display: inline-block;margin: -19px 0 0 51px;">16:1:56 | 24/7/2022</p>'--%>
-<%--                                        + '</div>'--%>
-<%--                                        + '<div class=""style="background-color: #108bea; display: inline-block; padding: 3px 8px 4px; border-radius: 10px; color: white;margin:-2px 0 0 28px;">Quản trị viên.</div>'--%>
-
-<%--                                        + ' <div class="change_tym_color"style="background-color: #6ececc;margin: -15px 0 0 580px;cursor: pointer; position: absolute; width: 22px;height: 20px;clip-path: polygon(0% 15%, 14% 0, 37% 0, 51% 15%, 67% 0, 86% 0, 100% 14%, 100% 35%, 50% 99%, 0 36%, 0 29%, 0 30%);"></div>'--%>
-<%--                                        + '</div>'--%>
-
-<%--                                        + '<div class="content_admin"style="padding: 15px;float: right;background: white;border-radius: 10px;margin-top:10px;width: 86%;">'--%>
-<%--                                        + ' <div class="detail" style="border-left: 1px solid #ccc; padding: 0 10px;">'--%>
-<%--                                        + '<p class="contentComment" style="margin:0;text-align: justify; font-family: system-ui;">'<%= comment.getContent()%></p>'--%>
-<%--                                        + '</div>'--%>
-<%--                                        + '</div></br>';--%>
-<%--                                    document.getElementById("CM_<%= comment.getId_reply()%>").innerHTML += data;--%>
-<%--                                </script>--%>
-
-
-<%--                                <%}%>--%>
-
                             </div>
                         </div>
                         <form id="myForm" style="margin-top: 15px">
@@ -631,7 +575,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
     </div>
 </div>
 <%@include file="footer_login_message.jsp"%>
-<script src="../javascript/hung-js.js"></script>
+<script src="javascript/hung-js.js"></script>
 
 
 <script>
@@ -743,13 +687,25 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
     $(function() {
         $("#add-cart").click((e)=>{
             e.preventDefault()
-            // $.ajax({
-            //     url: `addCart`,
-            //     type: 'POST',
-            //     success: function (data) {
-            //     }
-            // })
-            <%if(request.getSession().getAttribute("userId")==null){%>alert("need login")<%}else{%>$("#form-to-cart").submit()<%}%>
+            <%if(request.getSession().getAttribute("userId")==null){%>
+                alert("Cần đăng nhập để thêm sản phẩm vào giỏ hàng")
+                $("#form-modal").addClass('open')
+            <%}
+            else{%>
+                let isChooseSize=false
+                $('.size-shoe').each(function(){
+                    if ($(this).is(":checked")) {
+                        isChooseSize = true
+                    }
+                })
+            if (isChooseSize) {
+                isChooseSize = false
+                $("#form-to-cart").submit()
+            }
+            else {
+                    alert("chưa chọn size sản phẩm")
+            }
+            <%}%>
         })
     })
 </script>

@@ -14,6 +14,13 @@
     .login-modal, .js-modal {
         display: none;
     }
+    .modal-container{
+        border-radius: 20px;
+    }
+    .modal-header{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
 </style>
 <footer style="margin: 10px 0;">
     <div class="container">
@@ -104,8 +111,6 @@
 <div class="login-modal js-modal" id="form-modal">
     <!-- Begin: modal login -->
     <div class="modal-container js-modal-container">
-
-
         <header class="modal-header">
             Tài Khoản Của Bạn!
         </header>

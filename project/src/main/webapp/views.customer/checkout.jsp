@@ -338,7 +338,7 @@
                     header_quantity = header_quantity - data
                     $("#header_quantity").text(header_quantity)
                     alert("thanh toán thành công")
-                    window.location.href="customer"
+                    window.location.href="customer#history-customer"
                 }
             });
     }

@@ -29,6 +29,9 @@
         margin: 10px;
         padding: 0 8px;
     }
+    .cursor-pointer {
+        cursor: pointer;
+    }
 </style>
 
 <header>
@@ -45,14 +48,8 @@
                                     báo</span><span style="margin-right: 10px;"
                                                     class="color-header">(0)</span></a>
                                 </li>
-                                <li class="account"><a href="customer.html" id="wishlist-total"
-                                                       title="Wish List (0)"><i class="fa fa-heart color-header"></i><span
-                                        class="color-header">Danh sách
-                                                yêu thích</span><span style="margin-right: 10px;"
-                                                                      class="color-header">(0)</span></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
+                                <li class="dropdown cursor-pointer">
+                                    <a title="My Account" class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="fa fa-user color-header"></i><span class="color-header">
                                             <% Object isLogin = request.getSession().getAttribute("userId");
                                             if (isLogin != null) {
@@ -66,11 +63,11 @@
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <%
                                         if (isLogin == null){%>
-                                        <li><a href="#" class="js-login" id="Login">Đăng Nhập</a></li>
-                                        <li><a href="#" class="js_register">Đăng Ký</a></li>
+                                        <li><a class="js-login cursor-pointer" id="Login">Đăng Nhập</a></li>
+                                        <li><a class="js_register cursor-pointer">Đăng Ký</a></li>
                                         <%}else {%>
-                                        <li><a href="<%=request.getContextPath()%>/customer" class="js-login">Cá nhân</a></li>
-                                        <li><a id="sign_out" class="js-login">Đăng xuất</a></li>
+                                        <li><a href="<%=request.getContextPath()%>/customer" class="js-login cursor-pointer">Cá nhân</a></li>
+                                        <li><a id="sign_out" class="js-login cursor-pointer">Đăng xuất</a></li>
                                         <%}%>
                                     </ul>
                                 </li>
