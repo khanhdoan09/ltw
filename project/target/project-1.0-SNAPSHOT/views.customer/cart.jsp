@@ -79,7 +79,7 @@
                             totalPrice += product.getPrice();%>
                             <tr id="tr_<%=i%>">
                                 <td class="text-center check_pr">
-                                    <input type="checkbox" id="html " class="checked_pr" name="checkbox_product_in_cart" value="<%=product.getName()%>_<%=product.getIdProduct()%>_<%=product.getColorShoe()%>_<%=product.getSizeShoe()%>_<%=product.getQuantityShoe()%>_<%=product.getPrice()%>" checked>
+                                    <input type="checkbox" id="html "data-price="<%=product.getPrice()%>" class="checked_pr" name="checkbox_product_in_cart" value="<%=product.getName()%>_<%=product.getIdProduct()%>_<%=product.getColorShoe()%>_<%=product.getSizeShoe()%>_<%=product.getQuantityShoe()%>_<%=product.getPrice()%>" checked>
                                     <a href="ProductDetail?idProduct=<%=product.getIdProduct()%>">
                                         <img class="img-thumbnail"
                                                                                                              title="women's New Wine is an alcoholic"
@@ -97,7 +97,7 @@
                                                 <i class="fa fa-refresh icon-update" style="padding: 8px 20px;background-color: #1a94ff;color: white;"></i>
                                             </button>
                                             <span class="input-group-btn">
-                                                <a data-tr="tr_<%=i%>" data-price="<%=product.getPrice()%>" data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProductDetail()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
+                                                <a data-tr="tr_<%=i%>"  data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProductDetail()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
                                                     <button class="btn btn-danger" title="" data-toggle="tooltip"
                                                             type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
@@ -210,24 +210,28 @@
             })
         })
     })
-        // $(function () {
-        //     //     let value = 0.0;
-        //     //     let arrChecked = $(".checked_pr")
-        //     //         arrChecked.each(function(){
-        //     //             let child = $(this).prop('checked');
-        //     //             console.log(child);
-        //     //             if (child == true) {
-        //     //                 let product = parseFloat($(".total-price").text());
-        //     //                 console.log(product)
-        //     //                 value += product;
-        //     //             }
-        //     //
-        //     //         })
-        //     //     console.log(value);
-        //     //     $("#total_price").text(value+" $");
-        //     // });
-        // })
+    $(function () {
+        let arrChecked = $(".checked_pr")
+        arrChecked.each(function(){
 
+            $(this).click(()=>{
+                let value = Math.floor(parseFloat($("#total-price").text()))
+                let child = $(this).prop('checked');
+                let productPrice = Math.floor($(this).data("price"))
+                console.log($(this).data("price"));
+                console.log(value);
+                console.log(productPrice);
+
+                if (child == true) {
+                    value += productPrice;
+                }
+                else {
+                    value -= productPrice
+                }
+                $("#total-price").text(value+" $");
+            })
+        })
+    })
 
     // remove product
     $(function() {

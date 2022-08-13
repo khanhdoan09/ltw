@@ -56,6 +56,10 @@
                     <i class="fa-solid fa-boxes-stacked mx-2"></i> <span>Đăng kí nhân viên mới</span> </a>
             </li>
             <li class="collapsed">
+            <a id="listVoucher" class="m-link" href="<%=request.getContextPath()%>/GetVoucherAdmin">
+                    <i class="fa-solid fa-comment mx-2"></i> <span>Quản lý voucher</span> </a>
+            </li>
+            <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">
                     <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px"></i><span>Đăng xuất</span> </a>
             </li>
@@ -106,6 +110,9 @@
     }
     else if (url.includes("GetComment")){
         $("#listComment").addClass("active")
+    }
+    else if (url.includes("GetVoucherAdmin")){
+        $("#listVoucher").addClass("active")
     }
     else if (url.includes("AddNew")){
         $("#addProduct").addClass("active")
