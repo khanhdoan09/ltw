@@ -163,9 +163,8 @@
                         <span class="add-address">Thêm địa chỉ mới</span>
                     </button>
                     <div class="contain-available-address">
-
                         <form class="contain-form-adjust-address">
-                            <div class="contain-adjust-address">
+                            <div class="contain-adjust-address d-flex">
                                 <span class="label-address">Tỉnh/ Thành phố:</span>
                                 <select id="contain-option-city" class="input-address">
                                     <!-- loadLocation() display this -->
@@ -181,15 +180,11 @@
                                 <span class="label-address">Địa chỉ</span>
                                 <textarea id="contain-option-description" rows="4" cols="50" style="border-radius: 10px;"></textarea>
                             </div>
-                            <div class="contain-default-address-customer" style="margin: 10px 0">
-                                <input type="checkbox" id="default-address-customer">
-                                <label for="default-address-customer" style="font-size: 17px">Đặt làm địa chỉ mặc
-                                    định</label><br>
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-info" id="submit-add-address-customer" class="btn-address-customer" value="Thêm">Thêm</button>
+                                <button type="button" class="btn btn-info" id="submit-adjust-address-customer" class="btn-address-customer" value="Chỉnh sửa">Chỉnh sửa</button>
+                                <button type="button" class="btn btn-danger" id="delete-adjust-address-customer" value="Xóa">Xóa</button>
                             </div>
-                            <input type="button" id="submit-add-address-customer" class="btn-address-customer" value="Thêm">
-                            <input type="button" id="submit-adjust-address-customer" class="btn-address-customer" value="Chỉnh sửa">
-                            <input type="button" id="delete-adjust-address-customer" value="Xóa">
-
                         </form>
 
 

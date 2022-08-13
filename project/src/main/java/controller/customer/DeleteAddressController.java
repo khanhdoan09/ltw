@@ -17,15 +17,15 @@ public class DeleteAddressController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(123);
         HttpSession session = request.getSession();
+        System.out.println(session.getAttribute("userId"));
         Object obj = session.getAttribute("userId");
-        if(obj != null) {
-            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
-            return;
-        }
-        String idCustomer = (String) obj;
+        String idCustomer = obj.toString();
+        System.out.println(idCustomer);
 
         String idAddress = request.getParameter("idAddress");
+        System.out.println(idAddress);
         PersonalAddressService personalAddressService = new PersonalAddressService();
         boolean isDelete = personalAddressService.deleteAddress(idAddress, idCustomer);
         response.setContentType("text/plain");

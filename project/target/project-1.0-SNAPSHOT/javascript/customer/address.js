@@ -63,7 +63,7 @@ $(".contain-add-map").click(() => {
     $(".contain-form-adjust-address").css("display", "block");
     $(".available-address").css("display", "none");
     $(".default-address").css("display", "none");
-    $("#submit-add-address-customer").css("display", "block");
+    $("#submit-add-address-customer").css("display", "inline");
     $("#submit-adjust-address-customer").css("display", "none");
     $("#submit-none-address-customer").css("display", "block");
 
@@ -76,7 +76,7 @@ $(".contain-add-map").click(() => {
         let descriptionValue = $("#contain-option-description").val()
 
         $.ajax(
-            {url: `/project_war/adress`,
+            {url: `/project_war_exploded/adress`,
                 type: 'POST',
                 data:{
                     "city": cityValue,
@@ -86,10 +86,10 @@ $(".contain-add-map").click(() => {
                 },
                 success: function(result){
                     if (result == "true") {
-                        alert("ok")
+                        alert("thêm thành công")
                     }
                     else {
-                        alert(false)
+                        alert("thêm thất bại")
                     }
                 }
             }
@@ -111,24 +111,22 @@ $("#nav-map-customer").click((e)=>{
     $("#favorite-customer").css("display", "none")
     $.ajax(
         {
-            url: `/project_war/getAddress`,
+            url: `/project_war_exploded/getAddress`,
             type: 'POST',
             success: function (result) {
                 let arrAddress = JSON.parse(result)
-                console.log(arrAddress)
                 let re = ""
-
                 for(var k in arrAddress) {
                     let cityName = renderCity(arrAddress[k].city)
                     let districtName = renderDistrict(arrAddress[k].district)
                     let wardName = renderWard(arrAddress[k].ward)
                     let descriptionName = arrAddress[k].description
-                    re += ` <div class="available-address">
+                    re += ` <div class="available-address" id="address-${k}">
                             <p style="color: black;margin: 10px 0;" id="address-detail-`+arrAddress[k].id+`"><span style="color: rgb(70, 67, 67);">Địa chỉ :
                                     </span>`+ cityName+` / `+ districtName +` / `+ wardName + ` / `+ descriptionName + `</p>
-                            <div>
+                            <div class="d-flex">
                                 <i class="fa-solid fa-pen-to-square edit-address" data-city="`+arrAddress[k].city+`" data-district="`+arrAddress[k].district+`" data-ward="`+arrAddress[k].ward+`" data-description="`+descriptionName+`" data-address="`+arrAddress[k].id+`" data-detail="`+arrAddress[k].id+`"></i>
-                                <i class="fa-solid fa-trash-can delete-address" data-address="`+arrAddress[k].id+`" ></i>
+                                <i class="fa-solid fa-trash-can delete-address" data-contain="address-${k}" data-address="`+arrAddress[k].id+`" ></i>
                             </div>
                         </div>`
                 }
@@ -138,7 +136,7 @@ $("#nav-map-customer").click((e)=>{
                         $(".contain-form-adjust-address").css("display", "block");
                         $(".default-address").css("display", "none");
                         $(".available-address").css("display", "none");
-                        $("#submit-adjust-address-customer").css("display", "block")
+                        $("#submit-adjust-address-customer").css("display", "inline")
                         $("#submit-add-address-customer").css("display", "none")
                         $("#contain-option-city").val($(this).data("city")).change()
                         $("#contain-option-district").val($(this).data("district")).change()
@@ -156,7 +154,7 @@ $("#nav-map-customer").click((e)=>{
                             alert(idAddress + "~" + cityValue +"~~"+ districtValue + "~~~" +wardValue+"~~~~"+descriptionValue)
                             $.ajax(
                                 {
-                                    url: `/project_war/editAddress`,
+                                    url: `/project_war_exploded/editAddress`,
                                     type: 'POST',
                                     data:{
                                         "idAddress":idAddress,
@@ -168,7 +166,7 @@ $("#nav-map-customer").click((e)=>{
                                     success: function(result){
                                         if (result =="true") {
                                             alert("~"+detail)
-                                            $("#address-detail-"+detail).text(cityValue+` / `+ districtValue +` / `+ wardValue + ` / `+ descriptionValue)
+                                            $("#address-detail-"+detail).text(renderCity(cityValue)+` / `+ renderDistrict(districtValue) +` / `+ renderWard(wardValue) + ` / `+ descriptionValue)
                                         }
                                         else {
                                             alert(false)
@@ -180,17 +178,17 @@ $("#nav-map-customer").click((e)=>{
                     })
                 })
                 $(".delete-address").each(function (){
-                    $(this).click(()=>{
-                        console.log(arrAddress[k].id)
+                    $(this).click(function(){
+                        let contain = $(this).data('contain')
                         $.ajax(
-                            {url: `/project_war/deleteAddress`,
+                            {url: `/project_war_exploded/deleteAddress`,
                                 type: 'POST',
                                 data:{
                                     "idAddress": $(this).data("address")
                                 },
                                 success: function(result){
                                     if (result == "true") {
-                                        $(this).remove()
+                                        $('#'+contain).remove()
                                         alert("ok")
                                     }
                                     else {

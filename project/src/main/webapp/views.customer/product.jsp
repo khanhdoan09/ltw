@@ -245,7 +245,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                 <%=p.getBrand()%>
                             </div>
                         </li>
-                        <form id="form-to-cart" action="addCart" method="get">
+                        <form id="form-to-cart" action="addCart" method="post">
                             <!-- bug không gửi được parameter trên url nên dùng 5 cái input dưới-->
                             <input name="idCustomer" value="123" style="width: 1px; height: 1px; visibility: hidden">
                             <input name="idProduct" value="<%=p.getId()%>" style="width: 1px; height: 1px; visibility: hidden">

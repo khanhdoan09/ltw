@@ -17,13 +17,9 @@ public class AddAdressController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(true);
         Object obj = session.getAttribute("userId");
-        if(obj != null) {
-            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
-            return;
-        }
-        String idCustomer = (String) obj;
+        String idCustomer = obj.toString();
         String city = request.getParameter("city");
         String district = request.getParameter("district");
         String ward = request.getParameter("ward");

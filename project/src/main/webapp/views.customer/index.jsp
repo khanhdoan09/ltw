@@ -415,6 +415,14 @@
 
 <script src="javascript/hung-js.js"></script>
 
+<script>
+    let url = window.location.href
+    if (url.includes("logIn")) {
+        $(function() {
+            $("#form-modal").addClass('open')
+        })
+    }
+</script>
 </body>
 
 </html>

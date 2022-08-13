@@ -22,10 +22,6 @@ public class GetAddressController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Object obj = session.getAttribute("userId");
-        if(obj != null) {
-            request.getRequestDispatcher("./views.customer/index.jsp").forward(request, response);
-            return;
-        }
         String idCustomer = (String) obj;
         PersonalAddressService personalAddressService = new PersonalAddressService();
         List<AddressCustomer> listAddress =  personalAddressService.getAddress(idCustomer);

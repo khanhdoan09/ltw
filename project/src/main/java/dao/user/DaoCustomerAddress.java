@@ -42,7 +42,7 @@ public class DaoCustomerAddress {
     public boolean addAddress(String customerId, String cityId, String districtId, String wardId, String description) {
         try {
 
-            String sql = "REPLACE INTO address(idCity, idDistrict, idWard, description, idCustomer) VALUES(?, ?, ?, ?, ?)";
+            String sql = "REPLACE INTO address(idCity, idDistrict, idWard, description, idCustomer, isTemporary) VALUES(?, ?, ?, ?, ?, 0)";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, cityId);
             s.setString(2, districtId);
@@ -87,7 +87,7 @@ public class DaoCustomerAddress {
         String ward="";
         String description="";
         try {
-            String sql = "SELECT * FROM address where idCustomer=?";
+            String sql = "SELECT * FROM address where idCustomer=? and isTemporary=1";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, customerId);
             ResultSet rs = s.executeQuery();
