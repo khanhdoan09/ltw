@@ -41,13 +41,32 @@ public class DaoCart {
                 String name= DaoProduct.getInstance().getName(idProduct);
                 String brand= DaoProduct.getInstance().getBrand(idProduct);
                 double price = DaoProduct.getInstance().getPrice(idProduct);
-                Cart cart = new Cart(idCustomer, idProduct, idProductDetail, colorShoe, quantity, size, name, brand, price);
+                String avatar = getAvatar(idProduct, colorShoe);
+                Cart cart = new Cart(idCustomer, idProduct, idProductDetail, colorShoe, quantity, size, name, brand, price, avatar);
                 re.add(cart);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return re;
+    }
+
+
+    public String getAvatar(String idProduct, String color) {
+        int re = 0;
+        try {
+            String sql = "SELECT * FROM linkimg WHERE idProduct=? and color=? and level=0";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idProduct);
+            s.setString(2, color);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getString("img");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return "";
     }
 
     // lấy số sản phẩm trong cart để trên header

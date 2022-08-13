@@ -17,19 +17,29 @@ public class CheckoutController extends HttpServlet {
         Object obj = session.getAttribute("userId");
         String idUser = obj.toString();
         String idAddress = request.getParameter("idAddress");
+        String codeVoucher = request.getParameter("codeVoucher");
+        String price = request.getParameter("price");
         List<Checkout> listCheckout = (List<Checkout>) session.getAttribute("listProductInCheckout");
-        double totalPrice = 0;
-        for (Checkout checkout : listCheckout) {
-            totalPrice += checkout.getPrice();
-        }
-        // lưu order
-        int orderId = DaoCheckout.getInstance().saveOrder(idUser, totalPrice, idAddress);
-        // lưu order detail
-        DaoCheckout.getInstance().saveOrderDetail(idUser, orderId, listCheckout);
-
-        response.getWriter().write(listCheckout.size()+"");
+        double totalPrice = Double.parseDouble(price);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
+        String reCheckAmount = DaoCheckout.getInstance().checkAmountInStore(listCheckout);
+        // hết số lượng
+        System.out.println(reCheckAmount);
+        if(reCheckAmount != null) {
+            response.getWriter().write(reCheckAmount);
+            return;
+        }
+        else {
+            // lưu order
+            int orderId = DaoCheckout.getInstance().saveOrder(idUser, totalPrice, idAddress);
+            // lưu order detail
+            DaoCheckout.getInstance().saveOrderDetail(idUser, orderId, listCheckout);
+            // set voucher đã sử dụng
+            DaoCheckout.getInstance().setVoucherUsed(codeVoucher);
+
+            response.getWriter().write(listCheckout.size()+"");
+        }
     }
 
     @Override

@@ -10,6 +10,7 @@ public class Cart {
     private String name;
     private String brand;
     private double price;
+    private String avatar;
 
     // dùng khi thêm product vào cart
     public Cart (String idCustomer, String idProductDetail, int quantityShoe) {
@@ -23,7 +24,7 @@ public class Cart {
         this.idProductDetail = idProductDetail;
     }
     // for get list product in cart
-    public Cart(String idCustomer, String idProduct, String idProductDetail, String colorShoe, int quantityShoe, int sizeShoe, String name, String brand, double price) {
+    public Cart(String idCustomer, String idProduct, String idProductDetail, String colorShoe, int quantityShoe, int sizeShoe, String name, String brand, double price, String avatar) {
         this.idCustomer = idCustomer;
         this.idProduct = idProduct;
         this.idProductDetail = idProductDetail;
@@ -33,6 +34,7 @@ public class Cart {
         this.name = name;
         this.brand = brand;
         this.price = price;
+        this.avatar = avatar;
     }
 
     public String getIdCustomer() {
@@ -105,5 +107,13 @@ public class Cart {
 
     public void setIdProduct(String idProduct) {
         this.idProduct = idProduct;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

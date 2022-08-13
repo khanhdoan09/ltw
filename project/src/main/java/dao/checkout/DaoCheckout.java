@@ -1,5 +1,6 @@
 package dao.checkout;
 
+import beans.Voucher;
 import beans.Checkout;
 import beans.Cart;
 import database.DatabaseConnection;
@@ -7,6 +8,7 @@ import dao.cart.DaoCart;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DaoCheckout {
@@ -44,6 +46,35 @@ public class DaoCheckout {
             System.out.println("~~"+e.getMessage());
         }
         return 0;
+    }
+
+    public String checkAmountInStore(List<Checkout> listCheckout) {
+        String re = null;
+        PreparedStatement s=null;
+        LocalDate today = java.time.LocalDate.now();
+        try {
+            String sql = "select * from product_detail inner join product on product_detail.id=product.id where product_detail.idDetail=?";
+            s = connect.prepareStatement(sql);
+            for (Checkout checkout : listCheckout) {
+                s.setString(1, checkout.getIdProductDetail());
+                ResultSet rs = s.executeQuery();
+                while (rs.next()) {
+                    String name = rs.getString("name");
+                    int size = rs.getInt("size");
+                    String color = rs.getString("color");
+                    int totalValue = rs.getInt("totalValue");
+                    int soleValue = rs.getInt("soleValue");
+                    System.out.println(totalValue - soleValue +"~"+checkout.getQuantity());
+                    if ((totalValue - soleValue) < checkout.getQuantity()) {
+                        re = "rất tiếc sản phẩm: "+name+ ", size: " + size + ", màu: "+ color + " với "+ checkout.getQuantity() +" số lượng không đủ để bán";
+                        return re;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
     }
 
     public boolean saveOrderDetail(String idUser, int orderId, List<Checkout> listCheckout) {
@@ -91,6 +122,37 @@ public class DaoCheckout {
                 s.setString(1, idProductDetail);
                 Cart cart = new Cart(idUser, idProductDetail);
                 DaoCart.getInstance().deleteProductInCart(cart);
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public Voucher getDiscountVoucher(String codeVoucher) {
+        PreparedStatement s = null;
+        String sql = "SELECT * FROM voucher WHERE code=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, codeVoucher);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                Voucher voucher = new Voucher(rs.getString("id"), rs.getString("from_date"), rs.getString("to_date"),rs.getInt("discount"), rs.getString("code"), rs.getInt("used"));
+                return voucher;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public boolean setVoucherUsed(String codeVoucher) {
+        PreparedStatement s=null;
+        try {
+            String sql = "UPDATE voucher SET used=1 WHERE code=?";
+            s = connect.prepareStatement(sql);
+            s.setString(1, codeVoucher);
             s.executeUpdate();
             return true;
         } catch (SQLException e) {

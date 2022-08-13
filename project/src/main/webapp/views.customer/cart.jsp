@@ -84,7 +84,7 @@
                                         <img class="img-thumbnail"
                                                                                                              title="women's New Wine is an alcoholic"
                                                                                                              alt="women's New Wine is an alcoholic"
-                                                                                                             src="upload/product/${item.avatar}.jpg"></a>
+                                                                                                             src="upload/product/<%=product.getAvatar()%>"></a>
                                 </td>
                                 <td class="text-left"><a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><%=product.getName()%></a>
                                 </td>

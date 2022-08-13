@@ -109,7 +109,7 @@
                                             <td class="address">${i.address}</td>
                                             <td>${i.status}</td>
                                             <td>
-                                                <div class="d-grid">
+                                                <div class="d-grid text-center">
                                                     <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=${i.id}">
                                                         <i class="fa-solid fa-eye"></i>
                                                     </a>
@@ -210,7 +210,7 @@
                                         <td class="address">`+e.address+`</td>
                                         <td>`+e.status+`</td>
                                         <td>
-                                            <div class="d-grid">
+                                            <div class="d-grid text-center">
                                                 <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=`+e.id+`">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </a>

@@ -103,7 +103,7 @@
                                             <h1>Dùng địa chỉ có sẵn</h1>
                                         </label>
                                     </div>
-                                    <select id="select-address" class="form-select">
+                                    <select id="select-address" style="font-size: 15px; padding: 10px">
                                         <%for (AddressCustomer addressCustomer: DaoCustomerAddress.getInstance().getAddress("15")){%>
                                             <option value="<%=addressCustomer.getId()%>" class="detail_exist_address" id="<%=addressCustomer.getId()%>" data-city="<%=addressCustomer.getCity()%>" data-district="<%=addressCustomer.getDistrict()%>" data-ward="<%=addressCustomer.getWard()%>">
                                                 <%=addressCustomer.getDescription()%>
@@ -234,17 +234,22 @@
 
             <h2>Thành tiền</h2>
             <div class="pay-all">
-                <form class="input-pay-all">
-                    <input type="text" placeholder="Mã giảm giá">
-                    <button>Áp dụng</button>
-                </form>
+                <div class="input-pay-all">
+                    <input type="text" id="input_voucher" value=" " placeholder="Mã voucher" autocomplete="off">
+                    <button type="button" class="btn btn-info text-white mx-1" id="submit_voucher">Áp dụng</button>
+                    <button type="button" id="remove_voucher" class="btn btn-danger text-white">Hủy bỏ</button>
+                </div>
                 <ul>
                     <li>Tạm tính</li>
                     <li><%=totalPrice%>đ</li>
                 </ul>
                 <ul>
-                    <li>Mã giảm giá</li>
-                    <li class="pay-all-item-money">0</li>
+                    <li>Voucher giảm giá</li>
+                    <div class="d-flex">
+                        <span class="pay-all-item-money">-</span>
+                        <span class="pay-all-item-money" id="discount_voucher">0</span>
+                        <span class="pay-all-item-money">%</span>
+                    </div>
                 </ul>
                 <ul>
                     <li>Phí giao hàng</li>
@@ -252,7 +257,10 @@
                 </ul>
                 <ul>
                     <li>Tổng cộng</li>
-                    <li style="color: rgb(187, 60, 60); font-weight: bold"><%=totalPrice%>đ</li>
+                    <div class="d-flex">
+                        <span id="total_price"><%=totalPrice%></span>
+                        <span>đ</span>
+                    </div>
                 </ul>
                 <div class="buttons">
                     <div class="pull-right">
@@ -331,18 +339,72 @@
         $.ajax(
             {url: "CheckoutController",
                 method: "POST",
-                data: { idAddress: idAddress},
+                data: { idAddress: idAddress, codeVoucher: codeVoucherChoosen, price: price},
                 success: function(data){
-                    // data là số lượng sp trong cart đã dc mua
-                    let header_quantity = $("#header_quantity").text()
-                    header_quantity = header_quantity - data
-                    $("#header_quantity").text(header_quantity)
-                    alert("thanh toán thành công")
-                    window.location.href="customer#history-customer"
+                // hết số lượng đã mua
+                    alert(data)
+                if (typeof data != 'number') {
+                    alert(data)
+                }
+                else {
+                        // data là số lượng sp trong cart đã dc mua
+                        let header_quantity = $("#header_quantity").text()
+                        header_quantity = header_quantity - data
+                        $("#header_quantity").text(header_quantity)
+                        alert("thanh toán thành công")
+                        window.location.href = "customer#history-customer"
+                    }
                 }
             });
     }
+</script>
+<script>
+    let codeVoucherChoosen = ''
+    let price = 0
+    $('#submit_voucher').click(function(e){
+        e.preventDefault()
+        let voucher = $('#input_voucher').val()
+        $.ajax(
+            {url: "GetVoucherController",
+                method: "POST",
+                data: { idVoucher: voucher},
+                success: function(data){
+                    if (data == 'null') {
+                        alert('mã voucher không chính xác')
+                    }
+                    else {
+                        var today = new Date();
+                        var dd = String(today.getDate()).padStart(2, '0');
+                        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                        var yyyy = today.getFullYear();
+                        today = yyyy+'-'+mm+'-'+dd;
+                        voucherObject = JSON.parse(data)
+                        console.log(data)
+                        if (voucherObject.from_date <= today && today <= voucherObject.to_date) {
+                            $('#discount_voucher').text(Math.floor(voucherObject.discount) + Math.floor($('#discount_voucher').text()))
+                            codeVoucherChoosen = voucherObject.code
+                            price = parseInt(<%=totalPrice%>) - parseInt(<%=totalPrice%>)*parseInt($('#discount_voucher').text())/100
+                            $("#total_price").text(price)
+                        }
+                        else {
+                            alert('voucher không hợp lệ')
+                        }
+                    }
+                }
+            });
+    })
+    $("#remove_voucher").click(function(e) {
+        e.preventDefault()
+        codeVoucher = ''
+        $('#discount_voucher').text("")
+        $('#input_voucher').val('')
+        price = <%=totalPrice%>
+        $("#total_price").text(<%=totalPrice%>)
+    })
 
+    $(function() {
+        $('#input_voucher').val('')
+    })
 </script>
 <script src="javascript/city.js" type="text/javascript"></script>
 <script src="javascript/district.js" type="text/javascript"></script>

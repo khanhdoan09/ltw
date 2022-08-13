@@ -397,7 +397,6 @@
                     console.log(arrHistory)
                     let re = ``
                     for (let i in arrHistory) {
-                        console.log(arrHistory[i])
                         re += `<tr> <td>`+arrHistory[i].productName+`</td>
                                 <td><img width="40px" height="40px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
                                 <td>`+arrHistory[i].productQuantity+`</td>

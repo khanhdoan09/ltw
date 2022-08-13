@@ -7,6 +7,8 @@ public class Voucher {
     private String from_date;
     private String to_date;
     private int discount;
+    private String code;
+    private int used;
 
     public String getId() {
         return id;
@@ -40,10 +42,42 @@ public class Voucher {
         this.discount = discount;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public int getUsed() {
+        return used;
+    }
+
+    public void setUsed(int used) {
+        this.used = used;
+    }
+
     public Voucher(String id, String from_date, String to_date, int discount) {
         this.id = id;
         this.from_date = from_date;
         this.to_date = to_date;
         this.discount = discount;
+    }
+
+    public Voucher(String id, String from_date, String to_date, int discount, String code, int used) {
+        this.id = id;
+        this.from_date = from_date;
+        this.to_date = to_date;
+        this.discount = discount;
+        this.code = code;
+        this.used = used;
+    }
+
+    public String isUsed() {
+        if (this.used == 0) {
+            return "Chưa sử dụng";
+        }
+        return "Đã sử dụng";
     }
 }

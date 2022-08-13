@@ -11,24 +11,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="805af90d-c154-43ca-bf47-3f00530488ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/checkout/GetVoucherController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/user/DaoCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/user/DaoCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/about-us.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/about-us.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Voucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beans/Voucher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/checkout/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/checkout/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/cart/DaoCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/cart/DaoCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/checkout/DaoCheckout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/checkout/DaoCheckout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/voucher/DaoVoucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/voucher/DaoVoucher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/cart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/footer_login_message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/footer_login_message.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/order/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/voucher/voucher.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/crud/voucher/voucher.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/Cart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans/Voucher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans/Voucher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/checkout/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/checkout/CheckoutController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/cart/DaoCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/cart/DaoCart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/checkout/DaoCheckout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/checkout/DaoCheckout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/product/category/DaoVoucher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/product/category/DaoVoucher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dao/user/DaoCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/user/DaoCustomer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Cart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Voucher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/beans/Voucher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/checkout/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/controller/checkout/CheckoutController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/cart/DaoCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/cart/DaoCart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/checkout/DaoCheckout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/checkout/DaoCheckout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/category/DaoVoucher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/product/category/DaoVoucher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/WEB-INF/classes/dao/user/DaoCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/about-us.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/about-us.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/cart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/checkout.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/customer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/footer_login_message.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/footer_login_message.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views.customer/product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/order/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/voucher/voucher.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-1.0-SNAPSHOT/views/admin/crud/voucher/voucher.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,11 +69,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/editProduct.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/controller/admin/authentication/Route.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/filter/SecurityFilter.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/webapp/views.customer/index.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/webapp/views/admin/crud/product/editProduct.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/webapp/views.customer/product.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JspContextManager">
     <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/views.customer/header.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/views.customer/checkout.jsp" />
@@ -221,6 +235,9 @@
       <workItem from="1660370872527" duration="56000" />
       <workItem from="1660370971610" duration="768000" />
       <workItem from="1660373573138" duration="4884000" />
+      <workItem from="1660385100121" duration="3945000" />
+      <workItem from="1660394143105" duration="15000" />
+      <workItem from="1660394236777" duration="6053000" />
     </task>
     <servers />
   </component>

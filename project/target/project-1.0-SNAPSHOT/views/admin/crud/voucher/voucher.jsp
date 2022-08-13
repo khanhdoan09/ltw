@@ -79,8 +79,9 @@
                                         <th>Từ ngày</th>
                                         <th>Tới ngày</th>
                                         <th>Giảm giá</th>
+                                        <th>Code</th>
+                                        <th>Đã dùng</th>
                                         <th>Hành động</th>
-
                                     </tr>
                                     </thead>
 
@@ -104,9 +105,18 @@
                                                     </div>
                                                 </td>
                                                 <td>
-
                                                     <div class="d-flex align-items-center">
                                                         <input type="number" name="discount" required value="<%= voucher.getDiscount()%>">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" readonly value="<%= voucher.getCode()%>">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="number" readonly value="<%= voucher.isUsed()%>">
                                                     </div>
                                                 </td>
                                                 <td>
