@@ -68,4 +68,32 @@ public class DaoUserAdmin {
         return null;
     }
 
+    public String getRole(String id) {
+        try {
+            String sql = "SELECT isAdmin FROM user WHERE id=? ";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getString("isAdmin");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public boolean removeUser(String id) {
+        PreparedStatement s = null;
+        String sql = "DELETE FROM `user` WHERE id=?";
+        try {
+            s = connect.prepareStatement(sql);
+            s.setString(1, id);
+            s.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
 }

@@ -61,7 +61,8 @@ public class SignIn extends HttpServlet {
                     HttpSession session = request.getSession(true);
 
                     session.setMaxInactiveInterval(900); // set timeout in 15 minute
-
+                    int role = DaoAuthentication.getInstance().getRole(email, password);
+                    request.getSession(true).setAttribute("roleAdmin", role);
                     request.getSession(true).setAttribute("userAdmin", true);
                     request.getSession(true).setAttribute("adminName", email);
                     request.getSession(true).setAttribute("idAdmin" , DaoAuthentication.getInstance().getIdAdmin(email,password));

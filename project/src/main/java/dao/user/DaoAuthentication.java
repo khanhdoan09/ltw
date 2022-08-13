@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-
+// use for admin
 public class DaoAuthentication {
     private static DaoAuthentication instance = null;
 
@@ -44,6 +44,7 @@ public class DaoAuthentication {
         }
         return encryptPassword;
     }
+
     public void saveUser(User user) {
         String toDay = LocalDate.now().toString();
         try {
@@ -57,7 +58,7 @@ public class DaoAuthentication {
             s.setString(4, user.getDob());
             s.setString(5, user.getGender());
             s.setString(6, user.getIdAddress());
-            s.setInt(7, 1);
+            s.setInt(7, 2);
             s.setString(8, toDay);
             s.setString(9, toDay);
             s.setString(10, user.getIdCart());
@@ -92,9 +93,7 @@ public class DaoAuthentication {
         try {
             String sql = "SELECT id FROM user WHERE password=?";
             PreparedStatement s = connect.prepareStatement(sql);
-            System.out.println(encryptPassword);
             s.setString(1, encryptPassword);
-            System.out.println(s.toString());
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 id =  rs.getString("id");
@@ -105,6 +104,24 @@ public class DaoAuthentication {
         }
         return id==null;
     }
+
+    public int getRole(String email, String password) {
+        String encryptPassword = ecryptPassword(password);
+        try {
+            String sql = "SELECT isAdmin FROM user WHERE email=? AND password=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, email);
+            s.setString(2, encryptPassword);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("isAdmin");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 3;
+    }
+
 
     public String getIdAdmin(String email, String password) {
         String result = "";

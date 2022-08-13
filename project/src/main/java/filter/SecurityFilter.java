@@ -21,7 +21,8 @@ public class SecurityFilter implements Filter {
         String loginURI = request.getContextPath() + "/views/admin/authentication/signIn/signInAdmin.jsp";
 
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        if(path.contains("/views/admin/authentication") || !path.toLowerCase().contains("admin")){
+        // check sign in
+         if(path.contains("/views/admin/authentication/signIn") || path.contains("/authentication/signUp/signUp.jsp") || !path.toLowerCase().contains("admin")){
                 chain.doFilter(request, response);
         }
         else {

@@ -149,4 +149,19 @@ public class User {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    public String getRole() {
+        String re = "null";
+        if (isAdmin.equals("0")) {
+            re = "khách hàng";
+        }
+        else if (isAdmin.equals("1")) {
+            re = "admin";
+        }
+        else if (isAdmin.equals("2")) {
+            re = "nhân viên";
+        }
+        return re;
+    }
+
 }

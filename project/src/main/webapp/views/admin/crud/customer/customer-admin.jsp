@@ -31,8 +31,6 @@
 
     <!-- plugin css file  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css    ">
 
     <!-- project css file  -->
@@ -68,23 +66,21 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
+                                        <th>Avatar</th>
+                                        <th>Tên</th>
                                         <th>Email</th>
-                                        <th>Register Date</th>
-                                        <th>Gender</th>
-                                        <th>Phone</th>
-                                        <th>Country</th>
-                                        <th>Total Order</th>
-                                        <th>isAdmin</th>
-                                        <th>Actions</th>
+                                        <th>Ngày tạo</th>
+                                        <th>Giới tính</th>
+                                        <th>Điện thoại</th>
+                                        <th>Vai trò</th>
+                                        <th>Hành động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     <c:forEach var="i" items="${users}">
 
-                                    <tr>
+                                    <tr id="contain-${i.id}">
                                         <td><strong>${i.id}</strong></td>
                                         <td>
                                             <a href="customer-detail.html">
@@ -102,12 +98,10 @@
                                         </td>
                                         <td>${i.gender}</td>
                                         <td>${i.phone}</td>
-                                        <td>${i.idAddress}</td>
-                                        <td>${i.idCart}</td>
-                                        <td>${i.isAdmin}</td>
+                                        <td>${i.getRole()}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="fas fa-trash-alt"></i></button>
+                                                <button type="button" class="btn btn-danger btn-outline-secondary deleterow remove-customer " data-customer="${i.id}" data-contain="contain-${i.id}"><i class="fas fa-trash-alt" style="color: white"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -199,17 +193,32 @@
 <script src="../js/template.js"></script>
 
 <script>
-    $(document).ready(function () {
+    // delete category
+    $(".remove-customer").each(function() {
+        $(this).click(function(e) {
+            e.preventDefault()
+            let idCategory = $(this).data("customer")
+            let idContain = $(this).data("contain")
+            if (confirm("Do you wanna delete this customer") == false) {
+                return
+            }
 
-        $('#listCustomer').DataTable({
-            "paging": false,
-            "bInfo" : false,
-            columnDefs: [
-                { orderable: false, targets: [0, 1, 3, 4, 5, 6, 7, 9, 10] },
-                { orderable: true, targets: [3, 2, 5, 8] }
-            ]
-        });
-    });
+            $.ajax({
+                url: "RemoveUserAdmin?id="+idCategory,
+                success: function(result){
+                    if (result == 'must be admin') {
+                        alert("Yêu cầu đăng nhập tài khoản admin")
+                    }
+                    else if (result == 'Xóa thành công') {
+                        alert("Xóa nhân viên thành công")
+                        $("#"+idContain).remove()
+                    }
+                    else {
+                        alert(result)
+                    }
+                }});
+        })
+    })
 </script>
 </body>
 

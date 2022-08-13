@@ -38,12 +38,11 @@
                             <!-- Form -->
                             <form class="row g-1 p-3 p-md-4"  action="<%=request.getContextPath()%>/SignIn" method="post">
                                 <div class="col-12 text-center mb-5">
-                                    <h1>Sign in</h1>
-                                    <span>Free access to our dashboard.</span>
+                                    <h1>Đăng nhập vào Admin</h1>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
-                                        <label class="form-label">Email address</label>
+                                        <label class="form-label">Địa chỉ email</label>
                                         <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
                                         <%
                                             Object emailValidation = request.getAttribute("emailValidation");
@@ -57,7 +56,7 @@
                                     <div class="mb-2">
                                         <div class="form-label">
                                                 <span class="d-flex justify-content-between align-items-center">
-                                                    Password
+                                                    Mật khẩu
                                                 </span>
                                         </div>
                                         <input name="password" type="password" class="form-control form-control-lg" placeholder="***************">
