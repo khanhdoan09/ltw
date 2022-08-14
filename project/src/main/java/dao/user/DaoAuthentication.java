@@ -91,7 +91,7 @@ public class DaoAuthentication {
         String id=null;
         String encryptPassword = ecryptPassword(password);
         try {
-            String sql = "SELECT id FROM user WHERE password=?";
+            String sql = "SELECT id FROM user WHERE password=? and isAdmin=1 or isAdmin=2";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, encryptPassword);
             ResultSet rs = s.executeQuery();

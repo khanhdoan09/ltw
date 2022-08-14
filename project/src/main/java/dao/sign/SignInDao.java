@@ -50,7 +50,7 @@ public class SignInDao {
     public String checkPassword(User user) {
         String idUser = null;
         try {
-            String sql = "SELECT id FROM user WHERE email=? AND password=?";
+            String sql = "SELECT id FROM user WHERE email=? AND password=? and isAdmin=0;";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, user.getEmail());
             s.setString(2, user.getPassword());

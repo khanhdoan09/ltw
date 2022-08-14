@@ -195,7 +195,7 @@
                 <div class="payment-input payment-input-active"  id="contain-payment-cod">
                     <input type="radio" name="payment" id="payment-cod" checked>
                     <label for="payment-cod">
-                        <img src="../image/payment/cod.png" width="35" height="35">
+                        <img src="image/payment/cod.png" width="35" height="35">
                     </label>
                     <label for="payment-cod">
                         <h4>Thanh toán khi nhận hàng (COD)</h4>
@@ -204,7 +204,7 @@
                 <div class="payment-input" id="contain-payment-shoppe">
                     <input type="radio" name="payment" id="payment-shoppe">
                     <label for="payment-shoppe">
-                        <img src="../image/payment/shoppe.png" width="35" height="35">
+                        <img src="image/payment/shoppe.png" width="35" height="35">
                     </label>
                     <label for="payment-shoppe">
                         <h4>
@@ -215,7 +215,7 @@
                 <div class="payment-input"  id="contain-payment-zalo">
                     <input type="radio" name="payment" id="payment-zalo">
                     <label for="payment-zalo">
-                        <img src="../image/payment/zalo.svg" width="35" height="35">
+                        <img src="image/payment/zalo.svg" width="35" height="35">
                     </label>
                     <label for="payment-zalo">
                         <h4>Ví điện tử ZaloPay</h4>
@@ -224,7 +224,7 @@
                 <div class="payment-input"  id="contain-payment-momo">
                     <input type="radio" name="payment" id="payment-momo">
                     <label for="payment-momo">
-                        <img src="../image/payment/momo.png" width="35" height="35">
+                        <img src="image/payment/momo.png" width="35" height="35">
                     </label>
                     <label for="payment-momo">
                         <h4>Ví MOMO</h4>
@@ -370,7 +370,7 @@
                 data: { idVoucher: voucher},
                 success: function(data){
                     if (data == 'null') {
-                        alert('mã voucher không chính xác')
+                        alert('mã voucher không hợp lệ')
                     }
                     else {
                         var today = new Date();
@@ -381,6 +381,7 @@
                         voucherObject = JSON.parse(data)
                         console.log(data)
                         if (voucherObject.from_date <= today && today <= voucherObject.to_date) {
+                            $('#discount_voucher').text(0)
                             $('#discount_voucher').text(Math.floor(voucherObject.discount) + Math.floor($('#discount_voucher').text()))
                             codeVoucherChoosen = voucherObject.code
                             price = parseInt(<%=totalPrice%>) - parseInt(<%=totalPrice%>)*parseInt($('#discount_voucher').text())/100

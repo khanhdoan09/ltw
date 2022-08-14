@@ -273,9 +273,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="opacity: 1">
                 <div class="modal-header" style="opacity: 1">
-                    <h4 class="modal-title" id="exampleModalLongTitle">Chi tiết lịch sử</h4>
+                    <h1 class="modal-title" id="exampleModalLongTitle" style="color: white">Chi tiết lịch sử</h1>
                 </div>
-                <div class="modal-body" id="detail-history">
+                <div class="modal-body" id="detail-history" style="font-size: 20px">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Oke</button>
@@ -434,9 +434,7 @@
 
     $(function() {
         let url = window.location.href
-        console.log('xxx'+url)
         if (url.includes('#history-customer')) {
-            alert(456)
             showHistory()
         }
         else if (url.includes('#change-password')) {
@@ -512,7 +510,6 @@
                     {
                         url: 'GetAddressFromOrder?order='+order,
                         success: function (result) {
-                            alert(result)
                             let arrAddress = result.split('/')
                             let address=''
                             if (arrAddress.length > 2) {

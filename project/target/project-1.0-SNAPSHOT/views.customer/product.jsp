@@ -355,7 +355,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                 if(comment.getId_reply().equals("0") ) {%>
                                     <div id="<%= comment.getIdComment()%>"  style="padding:10px;border-radius: 10px; width: 750px;min-height: 70px;display: inline-block;background-color: #ebebeb; padding-bottom: 10px;border-bottom: 1px solid gray;  margin: 0 0 30px;">
                                     <div style="width: 33%;float: left;">
-                                        <img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.6435-9/162727357_903091187118783_7242266150893662124_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=Iove_O02woAAX_U3PR1&_nc_ht=scontent.fsgn3-1.fna&oh=00_AT8PUV0C1cuQcEF7SCP-h58fWg7bJOWo68hEIc2JZrJvaw&oe=63157145" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">
+                                        <img src="h3091187118783_7242266150893662124_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_ohc=Iove_O02woAAX_U3PR1&_nc_ht=scontent.fsgn3-1.fna&oh=00_AT8PUV0C1cuQcEF7SCP-h58fWg7bJOWo68hEIc2JZrJvaw&oe=63157145" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">
                                         <div class="abc" style="margin: -50px 0 0 62px;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">
                                             <p class="username" id = "<%= comment.getIdComment()%>"style="margin: 0;margin-bottom: 2px;"> <%= (String) DaoComment2.getInstance().getUserName(comment.getIdComment())%></p>
 
@@ -440,7 +440,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                         <div class="item">
                                             <div class="product-thumb transition">
                                                 <div class="image product-imageblock">
-                                                    <a href="product.html"> <img src="upload/product/<%=productWatched.getAvatar()%>" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                                    <a href="ProductDetail?idProduct=<%=productWatched.getId()%>"> <img src="upload/product/<%=productWatched.getAvatar()%>" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                                     <div class="button-group">
                                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fas fa-heart"></i></button>
                                                         <button type="button" class="addtocart-btn">Mua Ngay</button>
@@ -448,7 +448,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                                     </div>
                                                 </div>
                                                 <div class="caption product-detail">
-                                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy"><%=productWatched.getName()%></a></h4>
+                                                    <h4 class="product-name"><a href="ProductDetail?idProduct=<%=productWatched.getId()%>" title="lorem ippsum dolor dummy"><%=productWatched.getName()%></a></h4>
                                                     <p class="price product-price"> <span class="price-new"><%=productWatched.getPrice()-(productWatched.getPrice()*productWatched.getSaleRate()/100)%></span> <span class="price-old"><%=productWatched.getPrice()%></span> <span class="price-tax">Ex Tax: 210.00$</span> </p>
                                                 </div>
                                                 <div class="button-group">
@@ -527,7 +527,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                     <div class="item" style="display: grid; place-items: center;">
                                         <div class="product-thumb transition" style="width: 100%;">
                                             <div class="image product-imageblock">
-                                                <a href="product.html"> <img src="upload/product/<%=product.getAvatar()%>"
+                                                <a href="ProductDetail?idProduct=<%=product.getId()%>"> <img src="upload/product/<%=product.getAvatar()%>"
                                                                              alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy"
                                                                              class="img-responsive" />
 
@@ -535,7 +535,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
 
                                             </div>
                                             <div class="caption product-detail-hot" style="padding: 10px;">
-                                                <h4 class="product-name"><a href="product.html"
+                                                <h4 class="product-name"><a href="ProductDetail?idProduct=<%=product.getId()%>"
                                                                             title="lorem ippsum dolor dummy"><%=product.getName()%></a></h4>
                                                 <p class="price product-price"> <span class="price-new"><%=product.getPrice()-product.getPrice()*product.getSaleRate()/100%></span> <span
                                                         class="price-old"><%=product.getPrice()%></span> <span class="price-tax">Ex Tax:
@@ -747,7 +747,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
         let data = document.getElementById("data").innerHTML;
         data = '<div  style="padding:10px;border-radius: 10px; width: 750px;min-height: 70px;display: inline-block;background-color: #f4f4f485; padding-bottom: 10px;border-bottom: 1px solid gray;  margin: 0 0 20px;"> ' +
             ' <div style="width: 33%;float: left;">'
-            + '<img src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/277422021_1130457087715524_1385118291544427440_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=g6KTcOYQRG4AX9VX2bN&_nc_oc=AQmhjgOMSZ0lIl9BzCRrnSNLwaqwWgEy3trVsRWnHl1SNTNbib10boJ4WJEbWmxN2OdpAXFiVbLDb1s9853TBCkS&tn=-Wi9PJrRsfNg76hU&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-MERZ3VGuYZVp83PkhcsFVp3UQnBpy_oJRxc2a5oceRg&oe=62DC5E40" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">'
+            + '<img src="ht5524_1385118291544427440_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=g6KTcOYQRG4AX9VX2bN&_nc_oc=AQmhjgOMSZ0lIl9BzCRrnSNLwaqwWgEy3trVsRWnHl1SNTNbib10boJ4WJEbWmxN2OdpAXFiVbLDb1s9853TBCkS&tn=-Wi9PJrRsfNg76hU&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-MERZ3VGuYZVp83PkhcsFVp3UQnBpy_oJRxc2a5oceRg&oe=62DC5E40" alt="" style="width: 50px; border-radius: 50%;display: inline-flex;">'
             + '<div class="abc" style="margin: -50px 0 0 62px;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">'
             + ' <p class="username" style="margin: 0;margin-bottom: 2px;">'+username+'</p>'
             + '  <img src="image/Vietnam-icon-2.png" alt="" class="icon" style="width: 20px;">'

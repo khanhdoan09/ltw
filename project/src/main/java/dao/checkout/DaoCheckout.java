@@ -132,7 +132,7 @@ public class DaoCheckout {
 
     public Voucher getDiscountVoucher(String codeVoucher) {
         PreparedStatement s = null;
-        String sql = "SELECT * FROM voucher WHERE code=?";
+        String sql = "SELECT * FROM voucher WHERE code=? and used=0";
         try {
             s = connect.prepareStatement(sql);
             s.setString(1, codeVoucher);

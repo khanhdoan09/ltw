@@ -67,7 +67,7 @@
                                         <li><a class="js_register cursor-pointer">Đăng Ký</a></li>
                                         <%}else {%>
                                         <li><a href="<%=request.getContextPath()%>/customer" class="js-login cursor-pointer">Cá nhân</a></li>
-                                        <li><a id="sign_out" class="js-login cursor-pointer">Đăng xuất</a></li>
+                                        <li><a href="SignOutController" id="sign_out" class="js-login cursor-pointer">Đăng xuất</a></li>
                                         <%}%>
                                     </ul>
                                 </li>

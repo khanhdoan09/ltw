@@ -322,7 +322,7 @@
                         $("#validation-email-signUp").text("email đã tồn tại")
                     }
                     else {
-                        window.location.href = "customer"
+                        window.location.href = "home"
                     }
                 }
             }

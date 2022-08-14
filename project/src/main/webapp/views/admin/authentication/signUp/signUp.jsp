@@ -121,6 +121,12 @@
 <script>
     $("#submit_btn").click(function(e){
         e.preventDefault()
+        $("#emailValidation").text("")
+        $("#passwordValidation").text("")
+        $("#confirmValidation").text("")
+        $("#nameValidation").text("")
+        $("#lastValidation").text("")
+
         let name = $("#name").val()
         let last = $("#last").val()
         let email = $("#email").val()

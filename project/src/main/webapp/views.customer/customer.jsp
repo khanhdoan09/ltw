@@ -434,9 +434,7 @@
 
     $(function() {
         let url = window.location.href
-        console.log('xxx'+url)
         if (url.includes('#history-customer')) {
-            alert(456)
             showHistory()
         }
         else if (url.includes('#change-password')) {
@@ -512,7 +510,6 @@
                     {
                         url: 'GetAddressFromOrder?order='+order,
                         success: function (result) {
-                            alert(result)
                             let arrAddress = result.split('/')
                             let address=''
                             if (arrAddress.length > 2) {

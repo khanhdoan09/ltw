@@ -80,6 +80,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script>
     $("#button_submit").click(function(e){
+        $("#emailValidation").text("")
+        $("#passwordValidation").text("")
         e.preventDefault()
         let email = $("#email").val()
         let password = $("#password").val()
