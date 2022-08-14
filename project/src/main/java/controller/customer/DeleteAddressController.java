@@ -17,7 +17,6 @@ public class DeleteAddressController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(123);
         HttpSession session = request.getSession();
         System.out.println(session.getAttribute("userId"));
         Object obj = session.getAttribute("userId");

@@ -105,6 +105,28 @@ public class DaoCustomerAddress {
         }
         return re;
     }
+
+    public String  getAddressFromOrder(String orderId) {
+        String id="";
+        String city="";
+        String district="";
+        String ward="";
+        String description="";
+        try {
+            String sql = "SELECT * FROM orders inner join address on orders.idAddress=address.idAddress where orders.id=?";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, orderId);
+            System.out.println(s.toString());
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String re = rs.getString("idCity")+"/"+rs.getString("idDistrict")+"/"+rs.getString("idWard")+"/"+rs.getString("description");
+              return re;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return "";
+    }
     public boolean deleteAddress(String idAddress, String idCustomer) {
         PreparedStatement s = null;
         String sql = "DELETE FROM address WHERE idAddress=? AND idCustomer=?";

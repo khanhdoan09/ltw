@@ -53,7 +53,7 @@
 
     <div class="row">
         <%String idCustomer = (String) request.getAttribute("idCustomer");%>
-        <form action="OrderController" id="content" style="width: 100%;">
+        <form action="OrderController" id="content" method="post" style="width: 100%;">
             <!-- bug không được parameter trên url nên dùng input dưới-->
             <input style="visibility: hidden; width: 1px; height: 1px;" name="idCustomer" value="<%=idCustomer%>">
             <h1>Giỏ Hàng </h1>
@@ -185,8 +185,8 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <div class="pull-left"><a class="btn btn-default" href="/project/ServletTest123">Tiếp Tục Mua Sắm</a></div>
-                    <button class="pull-right" type="submit">Thanh Toán</button>
+                    <div class="pull-left"><a class="btn btn-primary" href="<%=request.getContextPath()%>/home">Tiếp Tục Mua Sắm</a></div>
+                    <button class="pull-right btn btn-warning" type="submit">Thanh Toán</button>
                 </div>
             </div>
         </form>

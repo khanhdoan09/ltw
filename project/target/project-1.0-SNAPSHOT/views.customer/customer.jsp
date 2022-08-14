@@ -1,5 +1,6 @@
 <%@ page import="beans.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="dao.user.DaoCustomerAddress" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -30,9 +31,24 @@
     <link rel="stylesheet" href="css/dat-css.css">
     <link rel="stylesheet" href="css/khanh-css.css">
     <link rel="stylesheet" href="css/hung-css.css">
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .fade {
+            opacity: 0;
+            -webkit-transition: opacity 0.15s linear;
+            -o-transition: opacity 0.15s linear;
+            transition: opacity 0.15s linear;
+            transition-property: opacity;
+            transition-duration: 0.15s;
+            transition-timing-function: linear;
+            transition-delay: initial;
+        }
+        .modal-backdrop {
+            display: none !important;
+        }
+    </style>
+
 </head>
 
 <body class="checkout col-2 left-col">
@@ -53,7 +69,6 @@
                         <li id="nav-info-customer" class="customer-category-after-click">
                             <i class="fas fa-user"></i> Hồ sơ
                         </li>
-
                         <li id="nav-map-customer">
                             <i class="fas fa-map-marked-alt"></i> Địa chỉ
                         </li>
@@ -238,25 +253,36 @@
                     <div class=contain-history>
                         <table id="table-history">
                             <thead>
+                            <th>Id</th>
                             <th>Tên</th>
                             <th>Ảnh</th>
-                            <th>Số lượng</th>
-                            <th>Size</th>
                             <th>Ngày</th>
                             <th>Giá</th>
+                            <th>Chi tiết</th>
                             </thead>
                             <tbody id="contain_history">
-
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
 
+    <div class="fade modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="opacity: 1">
+                <div class="modal-header" style="opacity: 1">
+                    <h4 class="modal-title" id="exampleModalLongTitle">Chi tiết lịch sử</h4>
+                </div>
+                <div class="modal-body" id="detail-history">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Oke</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <%@include file="footer_login_message.jsp" %>
@@ -265,7 +291,7 @@
 <script src="javascript/city.js" type="text/javascript"></script>
 <script src="javascript/district.js" type="text/javascript"></script>
 <script src="javascript/ward.js" type="text/javascript"></script>
-<script src="javascript/customer/history.js" type="text/javascript"></script>
+<%--<script src="javascript/customer/history.js" type="text/javascript"></script>--%>
 <script src="javascript/customer/address.js" type="text/javascript"></script>
 <script>
     $("#submitChangeNewPassword").click((e) => {
@@ -380,33 +406,8 @@
         });
         $("#nav-history-customer").click((e) => {
             e.preventDefault()
-            resetAllSectionCustomer();
-            $("#history-customer").css("display", "block");
-            $("#nav-history-customer").addClass("customer-category-after-click");
-            removeDefaultNavContentCategory()
-            $.ajax({
-                url: `PurchaseHistoryController`,
-                type: 'POST',
-                success: function (data) {
-                    let arrHistory = JSON.parse(data)
-                    console.log(arrHistory)
-                    let re = ``
-                    for (let i in arrHistory) {
-                        re += `<tr> <td>`+arrHistory[i].productName+`</td>
-                                <td><img width="40px" height="40px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
-                                <td>`+arrHistory[i].productQuantity+`</td>
-                                <td>`+arrHistory[i].productSize+`</td>
-                                <td>`+arrHistory[i].createAt+`</td>
-                                <td>`+arrHistory[i].productPrice+`</td>
-                               </tr>`
-                    }
-
-                    $("#contain_history").append(re)
-                },
-                error: function () {
-                    alert("Error")
-                }
-            })
+            window.location.href="customer#history-customer"
+            showHistory()
         });
     }
 
@@ -433,8 +434,9 @@
 
     $(function() {
         let url = window.location.href
-        console.log(url)
+        console.log('xxx'+url)
         if (url.includes('#history-customer')) {
+            alert(456)
             showHistory()
         }
         else if (url.includes('#change-password')) {
@@ -458,23 +460,25 @@
         $("#nav-history-customer").addClass("customer-category-after-click");
         removeDefaultNavContentCategory()
         $.ajax({
-            url: `PurchaseHistoryController`,
+            url: `<%=request.getContextPath()%>/PurchaseHistoryController`,
             type: 'POST',
             success: function (data) {
                 let arrHistory = JSON.parse(data)
+                console.log(arrHistory)
                 let re = ``
                 for (let i in arrHistory) {
-                    console.log(arrHistory[i])
-                    re += `<tr> <td>`+arrHistory[i].productName+`</td>
+                    re += `<tr>
+                                <td>`+arrHistory[i].orderId+`</td>
+                                <td>`+arrHistory[i].productName+`</td>
                                 <td><img width="40px" height="40px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
-                                <td>`+arrHistory[i].productQuantity+`</td>
-                                <td>`+arrHistory[i].productSize+`</td>
                                 <td>`+arrHistory[i].createAt+`</td>
                                 <td>`+arrHistory[i].productPrice+`</td>
+                                <td><button type="button" data-toggle="modal" class="pop-up" data-order="`+arrHistory[i].orderId+`" data-name="`+arrHistory[i].productName+`" data-status="`+arrHistory[i].orderStatus+`" data-color="`+arrHistory[i].productColor+`" data-avatar="`+arrHistory[i].avatar+`" data-size="`+arrHistory[i].productSize+`" data-quantity="`+arrHistory[i].productQuantity+`" data-price="`+arrHistory[i].productPrice+`" data-create="`+arrHistory[i].createAt+`" data-target="#exampleModalCenter" style="background-color:transparent; color: blue; font-size:25px; border:none">
+                                     <i class="fa-solid fa-eye"></i></button></td>
                                </tr>`
                 }
-
                 $("#contain_history").append(re)
+                loadDetailHistory()
             },
             error: function () {
                 alert("Error")
@@ -482,4 +486,48 @@
         })
     }
 </script>
+<script src="javascript/customer/address.js" type="text/javascript"></script>
+
+<script>
+    function loadDetailHistory() {
+        $(".pop-up").each(function(){
+            $(this).click(function(){
+                let name = $(this).data('name')
+                console.log(name)
+                let status = $(this).data('status')
+                console.log(status)
+                let color = $(this).data('color')
+                console.log(color)
+                let avatar = $(this).data('avatar')
+                console.log(avatar)
+                let size = $(this).data('size')
+                console.log(size)
+                let quantity = $(this).data('quantity')
+                console.log(quantity)
+                let price = $(this).data('price')
+                console.log(price)
+                let create = $(this).data('create')
+                let order = $(this).data('order')
+                $.ajax(
+                    {
+                        url: 'GetAddressFromOrder?order='+order,
+                        success: function (result) {
+                            alert(result)
+                            let arrAddress = result.split('/')
+                            let address=''
+                            if (arrAddress.length > 2) {
+                                let city = renderCity(arrAddress[0])
+                                let district = renderDistrict(arrAddress[1])
+                                let ward = renderWard(arrAddress[2])
+                                address = city+'/'+district+'/'+ward+'/'+arrAddress[3]
+                            }
+                            console.log(address)
+                            $("#detail-history").text('tên: ' + name +', màu: ' +color + ', size: ' + size +', số lượng: ' + quantity + ', giá: ' + price +', tổng giá: ' +parseInt(quantity)*parseInt(price) + ', ngày mua: ' + create + ' địa chỉ: ' + address)
+                        }
+                    })
+            })
+        })
+    }
+</script>
+
 </html>
