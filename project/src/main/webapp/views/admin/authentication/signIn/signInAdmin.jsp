@@ -43,13 +43,8 @@
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Địa chỉ email</label>
-                                        <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
-                                        <%
-                                            Object emailValidation = request.getAttribute("emailValidation");
-                                            if(emailValidation != null){%>
-                                        <p class="validation"><%=emailValidation.toString()%></p>
-                                        <%}%>
-
+                                        <input id="email" type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                        <p class="validation" id="emailValidation"></p>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -59,16 +54,12 @@
                                                     Mật khẩu
                                                 </span>
                                         </div>
-                                        <input name="password" type="password" class="form-control form-control-lg" placeholder="***************">
-                                        <%
-                                            Object passwordValidation = request.getAttribute("passwordValidation");
-                                            if(passwordValidation != null){%>
-                                        <p class="validation"><%=passwordValidation.toString()%></p>
-                                        <%}%>
+                                        <input id="password" name="password" type="password" class="form-control form-control-lg" placeholder="***************">
+                                        <p class="validation" id="passwordValidation"></p>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-lg btn-block btn-light lift text-uppercase" atl="signin">SIGN IN</button>
+                                    <button type="submit" id="button_submit" class="btn btn-lg btn-block btn-light lift text-uppercase" atl="signin">SIGN IN</button>
                                 </div>
                             </form>
                             <!-- End Form -->
@@ -87,6 +78,52 @@
 <!-- Jquery Core Js -->
 <script src="../assets/bundles/libscripts.bundle.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $("#button_submit").click(function(e){
+        e.preventDefault()
+        let email = $("#email").val()
+        let password = $("#password").val()
+        let check = true
+        if (email == '') {
+            $("#emailValidation").text("email không được để trống")
+            check = false
+        }
+        if (/\S+@\S+\.\S+/.test(email) == false) {
+            $("#emailValidation").text("email không hợp lệ")
+            check = false
+        }
+        if (password == '') {
+            $("#passwordValidation").text("passowrd không được để trống")
+            check = false
+        }
+        // if (password.length < 10) {
+        //     $("#passwordValidation").text("độ dài mật khẩu phải lớn hơn 10")
+        //     check = false
+        // }
 
+
+        if (check) {
+            $.ajax({
+                type: "POST",
+                url: "<%=request.getContextPath()%>/SignIn",
+                data:{email: email, password: password},
+                success: function(result){
+                    if (result == 'ok') {
+                        window.location.href =  '<%=request.getContextPath()%>/HomeControllerAdmin'
+                    }
+                    else if (result == 'email not exist') {
+                        $("#emailValidation").text("email không tồn tại")
+                    }
+                    else if (result == 'password wrong') {
+                        $("#passwordValidation").text("mật khẩu không hợp lệ")
+                    }
+                    else {
+                        $("#passwordValidation").text("mật khẩu sai")
+                    }
+                }
+            });
+        }
+    })
+</script>
 
 </body></html>

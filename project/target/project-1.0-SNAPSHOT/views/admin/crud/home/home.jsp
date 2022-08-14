@@ -50,6 +50,11 @@
 
                 <div class="row g-3">
                     <div class="col-lg-12 col-md-12">
+                        <div class="d-flex justify-content-center my-5" style="margin-right: 15px">
+                            <img src="image/logo.png" title="E-Commerce" alt="E-Commerce"
+                                 class="logo-header" width="150px"/>
+                            <h1 class="mx-2 py-4">Thống kê Dragon Sport</h1>
+                        </div>
                         <div class="tab-content mt-1">
                             <div class="tab-pane fade show active" id="summery-today">
                                 <div class="row g-1 g-sm-3 mb-3 row-deck">

@@ -33,7 +33,7 @@ public class UpdateBrandController extends HttpServlet {
         BrandAdminService brandAdminService = new BrandAdminService();
         brandAdminService.updateNewNameBrand(idBrand, nameBrand);
         saveImageToFolder(idBrand, request);
-        request.getRequestDispatcher("/GetBrandAdminController").forward(request, response);
+        response.sendRedirect("GetBrandAdminController");
     }
 
     private void saveImageToFolder(String idBrand, HttpServletRequest request) throws ServletException, IOException {

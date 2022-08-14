@@ -111,12 +111,12 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" readonly value="<%= voucher.getCode()%>">
+                                                        <input type="text" readonly value="<%=voucher.getCode()%>">
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <input type="number" readonly value="<%= voucher.isUsed()%>">
+                                                        <input type="text" readonly value="<%=voucher.isUsed()%>">
                                                     </div>
                                                 </td>
                                                 <td>
@@ -218,7 +218,7 @@
             e.preventDefault()
             let idVoucher = $(this).data("idvoucher")
             let idContain = $(this).data("contain")
-            if (confirm("Do you want delete this voucher?") == false) {
+            if (confirm("Bạn có muốn xóa voucher này?") == false) {
                 return
             }
             $.ajax({

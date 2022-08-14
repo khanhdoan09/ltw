@@ -45,10 +45,13 @@ public class SignIn extends HttpServlet {
 
             String emailValidation = null;
             String passwordValidation = null;
-
+            response.setContentType("text/html");
+            response.setCharacterEncoding("UTF-8");
             boolean emailExisted = DaoAuthentication.getInstance().checkEmailExisted(email);
             if (emailExisted) {
                 emailValidation = " Email not exist ";
+                response.getWriter().write("email not exist");
+                return;
             }
             if (email.isEmpty()) {
                 emailValidation = " Email must be not empty";
@@ -66,7 +69,12 @@ public class SignIn extends HttpServlet {
                     request.getSession(true).setAttribute("userAdmin", true);
                     request.getSession(true).setAttribute("adminName", email);
                     request.getSession(true).setAttribute("idAdmin" , DaoAuthentication.getInstance().getIdAdmin(email,password));
-                    request.getRequestDispatcher("HomeControllerAdmin").forward(request, response);
+                    response.getWriter().write("ok");
+                    //                    response.sendRedirect("HomeControllerAdmin");
+                    return;
+                }
+                else {
+                    response.getWriter().write("password wrong");
                     return;
                 }
             }

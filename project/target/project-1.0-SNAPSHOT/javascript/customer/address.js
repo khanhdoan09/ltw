@@ -151,7 +151,6 @@ $("#nav-map-customer").click((e)=>{
                             let wardValue = $("#contain-option-ward").val()
                             let descriptionValue = $("#contain-option-description").val()
                             let detail = $(this).data("detail")
-                            alert(idAddress + "~" + cityValue +"~~"+ districtValue + "~~~" +wardValue+"~~~~"+descriptionValue)
                             $.ajax(
                                 {
                                     url: `/project_war_exploded/editAddress`,
@@ -165,7 +164,7 @@ $("#nav-map-customer").click((e)=>{
                                     },
                                     success: function(result){
                                         if (result =="true") {
-                                            alert("~"+detail)
+                                            alert("ok")
                                             $("#address-detail-"+detail).text(renderCity(cityValue)+` / `+ renderDistrict(districtValue) +` / `+ renderWard(wardValue) + ` / `+ descriptionValue)
                                         }
                                         else {

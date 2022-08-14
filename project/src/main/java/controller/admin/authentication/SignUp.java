@@ -61,76 +61,15 @@ public class SignUp extends HttpServlet {
             String password = request.getParameter("password");
             String confirmPassword = request.getParameter("confirmPassword");
 
-            String firstNameValidation = null;
-            String lastNameValidation = null;
-            String emailValidation = null;
-            String passwordValidation = null;
-            String confirmValidation = null;
-
-            if (firstName.isEmpty())
-                firstNameValidation = " Must not be empty";
-            if (lastName.isEmpty())
-                lastNameValidation = " Must not be empty";
-            if (email.isEmpty())
-                emailValidation = " Must not be empty";
-            else  {
-                Pattern regexPattern = Pattern.compile("^.+@.+\\..+$");
-                Matcher regMatcher = regexPattern.matcher(email);
-                if(!regMatcher.matches()) {
-                    emailValidation = " Type email not correct";
-                }
-            }
-            if (password.isEmpty())
-                passwordValidation = " Must not be empty";
-            if (confirmPassword.isEmpty())
-                confirmValidation = " Must not be empty";
-
-            if (firstName.length() < 3) {
-                firstNameValidation = " Length must be > " + 3;
-            }
-            if (lastName.length() < 3) {
-                lastNameValidation = " Length must be > " + 3;
-            }
-            if (email.length() < 3) {
-                emailValidation = " Length must be > " + 3;
-            }
-            if (password.length() < 10) {
-                passwordValidation = " Length must be > 10";
-            }
-            if (confirmPassword.length() < 10) {
-                confirmValidation = " Length must be > 10";
-            }
-
-            if (firstName.length() > 16) {
-                firstNameValidation = " Length must be < 16";
-            }
-            if (lastName.length() > 16) {
-                lastNameValidation = " Length must be < 16";
-            }
-            if (email.length() > 50) {
-                emailValidation = " Length must be < 50";
-            }
-            if (password.length() > 16) {
-                passwordValidation = " Length must be < 16";
-            }
-            if (confirmPassword.length() > 16) {
-                confirmValidation = " Length must be < 16";
-            }
-
-            if (!password.equals(confirmPassword)) {
-                confirmValidation = "password is not match";
-            }
 
             boolean checkEmailExisted = DaoAuthentication.getInstance().checkEmailExisted(email);
-            System.out.println(checkEmailExisted);
+            response.setContentType("text/html");
+            response.setCharacterEncoding("UTF-8");
             if (!checkEmailExisted) {
-                emailValidation = "Email is existed";
+                response.getWriter().write("email exist");
+                return;
             }
-            if (firstNameValidation == null
-                    && lastNameValidation == null
-                    && emailValidation == null
-                    && passwordValidation == null
-                    && confirmValidation == null) {
+
                 User user = new User("",
                         firstName + " " + lastName,
                         email,
@@ -145,18 +84,15 @@ public class SignUp extends HttpServlet {
                         null,
                         password);
                 DaoAuthentication.getInstance().saveUser(user);
-                request.getRequestDispatcher("HomeControllerAdmin").forward(request, response);
+
+                response.getWriter().write("ok");
+
+//                request.getRequestDispatcher("HomeControllerAdmin").forward(request, response);
                 return;
             }
 
 
-            request.setAttribute("firstNameValidation", firstNameValidation);
-            request.setAttribute("lastNameValidation", lastNameValidation);
-            request.setAttribute("emailValidation", emailValidation);
-            request.setAttribute("passwordValidation", passwordValidation);
-            request.setAttribute("confirmValidation", confirmValidation);
-            request.getRequestDispatcher("/views/admin/authentication/signUp/signUp.jsp").forward(request, response);
-        }
+
     }
 
     private void checkLengthTooLong(String type, String validation, int length) {

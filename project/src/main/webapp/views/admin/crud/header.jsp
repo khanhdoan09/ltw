@@ -24,8 +24,16 @@
                     <span>Trang chủ</span></a>
             </li>
             <li class="collapsed">
+                <a id="listVoucher" class="m-link" href="<%=request.getContextPath()%>/GetVoucherAdmin">
+                    <i class="fa-solid fa-gifts mx-2"></i> <span>Quản lý voucher</span> </a>
+            </li>
+            <li class="collapsed">
+                <a id="listComment" class="m-link" href="<%=request.getContextPath()%>/GetComment">
+                    <i class="fa-solid fa-comment mx-2"></i> <span>Phản hồi khách hàng</span> </a>
+            </li>
+            <li class="collapsed">
                 <a id="order" class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-product" href="<%=request.getContextPath()%>/ListOrderAdmin">
-                    <i class="fas fa-shopping-cart" style="margin: 0 10px;"></i> <span>Hóa đơn</span> </a>
+                    <i class="fas fa-shopping-cart mx-2"></i> <span>Hóa đơn</span> </a>
             </li>
             <li class="collapsed">
                 <a id="customer" class="m-link" href="<%=request.getContextPath()%>/ListCustomerAdmin">
@@ -48,16 +56,8 @@
                     <i class="fa-solid fa-plus mx-2"></i> <span>Thêm sản phẩm</span> </a>
             </li>
             <li class="collapsed">
-                <a id="listComment" class="m-link" href="<%=request.getContextPath()%>/GetComment">
-                    <i class="fa-solid fa-comment mx-2"></i> <span>Phản hồi khách hàng</span> </a>
-            </li>
-            <li class="collapsed">
                 <a id="listComment" class="m-link" href="<%=request.getContextPath()%>/views/admin/authentication/signUp/signUp.jsp">
                     <i class="fa-solid fa-boxes-stacked mx-2"></i> <span>Đăng kí nhân viên mới</span> </a>
-            </li>
-            <li class="collapsed">
-            <a id="listVoucher" class="m-link" href="<%=request.getContextPath()%>/GetVoucherAdmin">
-                    <i class="fa-solid fa-comment mx-2"></i> <span>Quản lý voucher</span> </a>
             </li>
             <li class="collapsed">
                 <a class="m-link" href="<%=request.getContextPath()%>/SignOut">

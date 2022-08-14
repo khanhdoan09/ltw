@@ -465,7 +465,7 @@
                             if (totalNumber >0 && totalNumber < 9 ) {
                                 lengthPagination = 1;
                             }
-                            else if (totalNumber % 9 == 0){
+                            else {
                                 lengthPagination = (int) Math.ceil(totalNumber / 9);
                             }
                         %>

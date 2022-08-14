@@ -56,67 +56,47 @@
                     <div class="col-lg-12 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
                         <div class="w-100 p-3 p-md-5 card border-0 shadow-sm" style="max-width: 32rem;">
                             <!-- Form -->
-                            <form class="row g-1 p-3 p-md-4" action="<%=request.getContextPath()%>/SignUpInAuthentication" method="post">
+                            <form class="row g-1 p-3 p-md-4" action="<%=request.getContextPath()%>/SignUpInAuthentication" method="post" autocomplete="off">
                                 <div class="col-12 text-center mb-5">
                                     <h1>Tạo tài khoản cho nhân viên</h1>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <label class="form-label">Tên</label>
-                                        <input type="text" name="firstName" class="form-control form-control-lg" placeholder="John">
-                                        <%
-                                            Object firstNameValidation = request.getAttribute("firstNameValidation");
-                                            if(firstNameValidation != null){%>
-                                        <p class="validation"><%=firstNameValidation.toString()%></p>
-                                         <%}%>
+                                        <input id="name" autocomplete="off" type="text" name="firstName" class="form-control form-control-lg" placeholder="tên">
+                                        <p id="nameValidation" class="validation"></p>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <label class="form-label">&nbsp;</label>
-                                        <input type="text" name="lastName" class="form-control form-control-lg" placeholder="Parker">
-                                        <%
-                                            Object lastNameValidation = request.getAttribute("lastNameValidation");
-                                            if(lastNameValidation != null){%>
-                                        <p class="validation"><%=lastNameValidation.toString()%></p>
-                                        <%}%>
+                                        <input id="last" type="text" autocomplete="off" name="lastName" class="form-control form-control-lg" placeholder="họ">
+                                        <p id="lastValidation" class="validation"></p>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Email</label>
-                                        <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
-                                        <%
-                                            Object emailValidation = request.getAttribute("emailValidation");
-                                            if(emailValidation != null){%>
-                                        <p class="validation"><%=emailValidation.toString()%></p>
-                                        <%}%>
+                                        <input id="email" autocomplete="off" type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                        <p id="emailValidation" class="validation"></p>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Mật khẩu</label>
-                                        <input type="password" name="password" class="form-control form-control-lg" placeholder="10+ characters required">
-                                        <%
-                                            Object passwordValidation = request.getAttribute("passwordValidation");
-                                            if(passwordValidation != null){%>
-                                        <p class="validation"><%=passwordValidation.toString()%></p>
-                                        <%}%>
+                                        <input id="password" autocomplete="off" type="password" name="password" class="form-control form-control-lg" placeholder="mật khẩu">
+                                        <p id="passwordValidation" class="validation"></p>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Xác nhận mật khẩu</label>
-                                        <input type="password" name="confirmPassword" class="form-control form-control-lg" placeholder="8+ characters required">
-                                        <%
-                                            Object confirmValidation = request.getAttribute("confirmValidation");
-                                            if(confirmValidation != null){%>
-                                        <p class="validation"><%=confirmValidation.toString()%></p>
-                                        <%}%>
+                                        <input id="confirm" autocomplete="off" type="password" name="confirmPassword" class="form-control form-control-lg" placeholder="xác nhận mật khẩu">
+                                        <p id="confirmValidation" class="validation"></p>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="SIGNUP">Đăng kí</button>
+                                    <button type="submit" id="submit_btn" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="SIGNUP">Đăng kí</button>
                                 </div>
                             </form>
                             <!-- End Form -->
@@ -138,4 +118,69 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 
+<script>
+    $("#submit_btn").click(function(e){
+        e.preventDefault()
+        let name = $("#name").val()
+        let last = $("#last").val()
+        let email = $("#email").val()
+        let password = $("#password").val()
+        let confirm = $("#confirm").val()
+
+        let check = true
+        if (email == '') {
+            $("#emailValidation").text("email không được để trống")
+            check = false
+        }
+        if (/\S+@\S+\.\S+/.test(email) == false) {
+            $("#emailValidation").text("email không hợp lệ")
+            check = false
+        }
+        if (name == '') {
+            $("#nameValidation").text("tên không được để trống")
+            check = false
+        }
+        if (last == '') {
+            $("#lastValidation").text("họ không được để trống")
+            check = false
+        }
+        if (password == '') {
+            $("#passwordValidation").text("passowrd không được để trống")
+            check = false
+        }
+        if (confirm == '') {
+            $("#confirmValidation").text("confirm passowrd không được để trống")
+            check = false
+        }
+        if (password.length < 10) {
+            $("#passwordValidation").text("độ dài mật khẩu phải lớn hơn 10")
+            check = false
+        }
+        if (confirm.length < 10) {
+            $("#passwordValidation").text("độ dài xác nhận mật khẩu phải lớn hơn 10")
+            check = false
+        }
+        if (password != confirm) {
+            $("#confirmValidation").text("mật khẩu xác nhận không đúng")
+            check = false
+        }
+
+        alert(check)
+        if (check) {
+            $.ajax({
+                type: "POST",
+                url: "<%=request.getContextPath()%>/SignUpInAuthentication",
+                    data:{email: email, password: password, cofirmPassword: confirm, firstName: name, lastName: last},
+                success: function(result){
+                    if (result == 'ok') {
+                        window.location.href =  '<%=request.getContextPath()%>/HomeControllerAdmin'
+                    }
+                    else if (result == 'email exist') {
+                        $("#emailValidation").text("email đã được sử dụng")
+                    }
+                }
+            });
+        }
+    })
+</script>
 </body></html>

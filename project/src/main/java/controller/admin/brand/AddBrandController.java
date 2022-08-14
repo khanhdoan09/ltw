@@ -30,7 +30,7 @@ public class AddBrandController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameBrand = request.getParameter("nameBrand");
         saveImageToFolder(nameBrand, request);
-        request.getRequestDispatcher("/GetBrandAdminController").forward(request, response);
+        response.sendRedirect("GetBrandAdminController");
     }
     private void saveImageToFolder(String nameBrand, HttpServletRequest request) throws ServletException, IOException {
         String appPath = getServletContext().getRealPath("");

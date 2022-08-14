@@ -17,9 +17,7 @@ public class EditCategory extends HttpServlet {
         String gender = request.getParameter("gender");
         CategoryAdminService categoryAdminService = new CategoryAdminService();
         categoryAdminService.editCategory(id, name, gender);
-        List<Category> category = categoryAdminService.getListCategory();
-        request.setAttribute ("category", category);
-        request.getRequestDispatcher("/views/admin/crud/category/category.jsp").forward (request,response);
+        response.sendRedirect("GetCategoryAdmin");
     }
 
     @Override
