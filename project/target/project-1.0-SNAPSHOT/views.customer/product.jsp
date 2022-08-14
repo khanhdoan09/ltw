@@ -291,9 +291,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                             <li id="values">
                                 <div class="value-box"><label>Số lượng:</label></div>
                                 <div class="value-box set-value">
-                                    <input class="value" type="button" onclick="reduceValue()" value="--" />
-                                    <input type="text" id="number" class="changeQuantity"   value="<%=p.getQuantitySold()%>" name="quantity" />
-                                    <input class="value" type="button" onclick="incrementValue(<%=p.getTotalValue()-p.getSoleValue()%>)" value="+" />
+                                    <input type="number" id="number" class="changeQuantity"   value="<%=p.getQuantitySold()%>" name="quantity" />
                                 </div>
                                 <h6 id="products-available" class="products-available value-box"><%=DaoProduct.getInstance().getRemainProductDetail(p.getId(), mainColor)%> Sản phẩm có sẵn</h6>
                             </li>
