@@ -14,8 +14,8 @@ public class UpdateQuantityCart extends HttpServlet {
         HttpSession session = request.getSession();
         Object obj = session.getAttribute("userId");
         String idCustomer = obj.toString();
-        String idProductDetail = (String) request.getAttribute("idProductDetail");
-        int newQuantity = (int) request.getAttribute("quantity");
+        String idProductDetail = (String) request.getParameter("idProductDetail");
+        int newQuantity = (Integer.parseInt(request.getParameter("quantity")));
         Cart cart = new Cart(idCustomer, idProductDetail, newQuantity);
         System.out.println(idCustomer + "~" + idProductDetail + "~"  + newQuantity);
         DaoCart.getInstance().updateQuantityShoe(cart);

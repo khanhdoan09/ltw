@@ -168,10 +168,10 @@
         alert(check)
         if (check) {
             $.ajax({
+                type: "POST",
                 url: "<%=request.getContextPath()%>/SignUpInAuthentication",
                     data:{email: email, password: password, cofirmPassword: confirm, firstName: name, lastName: last},
                 success: function(result){
-                    alert(result)
                     if (result == 'ok') {
                         window.location.href =  '<%=request.getContextPath()%>/HomeControllerAdmin'
                     }

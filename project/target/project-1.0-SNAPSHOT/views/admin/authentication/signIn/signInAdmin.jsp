@@ -104,6 +104,7 @@
 
         if (check) {
             $.ajax({
+                type: "POST",
                 url: "<%=request.getContextPath()%>/SignIn",
                 data:{email: email, password: password},
                 success: function(result){

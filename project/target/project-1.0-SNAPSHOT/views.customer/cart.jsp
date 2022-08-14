@@ -76,7 +76,7 @@
                          double totalPrice = 0;
                          for (int i = 0; i < listCart.size(); i++) {
                             Cart product = listCart.get(i);
-                            totalPrice += product.getPrice();%>
+                            totalPrice += product.getPrice() * product.getQuantityShoe();%>
                             <tr id="tr_<%=i%>">
                                 <td class="text-center check_pr">
                                     <input type="checkbox" id="html "data-price="<%=product.getPrice()%>" class="checked_pr" name="checkbox_product_in_cart" value="<%=product.getName()%>_<%=product.getIdProduct()%>_<%=product.getColorShoe()%>_<%=product.getSizeShoe()%>_<%=product.getQuantityShoe()%>_<%=product.getPrice()%>" checked>
@@ -92,8 +92,8 @@
                                 <td class="text-left">
                                     <div class="input-group btn-block">
                                         <form action="/UpdateQuantityCart?idProductDetail=<%=product.getIdProductDetail()%>" class="d-flex">
-                                            <input type="number" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity" style="width: 60px">
-                                            <button type="submit">
+                                            <input type="number" id="<%=i%>" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity" style="width: 60px">
+                                            <button type="button" class="cart-update" data-quantity="<%=i%>" data-idproduct="<%=product.getIdProductDetail()%>" data-price="_<%=i%>" data-cost="<%=product.getPrice()%>">
                                                 <i class="fa fa-refresh icon-update" style="padding: 8px 20px;background-color: #1a94ff;color: white;"></i>
                                             </button>
                                             <span class="input-group-btn">
@@ -106,8 +106,8 @@
                                         </form>
                                     </div>
                                 </td>
-                                <td class="text-right"><%=product.getPrice()%></td>
-                                <td class="text-right total-price"><%=product.getPrice() * product.getQuantityShoe()%></td>
+                                <td class="text-right" ><%=product.getPrice()%></td>
+                                <td class="text-right total-price" id="_<%=i%>"><%=product.getPrice() * product.getQuantityShoe()%></td>
                             </tr>
                         <%}%>
                         <!-- sản phẩm đã đưa vào giỏ hàng -->
@@ -201,11 +201,21 @@
         $(".cart-update").each(function(){
             $(this).click((e)=>{
                 e.preventDefault()
-                alert($(this).attr('href'))
+                let idProductDetail = $(this).data('idproduct');
+                let cost = $(this).data('cost');
+                let quantity = $('#'+$(this).data('quantity')).val();
+                let price= $('#'+$(this).data('price'))
                 $.ajax(
-                    {url: $(this).attr('href'),
+                    {url: 'UpdateQuantityCart',
+                        data: {idProductDetail: idProductDetail,
+                        quantity : quantity},
                         success: function(){
-                        }
+                        price.text(cost*quantity);
+                        $('#total-sub-price').text()
+                        alert("Cập nhật thành công!");
+                        window.location.href='<%= request.getContextPath()%>/GetProductInCart';
+                        },
+
                     });
             })
         })

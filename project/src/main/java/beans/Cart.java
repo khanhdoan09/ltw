@@ -46,7 +46,7 @@ public class Cart {
     }
 
     public String getIdProductDetail() {
-        return idProductDetail;
+        return this.idProductDetail;
     }
 
     public void setIdProductDetail(String idProductDetail) {
