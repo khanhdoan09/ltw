@@ -42,7 +42,7 @@ public class ListProductAdmin extends HttpServlet {
             sql =  productAdminService.getSqlWithCondition("name", name);
             listParameterOfCondition = new ArrayList<String>(Arrays.asList(name));
         }
-        String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active, img FROM product INNER JOIN linkimg ON product.id=linkimg.idProduct &&  linkimg.level=0 WHERE " + sql +  " GROUP BY product.id LIMIT "+pagination*9+", 9";
+        String sqlAll = "SELECT DISTINCT product.id, brand, name, category, price, saleRate, product.Active FROM product  WHERE " + sql +  " GROUP BY product.id LIMIT "+pagination*9+", 9";
         list = productAdminService.getListProduct(listParameterOfCondition,sqlAll);
 
         // when use load more

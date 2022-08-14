@@ -83,7 +83,7 @@
             height: 20px;
         }
         .contain-color-image {
-          margin: 5px 0; display: grid;margin: 5px; width: fit-content;
+            margin: 5px 0; display: grid;margin: 5px; width: fit-content;
         }
         .exp-edit {
             color: red;
@@ -322,11 +322,11 @@
                                                     <%for(int i= 0;i < product.getListImg().size(); i++){%>
                                                     <%String color = product.getListImg().get(i).getColor();
                                                         if (color.equals(listColor.get(j))){%>
-                                                    <div class="contain-color-image" data-color="<%=color%>">
+                                                    <div class="contain-color-image" data-color="<%=color%>" style="border:1px solid grey; margin: 5px 0; display: grid;margin: 5px">
                                                         <%String nameImg = product.getListImg().get(i).getImg();%>
 
                                                         <img id="img-<%=i%>" src="upload/product/<%=nameImg%>" width="280" height="280">
-                                                        <input id="input-img-<%=i%>" class="imgLoad imgExist" data-nameimg="<%=nameImg%>" data-containhiddenimgexist="containHiddenImgExist-<%=i%>" data-color="<%=color%>" data-img="img-<%=i%>" type="file" name="fileImg" />
+                                                        <input id="input-img-<%=i%>" class="imgLoad imgExist" data-nameimg="<%=nameImg%>" data-containhiddenimgexist="containHiddenImgExist-<%=i%>" data-color="<%=color%>" data-img="img-<%=i%>" type="file" accept="image/jpeg, image/png" name="fileImg" />
                                                         <!-- to change img -->
                                                         <input class="btn btn-primary" type="hidden" name="containHiddenImgExist" id="containHiddenImgExist-<%=i%>" value="empty" >
                                                         <button class="remove-img-detail btn btn-danger" data-nameimg="<%=nameImg%>">Xóa</button>
@@ -458,31 +458,31 @@
 
                 if (!size) {
                     check=false
-                    $("#exp-"+color+"-size").text("Size is null");
+                    $("#exp-"+color+"-size").text("Lỗi: size trống");
                 }
                 if (size < 0) {
                     check=false
-                    $("#exp-"+color+"-size").text("Size is negative");
+                    $("#exp-"+color+"-size").text("Lỗi: size là số âm");
                 }
                 if (!total) {
                     check=false
-                    $("#exp-"+color+"-total").text("Total is null");
+                    $("#exp-"+color+"-total").text("Lỗi: số lượng mua trống");
                 }
                 if (total < 0) {
                     check=false
-                    $("#exp-"+color+"-total").text("Total is negative");
+                    $("#exp-"+color+"-total").text("Lỗi: số lượng mua bằng âm");
                 }
                 if(!sole) {
                     check=false
-                    $("#exp-"+color+"-sole").text("Sole is null");
+                    $("#exp-"+color+"-sole").text("Lỗi: số lượng bán trống");
                 }
                 if (sole < 0) {
                     check=false
-                    $("#exp-"+color+"-sole").text("Sole is negative");
+                    $("#exp-"+color+"-sole").text("Lỗi: số lượng bán bằng âm");
                 }
                 if (parseInt(total) < parseInt(sole)) {
                     check=false;
-                    alert("Total must be bigger than sole")
+                    alert("Tổng mua phải nhỏ hơn tổng bán")
                 }
 
                 if (check) {
@@ -517,6 +517,9 @@
                                             </td>
                                         </tr>
                                         `
+                            $("#add-"+color+"-size").val('')
+                            $("#add-"+color+"-total").val('')
+                            $("#add-"+color+"-sole").val('')
                             $(".add-new-detail").append(newTr)
                             $("#"+newId).click(()=>{
                                 removeDetail($("#"+newId))
@@ -540,20 +543,20 @@
         let size = $(tr).data("size")
         let total = $(tr).data("total")
         let sole = $(tr).data("sole")
-        alert(`Are you sure wanna delete this tr-detail-`+data + " " + color + " "+size)
-        $(`#tr-detail-`+data).remove()
-        $.ajax({
-            url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
-            type: 'POST',
-            success: function (data) {
-                $("#totalValue").val($("#totalValue").val()-total)
-                $("#totalSole").val($("#totalSole").val()-sole)
-            },
-            error: function() {
-                alert("Error")
-            }
-        })
-
+        if (confirm(`Bạn có chắc muốn xóa màu ` + color + " , size "+size)) {
+            $(`#tr-detail-`+data).remove()
+            $.ajax({
+                url: `RemoveDetail?id=<%=product.getId()%>&color=`+color+`&size=`+size,
+                type: 'POST',
+                success: function (data) {
+                    $("#totalValue").val($("#totalValue").val()-total)
+                    $("#totalSole").val($("#totalSole").val()-sole)
+                },
+                error: function() {
+                    alert("Error")
+                }
+            })
+        }
     }
 
 
@@ -692,7 +695,7 @@
         let newImg = `<div class="" style="border: 1px solid black; margin-right: 5px">
                         <img id="img-`+id+`" width="280" height="280">
                         <div class="d-grid">
-                       <input type="file" name="fileImg" id="input-img-`+id+`" data-containmainimg="mainImage_`+i+`" data-containhidden="hidden-`+countNewImg+`" data-color="`+color+`" class="imgLoad" data-img="img-`+id+`"/>
+                       <input type="file" name="fileImg" id="input-img-`+id+`" data-containmainimg="mainImage_`+i+`" data-containhidden="hidden-`+countNewImg+`" data-color="`+color+`" class="imgLoad" data-img="img-`+id+`" accept="image/jpeg, image/png" />
                         <!--send color and file name-->
                         <input value="`+color+`" name="newimg" type="hidden" id="hidden-`+countNewImg+`" />
 

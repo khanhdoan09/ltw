@@ -148,7 +148,7 @@
                         <div id="picture">
                             <img id="loadAvatar"  src="upload/customer/<%=customer.getAvatar()%>" alt="" width="170px" height="170px">
                         </div>
-                        <input type="file" id="chooseAvatar" name="avatar">
+                        <input type="file" id="chooseAvatar" name="avatar" accept="image/jpeg, image/png">
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;">Dụng lượng file tối đa
                             1 MB</p>
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;"> Định dạng:.JPEG, .PNG

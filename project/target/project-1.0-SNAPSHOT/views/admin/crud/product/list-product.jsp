@@ -129,7 +129,6 @@
                     <th>Hình</th>
                     <th>Hiệu</th>
                     <th>Tên</th>
-                    <th>Ngày ra đơn</th>
                     <th>Giá</th>
                     <th>Giảm giá
                     </th>
@@ -148,7 +147,6 @@
                     <td><img src="upload/product/<%=product.getAvatar()%>" class="avatar lg rounded me-2" alt="profile-image"></td>
                     <td><%=product.getBrand()%></td>
                     <td><%=product.getName()%></td>
-                    <td><%=product.getCreate_at()%></td>
                     <td>$<%=product.getPrice()%></td>
                     <td>-<%=product.getSaleRate()%>%</td>
                     <td>
@@ -213,8 +211,8 @@
       "paging": false,
       "bInfo" : false,
       columnDefs: [
-        { orderable: false, targets: [0, 1, 2, 7] },
-        { orderable: true, targets: [3, 4, 5, 6] }
+        { orderable: false, targets: [0, 1, 2, 6] },
+        { orderable: true, targets: [2, 3, 4, 5] }
       ]
     });
   });
@@ -273,13 +271,13 @@
             let arr = JSON.parse(data);
             let re = ""
             arr.forEach((e) => {
+              console.log(e)
               re += `<tr id='tr-product-`+e.id+`'>
                                         <td><strong>`+e.id+`</strong></td>
                                         <td><img src="upload/product/`+e.avatar+`" class="avatar lg rounded me-2" alt="profile-image"></td>
-                                        <td>`+e.name+`</td>
                                         <td>`+e.brand+`</td>
-                                        <td>`+e.createAt+`</td>
-                                        <td>`+e.value+`</td>
+                                        <td>`+e.name+`</td>
+                                        <td>`+e.price+`</td>
                                         <td>-`+e.saleRate+`%</td>
                                         <td>
                                         <div class="d-flex justify-content-between text-center">

@@ -273,7 +273,8 @@
                         $("#validation-password-signIn").text("mật khẩu không hợp lệ")
                     }
                     else {
-                        window.location.href = "customer"
+                        // đăng nhập thành công thì load lại trang
+                        location.reload()
                     }
                 }
             }

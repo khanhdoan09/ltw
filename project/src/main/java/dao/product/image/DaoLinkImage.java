@@ -2,12 +2,10 @@ package dao.product.image;
 
 import database.DatabaseConnection;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DaoLinkImage {
@@ -52,5 +50,25 @@ public class DaoLinkImage {
         }
         return mapLinkImg;
     }
+
+    public String getAvatar(String idProduct) {
+        String re = "";
+        // get list size
+        try {
+            // main img
+            String sql = "SELECT img FROM product JOIN linkimg ON product.id=linkimg.idProduct WHERE product.id=? and level=0";
+            PreparedStatement s = connect.prepareStatement(sql);
+            s.setString(1, idProduct);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                String img = rs.getString("img");
+                return img;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return re;
+    }
+
 
 }

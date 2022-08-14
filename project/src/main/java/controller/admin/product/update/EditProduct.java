@@ -19,12 +19,13 @@ import java.util.Locale;
 @MultipartConfig(fileSizeThreshold=1024*1024*2,// 2MB
         maxFileSize=1024*1024*10,// 10MB
         maxRequestSize=1024*1024*50)// 50MB
-// Annotation MultipartConfig: A servlet can be annotated with this annotation in order to handle multipart/form-data requests which contain file upload data. The MultipartConfig annotation has the following options:
-//fileSizeThreshold: file’s size that is greater than this threshold will be directly written to disk, instead of saving inmemory.
-//location: directory where file will be stored via Part.write() method.
-//maxFileSize: maximum size for a single upload file.
-//maxRequestSize: maximum size for a request.
-//All sizes are measured in bytes.
+/*
+* Annotation MultipartConfig: Được sử dụng để đánh dấu cho các Servlet dùng để xử lý multipart/form-data requests (những request chứa file upload)
+fileSizeThreshold:  Nếu kích thước file upload lơn hơn threshold sẽ được ghi trực tiếp vào ổ đĩa thay vì lưu ở memory đệm.
+location: folder chứa file được lưu thông qua method Part.write().
+maxFileSize: Kích thước tối da của file được upload.
+maxRequestSize: Kích thước tối đa cho một request.
+* */
 
 @WebServlet(name = "EditCurrentProduct", value = "/EditCurrentProductAdmin")
 public class EditProduct extends HttpServlet {
@@ -137,10 +138,11 @@ public class EditProduct extends HttpServlet {
 
         ProductAdminService productAdminService = new ProductAdminService();
         productAdminService.editProduct(id, productDetail);
-        Product productEdited = productAdminService.getDetailProduct(id);
+//        Product productEdited = productAdminService.getDetailProduct(id);
 
-        request.setAttribute("productDetail", productEdited);
-        request.getRequestDispatcher("/views/admin/crud/product/editProduct.jsp").forward(request, response);
+//        request.setAttribute("productDetail", productEdited);
+        response.sendRedirect("ProductDetailAdmin?id="+id);
+//        request.getRequestDispatcher("/views/admin/crud/product/editProduct.jsp").forward(request, response);
     }
 
 
@@ -160,7 +162,7 @@ public class EditProduct extends HttpServlet {
         }
     }
     private String extractFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
+        String contentDisp = part.getHeader("content-disposition"); // contain name in form
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {

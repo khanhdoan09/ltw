@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.product.brand.DaoProductBrand;
+import dao.product.image.DaoLinkImage;
 import database.DatabaseConnection;
 
 
@@ -165,13 +166,11 @@ public class DaoProductAdmin {
                 double price = rs.getDouble("price");
                 int saleRate = rs.getInt("saleRate");
                 int active = rs.getInt("Active");
-                String avatar = rs.getString("img");
+                String avatar = DaoLinkImage.getInstance().getAvatar(id);
                 String nameBrand = DaoProductBrand.getInstance().getNameBrand(idBrand);
                 Product product = new Product(id, nameBrand, name, categoryP, price, saleRate, active, avatar);
                 re.add(product);
             }
-            System.out.println(s.toString());
-
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("~~~ " + s.toString());
@@ -199,7 +198,7 @@ public class DaoProductAdmin {
 
     public int addNewProduct(Product product) {
         PreparedStatement s = null;
-        String sql = "Insert INTO product(price, saleRate, brand, name, create_at, description, category) VALUES(?, ?, ? ,?, ?, ?, ?)";
+        String sql = "Insert INTO product(price, saleRate, brand, name, create_at, description, category, Active) VALUES(?, ?, ? ,?, ?, ?, ?, 1)";
         try {
             s = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             s.setDouble(1, product.getPrice());

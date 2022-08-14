@@ -700,7 +700,17 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                 })
             if (isChooseSize) {
                 isChooseSize = false
-                $("#form-to-cart").submit()
+                $.ajax(
+                    {url: "Active?idProduct=<%=p.getId()%>",
+                        success: function(re){
+                            if (re == 'ok') {
+                                $("#form-to-cart").submit()
+                            }
+                            else {
+                                alert('Sản phẩm không còn được bán')
+                            }
+                        }
+                    });
             }
             else {
                     alert("chưa chọn size sản phẩm")
