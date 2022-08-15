@@ -60,7 +60,21 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <div class="d-flex form-group" style="display:table">
+                                    <div class="d-flex form-group" style="display:table;padding: 10px 28px 2px;margin-left: 20px;background: #ffe0e0;display: table;border: 1px solid #ccc;border-radius: 5px;">
+                                        <input class="form-control" type="radio" name="type-address" id="exist-address" style="display:table-cell">
+                                        <label for="exist-address" style="display:table-cell" class="mx-2">
+                                            <h1>Dùng địa chỉ có sẵn</h1>
+                                        </label>
+                                    </div>
+                                    <select id="select-address" style="font-size: 15px; padding: 10px;width: 95%;margin-left: 20px;">
+                                        <%for (AddressCustomer addressCustomer: DaoCustomerAddress.getInstance().getAddress("15")){%>
+                                        <option value="<%=addressCustomer.getId()%>" class="detail_exist_address" id="<%=addressCustomer.getId()%>" data-city="<%=addressCustomer.getCity()%>" data-district="<%=addressCustomer.getDistrict()%>" data-ward="<%=addressCustomer.getWard()%>">
+                                            <%=addressCustomer.getDescription()%>
+                                        </option>
+                                        <%}%>
+                                        <option></option>
+                                    </select>
+                                    <div class="d-flex form-group" style="display:table;padding: 10px 20px 2px;margin-left: 20px;background: #ffe0e0;display: table;border-radius: 5px;border: 1px solid #ccc">
                                         <input class="form-control" name="type-address" type="radio" id="temporary-address" style="display: table-cell">
                                         <label for="temporary-address" style="display: table-cell" class="mx-2">
                                             <h1>Dùng địa chỉ tạm thời</h1>
@@ -75,15 +89,15 @@
                                             <input type="email" id="email" name="email" class="form-input" placeholder="Địa chỉ email">
                                         </div>
                                         <div class="contain-adjust-address">
-                                            <span class="label-address">Tỉnh/ Thành phố:</span>
+                                            <span class="label-address"  style="color: black;">Tỉnh/ Thành phố:</span>
                                             <select id="contain-option-city" name="city">
                                                 <!-- loadLocation() display this -->
                                             </select>
-                                            <span class="label-address">Quận/ Huyện:</span>
+                                            <span class="label-address"  style="color: black;">Quận/ Huyện:</span>
                                             <select id="contain-option-district" name="district">
                                                 <!-- loadLocation() display this -->
                                             </select>
-                                            <span class="label-address">Phường/ Xã:</span>
+                                            <span class="label-address"  style="color: black;">Phường/ Xã:</span>
                                             <select id="contain-option-ward" name="ward">
                                                 <!-- loadLocation() display this -->
                                             </select>
@@ -97,20 +111,7 @@
                                                    placeholder="Ghi chú thêm (Ví dụ: Giao hàng giờ hành chính)">
                                         </div>
                                     </form>
-                                    <div class="d-flex form-group" style="display:table">
-                                        <input class="form-control" type="radio" name="type-address" id="exist-address" style="display:table-cell">
-                                        <label for="exist-address" style="display:table-cell" class="mx-2">
-                                            <h1>Dùng địa chỉ có sẵn</h1>
-                                        </label>
-                                    </div>
-                                    <select id="select-address" style="font-size: 15px; padding: 10px">
-                                        <%for (AddressCustomer addressCustomer: DaoCustomerAddress.getInstance().getAddress("15")){%>
-                                            <option value="<%=addressCustomer.getId()%>" class="detail_exist_address" id="<%=addressCustomer.getId()%>" data-city="<%=addressCustomer.getCity()%>" data-district="<%=addressCustomer.getDistrict()%>" data-ward="<%=addressCustomer.getWard()%>">
-                                                <%=addressCustomer.getDescription()%>
-                                            </option>
-                                        <%}%>
-                                        <option></option>
-                                    </select>
+
                                 </div>
                             </div>
                         </div>
@@ -130,7 +131,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-checkout">
                                     <thead>
-                                    <tr>
+                                    <tr style="background: #a4d5ff;color: black;">
                                         <td class="text-left">Tên sản phẩm</td>
                                         <td class="text-left">Màu</td>
                                         <td class="text-left">Size</td>
@@ -165,12 +166,12 @@
 
 
                                     </tbody>
-                                    <tfoot>
+                                    <tfoot style="background: #eeee1957;">
                                     <tr>
-                                        <td class="text-right" colspan="5"><strong>Tổng:</strong></td>
+                                        <td class="text-right" colspan="6"><strong>Tổng:</strong></td>
                                         <td class="text-right">$<%=totalPrice%></td>
                                     </tr>
-                                    </tfoot>
+                                    <tfoot style="background: #eeee1957;">
                                 </table>
                             </div>
                             <div>
@@ -192,7 +193,7 @@
             <!-- thanh toán -->
             <h2>Chọn hình thức thanh toán cho đơn hàng này.</h2>
             <form class="contain-form-payment" >
-                <div class="payment-input payment-input-active"  id="contain-payment-cod">
+                <div class="payment-input payment-input-active"style="background-color: #ffd3d3b3 !important;"  id="contain-payment-cod">
                     <input type="radio" name="payment" id="payment-cod" checked>
                     <label for="payment-cod">
                         <img src="image/payment/cod.png" width="35" height="35">
@@ -212,7 +213,7 @@
                         </h4>
                     </label>
                 </div>
-                <div class="payment-input"  id="contain-payment-zalo">
+                <div class="payment-input"  id="contain-payment-zalo" style="background-color: #ffd3d3b3 !important;"  >
                     <input type="radio" name="payment" id="payment-zalo">
                     <label for="payment-zalo">
                         <img src="image/payment/zalo.svg" width="35" height="35">

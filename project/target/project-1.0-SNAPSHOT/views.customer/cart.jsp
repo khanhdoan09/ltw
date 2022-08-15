@@ -61,7 +61,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
-                        <tr>
+                        <tr  style="background: #1a94ff;color: white;">
                             <td class="text-center">Ảnh</td>
                             <td class="text-left">Tên sản phẩm</td>
                             <td class="text-left">Size</td>
@@ -92,13 +92,13 @@
                                 <td class="text-left">
                                     <div class="input-group btn-block">
                                         <form action="/UpdateQuantityCart?idProductDetail=<%=product.getIdProductDetail()%>" class="d-flex">
-                                            <input type="number" id="<%=i%>" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity" style="width: 60px">
-                                            <button type="button" class="cart-update" data-quantity="<%=i%>" data-idproduct="<%=product.getIdProductDetail()%>" data-price="_<%=i%>" data-cost="<%=product.getPrice()%>">
+                                            <input type="number" id="<%=i%>" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity" style="width: 60px;height: 30px">
+                                            <button type="button" style="padding: 0;border: none;" class="cart-update" data-quantity="<%=i%>" data-idproduct="<%=product.getIdProductDetail()%>" data-price="_<%=i%>" data-cost="<%=product.getPrice()%>">
                                                 <i class="fa fa-refresh icon-update" style="padding: 8px 20px;background-color: #1a94ff;color: white;"></i>
                                             </button>
                                             <span class="input-group-btn">
                                                 <a data-tr="tr_<%=i%>"  data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProductDetail()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
-                                                    <button class="btn btn-danger" title="" data-toggle="tooltip"
+                                                    <button class="btn btn-danger" title="" data-toggle="tooltip" style=" padding: 8px 20px;border: none;margin-top: -2px; "
                                                             type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
                                                 </a>
@@ -119,7 +119,7 @@
             <p>Nếu bạn có code giảm giá hoặc điểm thưởng muốn sử dụng hoặc ước tính chi phí giao hàng của mình.</p>
             <div id="accordion" class="panel-group">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading"   style="background: #eeee1957;color: black">
                         <h4 class="panel-title"><a data-parent="#accordion" data-toggle="collapse"
                                                    class="accordion-toggle" href="#collapse-coupon">Sử Dụng Phiếu Mua Hàng <i
                                 class="fa fa-caret-down"></i></a></h4>
@@ -139,27 +139,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion"
-                                                   data-toggle="collapse" href="#collapse-voucher" id="UseTicker">Sử dụng phiếu quà
-                            tặng <i class="fa fa-caret-down"></i></a></h4>
-                    </div>
-                    <div class="panel-collapse collapse" id="collapse-voucher">
-                        <div class="panel-body">
-                            <label for="input-voucher" class="col-sm-3 control-label">Nhập mã phiếu quà tặng của bạn
-                                tại đây</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="input-voucher"
-                                       placeholder="Enter your gift voucher code here" value="" name="voucher">
-                                <span class="input-group-btn">
-                                        <input type="submit" class="btn btn-primary" data-loading-text="Loading..."
-                                               id="button-voucher" value="Apply Voucher">
-                                    </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <br>
                 <div class="row">
@@ -186,7 +166,7 @@
                 </div>
                 <div class="buttons">
                     <div class="pull-left"><a class="btn btn-primary" href="<%=request.getContextPath()%>/home">Tiếp Tục Mua Sắm</a></div>
-                    <button class="pull-right btn btn-warning" type="submit">Thanh Toán</button>
+                    <button class="pull-right btn btn-warning" style="background: #ff7009;color: white" type="submit">Thanh Toán</button>
                 </div>
             </div>
         </form>

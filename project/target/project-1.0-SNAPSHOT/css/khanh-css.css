@@ -456,11 +456,14 @@ header {
 }
 
 .input-pay-all>button {
-    flex: 1;
+    background: #108bea !important;
+    color: white;
+    height: 41.5px;
+    margin-top: -1px;
 }
 
 .input-pay-all>button:hover {
-    background-color: grey;
+    background-color: #0f6cb2;
     color: white;
 }
 
@@ -482,7 +485,7 @@ header {
 }
 
 .payment-input {
-    background-color: white !important;
+    background-color: #ffd3d3b3 !important;
     border: 1px solid rgb(204, 201, 201);
 }
 
@@ -500,7 +503,7 @@ header {
     grid-template-columns: 1fr 1fr 6fr;
     align-items: center;
     height: 60px;
-    background-color: #ffd3d3b3;
+    background-color: #ffd3d3b3 !important;
     text-indent: 10px;
     border-radius: 5px;
 }

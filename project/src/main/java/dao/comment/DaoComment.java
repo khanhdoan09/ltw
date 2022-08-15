@@ -23,7 +23,7 @@ public class DaoComment {
     public List<Comment> getListComment(String idProduct) {
         List<Comment> list = new ArrayList<Comment>();
         try {
-            String sql = "SELECT  idComment,idProduct,content,dateComment,idUser,id_reply FROM comment WHERE idProduct=?  AND idUser IN (SELECT id FROM user)";
+            String sql = "SELECT  idComment,idProduct,content,dateComment,idUser,id_reply FROM comment WHERE idProduct=? AND id_reply=\"0\" AND idUser IN (SELECT id FROM user)";
             PreparedStatement s = connect.prepareStatement(sql);
             s.setString(1, idProduct);
             ResultSet rs = s.executeQuery();

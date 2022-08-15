@@ -245,7 +245,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                 <%=p.getBrand()%>
                             </div>
                         </li>
-                        <form id="form-to-cart" action="addCart" method="post">
+                        <form id="form-to-cart" action="addCart" method="post"  style="margin-top: -80px;">
                             <!-- bug không gửi được parameter trên url nên dùng 5 cái input dưới-->
                             <input name="idCustomer" value="123" style="width: 1px; height: 1px; visibility: hidden">
                             <input name="idProduct" value="<%=p.getId()%>" style="width: 1px; height: 1px; visibility: hidden">
@@ -300,7 +300,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                     <p>Thêm Vào Giỏ Hàng</p>
                                 </button>
                                 <div class="buy-product">
-                                    <a href="./checkout.html" class="buy">Mua Ngay</a>
+                                    <a href="checkout.html" class="buy">Mua Ngay</a>
                                 </div>
                             </li>
                         </form>
@@ -381,7 +381,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                                         <div  id='+ i++ +' class="feedback_admin" style="clip-path: polygon(0 4%, 91% 4%, 94% 0, 97% 4%, 100% 4%, 100% 100%, 0 100%);padding: 22px 20px 20px 20px; background-color: rgb(235, 235, 235);width: 650px; min-height: 130px; display: inline-block;    margin: -20px 0 20px 100px;">
                                             <div class="header" style="border-bottom: 1px solid #ccc; height: 55px;">
                                                 <div style="width: 37%;float: left;">
-                                                    <img src="./image/logo.png" alt=""style="padding: 5px;margin-top: -6px; width: 50px;height: 50px; border-radius: 50%;display: inline-flex;background-color: white;  object-fit: cover; margin-right: 5px;">
+                                                    <img src="image/logo.png" alt=""style="padding: 5px;margin-top: -6px; width: 50px;height: 50px; border-radius: 50%;display: inline-flex;background-color: white;  object-fit: cover; margin-right: 5px;">
                                                     <div class="abc" style="margin: -50px 0 0 64px;display: inline-block;padding: 0;font-size: 20px;font-weight: bold;font-family: system-ui;">
                                                         <p class="username" style="margin-bottom: 2px;"><%= DaoComment2.getInstance().getUserName(cm.getIdComment())%></p>
                                                     </div>
@@ -477,7 +477,7 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                 <div class="column-block">
                     <div class="sales-policy-modal  br-rd" style=" border-radius: 20px; margin: 30px 0;">
                         <div class="sales-policy">
-                            <img class="icon-free-ship" src="./image/icon/icon_4.png" alt="">
+                            <img class="icon-free-ship" src="image/icon/icon_4.png" alt="">
                             <p class="title-free-ship">Sản phẩm được miễn phí giao hàng</p>
                         </div>
                         <div class="sales-policy-section">
@@ -486,19 +486,19 @@ margin: 10px 0;"><%=p.getPrice()-(p.getPrice()*p.getSaleRate()/100)%>$</h1></li>
                             </h1>
                         </div>
                         <div class="sales-policy-content">
-                            <img src="./image/icon/icon_1.png" alt="" class="icon-policy">
+                            <img src="image/icon/icon_1.png" alt="" class="icon-policy">
                             <p class="title-policy-content">Miễn phí giao hàng cho đơn hàng từ 400K</p>
                         </div>
                         <div class="sales-policy-content">
-                            <img src="./image/icon/icon_2.png" alt="" class="icon-policy">
+                            <img src="image/icon/icon_2.png" alt="" class="icon-policy">
                             <p class="title-policy-content">Cam kết hàng chính hãng 100%</p>
                         </div>
                         <div class="sales-policy-content">
-                            <img src="./image/icon/icon_3.png" alt="" class="icon-policy">
+                            <img src="image/icon/icon_3.png" alt="" class="icon-policy">
                             <p class="title-policy-content">Đổi trả trong vòng 10 ngày</p>
                         </div>
                         <div class="sales-policy-content">
-                            <img src="./image/icon/icon_5.png" alt="" class="icon-policy">
+                            <img src="image/icon/icon_5.png" alt="" class="icon-policy">
                             <p class="title-policy-content">Bảo hành theo chính sách 4 tháng</p>
                         </div>
                         <div class="see-more-policy">

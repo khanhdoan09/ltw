@@ -68,19 +68,31 @@
 
     <%@include file="../header.jsp" %>
     <form id="form_feedback" action="ReplyComment" class="form-inline" style="position: absolute;
-    background-color: #1979cc;
-    padding: 50px;
+    background-color: rgb(156 209 255);;
+    padding: 20px;
+    width: 600px;
+    height: 300px;
     z-index: 100000;
     display: none;
-    margin: 274px 520px;">
-        <div class="form-group mb-2">
-            <label for="staticEmail2" class="sr-only">Trả lời bình luận!</label>
-            <input type="text" class="form-control-plaintext" name="content" id="staticEmail2" placeholder="Nhập bình luận">
+    margin: 200px 520px;">
+        <div class="header_form" style="display: flex;
+width: 100%;">
+            <label for="staticEmail2" class="" style="justify-content: left;
+    float: left;
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;" >Trả lời bình luận!</label>
+            <button id="close" type="button" style="float: right; width: 12%;margin-left: 215px; border-radius: 5px; background: #0a53be;color: white">Đóng</button>
+        </div>
+
+        <div class="form-group mb-2 w-100">
+
+            <textarea class="" name="content" rows="4" id="staticEmail2" placeholder="Nhập bình luận" style="width: 100%; padding: 10px"></textarea>
             <input id="id_admin" name="id" hidden>
             <input id="id_pr" name="product" hidden>
         </div>
 
-        <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+        <button type="submit" class="btn btn-primary mb-2" style="width: 100%;">Gửi bình luận</button>
     </form>
 
 
@@ -127,7 +139,7 @@
                                             <td>
                                                 <div class="d-grid" class="">
 <%--                                                    <a class="view-order-detail" href="<%=request.getContextPath()%>/ListOrderDetailAdmin?idOrder=${i.}">--%>
-                                                        <i class="fa-solid fa-eye form_modal" data-id="${i.idComment}" data-product="${i.idProduct}" ></i>
+                                                        <i class="fa-solid fa-comment mx-2 form_modal" data-id="${i.idComment}" data-product="${i.idProduct}" ></i>
 <%--                                                    </a>--%>
                                                 </div>
                                             </td>
@@ -186,12 +198,15 @@
     $('.form_modal').each(function () {
         $(this).click(() => {
             $("#form_feedback").css("display", "flex");
-            alert($(this).data("id"));
+            // alert($(this).data("id"));
             $('#id_admin').val($(this).data("id"));
             $('#id_pr').val($(this).data("product"));
             // $('#form_feedback').attr('action', 'ReplyComment?id='+ $(this).data("id")+'&product='+$(this).data("product"));
         })
     }) ;
+    $('#close').click(()=> {
+        $("#form_feedback").css("display", "none");
+    })
 </script>
 
 <script>
