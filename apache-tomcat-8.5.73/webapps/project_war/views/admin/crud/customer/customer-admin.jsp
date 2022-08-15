@@ -1,6 +1,8 @@
-<%@ page import="model.Admin.User" %>
+<%@ page import="beans.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.Admin.DaoUserAdmin" %><%--
+<%@ page import="dao.user.DaoUserAdmin" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 4/4/2022
@@ -8,6 +10,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    boolean isLogin = request.getSession().getAttribute("userAdmin") != null ? true : false;
+    if (isLogin == false) {
+        request.getRequestDispatcher("/views/admin/authentication/signIn/signIn.jsp").forward(request, response);
+    }
+%>
 <html  class="no-js" lang="en" dir="ltr">
 
 <head>
@@ -23,8 +31,6 @@
 
     <!-- plugin css file  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css    ">
 
     <!-- project css file  -->
@@ -49,23 +55,10 @@
         <!-- Body: Body -->
         <div class="body d-flex py-lg-3 py-md-2">
             <div class="container-xxl">
-                <div class="row align-items-center">
-                    <div class="border-0 mb-4">
-                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                            <h3 class="fw-bold mb-0">Customers Information</h3>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- Row end  -->
                 <div class="row clearfix g-3">
                     <div class="col-sm-12">
-
-                        <form style="margin: 20px 0;" action="<%=request.getContextPath()%>/ListUser">
-
-                            <button type="submit" style="border: none; font-size: 25px; color: rgb(83, 83, 204);background-color: inherit;"><i class="fas fa-arrow-alt-circle-right"></i></button>
-
-                        </form>
-
 
                         <div class="card mb-3">
                             <div class="card-body">
@@ -73,52 +66,48 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
+                                        <th>Avatar</th>
+                                        <th>Tên</th>
                                         <th>Email</th>
-                                        <th>Register Date</th>
-                                        <th>Gender</th>
-                                        <th>Phone</th>
-                                        <th>Country</th>
-                                        <th>Total Order</th>
-                                        <th>isAdmin</th>
-                                        <th>Actions</th>
+                                        <th>Ngày tạo</th>
+                                        <th>Giới tính</th>
+                                        <th>Điện thoại</th>
+                                        <th>Vai trò</th>
+                                        <th>Hành động</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <%Object objFilter = request.getAttribute("users");
-                                            List<User> list = DaoUserAdmin.getInstance().getListUser();
-                                            for (User user : list) {%>
-                                    <tr>
-                                        <td><strong><%=user.getId()%></strong></td>
+
+                                    <c:forEach var="i" items="${users}">
+
+                                    <tr id="contain-${i.id}">
+                                        <td><strong>${i.id}</strong></td>
                                         <td>
                                             <a href="customer-detail.html">
-                                                <img class="avatar rounded" src="assets/images/xs/avatar1.svg" alt="">
+                                                <img class="avatar rounded" src="upload/customer/${i.avatar}" alt="avatar">
                                             </a>
                                         </td>
                                         <td>
-                                            <%=user.getEmail()%>
+                                                ${i.email}
                                         </td>
                                         <td>
-                                            <%=user.getName()%>
+                                                ${i.name}
                                         </td>
                                         <td>
-                                            <%=user.getCreateAt()%>
+                                                ${i.createAt}
                                         </td>
-                                        <td><%=user.getGender()%></td>
-                                        <td><%=user.getPhoneNumber()%></td>
-                                        <td><%=user.getIdAddress()%></td>
-                                        <td><%=user.getIdCart()%></td>
-                                        <td><%=user.getIsAdmin()%></td>
+                                        <td>${i.gender}</td>
+                                        <td>${i.phone}</td>
+                                        <td>${i.getRole()}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="fas fa-trash-alt"></i></button>
+                                                <button type="button" class="btn btn-danger btn-outline-secondary deleterow remove-customer " data-customer="${i.id}" data-contain="contain-${i.id}"><i class="fas fa-trash-alt" style="color: white"></i></button>
                                             </div>
                                         </td>
                                     </tr>
 
+                                    </c:forEach>
 
-                                    <%}%>
 
                                     </tbody>
                                 </table>
@@ -204,17 +193,32 @@
 <script src="../js/template.js"></script>
 
 <script>
-    $(document).ready(function () {
+    // delete category
+    $(".remove-customer").each(function() {
+        $(this).click(function(e) {
+            e.preventDefault()
+            let idCategory = $(this).data("customer")
+            let idContain = $(this).data("contain")
+            if (confirm("Do you wanna delete this customer") == false) {
+                return
+            }
 
-        $('#listCustomer').DataTable({
-            "paging": false,
-            "bInfo" : false,
-            columnDefs: [
-                { orderable: false, targets: [0, 1, 3, 4, 5, 6, 7, 9, 10] },
-                { orderable: true, targets: [3, 2, 5, 8] }
-            ]
-        });
-    });
+            $.ajax({
+                url: "RemoveUserAdmin?id="+idCategory,
+                success: function(result){
+                    if (result == 'must be admin') {
+                        alert("Yêu cầu đăng nhập tài khoản admin")
+                    }
+                    else if (result == 'Xóa thành công') {
+                        alert("Xóa nhân viên thành công")
+                        $("#"+idContain).remove()
+                    }
+                    else {
+                        alert(result)
+                    }
+                }});
+        })
+    })
 </script>
 </body>
 

@@ -202,6 +202,9 @@
                 <input type="checkbox" name="" class="modal-checkbox">
                 <p class="checkbox">
                     Vui lòng gửi email cho tôi với các ưu đãi mới nhất</p>
+                <p id="message" style="color: red;">
+
+                </p>
             </div>
 
             <button type="submit" id="submit-signUp" class="modal-bnt-register">
@@ -291,43 +294,55 @@
 
 <script>
     // đăng kí
-    $("#submit-signUp").click(function(e){
-        e.preventDefault()
-        let emailValue = $("#email-signUp").val()
-        let passwordValue = $("#password-signUp").val()
-        let repasswordValue = $("#repassword-signUp").val()
+    $("#submit-signUp").click(function(e) {
+        e.preventDefault();
 
-        // kiểm tra password và nhập lại password có đùng không
-        if (passwordValue != repasswordValue) {
-            $("#validation-repassword-signUp").text("xác nhận mật khẩu không đúng")
-            return
+        let pw = document.getElementById("password-signUp").value;
+        if (pw.length < 10) {
+            document.getElementById("message").innerHTML = "** Độ dài mật khẩu bắt buộc lớn hơn bằng 10 ký tự";
+            return false;
         }
-        // kiểm tra email có chưa @ không
-        if (!emailValue.includes("@")) {
-            $("#validation-email-signUp").text("không phải là email")
-            return
-        }
-        $("#validation-email-signUp").text("")
-        $("#validation-password-signUp").text("")
-        $("#validation-repassword-signUp").text("")
-        $.ajax(
-            {url: `SignUpController`,
-                type: 'POST',
-                data:{
-                    "email":emailValue,
-                    "password": passwordValue,
-                },
-                success: function(result){
-                    if (result == "email exist") {
-                        $("#validation-email-signUp").text("email đã tồn tại")
-                    }
-                    else {
-                        window.location.href = "home"
+        let rpw = document.getElementById("repassword-signUp").value;
+        if (!(pw === rpw)) {
+            document.getElementById("message").innerHTML = "** Nhập lại mật khẩu không giống với mật khẩu";
+            return false;
+        } else {
+            let emailValue = $("#email-signUp").val()
+            let passwordValue = $("#password-signUp").val()
+            let repasswordValue = $("#repassword-signUp").val()
+
+            // kiểm tra password và nhập lại password có đùng không
+            if (passwordValue != repasswordValue) {
+                $("#validation-repassword-signUp").text("xác nhận mật khẩu không đúng")
+                return
+            }
+            // kiểm tra email có chưa @ không
+            if (!emailValue.includes("@")) {
+                $("#validation-email-signUp").text("không phải là email")
+                return
+            }
+            $("#validation-email-signUp").text("")
+            $("#validation-password-signUp").text("")
+            $("#validation-repassword-signUp").text("")
+            $.ajax(
+                {url: `SignUpController`,
+                    type: 'POST',
+                    data:{
+                        "email":emailValue,
+                        "password": passwordValue,
+                    },
+                    success: function(result){
+                        if (result == "email exist") {
+                            $("#validation-email-signUp").text("email đã tồn tại")
+                        }
+                        else {
+                            window.location.href = "home"
+                        }
                     }
                 }
-            }
-        );
-    });
+            );
+        }});
+
 </script>
 
 <script>
@@ -336,3 +351,6 @@
     })
 </script>
 <!-- End: modal message -->
+<script>
+
+</script>

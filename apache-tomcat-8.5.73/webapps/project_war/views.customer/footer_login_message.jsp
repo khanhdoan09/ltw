@@ -11,6 +11,16 @@
         color: red;
         text-transform: capitalize;
     }
+    .login-modal, .js-modal {
+        display: none;
+    }
+    .modal-container{
+        border-radius: 20px;
+    }
+    .modal-header{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
 </style>
 <footer style="margin: 10px 0;">
     <div class="container">
@@ -98,11 +108,9 @@
 </footer>
 
 <!--Begin: login-registe-->
-<div class="login-modal js-modal">
+<div class="login-modal js-modal" id="form-modal">
     <!-- Begin: modal login -->
     <div class="modal-container js-modal-container">
-
-
         <header class="modal-header">
             Tài Khoản Của Bạn!
         </header>
@@ -122,25 +130,25 @@
             </div>
 
             <div class="modal-login-another">
-                <img src="../image/icon_fb.png" alt="FaceBook" class="icon-login-another">
-                <img src="../image/icon_gg.png" alt="Google" class="icon-login-another">
-                <img src="../image/icon_apple.png" alt="Apple" class="icon-login-another">
+                <img src="image/icon_fb.png" alt="FaceBook" class="icon-login-another">
+                <img src="image/icon_gg.png" alt="Google" class="icon-login-another">
+                <img src="image/icon_apple.png" alt="Apple" class="icon-login-another">
             </div>
 <form id="form-login" action="/Login" method="post">
             <div class="modal-input-section">
                 <div>
                     <input type="email" name="email" placeholder="Địa chỉ email..." class="email" id="email-login">
-                    <p class="validation" id="validation-email"></p>
+                    <p class="validation" id="validation-email-signIn"></p>
                 </div>
                 <div>
                     <input type="password" name="password" placeholder="Nhập mật khẩu..." class="email password" id="password-login">
-                    <p class="validation" id="validation-password"></p>
+                    <p class="validation" id="validation-password-signIn"></p>
                 </div>
                 <a href="" class="forgot-password">Quên mật khẩu của bạn?</a>
             </div>
 
-            <div class="modal-bnt-login" id="submit-login">
-                <button type="submit" class="bnt-login">Đăng Nhập</button>
+            <div class="modal-bnt-login" id="submit-login" type="submit">
+                Đăng Nhập
             </div>
 </form>
             <div class="modal-title">
@@ -179,23 +187,29 @@
             </div>
 
             <div class="modal-register-another">
-                <img src="../image/icon_fb.png" alt="FaceBook" class="icon-login-another">
-                <img src="../image/icon_gg.png" alt="Google" class="icon-login-another">
-                <img src="../image/icon_apple.png" alt="Apple" class="icon-login-another">
+                <img src="image/icon_fb.png" alt="FaceBook" class="icon-login-another">
+                <img src="image/icon_gg.png" alt="Google" class="icon-login-another">
+                <img src="image/icon_apple.png" alt="Apple" class="icon-login-another">
             </div>
 
             <div class="modal-input-section">
-                <input type="email" placeholder="Địa chỉ email..." class="email">
-                <input type="password" placeholder="Nhập mật khẩu..." class="email password">
-                <input type="password" placeholder="Xác nhận mật khẩu..." class="email password">
+                <input type="email" placeholder="Địa chỉ email..." class="email" id="email-signUp">
+                <p class="validation" id="validation-email-signUp"></p>
+                <input type="password" placeholder="Nhập mật khẩu..." class="email password" id="password-signUp">
+                <p class="validation" id="validation-password-signUp"></p>
+                <input type="password" placeholder="Xác nhận mật khẩu..." class="email password" id="repassword-signUp">
+                <p class="validation" id="validation-repassword-signUp"></p>
                 <input type="checkbox" name="" class="modal-checkbox">
                 <p class="checkbox">
                     Vui lòng gửi email cho tôi với các ưu đãi mới nhất</p>
+                <p id="message" style="color: red;">
+
+                </p>
             </div>
 
-            <div class="modal-bnt-register">
-                <a href="" class="bnt-login">Đăng Ký</a>
-            </div>
+            <button type="submit" id="submit-signUp" class="modal-bnt-register">
+                Đăng Ký
+            </button>
 
             <div class="modal-title">
                 <p class="title-content">Vui lòng đảm bảo địa chỉ email của bạn là địa chỉ bạn đã cung cấp tại thời
@@ -210,13 +224,13 @@
 
 <!-- Begin: modal message -->
 <div class="icon-message">
-    <img class="icon-mess js-open-mess" src="../image/icon/icon-mess.ico" alt="">
+    <img class="icon-mess js-open-mess" src="image/icon/icon-mess.ico" alt="">
 </div>
 <div class="modal-message message">
     <div class="mess-section">
         <div class="mess-header">
-            <img class="icon-logo " src="../image/logo.png" alt="">
-            <img class="icon-close js-close-mess" src="../image/icon/icon-close.png" alt="">
+            <img class="icon-logo " src="image/logo.png" alt="">
+            <img class="icon-close js-close-mess" src="image/icon/icon-close.png" alt="">
         </div>
         <div class="mess-content">
             <div class="mess-content-section">
@@ -237,7 +251,9 @@
         </div>
     </div>
 </div>
+
 <script>
+    // đăng nhập
     $("#submit-login").click(function(e){
         e.preventDefault()
         let emailValue = $("#email-login").val()
@@ -245,7 +261,7 @@
         $("#validation-email").text("")
         $("#validation-password").text("")
         $.ajax(
-            {url: `/project_war/Login`,
+            {url: `SignInController`,
                 type: 'POST',
                 data:{
                     "email":emailValue,
@@ -253,17 +269,88 @@
                 },
                 success: function(result){
                     if (result == "wrong email") {
-                        $("#validation-email").text("email validation")
+                        $("#validation-email-signIn").text("email không hợp lệ")
                     }
                     else if (result == "wrong password") {
-                        $("#validation-password").text("password validation")
+                        $("#validation-email-signIn").text("")
+                        $("#validation-password-signIn").text("mật khẩu không hợp lệ")
                     }
                     else {
-                        window.location.href = "index.jsp"
+                        let url = window.location.href
+                        if (!url.includes("logIn")) {
+                            // đăng nhập thành công thì load lại trang
+                            location.reload()
+                        }
+                        else {
+                            window.location.href = "customer"
+                        }
+
                     }
                 }
             }
         );
     });
 </script>
+
+<script>
+    // đăng kí
+    $("#submit-signUp").click(function(e) {
+        e.preventDefault();
+
+        let pw = document.getElementById("password-signUp").value;
+        if (pw.length < 10) {
+            document.getElementById("message").innerHTML = "** Độ dài mật khẩu bắt buộc lớn hơn bằng 10 ký tự";
+            return false;
+        }
+        let rpw = document.getElementById("repassword-signUp").value;
+        if (!(pw === rpw)) {
+            document.getElementById("message").innerHTML = "** Nhập lại mật khẩu không giống với mật khẩu";
+            return false;
+        } else {
+            let emailValue = $("#email-signUp").val()
+            let passwordValue = $("#password-signUp").val()
+            let repasswordValue = $("#repassword-signUp").val()
+
+            // kiểm tra password và nhập lại password có đùng không
+            if (passwordValue != repasswordValue) {
+                $("#validation-repassword-signUp").text("xác nhận mật khẩu không đúng")
+                return
+            }
+            // kiểm tra email có chưa @ không
+            if (!emailValue.includes("@")) {
+                $("#validation-email-signUp").text("không phải là email")
+                return
+            }
+            $("#validation-email-signUp").text("")
+            $("#validation-password-signUp").text("")
+            $("#validation-repassword-signUp").text("")
+            $.ajax(
+                {url: `SignUpController`,
+                    type: 'POST',
+                    data:{
+                        "email":emailValue,
+                        "password": passwordValue,
+                    },
+                    success: function(result){
+                        if (result == "email exist") {
+                            $("#validation-email-signUp").text("email đã tồn tại")
+                        }
+                        else {
+                            window.location.href = "home"
+                        }
+                    }
+                }
+            );
+        }});
+
+</script>
+
+<script>
+    $(function(){
+        $("#form-modal").removeClass('open')
+    })
+</script>
 <!-- End: modal message -->
+<script>
+
+</script>

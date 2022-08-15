@@ -64,15 +64,6 @@ header {
     display: flex; flex-wrap: wrap;  width: 100%;
 }
 
-.value-header-product {
-    background-color: yellow;
-    color: #1f507a;
-    height: 40px !important;
-    width: 40px !important;
-    border-radius: 100%;
-    font-size: 12px;
-    padding: 3px 7px;
-}
 
 .bt-nav-collapse {
     margin-left: 10px;
@@ -644,13 +635,13 @@ header {
 
 /* border - shadow scrollbar*/
 .filter-search::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
+    box-shadow: inset 0 0 5px #1a94ff;
     border-radius: 10px;
 }
 
 /* color scrollbar */
 .filter-search::-webkit-scrollbar-thumb {
-    background: rgb(47, 47, 231);
+    background: #1a94ff;
     border-radius: 10px;
 }
 

@@ -271,7 +271,9 @@
             if (url.includes("category="+idCategory)) {
                 $(this).css("background-color", "white")
                 $(this).css("color", "black")
+
             }
+
         })
     })
 </script>

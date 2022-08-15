@@ -1,5 +1,6 @@
-<%@ page import="model.User" %>
+<%@ page import="beans.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="dao.user.DaoCustomerAddress" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -25,18 +26,29 @@
     <script src="javascript/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="javascript/jstree.min.js" type="text/javascript"></script>
-<%--    <script src="javascript/template.js" type="text/javascript"></script>--%>
-    <script src="javascript/common.js" type="text/javascript"></script>
-    <script src="javascript/global.js" type="text/javascript"></script>
-    <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="image/logo.png"/>
 
     <link rel="stylesheet" href="css/dat-css.css">
     <link rel="stylesheet" href="css/khanh-css.css">
     <link rel="stylesheet" href="css/hung-css.css">
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .fade {
+            opacity: 0;
+            -webkit-transition: opacity 0.15s linear;
+            -o-transition: opacity 0.15s linear;
+            transition: opacity 0.15s linear;
+            transition-property: opacity;
+            transition-duration: 0.15s;
+            transition-timing-function: linear;
+            transition-delay: initial;
+        }
+        .modal-backdrop {
+            display: none !important;
+        }
+    </style>
+
 </head>
 
 <body class="checkout col-2 left-col">
@@ -50,22 +62,18 @@
         <div class="col-sm-3 mg-t">
             <div class="contain-nav-customer bg-item bd-rd">
                 <div class="contain-name-img-customer">
-                    <img class="img-customer" src="image/1.jpg">
+                    <img class="img-customer" src="upload/customer/<%=customer.getAvatar()%>">
                 </div>
                 <div class="pane-group">
                     <ul>
                         <li id="nav-info-customer" class="customer-category-after-click">
                             <i class="fas fa-user"></i> Hồ sơ
                         </li>
-
                         <li id="nav-map-customer">
                             <i class="fas fa-map-marked-alt"></i> Địa chỉ
                         </li>
                         <li id="nav-password-customer">
                             <i class="fas fa-key"></i> Đổi mật khẩu
-                        </li>
-                        <li id="nav-favorite-customer">
-                            <i class="fas fa-shopping-basket"></i> Danh sách yêu thích
                         </li>
                         <li id="nav-history-customer">
                             <i class="fa fa-history" aria-hidden="true"></i> Lịch sử mua hàng
@@ -78,18 +86,19 @@
         <div class="col-sm-9 bg-item bd-rd mg-t" id="contain-info-customer">
             <div id="accordion" class="panel-group bg-item bd-rd">
                 <!-- lam o day -->
-                <form action="changeCustomerInfoController"  class="screen-custoner" id="info-customer">
+                <form action="changeCustomerInfoController?id=<%=customer.getId()%>" method="post" enctype="multipart/form-data" class="screen-custoner" id="info-customer">
                     <h1 class="hoso">Hồ Sơ Của Tôi</h1>
                     <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
-                    <div class="info col-half-sub">
+                    <div class="info col-half-sub d-grid">
+
                         <p class="Ten col-half-info">Tên</p>
                         <input name="name" type="text" class="col-half-picture" required
                                value="<%=customer.getName()%>">
                         <p class="email col-half-info">Email</p>
-                        <input name="email" type="text" class="col-half-picture" value="<%=customer.getEmail()%>">
+                        <input required name="email" type="text" readonly class="col-half-picture" value="<%=customer.getEmail()%>">
                         <p class="phone col-half-info">Số Điện Thoại</p>
-                        <input name="phone" type="text" class="col-half-picture" value="<%=customer.getPhone()%>">
+                        <input required name="phone" type="text" class="col-half-picture" value="<%=customer.getPhone()%>">
 
                         <ul id="sex" class="col-half-picture">
                             <%!String gender;%>
@@ -112,123 +121,49 @@
                                 Khác
                             </li>
                         </ul>
-                        <p class="birthday col-half-info">Ngày Sinh</p>
-                        <ul id="birthday" class="col-half-picture">
-                            <li>
-                                <select name="" id="day">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                </select>
-                            </li>
-                            <li>
-                                <select name="" id="month">
-                                    <option value="1">Tháng 1</option>
-                                    <option value="2">Tháng 2</option>
-                                    <option value="3">Tháng 3</option>
-                                    <option value="4">Tháng 4</option>
-                                    <option value="5">Tháng 5</option>
-                                    <option value="6">Tháng 6</option>
-                                    <option value="7">Tháng 7</option>
-                                    <option value="8">Tháng 8</option>
-                                    <option value="9">Tháng 9</option>
-                                    <option value="10">Tháng 10</option>
-                                    <option value="11">Tháng 11</option>
-                                    <option value="12">Tháng 12</option>
-                                </select>
-                            </li>
-                            <li>
-                                <select name="" id="yeah">
-                                    <option value="">2021</option>
-                                    <option value="">2020</option>
-                                    <option value="">2019</option>
-                                    <option value="">2018</option>
-                                    <option value="">2017</option>
-                                    <option value="">2016</option>
-                                    <option value="">2015</option>
-                                    <option value="">2014</option>
-                                    <option value="">2013</option>
-                                    <option value="">2012</option>
-                                    <option value="">2011</option>
-                                    <option value="">2010</option>
-                                    <option value="">2009</option>
-                                    <option value="">2008</option>
-                                    <option value="">2007</option>
-                                    <option value="">2006</option>
-                                    <option value="">2005</option>
-                                    <option value="">2004</option>
-                                    <option value="">2003</option>
-                                    <option value="">2002</option>
-                                    <option value="">2001</option>
-                                    <option value="">2000</option>
-                                    <option value="">1999</option>
-                                    <option value="">1998</option>
-                                    <option value="">1997</option>
-                                    <option value="">1996</option>
-                                    <option value="">1995</option>
-                                    <option value="">1994</option>
-                                    <option value="">1993</option>
-                                    <option value="">1992</option>
-                                    <option value="">1991</option>
-                                    <option value="">1990</option>
-                                    <option value="">1989</option>
-                                    <option value="">1989</option>
-                                    <option value="">1987</option>
-                                    <option value="">1986</option>
-                                    <option value="">1985</option>
-                                    <option value="">1984</option>
-                                    <option value="">1983</option>
-                                    <option value="">1982</option>
-                                    <option value="">1981</option>
-                                    <option value="">1980</option>
-                                    <option value="">1979</option>
-                                    <option value="">1978</option>
-                                    <option value="">1977</option>
-                                    <option value="">1976</option>
-                                    <option value="">1975</option>
-                                    <option value="">1974</option>
-                                    <option value="">1973</option>
-                                    <option value="">1972</option>
-                                    <option value="">1971</option>
-                                    <option value="">1970</option>
-
-                                </select>
-                            </li>
-                        </ul>
+                        <div class="d-grid">
+                            <p class="birthday col-half-info">Ngày Sinh</p>
+                            <ul id="birthday" class="col-half-picture">
+                                <%
+                                    String day="0";
+                                    String month="0";
+                                    String year="0";
+                                    if(customer.getDob() != null) {
+                                        String[] dob = customer.getDob().split("/");
+                                        day=dob[0];
+                                        month=dob[1];
+                                        year=dob[2];
+                                    }
+                                    %>
+                                <li>
+                                    <select name="day" id="day">
+                                        <%for (int i =1; i < 32; i++) {%>
+                                        <option vallue="<%=i%>" <%if (day.equals(Integer.toString(i))){%>selected<%}%>><%=i%></option>
+                                        <%}%>
+                                    </select>
+                                </li>
+                                <li>
+                                    <select name="month" id="month">
+                                        <%for (int i =1; i < 13; i++) {%>
+                                        <option vallue="<%=i%>" <%if (month.equals(Integer.toString(i))){%>selected<%}%>><%=i%></option>
+                                        <%}%>
+                                    </select>
+                                </li>
+                                <li>
+                                    <select name="year" id="year">
+                                        <%for (int i =1980; i < 2060; i++) {%>
+                                        <option vallue="<%=i%>" <%if (year.equals(Integer.toString(i))){%>selected<%}%>><%=i%></option>
+                                        <%}%>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="picture col-half">
                         <div id="picture">
-                            <img src="image/1.jpg" alt="">
+                            <img id="loadAvatar"  src="upload/customer/<%=customer.getAvatar()%>" alt="" width="170px" height="170px">
                         </div>
-                        <button class="select-picture">Chọn Ảnh</button>
+                        <input type="file" id="chooseAvatar" name="avatar" accept="image/jpeg, image/png">
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;">Dụng lượng file tối đa
                             1 MB</p>
                         <p class="subbbb" style="color: rgb(158, 158, 158); font-size: 12px;"> Định dạng:.JPEG, .PNG
@@ -243,9 +178,8 @@
                         <span class="add-address">Thêm địa chỉ mới</span>
                     </button>
                     <div class="contain-available-address">
-
                         <form class="contain-form-adjust-address">
-                            <div class="contain-adjust-address">
+                            <div class="contain-adjust-address d-flex">
                                 <span class="label-address">Tỉnh/ Thành phố:</span>
                                 <select id="contain-option-city" class="input-address">
                                     <!-- loadLocation() display this -->
@@ -261,328 +195,94 @@
                                 <span class="label-address">Địa chỉ</span>
                                 <textarea id="contain-option-description" rows="4" cols="50" style="border-radius: 10px;"></textarea>
                             </div>
-                            <div class="contain-default-address-customer" style="margin: 10px 0">
-                                <input type="checkbox" id="default-address-customer">
-                                <label for="default-address-customer" style="font-size: 17px">Đặt làm địa chỉ mặc
-                                    định</label><br>
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-info" id="submit-add-address-customer" class="btn-address-customer" value="Thêm">Thêm</button>
+                                <button type="button" class="btn btn-info" id="submit-adjust-address-customer" class="btn-address-customer" value="Chỉnh sửa">Chỉnh sửa</button>
+                                <button type="button" class="btn btn-danger" id="delete-adjust-address-customer" value="Xóa">Xóa</button>
                             </div>
-                            <input type="button" id="submit-add-address-customer" class="btn-address-customer" value="Thêm">
-                            <input type="button" id="submit-adjust-address-customer" class="btn-address-customer" value="Chỉnh sửa">
-                            <input type="button" id="delete-adjust-address-customer" value="Xóa">
-
                         </form>
 
 
                     </div>
                 </div>
-                <form id="password-customer" action="newCustomerPassword" class="screen-custoner">
-                    <div>
-                        <label for="username">Mật Khẩu Hiện Tại:</label>
-                        <input id="oldPassword" required type="password" name="oldPassword" style="width: 25%;">
-                        <p class="validation" id="validation-oldPassword"></p>
-                    </div>
-                    <div>
-                        <label for="pass">Mật Khẩu Mới:</label>
-                        <input id="newPassword" type="password" name="newPassword" required style="width: 25%;">
-                        <p class="validation" id="validation-newPassword"></p>
-                    </div>
-                    <div>
-                        <label for="pass">Nhập Lại Mật Khẩu Mới:</label>
-                        <input id="confirmNewPassword" type="password" name="confirmNewPassword" required
-                               style="width: 25%;">
-                        <p class="validation" id="validation-confirmPassword"></p>
-                    </div>
-                    <button id="submitChangeNewPassword" type="submit" style="background-color: #108bea; color: white;">
-                        Lưu Thay Đổi
-                    </button>
-                    <%--                    <input type="submit" value="Lưu Thay Đổi" style="background-color: #108bea; color: white;">--%>
-                </form>
-                <div id="favorite-customer"  class="screen-custoner">
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
 
+                                <div class="card-body">
+                                    <form id="password-customer" method="post" action="newCustomerPassword?id=<%=customer.getId()%>">
+                                        <div class="form-group row">
+                                            <label for="oldPassword" class="col-md-4 col-form-label text-md-right">Current Password</label>
+                                            <div class="col-md-6">
+                                                <input id="oldPassword" type="password" class="form-control" name="oldPassword" required>
+                                                <p class="validation" id="validation-oldPassword"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="newPassword" class="col-md-4 col-form-label text-md-right">New Password</label>
+                                            <div class="col-md-6">
+                                                <input id="newPassword" type="password" class="form-control" name="newPassword" required >
+                                                <p class="validation" id="validation-newPassword"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="confirmNewPassword" class="col-md-4 col-form-label text-md-right">New Confirm Password</label>
+                                            <div class="col-md-6">
+                                                <input id="confirmNewPassword" type="password" class="form-control" name="confirmNewPassword" required>
+                                                <p class="validation" id="validation-confirmPassword"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-8 offset-md-4">
+                                                <button id="submitChangeNewPassword" type="submit" class="btn btn-primary">
+                                                    Update Password
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
-
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
-
-                            </div>
-
                         </div>
-
                     </div>
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
-
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
-
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
-
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
-
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
-
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
-
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="product-layout product-grid border-fav"
-                         style="background-color: white; padding: 10px 0">
-                        <div class="product-thumb">
-                            <div class="image product-imageblock">
-                                <a href="product.html">
-                                    <div class="related-product-sale">
-                                        <h5 style='margin-top: 10px'> -20%</h5>
-                                    </div>
-                                    <img id="imgCategory" height="250px" width="250px"
-                                         src="image/product/product-01.jpg" alt="lorem ippsum dolor dummy"
-                                         title="lorem ippsum dolor dummy" class="img-responsive item-img-list"/>
-                                </a>
-
-                            </div>
-                            <div class="caption product-detail intro-product-detail-list">
-                                <h2 id="brandCategory" style='margin-top: 5px; text-transform: uppercase'>Nike</h2>
-                                <h4 class="product-name">
-                                    <a id="nameCategory" href="product.html" title="lorem ippsum dolor dummy"
-                                       style='text-transform: capitalize'>
-                                        Nike air force 1</a>
-                                </h4>
-                                <p class="product-desc"> More room to move. With 80GB or 160GB of storage and up to
-                                    40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to
-                                    40,000 songs or up to 200 hours of video or any combination wherever you go.
-                                    Cover
-                                    Flow. Browse through your music collection by flipping..</p>
-                                <p id="priceCategory" class="price product-price produce-price-list">
-                                    <span class="price-old" style='margin-right: 10px'>1.200.000 VND</span>
-                                    1.500.00 VND
-                                </p>
-                                <div class="rating"> <span class="fa fa-stack"><i
-                                        class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                        class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                        class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-                            </div>
-
-                            <div class="button-group button-group-list-category" style="margin: 0; padding: 0;">
-                                <button type="button" class="addtocart-btn bt-fav">Xem</button>
-                                <button type="button" class="addtocart-btn bt-fav">Mua Ngay</button>
-                                <button type="button" class="addtocart-btn bt-fav">Xóa</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
                 </div>
-                <%--                <%List<History> purchaseHistory = (List<History>) request.getAttribute("purchaseHistory");--%>
-                <%--                if(purchaseHistory != null) {%>--%>
-
                 <div id="history-customer"  class="screen-custoner">
                     <div class=contain-history>
                         <table id="table-history">
                             <thead>
-                            <th>Name product</th>
-                            <th>Image</th>
-                            <th>Quantity</th>
-                            <th>Size</th>
-                            <th>Create at</th>
-                            <th>Total cost</th>
-
+                            <th>Id</th>
+                            <th>Tên</th>
+                            <th>Ảnh</th>
+                            <th>Ngày</th>
+                            <th>Giá</th>
+                            <th>Chi tiết</th>
                             </thead>
+                            <tbody id="contain_history">
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
 
+    <div class="fade modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="opacity: 1">
+                <div class="modal-header" style="opacity: 1">
+                    <h1 class="modal-title" id="exampleModalLongTitle" style="color: white">Chi tiết lịch sử</h1>
+                </div>
+                <div class="modal-body" id="detail-history" style="font-size: 20px">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Oke</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <%@include file="footer_login_message.jsp" %>
@@ -591,12 +291,240 @@
 <script src="javascript/city.js" type="text/javascript"></script>
 <script src="javascript/district.js" type="text/javascript"></script>
 <script src="javascript/ward.js" type="text/javascript"></script>
-<script src="javascript/customer/history.js" type="text/javascript"></script>
+<%--<script src="javascript/customer/history.js" type="text/javascript"></script>--%>
 <script src="javascript/customer/address.js" type="text/javascript"></script>
-<script src="javascript/customer/changePassword.js" type="text/javascript"></script>
+<script>
+    $("#submitChangeNewPassword").click((e) => {
+        e.preventDefault()
+        let oldPassword = $("#oldPassword").val()
+        let newPassword = $("#newPassword").val()
+        if (!checkValidation()) {
+            return
+        }
+        let url = $("#password-customer").attr('action')
+        $.ajax(
+            {
+                url: url,
+                type: 'POST',
+                data: {
+                    "oldPassword": oldPassword,
+                    "newPassword": newPassword
+                },
+                success: function (result) {
+                    if (result == "wrong") {
+                        $("#validation-oldPassword").text("wrong password")
+                    } else if (result == "fail") {
+                        $("#validation-newPassword").text("fail to change")
+                    } else {
+                        $("#validation-oldPassword").text("")
+                        $("#validation-newPassword").text("")
+                        alert("success to change")
+                    }
+                }
+            }
+        );
+    })
 
+    function checkValidation() {
+        let oldPassword = $("#oldPassword").val()
+        let newPassword = $("#newPassword").val()
+        let confirmNewPassword = $("#confirmNewPassword").val()
+        if (newPassword.length < 8) {
+            $("#validation-newPassword").text("password is too short")
+        }
+        if (newPassword.length > 16) {
+            $("#validation-newPassword").text("password is too long")
+            return false
+        }
+        if (newPassword != confirmNewPassword) {
+            $("#validation-confirmPassword").text("not correct")
+            return false
+        }
+        return true
+    }
+</script>
 
 <script src="javascript/khanh-js.js" type="text/javascript"></script>
 </body>
+
+<script>
+    $(function() {
+            $("#chooseAvatar").change(function () {
+                if (this.files) {
+                    let reader = new FileReader()
+                    reader.onload = function (e) {
+                        $("#loadAvatar").attr('src', e.target.result)
+                    }
+                    reader.readAsDataURL(this.files[0])
+                }
+            });
+    })
+</script>
+
+<script>
+
+    // access information of page costumer
+    function accessInfoCustomer() {
+        $("#nav-info-customer").click(() => {
+            resetAllSectionCustomer();
+            $("#info-customer").css("display", "block");
+            $("#nav-info-customer").addClass("customer-category-after-click");
+            $("#info-customer").addClass("display-default-customer")
+        });
+
+        $("#nav-favorite-customer").click(() => {
+            resetAllSectionCustomer();
+            $("#favorite-customer").css("display", "flex");
+            $("#nav-favorite-customer").addClass("customer-category-after-click");
+            removeDefaultNavContentCategory()
+        });
+
+        $("#nav-bank-customer").click(() => {
+            resetAllSectionCustomer();
+            $("#bank-customer").css("display", "block");
+            $("#nav-bank-customer").addClass("customer-category-after-click");
+            removeDefaultNavContentCategory()
+        });
+        $("#nav-map-customer").click(() => {
+            resetAllSectionCustomer();
+            $("#map-customer").css("display", "block");
+            $("#nav-map-customer").addClass("customer-category-after-click");
+            removeDefaultNavContentCategory()
+        });
+        $("#nav-password-customer").click(() => {
+            showChangePassword()
+        });
+        $("#submit-adjust-address-customer").click(() => {
+            $(".contain-form-adjust-address").css("display", "none");
+            $(".available-address").css("display", "block");
+            $(".default-address").css("display", "block");
+        });
+        $("#delete-adjust-address-customer").click(() => {
+            $(".contain-form-adjust-address").css("display", "none");
+            $(".available-address").css("display", "block");
+            $(".default-address").css("display", "block");
+        });
+        $("#nav-history-customer").click((e) => {
+            e.preventDefault()
+            window.location.href="customer#history-customer"
+            showHistory()
+        });
+    }
+
+    function resetAllSectionCustomer() {
+        $("#nav-bank-customer").removeClass("customer-category-after-click");
+        $("#nav-map-customer").removeClass("customer-category-after-click");
+        $("#nav-password-customer").removeClass("customer-category-after-click");
+        $("#nav-favorite-customer").removeClass("customer-category-after-click");
+        $("#nav-history-customer").removeClass("customer-category-after-click");
+        $("#bank-customer").css("display", "none");
+        $("#map-customer").css("display", "none");
+        $("#password-customer").css("display", "none");
+        $("#history-customer").css("display", "none");
+        $("#favorite-customer").css("display", "none")
+
+    }
+    $(window).ready(resetAllSectionCustomer);
+
+    function removeDefaultNavContentCategory() {
+        $("#nav-info-customer").removeClass("customer-category-after-click");
+        $("#info-customer").css("display", "none");
+    }
+    $(window).ready(accessInfoCustomer);
+
+    $(function() {
+        let url = window.location.href
+        if (url.includes('#history-customer')) {
+            showHistory()
+        }
+        else if (url.includes('#change-password')) {
+            showChangePassword()
+        }
+    })
+
+</script>
+<script>
+    function showChangePassword() {
+        resetAllSectionCustomer();
+        $("#password-customer").css("display", "block");
+        $("#nav-password-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
+    }
+</script>
+<script>
+    function showHistory() {
+        resetAllSectionCustomer();
+        $("#history-customer").css("display", "block");
+        $("#nav-history-customer").addClass("customer-category-after-click");
+        removeDefaultNavContentCategory()
+        $.ajax({
+            url: `<%=request.getContextPath()%>/PurchaseHistoryController`,
+            type: 'POST',
+            success: function (data) {
+                let arrHistory = JSON.parse(data)
+                console.log(arrHistory)
+                let re = ``
+                for (let i in arrHistory) {
+                    re += `<tr>
+                                <td>`+arrHistory[i].orderId+`</td>
+                                <td>`+arrHistory[i].productName+`</td>
+                                <td><img width="40px" height="40px" src="upload\\product\\`+arrHistory[i].avatar+`"></td>
+                                <td>`+arrHistory[i].createAt+`</td>
+                                <td>`+arrHistory[i].productPrice+`</td>
+                                <td><button type="button" data-toggle="modal" class="pop-up" data-order="`+arrHistory[i].orderId+`" data-name="`+arrHistory[i].productName+`" data-status="`+arrHistory[i].orderStatus+`" data-color="`+arrHistory[i].productColor+`" data-avatar="`+arrHistory[i].avatar+`" data-size="`+arrHistory[i].productSize+`" data-quantity="`+arrHistory[i].productQuantity+`" data-price="`+arrHistory[i].productPrice+`" data-create="`+arrHistory[i].createAt+`" data-target="#exampleModalCenter" style="background-color:transparent; color: blue; font-size:25px; border:none">
+                                     <i class="fa-solid fa-eye"></i></button></td>
+                               </tr>`
+                }
+                $("#contain_history").append(re)
+                loadDetailHistory()
+            },
+            error: function () {
+                alert("Error")
+            }
+        })
+    }
+</script>
+<script src="javascript/customer/address.js" type="text/javascript"></script>
+
+<script>
+    function loadDetailHistory() {
+        $(".pop-up").each(function(){
+            $(this).click(function(){
+                let name = $(this).data('name')
+                console.log(name)
+                let status = $(this).data('status')
+                console.log(status)
+                let color = $(this).data('color')
+                console.log(color)
+                let avatar = $(this).data('avatar')
+                console.log(avatar)
+                let size = $(this).data('size')
+                console.log(size)
+                let quantity = $(this).data('quantity')
+                console.log(quantity)
+                let price = $(this).data('price')
+                console.log(price)
+                let create = $(this).data('create')
+                let order = $(this).data('order')
+                $.ajax(
+                    {
+                        url: 'GetAddressFromOrder?order='+order,
+                        success: function (result) {
+                            let arrAddress = result.split('/')
+                            let address=''
+                            if (arrAddress.length > 2) {
+                                let city = renderCity(arrAddress[0])
+                                let district = renderDistrict(arrAddress[1])
+                                let ward = renderWard(arrAddress[2])
+                                address = city+'/'+district+'/'+ward+'/'+arrAddress[3]
+                            }
+                            console.log(address)
+                            $("#detail-history").text('tên: ' + name +', màu: ' +color + ', size: ' + size +', số lượng: ' + quantity + ', giá: ' + price +', tổng giá: ' +parseInt(quantity)*parseInt(price) + ', ngày mua: ' + create + ' địa chỉ: ' + address)
+                        }
+                    })
+            })
+        })
+    }
+</script>
 
 </html>

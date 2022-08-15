@@ -2,16 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<%@ page import="model.Cart" %>
-<%@ page import="model.DaoProduct" %>
+<%@ page import="beans.Cart" %>
+<%@ page import="dao.product.DaoProduct" %>
 <%@ page import="beans.Product" %>
-<%@ page import="model.DaoLinkImage" %>
+<%@ page import="dao.product.image.DaoLinkImage" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
 
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -49,73 +48,73 @@
 </head>
 
 <body class="cart col-2">
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 <div class="container bg-item pd-5 bd-rd">
 
     <div class="row">
-
-        <div class="" id="content" style="width: 100%;">
+        <%String idCustomer = (String) request.getAttribute("idCustomer");%>
+        <form action="OrderController" id="content" method="post" style="width: 100%;">
+            <!-- bug không được parameter trên url nên dùng input dưới-->
+            <input style="visibility: hidden; width: 1px; height: 1px;" name="idCustomer" value="<%=idCustomer%>">
             <h1>Giỏ Hàng </h1>
-            <div id="checkAll_Product">
-                <%--@declare id="allproduct"--%><input type="checkbox" id="" class="check_all">
-                <label class="label_check_all" for="allProduct">Chọn tất cả</label>
-            </div>
-            <div id="remove_pr">
-                <%--@declare id="bin"--%><i class="fa fa-trash icon_remove_pr"></i>
-                <label for="bin" class="lb_remove">Xóa</label>
-            </div>
-            <form enctype="multipart/form-data" method="post" action="#">
+            <div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
                             <td class="text-center">Ảnh</td>
                             <td class="text-left">Tên sản phẩm</td>
-                            <td class="text-left">Kiểu mẫu</td>
+                            <td class="text-left">Size</td>
                             <td class="text-left">Số lượng</td>
                             <td class="text-right">Đơn giá</td>
                             <td class="text-right">Tổng</td>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:set var="list" value="${cart.data}"/>
-                        <c:forEach items="${list}" var="item">
-                            <tr>
+                     <%
+                         List<Cart> listCart = (List<Cart>) request.getAttribute("listProductInCart");
+                         double totalPrice = 0;
+                         for (int i = 0; i < listCart.size(); i++) {
+                            Cart product = listCart.get(i);
+                            totalPrice += product.getPrice() * product.getQuantityShoe();%>
+                            <tr id="tr_<%=i%>">
                                 <td class="text-center check_pr">
-                                    <input type="checkbox" id="html " class="checked_pr" name="fav_language" value="HTML" checked>
-                                    <a href="ProductDetail?idProduct=${item.id}"><img class="img-thumbnail"
-                                                                title="women's New Wine is an alcoholic"
-                                                                alt="women's New Wine is an alcoholic"
-                                                                src="data/imgAll/${item.avatar}.jpg"></a>
+                                    <input type="checkbox" id="html "data-price="<%=product.getPrice()%>" class="checked_pr" name="checkbox_product_in_cart" value="<%=product.getName()%>_<%=product.getIdProduct()%>_<%=product.getColorShoe()%>_<%=product.getSizeShoe()%>_<%=product.getQuantityShoe()%>_<%=product.getPrice()%>" checked>
+                                    <a href="ProductDetail?idProduct=<%=product.getIdProduct()%>">
+                                        <img class="img-thumbnail"
+                                                                                                             title="women's New Wine is an alcoholic"
+                                                                                                             alt="women's New Wine is an alcoholic"
+                                                                                                             src="upload/product/<%=product.getAvatar()%>"></a>
                                 </td>
-                                <td class="text-left"><a href="ProductDetail?idProduct=${item.id}">${item.name}</a>
+                                <td class="text-left"><a href="ProductDetail?idProduct=<%=product.getIdProduct()%>"><%=product.getName()%></a>
                                 </td>
-                                <td class="text-left">${item.brand}</td>
+                                <td class="text-left"><%=product.getSizeShoe()%></td>
                                 <td class="text-left">
-                                    <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity changeQuantity" pid="${item.id}" oldQuantity="${item.quantitySold}" size="1" value="${item.quantitySold}"
-                                               name="quantity">
-                                        <span class="input-group-btn">
-                                                <a class="" href="/project/Cart">
-                                                   <i class="fa fa-refresh icon-update" style="padding: 9px 20px;background-color: #1a94ff;color: white;"></i>
-                                                </a>
-                                                <a class="cart-remove" pid="${item.id}"><button class="btn btn-danger" title="" data-toggle="tooltip"
-                                                        type="button" data-original-title="Remove">
+                                    <div class="input-group btn-block">
+                                        <form action="/UpdateQuantityCart?idProductDetail=<%=product.getIdProductDetail()%>" class="d-flex">
+                                            <input type="number" id="<%=i%>" class="form-control quantity text-center" value="<%=product.getQuantityShoe()%>" name="quantity" style="width: 60px">
+                                            <button type="button" class="cart-update" data-quantity="<%=i%>" data-idproduct="<%=product.getIdProductDetail()%>" data-price="_<%=i%>" data-cost="<%=product.getPrice()%>">
+                                                <i class="fa fa-refresh icon-update" style="padding: 8px 20px;background-color: #1a94ff;color: white;"></i>
+                                            </button>
+                                            <span class="input-group-btn">
+                                                <a data-tr="tr_<%=i%>"  data-quantity="<%=product.getQuantityShoe()%>" href="DeleteProductInCart?idProduct=<%=product.getIdProductDetail()%>&idCustomer=<%=product.getIdCustomer()%>&colorShoe=<%=product.getColorShoe()%>&size=<%=product.getSizeShoe()%>" class="cart-remove"  >
+                                                    <button class="btn btn-danger" title="" data-toggle="tooltip"
+                                                            type="button" data-original-title="Remove">
                                                     <i class="fa fa-trash"></i></button>
                                                 </a>
-                                            </span>
+                                        </span>
+                                        </form>
                                     </div>
                                 </td>
-                                <td class="text-right">${item.getSalePrice()}</td>
-                                <td class="text-right total-price">${item.gettotal()}</td>
+                                <td class="text-right" ><%=product.getPrice()%></td>
+                                <td class="text-right total-price" id="_<%=i%>"><%=product.getPrice() * product.getQuantityShoe()%></td>
                             </tr>
-                        </c:forEach>
-
-                        <!-- sản phẩm đã đưa vào giỏi hàng -->
+                        <%}%>
+                        <!-- sản phẩm đã đưa vào giỏ hàng -->
                         </tbody>
                     </table>
                 </div>
-            </form>
+            </div>
             <h2>Bạn muốn chọn gì tiếp theo ?</h2>
             <p>Nếu bạn có code giảm giá hoặc điểm thưởng muốn sử dụng hoặc ước tính chi phí giao hàng của mình.</p>
             <div id="accordion" class="panel-group">
@@ -169,16 +168,16 @@
                             <tbody>
                             <tr>
                                 <td class="text-right"><strong>Tổng phụ:</strong></td>
-                                <td class="text-right">210.000 VNĐ</td>
+                                <td class="text-right" id="total-sub-price"><%=totalPrice%></td>
                             </tr>
                             <tr>
                                 <td class="text-right"><strong>Phí vận chuyển :</strong></td>
                                 <td class="text-right">VNĐ</td>
                             </tr>
                             <tr>
-                                <td class="text-right"><strong>Tổng:</strong></td>
+                                <td class="text-right"><strong>Tổng: </strong></td>
                                 <td class="text-right">
-                                    <p id="total_price"></p>
+                                    <p id="total-price"><%=totalPrice%></p>
                                 </td>
                             </tr>
                             </tbody>
@@ -186,12 +185,11 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <div class="pull-left"><a class="btn btn-default" href="/project/ServletTest123">Tiếp Tục Mua Sắm</a></div>
-                    <div class="pull-right"><a class="btn btn-primary" href="checkout.html" id="Thanhtoan">Thanh
-                        Toán</a></div>
+                    <div class="pull-left"><a class="btn btn-primary" href="<%=request.getContextPath()%>/home">Tiếp Tục Mua Sắm</a></div>
+                    <button class="pull-right btn btn-warning" type="submit">Thanh Toán</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
 </div>
@@ -199,89 +197,80 @@
 <%@include file="footer_login_message.jsp"%>
 <script src="../javascript/hung-js.js"></script>
 <script>
-    $(document).ready(function () {
-        $(".cart-remove").click(function () {
-            var id = $(this).attr("pid");
-            tr = $(this).closest("tr");
-            // console.log(id);
-            $.ajax({
-                url: "/project/Cart-remove",
-                method: "POST",
-                data: {
-                    id: id
-                },
-                success: function (data) {
-                    tr.remove();
-                },
-                error: function (data) {
-                    if(data.status === 404)
-                    alert("Xoa That Bai");
-                }
+    $(function() {
+        $(".cart-update").each(function(){
+            $(this).click((e)=>{
+                e.preventDefault()
+                let idProductDetail = $(this).data('idproduct');
+                let cost = $(this).data('cost');
+                let quantity = $('#'+$(this).data('quantity')).val();
+                let price= $('#'+$(this).data('price'))
+                $.ajax(
+                    {url: 'UpdateQuantityCart',
+                        data: {idProductDetail: idProductDetail,
+                        quantity : quantity},
+                        success: function(){
+                        price.text(cost*quantity);
+                        $('#total-sub-price').text()
+                        alert("Cập nhật thành công!");
+                        window.location.href='<%= request.getContextPath()%>/GetProductInCart';
+                        },
+
+                    });
             })
         })
-        $(".changeQuantity").blur(function () {
-            var id = $(this).attr("pid");
-            var oldQuantity = $(this).attr("oldQuantity");
-            var update = $(this);
-            var quantity = $(this).val();
-            if(oldQuantity != quantity)
-                $.ajax({
-                    url: "/project/Cart-update",
-                    method: "POST",
-                    data: {
-                        id: id,
-                        quantity: quantity
-                    },
-                    success: function (data) {
-                        update.attr("oldQuantity", quantity)
-                    },
-                    error: function (data) {
-                        if(data.status === 404)
-                            alert("Sản phẩm không tồn tại, hoặc bị xóa khỏi giỏ hàng!");
-                        else  if(data.status === 485)
-                            alert("Số lượng vượt quá giới hạn mua hoặc bé hơn 1!");
-                    }
-                })
-        })
-        $(function () {
-        //     let value = 0.0;
-        //     let arrChecked = $(".checked_pr")
-        //         arrChecked.each(function(){
-        //             let child = $(this).prop('checked');
-        //             console.log(child);
-        //             if (child == true) {
-        //                 let product = parseFloat($(".total-price").text());
-        //                 console.log(product)
-        //                 value += product;
-        //             }
-        //
-        //         })
-        //     console.log(value);
-        //     $("#total_price").text(value+" $");
-        // });
-        $(function () {
-            let value = 0.0;
-
-            let arrChecked = $(".checked_pr")
-            console.log(arrChecked.length)
-
-            arrChecked.each(function(){
-
-              $(this).click(()=>{
-                  let child = $(this).prop('checked');
-                  console.log(child);
-                  if (child == true) {
-                      let product = parseFloat($(".total-price").text());
-                      console.log(product)
-                      value += product;
-                  }
-              })
-
-            })
-            console.log(value);
-            $("#total_price").text(value+" $");
-        });
     })
+    $(function () {
+        let arrChecked = $(".checked_pr")
+        arrChecked.each(function(){
+
+            $(this).click(()=>{
+                let value = Math.floor(parseFloat($("#total-price").text()))
+                let child = $(this).prop('checked');
+                let productPrice = Math.floor($(this).data("price"))
+                console.log($(this).data("price"));
+                console.log(value);
+                console.log(productPrice);
+
+                if (child == true) {
+                    value += productPrice;
+                }
+                else {
+                    value -= productPrice
+                }
+                $("#total-price").text(value+" $");
+            })
+        })
+    })
+
+    // remove product
+    $(function() {
+        $(".cart-remove").each(function(){
+            $(this).click((e)=>{
+                e.preventDefault()
+                let idTr = $(this).data("tr")
+                let quantity = $(this).data("quantity")
+                let price = $(this).data("price")
+                let totalPrice = $("#total-price").text()
+                price = price * quantity
+                $.ajax(
+                    {url: $(this).attr('href'),
+                        success: function(){
+                            // update price when delete product
+                            let updatePrice = totalPrice - price
+                            let quantityInHeader = parseInt($("#header_quantity").text())
+                            $("#header_quantity").text(quantityInHeader - 1)
+                            $("#total-sub-price").text(updatePrice)
+                            $("#total-price").text(updatePrice)
+                            $("#"+idTr).remove()
+                    }
+                    });
+            })
+        })
+    })
+
+
+
 </script>
 
 </body>
